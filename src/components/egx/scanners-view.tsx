@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
-import { ChevronDown, Play, Plus, Save, Trash2, TriangleAlert, Wand2, X } from "lucide-react"
+import { ChevronDown, Clock, History, Play, Plus, Save, Trash2, TriangleAlert, Wand2, X } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -75,6 +75,7 @@ function PresetScanners({
       setResult(output)
       setExpanded(null)
       queryClient.invalidateQueries({ queryKey: ["scanners"] })
+      queryClient.invalidateQueries({ queryKey: ["scan-history"] })
     },
   })
 
@@ -177,6 +178,8 @@ function PresetScanners({
             <Wand2 className="h-4 w-4" />
             {t("nav.customScanner")}
           </Button>
+
+          <RunHistory />
         </div>
 
         {/* results */}
@@ -246,6 +249,54 @@ function PresetScanners({
       </div>
     </div>
   )
+}
+
+/* ------------------------------------------------------------------ */
+/* Recent scanner runs (history sidebar)                               */
+/* ------------------------------------------------------------------ */
+
+function RunHistory() {
+  const { t, lang, pick } = useI18n()
+  const { data } = useQuery({ queryKey: ["scan-history"], queryFn: api.scanHistory, refetchInterval: 30_000 })
+  const runs = data?.runs ?? []
+  if (runs.length === 0) return null
+
+  return (
+    <Card className="p-0">
+      <CardHeader className="pb-2">
+        <CardTitle className="flex items-center gap-1.5 text-sm">
+          <History className="h-3.5 w-3.5 text-primary" />
+          {t("rh.title")}
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="max-h-64 space-y-1.5 overflow-y-auto scrollbar-thin">
+        {runs.slice(0, 8).map((r) => (
+          <div key={r.id} className="flex items-center justify-between gap-2 rounded-md border px-2.5 py-1.5 text-[11px]">
+            <div className="min-w-0">
+              <p className="truncate font-medium">{r.ruleName}</p>
+              <p className="flex items-center gap-1 text-[10px] text-muted-foreground">
+                <Clock className="h-2.5 w-2.5" />
+                {timeAgo(r.ranAt, lang)} · {r.periodBasis === "LATEST_ANNUAL" ? (lang === "ar" ? "سنوي" : "FY") : lang === "ar" ? "ربعي" : "Q"}
+              </p>
+            </div>
+            <Badge variant="secondary" className="shrink-0 tabular text-[10px]">
+              {r.matchedCount} {t("rh.matches")}
+            </Badge>
+          </div>
+        ))}
+      </CardContent>
+    </Card>
+  )
+}
+
+function timeAgo(iso: string, lang: string): string {
+  const diff = Date.now() - new Date(iso).getTime()
+  const mins = Math.floor(diff / 60000)
+  if (mins < 1) return lang === "ar" ? "الآن" : "just now"
+  if (mins < 60) return lang === "ar" ? `قبل ${mins} د` : `${mins}m ago`
+  const hours = Math.floor(mins / 60)
+  if (hours < 24) return lang === "ar" ? `قبل ${hours} س` : `${hours}h ago`
+  return lang === "ar" ? `قبل ${Math.floor(hours / 24)} ي` : `${Math.floor(hours / 24)}d ago`
 }
 
 function ResultRow({

@@ -7,7 +7,7 @@ import {
   debtToEquity, eps, growth, margin, marketDependentUnavailable,
   ratio, roa, roe, type MetricResult,
 } from "./calc"
-import { detectEvents, type PeriodData } from "./events"
+import { detectEvents, EVENTS_RULE_VERSION, type PeriodData } from "./events"
 import { reportPeriodKey, previousComparableKey, parsePeriodKey, periodKeyLabel } from "./periods"
 
 export interface RecomputeResult {
@@ -170,7 +170,7 @@ export async function recomputeCompany(companyId: string): Promise<RecomputeResu
           conditions: JSON.stringify(e.conditions),
           explanationEn: e.explanationEn,
           explanationAr: e.explanationAr,
-          ruleVersion: "events@1",
+          ruleVersion: EVENTS_RULE_VERSION,
         })),
       })
     }

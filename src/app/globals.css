@@ -142,6 +142,22 @@
   transform: scaleX(-1);
 }
 
+/* Sticky first column for wide financial tables (RTL-aware) */
+.sticky-col {
+  position: sticky;
+  inset-inline-start: 0;
+  z-index: 1;
+}
+.sticky-col-header {
+  background: var(--card);
+}
+.sticky-col-cell {
+  background: var(--card);
+}
+tr:hover .sticky-col-cell {
+  background: color-mix(in oklab, var(--muted) 55%, var(--card));
+}
+
 /* number tabular alignment for financial tables */
 .tabular {
   font-variant-numeric: tabular-nums;
