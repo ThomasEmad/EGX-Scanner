@@ -86,8 +86,9 @@ export interface CompanyDetail {
     descriptionAr: string | null
     counts: { reports: number; events: number; dividends: number; values: number }
   }
-  latestPeriods: { annual?: string; quarterly?: string }
+  latestPeriods: { annual?: string; quarterly?: string; ttm?: string }
   matchedPresets: { presetKey: string; name: string; nameAr: string | null; basis: string }[]
+  marketPrice: { price: number; asOf: string; currency: string; sourceName: string; isDemoData: boolean } | null
 }
 
 export interface EventItem {
@@ -147,6 +148,21 @@ export interface DashboardData {
   upcomingDividends: DividendItem[]
 }
 
+export interface EventFeedItem {
+  id: string
+  eventType: string
+  labelEn: string
+  labelAr: string
+  tone: "positive" | "negative" | "neutral"
+  periodLabel: string
+  periodType: string
+  explanationEn: string
+  explanationAr: string
+  ruleVersion: string
+  detectedAt: string
+  company: { id: string; ticker: string; nameEn: string; nameAr: string | null; isDemoData: boolean }
+}
+
 export interface ReportListItem {
   id: string
   companyId?: string
@@ -157,9 +173,16 @@ export interface ReportListItem {
   fiscalYear: number
   periodEnd?: string
   publicationDate?: string | null
+  statementType?: string
+  language?: string
   sourceName: string
   processingStatus: string
   extractionMethod: string | null
+  parserVersion?: string | null
+  extractionConfidence?: number | null
+  errorMessage?: string | null
+  uploadedBy?: string | null
+  supersedesId?: string | null
   fileHash: string | null
   fileSize?: number | null
   localFileRef?: string | null
@@ -172,11 +195,15 @@ export interface ReportListItem {
 }
 
 export interface FinancialsData {
+  statementType?: "CONSOLIDATED" | "STANDALONE" | null
+  availableStatementTypes?: string[]
   periods: { key: string; label: string; periodType: string; fiscalYear: number }[]
   statements: Record<string, { code: string; statementType: string; cells: Record<string, { value: number; unit: string; normalizedValue: number; label: string; reportId: string }> }[]>
 }
 
 export interface MetricsData {
+  statementType?: "CONSOLIDATED" | "STANDALONE"
+  availableStatementTypes?: string[]
   periods: { key: string; label: string; periodType: string; fiscalYear: number }[]
   rows: {
     code: string
@@ -186,6 +213,171 @@ export interface MetricsData {
     kind: string
     cells: Record<string, { value: number | null; status: string; detail: string | null; formulaVersion: string }>
   }[]
+}
+
+// ---- Financial document pipeline (upload → extract → validate → review) ----
+
+export interface AnalyzeDetection {
+  fileName: string
+  fileSize: number
+  fileHash: string
+  documentKind: string
+  pageCount?: number
+  looksScanned?: boolean
+  engine?: string
+  language: string
+  statementType: string
+  reportUnit?: string
+  period: {
+    periodType: string
+    fiscalYear: number
+    periodLabel: string
+    sub: string
+    periodStart: string | null
+    periodEnd: string | null
+    confidence: number
+  } | null
+  candidateCount: number
+  candidateCodes: string[]
+  warnings: string[]
+}
+
+export interface AnalyzeResult {
+  ok: boolean
+  detection: AnalyzeDetection
+  error?: string
+  message?: string
+}
+
+export interface ValidationCheckRow {
+  id?: string
+  checkName: string
+  category: string
+  status: "PASSED" | "WARNING" | "FAILED" | "SKIPPED"
+  severity: "INFO" | "WARNING" | "CRITICAL"
+  details: string | null
+  createdAt?: string
+}
+
+export interface ExtractionLogRow {
+  id?: string
+  stage: string
+  level: string
+  message: string
+  details: string | null
+  createdAt?: string
+}
+
+export interface ReportValueRow {
+  id: string
+  metricCode: string
+  originalLabel: string
+  value: number
+  unit: string
+  currency: string
+  normalizedValue: number
+  statementType: string
+  sourcePage: number | null
+  sourceText: string | null
+  extractionMethod: string | null
+  confidence: number
+  validationStatus: string
+  validationNotes: string | null
+  isManuallyCorrected: boolean
+  originalValue: number | null
+  correctedBy: string | null
+  correctedAt: string | null
+  correctionReason: string | null
+  createdAt?: string
+}
+
+export interface ReportDetail {
+  report: {
+    id: string
+    company: { id: string; ticker: string; nameEn: string; nameAr: string | null }
+    companyId: string
+    reportType: string
+    periodType: string
+    periodLabel: string
+    fiscalYear: number
+    periodStart: string | null
+    periodEnd: string | null
+    publicationDate: string | null
+    statementType: string
+    language: string
+    sourceName: string
+    sourceUrl: string | null
+    fileName: string | null
+    fileHash: string | null
+    fileSize: number | null
+    processingStatus: string
+    extractionMethod: string | null
+    parserVersion: string | null
+    extractionConfidence: number | null
+    errorMessage: string | null
+    version: number
+    isRestatement: boolean
+    supersedesId: string | null
+    isDemoData: boolean
+    notes: string | null
+    createdAt: string
+    updatedAt: string
+    uploadedBy?: string | null
+    reviewedBy?: string | null
+    reviewedAt?: string | null
+    approvedBy?: string | null
+    approvedAt?: string | null
+    validationResults?: ValidationCheckRow[]
+    extractionLogs?: ExtractionLogRow[]
+    values: ReportValueRow[]
+  }
+}
+
+export interface ProcessResult {
+  ok: boolean
+  status: string
+  message?: string
+  extractedCount?: number
+  validCount?: number
+  needsReviewCount?: number
+  failedCount?: number
+  confidence?: number | null
+  language?: string
+  statementType?: string
+  checks?: { checkName: string; status: string; severity: string }[]
+  notes?: string | null
+}
+
+export interface CompanyDocument {
+  id: string
+  periodLabel: string
+  periodType: string
+  fiscalYear: number
+  statementType: string
+  language: string
+  processingStatus: string
+  extractionConfidence: number | null
+  parserVersion: string | null
+  version: number
+  isRestatement: boolean
+  fileName: string | null
+  fileSize: number | null
+  fileHash: string | null
+  sourceUrl: string | null
+  approvedAt: string | null
+  createdAt: string
+  hasFile: boolean
+  valueCount: number
+}
+
+export interface AiAnalysisData {
+  analysis: {
+    content: string
+    createdAt: string
+    periodKey: string | null
+    dataHash: string
+    model: string | null
+  } | null
 }
 
 export interface ReviewData {
@@ -265,7 +457,7 @@ async function handle<T>(res: Response): Promise<T> {
       err.body = body
       throw err
     } catch (e) {
-      if ((e as Error).status) throw e
+      if (typeof e === "object" && e !== null && "status" in e) throw e
       throw new Error(message)
     }
   }
@@ -292,9 +484,24 @@ export const api = {
 
   company: (id: string) => fetch(`/api/v1/companies/${id}`).then((r) => handle<CompanyDetail>(r)),
 
-  financials: (id: string) => fetch(`/api/v1/companies/${id}/financials`).then((r) => handle<FinancialsData>(r)),
+  financials: (id: string, statementType?: string) =>
+    fetch(`/api/v1/companies/${id}/financials${statementType ? `?statementType=${statementType}` : ""}`).then((r) => handle<FinancialsData>(r)),
 
-  metrics: (id: string) => fetch(`/api/v1/companies/${id}/metrics`).then((r) => handle<MetricsData>(r)),
+  metrics: (id: string, statementType?: string) =>
+    fetch(`/api/v1/companies/${id}/metrics${statementType ? `?statementType=${statementType}` : ""}`).then((r) => handle<MetricsData>(r)),
+
+  companyDocuments: (id: string) =>
+    fetch(`/api/v1/companies/${id}/documents`).then((r) => handle<{ documents: CompanyDocument[] }>(r)),
+
+  aiAnalysis: (id: string) =>
+    fetch(`/api/v1/companies/${id}/ai-analysis`).then((r) => handle<AiAnalysisData>(r)),
+
+  generateAiAnalysis: (id: string, lang: string, token?: string | null) =>
+    fetch(`/api/v1/companies/${id}/ai-analysis`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...authHeaders(token) },
+      body: JSON.stringify({ lang }),
+    }).then((r) => handle<AiAnalysisData & { cached?: boolean }>(r)),
 
   events: (id: string) =>
     fetch(`/api/v1/companies/${id}/events`).then((r) => handle<{ events: EventItem[] }>(r)),
@@ -306,6 +513,13 @@ export const api = {
     fetch(`/api/v1/companies/${id}/reports`).then((r) => handle<{ reports: ReportListItem[] }>(r)),
 
   peers: (id: string) => fetch(`/api/v1/companies/${id}/peers`).then((r) => handle<PeerData>(r)),
+
+  eventsFeed: (companyIds?: string[], limit = 15) => {
+    const q = new URLSearchParams()
+    if (companyIds && companyIds.length) q.set("companyIds", companyIds.join(","))
+    q.set("limit", String(limit))
+    return fetch(`/api/v1/events?${q}`).then((r) => handle<{ events: EventFeedItem[] }>(r))
+  },
 
   scanHistory: () =>
     fetch(`/api/v1/scanners/history`).then((r) => handle<{ runs: RunHistoryItem[] }>(r)),
@@ -352,18 +566,40 @@ export const api = {
       body: JSON.stringify({ passcode }),
     }).then((r) => handle<{ token: string }>(r)),
 
+  analyzeReport: (file: File, token: string) => {
+    const form = new FormData()
+    form.set("file", file)
+    return fetch(`/api/v1/reports/analyze`, { method: "POST", headers: authHeaders(token), body: form }).then((r) =>
+      handle<AnalyzeResult>(r)
+    )
+  },
+
   uploadReport: (form: FormData, token: string) =>
-    fetch(`/api/v1/reports`, { method: "POST", headers: authHeaders(token), body: form }).then((r) => handle<{ report: { id: string; periodLabel: string; processingStatus: string; fileHash: string } }>(r)),
+    fetch(`/api/v1/reports`, { method: "POST", headers: authHeaders(token), body: form }).then((r) =>
+      handle<{ report: { id: string; periodLabel: string; processingStatus: string; fileHash: string; statementType?: string; language?: string; version?: number }; superseded?: boolean; version?: number }>(r)
+    ),
+
+  reportDetail: (id: string, token?: string | null) =>
+    fetch(`/api/v1/reports/${id}`, { headers: authHeaders(token) }).then((r) => handle<ReportDetail>(r)),
 
   processReport: (id: string, token: string) =>
-    fetch(`/api/v1/reports/${id}/process`, { method: "POST", headers: authHeaders(token) }).then((r) => handle<{ ok: boolean; status: string; message?: string; extractedCount?: number; validCount?: number; needsReviewCount?: number }>(r)),
+    fetch(`/api/v1/reports/${id}/process`, { method: "POST", headers: authHeaders(token) }).then((r) => handle<ProcessResult>(r)),
 
   approveReport: (id: string, token: string) =>
     fetch(`/api/v1/reports/${id}/approve`, { method: "POST", headers: authHeaders(token) }).then((r) => handle<{ ok: boolean }>(r)),
 
+  rejectReport: (id: string, reason: string, token: string) =>
+    fetch(`/api/v1/reports/${id}/reject`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...authHeaders(token) },
+      body: JSON.stringify({ reason }),
+    }).then((r) => handle<{ ok: boolean; status: string }>(r)),
+
+  downloadReportUrl: (id: string) => `/api/v1/reports/${id}/download`,
+
   review: () => fetch(`/api/v1/review`).then((r) => handle<ReviewData>(r)),
 
-  reviewAction: (valueId: string, body: { action: string; value?: number; metricCode?: string; unit?: string }, token: string) =>
+  reviewAction: (valueId: string, body: { action: string; value?: number; metricCode?: string; unit?: string; reason?: string }, token: string) =>
     fetch(`/api/v1/review/values/${valueId}`, {
       method: "POST",
       headers: { "Content-Type": "application/json", ...authHeaders(token) },

@@ -55,6 +55,34 @@ export function ratio(numerator: number | undefined, denominator: number | undef
   return OK(numerator / denominator)
 }
 
+/** Current ratio = current assets / current liabilities (liquidity).
+ *  Missing inputs => DATA_UNAVAILABLE; zero denominator => NOT_APPLICABLE (ratio undefined). */
+export function currentRatio(currentAssets: number | undefined, currentLiabilities: number | undefined): MetricResult {
+  if (currentAssets === undefined || currentLiabilities === undefined) {
+    return UNAVAILABLE("Required inputs not available for this period")
+  }
+  if (currentLiabilities === 0) {
+    return NOT_APPLICABLE("Current liabilities are zero — current ratio is undefined")
+  }
+  return OK(currentAssets / currentLiabilities)
+}
+
+/** Book value per share = total equity / shares outstanding.
+ *  Shares missing => DATA_UNAVAILABLE; equity missing or shares <= 0 => NOT_APPLICABLE
+ *  (a per-share figure without an equity base or a real share count is meaningless). */
+export function bookValuePerShare(equity: number | undefined, shares: number | undefined): MetricResult {
+  if (shares === undefined) {
+    return UNAVAILABLE("Shares outstanding not available (no per-period share count and no company-level share count)")
+  }
+  if (equity === undefined) {
+    return NOT_APPLICABLE("Total equity not available for this period — book value per share is undefined")
+  }
+  if (shares <= 0) {
+    return NOT_APPLICABLE("Shares outstanding is zero or negative — book value per share is undefined")
+  }
+  return OK(equity / shares)
+}
+
 /** Net margin (net profit may be negative — that is valid) */
 export function netMargin(netProfit: number | undefined, revenue: number | undefined): MetricResult {
   return margin(netProfit, revenue)
@@ -95,4 +123,67 @@ export function debtToEquity(debt: number | undefined, equity: number | undefine
  *  These always return DATA_UNAVAILABLE — never fabricated (spec #26/#27). */
 export function marketDependentUnavailable(metricLabel: string, requirement: string): MetricResult {
   return UNAVAILABLE(`${metricLabel} cannot be computed: ${requirement}. Market price data is not connected — reported as DATA_UNAVAILABLE, not fabricated.`)
+}
+
+/* ---------------- Market metrics (computed when a price point exists) ----------------
+ * A price point is an observed input (MarketPrice row). When none exists, these
+ * metrics report DATA_UNAVAILABLE — never fabricated. When earnings are negative
+ * or book value is non-positive, the multiple is reported NOT_APPLICABLE with the
+ * reason instead of a misleading negative number. */
+
+export function noPriceUnavailable(metricLabel: string): MetricResult {
+  return UNAVAILABLE(
+    `${metricLabel} cannot be computed: no market price is available for this company. Reported as DATA_UNAVAILABLE, not fabricated.`
+  )
+}
+
+/** Market capitalization = price x shares outstanding */
+export function marketCap(price: number | undefined, sharesOutstanding: number | undefined): MetricResult {
+  if (price === undefined) return noPriceUnavailable("Market capitalization")
+  if (sharesOutstanding === undefined) return UNAVAILABLE("Shares outstanding not available")
+  if (sharesOutstanding <= 0) return NOT_COMPUTABLE("Shares outstanding is zero or negative")
+  return OK(price * sharesOutstanding)
+}
+
+/** P/B = market cap / shareholders' equity (equivalently price / book value per share) */
+export function priceToBook(price: number | undefined, sharesOutstanding: number | undefined, equity: number | undefined): MetricResult {
+  if (price === undefined) return noPriceUnavailable("P/B")
+  if (sharesOutstanding === undefined) return UNAVAILABLE("Shares outstanding not available")
+  if (equity === undefined) return UNAVAILABLE("Shareholders' equity not available for this period")
+  if (equity <= 0) return NOT_APPLICABLE("Book value (equity) is zero or negative — P/B is not meaningful")
+  return OK((price * sharesOutstanding) / equity)
+}
+
+/** P/E = price / EPS (earnings per share of the evaluated period) */
+export function priceToEarnings(price: number | undefined, sharesOutstanding: number | undefined, netProfit: number | undefined): MetricResult {
+  if (price === undefined) return noPriceUnavailable("P/E")
+  if (sharesOutstanding === undefined) return UNAVAILABLE("Shares outstanding not available")
+  if (netProfit === undefined) return UNAVAILABLE("Net profit not available for this period")
+  if (netProfit <= 0) {
+    return NOT_APPLICABLE(
+      netProfit === 0
+        ? "Earnings are zero — P/E is undefined"
+        : "Earnings are negative (a loss) — P/E is not meaningful. Reported as NOT_APPLICABLE, not a negative multiple"
+    )
+  }
+  return OK(price / (netProfit / sharesOutstanding))
+}
+
+/**
+ * Dividend yield = dividends per share declared/announced in the trailing 12 months / price.
+ * Absence of dividend records is DATA_UNAVAILABLE (we cannot claim yield 0 without records);
+ * records present but none in the window is a factual 0% yield.
+ */
+export function dividendYield(
+  price: number | undefined,
+  dps12m: number | undefined,
+  hasDividendRecords: boolean
+): MetricResult {
+  if (price === undefined) return noPriceUnavailable("Dividend yield")
+  if (dps12m === undefined) {
+    return hasDividendRecords
+      ? UNAVAILABLE("Dividend records exist but none carries a per-share value")
+      : UNAVAILABLE("No dividend records available for this company — not treated as zero")
+  }
+  return OK((dps12m / price) * 100)
 }

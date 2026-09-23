@@ -17,6 +17,10 @@ export interface RawMetricDef {
   description?: string
   aliases: string[]
   appliesToSectors?: string[] // null/undefined = applies to all sectors
+  /** Per-share values (EPS, DPS, book value/share) are NEVER multiplied by the report unit scale */
+  isPerShare?: boolean
+  /** Share counts are NEVER multiplied by the report unit scale either */
+  isCount?: boolean
 }
 
 export const RAW_METRICS: RawMetricDef[] = [
@@ -92,9 +96,54 @@ export const RAW_METRICS: RawMetricDef[] = [
     labelEn: "Earnings Per Share",
     labelAr: "ربحية السهم",
     statementType: "INCOME_STATEMENT",
+    isPerShare: true,
     aliases: [
       "earnings per share", "basic earnings per share", "eps", "profit per share",
       "ربحية السهم", "ربح السهم", "أرباح السهم",
+    ],
+  },
+  {
+    code: "PROFIT_BEFORE_TAX",
+    labelEn: "Profit Before Tax",
+    labelAr: "الربح قبل الضريبة",
+    statementType: "INCOME_STATEMENT",
+    aliases: [
+      "profit before tax", "profit before income tax", "income before tax", "pre-tax profit",
+      "الربح قبل الضريبة", "الأرباح قبل الضريبة", "الربح قبل خصم الضريبة",
+    ],
+  },
+  {
+    code: "INCOME_TAX",
+    labelEn: "Income Tax Expense",
+    labelAr: "مصروف ضريبة الدخل",
+    statementType: "INCOME_STATEMENT",
+    aliases: [
+      "income tax expense", "income tax", "tax expense", "income tax charge",
+      "مصروف ضريبة الدخل", "ضريبة الدخل", "الضريبة على الدخل", "مصروف الضريبة",
+    ],
+  },
+  {
+    code: "FINANCE_COST",
+    labelEn: "Finance Cost",
+    labelAr: "تكاليف التمويل",
+    statementType: "INCOME_STATEMENT",
+    description: "Finance costs / interest expense for non-bank companies",
+    aliases: [
+      "finance cost", "finance costs", "interest expense", "net finance cost", "financing costs",
+      "تكاليف التمويل", "تكلفة التمويل", "مصروفات التمويل", "مصروف الفوائد", "الفوائد المدفوعة",
+    ],
+  },
+  {
+    code: "NET_PROFIT_PARENT",
+    labelEn: "Net Profit Attributable to Parent",
+    labelAr: "صافي الربح المخصص لحقوق مساهمي الشركة الأم",
+    statementType: "INCOME_STATEMENT",
+    description: "Portion of net profit attributable to owners of the parent company",
+    aliases: [
+      "net profit attributable to shareholders of the parent", "net profit attributable to owners of the parent",
+      "net profit attributable to equity holders of the parent", "profit attributable to shareholders of the parent company",
+      "net profit attributable to the parent",
+      "صافي الربح المخصص لحقوق مساهمي الشركة الأم", "الربح المخصص لمساهمي الشركة الأم", "صافي الربح المخصص للشركة الأم",
     ],
   },
   // ---------- BALANCE SHEET ----------
@@ -114,19 +163,196 @@ export const RAW_METRICS: RawMetricDef[] = [
     labelAr: "إجمالي الالتزامات",
     statementType: "BALANCE_SHEET",
     aliases: [
-      "total liabilities", "liabilities", "total equity and liabilities",
+      "total liabilities", "liabilities",
       "إجمالي الالتزامات", "مجموع الالتزامات", "الالتزامات",
     ],
   },
   {
+    code: "TOTAL_EQUITY_AND_LIABILITIES",
+    labelEn: "Total Equity and Liabilities",
+    labelAr: "إجمالي حقوق الملكية والالتزامات",
+    statementType: "BALANCE_SHEET",
+    description: "Should equal total assets — used as a cross-check",
+    aliases: [
+      "total equity and liabilities", "total liabilities and equity", "total liabilities and shareholders equity",
+      "إجمالي حقوق الملكية والالتزامات", "إجمالي الالتزامات وحقوق الملكية",
+    ],
+  },
+  {
     code: "TOTAL_EQUITY",
-    labelEn: "Shareholders' Equity",
-    labelAr: "حقوق الملكية",
+    labelEn: "Total Shareholders' Equity",
+    labelAr: "إجمالي حقوق الملكية",
+    statementType: "BALANCE_SHEET",
+    description: "Total equity including non-controlling interests when reported",
+    aliases: [
+      "total equity", "shareholders equity", "owners equity", "stockholders equity",
+      "total shareholders equity", "total owners equity",
+      "إجمالي حقوق الملكية", "حقوق الملكية", "حقوق مساهمي الشركة", "إجمالي حقوق المساهمين",
+    ],
+  },
+  {
+    code: "EQUITY_PARENT",
+    labelEn: "Equity Attributable to Parent",
+    labelAr: "حقوق ملكية مساهمي الشركة الأم",
     statementType: "BALANCE_SHEET",
     aliases: [
-      "shareholders equity", "total equity", "owners equity", "stockholders equity",
-      "equity attributable to shareholders", "total shareholders equity",
-      "حقوق الملكية", "إجمالي حقوق الملكية", "حقوق مساهمي الشركة",
+      "equity attributable to owners of the parent", "equity attributable to shareholders of the parent",
+      "equity attributable to equity holders of the parent", "equity attributable to the parent company",
+      "حقوق ملكية مساهمي الشركة الأم", "حقوق مساهمي الشركة الأم", "حقوق الملكية المخصصة للشركة الأم",
+    ],
+  },
+  {
+    code: "NON_CONTROLLING_INTERESTS",
+    labelEn: "Non-Controlling Interests",
+    labelAr: "حقوق غير المسيطرة",
+    statementType: "BALANCE_SHEET",
+    aliases: [
+      "non controlling interests", "noncontrolling interests", "minority interests", "non controlling interests equity",
+      "حقوق غير المسيطرة", "حصص غير المسيطرة", "حقوق غير المساهمين المسيطرين",
+    ],
+  },
+  {
+    code: "CURRENT_ASSETS",
+    labelEn: "Total Current Assets",
+    labelAr: "إجمالي الأصول المتداولة",
+    statementType: "BALANCE_SHEET",
+    aliases: [
+      "total current assets", "current assets",
+      "إجمالي الأصول المتداولة", "الأصول المتداولة", "إجمالي الأصول الحالية", "الأصول الحالية",
+    ],
+  },
+  {
+    code: "NON_CURRENT_ASSETS",
+    labelEn: "Total Non-Current Assets",
+    labelAr: "إجمالي الأصول غير المتداولة",
+    statementType: "BALANCE_SHEET",
+    aliases: [
+      "total non current assets", "non current assets", "total noncurrent assets",
+      "إجمالي الأصول غير المتداولة", "الأصول غير المتداولة",
+    ],
+  },
+  {
+    code: "CURRENT_LIABILITIES",
+    labelEn: "Total Current Liabilities",
+    labelAr: "إجمالي الالتزامات المتداولة",
+    statementType: "BALANCE_SHEET",
+    aliases: [
+      "total current liabilities", "current liabilities",
+      "إجمالي الالتزامات المتداولة", "الالتزامات المتداولة", "إجمالي الالتزامات الحالية", "الالتزامات الحالية",
+    ],
+  },
+  {
+    code: "NON_CURRENT_LIABILITIES",
+    labelEn: "Total Non-Current Liabilities",
+    labelAr: "إجمالي الالتزامات غير المتداولة",
+    statementType: "BALANCE_SHEET",
+    aliases: [
+      "total non current liabilities", "non current liabilities",
+      "إجمالي الالتزامات غير المتداولة", "الالتزامات غير المتداولة",
+    ],
+  },
+  {
+    code: "CASH_AND_EQUIVALENTS",
+    labelEn: "Cash and Cash Equivalents",
+    labelAr: "النقد وما في حكمه",
+    statementType: "BALANCE_SHEET",
+    aliases: [
+      "cash and cash equivalents", "cash and equivalents", "cash at banks and on hand",
+      "النقد وما في حكمه", "النقد وما يعادله", "النقدية وما في حكمها",
+    ],
+  },
+  {
+    code: "ACCOUNTS_RECEIVABLE",
+    labelEn: "Trade & Other Receivables",
+    labelAr: "الذمم المدينة وأخرى",
+    statementType: "BALANCE_SHEET",
+    aliases: [
+      "trade and other receivables", "trade receivables", "accounts receivable", "receivables",
+      "الذمم المدينة وأخرى", "الذمم المدينة", "المدينون", "المدينون وغيرهم المدينين",
+    ],
+  },
+  {
+    code: "INVENTORY",
+    labelEn: "Inventories",
+    labelAr: "المخزون",
+    statementType: "BALANCE_SHEET",
+    aliases: [
+      "inventories", "inventory", "المخزون", "المخزونات",
+    ],
+  },
+  {
+    code: "INVESTMENTS",
+    labelEn: "Investments",
+    labelAr: "الاستثمارات",
+    statementType: "BALANCE_SHEET",
+    description: "Long-term and/or short-term investments as presented",
+    aliases: [
+      "investments", "investments in associates", "investments in securities",
+      "الاستثمارات", "الاستثمارات في الشركات الزميلة", "الاستثمارات طويلة الأجل",
+    ],
+  },
+  {
+    code: "SHORT_TERM_DEBT",
+    labelEn: "Short-Term Borrowings",
+    labelAr: "الاقتراضات قصيرة الأجل",
+    statementType: "BALANCE_SHEET",
+    aliases: [
+      "short term borrowings", "short-term borrowings", "short term loans", "current portion of borrowings",
+      "short term debt", "bank overdrafts and short term loans",
+      "الاقتراضات قصيرة الأجل", "القروض قصيرة الأجل", "اقتراضات قصيرة الأجل",
+    ],
+  },
+  {
+    code: "LONG_TERM_DEBT",
+    labelEn: "Long-Term Borrowings",
+    labelAr: "الاقتراضات طويلة الأجل",
+    statementType: "BALANCE_SHEET",
+    aliases: [
+      "long term borrowings", "long-term borrowings", "long term loans", "long term debt",
+      "الاقتراضات طويلة الأجل", "القروض طويلة الأجل", "اقتراضات طويلة الأجل",
+    ],
+  },
+  {
+    code: "RETAINED_EARNINGS",
+    labelEn: "Retained Earnings",
+    labelAr: "الأرباح المبقاة",
+    statementType: "BALANCE_SHEET",
+    aliases: [
+      "retained earnings", "retained profits", "الأرباح المبقاة", "الأرباح المحتجزة",
+    ],
+  },
+  {
+    code: "SHARES_OUTSTANDING",
+    labelEn: "Number of Shares Outstanding",
+    labelAr: "عدد الأسهم",
+    statementType: "BALANCE_SHEET",
+    description: "Share count — a COUNT, never scaled by the report unit",
+    isCount: true,
+    aliases: [
+      "number of shares outstanding", "shares outstanding", "weighted average number of shares outstanding",
+      "issued shares", "number of issued shares",
+      "عدد الأسهم", "عدد الأسهم المصدرة", "العدد المرجح لعدد الأسهم القائمة",
+    ],
+  },
+  {
+    code: "BOOK_VALUE_PER_SHARE",
+    labelEn: "Book Value Per Share",
+    labelAr: "القيمة الدفترية للسهم",
+    statementType: "OTHER",
+    isPerShare: true,
+    aliases: [
+      "book value per share", "القيمة الدفترية للسهم", "القيمة الدفترية لكل سهم",
+    ],
+  },
+  {
+    code: "DIVIDEND_PER_SHARE",
+    labelEn: "Dividend Per Share",
+    labelAr: "التوزيع النقدي للسهم",
+    statementType: "OTHER",
+    isPerShare: true,
+    aliases: [
+      "dividend per share", "proposed dividend per share", "cash dividend per share",
+      "التوزيع النقدي للسهم", "توزيعات السهم", "حصة السهم من التوزيعات",
     ],
   },
   {
@@ -193,6 +419,17 @@ export const RAW_METRICS: RawMetricDef[] = [
       "صافي التدفقات النقدية من الأنشطة التمويلية", "التدفق النقدي التمويلي",
     ],
   },
+  {
+    code: "NET_CHANGE_IN_CASH",
+    labelEn: "Net Change in Cash",
+    labelAr: "صافي التغير في النقد",
+    statementType: "CASH_FLOW",
+    aliases: [
+      "net increase in cash and cash equivalents", "net decrease in cash and cash equivalents",
+      "net change in cash", "net increase decrease in cash",
+      "صافي الزيادة نقصان النقد وما في حكمه", "صافي التغير في النقد وما في حكمه", "صافي التغير في النقد",
+    ],
+  },
 ]
 
 // ---------- Calculated (derived) metrics ----------
@@ -224,6 +461,10 @@ export const CALC_METRICS: CalculatedMetricDef[] = [
   { code: "roa", labelEn: "Return on Assets (ROA)", labelAr: "العائد على الأصول", formulaVersion: "roa@1", kind: "ratio", unit: "PERCENT", requires: ["NET_PROFIT", "TOTAL_ASSETS"] },
   { code: "debt_to_equity", labelEn: "Debt / Equity", labelAr: "الدين إلى حقوق الملكية", formulaVersion: "debt_to_equity@1", kind: "ratio", unit: "RATIO", requires: ["TOTAL_DEBT", "TOTAL_EQUITY"] },
   { code: "eps", labelEn: "EPS", labelAr: "ربحية السهم", formulaVersion: "eps@1", kind: "ratio", unit: "EGP_PER_SHARE", requires: ["NET_PROFIT"] },
+  { code: "current_ratio", labelEn: "Current Ratio", labelAr: "نسبة التداول", formulaVersion: "current_ratio@1", kind: "ratio", unit: "RATIO", requires: ["CURRENT_ASSETS", "CURRENT_LIABILITIES"], description: "Current assets / current liabilities — liquidity" },
+  { code: "eps_growth", labelEn: "EPS Growth (YoY)", labelAr: "نمو ربحية السهم", formulaVersion: "eps_growth@1", kind: "growth", unit: "PERCENT", requires: ["EPS"] },
+  { code: "asset_growth", labelEn: "Asset Growth", labelAr: "نمو الأصول", formulaVersion: "asset_growth@1", kind: "growth", unit: "PERCENT", requires: ["TOTAL_ASSETS"] },
+  { code: "book_value_per_share", labelEn: "Book Value Per Share", labelAr: "القيمة الدفترية للسهم", formulaVersion: "book_value_per_share@1", kind: "ratio", unit: "EGP_PER_SHARE", requires: ["TOTAL_EQUITY"], description: "Total equity / shares outstanding (report-level share count preferred, else company-level)" },
   // passthroughs (make scanner conditions possible on absolute values)
   { code: "revenue", labelEn: "Revenue", labelAr: "الإيرادات", formulaVersion: "revenue@1", kind: "passthrough", unit: "EGP", requires: ["REVENUE"] },
   { code: "net_profit", labelEn: "Net Profit", labelAr: "صافي الربح", formulaVersion: "net_profit@1", kind: "passthrough", unit: "EGP", requires: ["NET_PROFIT"] },
@@ -231,13 +472,19 @@ export const CALC_METRICS: CalculatedMetricDef[] = [
   { code: "total_assets", labelEn: "Total Assets", labelAr: "إجمالي الأصول", formulaVersion: "total_assets@1", kind: "passthrough", unit: "EGP", requires: ["TOTAL_ASSETS"] },
   { code: "total_equity", labelEn: "Shareholders' Equity", labelAr: "حقوق الملكية", formulaVersion: "total_equity@1", kind: "passthrough", unit: "EGP", requires: ["TOTAL_EQUITY"] },
   { code: "total_debt", labelEn: "Total Debt", labelAr: "إجمالي الدين", formulaVersion: "total_debt@1", kind: "passthrough", unit: "EGP", requires: ["TOTAL_DEBT"] },
-  // market-dependent — require market price data which is NOT connected.
-  // These must report DATA_UNAVAILABLE, never fabricated values.
-  { code: "p_b", labelEn: "Price / Book (P/B)", labelAr: "السعر إلى القيمة الدفترية", formulaVersion: "p_b@1", kind: "market", unit: "RATIO", description: "Requires market price and book value per share" },
-  { code: "p_e", labelEn: "Price / Earnings (P/E)", labelAr: "السعر إلى الأرباح", formulaVersion: "p_e@1", kind: "market", unit: "RATIO", description: "Requires market price and EPS" },
-  { code: "market_cap", labelEn: "Market Capitalization", labelAr: "القيمة السوقية", formulaVersion: "market_cap@1", kind: "market", unit: "EGP", description: "Requires market price and shares outstanding" },
-  { code: "dividend_yield", labelEn: "Dividend Yield", labelAr: "عائد التوزيعات", formulaVersion: "dividend_yield@1", kind: "market", unit: "PERCENT", description: "Requires market price" },
+  // market-dependent — computed when a market price point exists (MarketPrice row).
+  // Without any price they report DATA_UNAVAILABLE — never fabricated.
+  { code: "p_b", labelEn: "Price / Book (P/B)", labelAr: "السعر إلى القيمة الدفترية", formulaVersion: "p_b@2", kind: "market", unit: "RATIO", description: "Market cap / shareholders' equity; requires a market price point and positive book value" },
+  { code: "p_e", labelEn: "Price / Earnings (P/E)", labelAr: "السعر إلى الأرباح", formulaVersion: "p_e@2", kind: "market", unit: "RATIO", description: "Price / EPS of the evaluated period; NOT_APPLICABLE when earnings are negative" },
+  { code: "market_cap", labelEn: "Market Capitalization", labelAr: "القيمة السوقية", formulaVersion: "market_cap@2", kind: "market", unit: "EGP", description: "Price x shares outstanding; requires a market price point" },
+  { code: "dividend_yield", labelEn: "Dividend Yield", labelAr: "عائد التوزيعات", formulaVersion: "dividend_yield@2", kind: "market", unit: "PERCENT", description: "Trailing-12-month dividends per share / price; requires a market price point" },
 ]
+
+/** Metrics whose values must NEVER be scaled by the report unit (EPS, DPS, BVPS are EGP/share; shares are counts) */
+export function isUnitlessMetric(code: string): boolean {
+  const def = RAW_METRIC_MAP[code]
+  return !!(def && (def.isPerShare || def.isCount))
+}
 
 export const CALC_METRIC_MAP: Record<string, CalculatedMetricDef> = Object.fromEntries(
   CALC_METRICS.map((m) => [m.code, m])

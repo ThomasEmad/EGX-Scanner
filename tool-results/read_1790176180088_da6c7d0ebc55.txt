@@ -1,0 +1,806 @@
+     1→"use client"
+     2→
+     3→import { useState } from "react"
+     4→import { useQuery } from "@tanstack/react-query"
+     5→import { ArrowLeft, BarChart3, CalendarDays, Download, FileText, Flame, Info, ScanSearch, Table2, TrendingUp, Users } from "lucide-react"
+     6→import { Badge } from "@/components/ui/badge"
+     7→import { Button } from "@/components/ui/button"
+     8→import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+     9→import { Skeleton } from "@/components/ui/skeleton"
+    10→import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+    11→import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+    12→import { api, type EventItem, type MetricsData } from "@/lib/client/api"
+    13→import { useI18n } from "@/lib/i18n"
+    14→import { formatEgp, formatPercent, formatRatio } from "@/lib/financial/units"
+    15→import { DemoBadge, EventBadge, StarButton, StatusChip } from "./shared"
+    16→
+    17→const PEER_METRICS = [
+    18→  { code: "roe", fmt: (v: number) => formatPercent(v), betterWhen: "higher" },
+    19→  { code: "net_margin", fmt: (v: number) => formatPercent(v), betterWhen: "higher" },
+    20→  { code: "revenue_growth", fmt: (v: number) => formatPercent(v, { sign: true }), betterWhen: "higher" },
+    21→  { code: "debt_to_equity", fmt: (v: number) => formatRatio(v), betterWhen: "lower" },
+    22→  { code: "net_profit", fmt: (v: number) => formatEgp(v), betterWhen: "higher" },
+    23→] as const
+    24→
+    25→type SubTab = "overview" | "statements" | "growth" | "events" | "peers" | "dividends" | "reports"
+    26→
+    27→export function CompanyDetail({
+    28→  companyId,
+    29→  onBack,
+    30→  onOpenScanner,
+    31→}: {
+    32→  companyId: string
+    33→  onBack: () => void
+    34→  onOpenScanner: (ruleId: string) => void
+    35→}) {
+    36→  const { t, lang, pick } = useI18n()
+    37→  const [sub, setSub] = useState<SubTab>("overview")
+    38→
+    39→  const { data, isLoading } = useQuery({ queryKey: ["company", companyId], queryFn: () => api.company(companyId) })
+    40→
+    41→  if (isLoading || !data) {
+    42→    return (
+    43→      <div className="space-y-4">
+    44→        <Skeleton className="h-10 w-32 rounded-md" />
+    45→        <Skeleton className="h-32 w-full rounded-xl" />
+    46→        <Skeleton className="h-64 w-full rounded-xl" />
+    47→      </div>
+    48→    )
+    49→  }
+    50→
+    51→  const c = data.company
+    52→
+    53→  return (
+    54→    <div className="space-y-5">
+    55→      <Button variant="ghost" size="sm" className="gap-1.5" onClick={onBack}>
+    56→        <ArrowLeft className="h-4 w-4 rtl-flip" />
+    57→        {t("common.back")}
+    58→      </Button>
+    59→
+    60→      {/* header */}
+    61→      <div className="rounded-xl border bg-gradient-to-br from-primary/5 to-transparent p-5 sm:p-6">
+    62→        <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
+    63→          <div>
+    64→            <div className="flex flex-wrap items-center gap-2">
+    65→              <h1 className="text-2xl font-bold tracking-tight">{c.ticker}</h1>
+    66→              {c.isDemoData ? <DemoBadge /> : null}
+    67→              <StatusChip status={c.listingStatus} />
+    68→              <StarButton companyId={c.id} ticker={c.ticker} className="border" />
+    69→            </div>
+    70→            <p className="mt-1 text-sm font-medium">{pick(c.nameEn, c.nameAr)}</p>
+    71→            <p className="text-xs text-muted-foreground">{lang === "ar" ? c.nameAr : c.nameEn}</p>
+    72→            <div className="mt-2 flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
+    73→              <Badge variant="secondary" className="text-[10px]">{c.sector}</Badge>
+    74→              {c.industry ? <span>{c.industry}</span> : null}
+    75→              {c.sharesOutstanding ? (
+    76→                <span className="tabular">· {t("co.shares")}: {(c.sharesOutstanding / 1e6).toFixed(0)}M</span>
+    77→              ) : null}
+    78→            </div>
+    79→            {pick(c.descriptionEn, c.descriptionAr) !== "—" ? (
+    80→              <p className="mt-2 max-w-2xl text-xs text-muted-foreground leading-relaxed">{pick(c.descriptionEn, c.descriptionAr)}</p>
+    81→            ) : null}
+    82→          </div>
+    83→
+    84→          {/* scanner matches */}
+    85→          <div className="min-w-0 md:max-w-xs">
+    86→            <p className="mb-1.5 flex items-center gap-1 text-xs font-semibold">
+    87→              <ScanSearch className="h-3.5 w-3.5 text-primary" />
+    88→              {t("co.matchedScanners")}
+    89→            </p>
+    90→            {data.matchedPresets.length === 0 ? (
+    91→              <p className="text-xs text-muted-foreground italic">{t("common.noData")}</p>
+    92→            ) : (
+    93→              <div className="flex flex-wrap gap-1.5">
+    94→                {data.matchedPresets.map((m) => (
+    95→                  <Badge
+    96→                    key={`${m.presetKey}-${m.basis}`}
+    97→                    variant="outline"
+    98→                    className="cursor-pointer border-primary/40 bg-primary/5 text-primary hover:bg-primary/15 text-[10px]"
+    99→                    onClick={() => onOpenScannerByPresetKey(m.presetKey, onOpenScanner)}
+   100→                    title={m.basis === "LATEST_TTM" ? t("sc.basisTtm") : m.basis === "LATEST_QUARTERLY" ? t("sc.basisQuarterly") : t("sc.basisAnnual")}
+   101→                  >
+   102→                    {pick(m.name, m.nameAr)} · {m.basis === "LATEST_TTM" ? "TTM" : m.basis === "LATEST_QUARTERLY" ? "Q" : "FY"}
+   103→                  </Badge>
+   104→                ))}
+   105→              </div>
+   106→            )}
+   107→          </div>
+   108→        </div>
+   109→      </div>
+   110→
+   111→      <Tabs value={sub} onValueChange={(v) => setSub(v as SubTab)}>
+   112→        <TabsList className="w-full justify-start overflow-x-auto h-auto flex-wrap sm:flex-nowrap">
+   113→          <TabsTrigger value="overview" className="gap-1.5"><BarChart3 className="h-3.5 w-3.5" />{t("co.keyMetrics")}</TabsTrigger>
+   114→          <TabsTrigger value="statements" className="gap-1.5"><Table2 className="h-3.5 w-3.5" />{t("co.statements")}</TabsTrigger>
+   115→          <TabsTrigger value="growth" className="gap-1.5"><Flame className="h-3.5 w-3.5" />{t("co.growth")}</TabsTrigger>
+   116→          <TabsTrigger value="events" className="gap-1.5"><Flame className="h-3.5 w-3.5" />{t("co.events")} ({c.counts.events})</TabsTrigger>
+   117→          <TabsTrigger value="peers" className="gap-1.5"><Users className="h-3.5 w-3.5" />{t("peers.tab")}</TabsTrigger>
+   118→          <TabsTrigger value="dividends" className="gap-1.5"><CalendarDays className="h-3.5 w-3.5" />{t("co.dividends")}</TabsTrigger>
+   119→          <TabsTrigger value="reports" className="gap-1.5"><FileText className="h-3.5 w-3.5" />{t("co.reports")} ({c.counts.reports})</TabsTrigger>
+   120→        </TabsList>
+   121→
+   122→        <TabsContent value="overview" className="mt-4">
+   123→          <OverviewTab companyId={companyId} />
+   124→        </TabsContent>
+   125→        <TabsContent value="statements" className="mt-4">
+   126→          <StatementsTab companyId={companyId} />
+   127→        </TabsContent>
+   128→        <TabsContent value="growth" className="mt-4">
+   129→          <GrowthTab companyId={companyId} />
+   130→        </TabsContent>
+   131→        <TabsContent value="events" className="mt-4">
+   132→          <EventsTab companyId={companyId} />
+   133→        </TabsContent>
+   134→        <TabsContent value="peers" className="mt-4">
+   135→          <PeersTab companyId={companyId} />
+   136→        </TabsContent>
+   137→        <TabsContent value="dividends" className="mt-4">
+   138→          <CompanyDividendsTab companyId={companyId} />
+   139→        </TabsContent>
+   140→        <TabsContent value="reports" className="mt-4">
+   141→          <ReportsTab companyId={companyId} />
+   142→        </TabsContent>
+   143→      </Tabs>
+   144→    </div>
+   145→  )
+   146→}
+   147→
+   148→function onOpenScannerByPresetKey(presetKey: string, onOpenScanner: (ruleId: string) => void) {
+   149→  // matchedPresets use presetKey; find matching rule id via scanners list is extra work —
+   150→  // instead we pass presetKey through; the scanners view auto-selects by rule id OR preset key.
+   151→  onOpenScanner(presetKey)
+   152→}
+   153→
+   154→/* ---------------- Overview tab ---------------- */
+   155→
+   156→function OverviewTab({ companyId }: { companyId: string }) {
+   157→  const { t, lang } = useI18n()
+   158→  const { data: metrics, isLoading } = useQuery({ queryKey: ["metrics", companyId], queryFn: () => api.metrics(companyId) })
+   159→
+   160→  if (isLoading || !metrics) return <Skeleton className="h-64 rounded-xl" />
+   161→
+   162→  const annualPeriods = metrics.periods.filter((p) => p.periodType === "ANNUAL").sort((a, b) => a.fiscalYear - b.fiscalYear)
+   163→  const latest = annualPeriods[annualPeriods.length - 1]
+   164→
+   165→  const getCell = (code: string) => (latest ? metrics.rows.find((r) => r.code === code)?.cells[latest.key] : undefined)
+   166→
+   167→  const cards: { code: string; label: string; fmt: (v: number) => string; invert?: boolean }[] = [
+   168→    { code: "revenue", label: t("co.revenue"), fmt: (v) => formatEgp(v) },
+   169→    { code: "net_profit", label: t("co.netProfit"), fmt: (v) => formatEgp(v), invert: true },
+   170→    { code: "roe", label: t("co.roe"), fmt: (v) => formatPercent(v) },
+   171→    { code: "total_assets", label: t("co.assets"), fmt: (v) => formatEgp(v) },
+   172→    { code: "debt_to_equity", label: t("co.growth") + " D/E", fmt: (v) => formatRatio(v) },
+   173→    { code: "eps", label: "EPS", fmt: (v) => `EGP ${v.toFixed(2)}` },
+   174→  ]
+   175→
+   176→  // trend chart data (revenue & net profit over annual periods)
+   177→  const revenueRow = metrics.rows.find((r) => r.code === "revenue")
+   178→  const profitRow = metrics.rows.find((r) => r.code === "net_profit")
+   179→  const trend = annualPeriods.map((p) => ({
+   180→    label: p.label.replace("FY ", ""),
+   181→    revenue: revenueRow?.cells[p.key]?.value ?? null,
+   182→    profit: profitRow?.cells[p.key]?.value ?? null,
+   183→  }))
+   184→
+   185→  return (
+   186→    <div className="space-y-5">
+   187→      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+   188→        {cards.map((card) => {
+   189→          const cell = getCell(card.code)
+   190→          const unavailable = !cell || cell.status !== "OK" || cell.value === null
+   191→          return (
+   192→            <Card key={card.code} className="p-3">
+   193→              <p className="text-[11px] text-muted-foreground leading-tight">{card.label}</p>
+   194→              {unavailable ? (
+   195→                <TooltipProvider delayDuration={0}>
+   196→                  <Tooltip>
+   197→                    <TooltipTrigger asChild>
+   198→                      <p className="mt-1.5 flex items-center gap-1 text-sm font-semibold text-slate-400">
+   199→                        — <Info className="h-3 w-3" />
+   200→                      </p>
+   201→                    </TooltipTrigger>
+   202→                    <TooltipContent side="top" className="max-w-56 text-[11px]">
+   203→                      {cell?.detail || t("sc.dataUnavailable")}
+   204→                    </TooltipContent>
+   205→                  </Tooltip>
+   206→                </TooltipProvider>
+   207→              ) : (
+   208→                <p className={`mt-1.5 text-sm font-bold tabular ${card.invert && (cell.value as number) < 0 ? "text-red-600 dark:text-red-400" : ""}`}>
+   209→                  {card.fmt(cell.value as number)}
+   210→                </p>
+   211→              )}
+   212→              {latest ? <p className="mt-0.5 text-[10px] text-muted-foreground">{latest.label}</p> : null}
+   213→            </Card>
+   214→          )
+   215→        })}
+   216→      </div>
+   217→
+   218→      {/* market snapshot (only when an observed price point exists) */}
+   219→      <MarketSnapshot metrics={metrics} companyId={companyId} />
+   220→
+   221→      {/* trend chart */}
+   222→      <Card className="p-0">
+   223→        <CardHeader className="pb-2">
+   224→          <CardTitle className="text-sm">{lang === "ar" ? "اتجاه الإيرادات وصافي الربح (سنوي)" : "Revenue & net profit trend (annual, EGP)"}</CardTitle>
+   225→        </CardHeader>
+   226→        <CardContent>
+   227→          <TrendChart data={trend} />
+   228→        </CardContent>
+   229→      </Card>
+   230→    </div>
+   231→  )
+   232→}
+   233→
+   234→/* ---------------- Market snapshot ---------------- */
+   235→
+   236→function MarketSnapshot({ metrics, companyId }: { metrics: MetricsData; companyId: string }) {
+   237→  const { t } = useI18n()
+   238→  const { data: detail } = useQuery({ queryKey: ["company", companyId], queryFn: () => api.company(companyId) })
+   239→
+   240→  // prefer the latest TTM window (most current trailing fundamentals), else latest annual
+   241→  const ttmPeriods = metrics.periods.filter((p) => p.periodType === "TTM").sort((a, b) => a.key.localeCompare(b.key))
+   242→  const annualPeriods = metrics.periods.filter((p) => p.periodType === "ANNUAL").sort((a, b) => a.key.localeCompare(b.key))
+   243→  const basis = ttmPeriods[ttmPeriods.length - 1] ?? annualPeriods[annualPeriods.length - 1]
+   244→  if (!basis) return null
+   245→
+   246→  const getCell = (code: string) => metrics.rows.find((r) => r.code === code)?.cells[basis.key]
+   247→
+   248→  const cards: { code: string; label: string; fmt: (v: number) => string }[] = [
+   249→    { code: "market_cap", label: t("co.marketCap"), fmt: (v) => formatEgp(v) },
+   250→    { code: "p_b", label: t("co.pb"), fmt: (v) => formatRatio(v) },
+   251→    { code: "p_e", label: t("co.pe"), fmt: (v) => formatRatio(v) },
+   252→    { code: "dividend_yield", label: t("co.yield"), fmt: (v) => formatPercent(v) },
+   253→  ]
+   254→
+   255→  const mp = detail?.marketPrice ?? null
+   256→
+   257→  return (
+   258→    <Card className="p-0">
+   259→      <CardHeader className="pb-2 flex flex-row flex-wrap items-center justify-between gap-2">
+   260→        <CardTitle className="flex items-center gap-1.5 text-sm">
+   261→          <TrendingUp className="h-4 w-4 text-primary" />
+   262→          {t("co.market")}
+   263→        </CardTitle>
+   264→        {mp ? (
+   265→          <TooltipProvider delayDuration={0}>
+   266→            <Tooltip>
+   267→              <TooltipTrigger asChild>
+   268→                <span className="flex items-baseline gap-1.5 rounded-lg border border-primary/30 bg-primary/5 px-2.5 py-1 cursor-help">
+   269→                  <span className="text-[10px] uppercase tracking-wide text-muted-foreground">{t("co.price")}</span>
+   270→                  <span className="text-sm font-bold tabular text-primary">
+   271→                    {mp.price.toFixed(2)} <span className="text-[10px] font-normal">{mp.currency}</span>
+   272→                  </span>
+   273→                  <span className="text-[10px] text-muted-foreground">
+   274→                    {t("co.asOf")} {new Date(mp.asOf).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
+   275→                  </span>
+   276→                </span>
+   277→              </TooltipTrigger>
+   278→              <TooltipContent side="top" className="max-w-56 text-[11px]">
+   279→                {mp.sourceName}
+   280→                {mp.isDemoData ? ` — ${t("co.demoPrice")}` : ""}
+   281→              </TooltipContent>
+   282→            </Tooltip>
+   283→          </TooltipProvider>
+   284→        ) : null}
+   285→      </CardHeader>
+   286→      <CardContent className="pt-0">
+   287→        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+   288→          {cards.map((card) => {
+   289→            const cell = getCell(card.code)
+   290→            const unavailable = !cell || cell.status !== "OK" || cell.value === null
+   291→            return (
+   292→              <div key={card.code} className="rounded-lg border bg-muted/30 p-3">
+   293→                <p className="text-[10px] uppercase tracking-wide text-muted-foreground">{card.label}</p>
+   294→                {unavailable ? (
+   295→                  <TooltipProvider delayDuration={0}>
+   296→                    <Tooltip>
+   297→                      <TooltipTrigger asChild>
+   298→                        <p className="mt-1 flex items-center gap-1 text-sm font-semibold text-slate-400">
+   299→                          — <Info className="h-3 w-3" />
+   300→                        </p>
+   301→                      </TooltipTrigger>
+   302→                      <TooltipContent side="top" className="max-w-64 text-[11px]">
+   303→                        {cell?.detail || t("sc.dataUnavailable")}
+   304→                      </TooltipContent>
+   305→                    </Tooltip>
+   306→                  </TooltipProvider>
+   307→                ) : (
+   308→                  <p className="mt-1 text-sm font-bold tabular">{card.fmt(cell.value as number)}</p>
+   309→                )}
+   310→                <p className="mt-0.5 text-[9px] text-muted-foreground/70">{cell?.formulaVersion ?? ""}</p>
+   311→              </div>
+   312→            )
+   313→          })}
+   314→        </div>
+   315→      </CardContent>
+   316→    </Card>
+   317→  )
+   318→}
+   319→
+   320→function TrendChart({ data }: { data: { label: string; revenue: number | null; profit: number | null }[] }) {
+   321→  const max = Math.max(...data.flatMap((d) => [d.revenue ?? 0, d.profit ?? 0]), 1)
+   322→  return (
+   323→    <div className="flex items-end gap-6 sm:gap-10 px-2 pt-4 pb-1" dir="ltr">
+   324→      {data.map((d) => (
+   325→        <div key={d.label} className="flex flex-1 flex-col items-center gap-1">
+   326→          <div className="flex h-36 w-full max-w-16 items-end justify-center gap-1.5">
+   327→            <div className="relative flex h-full w-6 items-end">
+   328→              <div
+   329→                className="w-full rounded-t bg-primary/70 transition-all"
+   330→                style={{ height: `${Math.max(2, ((d.revenue ?? 0) / max) * 100)}%` }}
+   331→                title={`Revenue: ${formatEgp(d.revenue)}`}
+   332→              />
+   333→            </div>
+   334→            <div className="relative flex h-full w-6 items-end">
+   335→              <div
+   336→                className={`w-full rounded-t transition-all ${(d.profit ?? 0) < 0 ? "bg-red-400" : "bg-emerald-400"}`}
+   337→                style={{ height: `${Math.max(2, (Math.abs(d.profit ?? 0) / max) * 100)}%` }}
+   338→                title={`Net profit: ${formatEgp(d.profit)}`}
+   339→              />
+   340→            </div>
+   341→          </div>
+   342→          <span className="text-[11px] font-medium text-muted-foreground">{d.label}</span>
+   343→        </div>
+   344→      ))}
+   345→    </div>
+   346→  )
+   347→}
+   348→
+   349→/* ---------------- Statements tab ---------------- */
+   350→
+   351→function StatementsTab({ companyId }: { companyId: string }) {
+   352→  const { t, lang } = useI18n()
+   353→  const { data, isLoading } = useQuery({ queryKey: ["financials", companyId], queryFn: () => api.financials(companyId) })
+   354→  const [stmt, setStmt] = useState<"INCOME_STATEMENT" | "BALANCE_SHEET" | "CASH_FLOW">("INCOME_STATEMENT")
+   355→
+   356→  if (isLoading || !data) return <Skeleton className="h-72 rounded-xl" />
+   357→
+   358→  const rows = data.statements[stmt] ?? []
+   359→  const periods = [...data.periods].sort((a, b) => a.key.localeCompare(b.key))
+   360→
+   361→  const stmtTabs = [
+   362→    { key: "INCOME_STATEMENT", label: t("co.incomeStatement") },
+   363→    { key: "BALANCE_SHEET", label: t("co.balanceSheet") },
+   364→    { key: "CASH_FLOW", label: t("co.cashFlow") },
+   365→  ] as const
+   366→
+   367→  return (
+   368→    <Card className="p-0">
+   369→      <CardHeader className="pb-2 flex flex-row flex-wrap items-center justify-between gap-2">
+   370→        <CardTitle className="text-sm">{t("co.statements")}</CardTitle>
+   371→        <div className="flex gap-1">
+   372→          {stmtTabs.map((s) => (
+   373→            <button
+   374→              key={s.key}
+   375→              onClick={() => setStmt(s.key)}
+   376→              className={`rounded-md px-2.5 py-1 text-xs transition-colors ${stmt === s.key ? "bg-primary/10 font-medium text-primary" : "text-muted-foreground hover:bg-muted"}`}
+   377→            >
+   378→              {s.label}
+   379→            </button>
+   380→          ))}
+   381→        </div>
+   382→      </CardHeader>
+   383→      <CardContent className="p-0">
+   384→        {rows.length === 0 ? (
+   385→          <p className="p-6 text-center text-sm text-muted-foreground">{t("common.noData")}</p>
+   386→        ) : (
+   387→          <div className="max-h-[480px] overflow-auto scrollbar-thin">
+   388→            <table className="w-full text-xs">
+   389→              <thead className="sticky top-0 bg-card z-10">
+   390→                <tr className="border-b">
+   391→                  <th className="sticky-col sticky-col-header p-2.5 text-start font-medium text-muted-foreground min-w-40 shadow-[inset-inline-end:1px_0_0_var(--border)]">{lang === "ar" ? "البند" : "Item"}</th>
+   392→                  {periods.map((p) => (
+   393→                    <th key={p.key} className="p-2.5 text-end font-medium text-muted-foreground whitespace-nowrap">
+   394→                      {p.label}
+   395→                      <span className="ms-1 block text-[9px] font-normal">{lang === "ar" ? "ج.م" : "EGP"}</span>
+   396→                    </th>
+   397→                  ))}
+   398→                </tr>
+   399→              </thead>
+   400→              <tbody>
+   401→                {rows.map((row) => (
+   402→                  <tr key={row.code} className="border-b last:border-0 hover:bg-muted/40">
+   403→                    <td className="sticky-col sticky-col-cell p-2.5 font-medium shadow-[inset-inline-end:1px_0_0_var(--border)]">
+   404→                      {row.cells[Object.keys(row.cells)[0]]?.label ?? row.code}
+   405→                    </td>
+   406→                    {periods.map((p) => {
+   407→                      const cell = row.cells[p.key]
+   408→                      return (
+   409→                        <td key={p.key} className={`p-2.5 text-end tabular whitespace-nowrap ${cell && cell.normalizedValue < 0 ? "text-red-600 dark:text-red-400" : ""}`}>
+   410→                          {cell ? formatEgp(cell.normalizedValue, { withCurrency: false }) : "—"}
+   411→                        </td>
+   412→                      )
+   413→                    })}
+   414→                  </tr>
+   415→                ))}
+   416→              </tbody>
+   417→            </table>
+   418→          </div>
+   419→        )}
+   420→      </CardContent>
+   421→    </Card>
+   422→  )
+   423→}
+   424→
+   425→/* ---------------- Growth & ratios tab ---------------- */
+   426→
+   427→function GrowthTab({ companyId }: { companyId: string }) {
+   428→  const { t, lang } = useI18n()
+   429→  const { data, isLoading } = useQuery({ queryKey: ["metrics", companyId], queryFn: () => api.metrics(companyId) })
+   430→
+   431→  if (isLoading || !data) return <Skeleton className="h-72 rounded-xl" />
+   432→
+   433→  const periods = [...data.periods].sort((a, b) => a.key.localeCompare(b.key))
+   434→  const interesting = data.rows.filter((r) => r.kind !== "passthrough")
+   435→
+   436→  const fmtCell = (code: string, value: number | null) => {
+   437→    const row = data.rows.find((r) => r.code === code)
+   438→    if (value === null) return null
+   439→    if (row?.unit === "PERCENT") return formatPercent(value)
+   440→    if (row?.unit === "RATIO") return formatRatio(value)
+   441→    if (row?.unit === "EGP_PER_SHARE") return `EGP ${value.toFixed(2)}`
+   442→    if (row?.unit === "EGP") return formatEgp(value, { withCurrency: false })
+   443→    return value.toFixed(2)
+   444→  }
+   445→
+   446→  return (
+   447→    <Card className="p-0">
+   448→      <CardHeader className="pb-2">
+   449→        <CardTitle className="text-sm">{t("co.growth")}</CardTitle>
+   450→      </CardHeader>
+   451→      <CardContent className="p-0">
+   452→        <div className="max-h-[520px] overflow-auto scrollbar-thin">
+   453→          <table className="w-full text-xs">
+   454→            <thead className="sticky top-0 bg-card">
+   455→              <tr className="border-b">
+   456→                <th className="p-2.5 text-start font-medium text-muted-foreground min-w-48">{lang === "ar" ? "المؤشر" : "Metric"}</th>
+   457→                {periods.map((p) => (
+   458→                  <th key={p.key} className="p-2.5 text-end font-medium text-muted-foreground whitespace-nowrap">{p.label}</th>
+   459→                ))}
+   460→              </tr>
+   461→            </thead>
+   462→            <tbody>
+   463→              {interesting.map((row) => (
+   464→                <tr key={row.code} className="border-b last:border-0 hover:bg-muted/40">
+   465→                  <td className="p-2.5 font-medium">
+   466→                    {lang === "ar" ? row.labelAr : row.labelEn}
+   467→                    <span className="ms-1.5 text-[9px] text-muted-foreground/70">{row.cells[Object.keys(row.cells)[0]]?.formulaVersion ?? ""}</span>
+   468→                  </td>
+   469→                  {periods.map((p) => {
+   470→                    const cell = row.cells[p.key]
+   471→                    const text = cell ? fmtCell(row.code, cell.value) : null
+   472→                    return (
+   473→                      <td key={p.key} className="p-2.5 text-end tabular whitespace-nowrap">
+   474→                        {cell && cell.status === "OK" && text ? (
+   475→                          <span className={/^[-]/.test(text.trim()) ? "text-red-600 dark:text-red-400" : ""}>{text}</span>
+   476→                        ) : (
+   477→                          <TooltipProvider delayDuration={0}>
+   478→                            <Tooltip>
+   479→                              <TooltipTrigger asChild>
+   480→                                <span className="cursor-help text-slate-400">—</span>
+   481→                              </TooltipTrigger>
+   482→                              <TooltipContent side="top" className="max-w-56 text-[11px]">
+   483→                                {cell?.detail || t("sc.dataUnavailable")}
+   484→                              </TooltipContent>
+   485→                            </Tooltip>
+   486→                          </TooltipProvider>
+   487→                        )}
+   488→                      </td>
+   489→                    )
+   490→                  })}
+   491→                </tr>
+   492→              ))}
+   493→            </tbody>
+   494→          </table>
+   495→        </div>
+   496→      </CardContent>
+   497→    </Card>
+   498→  )
+   499→}
+   500→
+   501→/* ---------------- Events tab ---------------- */
+   502→
+   503→export function EventsList({ events, emptyText }: { events: EventItem[]; emptyText: string }) {
+   504→  const { pick } = useI18n()
+   505→  if (events.length === 0) {
+   506→    return <p className="p-6 text-center text-sm text-muted-foreground">{emptyText}</p>
+   507→  }
+   508→  const toneBorder: Record<string, string> = {
+   509→    positive: "border-s-4 border-s-emerald-500/70",
+   510→    negative: "border-s-4 border-s-red-500/70",
+   511→    neutral: "border-s-4 border-s-slate-400/60",
+   512→  }
+   513→  return (
+   514→    <div className="max-h-[560px] space-y-3 overflow-y-auto scrollbar-thin pe-1">
+   515→      {events.map((e) => (
+   516→        <div key={e.id} className={`rounded-lg border bg-card p-4 ${toneBorder[e.tone] ?? ""}`}>
+   517→          <div className="flex flex-wrap items-center justify-between gap-2">
+   518→            <EventBadge label={pick(e.labelEn, e.labelAr)} tone={e.tone} />
+   519→            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+   520→              <span className="font-medium text-foreground">{e.periodLabel}</span>
+   521→              {e.previousPeriodKey ? (
+   522→                <span className="tabular">
+   523→                  vs {e.previousPeriodKey.split(":").filter(Boolean).slice(1).join(" ")}
+   524→                </span>
+   525→              ) : null}
+   526→              <Badge variant="outline" className="text-[9px] font-mono">{e.ruleVersion}</Badge>
+   527→            </div>
+   528→          </div>
+   529→          <p className="mt-2.5 text-sm leading-relaxed">{pick(e.explanationEn, e.explanationAr)}</p>
+   530→          {e.conditions.length > 0 ? (
+   531→            <ul className="mt-2.5 space-y-1 border-t pt-2.5">
+   532→              {e.conditions.map((c, i) => (
+   533→                <li key={i} className="flex items-start gap-1.5 text-[11px] text-muted-foreground">
+   534→                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
+   535→                  {pick(c.detail, c.detailAr)}
+   536→                </li>
+   537→              ))}
+   538→            </ul>
+   539→          ) : null}
+   540→        </div>
+   541→      ))}
+   542→    </div>
+   543→  )
+   544→}
+   545→
+   546→/* ---------------- Peers tab ---------------- */
+   547→
+   548→function PeersTab({ companyId }: { companyId: string }) {
+   549→  const { t, lang, pick } = useI18n()
+   550→  const { data, isLoading } = useQuery({ queryKey: ["peers", companyId], queryFn: () => api.peers(companyId) })
+   551→
+   552→  if (isLoading || !data) return <Skeleton className="h-72 rounded-xl" />
+   553→  if (!data.period || data.peers.length === 0) {
+   554→    return <Card className="p-6 text-center text-sm text-muted-foreground">{t("peers.noData")}</Card>
+   555→  }
+   556→
+   557→  return (
+   558→    <Card className="p-0">
+   559→      <CardHeader className="pb-3">
+   560→        <CardTitle className="text-sm flex flex-wrap items-center gap-2">
+   561→          {t("peers.title")}
+   562→          <Badge variant="secondary" className="text-[10px]">{data.basis}</Badge>
+   563→          <Badge variant="outline" className="text-[10px]">{data.period.label}</Badge>
+   564→        </CardTitle>
+   565→      </CardHeader>
+   566→      <CardContent className="space-y-6">
+   567→        {PEER_METRICS.map((metric) => {
+   568→          const entries = data.peers
+   569→            .map((p) => ({ peer: p, value: p.values[metric.code] ?? null }))
+   570→            .filter((e) => e.value !== null) as { peer: (typeof data.peers)[number]; value: number }[]
+   571→          if (entries.length === 0) return null
+   572→          const maxAbs = Math.max(...entries.map((e) => Math.abs(e.value)), Math.abs(data.medians[metric.code] ?? 0), 1e-9)
+   573→          const self = entries.find((e) => e.peer.isSelf)
+   574→          const med = data.medians[metric.code]
+   575→          return (
+   576→            <div key={metric.code}>
+   577→              <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+   578→                <h4 className="text-xs font-semibold">{t(`peers.${metric.code}` as never)}</h4>
+   579→                {med !== null ? (
+   580→                  <span className="text-[11px] text-muted-foreground tabular">
+   581→                    {t("peers.median")}: <span className="font-medium text-foreground">{metric.fmt(med)}</span>
+   582→                  </span>
+   583→                ) : null}
+   584→              </div>
+   585→              <div className="space-y-1.5">
+   586→                {entries
+   587→                  .sort((a, b) => (metric.betterWhen === "higher" ? b.value - a.value : a.value - b.value))
+   588→                  .map(({ peer, value }) => {
+   589→                    const width = Math.max(2, (Math.abs(value) / maxAbs) * 100)
+   590→                    const positive = value >= 0
+   591→                    return (
+   592→                      <div key={peer.id} className="group flex items-center gap-2">
+   593→                        <span className={`w-12 shrink-0 text-[11px] font-bold tabular ${peer.isSelf ? "text-primary" : "text-muted-foreground"}`}>
+   594→                          {peer.ticker}
+   595→                        </span>
+   596→                        <div className="relative h-5 flex-1 overflow-hidden rounded bg-muted/50">
+   597→                          <div
+   598→                            className={`h-full rounded transition-all group-hover:opacity-90 ${
+   599→                              peer.isSelf
+   600→                                ? positive
+   601→                                  ? "bg-primary"
+   602→                                  : "bg-red-500"
+   603→                                : positive
+   604→                                  ? "bg-primary/35 group-hover:bg-primary/50"
+   605→                                  : "bg-red-500/40"
+   606→                            }`}
+   607→                            style={{ width: `${width}%` }}
+   608→                          />
+   609→                          {med !== null ? (
+   610→                            <div
+   611→                              className="absolute inset-y-0 w-0.5 bg-foreground/50"
+   612→                              style={{ left: `${Math.max(0, Math.min(100, (Math.abs(med) / maxAbs) * 100))}%` }}
+   613→                              title={`${t("peers.median")}: ${metric.fmt(med)}`}
+   614→                            />
+   615→                          ) : null}
+   616→                        </div>
+   617→                        <span className={`w-20 shrink-0 text-end text-[11px] tabular ${value < 0 ? "text-red-600 dark:text-red-400" : peer.isSelf ? "font-bold" : "text-muted-foreground"}`}>
+   618→                          {metric.fmt(value)}
+   619→                        </span>
+   620→                      </div>
+   621→                    )
+   622→                  })}
+   623→              </div>
+   624→              {self ? (
+   625→                <p className="mt-1.5 text-[10px] text-muted-foreground">
+   626→                  {t("peers.you")}: <span className="font-medium text-foreground tabular">{metric.fmt(self.value)}</span>
+   627→                  {med !== null ? (
+   628→                    <>
+   629→                      {" "}
+   630→                      · {metric.betterWhen === "higher"
+   631→                        ? self.value >= med
+   632→                          ? lang === "ar" ? "فوق الوسيط ↑" : "above median ↑"
+   633→                          : lang === "ar" ? "تحت الوسيط ↓" : "below median ↓"
+   634→                        : self.value <= med
+   635→                          ? lang === "ar" ? "أفضل من الوسيط ↓" : "better than median ↓"
+   636→                          : lang === "ar" ? "أعلى من الوسيط ↑" : "above median ↑"}
+   637→                    </>
+   638→                  ) : null}
+   639→                </p>
+   640→              ) : (
+   641→                <p className="mt-1.5 text-[10px] text-muted-foreground italic">{pick("This company has no data for this metric.", "لا توجد بيانات لهذه الشركة لهذا المؤشر.")}</p>
+   642→              )}
+   643→            </div>
+   644→          )
+   645→        })}
+   646→      </CardContent>
+   647→    </Card>
+   648→  )
+   649→}
+   650→
+   651→function EventsTab({ companyId }: { companyId: string }) {
+   652→  const { t } = useI18n()
+   653→  const { data, isLoading } = useQuery({ queryKey: ["events", companyId], queryFn: () => api.events(companyId) })
+   654→  if (isLoading) return <Skeleton className="h-64 rounded-xl" />
+   655→  return <EventsList events={data?.events ?? []} emptyText={t("co.noEvents")} />
+   656→}
+   657→
+   658→/* ---------------- Dividends tab ---------------- */
+   659→
+   660→function CompanyDividendsTab({ companyId }: { companyId: string }) {
+   661→  const { t, pick } = useI18n()
+   662→  const { data, isLoading } = useQuery({ queryKey: ["company-dividends", companyId], queryFn: () => api.companyDividends(companyId) })
+   663→  if (isLoading) return <Skeleton className="h-64 rounded-xl" />
+   664→
+   665→  const dividends = data?.dividends ?? []
+   666→  if (dividends.length === 0) {
+   667→    return <Card className="p-6 text-center text-sm text-muted-foreground">{t("co.noDividends")}</Card>
+   668→  }
+   669→
+   670→  return (
+   671→    <div className="space-y-3">
+   672→      {dividends.map((d) => (
+   673→        <div key={d.id} className="rounded-lg border bg-card p-4">
+   674→          <div className="flex flex-wrap items-center justify-between gap-2">
+   675→            <div className="flex items-center gap-2">
+   676→              <StatusChip status={d.status} />
+   677→              <Badge variant="secondary" className="text-[10px]">{d.dividendType}</Badge>
+   678→              {d.dividendPerShare !== null ? (
+   679→                <span className="text-sm font-bold tabular">{d.dividendPerShare} EGP / {t("dv.dps")}</span>
+   680→              ) : null}
+   681→            </div>
+   682→            <span className="text-[11px] text-muted-foreground">{pick(d.sourceName, d.sourceName)}</span>
+   683→          </div>
+   684→          <dl className="mt-3 grid grid-cols-2 gap-2 text-xs sm:grid-cols-4">
+   685→            <div>
+   686→              <dt className="text-muted-foreground">{t("dv.announcement")}</dt>
+   687→              <dd className="font-medium tabular">{fmt(d.announcementDate) ?? <span className="text-slate-400">{t("dv.notAnnounced")}</span>}</dd>
+   688→            </div>
+   689→            <div>
+   690→              <dt className="text-muted-foreground">{t("dv.eligibility")}</dt>
+   691→              <dd className="font-medium tabular">{fmt(d.eligibilityDate) ?? <span className="text-slate-400">{t("dv.notAnnounced")}</span>}</dd>
+   692→            </div>
+   693→            <div>
+   694→              <dt className="text-muted-foreground">{t("dv.exDate")}</dt>
+   695→              <dd className="font-medium tabular">{fmt(d.exDividendDate) ?? <span className="text-slate-400">{t("dv.notAnnounced")}</span>}</dd>
+   696→            </div>
+   697→            <div>
+   698→              <dt className="text-muted-foreground">{t("dv.distribution")}</dt>
+   699→              <dd className="font-medium tabular">{fmt(d.distributionDate) ?? <span className="text-slate-400">{t("dv.notAnnounced")}</span>}</dd>
+   700→            </div>
+   701→          </dl>
+   702→          {d.notes ? <p className="mt-2 text-[11px] italic text-muted-foreground">{d.notes}</p> : null}
+   703→        </div>
+   704→      ))}
+   705→    </div>
+   706→  )
+   707→}
+   708→
+   709→function fmt(iso: string | null): string | null {
+   710→  if (!iso) return null
+   711→  try {
+   712→    return new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })
+   713→  } catch {
+   714→    return iso
+   715→  }
+   716→}
+   717→
+   718→/* ---------------- Reports tab (source traceability) ---------------- */
+   719→
+   720→function ReportsTab({ companyId }: { companyId: string }) {
+   721→  const { t, lang, pick } = useI18n()
+   722→  const { data, isLoading } = useQuery({ queryKey: ["company-reports", companyId], queryFn: () => api.companyReports(companyId) })
+   723→  const [open, setOpen] = useState<string | null>(null)
+   724→
+   725→  const { data: reportDetail } = useQuery({
+   726→    queryKey: ["report-detail", open],
+   727→    queryFn: () => fetch(`/api/v1/reports/${open}`).then((r) => r.json()),
+   728→    enabled: !!open,
+   729→  })
+   730→
+   731→  if (isLoading) return <Skeleton className="h-64 rounded-xl" />
+   732→  const reports = data?.reports ?? []
+   733→
+   734→  return (
+   735→    <div className="space-y-3">
+   736→      {reports.map((r) => (
+   737→        <div key={r.id} className="rounded-lg border bg-card">
+   738→          <button className="flex w-full flex-wrap items-center justify-between gap-2 p-4 text-start hover:bg-muted/30" onClick={() => setOpen(open === r.id ? null : r.id)}>
+   739→            <div className="flex flex-wrap items-center gap-2">
+   740→              <span className="text-sm font-bold">{r.periodLabel}</span>
+   741→              <Badge variant="secondary" className="text-[10px]">{r.reportType}</Badge>
+   742→              <StatusChip status={r.processingStatus} />
+   743→              {r.isDemoData ? <DemoBadge small /> : null}
+   744→              {r.isRestatement ? <Badge variant="outline" className="text-[10px] border-violet-400/50 text-violet-600">RESTATED v{r.version}</Badge> : null}
+   745→            </div>
+   746→            <div className="flex items-center gap-3 text-[11px] text-muted-foreground">
+   747→              <span>{r.valueCount} {t("co.values")}</span>
+   748→              {r.extractionMethod ? <Badge variant="outline" className="text-[9px] font-mono">{r.extractionMethod}</Badge> : null}
+   749→              <span className="hidden sm:inline">{pick(r.sourceName, r.sourceName)}</span>
+   750→            </div>
+   751→          </button>
+   752→          {open === r.id && reportDetail?.report ? (
+   753→            <div className="border-t p-4">
+   754→              <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+   755→                {r.fileHash ? (
+   756→                  <p className="text-[10px] text-muted-foreground font-mono break-all">
+   757→                    {t("co.fileHash")}: {r.fileHash}
+   758→                  </p>
+   759→                ) : <span />}
+   760→                {r.localFileRef ? (
+   761→                  <a href={`/api/v1/reports/${r.id}/download`} download>
+   762→                    <Button variant="outline" size="sm" className="h-7 gap-1.5 text-xs">
+   763→                      <Download className="h-3.5 w-3.5" />
+   764→                      {t("rp.download")}
+   765→                    </Button>
+   766→                  </a>
+   767→                ) : null}
+   768→              </div>
+   769→              {r.notes ? <p className="mb-3 text-[11px] text-muted-foreground">{r.notes}</p> : null}
+   770→              <div className="max-h-80 overflow-y-auto scrollbar-thin rounded-md border">
+   771→                <table className="w-full text-xs">
+   772→                  <thead className="sticky top-0 bg-muted/60 backdrop-blur">
+   773→                    <tr className="border-b">
+   774→                      <th className="p-2 text-start font-medium">{t("co.originalLabel")}</th>
+   775→                      <th className="p-2 text-end font-medium">{t("common.status")}</th>
+   776→                      <th className="p-2 text-end font-medium">{lang === "ar" ? "القيمة" : "Value"}</th>
+   777→                      <th className="p-2 text-end font-medium">{lang === "ar" ? "بالجنيه" : "Normalized"}</th>
+   778→                      <th className="p-2 text-end font-medium">{t("co.confidence")}</th>
+   779→                      <th className="p-2 text-end font-medium">{t("co.extraction")}</th>
+   780→                    </tr>
+   781→                  </thead>
+   782→                  <tbody>
+   783→                    {(reportDetail.report.values ?? []).map((v: { id: string; originalLabel: string; metricCode: string; value: number; unit: string; normalizedValue: number; validationStatus: string; confidence: number; extractionMethod: string | null }) => (
+   784→                      <tr key={v.id} className="border-b last:border-0 hover:bg-muted/30">
+   785→                        <td className="p-2">
+   786→                          <span className="font-medium">{v.originalLabel}</span>
+   787→                          <span className="ms-1.5 text-[9px] text-muted-foreground">({v.metricCode})</span>
+   788→                        </td>
+   789→                        <td className="p-2 text-end"><StatusChip status={v.validationStatus} /></td>
+   790→                        <td className="p-2 text-end tabular">{v.value.toLocaleString()} <span className="text-[9px] text-muted-foreground">{v.unit}</span></td>
+   791→                        <td className="p-2 text-end tabular">{formatEgp(v.normalizedValue, { withCurrency: false })}</td>
+   792→                        <td className="p-2 text-end tabular">{(v.confidence * 100).toFixed(0)}%</td>
+   793→                        <td className="p-2 text-end text-[10px] font-mono">{v.extractionMethod}</td>
+   794→                      </tr>
+   795→                    ))}
+   796→                  </tbody>
+   797→                </table>
+   798→              </div>
+   799→            </div>
+   800→          ) : null}
+   801→        </div>
+   802→      ))}
+   803→    </div>
+   804→  )
+   805→}
+   806→

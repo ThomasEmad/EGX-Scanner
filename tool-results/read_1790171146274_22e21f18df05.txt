@@ -1,0 +1,641 @@
+     1→"use client"
+     2→
+     3→import { useEffect, useMemo, useState } from "react"
+     4→import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
+     5→import { ChevronDown, Clock, History, Play, Plus, Save, Trash2, TriangleAlert, Wand2, X } from "lucide-react"
+     6→import { Badge } from "@/components/ui/badge"
+     7→import { Button } from "@/components/ui/button"
+     8→import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+     9→import { Input } from "@/components/ui/input"
+    10→import { Label } from "@/components/ui/label"
+    11→import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+    12→import { Skeleton } from "@/components/ui/skeleton"
+    13→import { useToast } from "@/hooks/use-toast"
+    14→import { api, type CompanyScanResult, type ConditionEval, type ScanCondition, type ScanOutput, type ScannerRule } from "@/lib/client/api"
+    15→import { useI18n } from "@/lib/i18n"
+    16→import { WhyMatchedPanel } from "./shared"
+    17→
+    18→export function ScannersView({
+    19→  mode,
+    20→  pendingRuleId,
+    21→  onOpenCompany,
+    22→  onOpenCustom,
+    23→}: {
+    24→  mode: "presets" | "custom"
+    25→  pendingRuleId: string | null
+    26→  onOpenCompany: (id: string) => void
+    27→  onOpenCustom: () => void
+    28→}) {
+    29→  return mode === "presets" ? (
+    30→    <PresetScanners
+    31→      key={pendingRuleId ?? "none"}
+    32→      pendingRuleId={pendingRuleId}
+    33→      onOpenCompany={onOpenCompany}
+    34→      onOpenCustom={onOpenCustom}
+    35→    />
+    36→  ) : (
+    37→    <CustomScanners onOpenCompany={onOpenCompany} />
+    38→  )
+    39→}
+    40→
+    41→/* ------------------------------------------------------------------ */
+    42→/* Preset scanners                                                     */
+    43→/* ------------------------------------------------------------------ */
+    44→
+    45→function PresetScanners({
+    46→  pendingRuleId,
+    47→  onOpenCompany,
+    48→  onOpenCustom,
+    49→}: {
+    50→  pendingRuleId: string | null
+    51→  onOpenCompany: (id: string) => void
+    52→  onOpenCustom: () => void
+    53→}) {
+    54→  const { t, lang, pick } = useI18n()
+    55→  const queryClient = useQueryClient()
+    56→  const [selectedRuleId, setSelectedRuleId] = useState<string | null>(null)
+    57→  const [basis, setBasis] = useState<"LATEST_ANNUAL" | "LATEST_QUARTERLY">("LATEST_ANNUAL")
+    58→  const [result, setResult] = useState<ScanOutput | null>(null)
+    59→  const [expanded, setExpanded] = useState<string | null>(null)
+    60→
+    61→  const { data: ruleData, isLoading } = useQuery({ queryKey: ["scanners"], queryFn: api.scanners })
+    62→  const presets = useMemo(() => ruleData?.rules.filter((r) => r.isPreset) ?? [], [ruleData])
+    63→  const custom = useMemo(() => ruleData?.rules.filter((r) => !r.isPreset) ?? [], [ruleData])
+    64→
+    65→  // pendingRuleId (from dashboard / company badges) may be a rule id OR a presetKey —
+    66→  // resolved as a derived value; local selection always wins once the user clicks.
+    67→  const resolvedPending = pendingRuleId
+    68→    ? (presets.find((r) => r.id === pendingRuleId)?.id ?? presets.find((r) => r.presetKey === pendingRuleId)?.id ?? null)
+    69→    : null
+    70→  const effectiveRuleId = selectedRuleId ?? resolvedPending
+    71→
+    72→  const runMutation = useMutation({
+    73→    mutationFn: (rule: ScannerRule) => api.runScanner({ ruleId: rule.id, periodBasis: basis }),
+    74→    onSuccess: (output) => {
+    75→      setResult(output)
+    76→      setExpanded(null)
+    77→      queryClient.invalidateQueries({ queryKey: ["scanners"] })
+    78→      queryClient.invalidateQueries({ queryKey: ["scan-history"] })
+    79→    },
+    80→  })
+    81→
+    82→  const deleteMutation = useMutation({
+    83→    mutationFn: (id: string) => {
+    84→      const token = localStorage.getItem("egx-admin-token")
+    85→      return api.deleteScanner(id, token)
+    86→    },
+    87→    onSuccess: () => {
+    88→      queryClient.invalidateQueries({ queryKey: ["scanners"] })
+    89→      if (result?.ruleId) setResult(null)
+    90→    },
+    91→  })
+    92→
+    93→  const selectedRule = presets.find((r) => r.id === effectiveRuleId) ?? custom.find((r) => r.id === effectiveRuleId) ?? null
+    94→
+    95→  // auto-run when a rule becomes selected or the basis changes
+    96→  useEffect(() => {
+    97→    if (selectedRule) runMutation.mutate(selectedRule)
+    98→  }, [effectiveRuleId, basis])
+    99→
+   100→  return (
+   101→    <div className="space-y-6">
+   102→      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+   103→        <div>
+   104→          <h1 className="text-xl font-bold tracking-tight">{t("nav.scanners")}</h1>
+   105→          <p className="text-sm text-muted-foreground">{pick(selectedRule?.description, selectedRule?.description)}</p>
+   106→        </div>
+   107→        <div className="flex items-center gap-2">
+   108→          <Label htmlFor="basis" className="text-xs text-muted-foreground whitespace-nowrap">{t("sc.basis")}</Label>
+   109→          <Select value={basis} onValueChange={(v) => setBasis(v as typeof basis)}>
+   110→            <SelectTrigger id="basis" className="w-[230px] h-9">
+   111→              <SelectValue />
+   112→            </SelectTrigger>
+   113→            <SelectContent>
+   114→              <SelectItem value="LATEST_ANNUAL">{t("sc.basisAnnual")}</SelectItem>
+   115→              <SelectItem value="LATEST_QUARTERLY">{t("sc.basisQuarterly")}</SelectItem>
+   116→            </SelectContent>
+   117→          </Select>
+   118→        </div>
+   119→      </div>
+   120→
+   121→      <div className="grid gap-6 lg:grid-cols-[320px_1fr]">
+   122→        {/* rule list */}
+   123→        <div className="space-y-4">
+   124→          <Card className="p-0">
+   125→            <CardHeader className="pb-2">
+   126→              <CardTitle className="text-sm">{t("sc.presets")}</CardTitle>
+   127→            </CardHeader>
+   128→            <CardContent className="max-h-[320px] space-y-1 overflow-y-auto scrollbar-thin">
+   129→              {isLoading
+   130→                ? Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} className="h-9 rounded-md" />)
+   131→                : presets.map((rule) => (
+   132→                    <button
+   133→                      key={rule.id}
+   134→                      onClick={() => setSelectedRuleId(rule.id)}
+   135→                      className={`flex w-full items-center justify-between rounded-md px-3 py-2 text-start text-sm transition-colors ${
+   136→                        selectedRuleId === rule.id ? "bg-primary/10 font-medium text-primary" : "hover:bg-muted"
+   137→                      }`}
+   138→                    >
+   139→                      <span className="truncate">{pick(rule.name, rule.nameAr)}</span>
+   140→                      {result?.ruleId === rule.id ? (
+   141→                        <Badge variant="secondary" className="ms-2 text-[10px] tabular shrink-0">
+   142→                          {result.matched.length}
+   143→                        </Badge>
+   144→                      ) : null}
+   145→                    </button>
+   146→                  ))}
+   147→            </CardContent>
+   148→          </Card>
+   149→
+   150→          {custom.length > 0 ? (
+   151→            <Card className="p-0">
+   152→              <CardHeader className="pb-2">
+   153→                <CardTitle className="text-sm">{t("sc.customRules")}</CardTitle>
+   154→              </CardHeader>
+   155→              <CardContent className="space-y-1">
+   156→                {custom.map((rule) => (
+   157→                  <div key={rule.id} className={`group flex items-center justify-between rounded-md px-1 transition-colors ${selectedRuleId === rule.id ? "bg-primary/10" : "hover:bg-muted"}`}>
+   158→                    <button
+   159→                      onClick={() => setSelectedRuleId(rule.id)}
+   160→                      className={`flex-1 truncate px-2 py-2 text-start text-sm ${selectedRuleId === rule.id ? "font-medium text-primary" : ""}`}
+   161→                    >
+   162→                      {rule.name}
+   163→                    </button>
+   164→                    <button
+   165→                      onClick={() => deleteMutation.mutate(rule.id)}
+   166→                      className="p-1.5 text-muted-foreground opacity-0 transition-opacity hover:text-red-500 group-hover:opacity-100"
+   167→                      aria-label={`${t("common.delete")} ${rule.name}`}
+   168→                    >
+   169→                      <Trash2 className="h-3.5 w-3.5" />
+   170→                    </button>
+   171→                  </div>
+   172→                ))}
+   173→              </CardContent>
+   174→            </Card>
+   175→          ) : null}
+   176→
+   177→          <Button variant="outline" className="w-full" onClick={onOpenCustom}>
+   178→            <Wand2 className="h-4 w-4" />
+   179→            {t("nav.customScanner")}
+   180→          </Button>
+   181→
+   182→          <RunHistory />
+   183→        </div>
+   184→
+   185→        {/* results */}
+   186→        <div className="space-y-3">
+   187→          {runMutation.isPending ? (
+   188→            <div className="space-y-2">
+   189→              {Array.from({ length: 5 }).map((_, i) => (
+   190→                <Skeleton key={i} className="h-16 rounded-lg" />
+   191→              ))}
+   192→            </div>
+   193→          ) : result ? (
+   194→            <>
+   195→              <div className="flex flex-wrap items-center gap-2 text-sm">
+   196→                <span className="font-semibold">{result.ruleName}</span>
+   197→                <Badge variant="outline">{result.periodBasis === "LATEST_ANNUAL" ? t("sc.basisAnnual") : t("sc.basisQuarterly")}</Badge>
+   198→                <Badge className="tabular">
+   199→                  {result.matched.length} / {result.results.length} {t("sc.matchingCompanies")}
+   200→                </Badge>
+   201→              </div>
+   202→
+   203→              {result.validationErrors.length > 0 ? (
+   204→                <div className="flex items-start gap-2 rounded-lg border border-amber-500/40 bg-amber-500/10 p-3 text-xs text-amber-700 dark:text-amber-400">
+   205→                  <TriangleAlert className="mt-0.5 h-4 w-4 shrink-0" />
+   206→                  <div>
+   207→                    <p className="font-semibold">{t("sc.availability")}</p>
+   208→                    <ul className="list-disc ps-4 mt-1 space-y-0.5">
+   209→                      {result.validationErrors.map((e, i) => (
+   210→                        <li key={i}>{e}</li>
+   211→                      ))}
+   212→                    </ul>
+   213→                  </div>
+   214→                </div>
+   215→              ) : null}
+   216→
+   217→              {result.matched.length === 0 ? (
+   218→                <Card className="p-6 text-center text-sm text-muted-foreground">
+   219→                  {lang === "ar" ? "لا شركات مطابقة في هذه الفترة." : "No matching companies for this period."}
+   220→                </Card>
+   221→              ) : (
+   222→                result.matched.map((r) => <ResultRow key={r.companyId} result={r} expanded={expanded === r.companyId} onToggle={() => setExpanded(expanded === r.companyId ? null : r.companyId)} onOpenCompany={onOpenCompany} />)
+   223→              )}
+   224→
+   225→              {result.results.filter((r) => !r.evaluation.matched).length > 0 ? (
+   226→                <details className="rounded-lg border">
+   227→                  <summary className="cursor-pointer select-none px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground">
+   228→                    {t("sc.allCompanies")} ({result.results.length}) — {t("sc.whyNotMatched")}
+   229→                  </summary>
+   230→                  <div className="space-y-2 border-t p-3">
+   231→                    {result.results
+   232→                      .filter((r) => !r.evaluation.matched)
+   233→                      .map((r) => (
+   234→                        <ResultRow key={r.companyId} result={r} expanded={expanded === r.companyId} onToggle={() => setExpanded(expanded === r.companyId ? null : r.companyId)} onOpenCompany={onOpenCompany} alwaysDim />
+   235→                      ))}
+   236→                  </div>
+   237→                </details>
+   238→              ) : null}
+   239→            </>
+   240→          ) : (
+   241→            <Card className="flex h-64 items-center justify-center p-6 text-center">
+   242→              <div className="space-y-2 text-muted-foreground">
+   243→                <Play className="mx-auto h-8 w-8 opacity-30" />
+   244→                <p className="text-sm">{t("sc.noResults")}</p>
+   245→              </div>
+   246→            </Card>
+   247→          )}
+   248→        </div>
+   249→      </div>
+   250→    </div>
+   251→  )
+   252→}
+   253→
+   254→/* ------------------------------------------------------------------ */
+   255→/* Recent scanner runs (history sidebar)                               */
+   256→/* ------------------------------------------------------------------ */
+   257→
+   258→function RunHistory() {
+   259→  const { t, lang, pick } = useI18n()
+   260→  const { data } = useQuery({ queryKey: ["scan-history"], queryFn: api.scanHistory, refetchInterval: 30_000 })
+   261→  const runs = data?.runs ?? []
+   262→  if (runs.length === 0) return null
+   263→
+   264→  return (
+   265→    <Card className="p-0">
+   266→      <CardHeader className="pb-2">
+   267→        <CardTitle className="flex items-center gap-1.5 text-sm">
+   268→          <History className="h-3.5 w-3.5 text-primary" />
+   269→          {t("rh.title")}
+   270→        </CardTitle>
+   271→      </CardHeader>
+   272→      <CardContent className="max-h-64 space-y-1.5 overflow-y-auto scrollbar-thin">
+   273→        {runs.slice(0, 8).map((r) => (
+   274→          <div key={r.id} className="flex items-center justify-between gap-2 rounded-md border px-2.5 py-1.5 text-[11px]">
+   275→            <div className="min-w-0">
+   276→              <p className="truncate font-medium">{r.ruleName}</p>
+   277→              <p className="flex items-center gap-1 text-[10px] text-muted-foreground">
+   278→                <Clock className="h-2.5 w-2.5" />
+   279→                {timeAgo(r.ranAt, lang)} · {r.periodBasis === "LATEST_ANNUAL" ? (lang === "ar" ? "سنوي" : "FY") : lang === "ar" ? "ربعي" : "Q"}
+   280→              </p>
+   281→            </div>
+   282→            <Badge variant="secondary" className="shrink-0 tabular text-[10px]">
+   283→              {r.matchedCount} {t("rh.matches")}
+   284→            </Badge>
+   285→          </div>
+   286→        ))}
+   287→      </CardContent>
+   288→    </Card>
+   289→  )
+   290→}
+   291→
+   292→function timeAgo(iso: string, lang: string): string {
+   293→  const diff = Date.now() - new Date(iso).getTime()
+   294→  const mins = Math.floor(diff / 60000)
+   295→  if (mins < 1) return lang === "ar" ? "الآن" : "just now"
+   296→  if (mins < 60) return lang === "ar" ? `قبل ${mins} د` : `${mins}m ago`
+   297→  const hours = Math.floor(mins / 60)
+   298→  if (hours < 24) return lang === "ar" ? `قبل ${hours} س` : `${hours}h ago`
+   299→  return lang === "ar" ? `قبل ${Math.floor(hours / 24)} ي` : `${Math.floor(hours / 24)}d ago`
+   300→}
+   301→
+   302→function ResultRow({
+   303→  result,
+   304→  expanded,
+   305→  onToggle,
+   306→  onOpenCompany,
+   307→  alwaysDim = false,
+   308→}: {
+   309→  result: CompanyScanResult
+   310→  expanded: boolean
+   311→  onToggle: () => void
+   312→  onOpenCompany: (id: string) => void
+   313→  alwaysDim?: boolean
+   314→}) {
+   315→  const { t, lang, pick } = useI18n()
+   316→  return (
+   317→    <div className={`rounded-lg border bg-card transition-colors ${result.evaluation.matched ? "" : "opacity-70"}`}>
+   318→      <div className="flex items-center gap-3 p-3">
+   319→        <button
+   320→          onClick={onToggle}
+   321→          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border text-xs font-bold tabular transition-colors hover:bg-muted"
+   322→          aria-label={t("common.viewWhy")}
+   323→          aria-expanded={expanded}
+   324→        >
+   325→          {result.evaluation.matchedCount}/{result.evaluation.conditions.length}
+   326→        </button>
+   327→        <button onClick={() => onOpenCompany(result.companyId)} className="min-w-0 flex-1 text-start">
+   328→          <div className="flex flex-wrap items-center gap-1.5">
+   329→            <span className="text-sm font-bold">{result.ticker}</span>
+   330→            <span className="truncate text-xs text-muted-foreground">{pick(result.nameEn, result.nameAr)}</span>
+   331→          </div>
+   332→          <div className="mt-0.5 flex items-center gap-1.5 text-[11px] text-muted-foreground">
+   333→            <span>{result.sector}</span>
+   334→            {result.contextPeriodLabel ? (
+   335→              <>
+   336→                <span>·</span>
+   337→                <span>{t("sc.contextPeriod")}: {result.contextPeriodLabel}</span>
+   338→              </>
+   339→            ) : null}
+   340→          </div>
+   341→        </button>
+   342→        {result.evaluation.matched ? (
+   343→          <Badge className="shrink-0 bg-emerald-600 hover:bg-emerald-600 text-white">{t("common.matched")}</Badge>
+   344→        ) : alwaysDim ? null : (
+   345→          <Badge variant="outline" className="shrink-0">{t("common.notMatched")}</Badge>
+   346→        )}
+   347→        <button onClick={onToggle} className="p-1 text-muted-foreground hover:text-foreground" aria-expanded={expanded} aria-label={t("common.details")}>
+   348→          <ChevronDown className={`h-4 w-4 transition-transform ${expanded ? "rotate-180" : ""}`} />
+   349→        </button>
+   350→      </div>
+   351→      {expanded ? (
+   352→        <div className="border-t p-3 ps-14">
+   353→          <WhyMatchedPanel conditions={result.evaluation.conditions} matched={result.evaluation.matched} />
+   354→          <Button variant="ghost" size="sm" className="mt-2 h-7 text-xs" onClick={() => onOpenCompany(result.companyId)}>
+   355→            {t("co.profile")}
+   356→          </Button>
+   357→        </div>
+   358→      ) : null}
+   359→    </div>
+   360→  )
+   361→}
+   362→
+   363→/* ------------------------------------------------------------------ */
+   364→/* Custom scanner builder                                              */
+   365→/* ------------------------------------------------------------------ */
+   366→
+   367→interface BuilderRow {
+   368→  id: number
+   369→  kind: "metric" | "event" | "dividend"
+   370→  code: string
+   371→  operator: string
+   372→  value: string
+   373→  eventType: string
+   374→  statusAny: boolean
+   375→}
+   376→
+   377→let rowSeq = 1
+   378→
+   379→function CustomScanners({ onOpenCompany }: { onOpenCompany: (id: string) => void }) {
+   380→  const { t, lang } = useI18n()
+   381→  const { toast } = useToast()
+   382→  const queryClient = useQueryClient()
+   383→  const [rows, setRows] = useState<BuilderRow[]>([
+   384→    { id: rowSeq++, kind: "metric", code: "profit_growth", operator: ">=", value: "30", eventType: "LOSS_TO_PROFIT", statusAny: true },
+   385→  ])
+   386→  const [name, setName] = useState("")
+   387→  const [basis, setBasis] = useState<"LATEST_ANNUAL" | "LATEST_QUARTERLY">("LATEST_ANNUAL")
+   388→  const [result, setResult] = useState<ScanOutput | null>(null)
+   389→  const [expanded, setExpanded] = useState<string | null>(null)
+   390→
+   391→  const { data: registry } = useQuery({ queryKey: ["registry"], queryFn: api.registry })
+   392→
+   393→  const conditions: ScanCondition[] = useMemo(
+   394→    () =>
+   395→      rows.map((r) => {
+   396→        if (r.kind === "metric") return { kind: "metric", code: r.code, operator: r.operator, value: Number(r.value) } as ScanCondition
+   397→        if (r.kind === "event") return { kind: "event", eventType: r.eventType } as ScanCondition
+   398→        return { kind: "dividend", statuses: r.statusAny ? ["ANNOUNCED", "UPCOMING", "ELIGIBLE"] : ["PAID"] } as ScanCondition
+   399→      }),
+   400→    [rows]
+   401→  )
+   402→
+   403→  const runMutation = useMutation({
+   404→    mutationFn: () => api.runScanner({ conditions, periodBasis: basis, name: name || undefined }),
+   405→    onSuccess: (output) => {
+   406→      setResult(output)
+   407→      setExpanded(null)
+   408→    },
+   409→    onError: (e) => toast({ title: "Scan failed", description: e instanceof Error ? e.message : String(e), variant: "destructive" }),
+   410→  })
+   411→
+   412→  const saveMutation = useMutation({
+   413→    mutationFn: () => api.createScanner({ name: name.trim(), conditions }),
+   414→    onSuccess: () => {
+   415→      toast({ title: lang === "ar" ? "تم حفظ القاعدة" : "Rule saved", description: name })
+   416→      queryClient.invalidateQueries({ queryKey: ["scanners"] })
+   417→    },
+   418→    onError: (e) => toast({ title: lang === "ar" ? "فشل الحفظ" : "Save failed", description: e instanceof Error ? e.message : String(e), variant: "destructive" }),
+   419→  })
+   420→
+   421→  const addRow = () =>
+   422→    setRows((rs) => [...rs, { id: rowSeq++, kind: "metric", code: "revenue_growth", operator: ">=", value: "15", eventType: "LOSS_TO_PROFIT", statusAny: true }])
+   423→
+   424→  const removeRow = (id: number) => setRows((rs) => (rs.length > 1 ? rs.filter((r) => r.id !== id) : rs))
+   425→
+   426→  const updateRow = (id: number, patch: Partial<BuilderRow>) => setRows((rs) => rs.map((r) => (r.id === id ? { ...r, ...patch } : r)))
+   427→
+   428→  const metricUnavailable = (code: string) => result?.availability && result.availability[code] === 0
+   429→
+   430→  return (
+   431→    <div className="space-y-6">
+   432→      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+   433→        <div>
+   434→          <h1 className="text-xl font-bold tracking-tight">{t("nav.customScanner")}</h1>
+   435→          <p className="text-sm text-muted-foreground">
+   436→            {lang === "ar"
+   437→              ? "اجمع شروطاً متعددة (منطق AND) من مؤشرات وأحداث وتوزيعات. كل نتيجة تُشرح من القيم المخزنة فعلياً."
+   438→              : "Combine multiple conditions (AND logic) from metrics, events and dividends. Every result is explained from actual stored values."}
+   439→          </p>
+   440→        </div>
+   441→        <Select value={basis} onValueChange={(v) => setBasis(v as typeof basis)}>
+   442→          <SelectTrigger className="w-[230px] h-9">
+   443→            <SelectValue />
+   444→          </SelectTrigger>
+   445→          <SelectContent>
+   446→            <SelectItem value="LATEST_ANNUAL">{t("sc.basisAnnual")}</SelectItem>
+   447→            <SelectItem value="LATEST_QUARTERLY">{t("sc.basisQuarterly")}</SelectItem>
+   448→          </SelectContent>
+   449→        </Select>
+   450→      </div>
+   451→
+   452→      <div className="grid gap-6 lg:grid-cols-[1fr_380px]">
+   453→        {/* builder */}
+   454→        <Card className="p-0">
+   455→          <CardHeader className="pb-3">
+   456→            <CardTitle className="text-sm flex items-center gap-2">
+   457→              <Wand2 className="h-4 w-4 text-primary" />
+   458→              {t("sc.condition")}s <span className="text-muted-foreground font-normal">(AND)</span>
+   459→            </CardTitle>
+   460→          </CardHeader>
+   461→          <CardContent className="space-y-3">
+   462→            {rows.map((row) => (
+   463→              <div key={row.id} className="grid gap-2 rounded-lg border p-3 sm:grid-cols-[110px_1fr_90px_90px_36px] sm:items-center">
+   464→                <Select
+   465→                  value={row.kind}
+   466→                  onValueChange={(v) => updateRow(row.id, { kind: v as BuilderRow["kind"], code: v === "metric" ? "revenue_growth" : row.code })}
+   467→                >
+   468→                  <SelectTrigger className="h-9" aria-label={t("sc.condition")}>
+   469→                    <SelectValue />
+   470→                  </SelectTrigger>
+   471→                  <SelectContent>
+   472→                    <SelectItem value="metric">{t("sc.metric")}</SelectItem>
+   473→                    <SelectItem value="event">{t("sc.event")}</SelectItem>
+   474→                    <SelectItem value="dividend">{t("sc.dividend")}</SelectItem>
+   475→                  </SelectContent>
+   476→                </Select>
+   477→
+   478→                {row.kind === "metric" ? (
+   479→                  <div className="flex items-center gap-2">
+   480→                    <Select value={row.code} onValueChange={(v) => updateRow(row.id, { code: v })}>
+   481→                      <SelectTrigger className="h-9 flex-1">
+   482→                        <SelectValue />
+   483→                      </SelectTrigger>
+   484→                      <SelectContent className="max-h-72">
+   485→                        {(registry?.calculatedMetrics ?? []).map((m) => (
+   486→                          <SelectItem key={m.code} value={m.code}>
+   487→                            {lang === "ar" ? m.labelAr : m.labelEn}
+   488→                          </SelectItem>
+   489→                        ))}
+   490→                      </SelectContent>
+   491→                    </Select>
+   492→                    {metricUnavailable(row.code) ? (
+   493→                      <span className="text-[10px] text-amber-600 whitespace-nowrap">{t("sc.dataUnavailable")}</span>
+   494→                    ) : null}
+   495→                  </div>
+   496→                ) : row.kind === "event" ? (
+   497→                  <Select value={row.eventType} onValueChange={(v) => updateRow(row.id, { eventType: v })}>
+   498→                    <SelectTrigger className="h-9">
+   499→                      <SelectValue />
+   500→                    </SelectTrigger>
+   501→                    <SelectContent className="max-h-72">
+   502→                      {(registry?.eventTypes ?? []).map((e) => (
+   503→                        <SelectItem key={e.type} value={e.type}>
+   504→                          {lang === "ar" ? e.labelAr : e.labelEn}
+   505→                        </SelectItem>
+   506→                      ))}
+   507→                    </SelectContent>
+   508→                  </Select>
+   509→                ) : (
+   510→                  <Select
+   511→                    value={row.statusAny ? "active" : "paid"}
+   512→                    onValueChange={(v) => updateRow(row.id, { statusAny: v === "active" })}
+   513→                  >
+   514→                    <SelectTrigger className="h-9">
+   515→                      <SelectValue />
+   516→                    </SelectTrigger>
+   517→                    <SelectContent>
+   518→                      <SelectItem value="active">ANNOUNCED / UPCOMING / ELIGIBLE</SelectItem>
+   519→                      <SelectItem value="paid">PAID</SelectItem>
+   520→                    </SelectContent>
+   521→                  </Select>
+   522→                )}
+   523→
+   524→                {row.kind === "metric" ? (
+   525→                  <>
+   526→                    <Select value={row.operator} onValueChange={(v) => updateRow(row.id, { operator: v })}>
+   527→                      <SelectTrigger className="h-9" aria-label={t("sc.operator")}>
+   528→                        <SelectValue />
+   529→                      </SelectTrigger>
+   530→                      <SelectContent>
+   531→                        <SelectItem value=">">{'>'}</SelectItem>
+   532→                        <SelectItem value=">=">≥</SelectItem>
+   533→                        <SelectItem value="<">{'<'}</SelectItem>
+   534→                        <SelectItem value="<=">≤</SelectItem>
+   535→                        <SelectItem value="==">=</SelectItem>
+   536→                        <SelectItem value="!=">≠</SelectItem>
+   537→                      </SelectContent>
+   538→                    </Select>
+   539→                    <Input
+   540→                      type="number"
+   541→                      step="any"
+   542→                      className="h-9 tabular"
+   543→                      value={row.value}
+   544→                      onChange={(e) => updateRow(row.id, { value: e.target.value })}
+   545→                      aria-label={t("sc.value")}
+   546→                    />
+   547→                  </>
+   548→                ) : (
+   549→                  <div className="sm:col-span-2" />
+   550→                )}
+   551→
+   552→                <Button
+   553→                  variant="ghost"
+   554→                  size="icon"
+   555→                  className="h-8 w-8 justify-self-end text-muted-foreground hover:text-red-500"
+   556→                  onClick={() => removeRow(row.id)}
+   557→                  disabled={rows.length === 1}
+   558→                  aria-label={t("common.delete")}
+   559→                >
+   560→                  <X className="h-4 w-4" />
+   561→                </Button>
+   562→              </div>
+   563→            ))}
+   564→
+   565→            <div className="flex flex-col sm:flex-row gap-2 pt-1">
+   566→              <Button variant="outline" size="sm" onClick={addRow}>
+   567→                <Plus className="h-4 w-4" />
+   568→                {t("sc.addCondition")}
+   569→              </Button>
+   570→              <Input
+   571→                className="h-9 flex-1"
+   572→                placeholder={t("sc.ruleName")}
+   573→                value={name}
+   574→                onChange={(e) => setName(e.target.value)}
+   575→              />
+   576→              <Button size="sm" onClick={() => runMutation.mutate()} disabled={runMutation.isPending}>
+   577→                <Play className="h-4 w-4" />
+   578→                {t("common.run")}
+   579→              </Button>
+   580→              <Button size="sm" variant="secondary" onClick={() => saveMutation.mutate()} disabled={!name.trim() || saveMutation.isPending}>
+   581→                <Save className="h-4 w-4" />
+   582→                {t("sc.saveRule")}
+   583→              </Button>
+   584→            </div>
+   585→          </CardContent>
+   586→        </Card>
+   587→
+   588→        {/* results */}
+   589→        <div className="space-y-2">
+   590→          {runMutation.isPending ? (
+   591→            Array.from({ length: 4 }).map((_, i) => <Skeleton key={i} className="h-14 rounded-lg" />)
+   592→          ) : result ? (
+   593→            <>
+   594→              <div className="flex items-center gap-2 text-sm">
+   595→                <Badge className="tabular">{result.matched.length} {t("common.matched")}</Badge>
+   596→                <span className="text-xs text-muted-foreground">{result.periodBasis === "LATEST_ANNUAL" ? t("sc.basisAnnual") : t("sc.basisQuarterly")}</span>
+   597→              </div>
+   598→              {result.validationErrors.length > 0 ? (
+   599→                <div className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-3 text-xs text-amber-700 dark:text-amber-400">
+   600→                  <ul className="list-disc ps-4 space-y-0.5">
+   601→                    {result.validationErrors.map((e, i) => (
+   602→                      <li key={i}>{e}</li>
+   603→                    ))}
+   604→                  </ul>
+   605→                </div>
+   606→              ) : null}
+   607→              <div className="max-h-[560px] space-y-2 overflow-y-auto scrollbar-thin pe-1">
+   608→                {result.results.map((r) => (
+   609→                  <div key={r.companyId} className={`rounded-lg border bg-card p-2.5 ${r.evaluation.matched ? "" : "opacity-60"}`}>
+   610→                    <button className="flex w-full items-center justify-between gap-2 text-start" onClick={() => setExpanded(expanded === r.companyId ? null : r.companyId)}>
+   611→                      <div className="min-w-0">
+   612→                        <span className="text-sm font-bold">{r.ticker}</span>
+   613→                        <span className="ms-2 truncate text-xs text-muted-foreground">{r.evaluation.matchedCount}/{r.evaluation.conditions.length}</span>
+   614→                      </div>
+   615→                      <span className={`text-xs font-semibold ${r.evaluation.matched ? "text-emerald-600" : "text-muted-foreground"}`}>
+   616→                        {r.evaluation.matched ? "✓" : "✗"}
+   617→                      </span>
+   618→                    </button>
+   619→                    {expanded === r.companyId ? (
+   620→                      <div className="mt-2">
+   621→                        <WhyMatchedPanel conditions={r.evaluation.conditions} matched={r.evaluation.matched} />
+   622→                        <Button variant="ghost" size="sm" className="mt-1.5 h-6 text-xs" onClick={() => onOpenCompany(r.companyId)}>
+   623→                          {t("co.profile")}
+   624→                        </Button>
+   625→                      </div>
+   626→                    ) : null}
+   627→                  </div>
+   628→                ))}
+   629→              </div>
+   630→            </>
+   631→          ) : (
+   632→            <Card className="flex h-40 items-center justify-center p-6 text-center text-sm text-muted-foreground">
+   633→              {t("sc.noResults")}
+   634→            </Card>
+   635→          )}
+   636→        </div>
+   637→      </div>
+   638→    </div>
+   639→  )
+   640→}
+   641→

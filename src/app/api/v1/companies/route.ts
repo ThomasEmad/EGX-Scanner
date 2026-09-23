@@ -1,8 +1,12 @@
 import { NextRequest } from "next/server"
 import { db } from "@/lib/db"
+import { fetchCalcMany } from "@/lib/financial/statement-pref"
 
 // GET /api/v1/companies — paginated, searchable, sector-filterable company list
-// with a snapshot of latest-annual key metrics.
+// with a snapshot of latest-annual key metrics. Snapshot metrics are
+// statement-type aware: per company, CONSOLIDATED calculated rows are preferred
+// and STANDALONE rows are used only when the company has no consolidated rows
+// (the two bases are never mixed).
 
 export async function GET(req: NextRequest) {
   const url = new URL(req.url)
@@ -33,13 +37,14 @@ export async function GET(req: NextRequest) {
   ])
 
   // snapshot of latest annual metrics for the listed companies
+  // (one query for all listed ids; per-company consolidated/standalone preference applied)
   const ids = companies.map((c) => c.id)
-  const metrics = ids.length
-    ? await db.calculatedMetric.findMany({
-        where: { companyId: { in: ids }, periodType: "ANNUAL", code: { in: ["revenue", "net_profit", "roe", "total_assets", "revenue_growth", "profit_growth"] } },
-        orderBy: [{ fiscalYear: "asc" }],
+  const { filtered: metrics } = ids.length
+    ? await fetchCalcMany(ids, {
+        periodType: "ANNUAL",
+        code: { in: ["revenue", "net_profit", "roe", "total_assets", "revenue_growth", "profit_growth"] },
       })
-    : []
+    : { filtered: [] }
 
   const snapshot: Record<string, Record<string, { value: number | null; status: string; periodLabel: string }>> = {}
   for (const m of metrics) {

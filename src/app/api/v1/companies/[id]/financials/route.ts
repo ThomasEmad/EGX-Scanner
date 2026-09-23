@@ -1,23 +1,57 @@
+import { NextRequest } from "next/server"
 import { db } from "@/lib/db"
+import {
+  CALC_STATEMENT_TYPES,
+  TRUSTED_REPORT_STATUSES,
+  availableReportStatementTypes,
+  defaultStatementType,
+} from "@/lib/financial/statement-pref"
 
 // GET /api/v1/companies/[id]/financials — source financial values grouped by
-// statement type and period. Values keep their original label + unit + source
+// statement kind and period. Values keep their original label + unit + source
 // traceability (spec #25).
+//
+// Statement-type aware (spec #23): consolidated vs standalone filings are kept
+// separate and NEVER mixed. `?statementType=CONSOLIDATED|STANDALONE` selects one
+// basis; when absent the default is CONSOLIDATED if the company has trusted
+// consolidated reports, else STANDALONE, else whatever exists. Only trusted
+// reports (VALIDATED / APPROVED / EXTRACTED — the calculation engine's trust
+// boundary) contribute periods/statements.
 
-export async function GET(_req: Request, { params }: { params: Promise<{ id: string }> }) {
+export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
   const company = await db.company.findUnique({ where: { id }, select: { id: true } })
   if (!company) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
 
-  const values = await db.financialValue.findMany({
-    where: { companyId: id, validationStatus: "VALID" },
-    include: {
-      report: {
-        select: { id: true, periodLabel: true, periodType: true, fiscalYear: true, processingStatus: true },
-      },
-    },
-    orderBy: [{ reportId: "asc" }],
-  })
+  const availableStatementTypes = await availableReportStatementTypes(id)
+  const requested = new URL(req.url).searchParams.get("statementType")
+  if (requested && !(CALC_STATEMENT_TYPES as readonly string[]).includes(requested)) {
+    return Response.json(
+      { error: "VALIDATION", message: "statementType must be CONSOLIDATED or STANDALONE" },
+      { status: 400 }
+    )
+  }
+  const statementType = requested ?? defaultStatementType(availableStatementTypes)
+
+  // an explicitly requested type that has no trusted reports simply yields empty structures
+  const values = statementType
+    ? await db.financialValue.findMany({
+        where: {
+          companyId: id,
+          validationStatus: "VALID",
+          report: {
+            processingStatus: { in: [...TRUSTED_REPORT_STATUSES] },
+            statementType,
+          },
+        },
+        include: {
+          report: {
+            select: { id: true, periodLabel: true, periodType: true, fiscalYear: true, processingStatus: true },
+          },
+        },
+        orderBy: [{ reportId: "asc" }],
+      })
+    : []
 
   // period columns sorted ascending
   const periodMap = new Map<string, { key: string; label: string; periodType: string; fiscalYear: number }>()
@@ -56,6 +90,8 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   const rows = [...rowsMap.values()]
 
   return Response.json({
+    statementType,
+    availableStatementTypes,
     periods,
     statements: {
       INCOME_STATEMENT: rows.filter((r) => r.statementType === "INCOME_STATEMENT"),

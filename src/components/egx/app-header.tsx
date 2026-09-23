@@ -56,8 +56,8 @@ export function AppHeader({
               <span className="text-sm font-bold tracking-tight">EGX Scanner</span>
               <span className="text-[10px] text-muted-foreground">{t("dash.title")}</span>
             </span>
-            <Badge variant="outline" className="border-amber-500/50 bg-amber-500/10 text-amber-700 dark:text-amber-400 text-[10px] font-bold">
-              {t("common.demoData")}
+            <Badge variant="outline" className="border-emerald-500/50 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-[10px] font-bold">
+              {t("co.trustBadge")}
             </Badge>
           </button>
 

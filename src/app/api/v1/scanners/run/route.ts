@@ -5,11 +5,16 @@ import { validateRuleConditions, type PeriodBasis, type ScanCondition } from "@/
 import { audit } from "@/lib/audit"
 
 // POST /api/v1/scanners/run — run a preset/custom rule or inline conditions.
-// Body: { ruleId? , conditions?, periodBasis: "LATEST_ANNUAL" | "LATEST_QUARTERLY" }
+// Body: { ruleId? , conditions?, periodBasis: "LATEST_ANNUAL" | "LATEST_QUARTERLY" | "LATEST_TTM" }
 // Results always include a per-condition explanation (spec #23).
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null)
-  const basis: PeriodBasis = body?.periodBasis === "LATEST_QUARTERLY" ? "LATEST_QUARTERLY" : "LATEST_ANNUAL"
+  const basis: PeriodBasis =
+    body?.periodBasis === "LATEST_QUARTERLY"
+      ? "LATEST_QUARTERLY"
+      : body?.periodBasis === "LATEST_TTM"
+        ? "LATEST_TTM"
+        : "LATEST_ANNUAL"
 
   let conditions: ScanCondition[] | null = null
   let ruleId: string | null = null

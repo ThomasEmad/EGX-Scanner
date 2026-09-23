@@ -39,6 +39,24 @@ export function ScannersView({
 }
 
 /* ------------------------------------------------------------------ */
+/* Period basis helpers                                                */
+/* ------------------------------------------------------------------ */
+
+type Basis = "LATEST_ANNUAL" | "LATEST_QUARTERLY" | "LATEST_TTM"
+
+function basisShortLabel(basis: string, lang: "en" | "ar"): string {
+  if (basis === "LATEST_TTM") return lang === "ar" ? "متداول" : "TTM"
+  if (basis === "LATEST_QUARTERLY") return lang === "ar" ? "ربعي" : "Q"
+  return lang === "ar" ? "سنوي" : "FY"
+}
+
+function basisKeyLabel(basis: string): "sc.basisAnnual" | "sc.basisQuarterly" | "sc.basisTtm" {
+  if (basis === "LATEST_TTM") return "sc.basisTtm"
+  if (basis === "LATEST_QUARTERLY") return "sc.basisQuarterly"
+  return "sc.basisAnnual"
+}
+
+/* ------------------------------------------------------------------ */
 /* Preset scanners                                                     */
 /* ------------------------------------------------------------------ */
 
@@ -54,7 +72,7 @@ function PresetScanners({
   const { t, lang, pick } = useI18n()
   const queryClient = useQueryClient()
   const [selectedRuleId, setSelectedRuleId] = useState<string | null>(null)
-  const [basis, setBasis] = useState<"LATEST_ANNUAL" | "LATEST_QUARTERLY">("LATEST_ANNUAL")
+  const [basis, setBasis] = useState<Basis>("LATEST_ANNUAL")
   const [result, setResult] = useState<ScanOutput | null>(null)
   const [expanded, setExpanded] = useState<string | null>(null)
 
@@ -384,7 +402,7 @@ function CustomScanners({ onOpenCompany }: { onOpenCompany: (id: string) => void
     { id: rowSeq++, kind: "metric", code: "profit_growth", operator: ">=", value: "30", eventType: "LOSS_TO_PROFIT", statusAny: true },
   ])
   const [name, setName] = useState("")
-  const [basis, setBasis] = useState<"LATEST_ANNUAL" | "LATEST_QUARTERLY">("LATEST_ANNUAL")
+  const [basis, setBasis] = useState<Basis>("LATEST_ANNUAL")
   const [result, setResult] = useState<ScanOutput | null>(null)
   const [expanded, setExpanded] = useState<string | null>(null)
 

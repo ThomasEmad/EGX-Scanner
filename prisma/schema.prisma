@@ -38,9 +38,30 @@ model Company {
   calculatedMetrics CalculatedMetric[]
   events            FinancialEvent[]
   dividends         Dividend[]
+  marketPrices      MarketPrice[]
+  aiAnalyses        AiAnalysis[]
 
   @@index([sector])
   @@index([isActive])
+}
+
+// Market data (price feed). Kept separate from filings: a price point is a
+// timestamped observation from a data source — never inferred from financials.
+// When no price exists, market-dependent metrics stay DATA_UNAVAILABLE.
+model MarketPrice {
+  id         String   @id @default(cuid())
+  companyId  String
+  company    Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  asOf       DateTime
+  price      Float
+  currency   String   @default("EGP")
+  sourceName String
+  isDemoData Boolean  @default(true)
+  notes      String?
+  createdAt  DateTime @default(now())
+
+  @@unique([companyId, asOf])
+  @@index([companyId, asOf])
 }
 
 model FinancialReport {
@@ -49,18 +70,29 @@ model FinancialReport {
   company          Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
   reportType       String // ANNUAL | INTERIM | OTHER
   periodType       String // QUARTERLY | SEMIANNUAL | NINE_MONTH | ANNUAL | TTM | OTHER
+  statementType    String    @default("CONSOLIDATED") // CONSOLIDATED | STANDALONE | UNKNOWN
   fiscalYear       Int
   periodLabel      String // "FY 2024" | "Q2 2025" ...
   periodStart      DateTime?
   periodEnd        DateTime
   publicationDate  DateTime?
+  language         String    @default("UNKNOWN") // EN | AR | MIXED | UNKNOWN
   sourceName       String
   sourceUrl        String?
   localFileRef     String?
+  fileName         String? // original upload filename
   fileHash         String? @unique // SHA-256 of the uploaded document (duplicate protection)
   fileSize         Int?
   processingStatus String    @default("NEW_DOWNLOADED") // NEW_DOWNLOADED | PROCESSING | EXTRACTED | VALIDATED | NEEDS_REVIEW | APPROVED | FAILED | REJECTED
-  extractionMethod String? // SEED_DEMO | PDF_TEXT | CSV_TEXT | MANUAL_ENTRY | OCR
+  extractionMethod String? // SEED_DEMO | PDF_TEXT | PDF_ZLIB | CSV_TEXT | MANUAL_ENTRY | OCR
+  parserVersion    String? // e.g. "extract@2" — pipeline version that produced the values
+  extractionConfidence Float? // average extraction confidence 0..1 across values
+  errorMessage     String?   // human-readable failure reason when processing fails
+  uploadedBy       String?
+  reviewedBy       String?
+  reviewedAt       DateTime?
+  approvedBy       String?
+  approvedAt       DateTime?
   version          Int       @default(1)
   isRestatement    Boolean   @default(false)
   supersedesId     String?
@@ -69,11 +101,14 @@ model FinancialReport {
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
 
-  values FinancialValue[]
+  values            FinancialValue[]
+  validationResults FinancialValidationResult[]
+  extractionLogs    FinancialExtractionLog[]
 
-  @@unique([companyId, periodType, periodLabel, version])
+  @@unique([companyId, periodType, periodLabel, statementType, version])
   @@index([companyId, processingStatus])
   @@index([processingStatus])
+  @@index([companyId, statementType])
 }
 
 // Canonical metric registry — normalization dictionary (EN + AR aliases)
@@ -111,12 +146,63 @@ model FinancialValue {
   validationStatus String    @default("PENDING") // PENDING | VALID | NEEDS_REVIEW | FAILED
   validationNotes  String?
   isDemoData       Boolean   @default(true)
+  originalValue     Float?    // value exactly as first extracted, before any manual correction (null = never corrected)
+  isManuallyCorrected Boolean @default(false)
+  correctedBy       String?
+  correctedAt       DateTime?
+  correctionReason  String?
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
 
   @@unique([reportId, metricCode])
   @@index([companyId, metricCode])
   @@index([validationStatus])
+}
+
+// Structured per-check validation results for a document (balance identity, PBT-tax-NI,
+// sign/unit/currency checks, completeness…). Never silently alters extracted values.
+model FinancialValidationResult {
+  id        String   @id @default(cuid())
+  reportId  String
+  report    FinancialReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+  checkName String   // BALANCE_SHEET_IDENTITY | PBT_TAX_NET_PROFIT | SIGN_CHECK | UNIT_CHECK | CURRENCY_CHECK | COMPLETENESS | PERIOD_CONSISTENCY | DUPLICATE_FIGURE
+  category  String   // MATH | SIGN | UNIT | CURRENCY | COMPLETENESS | PERIOD
+  status    String   // PASSED | WARNING | FAILED | SKIPPED
+  severity  String   @default("INFO") // INFO | WARNING | CRITICAL
+  details   String?
+  createdAt DateTime @default(now())
+
+  @@index([reportId])
+}
+
+// Pipeline run log: every stage of document processing is recorded for traceability
+model FinancialExtractionLog {
+  id        String   @id @default(cuid())
+  reportId  String
+  report    FinancialReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+  stage     String // UPLOAD | PARSE | EXTRACT | NORMALIZE | VALIDATE | FINALIZE
+  level     String   @default("INFO") // INFO | WARN | ERROR
+  message   String
+  details   String?
+  createdAt DateTime @default(now())
+
+  @@index([reportId])
+}
+
+// AI analysis output, grounded exclusively in verified database data.
+// dataHash invalidates the cache when underlying data changes.
+model AiAnalysis {
+  id          String   @id @default(cuid())
+  companyId   String
+  company     Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  periodKey   String?  // anchor period used for the analysis
+  content     String   // generated analysis (markdown)
+  dataHash    String   // SHA-256 of the verified-data snapshot used
+  inputSummary String? // JSON snapshot of the exact data given to the model (for verification)
+  model       String?
+  createdAt   DateTime @default(now())
+
+  @@index([companyId, createdAt])
 }
 
 // Derived metrics stored separately from source values, with formula version
@@ -134,9 +220,10 @@ model CalculatedMetric {
   statusDetail    String? // human explanation when not OK
   formulaVersion  String // "revenue_growth@1"
   sourcePeriods   String   @default("[]") // JSON array of period keys used
+  statementType   String   @default("CONSOLIDATED") // CONSOLIDATED | STANDALONE — never mix the two
   calculatedAt    DateTime @default(now())
 
-  @@unique([companyId, code, periodKey])
+  @@unique([companyId, code, periodKey, statementType])
   @@index([companyId, periodKey])
   @@index([code])
 }
