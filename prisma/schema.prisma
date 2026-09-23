@@ -1,0 +1,234 @@
+// EGX Financial Scanner — data model
+// Principles (from master spec):
+//  - Never invent financial data; every value keeps original label + source traceability
+//  - Raw financial values and derived/calculated metrics are stored SEPARATELY
+//  - Reports are versioned (restatements never destroy history)
+//  - Every uploaded document is hashed (SHA-256) for duplicate protection
+//  - Demo/synthetic data is always explicitly flagged (isDemoData)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id            String   @id @default(cuid())
+  ticker        String   @unique
+  isin          String?  @unique
+  nameEn        String
+  nameAr        String?
+  sector        String // Banks | Real Estate | Industrial | Telecom | Healthcare | Food | Investment | Financial Services | Consumer | Other
+  industry      String?
+  listingStatus String   @default("LISTED") // LISTED | SUSPENDED | DELISTED
+  isActive      Boolean  @default(true)
+  isDemoData    Boolean  @default(true)
+  sharesOutstanding Float? // shares in units (for EPS calculation)
+  website           String?
+  descriptionEn String?
+  descriptionAr String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  reports           FinancialReport[]
+  values            FinancialValue[]
+  calculatedMetrics CalculatedMetric[]
+  events            FinancialEvent[]
+  dividends         Dividend[]
+
+  @@index([sector])
+  @@index([isActive])
+}
+
+model FinancialReport {
+  id               String    @id @default(cuid())
+  companyId        String
+  company          Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  reportType       String // ANNUAL | INTERIM | OTHER
+  periodType       String // QUARTERLY | SEMIANNUAL | NINE_MONTH | ANNUAL | TTM | OTHER
+  fiscalYear       Int
+  periodLabel      String // "FY 2024" | "Q2 2025" ...
+  periodStart      DateTime?
+  periodEnd        DateTime
+  publicationDate  DateTime?
+  sourceName       String
+  sourceUrl        String?
+  localFileRef     String?
+  fileHash         String? @unique // SHA-256 of the uploaded document (duplicate protection)
+  fileSize         Int?
+  processingStatus String    @default("NEW_DOWNLOADED") // NEW_DOWNLOADED | PROCESSING | EXTRACTED | VALIDATED | NEEDS_REVIEW | APPROVED | FAILED | REJECTED
+  extractionMethod String? // SEED_DEMO | PDF_TEXT | CSV_TEXT | MANUAL_ENTRY | OCR
+  version          Int       @default(1)
+  isRestatement    Boolean   @default(false)
+  supersedesId     String?
+  isDemoData       Boolean   @default(true)
+  notes            String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  values FinancialValue[]
+
+  @@unique([companyId, periodType, periodLabel, version])
+  @@index([companyId, processingStatus])
+  @@index([processingStatus])
+}
+
+// Canonical metric registry — normalization dictionary (EN + AR aliases)
+model MetricDefinition {
+  id               String   @id @default(cuid())
+  code             String   @unique // REVENUE, NET_PROFIT, TOTAL_ASSETS ...
+  labelEn          String
+  labelAr          String?
+  statementType    String // INCOME_STATEMENT | BALANCE_SHEET | CASH_FLOW | OTHER
+  description      String?
+  aliases          String   @default("[]") // JSON string array (EN + AR aliases for extraction)
+  appliesToSectors String? // JSON string array; null = applies to all sectors
+  calcRole         String   @default("INPUT") // INPUT (source value) | CALCULATED (derived)
+  isActive         Boolean  @default(true)
+  createdAt        DateTime @default(now())
+}
+
+model FinancialValue {
+  id               String    @id @default(cuid())
+  companyId        String
+  company          Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  reportId         String
+  report           FinancialReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+  metricCode       String // canonical code from registry
+  originalLabel    String // preserved original extraction label (never destroyed)
+  value            Float // as printed in the document
+  currency         String    @default("EGP")
+  unit             String    @default("MILLION") // UNIT | THOUSAND | MILLION | BILLION
+  normalizedValue  Float // value converted to plain EGP units
+  statementType    String
+  sourcePage       Int?
+  sourceText       String?
+  extractionMethod String // SEED_DEMO | PDF_TEXT | CSV_TEXT | MANUAL_ENTRY | OCR
+  confidence       Float     @default(1) // 0..1
+  validationStatus String    @default("PENDING") // PENDING | VALID | NEEDS_REVIEW | FAILED
+  validationNotes  String?
+  isDemoData       Boolean   @default(true)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  @@unique([reportId, metricCode])
+  @@index([companyId, metricCode])
+  @@index([validationStatus])
+}
+
+// Derived metrics stored separately from source values, with formula version
+model CalculatedMetric {
+  id              String   @id @default(cuid())
+  companyId       String
+  company         Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  code            String // revenue_growth, roe, net_margin, p_b ...
+  periodKey       String // "ANNUAL:2024:" | "QUARTERLY:2025:Q2"
+  periodType      String
+  fiscalYear      Int
+  periodLabel     String
+  value           Float?
+  valueStatus     String   @default("OK") // OK | DATA_UNAVAILABLE | NOT_APPLICABLE | NOT_COMPUTABLE
+  statusDetail    String? // human explanation when not OK
+  formulaVersion  String // "revenue_growth@1"
+  sourcePeriods   String   @default("[]") // JSON array of period keys used
+  calculatedAt    DateTime @default(now())
+
+  @@unique([companyId, code, periodKey])
+  @@index([companyId, periodKey])
+  @@index([code])
+}
+
+model FinancialEvent {
+  id               String   @id @default(cuid())
+  companyId        String
+  company          Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  eventType        String // LOSS_TO_PROFIT | PROFIT_TO_LOSS | PROFIT_ACCELERATION | REVENUE_GROWTH | DEBT_REDUCTION | EQUITY_GROWTH | CASH_FLOW_IMPROVEMENT | FINANCIAL_RECOVERY | FINANCIAL_DETERIORATION | STRONG_PROFITABILITY | HIGH_ASSETS
+  periodType       String
+  fiscalYear       Int
+  periodLabel      String
+  currentPeriodKey  String
+  previousPeriodKey String?
+  conditions       String   @default("[]") // JSON array of matched condition details
+  explanationEn    String
+  explanationAr    String?
+  ruleVersion      String   @default("events@1")
+  detectedAt       DateTime @default(now())
+
+  @@unique([companyId, eventType, currentPeriodKey])
+  @@index([eventType])
+  @@index([companyId])
+}
+
+model Dividend {
+  id                String    @id @default(cuid())
+  companyId         String
+  company           Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  announcementDate  DateTime?
+  eligibilityDate   DateTime?
+  exDividendDate    DateTime?
+  distributionDate  DateTime?
+  dividendPerShare  Float?
+  currency          String    @default("EGP")
+  dividendType      String    @default("CASH") // CASH | STOCK | SPECIAL
+  status            String // ANNOUNCED | UPCOMING | ELIGIBLE | PAID | EXPIRED | CANCELLED
+  sourceName        String
+  sourceUrl         String?
+  isDemoData        Boolean   @default(true)
+  notes             String? // e.g. "Distribution date not officially announced"
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  @@index([status])
+  @@index([companyId])
+}
+
+model ScannerRule {
+  id          String       @id @default(cuid())
+  name        String       @unique
+  nameAr      String?
+  description String?
+  isPreset    Boolean      @default(false)
+  presetKey   String?      @unique // TURNAROUND, PROFIT_GROWTH ...
+  conditions  String // JSON array: [{kind:"metric",code,operator,value}|{kind:"event",eventType}|{kind:"dividend",statuses:[]}]
+  createdBy   String       @default("system")
+  isActive    Boolean      @default(true)
+  createdAt   DateTime     @default(now())
+  runs        ScannerRun[]
+}
+
+model ScannerRun {
+  id                String   @id @default(cuid())
+  ruleId            String?
+  rule              ScannerRule? @relation(fields: [ruleId], references: [id], onDelete: SetNull)
+  ruleName          String
+  ruleSnapshot      String // JSON conditions snapshot
+  periodBasis       String // LATEST_ANNUAL | LATEST_QUARTERLY
+  matchedCount      Int      @default(0)
+  matchedCompanyIds String   @default("[]") // JSON array
+  ranAt             DateTime @default(now())
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  actor      String   @default("system")
+  action     String // SEED, UPLOAD, PROCESS, EXTRACT, VALIDATE, REVIEW_APPROVE, REVIEW_EDIT, REVIEW_REJECT, CALCULATE, DETECT_EVENTS, SCAN, ADMIN_LOGIN ...
+  entityType String?
+  entityId   String?
+  details    String?
+  createdAt  DateTime @default(now())
+
+  @@index([entityType, entityId])
+  @@index([action])
+}
+
+model DataSource {
+  id       String   @id @default(cuid())
+  name     String   @unique
+  kind     String // MANUAL_UPLOAD | AUTO_COLLECTOR | EXTERNAL_API | SEED_DEMO
+  config   String?
+  isActive Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
