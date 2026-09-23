@@ -7,6 +7,9 @@ import { CALC_METRIC_MAP, CALC_METRICS, EVENT_TYPE_MAP, RAW_METRIC_MAP } from ".
 import { formatEgp, formatPercent, formatRatio } from "./units"
 import type { MetricResult } from "./calc"
 
+export type { PeriodBasis } from "./periods"
+import type { PeriodBasis } from "./periods"
+
 export type ScanCondition =
   | { kind: "metric"; code: string; operator: Operator; value: number }
   | { kind: "event"; eventType: string }
@@ -161,9 +164,8 @@ export function validateRuleConditions(conditions: ScanCondition[]): { valid: bo
       if (!def) errors.push(`Unknown metric code "${c.code}"`)
       if (!isOperator(c.operator)) errors.push(`Invalid operator "${c.operator}"`)
       if (typeof c.value !== "number" || Number.isNaN(c.value)) errors.push(`Invalid threshold for metric "${c.code}"`)
-      if (def?.kind === "market") {
-        errors.push(`Metric "${c.code}" is market-dependent and market data is not connected — it will always be DATA_UNAVAILABLE`)
-      }
+      // Market metrics (p_b, p_e, ...) are allowed: they are computed when a market
+      // price exists and stay DATA_UNAVAILABLE otherwise — never silently zero.
     } else if (c.kind === "event") {
       if (!EVENT_TYPE_MAP[c.eventType]) errors.push(`Unknown event type "${c.eventType}"`)
     } else if (c.kind === "dividend") {
@@ -180,7 +182,7 @@ export function validateRuleConditions(conditions: ScanCondition[]): { valid: bo
 
 /** Which scan-able metrics exist (for the custom scanner builder) */
 export function scannableMetricCodes(): string[] {
-  return CALC_METRICS.filter((m) => m.kind !== "market").map((m) => m.code)
+  return CALC_METRICS.map((m) => m.code)
 }
 
 /** Metric availability check for a rule vs a set of contexts (do not silently ignore unavailable conditions) */

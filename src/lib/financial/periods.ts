@@ -6,7 +6,7 @@
 export const PERIOD_TYPES = ["QUARTERLY", "SEMIANNUAL", "NINE_MONTH", "ANNUAL", "TTM", "OTHER"] as const
 export type PeriodType = (typeof PERIOD_TYPES)[number]
 
-export type PeriodBasis = "LATEST_ANNUAL" | "LATEST_QUARTERLY"
+export type PeriodBasis = "LATEST_ANNUAL" | "LATEST_QUARTERLY" | "LATEST_TTM"
 
 /** Build canonical period key, e.g. "ANNUAL:2024:", "QUARTERLY:2025:Q2", "SEMIANNUAL:2025:H1" */
 export function periodKey(periodType: string, fiscalYear: number, sub?: string | null): string {
@@ -49,6 +49,7 @@ export function extractSub(periodType: string, periodLabel: string): string {
 /**
  * The comparable previous period key for YoY comparison, or null when none exists.
  * Q2 2026 compares to Q2 2025 — never Q2 2026 vs FY 2025.
+ * TTM ending Q2 2025 compares to TTM ending Q2 2024 (same trailing window one year earlier).
  */
 export function previousComparableKey(key: string): string | null {
   const { periodType, fiscalYear, sub } = parsePeriodKey(key)
@@ -56,7 +57,11 @@ export function previousComparableKey(key: string): string | null {
     if (fiscalYear <= 1900) return null
     return periodKey(periodType, fiscalYear - 1, sub)
   }
-  return null // TTM / OTHER have no defined comparable previous
+  if (periodType === "TTM" && sub) {
+    if (fiscalYear <= 1900) return null
+    return periodKey("TTM", fiscalYear - 1, sub)
+  }
+  return null // OTHER has no defined comparable previous
 }
 
 /** Human-readable label for a period key */
@@ -72,7 +77,7 @@ export function periodKeyLabel(key: string): string {
     case "NINE_MONTH":
       return `9M ${fiscalYear}`
     case "TTM":
-      return `TTM ${fiscalYear}`
+      return sub ? `TTM ending ${sub} ${fiscalYear}` : `TTM ${fiscalYear}`
     default:
       return `${periodType} ${fiscalYear} ${sub}`.trim()
   }
@@ -80,5 +85,16 @@ export function periodKeyLabel(key: string): string {
 
 /** Comparison basis selection name for UI */
 export function basisLabel(basis: PeriodBasis): string {
-  return basis === "LATEST_ANNUAL" ? "Latest annual (FY vs FY)" : "Latest quarter (QoQ YoY)"
+  return basis === "LATEST_ANNUAL"
+    ? "Latest annual (FY vs FY)"
+    : basis === "LATEST_TTM"
+      ? "Trailing twelve months (TTM)"
+      : "Latest quarter (YoY)"
+}
+
+/** Quarter index within the quarter sequence: Q1 2024 -> 2024*4 + 0 */
+export function quarterSequenceIndex(fiscalYear: number, sub: string): number | null {
+  const m = /^Q([1-4])$/.exec(sub)
+  if (!m) return null
+  return fiscalYear * 4 + (Number(m[1]) - 1)
 }

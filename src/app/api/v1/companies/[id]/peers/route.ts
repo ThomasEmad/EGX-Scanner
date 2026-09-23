@@ -1,9 +1,13 @@
 import { db } from "@/lib/db"
+import { preferConsolidatedRows, type CalcMetricRow } from "@/lib/financial/statement-pref"
 
 // GET /api/v1/companies/[id]/peers — sector peer comparison on the latest annual
 // period. Falls back to all sectors when the company's sector has fewer than 3
 // listed peers (the response flags which basis was used). Derived metrics come
 // exclusively from stored CalculatedMetric rows — never recomputed ad hoc.
+// Statement-type aware: per company, CONSOLIDATED rows are preferred and
+// STANDALONE rows are used only when the company has no consolidated rows
+// (medians are computed from the preferred basis of each peer, never mixed).
 
 const PEER_CODES = ["roe", "net_margin", "revenue_growth", "debt_to_equity", "net_profit"] as const
 
@@ -38,14 +42,23 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
     orderBy: { ticker: "asc" },
   })
 
-  const metrics = await db.calculatedMetric.findMany({
-    where: { companyId: { in: peers.map((p) => p.id) }, periodKey: latest.periodKey, code: { in: [...PEER_CODES] } },
-    select: { companyId: true, code: true, value: true, valueStatus: true },
-  })
+  // annotation gives the Prisma payload a concrete shape (needed for generic inference)
+  const metrics: Pick<CalcMetricRow, "companyId" | "code" | "value" | "valueStatus" | "statementType">[] =
+    await db.calculatedMetric.findMany({
+      where: {
+        companyId: { in: peers.map((p) => p.id) },
+        periodKey: latest.periodKey,
+        code: { in: [...PEER_CODES] },
+        statementType: { in: ["CONSOLIDATED", "STANDALONE"] },
+      },
+      select: { companyId: true, code: true, value: true, valueStatus: true, statementType: true },
+    })
+  // per-company preference before any comparison/median math
+  const preferredMetrics = preferConsolidatedRows(metrics)
 
   const byCompany = new Map<string, Record<string, number | null>>()
   for (const p of peers) byCompany.set(p.id, {})
-  for (const m of metrics) {
+  for (const m of preferredMetrics) {
     const row = byCompany.get(m.companyId)
     if (!row) continue
     if (m.valueStatus === "OK" && m.value !== null) row[m.code] = m.value

@@ -3,11 +3,13 @@ import { db } from "@/lib/db"
 import { isAdmin, unauthorizedResponse } from "@/lib/admin-auth"
 import { audit } from "@/lib/audit"
 import { normalizeToEgp, isUnit } from "@/lib/financial/units"
-import { RAW_METRIC_MAP } from "@/lib/financial/registry"
+import { RAW_METRIC_MAP, isUnitlessMetric } from "@/lib/financial/registry"
 import { recomputeCompany } from "@/lib/financial/recompute"
 
 // POST /api/v1/review/values/[id] — admin review actions: approve | edit | reject.
-// Every manual correction is logged (spec #17).
+// Every manual correction is audit-logged AND keeps a per-value correction trail
+// (originalValue is snapshotted on first correction, never overwritten afterwards;
+// correctedBy/correctedAt/correctionReason record who changed what and why — spec #17).
 
 export async function POST(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   if (!isAdmin(req)) return unauthorizedResponse()
@@ -40,22 +42,34 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     if (!RAW_METRIC_MAP[newMetricCode]) {
       return Response.json({ error: "VALIDATION", message: `Unknown metric code "${newMetricCode}"` }, { status: 400 })
     }
+    const reason =
+      typeof body?.reason === "string" && body.reason.trim()
+        ? body.reason.trim()
+        : "Manual correction during review"
+    // Per-share (EPS/DPS/BVPS) and share-count values are never unit-scaled
+    const normalizedValue = isUnitlessMetric(newMetricCode) ? newValue : normalizeToEgp(newValue, newUnit)
     await db.financialValue.update({
       where: { id },
       data: {
         value: newValue,
         unit: newUnit,
         metricCode: newMetricCode,
-        normalizedValue: normalizeToEgp(newValue, newUnit),
+        normalizedValue,
         validationStatus: "VALID",
         validationNotes: (value.validationNotes ? value.validationNotes + " | " : "") + `Manually corrected by admin (was ${value.metricCode} = ${value.value} ${value.unit})`,
+        // ---- manual-correction audit trail (first correction snapshots the original) ----
+        originalValue: value.originalValue ?? value.value,
+        isManuallyCorrected: true,
+        correctedBy: "admin",
+        correctedAt: new Date(),
+        correctionReason: reason,
       },
     })
     await audit("REVIEW_EDIT", {
       actor: "admin",
       entityType: "FinancialValue",
       entityId: id,
-      details: `Corrected ${value.metricCode} = ${value.value} ${value.unit} → ${newMetricCode} = ${newValue} ${newUnit}`,
+      details: `Corrected ${value.metricCode} = ${value.value} ${value.unit} → ${newMetricCode} = ${newValue} ${newUnit} (${reason})`,
     })
   }
 
@@ -69,9 +83,13 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
   // refresh report status: if no more review items, mark validated
   const remaining = await db.financialValue.count({ where: { reportId: value.reportId, validationStatus: "NEEDS_REVIEW" } })
+  const failed = await db.financialValue.count({ where: { reportId: value.reportId, validationStatus: "FAILED" } })
   const report = await db.financialReport.findUnique({ where: { id: value.reportId }, select: { processingStatus: true, companyId: true } })
   if (report && remaining === 0 && report.processingStatus === "NEEDS_REVIEW") {
-    await db.financialReport.update({ where: { id: value.reportId }, data: { processingStatus: "VALIDATED" } })
+    await db.financialReport.update({
+      where: { id: value.reportId },
+      data: { processingStatus: failed > 0 ? "NEEDS_REVIEW" : "VALIDATED" },
+    })
   }
 
   const recompute = await recomputeCompany(value.companyId)

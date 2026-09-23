@@ -1,7 +1,7 @@
 "use client"
 
 import { useQuery } from "@tanstack/react-query"
-import { ArrowRight, Building2, CalendarDays, FileWarning, ScanSearch, Sparkles, Star, TrendingDown, TrendingUp } from "lucide-react"
+import { ArrowRight, BellRing, Building2, CalendarDays, FileWarning, Percent, Scale, ScanSearch, Sparkles, Star, TrendingDown, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -24,6 +24,16 @@ export function DashboardView({
   const { t, lang, pick } = useI18n()
   const { data, isLoading, error } = useQuery({ queryKey: ["dashboard"], queryFn: api.dashboard })
   const watchItems = useWatchlist((s) => s.items)
+  const watchIds = watchItems.map((w) => w.id)
+
+  // Watchlist alerts digest — latest events among watched companies (client-side
+  // preference; the filter itself runs server-side via /api/v1/events?companyIds=)
+  const alertsQuery = useQuery({
+    queryKey: ["watch-alerts", watchIds.join(",")],
+    queryFn: () => api.eventsFeed(watchIds, 8),
+    enabled: watchIds.length > 0,
+    refetchInterval: 60_000,
+  })
 
   if (isLoading) {
     return (
@@ -118,6 +128,53 @@ export function DashboardView({
               {lang === "ar" ? "إدارة" : "Manage"}
             </button>
           </div>
+        </section>
+      ) : null}
+
+      {/* Watchlist alerts digest */}
+      {watchItems.length > 0 ? (
+        <section aria-label={t("dash.watchAlerts")} className="rounded-xl border border-sky-500/25 bg-sky-500/5 p-4">
+          <div className="flex items-center gap-2">
+            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-sky-500/15 text-sky-600 dark:text-sky-400">
+              <BellRing className="h-4 w-4" />
+            </span>
+            <div className="min-w-0 flex-1">
+              <h2 className="text-sm font-semibold leading-tight">{t("dash.watchAlerts")}</h2>
+              <p className="text-[11px] text-muted-foreground">{t("dash.watchAlertsSub")}</p>
+            </div>
+          </div>
+          {alertsQuery.isLoading ? (
+            <div className="mt-3 space-y-2">
+              {Array.from({ length: 2 }).map((_, i) => (
+                <Skeleton key={i} className="h-12 rounded-lg" />
+              ))}
+            </div>
+          ) : !alertsQuery.data || alertsQuery.data.events.length === 0 ? (
+            <p className="mt-3 text-xs italic text-muted-foreground">{t("dash.watchNoEvents")}</p>
+          ) : (
+            <div className="mt-3 grid gap-2 sm:grid-cols-2">
+              {alertsQuery.data.events.map((e) => {
+                const meta = EVENT_TYPE_MAP[e.eventType]
+                const toneDot = meta?.tone === "positive" ? "bg-emerald-500" : meta?.tone === "negative" ? "bg-red-500" : "bg-slate-400"
+                return (
+                  <button
+                    key={e.id}
+                    onClick={() => onOpenCompany(e.company.id)}
+                    className="flex items-center gap-2.5 rounded-lg border bg-card px-3 py-2 text-start transition-colors hover:bg-muted/50"
+                  >
+                    <span className={`h-2 w-2 shrink-0 rounded-full ${toneDot}`} aria-hidden />
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-1.5 text-xs">
+                        <span className="font-bold">{e.company.ticker}</span>
+                        <span className="truncate font-medium">{pick(e.labelEn, e.labelAr)}</span>
+                      </div>
+                      <p className="truncate text-[10px] text-muted-foreground">{e.periodLabel} · {pick(e.explanationEn, e.explanationAr)}</p>
+                    </div>
+                  </button>
+                )
+              })}
+            </div>
+          )}
         </section>
       ) : null}
 
@@ -303,4 +360,6 @@ const presetIcons: Record<string, { icon: React.ReactNode; bg: string }> = {
   HIGH_ASSETS: { icon: <Building2 className="h-4.5 w-4.5" />, bg: "bg-slate-500/10 text-slate-600" },
   PROFIT_ACCELERATION: { icon: <TrendingUp className="h-4.5 w-4.5" />, bg: "bg-green-500/10 text-green-700" },
   DIVIDEND_CALENDAR: { icon: <CalendarDays className="h-4.5 w-4.5" />, bg: "bg-teal-500/10 text-teal-700" },
+  VALUE_P_B: { icon: <Scale className="h-4.5 w-4.5" />, bg: "bg-violet-500/10 text-violet-600" },
+  DIVIDEND_YIELD: { icon: <Percent className="h-4.5 w-4.5" />, bg: "bg-fuchsia-500/10 text-fuchsia-600" },
 }

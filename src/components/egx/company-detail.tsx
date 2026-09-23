@@ -1,16 +1,39 @@
 "use client"
 
 import { useState } from "react"
-import { useQuery } from "@tanstack/react-query"
-import { ArrowLeft, BarChart3, CalendarDays, Download, FileText, Flame, Info, ScanSearch, Table2, Users } from "lucide-react"
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
+import ReactMarkdown, { type Components } from "react-markdown"
+import {
+  AlertTriangle,
+  ArrowLeft,
+  BarChart3,
+  CalendarDays,
+  Check,
+  Copy,
+  Download,
+  ExternalLink,
+  FileText,
+  FileX2,
+  Flame,
+  Info,
+  RefreshCw,
+  ScanSearch,
+  ShieldCheck,
+  Sparkles,
+  Table2,
+  TrendingUp,
+  Users,
+} from "lucide-react"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { api, type EventItem } from "@/lib/client/api"
-import { useI18n } from "@/lib/i18n"
+import { api, type EventItem, type MetricsData, type ReportValueRow } from "@/lib/client/api"
+import { useI18n, type DictKey } from "@/lib/i18n"
 import { formatEgp, formatPercent, formatRatio } from "@/lib/financial/units"
 import { DemoBadge, EventBadge, StarButton, StatusChip } from "./shared"
 
@@ -22,7 +45,46 @@ const PEER_METRICS = [
   { code: "net_profit", fmt: (v: number) => formatEgp(v), betterWhen: "higher" },
 ] as const
 
-type SubTab = "overview" | "statements" | "growth" | "events" | "peers" | "dividends" | "reports"
+type SubTab = "overview" | "statements" | "growth" | "events" | "peers" | "dividends" | "reports" | "ai"
+
+/** Bilingual label for a report statement basis (CONSOLIDATED / STANDALONE). */
+function basisBadgeLabel(basis: string | null | undefined, t: (k: DictKey) => string): string {
+  if (basis === "STANDALONE") return t("rp.standalone")
+  if (basis === "CONSOLIDATED") return t("rp.consolidated")
+  return basis ?? "—"
+}
+
+// Manual prose styling for the AI analysis markdown (no typography plugin).
+const mdComponents: Components = {
+  h1: ({ children }) => <h2 className="mt-5 text-base font-bold first:mt-0">{children}</h2>,
+  h2: ({ children }) => <h3 className="mt-5 text-sm font-bold first:mt-0">{children}</h3>,
+  h3: ({ children }) => <h4 className="mt-4 text-sm font-semibold first:mt-0">{children}</h4>,
+  h4: ({ children }) => <h5 className="mt-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground first:mt-0">{children}</h5>,
+  p: ({ children }) => <p className="text-sm leading-relaxed">{children}</p>,
+  ul: ({ children }) => <ul className="my-2 list-disc space-y-1 ps-5 text-sm">{children}</ul>,
+  ol: ({ children }) => <ol className="my-2 list-decimal space-y-1 ps-5 text-sm">{children}</ol>,
+  li: ({ children }) => <li className="leading-relaxed">{children}</li>,
+  strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+  a: ({ children, href }) => (
+    <a href={href} target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
+      {children}
+    </a>
+  ),
+  blockquote: ({ children }) => (
+    <blockquote className="my-2 border-s-2 border-border ps-3 text-sm italic text-muted-foreground">{children}</blockquote>
+  ),
+  hr: () => <hr className="my-4 border-border" />,
+  code: ({ children }) => <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">{children}</code>,
+  pre: ({ children }) => <pre className="my-2 overflow-x-auto rounded-md bg-muted p-3 text-xs">{children}</pre>,
+  table: ({ children }) => (
+    <div className="my-3 overflow-x-auto rounded-md border">
+      <table className="w-full text-xs">{children}</table>
+    </div>
+  ),
+  thead: ({ children }) => <thead className="bg-muted/50">{children}</thead>,
+  th: ({ children }) => <th className="border-b p-2 text-start font-medium">{children}</th>,
+  td: ({ children }) => <td className="border-b p-2 align-top">{children}</td>,
+}
 
 export function CompanyDetail({
   companyId,
@@ -35,8 +97,15 @@ export function CompanyDetail({
 }) {
   const { t, lang, pick } = useI18n()
   const [sub, setSub] = useState<SubTab>("overview")
+  const [basisOverride, setBasisOverride] = useState<string | null>(null)
 
   const { data, isLoading } = useQuery({ queryKey: ["company", companyId], queryFn: () => api.company(companyId) })
+
+  // Discovery query for available statement bases — shares the cache with the
+  // Statements tab's default ("auto") fetch, so no extra request when both mount.
+  const { data: finAvail } = useQuery({ queryKey: ["financials", companyId, "auto"], queryFn: () => api.financials(companyId) })
+  const availableBases = finAvail?.availableStatementTypes ?? []
+  const effectiveBasis = basisOverride ?? finAvail?.statementType ?? null
 
   if (isLoading || !data) {
     return (
@@ -65,6 +134,16 @@ export function CompanyDetail({
               <h1 className="text-2xl font-bold tracking-tight">{c.ticker}</h1>
               {c.isDemoData ? <DemoBadge /> : null}
               <StatusChip status={c.listingStatus} />
+              {c.counts.values > 0 ? (
+                <Badge
+                  variant="outline"
+                  className="border-emerald-500/40 bg-emerald-500/10 text-[10px] text-emerald-700 dark:text-emerald-400"
+                  title={t("co.aiGrounded")}
+                >
+                  <ShieldCheck className="me-1 h-3 w-3" aria-hidden />
+                  {t("co.trustBadge")}
+                </Badge>
+              ) : null}
               <StarButton companyId={c.id} ticker={c.ticker} className="border" />
             </div>
             <p className="mt-1 text-sm font-medium">{pick(c.nameEn, c.nameAr)}</p>
@@ -97,9 +176,9 @@ export function CompanyDetail({
                     variant="outline"
                     className="cursor-pointer border-primary/40 bg-primary/5 text-primary hover:bg-primary/15 text-[10px]"
                     onClick={() => onOpenScannerByPresetKey(m.presetKey, onOpenScanner)}
-                    title={m.basis === "LATEST_ANNUAL" ? t("sc.basisAnnual") : t("sc.basisQuarterly")}
+                    title={m.basis === "LATEST_TTM" ? t("sc.basisTtm") : m.basis === "LATEST_QUARTERLY" ? t("sc.basisQuarterly") : t("sc.basisAnnual")}
                   >
-                    {pick(m.name, m.nameAr)} · {m.basis === "LATEST_ANNUAL" ? "FY" : "Q"}
+                    {pick(m.name, m.nameAr)} · {m.basis === "LATEST_TTM" ? "TTM" : m.basis === "LATEST_QUARTERLY" ? "Q" : "FY"}
                   </Badge>
                 ))}
               </div>
@@ -107,6 +186,10 @@ export function CompanyDetail({
           </div>
         </div>
       </div>
+
+      {availableBases.length > 1 ? (
+        <StatementBasisToggle available={availableBases} value={effectiveBasis} onSelect={setBasisOverride} />
+      ) : null}
 
       <Tabs value={sub} onValueChange={(v) => setSub(v as SubTab)}>
         <TabsList className="w-full justify-start overflow-x-auto h-auto flex-wrap sm:flex-nowrap">
@@ -117,16 +200,17 @@ export function CompanyDetail({
           <TabsTrigger value="peers" className="gap-1.5"><Users className="h-3.5 w-3.5" />{t("peers.tab")}</TabsTrigger>
           <TabsTrigger value="dividends" className="gap-1.5"><CalendarDays className="h-3.5 w-3.5" />{t("co.dividends")}</TabsTrigger>
           <TabsTrigger value="reports" className="gap-1.5"><FileText className="h-3.5 w-3.5" />{t("co.reports")} ({c.counts.reports})</TabsTrigger>
+          <TabsTrigger value="ai" className="gap-1.5"><Sparkles className="h-3.5 w-3.5" />{t("co.aiAnalysis")}</TabsTrigger>
         </TabsList>
 
         <TabsContent value="overview" className="mt-4">
-          <OverviewTab companyId={companyId} />
+          <OverviewTab companyId={companyId} basis={basisOverride} />
         </TabsContent>
         <TabsContent value="statements" className="mt-4">
-          <StatementsTab companyId={companyId} />
+          <StatementsTab companyId={companyId} basis={basisOverride} />
         </TabsContent>
         <TabsContent value="growth" className="mt-4">
-          <GrowthTab companyId={companyId} />
+          <GrowthTab companyId={companyId} basis={basisOverride} />
         </TabsContent>
         <TabsContent value="events" className="mt-4">
           <EventsTab companyId={companyId} />
@@ -140,6 +224,9 @@ export function CompanyDetail({
         <TabsContent value="reports" className="mt-4">
           <ReportsTab companyId={companyId} />
         </TabsContent>
+        <TabsContent value="ai" className="mt-4">
+          <AiAnalysisTab companyId={companyId} />
+        </TabsContent>
       </Tabs>
     </div>
   )
@@ -151,16 +238,83 @@ function onOpenScannerByPresetKey(presetKey: string, onOpenScanner: (ruleId: str
   onOpenScanner(presetKey)
 }
 
+/* ---------------- Statement basis toggle ---------------- */
+
+function StatementBasisToggle({
+  available,
+  value,
+  onSelect,
+}: {
+  available: string[]
+  value: string | null
+  onSelect: (basis: string) => void
+}) {
+  const { t } = useI18n()
+  return (
+    <div className="flex flex-wrap items-center justify-end gap-2">
+      <span className="text-xs text-muted-foreground">{t("co.statementBasis")}</span>
+      <div className="inline-flex rounded-lg border bg-muted/30 p-0.5" role="group" aria-label={t("co.statementBasis")}>
+        {available.map((bt) => {
+          const active = value === bt
+          return (
+            <button
+              key={bt}
+              type="button"
+              aria-pressed={active}
+              onClick={() => onSelect(bt)}
+              className={`rounded-md px-2.5 py-1 text-xs transition-colors ${active ? "bg-primary/10 font-medium text-primary" : "text-muted-foreground hover:bg-muted"}`}
+            >
+              {basisBadgeLabel(bt, t)}
+            </button>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+/* ---------------- Empty state (no verified financial data) ---------------- */
+
+function NoFinancialsEmpty({ bare = false }: { bare?: boolean }) {
+  const { t } = useI18n()
+  const inner = (
+    <div className={`flex flex-col items-center justify-center gap-3 text-center ${bare ? "p-10" : ""}`}>
+      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-muted">
+        <FileX2 className="h-7 w-7 text-muted-foreground" aria-hidden />
+      </div>
+      <div className="space-y-1.5">
+        <p className="font-semibold">{t("co.noFinancials")}</p>
+        <p className="mx-auto max-w-md text-sm leading-relaxed text-muted-foreground">{t("co.noFinancialsSub")}</p>
+      </div>
+    </div>
+  )
+  if (bare) return inner
+  return (
+    <Card className="p-0">
+      <CardContent className="p-0">{inner}</CardContent>
+    </Card>
+  )
+}
+
 /* ---------------- Overview tab ---------------- */
 
-function OverviewTab({ companyId }: { companyId: string }) {
+function OverviewTab({ companyId, basis }: { companyId: string; basis: string | null }) {
   const { t, lang } = useI18n()
-  const { data: metrics, isLoading } = useQuery({ queryKey: ["metrics", companyId], queryFn: () => api.metrics(companyId) })
+  const { data: metrics, isLoading } = useQuery({
+    queryKey: ["metrics", companyId, basis ?? "auto"],
+    queryFn: () => api.metrics(companyId, basis ?? undefined),
+  })
 
   if (isLoading || !metrics) return <Skeleton className="h-64 rounded-xl" />
+  if (metrics.periods.length === 0 && metrics.rows.length === 0) return <NoFinancialsEmpty />
 
-  const annualPeriods = metrics.periods.filter((p) => p.periodType === "ANNUAL").sort((a, b) => a.fiscalYear - b.fiscalYear)
-  const latest = annualPeriods[annualPeriods.length - 1]
+  const sortedPeriods = [...metrics.periods].sort((a, b) => a.key.localeCompare(b.key))
+  const annualPeriods = sortedPeriods.filter((p) => p.periodType === "ANNUAL")
+  const quarterlyPeriods = sortedPeriods.filter((p) => p.periodType === "QUARTERLY")
+  // Prefer annual periods for the headline cards; fall back to quarterly when the
+  // company only files interim statements (missing values still show "—", never zeros).
+  const cardPeriods = annualPeriods.length > 0 ? annualPeriods : quarterlyPeriods.length > 0 ? quarterlyPeriods : sortedPeriods
+  const latest = cardPeriods[cardPeriods.length - 1]
 
   const getCell = (code: string) => (latest ? metrics.rows.find((r) => r.code === code)?.cells[latest.key] : undefined)
 
@@ -173,14 +327,16 @@ function OverviewTab({ companyId }: { companyId: string }) {
     { code: "eps", label: "EPS", fmt: (v) => `EGP ${v.toFixed(2)}` },
   ]
 
-  // trend chart data (revenue & net profit over annual periods)
+  // trend chart data (revenue & net profit over annual periods, or quarterly when no annual exist)
   const revenueRow = metrics.rows.find((r) => r.code === "revenue")
   const profitRow = metrics.rows.find((r) => r.code === "net_profit")
-  const trend = annualPeriods.map((p) => ({
-    label: p.label.replace("FY ", ""),
+  const trendPeriods = annualPeriods.length > 0 ? annualPeriods : quarterlyPeriods
+  const trend = trendPeriods.map((p) => ({
+    label: p.label.replace(/^FY\s*/, ""),
     revenue: revenueRow?.cells[p.key]?.value ?? null,
     profit: profitRow?.cells[p.key]?.value ?? null,
   }))
+  const trendIsAnnual = annualPeriods.length > 0
 
   return (
     <div className="space-y-5">
@@ -200,7 +356,7 @@ function OverviewTab({ companyId }: { companyId: string }) {
                       </p>
                     </TooltipTrigger>
                     <TooltipContent side="top" className="max-w-56 text-[11px]">
-                      {cell?.detail || t("sc.dataUnavailable")}
+                      {cell?.detail || t("co.notAvailable")}
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
@@ -215,10 +371,21 @@ function OverviewTab({ companyId }: { companyId: string }) {
         })}
       </div>
 
+      {/* market snapshot (only when an observed price point exists) */}
+      <MarketSnapshot metrics={metrics} companyId={companyId} />
+
       {/* trend chart */}
       <Card className="p-0">
         <CardHeader className="pb-2">
-          <CardTitle className="text-sm">{lang === "ar" ? "اتجاه الإيرادات وصافي الربح (سنوي)" : "Revenue & net profit trend (annual, EGP)"}</CardTitle>
+          <CardTitle className="text-sm">
+            {lang === "ar"
+              ? trendIsAnnual
+                ? "اتجاه الإيرادات وصافي الربح (سنوي)"
+                : "اتجاه الإيرادات وصافي الربح (ربعي)"
+              : trendIsAnnual
+                ? "Revenue & net profit trend (annual, EGP)"
+                : "Revenue & net profit trend (quarterly, EGP)"}
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <TrendChart data={trend} />
@@ -228,7 +395,96 @@ function OverviewTab({ companyId }: { companyId: string }) {
   )
 }
 
+/* ---------------- Market snapshot ---------------- */
+
+function MarketSnapshot({ metrics, companyId }: { metrics: MetricsData; companyId: string }) {
+  const { t } = useI18n()
+  const { data: detail } = useQuery({ queryKey: ["company", companyId], queryFn: () => api.company(companyId) })
+
+  // prefer the latest TTM window (most current trailing fundamentals), then the latest
+  // annual, then the latest quarterly period for interim-only filers
+  const ttmPeriods = metrics.periods.filter((p) => p.periodType === "TTM").sort((a, b) => a.key.localeCompare(b.key))
+  const annualPeriods = metrics.periods.filter((p) => p.periodType === "ANNUAL").sort((a, b) => a.key.localeCompare(b.key))
+  const quarterlyPeriods = metrics.periods.filter((p) => p.periodType === "QUARTERLY").sort((a, b) => a.key.localeCompare(b.key))
+  const basis = ttmPeriods[ttmPeriods.length - 1] ?? annualPeriods[annualPeriods.length - 1] ?? quarterlyPeriods[quarterlyPeriods.length - 1]
+  if (!basis) return null
+
+  const getCell = (code: string) => metrics.rows.find((r) => r.code === code)?.cells[basis.key]
+
+  const cards: { code: string; label: string; fmt: (v: number) => string }[] = [
+    { code: "market_cap", label: t("co.marketCap"), fmt: (v) => formatEgp(v) },
+    { code: "p_b", label: t("co.pb"), fmt: (v) => formatRatio(v) },
+    { code: "p_e", label: t("co.pe"), fmt: (v) => formatRatio(v) },
+    { code: "dividend_yield", label: t("co.yield"), fmt: (v) => formatPercent(v) },
+  ]
+
+  const mp = detail?.marketPrice ?? null
+
+  return (
+    <Card className="p-0">
+      <CardHeader className="pb-2 flex flex-row flex-wrap items-center justify-between gap-2">
+        <CardTitle className="flex items-center gap-1.5 text-sm">
+          <TrendingUp className="h-4 w-4 text-primary" />
+          {t("co.market")}
+        </CardTitle>
+        {mp ? (
+          <TooltipProvider delayDuration={0}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <span className="flex items-baseline gap-1.5 rounded-lg border border-primary/30 bg-primary/5 px-2.5 py-1 cursor-help">
+                  <span className="text-[10px] uppercase tracking-wide text-muted-foreground">{t("co.price")}</span>
+                  <span className="text-sm font-bold tabular text-primary">
+                    {mp.price.toFixed(2)} <span className="text-[10px] font-normal">{mp.currency}</span>
+                  </span>
+                  <span className="text-[10px] text-muted-foreground">
+                    {t("co.asOf")} {new Date(mp.asOf).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
+                  </span>
+                </span>
+              </TooltipTrigger>
+              <TooltipContent side="top" className="max-w-56 text-[11px]">
+                {mp.sourceName}
+                {mp.isDemoData ? ` — ${t("co.demoPrice")}` : ""}
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        ) : null}
+      </CardHeader>
+      <CardContent className="pt-0">
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+          {cards.map((card) => {
+            const cell = getCell(card.code)
+            const unavailable = !cell || cell.status !== "OK" || cell.value === null
+            return (
+              <div key={card.code} className="rounded-lg border bg-muted/30 p-3">
+                <p className="text-[10px] uppercase tracking-wide text-muted-foreground">{card.label}</p>
+                {unavailable ? (
+                  <TooltipProvider delayDuration={0}>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <p className="mt-1 flex items-center gap-1 text-sm font-semibold text-slate-400">
+                          — <Info className="h-3 w-3" />
+                        </p>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-64 text-[11px]">
+                        {cell?.detail || t("co.notAvailable")}
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                ) : (
+                  <p className="mt-1 text-sm font-bold tabular">{card.fmt(cell.value as number)}</p>
+                )}
+                <p className="mt-0.5 text-[9px] text-muted-foreground/70">{cell?.formulaVersion ?? ""}</p>
+              </div>
+            )
+          })}
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
 function TrendChart({ data }: { data: { label: string; revenue: number | null; profit: number | null }[] }) {
+  if (data.length === 0) return null
   const max = Math.max(...data.flatMap((d) => [d.revenue ?? 0, d.profit ?? 0]), 1)
   return (
     <div className="flex items-end gap-6 sm:gap-10 px-2 pt-4 pb-1" dir="ltr">
@@ -259,15 +515,21 @@ function TrendChart({ data }: { data: { label: string; revenue: number | null; p
 
 /* ---------------- Statements tab ---------------- */
 
-function StatementsTab({ companyId }: { companyId: string }) {
+function StatementsTab({ companyId, basis }: { companyId: string; basis: string | null }) {
   const { t, lang } = useI18n()
-  const { data, isLoading } = useQuery({ queryKey: ["financials", companyId], queryFn: () => api.financials(companyId) })
+  const { data, isLoading } = useQuery({
+    queryKey: ["financials", companyId, basis ?? "auto"],
+    queryFn: () => api.financials(companyId, basis ?? undefined),
+  })
   const [stmt, setStmt] = useState<"INCOME_STATEMENT" | "BALANCE_SHEET" | "CASH_FLOW">("INCOME_STATEMENT")
+  const [traceId, setTraceId] = useState<string | null>(null)
 
   if (isLoading || !data) return <Skeleton className="h-72 rounded-xl" />
 
   const rows = data.statements[stmt] ?? []
   const periods = [...data.periods].sort((a, b) => a.key.localeCompare(b.key))
+  const hasAnyRows = Object.values(data.statements).some((section) => section.length > 0)
+  const shownBasis = data.statementType ?? basis ?? null
 
   const stmtTabs = [
     { key: "INCOME_STATEMENT", label: t("co.incomeStatement") },
@@ -276,49 +538,238 @@ function StatementsTab({ companyId }: { companyId: string }) {
   ] as const
 
   return (
-    <Card className="p-0">
-      <CardHeader className="pb-2 flex flex-row flex-wrap items-center justify-between gap-2">
-        <CardTitle className="text-sm">{t("co.statements")}</CardTitle>
-        <div className="flex gap-1">
-          {stmtTabs.map((s) => (
-            <button
-              key={s.key}
-              onClick={() => setStmt(s.key)}
-              className={`rounded-md px-2.5 py-1 text-xs transition-colors ${stmt === s.key ? "bg-primary/10 font-medium text-primary" : "text-muted-foreground hover:bg-muted"}`}
-            >
-              {s.label}
-            </button>
+    <>
+      <Card className="p-0">
+        <CardHeader className="pb-2 flex flex-row flex-wrap items-center justify-between gap-2">
+          <CardTitle className="flex flex-wrap items-center gap-2 text-sm">
+            {t("co.statements")}
+            {shownBasis ? <Badge variant="outline" className="text-[10px]">{basisBadgeLabel(shownBasis, t)}</Badge> : null}
+            <span className="hidden text-[10px] font-normal text-muted-foreground lg:inline">
+              {lang === "ar" ? "اضغط على أي قيمة لعرض المستند المصدر" : "Click any value to inspect its source document"}
+            </span>
+          </CardTitle>
+          <div className="flex gap-1">
+            {stmtTabs.map((s) => (
+              <button
+                key={s.key}
+                onClick={() => setStmt(s.key)}
+                className={`rounded-md px-2.5 py-1 text-xs transition-colors ${stmt === s.key ? "bg-primary/10 font-medium text-primary" : "text-muted-foreground hover:bg-muted"}`}
+              >
+                {s.label}
+              </button>
+            ))}
+          </div>
+        </CardHeader>
+        <CardContent className="p-0">
+          {data.periods.length === 0 || !hasAnyRows ? (
+            <NoFinancialsEmpty bare />
+          ) : rows.length === 0 ? (
+            <p className="p-6 text-center text-sm text-muted-foreground">{t("common.noData")}</p>
+          ) : (
+            <div className="max-h-[480px] overflow-auto scrollbar-thin">
+              <table className="w-full text-xs">
+                <thead className="sticky top-0 bg-card z-10">
+                  <tr className="border-b">
+                    <th className="sticky-col sticky-col-header p-2.5 text-start font-medium text-muted-foreground min-w-40 shadow-[inset-inline-end:1px_0_0_var(--border)]">{lang === "ar" ? "البند" : "Item"}</th>
+                    {periods.map((p) => (
+                      <th key={p.key} className="p-2.5 text-end font-medium text-muted-foreground whitespace-nowrap">
+                        {p.label}
+                        <span className="ms-1 block text-[9px] font-normal">{lang === "ar" ? "ج.م" : "EGP"}</span>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.map((row) => (
+                    <tr key={row.code} className="border-b last:border-0 hover:bg-muted/40">
+                      <td className="sticky-col sticky-col-cell p-2.5 font-medium shadow-[inset-inline-end:1px_0_0_var(--border)]">
+                        {row.cells[Object.keys(row.cells)[0]]?.label ?? row.code}
+                      </td>
+                      {periods.map((p) => {
+                        const cell = row.cells[p.key]
+                        return (
+                          <td key={p.key} className={`p-2.5 text-end tabular whitespace-nowrap ${cell && cell.normalizedValue < 0 ? "text-red-600 dark:text-red-400" : ""}`}>
+                            {cell ? (
+                              <button
+                                type="button"
+                                onClick={() => setTraceId(cell.reportId)}
+                                title={t("co.source")}
+                                className="underline-offset-2 transition-colors hover:text-primary hover:underline"
+                              >
+                                {formatEgp(cell.normalizedValue, { withCurrency: false })}
+                              </button>
+                            ) : (
+                              "—"
+                            )}
+                          </td>
+                        )
+                      })}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+      <ReportTraceDialog reportId={traceId} onClose={() => setTraceId(null)} />
+    </>
+  )
+}
+
+/* ---------------- Per-value source traceability ---------------- */
+
+function ReportTraceDialog({ reportId, onClose }: { reportId: string | null; onClose: () => void }) {
+  const { t, lang } = useI18n()
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["report-detail", reportId],
+    queryFn: () => api.reportDetail(reportId ?? ""),
+    enabled: !!reportId,
+  })
+  const report = data?.report
+  return (
+    <Dialog open={!!reportId} onOpenChange={(open) => { if (!open) onClose() }}>
+      <DialogContent className="flex max-h-[85vh] flex-col overflow-hidden sm:max-w-3xl">
+        <DialogHeader>
+          <DialogTitle className="flex flex-wrap items-center gap-2 text-sm">
+            <FileText className="h-4 w-4 text-primary" aria-hidden />
+            {t("co.source")}
+            {report ? <span className="font-normal text-muted-foreground">— {report.periodLabel}</span> : null}
+            {report ? <StatusChip status={report.processingStatus} /> : null}
+          </DialogTitle>
+          <DialogDescription className="text-xs">
+            {lang === "ar"
+              ? "القيم كما استُخرجت من مستند المصدر — دون أي تعديل أو تقدير."
+              : "Values exactly as extracted from the source document — unmodified, never estimated."}
+          </DialogDescription>
+        </DialogHeader>
+        {isError ? (
+          <p className="p-4 text-center text-xs text-muted-foreground">
+            {lang === "ar" ? "تعذر تحميل القيم المستخرجة." : "Could not load the extracted values."}
+          </p>
+        ) : isLoading || !report ? (
+          <Skeleton className="h-64 w-full" />
+        ) : (
+          <div className="-mx-1 flex-1 overflow-y-auto px-1 pb-1">
+            <ReportValuesTable values={report.values} />
+          </div>
+        )}
+      </DialogContent>
+    </Dialog>
+  )
+}
+
+function ReportValuesTable({ values }: { values: ReportValueRow[] }) {
+  const { t, lang } = useI18n()
+  if (values.length === 0) {
+    return <p className="p-4 text-center text-xs text-muted-foreground">{t("common.noData")}</p>
+  }
+  return (
+    <div className="max-h-80 overflow-y-auto scrollbar-thin rounded-md border">
+      <table className="w-full text-xs">
+        <thead className="sticky top-0 bg-muted/60 backdrop-blur">
+          <tr className="border-b">
+            <th className="p-2 text-start font-medium">{t("co.originalLabel")}</th>
+            <th className="p-2 text-end font-medium">{t("common.status")}</th>
+            <th className="p-2 text-end font-medium">{lang === "ar" ? "القيمة" : "Value"}</th>
+            <th className="p-2 text-end font-medium">{lang === "ar" ? "بالجنيه" : "Normalized"}</th>
+            <th className="p-2 text-end font-medium">{t("co.confidence")}</th>
+            <th className="p-2 text-end font-medium">{t("co.extraction")}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {values.map((v) => (
+            <tr key={v.id} className="border-b last:border-0 hover:bg-muted/30">
+              <td className="p-2">
+                <span className="font-medium">{v.originalLabel}</span>
+                <span className="ms-1.5 text-[9px] text-muted-foreground">({v.metricCode})</span>
+              </td>
+              <td className="p-2 text-end"><StatusChip status={v.validationStatus} /></td>
+              <td className="p-2 text-end tabular">{v.value.toLocaleString()} <span className="text-[9px] text-muted-foreground">{v.unit}</span></td>
+              <td className="p-2 text-end tabular">{formatEgp(v.normalizedValue, { withCurrency: false })}</td>
+              <td className="p-2 text-end tabular">{(v.confidence * 100).toFixed(0)}%</td>
+              <td className="p-2 text-end text-[10px] font-mono">{v.extractionMethod}</td>
+            </tr>
           ))}
-        </div>
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
+/* ---------------- Growth & ratios tab ---------------- */
+
+function GrowthTab({ companyId, basis }: { companyId: string; basis: string | null }) {
+  const { t, lang } = useI18n()
+  const { data, isLoading } = useQuery({
+    queryKey: ["metrics", companyId, basis ?? "auto"],
+    queryFn: () => api.metrics(companyId, basis ?? undefined),
+  })
+
+  if (isLoading || !data) return <Skeleton className="h-72 rounded-xl" />
+
+  const periods = [...data.periods].sort((a, b) => a.key.localeCompare(b.key))
+  const interesting = data.rows.filter((r) => r.kind !== "passthrough")
+  const shownBasis = data.statementType ?? basis ?? null
+
+  const fmtCell = (code: string, value: number | null) => {
+    const row = data.rows.find((r) => r.code === code)
+    if (value === null) return null
+    if (row?.unit === "PERCENT") return formatPercent(value)
+    if (row?.unit === "RATIO") return formatRatio(value)
+    if (row?.unit === "EGP_PER_SHARE") return `EGP ${value.toFixed(2)}`
+    if (row?.unit === "EGP") return formatEgp(value, { withCurrency: false })
+    return value.toFixed(2)
+  }
+
+  return (
+    <Card className="p-0">
+      <CardHeader className="pb-2">
+        <CardTitle className="flex flex-wrap items-center gap-2 text-sm">
+          {t("co.growth")}
+          {shownBasis ? <Badge variant="outline" className="text-[10px]">{basisBadgeLabel(shownBasis, t)}</Badge> : null}
+        </CardTitle>
       </CardHeader>
       <CardContent className="p-0">
-        {rows.length === 0 ? (
-          <p className="p-6 text-center text-sm text-muted-foreground">{t("common.noData")}</p>
+        {data.periods.length === 0 || interesting.length === 0 ? (
+          <NoFinancialsEmpty bare />
         ) : (
-          <div className="max-h-[480px] overflow-auto scrollbar-thin">
+          <div className="max-h-[520px] overflow-auto scrollbar-thin">
             <table className="w-full text-xs">
-              <thead className="sticky top-0 bg-card z-10">
+              <thead className="sticky top-0 bg-card">
                 <tr className="border-b">
-                  <th className="sticky-col sticky-col-header p-2.5 text-start font-medium text-muted-foreground min-w-40 shadow-[inset-inline-end:1px_0_0_var(--border)]">{lang === "ar" ? "البند" : "Item"}</th>
+                  <th className="p-2.5 text-start font-medium text-muted-foreground min-w-48">{lang === "ar" ? "المؤشر" : "Metric"}</th>
                   {periods.map((p) => (
-                    <th key={p.key} className="p-2.5 text-end font-medium text-muted-foreground whitespace-nowrap">
-                      {p.label}
-                      <span className="ms-1 block text-[9px] font-normal">{lang === "ar" ? "ج.م" : "EGP"}</span>
-                    </th>
+                    <th key={p.key} className="p-2.5 text-end font-medium text-muted-foreground whitespace-nowrap">{p.label}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
-                {rows.map((row) => (
+                {interesting.map((row) => (
                   <tr key={row.code} className="border-b last:border-0 hover:bg-muted/40">
-                    <td className="sticky-col sticky-col-cell p-2.5 font-medium shadow-[inset-inline-end:1px_0_0_var(--border)]">
-                      {row.cells[Object.keys(row.cells)[0]]?.label ?? row.code}
+                    <td className="p-2.5 font-medium">
+                      {lang === "ar" ? row.labelAr : row.labelEn}
+                      <span className="ms-1.5 text-[9px] text-muted-foreground/70">{row.cells[Object.keys(row.cells)[0]]?.formulaVersion ?? ""}</span>
                     </td>
                     {periods.map((p) => {
                       const cell = row.cells[p.key]
+                      const text = cell ? fmtCell(row.code, cell.value) : null
                       return (
-                        <td key={p.key} className={`p-2.5 text-end tabular whitespace-nowrap ${cell && cell.normalizedValue < 0 ? "text-red-600 dark:text-red-400" : ""}`}>
-                          {cell ? formatEgp(cell.normalizedValue, { withCurrency: false }) : "—"}
+                        <td key={p.key} className="p-2.5 text-end tabular whitespace-nowrap">
+                          {cell && cell.status === "OK" && text ? (
+                            <span className={/^[-]/.test(text.trim()) ? "text-red-600 dark:text-red-400" : ""}>{text}</span>
+                          ) : (
+                            <TooltipProvider delayDuration={0}>
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <span className="cursor-help text-slate-400">—</span>
+                                </TooltipTrigger>
+                                <TooltipContent side="top" className="max-w-56 text-[11px]">
+                                  {cell?.detail || t("co.notAvailable")}
+                                </TooltipContent>
+                              </Tooltip>
+                            </TooltipProvider>
+                          )}
                         </td>
                       )
                     })}
@@ -328,81 +779,6 @@ function StatementsTab({ companyId }: { companyId: string }) {
             </table>
           </div>
         )}
-      </CardContent>
-    </Card>
-  )
-}
-
-/* ---------------- Growth & ratios tab ---------------- */
-
-function GrowthTab({ companyId }: { companyId: string }) {
-  const { t, lang } = useI18n()
-  const { data, isLoading } = useQuery({ queryKey: ["metrics", companyId], queryFn: () => api.metrics(companyId) })
-
-  if (isLoading || !data) return <Skeleton className="h-72 rounded-xl" />
-
-  const periods = [...data.periods].sort((a, b) => a.key.localeCompare(b.key))
-  const interesting = data.rows.filter((r) => r.kind !== "passthrough" && r.kind !== "market")
-
-  const fmtCell = (code: string, value: number | null) => {
-    const row = data.rows.find((r) => r.code === code)
-    if (value === null) return null
-    if (row?.unit === "PERCENT") return formatPercent(value)
-    if (row?.unit === "RATIO") return formatRatio(value)
-    if (row?.unit === "EGP_PER_SHARE") return `EGP ${value.toFixed(2)}`
-    return value.toFixed(2)
-  }
-
-  return (
-    <Card className="p-0">
-      <CardHeader className="pb-2">
-        <CardTitle className="text-sm">{t("co.growth")}</CardTitle>
-      </CardHeader>
-      <CardContent className="p-0">
-        <div className="max-h-[520px] overflow-auto scrollbar-thin">
-          <table className="w-full text-xs">
-            <thead className="sticky top-0 bg-card">
-              <tr className="border-b">
-                <th className="p-2.5 text-start font-medium text-muted-foreground min-w-48">{lang === "ar" ? "المؤشر" : "Metric"}</th>
-                {periods.map((p) => (
-                  <th key={p.key} className="p-2.5 text-end font-medium text-muted-foreground whitespace-nowrap">{p.label}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {interesting.map((row) => (
-                <tr key={row.code} className="border-b last:border-0 hover:bg-muted/40">
-                  <td className="p-2.5 font-medium">
-                    {lang === "ar" ? row.labelAr : row.labelEn}
-                    <span className="ms-1.5 text-[9px] text-muted-foreground/70">{row.cells[Object.keys(row.cells)[0]]?.formulaVersion ?? ""}</span>
-                  </td>
-                  {periods.map((p) => {
-                    const cell = row.cells[p.key]
-                    const text = cell ? fmtCell(row.code, cell.value) : null
-                    return (
-                      <td key={p.key} className="p-2.5 text-end tabular whitespace-nowrap">
-                        {cell && cell.status === "OK" && text ? (
-                          <span className={/^[-]/.test(text.trim()) ? "text-red-600 dark:text-red-400" : ""}>{text}</span>
-                        ) : (
-                          <TooltipProvider delayDuration={0}>
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <span className="cursor-help text-slate-400">—</span>
-                              </TooltipTrigger>
-                              <TooltipContent side="top" className="max-w-56 text-[11px]">
-                                {cell?.detail || t("sc.dataUnavailable")}
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
-                        )}
-                      </td>
-                    )
-                  })}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
       </CardContent>
     </Card>
   )
@@ -625,16 +1001,182 @@ function fmt(iso: string | null): string | null {
   }
 }
 
-/* ---------------- Reports tab (source traceability) ---------------- */
+/* ---------------- Documents + Reports tab (source traceability) ---------------- */
+
+async function copyText(text: string): Promise<boolean> {
+  try {
+    if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text)
+      return true
+    }
+  } catch {
+    // fall through to the legacy path below
+  }
+  try {
+    const ta = document.createElement("textarea")
+    ta.value = text
+    ta.style.position = "fixed"
+    ta.style.opacity = "0"
+    document.body.appendChild(ta)
+    ta.select()
+    const ok = document.execCommand("copy")
+    document.body.removeChild(ta)
+    return ok
+  } catch {
+    return false
+  }
+}
+
+function CopyHashButton({ hash }: { hash: string }) {
+  const { t } = useI18n()
+  const [copied, setCopied] = useState(false)
+  return (
+    <button
+      type="button"
+      onClick={async () => {
+        const ok = await copyText(hash)
+        if (ok) {
+          setCopied(true)
+          setTimeout(() => setCopied(false), 1500)
+        }
+      }}
+      title={t("co.fileHash")}
+      aria-label={t("co.fileHash")}
+      className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+    >
+      {copied ? <Check className="h-3 w-3 text-emerald-600" aria-hidden /> : <Copy className="h-3 w-3" aria-hidden />}
+    </button>
+  )
+}
+
+function DocumentsTable({ companyId }: { companyId: string }) {
+  const { t, lang } = useI18n()
+  const { data, isLoading } = useQuery({ queryKey: ["company-documents", companyId], queryFn: () => api.companyDocuments(companyId) })
+
+  if (isLoading) return <Skeleton className="h-40 rounded-xl" />
+  const docs = data?.documents ?? []
+  if (docs.length === 0) {
+    return (
+      <div className="flex items-center justify-center gap-2 rounded-lg border border-dashed p-6 text-sm text-muted-foreground">
+        <FileText className="h-4 w-4" aria-hidden />
+        {t("co.documentsEmpty")}
+      </div>
+    )
+  }
+
+  const headers = [
+    lang === "ar" ? "الملف" : "File",
+    lang === "ar" ? "الفترة" : "Period",
+    lang === "ar" ? "الأساس" : "Basis",
+    t("common.status"),
+    t("co.confidence"),
+    lang === "ar" ? "القيم" : "Values",
+    t("co.version"),
+    lang === "ar" ? "الاعتماد" : "Approved",
+    "SHA-256",
+    "",
+  ]
+
+  return (
+    <div className="overflow-x-auto scrollbar-thin rounded-lg border">
+      <table className="w-full min-w-[1040px] text-xs">
+        <thead className="bg-muted/40">
+          <tr className="border-b">
+            {headers.map((h, i) => (
+              <th key={i} className="whitespace-nowrap p-2.5 text-start font-medium text-muted-foreground">{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {docs.map((doc) => (
+            <tr key={doc.id} className="border-b last:border-0 align-top hover:bg-muted/30">
+              <td className="p-2.5">
+                <p className="max-w-44 break-all font-medium">{doc.fileName ?? <span className="text-slate-400">{t("co.notAvailable")}</span>}</p>
+                {doc.fileSize != null ? (
+                  <p className="mt-0.5 text-[10px] tabular text-muted-foreground">{(doc.fileSize / 1024).toFixed(1)} KB</p>
+                ) : null}
+              </td>
+              <td className="p-2.5 whitespace-nowrap font-medium">{doc.periodLabel}</td>
+              <td className="p-2.5">
+                <div className="flex flex-wrap items-center gap-1">
+                  <Badge variant="outline" className="text-[10px]">{basisBadgeLabel(doc.statementType, t)}</Badge>
+                  <Badge variant="secondary" className="text-[10px]">{doc.language}</Badge>
+                </div>
+              </td>
+              <td className="p-2.5"><StatusChip status={doc.processingStatus} /></td>
+              <td className="p-2.5 text-end tabular">
+                {doc.extractionConfidence != null ? `${Math.round(doc.extractionConfidence * 100)}%` : <span className="text-slate-400">—</span>}
+              </td>
+              <td className="p-2.5 text-end tabular">
+                {doc.valueCount} <span className="text-[9px] text-muted-foreground">{t("co.values")}</span>
+              </td>
+              <td className="p-2.5">
+                <div className="flex items-center gap-1.5 whitespace-nowrap">
+                  <span className="tabular">v{doc.version}</span>
+                  {doc.isRestatement ? (
+                    <Badge variant="outline" className="border-violet-400/50 text-[9px] text-violet-600 dark:text-violet-300">RESTATED</Badge>
+                  ) : null}
+                </div>
+                {doc.parserVersion ? <p className="mt-0.5 font-mono text-[9px] text-muted-foreground">{doc.parserVersion}</p> : null}
+              </td>
+              <td className="p-2.5 whitespace-nowrap tabular">
+                {fmt(doc.approvedAt) ?? <span className="text-slate-400">—</span>}
+              </td>
+              <td className="p-2.5">
+                {doc.fileHash ? (
+                  <span className="inline-flex items-center gap-0.5">
+                    <span className="font-mono text-[10px]">{doc.fileHash.slice(0, 12)}</span>
+                    <CopyHashButton hash={doc.fileHash} />
+                  </span>
+                ) : (
+                  <span className="text-slate-400">—</span>
+                )}
+              </td>
+              <td className="p-2.5">
+                <div className="flex items-center justify-end gap-1.5">
+                  {doc.sourceUrl ? (
+                    <a
+                      href={doc.sourceUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      title={t("co.viewDoc")}
+                      className="inline-flex h-7 w-7 items-center justify-center rounded-md border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                    >
+                      <ExternalLink className="h-3.5 w-3.5" aria-hidden />
+                      <span className="sr-only">{t("co.viewDoc")}</span>
+                    </a>
+                  ) : null}
+                  {doc.hasFile ? (
+                    <a href={api.downloadReportUrl(doc.id)} target="_blank" rel="noreferrer">
+                      <Button variant="outline" size="sm" className="h-7 gap-1.5 text-xs">
+                        <Download className="h-3.5 w-3.5" aria-hidden />
+                        {t("co.downloadDoc")}
+                      </Button>
+                    </a>
+                  ) : (
+                    <Button variant="outline" size="sm" className="h-7 gap-1.5 text-xs" disabled>
+                      <Download className="h-3.5 w-3.5" aria-hidden />
+                      {t("co.downloadDoc")}
+                    </Button>
+                  )}
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
 
 function ReportsTab({ companyId }: { companyId: string }) {
   const { t, lang, pick } = useI18n()
   const { data, isLoading } = useQuery({ queryKey: ["company-reports", companyId], queryFn: () => api.companyReports(companyId) })
   const [open, setOpen] = useState<string | null>(null)
 
-  const { data: reportDetail } = useQuery({
+  const { data: reportDetail, isError: detailError } = useQuery({
     queryKey: ["report-detail", open],
-    queryFn: () => fetch(`/api/v1/reports/${open}`).then((r) => r.json()),
+    queryFn: () => api.reportDetail(open ?? ""),
     enabled: !!open,
   })
 
@@ -642,74 +1184,186 @@ function ReportsTab({ companyId }: { companyId: string }) {
   const reports = data?.reports ?? []
 
   return (
-    <div className="space-y-3">
-      {reports.map((r) => (
-        <div key={r.id} className="rounded-lg border bg-card">
-          <button className="flex w-full flex-wrap items-center justify-between gap-2 p-4 text-start hover:bg-muted/30" onClick={() => setOpen(open === r.id ? null : r.id)}>
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-sm font-bold">{r.periodLabel}</span>
-              <Badge variant="secondary" className="text-[10px]">{r.reportType}</Badge>
-              <StatusChip status={r.processingStatus} />
-              {r.isDemoData ? <DemoBadge small /> : null}
-              {r.isRestatement ? <Badge variant="outline" className="text-[10px] border-violet-400/50 text-violet-600">RESTATED v{r.version}</Badge> : null}
-            </div>
-            <div className="flex items-center gap-3 text-[11px] text-muted-foreground">
-              <span>{r.valueCount} {t("co.values")}</span>
-              {r.extractionMethod ? <Badge variant="outline" className="text-[9px] font-mono">{r.extractionMethod}</Badge> : null}
-              <span className="hidden sm:inline">{pick(r.sourceName, r.sourceName)}</span>
-            </div>
-          </button>
-          {open === r.id && reportDetail?.report ? (
-            <div className="border-t p-4">
-              <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-                {r.fileHash ? (
-                  <p className="text-[10px] text-muted-foreground font-mono break-all">
-                    {t("co.fileHash")}: {r.fileHash}
-                  </p>
-                ) : <span />}
-                {r.localFileRef ? (
-                  <a href={`/api/v1/reports/${r.id}/download`} download>
-                    <Button variant="outline" size="sm" className="h-7 gap-1.5 text-xs">
-                      <Download className="h-3.5 w-3.5" />
-                      {t("rp.download")}
-                    </Button>
-                  </a>
+    <div className="space-y-5">
+      {/* source documents (upload → extract → validate → approve pipeline) */}
+      <section className="space-y-2">
+        <h3 className="flex items-center gap-1.5 text-sm font-semibold">
+          <FileText className="h-4 w-4 text-primary" aria-hidden />
+          {t("co.documents")}
+          <span className="text-xs font-normal text-muted-foreground">({lang === "ar" ? "مصدر كل رقم" : "the source behind every figure"})</span>
+        </h3>
+        <DocumentsTable companyId={companyId} />
+      </section>
+
+      {/* extracted reports with per-value traceability */}
+      <section className="space-y-2">
+        <h3 className="flex items-center gap-1.5 text-sm font-semibold">
+          <Table2 className="h-4 w-4 text-primary" aria-hidden />
+          {t("co.reports")}
+        </h3>
+        {reports.length === 0 ? (
+          <p className="rounded-lg border border-dashed p-6 text-center text-sm text-muted-foreground">{t("common.noData")}</p>
+        ) : (
+          <div className="space-y-3">
+            {reports.map((r) => (
+              <div key={r.id} className="rounded-lg border bg-card">
+                <button className="flex w-full flex-wrap items-center justify-between gap-2 p-4 text-start hover:bg-muted/30" onClick={() => setOpen(open === r.id ? null : r.id)}>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-sm font-bold">{r.periodLabel}</span>
+                    <Badge variant="secondary" className="text-[10px]">{r.reportType}</Badge>
+                    <StatusChip status={r.processingStatus} />
+                    {r.isDemoData ? <DemoBadge small /> : null}
+                    {r.isRestatement ? <Badge variant="outline" className="text-[10px] border-violet-400/50 text-violet-600">RESTATED v{r.version}</Badge> : null}
+                  </div>
+                  <div className="flex items-center gap-3 text-[11px] text-muted-foreground">
+                    <span>{r.valueCount} {t("co.values")}</span>
+                    {r.extractionMethod ? <Badge variant="outline" className="text-[9px] font-mono">{r.extractionMethod}</Badge> : null}
+                    <span className="hidden sm:inline">{pick(r.sourceName, r.sourceName)}</span>
+                  </div>
+                </button>
+                {open === r.id ? (
+                  detailError ? (
+                    <p className="border-t p-4 text-center text-xs text-muted-foreground">
+                      {lang === "ar" ? "تعذر تحميل القيم المستخرجة." : "Could not load the extracted values."}
+                    </p>
+                  ) : reportDetail?.report ? (
+                    <div className="border-t p-4">
+                      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+                        {r.fileHash ? (
+                          <p className="flex items-center gap-1 text-[10px] text-muted-foreground">
+                            <span className="break-all font-mono">
+                              {t("co.fileHash")}: {r.fileHash}
+                            </span>
+                            <CopyHashButton hash={r.fileHash} />
+                          </p>
+                        ) : <span />}
+                        {r.localFileRef ? (
+                          <a href={api.downloadReportUrl(r.id)} download>
+                            <Button variant="outline" size="sm" className="h-7 gap-1.5 text-xs">
+                              <Download className="h-3.5 w-3.5" aria-hidden />
+                              {t("rp.download")}
+                            </Button>
+                          </a>
+                        ) : null}
+                      </div>
+                      {r.notes ? <p className="mb-3 text-[11px] text-muted-foreground">{r.notes}</p> : null}
+                      <ReportValuesTable values={reportDetail.report.values} />
+                    </div>
+                  ) : (
+                    <div className="border-t p-4">
+                      <Skeleton className="h-40 w-full" />
+                    </div>
+                  )
                 ) : null}
               </div>
-              {r.notes ? <p className="mb-3 text-[11px] text-muted-foreground">{r.notes}</p> : null}
-              <div className="max-h-80 overflow-y-auto scrollbar-thin rounded-md border">
-                <table className="w-full text-xs">
-                  <thead className="sticky top-0 bg-muted/60 backdrop-blur">
-                    <tr className="border-b">
-                      <th className="p-2 text-start font-medium">{t("co.originalLabel")}</th>
-                      <th className="p-2 text-end font-medium">{t("common.status")}</th>
-                      <th className="p-2 text-end font-medium">{lang === "ar" ? "القيمة" : "Value"}</th>
-                      <th className="p-2 text-end font-medium">{lang === "ar" ? "بالجنيه" : "Normalized"}</th>
-                      <th className="p-2 text-end font-medium">{t("co.confidence")}</th>
-                      <th className="p-2 text-end font-medium">{t("co.extraction")}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {(reportDetail.report.values ?? []).map((v: { id: string; originalLabel: string; metricCode: string; value: number; unit: string; normalizedValue: number; validationStatus: string; confidence: number; extractionMethod: string | null }) => (
-                      <tr key={v.id} className="border-b last:border-0 hover:bg-muted/30">
-                        <td className="p-2">
-                          <span className="font-medium">{v.originalLabel}</span>
-                          <span className="ms-1.5 text-[9px] text-muted-foreground">({v.metricCode})</span>
-                        </td>
-                        <td className="p-2 text-end"><StatusChip status={v.validationStatus} /></td>
-                        <td className="p-2 text-end tabular">{v.value.toLocaleString()} <span className="text-[9px] text-muted-foreground">{v.unit}</span></td>
-                        <td className="p-2 text-end tabular">{formatEgp(v.normalizedValue, { withCurrency: false })}</td>
-                        <td className="p-2 text-end tabular">{(v.confidence * 100).toFixed(0)}%</td>
-                        <td className="p-2 text-end text-[10px] font-mono">{v.extractionMethod}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          ) : null}
+            ))}
+          </div>
+        )}
+      </section>
+    </div>
+  )
+}
+
+/* ---------------- AI analysis tab ---------------- */
+
+function AiLoadingPanel() {
+  const { t, lang } = useI18n()
+  return (
+    <Card className="p-0">
+      <CardContent className="flex flex-col items-center justify-center gap-4 p-10 text-center">
+        <div className="relative flex h-16 w-16 items-center justify-center">
+          <span className="absolute inset-0 rounded-full bg-primary/15 animate-ping" aria-hidden />
+          <span className="absolute inset-2 rounded-full bg-primary/10 animate-pulse" aria-hidden />
+          <Sparkles className="relative h-7 w-7 text-primary" aria-hidden />
         </div>
-      ))}
+        <p className="text-sm font-semibold">{t("co.aiLoading")}</p>
+        <div className="flex items-center gap-1.5" aria-hidden>
+          {[0, 1, 2].map((i) => (
+            <span key={i} className="h-1.5 w-1.5 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: `${i * 150}ms` }} />
+          ))}
+        </div>
+        <p className="max-w-sm text-xs leading-relaxed text-muted-foreground">
+          {lang === "ar"
+            ? "يقرأ النموذج القيم المالية الموثقة من قاعدة البيانات فقط. قد تستغرق العملية حتى دقيقة."
+            : "The model reads only verified financial values from the database. This can take up to a minute."}
+        </p>
+      </CardContent>
+    </Card>
+  )
+}
+
+function AiAnalysisTab({ companyId }: { companyId: string }) {
+  const { t, lang } = useI18n()
+  const queryClient = useQueryClient()
+  const { data, isLoading } = useQuery({ queryKey: ["ai-analysis", companyId], queryFn: () => api.aiAnalysis(companyId) })
+
+  const generate = useMutation({
+    mutationFn: () => api.generateAiAnalysis(companyId, lang),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["ai-analysis", companyId] })
+    },
+  })
+
+  const err = generate.error as (Error & { status?: number }) | null
+  const noData = !!err && (err.status === 400 || /NO_DATA/i.test(err.message))
+  const analysis = data?.analysis ?? null
+
+  if (isLoading) return <Skeleton className="h-72 rounded-xl" />
+  if (generate.isPending) return <AiLoadingPanel />
+
+  return (
+    <div className="space-y-3">
+      {err ? (
+        <Alert variant="destructive">
+          <AlertTriangle className="h-4 w-4" aria-hidden />
+          <AlertTitle>{noData ? t("co.aiNoData") : t("co.aiFailed")}</AlertTitle>
+          {!noData && err.message ? <AlertDescription className="font-mono text-xs">{err.message}</AlertDescription> : null}
+        </Alert>
+      ) : null}
+
+      {analysis ? (
+        <Card className="p-0">
+          <CardHeader className="flex flex-row flex-wrap items-center justify-between gap-2 pb-3">
+            <CardTitle className="flex flex-wrap items-center gap-2 text-sm">
+              <Sparkles className="h-4 w-4 text-primary" aria-hidden />
+              {t("co.aiAnalysis")}
+              {analysis.model ? <Badge variant="secondary" className="font-mono text-[10px]">{analysis.model}</Badge> : null}
+              <span className="text-[11px] font-normal text-muted-foreground">{fmt(analysis.createdAt)}</span>
+              <Badge variant="outline" className="font-mono text-[9px]" title={analysis.dataHash}>
+                {analysis.dataHash.slice(0, 10)}
+              </Badge>
+            </CardTitle>
+            <Button variant="outline" size="sm" className="h-7 gap-1.5 text-xs" onClick={() => generate.mutate()}>
+              <RefreshCw className="h-3.5 w-3.5" aria-hidden />
+              {t("co.aiRegenerate")}
+            </Button>
+          </CardHeader>
+          <CardContent>
+            <div dir={lang === "ar" ? "rtl" : "ltr"}>
+              <ReactMarkdown components={mdComponents}>{analysis.content}</ReactMarkdown>
+            </div>
+          </CardContent>
+          <div className="border-t px-6 py-3">
+            <p className="flex items-start gap-1.5 text-[11px] leading-relaxed text-muted-foreground">
+              <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-600 dark:text-emerald-400" aria-hidden />
+              {t("co.aiGrounded")}
+            </p>
+          </div>
+        </Card>
+      ) : (
+        <Card className="p-0">
+          <CardContent className="flex flex-col items-center justify-center gap-4 p-10 text-center">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+              <Sparkles className="h-7 w-7 text-primary" aria-hidden />
+            </div>
+            <p className="mx-auto max-w-md text-sm leading-relaxed text-muted-foreground">{t("co.aiEmpty")}</p>
+            <Button size="sm" className="gap-1.5" onClick={() => generate.mutate()}>
+              <Sparkles className="h-4 w-4" aria-hidden />
+              {t("co.aiGenerate")}
+            </Button>
+          </CardContent>
+        </Card>
+      )}
     </div>
   )
 }

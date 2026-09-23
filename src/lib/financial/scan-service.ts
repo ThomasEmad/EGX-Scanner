@@ -4,7 +4,13 @@
 
 import { db } from "@/lib/db"
 import { parsePeriodKey, periodKeyLabel } from "./periods"
-import { evaluateRule, ruleAvailability, validateRuleConditions, type PeriodBasis, type RuleEval, type ScanCondition, type ScanContext } from "./scanner"
+import { evaluateRule, ruleAvailability, validateRuleConditions, type RuleEval, type ScanCondition, type ScanContext } from "./scanner"
+import type { PeriodBasis } from "./periods"
+import { preferConsolidatedRows, type CalcMetricRow } from "./statement-pref"
+
+// Annotations give the Prisma conditional payload a concrete shape — required
+// for preferConsolidatedRows<T> inference (TS cannot infer generics from
+// Prisma's GetFindResult conditional types).
 
 export interface CompanyScanResult {
   companyId: string
@@ -36,13 +42,18 @@ export async function buildScanContexts(basis: PeriodBasis): Promise<
     orderBy: { ticker: "asc" },
   })
 
-  const wantedType = basis === "LATEST_ANNUAL" ? "ANNUAL" : "QUARTERLY"
+  const wantedType = basis === "LATEST_ANNUAL" ? "ANNUAL" : basis === "LATEST_TTM" ? "TTM" : "QUARTERLY"
 
-  // All period keys per company of the wanted type (from calculated metrics)
-  const metrics = await db.calculatedMetric.findMany({
-    where: { companyId: { in: companies.map((c) => c.id) } },
-    select: { companyId: true, periodKey: true, periodType: true, fiscalYear: true },
-  })
+  // All period keys per company of the wanted type (from calculated metrics).
+  // Statement-type aware: per-company preference (CONSOLIDATED when the company
+  // has any consolidated rows, else STANDALONE) — the two bases are never mixed
+  // within one company's scan context.
+  const allTypeRows: Pick<CalcMetricRow, "companyId" | "periodKey" | "periodType" | "fiscalYear" | "statementType">[] =
+    await db.calculatedMetric.findMany({
+      where: { companyId: { in: companies.map((c) => c.id) }, statementType: { in: ["CONSOLIDATED", "STANDALONE"] } },
+      select: { companyId: true, periodKey: true, periodType: true, fiscalYear: true, statementType: true },
+    })
+  const metrics = preferConsolidatedRows(allTypeRows)
 
   const latestKeyPerCompany = new Map<string, string>()
   for (const m of metrics) {
@@ -60,15 +71,18 @@ export async function buildScanContexts(basis: PeriodBasis): Promise<
   }
 
   const periodKeys = [...new Set(latestKeyPerCompany.values())]
-  const [metricRows, eventRows, dividendRows] = await Promise.all([
+  const [allMetricRows, eventRows, dividendRows] = await Promise.all([
     periodKeys.length
-      ? db.calculatedMetric.findMany({ where: { periodKey: { in: periodKeys } } })
-      : Promise.resolve([]),
+      ? db.calculatedMetric.findMany({ where: { periodKey: { in: periodKeys }, statementType: { in: ["CONSOLIDATED", "STANDALONE"] } } })
+      : Promise.resolve([] as CalcMetricRow[]),
     periodKeys.length
       ? db.financialEvent.findMany({ where: { currentPeriodKey: { in: periodKeys } }, select: { companyId: true, eventType: true, currentPeriodKey: true } })
-      : Promise.resolve([]),
+      : Promise.resolve([] as { companyId: string; eventType: string; currentPeriodKey: string }[]),
     db.dividend.findMany({ where: { companyId: { in: companies.map((c) => c.id) } }, select: { companyId: true, status: true } }),
   ])
+  // same per-company statement-type preference as the context keys above
+  // (explicit type arg — Prisma conditional payload types defeat generic inference)
+  const metricRows = preferConsolidatedRows<CalcMetricRow>(allMetricRows)
 
   const metricsByCompanyPeriod = new Map<string, Map<string, { value: number | null; valueStatus: string; statusDetail: string | null }>>()
   for (const row of metricRows) {

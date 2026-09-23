@@ -1,8 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { useQuery } from "@tanstack/react-query"
-import { CalendarDays } from "lucide-react"
+import { CalendarDays, CalendarRange } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 import { api } from "@/lib/client/api"
@@ -10,6 +10,15 @@ import { useI18n } from "@/lib/i18n"
 import { StatusChip } from "./shared"
 
 const STATUSES = ["ANNOUNCED", "UPCOMING", "ELIGIBLE", "PAID", "EXPIRED", "CANCELLED"]
+
+const STATUS_DOT: Record<string, string> = {
+  ANNOUNCED: "bg-teal-500",
+  UPCOMING: "bg-cyan-500",
+  ELIGIBLE: "bg-sky-500",
+  PAID: "bg-emerald-500",
+  EXPIRED: "bg-slate-400",
+  CANCELLED: "bg-red-400",
+}
 
 export function DividendsView({ onOpenCompany }: { onOpenCompany: (id: string) => void }) {
   const { t, pick, lang } = useI18n()
@@ -19,8 +28,58 @@ export function DividendsView({ onOpenCompany }: { onOpenCompany: (id: string) =
     queryKey: ["dividends", status],
     queryFn: () => api.dividends(status === "all" ? undefined : status),
   })
+  // calendar always shows everything (statuses filtered by dot color, not omission)
+  const { data: calData, isLoading: calLoading } = useQuery({
+    queryKey: ["dividends", "calendar"],
+    queryFn: () => api.dividends(),
+  })
 
   const dividends = data?.dividends ?? []
+  const calDividends = calData?.dividends ?? []
+
+  // Next 12 months grid (starting from the current month)
+  const months = useMemo(() => {
+    const now = new Date()
+    const list: { key: string; year: number; month: number; label: string; items: { id: string; ticker: string; companyId: string; day: number; status: string; dps: number | null }[] }[] = []
+    for (let i = 0; i < 12; i++) {
+      const d = new Date(now.getFullYear(), now.getMonth() + i, 1)
+      list.push({
+        key: `${d.getFullYear()}-${d.getMonth()}`,
+        year: d.getFullYear(),
+        month: d.getMonth(),
+        label: d.toLocaleDateString(lang === "ar" ? "ar-EG" : "en-GB", { month: "short" }),
+        items: [],
+      })
+    }
+    const index = new Map(list.map((m) => [m.key, m]))
+    for (const div of calDividends) {
+      const dates: { iso: string | null }[] = [
+        { iso: div.announcementDate },
+        { iso: div.eligibilityDate },
+        { iso: div.exDividendDate },
+        { iso: div.distributionDate },
+      ]
+      const seen = new Set<string>()
+      for (const { iso } of dates) {
+        if (!iso) continue
+        const d = new Date(iso)
+        const key = `${d.getFullYear()}-${d.getMonth()}`
+        const bucket = index.get(key)
+        if (!bucket || seen.has(key)) continue
+        seen.add(key)
+        bucket.items.push({
+          id: `${div.id}-${key}`,
+          ticker: div.company?.ticker ?? "—",
+          companyId: div.company?.id ?? "",
+          day: d.getDate(),
+          status: div.status,
+          dps: div.dividendPerShare,
+        })
+      }
+    }
+    for (const m of list) m.items.sort((a, b) => a.day - b.day)
+    return list
+  }, [calDividends, lang])
 
   // group by month of announcement (or distribution fallback)
   const groups = new Map<string, typeof dividends>()
@@ -59,6 +118,63 @@ export function DividendsView({ onOpenCompany }: { onOpenCompany: (id: string) =
           ))}
         </div>
       </div>
+
+      {/* Next 12 months calendar grid */}
+      <Card className="p-0">
+        <div className="flex items-center gap-2 border-b p-4 pb-3">
+          <CalendarRange className="h-4 w-4 text-primary" />
+          <div>
+            <h2 className="text-sm font-semibold leading-tight">{t("dv.next12")}</h2>
+            <p className="text-[11px] text-muted-foreground">{t("dv.next12Sub")}</p>
+          </div>
+          <div className="ms-auto flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] text-muted-foreground">
+            {["ANNOUNCED", "ELIGIBLE", "PAID", "CANCELLED"].map((s) => (
+              <span key={s} className="inline-flex items-center gap-1">
+                <span className={`h-1.5 w-1.5 rounded-full ${STATUS_DOT[s] ?? "bg-slate-400"}`} aria-hidden />
+                {s.toLowerCase()}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-px bg-border sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+          {calLoading
+            ? Array.from({ length: 12 }).map((_, i) => (
+                <div key={i} className="bg-card p-3">
+                  <Skeleton className="h-4 w-14" />
+                  <Skeleton className="mt-2 h-8 rounded-md" />
+                </div>
+              ))
+            : months.map((m) => (
+                <div key={m.key} className={`min-h-24 bg-card p-3 transition-colors ${m.items.length > 0 ? "" : "opacity-60"}`}>
+                  <p className="flex items-baseline gap-1 text-[11px] font-semibold text-muted-foreground">
+                    {m.label}
+                    <span className="text-[9px] font-normal">{m.year}</span>
+                    {m.items.length > 0 ? (
+                      <span className="ms-auto rounded-full bg-primary/10 px-1.5 text-[9px] font-bold text-primary">{m.items.length}</span>
+                    ) : null}
+                  </p>
+                  <div className="mt-1.5 space-y-1">
+                    {m.items.length === 0 ? (
+                      <span className="text-[10px] text-muted-foreground/60">{t("dv.noEventsThisMonth")}</span>
+                    ) : (
+                      m.items.map((item) => (
+                        <button
+                          key={item.id}
+                          onClick={() => item.companyId && onOpenCompany(item.companyId)}
+                          className="flex w-full items-center gap-1.5 rounded-md border px-1.5 py-1 text-start text-[10px] transition-colors hover:bg-muted/60"
+                        >
+                          <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${STATUS_DOT[item.status] ?? "bg-slate-400"}`} aria-hidden />
+                          <span className="font-bold">{item.ticker}</span>
+                          <span className="tabular text-muted-foreground">{item.day}</span>
+                          {item.dps !== null ? <span className="ms-auto tabular text-muted-foreground">{item.dps}</span> : null}
+                        </button>
+                      ))
+                    )}
+                  </div>
+                </div>
+              ))}
+        </div>
+      </Card>
 
       {isLoading ? (
         <div className="space-y-3">
