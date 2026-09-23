@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useQuery } from "@tanstack/react-query"
-import { ArrowLeft, BarChart3, CalendarDays, FileText, Flame, Info, ScanSearch, Table2 } from "lucide-react"
+import { ArrowLeft, BarChart3, CalendarDays, Download, FileText, Flame, Info, ScanSearch, Table2, Users } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -12,9 +12,17 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { api, type EventItem } from "@/lib/client/api"
 import { useI18n } from "@/lib/i18n"
 import { formatEgp, formatPercent, formatRatio } from "@/lib/financial/units"
-import { DemoBadge, EventBadge, StatusChip } from "./shared"
+import { DemoBadge, EventBadge, StarButton, StatusChip } from "./shared"
 
-type SubTab = "overview" | "statements" | "growth" | "events" | "dividends" | "reports"
+const PEER_METRICS = [
+  { code: "roe", fmt: (v: number) => formatPercent(v), betterWhen: "higher" },
+  { code: "net_margin", fmt: (v: number) => formatPercent(v), betterWhen: "higher" },
+  { code: "revenue_growth", fmt: (v: number) => formatPercent(v, { sign: true }), betterWhen: "higher" },
+  { code: "debt_to_equity", fmt: (v: number) => formatRatio(v), betterWhen: "lower" },
+  { code: "net_profit", fmt: (v: number) => formatEgp(v), betterWhen: "higher" },
+] as const
+
+type SubTab = "overview" | "statements" | "growth" | "events" | "peers" | "dividends" | "reports"
 
 export function CompanyDetail({
   companyId,
@@ -57,6 +65,7 @@ export function CompanyDetail({
               <h1 className="text-2xl font-bold tracking-tight">{c.ticker}</h1>
               {c.isDemoData ? <DemoBadge /> : null}
               <StatusChip status={c.listingStatus} />
+              <StarButton companyId={c.id} ticker={c.ticker} className="border" />
             </div>
             <p className="mt-1 text-sm font-medium">{pick(c.nameEn, c.nameAr)}</p>
             <p className="text-xs text-muted-foreground">{lang === "ar" ? c.nameAr : c.nameEn}</p>
@@ -105,6 +114,7 @@ export function CompanyDetail({
           <TabsTrigger value="statements" className="gap-1.5"><Table2 className="h-3.5 w-3.5" />{t("co.statements")}</TabsTrigger>
           <TabsTrigger value="growth" className="gap-1.5"><Flame className="h-3.5 w-3.5" />{t("co.growth")}</TabsTrigger>
           <TabsTrigger value="events" className="gap-1.5"><Flame className="h-3.5 w-3.5" />{t("co.events")} ({c.counts.events})</TabsTrigger>
+          <TabsTrigger value="peers" className="gap-1.5"><Users className="h-3.5 w-3.5" />{t("peers.tab")}</TabsTrigger>
           <TabsTrigger value="dividends" className="gap-1.5"><CalendarDays className="h-3.5 w-3.5" />{t("co.dividends")}</TabsTrigger>
           <TabsTrigger value="reports" className="gap-1.5"><FileText className="h-3.5 w-3.5" />{t("co.reports")} ({c.counts.reports})</TabsTrigger>
         </TabsList>
@@ -120,6 +130,9 @@ export function CompanyDetail({
         </TabsContent>
         <TabsContent value="events" className="mt-4">
           <EventsTab companyId={companyId} />
+        </TabsContent>
+        <TabsContent value="peers" className="mt-4">
+          <PeersTab companyId={companyId} />
         </TabsContent>
         <TabsContent value="dividends" className="mt-4">
           <CompanyDividendsTab companyId={companyId} />
@@ -284,9 +297,9 @@ function StatementsTab({ companyId }: { companyId: string }) {
         ) : (
           <div className="max-h-[480px] overflow-auto scrollbar-thin">
             <table className="w-full text-xs">
-              <thead className="sticky top-0 bg-card">
+              <thead className="sticky top-0 bg-card z-10">
                 <tr className="border-b">
-                  <th className="p-2.5 text-start font-medium text-muted-foreground min-w-40">{lang === "ar" ? "البند" : "Item"}</th>
+                  <th className="sticky-col sticky-col-header p-2.5 text-start font-medium text-muted-foreground min-w-40 shadow-[inset-inline-end:1px_0_0_var(--border)]">{lang === "ar" ? "البند" : "Item"}</th>
                   {periods.map((p) => (
                     <th key={p.key} className="p-2.5 text-end font-medium text-muted-foreground whitespace-nowrap">
                       {p.label}
@@ -298,7 +311,7 @@ function StatementsTab({ companyId }: { companyId: string }) {
               <tbody>
                 {rows.map((row) => (
                   <tr key={row.code} className="border-b last:border-0 hover:bg-muted/40">
-                    <td className="p-2.5 font-medium">
+                    <td className="sticky-col sticky-col-cell p-2.5 font-medium shadow-[inset-inline-end:1px_0_0_var(--border)]">
                       {row.cells[Object.keys(row.cells)[0]]?.label ?? row.code}
                     </td>
                     {periods.map((p) => {
@@ -402,10 +415,15 @@ export function EventsList({ events, emptyText }: { events: EventItem[]; emptyTe
   if (events.length === 0) {
     return <p className="p-6 text-center text-sm text-muted-foreground">{emptyText}</p>
   }
+  const toneBorder: Record<string, string> = {
+    positive: "border-s-4 border-s-emerald-500/70",
+    negative: "border-s-4 border-s-red-500/70",
+    neutral: "border-s-4 border-s-slate-400/60",
+  }
   return (
     <div className="max-h-[560px] space-y-3 overflow-y-auto scrollbar-thin pe-1">
       {events.map((e) => (
-        <div key={e.id} className="rounded-lg border bg-card p-4">
+        <div key={e.id} className={`rounded-lg border bg-card p-4 ${toneBorder[e.tone] ?? ""}`}>
           <div className="flex flex-wrap items-center justify-between gap-2">
             <EventBadge label={pick(e.labelEn, e.labelAr)} tone={e.tone} />
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
@@ -424,7 +442,7 @@ export function EventsList({ events, emptyText }: { events: EventItem[]; emptyTe
               {e.conditions.map((c, i) => (
                 <li key={i} className="flex items-start gap-1.5 text-[11px] text-muted-foreground">
                   <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
-                  {c.detail}
+                  {pick(c.detail, c.detailAr)}
                 </li>
               ))}
             </ul>
@@ -432,6 +450,111 @@ export function EventsList({ events, emptyText }: { events: EventItem[]; emptyTe
         </div>
       ))}
     </div>
+  )
+}
+
+/* ---------------- Peers tab ---------------- */
+
+function PeersTab({ companyId }: { companyId: string }) {
+  const { t, lang, pick } = useI18n()
+  const { data, isLoading } = useQuery({ queryKey: ["peers", companyId], queryFn: () => api.peers(companyId) })
+
+  if (isLoading || !data) return <Skeleton className="h-72 rounded-xl" />
+  if (!data.period || data.peers.length === 0) {
+    return <Card className="p-6 text-center text-sm text-muted-foreground">{t("peers.noData")}</Card>
+  }
+
+  return (
+    <Card className="p-0">
+      <CardHeader className="pb-3">
+        <CardTitle className="text-sm flex flex-wrap items-center gap-2">
+          {t("peers.title")}
+          <Badge variant="secondary" className="text-[10px]">{data.basis}</Badge>
+          <Badge variant="outline" className="text-[10px]">{data.period.label}</Badge>
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-6">
+        {PEER_METRICS.map((metric) => {
+          const entries = data.peers
+            .map((p) => ({ peer: p, value: p.values[metric.code] ?? null }))
+            .filter((e) => e.value !== null) as { peer: (typeof data.peers)[number]; value: number }[]
+          if (entries.length === 0) return null
+          const maxAbs = Math.max(...entries.map((e) => Math.abs(e.value)), Math.abs(data.medians[metric.code] ?? 0), 1e-9)
+          const self = entries.find((e) => e.peer.isSelf)
+          const med = data.medians[metric.code]
+          return (
+            <div key={metric.code}>
+              <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+                <h4 className="text-xs font-semibold">{t(`peers.${metric.code}` as never)}</h4>
+                {med !== null ? (
+                  <span className="text-[11px] text-muted-foreground tabular">
+                    {t("peers.median")}: <span className="font-medium text-foreground">{metric.fmt(med)}</span>
+                  </span>
+                ) : null}
+              </div>
+              <div className="space-y-1.5">
+                {entries
+                  .sort((a, b) => (metric.betterWhen === "higher" ? b.value - a.value : a.value - b.value))
+                  .map(({ peer, value }) => {
+                    const width = Math.max(2, (Math.abs(value) / maxAbs) * 100)
+                    const positive = value >= 0
+                    return (
+                      <div key={peer.id} className="group flex items-center gap-2">
+                        <span className={`w-12 shrink-0 text-[11px] font-bold tabular ${peer.isSelf ? "text-primary" : "text-muted-foreground"}`}>
+                          {peer.ticker}
+                        </span>
+                        <div className="relative h-5 flex-1 overflow-hidden rounded bg-muted/50">
+                          <div
+                            className={`h-full rounded transition-all group-hover:opacity-90 ${
+                              peer.isSelf
+                                ? positive
+                                  ? "bg-primary"
+                                  : "bg-red-500"
+                                : positive
+                                  ? "bg-primary/35 group-hover:bg-primary/50"
+                                  : "bg-red-500/40"
+                            }`}
+                            style={{ width: `${width}%` }}
+                          />
+                          {med !== null ? (
+                            <div
+                              className="absolute inset-y-0 w-0.5 bg-foreground/50"
+                              style={{ left: `${Math.max(0, Math.min(100, (Math.abs(med) / maxAbs) * 100))}%` }}
+                              title={`${t("peers.median")}: ${metric.fmt(med)}`}
+                            />
+                          ) : null}
+                        </div>
+                        <span className={`w-20 shrink-0 text-end text-[11px] tabular ${value < 0 ? "text-red-600 dark:text-red-400" : peer.isSelf ? "font-bold" : "text-muted-foreground"}`}>
+                          {metric.fmt(value)}
+                        </span>
+                      </div>
+                    )
+                  })}
+              </div>
+              {self ? (
+                <p className="mt-1.5 text-[10px] text-muted-foreground">
+                  {t("peers.you")}: <span className="font-medium text-foreground tabular">{metric.fmt(self.value)}</span>
+                  {med !== null ? (
+                    <>
+                      {" "}
+                      · {metric.betterWhen === "higher"
+                        ? self.value >= med
+                          ? lang === "ar" ? "فوق الوسيط ↑" : "above median ↑"
+                          : lang === "ar" ? "تحت الوسيط ↓" : "below median ↓"
+                        : self.value <= med
+                          ? lang === "ar" ? "أفضل من الوسيط ↓" : "better than median ↓"
+                          : lang === "ar" ? "أعلى من الوسيط ↑" : "above median ↑"}
+                    </>
+                  ) : null}
+                </p>
+              ) : (
+                <p className="mt-1.5 text-[10px] text-muted-foreground italic">{pick("This company has no data for this metric.", "لا توجد بيانات لهذه الشركة لهذا المؤشر.")}</p>
+              )}
+            </div>
+          )
+        })}
+      </CardContent>
+    </Card>
   )
 }
 
@@ -538,11 +661,21 @@ function ReportsTab({ companyId }: { companyId: string }) {
           </button>
           {open === r.id && reportDetail?.report ? (
             <div className="border-t p-4">
-              {r.fileHash ? (
-                <p className="mb-3 text-[10px] text-muted-foreground font-mono break-all">
-                  {t("co.fileHash")}: {r.fileHash}
-                </p>
-              ) : null}
+              <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+                {r.fileHash ? (
+                  <p className="text-[10px] text-muted-foreground font-mono break-all">
+                    {t("co.fileHash")}: {r.fileHash}
+                  </p>
+                ) : <span />}
+                {r.localFileRef ? (
+                  <a href={`/api/v1/reports/${r.id}/download`} download>
+                    <Button variant="outline" size="sm" className="h-7 gap-1.5 text-xs">
+                      <Download className="h-3.5 w-3.5" />
+                      {t("rp.download")}
+                    </Button>
+                  </a>
+                ) : null}
+              </div>
               {r.notes ? <p className="mb-3 text-[11px] text-muted-foreground">{r.notes}</p> : null}
               <div className="max-h-80 overflow-y-auto scrollbar-thin rounded-md border">
                 <table className="w-full text-xs">

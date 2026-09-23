@@ -101,7 +101,7 @@ export interface EventItem {
   fiscalYear: number
   currentPeriodKey: string
   previousPeriodKey: string | null
-  conditions: { metric: string; current?: number; previous?: number; detail: string; ok: boolean }[]
+  conditions: { metric: string; current?: number; previous?: number; detail: string; detailAr?: string; ok: boolean }[]
   explanationEn: string
   explanationAr: string
   ruleVersion: string
@@ -162,6 +162,7 @@ export interface ReportListItem {
   extractionMethod: string | null
   fileHash: string | null
   fileSize?: number | null
+  localFileRef?: string | null
   version: number
   isRestatement?: boolean
   isDemoData: boolean
@@ -225,6 +226,34 @@ export interface MetricRegistry {
   eventTypes: { type: string; labelEn: string; labelAr: string; tone: string; description: string }[]
 }
 
+export interface PeerData {
+  sector: string
+  basis: string
+  period: { key: string; label: string } | null
+  medians: Record<string, number | null>
+  peers: {
+    id: string
+    ticker: string
+    nameEn: string
+    nameAr: string | null
+    sector: string
+    isDemoData: boolean
+    isSelf: boolean
+    values: Record<string, number | null>
+  }[]
+}
+
+export interface RunHistoryItem {
+  id: string
+  ruleId: string | null
+  ruleName: string
+  isPreset: boolean
+  periodBasis: string
+  matchedCount: number
+  matchedCompanyIds: string[]
+  ranAt: string
+}
+
 async function handle<T>(res: Response): Promise<T> {
   if (!res.ok) {
     let message = `Request failed (${res.status})`
@@ -275,6 +304,11 @@ export const api = {
 
   companyReports: (id: string) =>
     fetch(`/api/v1/companies/${id}/reports`).then((r) => handle<{ reports: ReportListItem[] }>(r)),
+
+  peers: (id: string) => fetch(`/api/v1/companies/${id}/peers`).then((r) => handle<PeerData>(r)),
+
+  scanHistory: () =>
+    fetch(`/api/v1/scanners/history`).then((r) => handle<{ runs: RunHistoryItem[] }>(r)),
 
   scanners: () => fetch(`/api/v1/scanners`).then((r) => handle<{ rules: ScannerRule[] }>(r)),
 

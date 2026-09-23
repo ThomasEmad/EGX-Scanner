@@ -155,6 +155,30 @@ const dict = {
     en: "Every financial value keeps its original label, unit, source and validation status. Derived metrics are stored separately with a formula version. Missing data is never treated as zero. Sign transitions (loss→profit, profit→loss) are detected as events rather than misleading percentages. Market-dependent ratios (P/B, P/E) report DATA_UNAVAILABLE until market price data is connected. Scanner results are factual financial conditions — never investment advice.",
     ar: "تحتفظ كل قيمة مالية بتسميتها الأصلية ووحدتها ومصدرها وحالة تحققها. تُخزن المؤشرات المشتقة منفصلة مع إصدار المعادلة. لا تُعامل البيانات المفقودة كصفر أبداً. تُكتشف التحولات السلبية/الإيجابية كأحداث بدلاً من نسب مضللة. تقارير النسب السوقية تظهر «بيانات غير متوفرة» حتى ربط بيانات الأسعار. نتائج الماسحات أوضاع مالية واقعية — وليست توصية استثمارية.",
   },
+  // watchlist
+  "watchlist.add": { en: "Add to watchlist", ar: "أضف إلى قائمة المتابعة" },
+  "watchlist.remove": { en: "Remove from watchlist", ar: "إزالة من قائمة المتابعة" },
+  "watchlist.title": { en: "Watchlist", ar: "قائمة المتابعة" },
+  "watchlist.only": { en: "Watchlist only", ar: "قائمة المتابعة فقط" },
+  "watchlist.empty": { en: "Star companies to build your watchlist.", ar: "ميّز الشركات بنجمة لبناء قائمة المتابعة." },
+  // peers
+  "peers.tab": { en: "Peers", ar: "المقارنة بالأقران" },
+  "peers.title": { en: "Sector peer comparison", ar: "مقارنة مع شركات القطاع" },
+  "peers.median": { en: "Sector median", ar: "وسيط القطاع" },
+  "peers.you": { en: "This company", ar: "هذه الشركة" },
+  "peers.basis": { en: "Comparison basis", ar: "أساس المقارنة" },
+  "peers.noData": { en: "No peer data for this period.", ar: "لا توجد بيانات أقران لهذه الفترة." },
+  "peers.roe": { en: "ROE", ar: "العائد على حقوق الملكية" },
+  "peers.net_margin": { en: "Net margin", ar: "هامش صافي الربح" },
+  "peers.revenue_growth": { en: "Revenue growth", ar: "نمو الإيرادات" },
+  "peers.debt_to_equity": { en: "Debt / Equity", ar: "الدين إلى حقوق الملكية" },
+  "peers.net_profit": { en: "Net profit", ar: "صافي الربح" },
+  // run history
+  "rh.title": { en: "Recent scanner runs", ar: "آخر عمليات المسح" },
+  "rh.empty": { en: "No scanner runs yet.", ar: "لا توجد عمليات مسح بعد." },
+  "rh.matches": { en: "matches", ar: "مطابقة" },
+  // reports
+  "rp.download": { en: "Download source", ar: "تنزيل المستند" },
   // disclaimer
   "ft.disclaimer": {
     en: "Educational / informational tool. Reports factual financial conditions with explanations. Not investment advice — no BUY/SELL recommendations are generated.",

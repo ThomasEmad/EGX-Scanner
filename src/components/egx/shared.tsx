@@ -3,10 +3,33 @@
 // Shared small display components: demo badges, event badges, status chips,
 // condition evaluation rows (the "WHY matched" explanation panel).
 
-import { CheckCircle2, HelpCircle, MinusCircle, XCircle } from "lucide-react"
+import { CheckCircle2, HelpCircle, MinusCircle, Star, XCircle } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import type { ConditionEval } from "@/lib/client/api"
+import { useWatchlist } from "@/lib/client/watchlist"
 import { useI18n } from "@/lib/i18n"
+
+/** Star/unstar a company into the (client-side) watchlist. */
+export function StarButton({ companyId, ticker, className = "" }: { companyId: string; ticker: string; className?: string }) {
+  const { t } = useI18n()
+  const has = useWatchlist((s) => s.items.some((i) => i.id === companyId))
+  const toggle = useWatchlist((s) => s.toggle)
+  return (
+    <button
+      onClick={(e) => {
+        e.stopPropagation()
+        toggle({ id: companyId, ticker })
+      }}
+      aria-label={has ? `${t("watchlist.remove")} ${ticker}` : `${t("watchlist.add")} ${ticker}`}
+      title={has ? t("watchlist.remove") : t("watchlist.add")}
+      className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md transition-all hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring ${className} ${
+        has ? "text-amber-400" : "text-muted-foreground/40 hover:text-amber-400"
+      }`}
+    >
+      <Star className={`h-4 w-4 ${has ? "fill-amber-400" : ""}`} />
+    </button>
+  )
+}
 
 export function DemoBadge({ small = false }: { small?: boolean }) {
   const { t } = useI18n()

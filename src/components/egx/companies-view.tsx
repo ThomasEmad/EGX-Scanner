@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react"
 import { useQuery } from "@tanstack/react-query"
-import { ArrowRight, Building2, Search } from "lucide-react"
+import { ArrowRight, Building2, Search, Star } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
@@ -10,9 +10,10 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Skeleton } from "@/components/ui/skeleton"
 import { api } from "@/lib/client/api"
+import { useWatchlist } from "@/lib/client/watchlist"
 import { useI18n } from "@/lib/i18n"
 import { formatEgp, formatPercent } from "@/lib/financial/units"
-import { DemoBadge } from "./shared"
+import { DemoBadge, StarButton } from "./shared"
 
 export function CompaniesView({ onOpenCompany }: { onOpenCompany: (id: string) => void }) {
   const { t, lang, pick } = useI18n()
@@ -20,6 +21,8 @@ export function CompaniesView({ onOpenCompany }: { onOpenCompany: (id: string) =
   const [debouncedSearch, setDebouncedSearch] = useState("")
   const [sector, setSector] = useState<string>("all")
   const [page, setPage] = useState(1)
+  const [watchlistOnly, setWatchlistOnly] = useState(false)
+  const watchItems = useWatchlist((s) => s.items)
 
   // debounce search
   useMemo(() => {
@@ -34,6 +37,15 @@ export function CompaniesView({ onOpenCompany }: { onOpenCompany: (id: string) =
     queryKey: ["companies", debouncedSearch, sector, page],
     queryFn: () => api.companies({ search: debouncedSearch, sector: sector === "all" ? undefined : sector, page, pageSize: 9 }),
   })
+
+  // client-side watchlist filter (watchlist is a local preference)
+  const watchIds = useMemo(() => new Set(watchItems.map((i) => i.id)), [watchItems])
+  const filtered = useMemo(() => {
+    if (!data) return null
+    if (!watchlistOnly) return data
+    const only = data.companies.filter((c) => watchIds.has(c.id))
+    return { ...data, companies: only, total: only.length, totalPages: 1 }
+  }, [data, watchlistOnly, watchIds])
 
   const sectors = ["Banks", "Real Estate", "Industrial", "Telecom", "Healthcare", "Food", "Investment", "Financial Services", "Consumer", "Other"]
 
@@ -65,6 +77,17 @@ export function CompaniesView({ onOpenCompany }: { onOpenCompany: (id: string) =
               ))}
             </SelectContent>
           </Select>
+          <button
+            onClick={() => setWatchlistOnly((v) => !v)}
+            className={`flex h-9 items-center gap-1.5 rounded-md border px-3 text-xs font-medium transition-colors ${
+              watchlistOnly ? "border-amber-400/60 bg-amber-400/10 text-amber-600 dark:text-amber-400" : "text-muted-foreground hover:text-foreground"
+            }`}
+            aria-pressed={watchlistOnly}
+          >
+            <Star className={`h-3.5 w-3.5 ${watchlistOnly ? "fill-amber-400 text-amber-400" : ""}`} />
+            {t("watchlist.only")}
+            {watchItems.length > 0 ? <span className="tabular">({watchItems.length})</span> : null}
+          </button>
         </div>
       </div>
 
@@ -74,21 +97,36 @@ export function CompaniesView({ onOpenCompany }: { onOpenCompany: (id: string) =
             <Skeleton key={i} className="h-48 rounded-xl" />
           ))}
         </div>
-      ) : !data || data.companies.length === 0 ? (
-        <Card className="flex h-48 items-center justify-center p-6 text-center text-sm text-muted-foreground">
-          {t("common.noData")}
+      ) : !filtered || filtered.companies.length === 0 ? (
+        <Card className="flex h-48 flex-col items-center justify-center gap-2 p-6 text-center text-sm text-muted-foreground">
+          {watchlistOnly && watchItems.length === 0 ? (
+            <>
+              <Star className="h-6 w-6 text-amber-400/60" />
+              {t("watchlist.empty")}
+            </>
+          ) : (
+            t("common.noData")
+          )}
         </Card>
       ) : (
         <>
           <p className="text-xs text-muted-foreground tabular">
-            {data.total} {lang === "ar" ? "شركة" : "companies"} · {t("common.page")} {data.page} {t("common.of")} {data.totalPages}
+            {filtered.total} {lang === "ar" ? "شركة" : "companies"} · {t("common.page")} {filtered.page} {t("common.of")} {filtered.totalPages}
           </p>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {data.companies.map((c) => (
-              <button
+            {filtered.companies.map((c) => (
+              <div
                 key={c.id}
+                role="button"
+                tabIndex={0}
                 onClick={() => onOpenCompany(c.id)}
-                className="group rounded-xl border bg-card p-4 text-start shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-primary/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault()
+                    onOpenCompany(c.id)
+                  }
+                }}
+                className="group cursor-pointer rounded-xl border bg-card p-4 text-start shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-primary/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex items-center gap-2.5 min-w-0">
@@ -103,7 +141,10 @@ export function CompaniesView({ onOpenCompany }: { onOpenCompany: (id: string) =
                       <p className="truncate text-xs text-muted-foreground">{pick(c.nameEn, c.nameAr)}</p>
                     </div>
                   </div>
-                  <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground/50 transition-transform group-hover:translate-x-0.5 group-hover:text-primary rtl-flip" />
+                  <div className="flex shrink-0 items-center gap-0.5">
+                    <StarButton companyId={c.id} ticker={c.ticker} />
+                    <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground/50 transition-transform group-hover:translate-x-0.5 group-hover:text-primary rtl-flip" />
+                  </div>
                 </div>
 
                 <div className="mt-2 flex items-center gap-1.5">
@@ -137,19 +178,19 @@ export function CompaniesView({ onOpenCompany }: { onOpenCompany: (id: string) =
                   <span>{c.counts.events} {t("co.events")}</span>
                   {c.snapshot.revenue?.periodLabel ? <span className="ms-auto font-medium">{c.snapshot.revenue.periodLabel}</span> : null}
                 </div>
-              </button>
+              </div>
             ))}
           </div>
 
-          {data.totalPages > 1 ? (
+          {filtered.totalPages > 1 && !watchlistOnly ? (
             <div className="flex items-center justify-center gap-2 pt-2">
               <Button variant="outline" size="sm" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>
                 ‹
               </Button>
               <span className="text-xs text-muted-foreground tabular">
-                {page} / {data.totalPages}
+                {page} / {filtered.totalPages}
               </span>
-              <Button variant="outline" size="sm" disabled={page >= data.totalPages} onClick={() => setPage((p) => p + 1)}>
+              <Button variant="outline" size="sm" disabled={page >= filtered.totalPages} onClick={() => setPage((p) => p + 1)}>
                 ›
               </Button>
             </div>

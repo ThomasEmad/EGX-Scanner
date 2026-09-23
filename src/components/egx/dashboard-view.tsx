@@ -1,11 +1,12 @@
 "use client"
 
 import { useQuery } from "@tanstack/react-query"
-import { ArrowRight, Building2, CalendarDays, FileWarning, ScanSearch, Sparkles, TrendingDown, TrendingUp } from "lucide-react"
+import { ArrowRight, Building2, CalendarDays, FileWarning, ScanSearch, Sparkles, Star, TrendingDown, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 import { api, type DashboardData } from "@/lib/client/api"
+import { useWatchlist } from "@/lib/client/watchlist"
 import { useI18n } from "@/lib/i18n"
 import { DemoBadge, EventBadge } from "./shared"
 import { EVENT_TYPE_MAP } from "@/lib/financial/registry"
@@ -22,6 +23,7 @@ export function DashboardView({
 }) {
   const { t, lang, pick } = useI18n()
   const { data, isLoading, error } = useQuery({ queryKey: ["dashboard"], queryFn: api.dashboard })
+  const watchItems = useWatchlist((s) => s.items)
 
   if (isLoading) {
     return (
@@ -92,13 +94,41 @@ export function DashboardView({
         )}
       </section>
 
+      {/* Watchlist strip */}
+      {watchItems.length > 0 ? (
+        <section aria-label={t("watchlist.title")} className="rounded-xl border border-amber-400/30 bg-amber-400/5 p-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="flex items-center gap-1.5 text-xs font-semibold text-amber-600 dark:text-amber-400">
+              <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+              {t("watchlist.title")}
+              <span className="tabular">({watchItems.length})</span>
+            </span>
+            <div className="flex flex-wrap gap-1.5">
+              {watchItems.map((w) => (
+                <button
+                  key={w.id}
+                  onClick={() => onOpenCompany(w.id)}
+                  className="inline-flex items-center gap-1 rounded-full border border-amber-400/40 bg-card px-2.5 py-1 text-[11px] font-semibold transition-colors hover:bg-amber-400/10"
+                >
+                  {w.ticker}
+                </button>
+              ))}
+            </div>
+            <button onClick={() => onViewChange("companies")} className="ms-auto text-[11px] text-muted-foreground hover:text-foreground">
+              {lang === "ar" ? "إدارة" : "Manage"}
+            </button>
+          </div>
+        </section>
+      ) : null}
+
       {/* Stats */}
       <section aria-label="Portfolio statistics" className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         {stats.map((s) => (
-          <Card key={s.label} className="p-4">
+          <Card key={s.label} className="relative overflow-hidden p-4 transition-all hover:-translate-y-0.5 hover:shadow-md">
+            <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-primary/70 via-primary/25 to-transparent" />
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <span className="text-primary">{s.icon}</span>
-              {s.label}
+              <span className="flex h-6 w-6 items-center justify-center rounded-md bg-primary/10 text-primary">{s.icon}</span>
+              <span className="leading-tight">{s.label}</span>
             </div>
             <p className="mt-2 text-2xl font-bold tabular">{s.value.toLocaleString()}</p>
           </Card>
@@ -118,7 +148,7 @@ export function DashboardView({
               <button
                 key={card.id}
                 onClick={() => onOpenScanner(card.id)}
-                className="group text-start rounded-xl border bg-card p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-primary/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
+                className="group text-start rounded-xl border bg-card p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-primary/40 hover:ring-1 hover:ring-primary/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-center gap-2.5">
@@ -130,7 +160,9 @@ export function DashboardView({
                       <p className="text-[11px] text-muted-foreground">{card.count} {lang === "ar" ? "مطابقة" : "matches"}</p>
                     </div>
                   </div>
-                  <span className="text-xl font-bold tabular text-primary">{card.count}</span>
+                  <span className="flex h-7 min-w-7 items-center justify-center rounded-full bg-primary/10 px-2 text-sm font-bold tabular text-primary">
+                    {card.count}
+                  </span>
                 </div>
                 <p className="mt-2.5 text-xs text-muted-foreground leading-relaxed line-clamp-2">{card.description}</p>
                 {card.topMatches.length > 0 ? (
@@ -169,11 +201,12 @@ export function DashboardView({
             ) : (
               data.recentEvents.map((e) => {
                 const meta = EVENT_TYPE_MAP[e.eventType]
+                const toneBorder = meta?.tone === "positive" ? "border-s-4 border-s-emerald-500/70" : meta?.tone === "negative" ? "border-s-4 border-s-red-500/70" : "border-s-4 border-s-slate-400/50"
                 return (
                   <button
                     key={e.id}
                     onClick={() => onOpenCompany(e.company.id)}
-                    className="flex w-full items-start gap-3 rounded-lg border p-3 text-start transition-colors hover:bg-muted/50"
+                    className={`flex w-full items-start gap-3 rounded-lg border p-3 text-start transition-colors hover:bg-muted/50 ${toneBorder}`}
                   >
                     <EventBadge
                       small

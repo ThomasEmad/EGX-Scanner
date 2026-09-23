@@ -1,11 +1,12 @@
 // Event Engine — detects financial events/patterns from ACTUAL stored values.
 // Explanations are generated from stored values and rules — never invented by AI.
 // Rule version is stored with every event so calculations remain auditable.
+// Condition details are bilingual (detailEn + detailAr) — spec #51 (Arabic-friendly).
 
 import { formatEgp, formatPercent } from "./units"
 import type { MetricResult } from "./calc"
 
-export const EVENTS_RULE_VERSION = "events@1"
+export const EVENTS_RULE_VERSION = "events@2"
 
 export interface PeriodData {
   periodKey: string
@@ -24,6 +25,7 @@ export interface EventConditionDetail {
   current?: number
   previous?: number
   detail: string
+  detailAr: string
   ok: boolean
 }
 
@@ -44,17 +46,14 @@ interface PeriodPair {
   prev: PeriodData
 }
 
-const cond = (metric: string, cur: number | undefined, prev: number | undefined, detail: string, ok: boolean): EventConditionDetail => ({
+const cond = (metric: string, cur: number | undefined, prev: number | undefined, detail: string, detailAr: string, ok: boolean): EventConditionDetail => ({
   metric,
   current: cur,
   previous: prev,
   detail,
+  detailAr,
   ok,
 })
-
-function valueOf(p: PeriodData, code: string): number | undefined {
-  return p.values[code]
-}
 
 /** Detect all events for an ordered list of periods (per company). */
 export function detectEvents(periods: PeriodData[]): DetectedEvent[] {
@@ -82,7 +81,7 @@ export function detectEvents(periods: PeriodData[]): DetectedEvent[] {
         events.push({
           eventType: "LOSS_TO_PROFIT",
           ...base(pair),
-          conditions: [cond("NET_PROFIT", curNp, prevNp, `Net profit moved from ${formatEgp(prevNp)} to ${formatEgp(curNp)}`, true)],
+          conditions: [cond("NET_PROFIT", curNp, prevNp, `Net profit moved from ${formatEgp(prevNp)} to ${formatEgp(curNp)}`, `تحول صافي الربح من ${formatEgp(prevNp)} إلى ${formatEgp(curNp)}`, true)],
           explanationEn: `Turnaround: net profit moved from a loss of ${formatEgp(Math.abs(prevNp))} in ${prev.periodLabel} to a profit of ${formatEgp(curNp)} in ${cur.periodLabel}.`,
           explanationAr: `تحول مالي: تحول صافي الربح من خسارة قدرها ${formatEgp(Math.abs(prevNp))} في ${prev.periodLabel} إلى ربح قدره ${formatEgp(curNp)} في ${cur.periodLabel}.`,
         })
@@ -91,7 +90,7 @@ export function detectEvents(periods: PeriodData[]): DetectedEvent[] {
         events.push({
           eventType: "PROFIT_TO_LOSS",
           ...base(pair),
-          conditions: [cond("NET_PROFIT", curNp, prevNp, `Net profit moved from ${formatEgp(prevNp)} to ${formatEgp(curNp)}`, true)],
+          conditions: [cond("NET_PROFIT", curNp, prevNp, `Net profit moved from ${formatEgp(prevNp)} to ${formatEgp(curNp)}`, `تحول صافي الربح من ${formatEgp(prevNp)} إلى ${formatEgp(curNp)}`, true)],
           explanationEn: `Deterioration: net profit moved from a profit of ${formatEgp(prevNp)} in ${prev.periodLabel} to a loss of ${formatEgp(Math.abs(curNp))} in ${cur.periodLabel}.`,
           explanationAr: `تدهور مالي: تحول صافي الربح من ربح قدره ${formatEgp(prevNp)} في ${prev.periodLabel} إلى خسارة قدرها ${formatEgp(Math.abs(curNp))} في ${cur.periodLabel}.`,
         })
@@ -106,7 +105,7 @@ export function detectEvents(periods: PeriodData[]): DetectedEvent[] {
       events.push({
         eventType: "REVENUE_GROWTH",
         ...base(pair),
-        conditions: [cond("revenue_growth", revGrowth.value, undefined, `Revenue growth = ${formatPercent(revGrowth.value, { sign: true })} (threshold ≥ 15%)`, true)],
+        conditions: [cond("revenue_growth", revGrowth.value, undefined, `Revenue growth = ${formatPercent(revGrowth.value, { sign: true })} (threshold ≥ 15%)`, `نمو الإيرادات = ${formatPercent(revGrowth.value, { sign: true })} (الحد الأدنى 15%)`, true)],
         explanationEn: `Revenue grew ${formatPercent(revGrowth.value, { sign: true })} year-over-year (${formatEgp(prevRev)} in ${prev.periodLabel} → ${formatEgp(curRev)} in ${cur.periodLabel}).`,
         explanationAr: `نمت الإيرادات بنسبة ${formatPercent(revGrowth.value, { sign: true })} مقارنة بالعام السابق (${formatEgp(prevRev)} في ${prev.periodLabel} → ${formatEgp(curRev)} في ${cur.periodLabel}).`,
       })
@@ -120,7 +119,7 @@ export function detectEvents(periods: PeriodData[]): DetectedEvent[] {
       events.push({
         eventType: "DEBT_REDUCTION",
         ...base(pair),
-        conditions: [cond("debt_growth", debtGrowth.value, undefined, `Debt growth = ${formatPercent(debtGrowth.value, { sign: true })} (threshold ≤ -5%)`, true)],
+        conditions: [cond("debt_growth", debtGrowth.value, undefined, `Debt growth = ${formatPercent(debtGrowth.value, { sign: true })} (threshold ≤ -5%)`, `نمو الدين = ${formatPercent(debtGrowth.value, { sign: true })} (الحد الأقصى -5%)`, true)],
         explanationEn: `Total debt decreased by ${formatPercent(Math.abs(debtGrowth.value))} (${formatEgp(prevD)} in ${prev.periodLabel} → ${formatEgp(curD)} in ${cur.periodLabel}).`,
         explanationAr: `انخفض إجمالي الدين بنسبة ${formatPercent(Math.abs(debtGrowth.value))} (${formatEgp(prevD)} في ${prev.periodLabel} → ${formatEgp(curD)} في ${cur.periodLabel}).`,
       })
@@ -134,7 +133,7 @@ export function detectEvents(periods: PeriodData[]): DetectedEvent[] {
       events.push({
         eventType: "EQUITY_GROWTH",
         ...base(pair),
-        conditions: [cond("equity_growth", eqGrowth.value, undefined, `Equity growth = ${formatPercent(eqGrowth.value, { sign: true })} (threshold ≥ 10%)`, true)],
+        conditions: [cond("equity_growth", eqGrowth.value, undefined, `Equity growth = ${formatPercent(eqGrowth.value, { sign: true })} (threshold ≥ 10%)`, `نمو حقوق الملكية = ${formatPercent(eqGrowth.value, { sign: true })} (الحد الأدنى 10%)`, true)],
         explanationEn: `Shareholders' equity increased by ${formatPercent(eqGrowth.value, { sign: true })} (${formatEgp(prevE)} in ${prev.periodLabel} → ${formatEgp(curE)} in ${cur.periodLabel}).`,
         explanationAr: `زادت حقوق الملكية بنسبة ${formatPercent(eqGrowth.value, { sign: true })} (${formatEgp(prevE)} في ${prev.periodLabel} → ${formatEgp(curE)} في ${cur.periodLabel}).`,
       })
@@ -150,12 +149,15 @@ export function detectEvents(periods: PeriodData[]): DetectedEvent[] {
         const detail = turnedPositive
           ? `Operating cash flow turned positive: ${formatEgp(prevOcf)} → ${formatEgp(curOcf)}`
           : `Operating cash flow improved: ${formatEgp(prevOcf)} → ${formatEgp(curOcf)} (${formatPercent(((curOcf - prevOcf) / prevOcf) * 100, { sign: true })})`
+        const detailAr = turnedPositive
+          ? `تحول التدفق النقدي التشغيلي إلى الإيجابية: ${formatEgp(prevOcf)} → ${formatEgp(curOcf)}`
+          : `تحسن التدفق النقدي التشغيلي: ${formatEgp(prevOcf)} → ${formatEgp(curOcf)}`
         events.push({
           eventType: "CASH_FLOW_IMPROVEMENT",
           ...base(pair),
-          conditions: [cond("OPERATING_CASH_FLOW", curOcf, prevOcf, detail, true)],
+          conditions: [cond("OPERATING_CASH_FLOW", curOcf, prevOcf, detail, detailAr, true)],
           explanationEn: `${detail} between ${prev.periodLabel} and ${cur.periodLabel}.`,
-          explanationAr: `تحسن التدفق النقدي التشغيلي من ${formatEgp(prevOcf)} إلى ${formatEgp(curOcf)} بين ${prev.periodLabel} و ${cur.periodLabel}.`,
+          explanationAr: `${detailAr} بين ${prev.periodLabel} و ${cur.periodLabel}.`,
         })
       }
     }
@@ -176,8 +178,8 @@ export function detectEvents(periods: PeriodData[]): DetectedEvent[] {
           eventType: "PROFIT_ACCELERATION",
           ...base(pair),
           conditions: [
-            cond("profit_growth", g1.value, undefined, `Prior-year profit growth = ${formatPercent(g1.value, { sign: true })} (> 0)`, true),
-            cond("profit_growth", g2.value, undefined, `Current profit growth = ${formatPercent(g2.value, { sign: true })} (accelerating)`, true),
+            cond("profit_growth", g1.value, undefined, `Prior-year profit growth = ${formatPercent(g1.value, { sign: true })} (> 0)`, `نمو أرباح العام السابق = ${formatPercent(g1.value, { sign: true })} (أكبر من صفر)`, true),
+            cond("profit_growth", g2.value, undefined, `Current profit growth = ${formatPercent(g2.value, { sign: true })} (accelerating)`, `نمو الأرباح الحالي = ${formatPercent(g2.value, { sign: true })} (متسارع)`, true),
           ],
           explanationEn: `Profit growth is accelerating: net profit ${formatEgp(oldNp)} → ${formatEgp(midNp)} (${formatPercent(g1.value, { sign: true })}) → ${formatEgp(curNpV)} (${formatPercent(g2.value, { sign: true })}).`,
           explanationAr: `تسارع نمو الأرباح: صافي الربح ${formatEgp(oldNp)} → ${formatEgp(midNp)} (${formatPercent(g1.value, { sign: true })}) → ${formatEgp(curNpV)} (${formatPercent(g2.value, { sign: true })}).`,
@@ -191,7 +193,7 @@ export function detectEvents(periods: PeriodData[]): DetectedEvent[] {
       events.push({
         eventType: "STRONG_PROFITABILITY",
         ...base(pair),
-        conditions: [cond("roe", roeMetric.value, undefined, `ROE = ${formatPercent(roeMetric.value)} (threshold ≥ 15%)`, true)],
+        conditions: [cond("roe", roeMetric.value, undefined, `ROE = ${formatPercent(roeMetric.value)} (threshold ≥ 15%)`, `العائد على حقوق الملكية = ${formatPercent(roeMetric.value)} (الحد الأدنى 15%)`, true)],
         explanationEn: `Return on equity is ${formatPercent(roeMetric.value)} in ${cur.periodLabel} (threshold ≥ 15%).`,
         explanationAr: `العائد على حقوق الملكية ${formatPercent(roeMetric.value)} في ${cur.periodLabel} (الحد الأدنى 15%).`,
       })
@@ -203,7 +205,7 @@ export function detectEvents(periods: PeriodData[]): DetectedEvent[] {
       events.push({
         eventType: "HIGH_ASSETS",
         ...base(pair),
-        conditions: [cond("TOTAL_ASSETS", ta, undefined, `Total assets = ${formatEgp(ta)} (threshold ≥ EGP 10B)`, true)],
+        conditions: [cond("TOTAL_ASSETS", ta, undefined, `Total assets = ${formatEgp(ta)} (threshold ≥ EGP 10B)`, `إجمالي الأصول = ${formatEgp(ta)} (الحد الأدنى 10 مليار جنيه)`, true)],
         explanationEn: `Total assets are ${formatEgp(ta)} in ${cur.periodLabel} (threshold ≥ EGP 10B).`,
         explanationAr: `إجمالي الأصول ${formatEgp(ta)} في ${cur.periodLabel} (الحد الأدنى 10 مليار جنيه).`,
       })
@@ -215,15 +217,15 @@ export function detectEvents(periods: PeriodData[]): DetectedEvent[] {
       const rg = cur.metrics["revenue_growth"]
       const dg = cur.metrics["debt_growth"]
       const recConds: EventConditionDetail[] = []
-      const c1 = cond("LOSS_TO_PROFIT", curNp, prevNp, "Loss → Profit transition", true)
+      const c1 = cond("LOSS_TO_PROFIT", curNp, prevNp, "Loss → Profit transition", "تحول من خسارة إلى ربح", true)
       const c2 = rg?.status === "OK" && rg.value !== undefined && rg.value >= 10
-        ? cond("revenue_growth", rg.value, undefined, `Revenue growth = ${formatPercent(rg.value, { sign: true })} (≥ 10%)`, true)
+        ? cond("revenue_growth", rg.value, undefined, `Revenue growth = ${formatPercent(rg.value, { sign: true })} (≥ 10%)`, `نمو الإيرادات = ${formatPercent(rg.value, { sign: true })} (الحد الأدنى 10%)`, true)
         : null
       const c3 = curOcf !== undefined && curOcf > 0
-        ? cond("OPERATING_CASH_FLOW", curOcf, undefined, `Operating cash flow = ${formatEgp(curOcf)} (positive)`, true)
+        ? cond("OPERATING_CASH_FLOW", curOcf, undefined, `Operating cash flow = ${formatEgp(curOcf)} (positive)`, `التدفق النقدي التشغيلي = ${formatEgp(curOcf)} (إيجابي)`, true)
         : null
       const c4 = dg?.status === "OK" && dg.value !== undefined && dg.value <= 0
-        ? cond("debt_growth", dg.value, undefined, `Debt growth = ${formatPercent(dg.value, { sign: true })} (not increasing)`, true)
+        ? cond("debt_growth", dg.value, undefined, `Debt growth = ${formatPercent(dg.value, { sign: true })} (not increasing)`, `نمو الدين = ${formatPercent(dg.value, { sign: true })} (لا يزيد)`, true)
         : null
       if (c2 && c3 && c4) {
         recConds.push(c1, c2, c3, c4)
@@ -245,10 +247,10 @@ export function detectEvents(periods: PeriodData[]): DetectedEvent[] {
       const ocfNegative = curOcf !== undefined && curOcf < 0
       if (revDecline || ocfNegative) {
         const detConds: EventConditionDetail[] = [
-          cond("NET_PROFIT", curNp, prevNp, "Profit → Loss transition", true),
+          cond("NET_PROFIT", curNp, prevNp, "Profit → Loss transition", "تحول من ربح إلى خسارة", true),
         ]
-        if (revDecline) detConds.push(cond("revenue_growth", rg!.value, undefined, `Revenue declined ${formatPercent(rg!.value, { sign: true })}`, true))
-        if (ocfNegative) detConds.push(cond("OPERATING_CASH_FLOW", curOcf, undefined, `Operating cash flow is negative (${formatEgp(curOcf)})`, true))
+        if (revDecline) detConds.push(cond("revenue_growth", rg!.value, undefined, `Revenue declined ${formatPercent(rg!.value, { sign: true })}`, `انخفضت الإيرادات ${formatPercent(rg!.value, { sign: true })}`, true))
+        if (ocfNegative) detConds.push(cond("OPERATING_CASH_FLOW", curOcf, undefined, `Operating cash flow is negative (${formatEgp(curOcf)})`, `التدفق النقدي التشغيلي سالب (${formatEgp(curOcf)})`, true))
         events.push({
           eventType: "FINANCIAL_DETERIORATION",
           ...base(pair),
@@ -271,6 +273,10 @@ function base(pair: PeriodPair) {
     fiscalYear: pair.cur.fiscalYear,
     periodLabel: pair.cur.periodLabel,
   }
+}
+
+function valueOf(p: PeriodData, code: string): number | undefined {
+  return p.values[code]
 }
 
 function previousKeyOf(p: PeriodData): string | null {
