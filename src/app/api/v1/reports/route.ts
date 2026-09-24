@@ -3,7 +3,7 @@ import { createHash } from "node:crypto"
 import { mkdir, writeFile } from "node:fs/promises"
 import path from "node:path"
 import { db } from "@/lib/db"
-import { isAdmin, unauthorizedResponse } from "@/lib/admin-auth"
+import { requireAdminOrUser, unauthorizedResponse } from "@/lib/access"
 import { audit } from "@/lib/audit"
 import { PERIOD_TYPES, reportPeriodKey } from "@/lib/financial/periods"
 
@@ -17,10 +17,14 @@ export async function GET(req: NextRequest) {
   const page = Math.max(1, Number(url.searchParams.get("page") ?? 1) || 1)
   const pageSize = Math.min(50, Math.max(1, Number(url.searchParams.get("pageSize") ?? 15) || 15))
 
-  const where: Record<string, unknown> = {}
+  const where: Record<string, unknown> = { AND: [] }
   if (companyId) where.companyId = companyId
   if (status) where.processingStatus = status
   if (statementType) where.statementType = statementType.toUpperCase()
+  // Exclude deleted documents from active lists by default.
+  if (!status) {
+    ;(where as { AND: Array<Record<string, unknown>> }).AND.push({ processingStatus: { not: "DELETED" } })
+  }
 
   const [total, reports] = await Promise.all([
     db.financialReport.count({ where }),
@@ -84,7 +88,8 @@ const STATEMENT_TYPES = ["CONSOLIDATED", "STANDALONE", "UNKNOWN"]
 const LANGUAGES = ["EN", "AR", "MIXED", "UNKNOWN"]
 
 export async function POST(req: NextRequest) {
-  if (!isAdmin(req)) return unauthorizedResponse()
+  const actor = await requireAdminOrUser(req)
+  if (!actor) return unauthorizedResponse()
 
   const form = await req.formData().catch(() => null)
   if (!form) return Response.json({ error: "VALIDATION", message: "Expected multipart form data" }, { status: 400 })
@@ -184,24 +189,31 @@ export async function POST(req: NextRequest) {
 
   const fileHash = createHash("sha256").update(buffer).digest("hex")
 
-  // ---- Exact duplicate protection (spec #13): never process the same bytes again ----
-  const duplicate = await db.financialReport.findUnique({ where: { fileHash } })
-  if (duplicate) {
-    await audit("UPLOAD_DUPLICATE", {
-      actor: "admin",
-      entityType: "FinancialReport",
-      entityId: duplicate.id,
-      details: `Duplicate upload rejected (hash ${fileHash.slice(0, 12)}…) — existing report ${duplicate.periodLabel}`,
-    })
-    return Response.json(
-      {
-        error: "DUPLICATE",
-        message: `Duplicate detected: this exact document was already uploaded as "${duplicate.periodLabel}" (${duplicate.processingStatus}). The same file is not processed again.`,
-        existingReport: { id: duplicate.id, periodLabel: duplicate.periodLabel, processingStatus: duplicate.processingStatus },
-      },
-      { status: 409 }
-    )
-  }
+   // ---- Exact duplicate protection: only block active records ----
+   // Deleted / failed / rejected documents must not block legitimate re-uploads.
+   const existingByHash = await db.financialReport.findFirst({
+     where: {
+       fileHash,
+       processingStatus: { notIn: ["DELETED", "FAILED", "REJECTED"] },
+     },
+     select: { id: true, processingStatus: true, periodLabel: true, deletedAt: true },
+   })
+   if (existingByHash && !existingByHash.deletedAt) {
+     await audit("UPLOAD_DUPLICATE", {
+       actor: actor,
+       entityType: "FinancialReport",
+       entityId: existingByHash.id,
+       details: `Duplicate upload rejected (hash ${fileHash.slice(0, 12)}…) — existing report ${existingByHash.periodLabel} status=${existingByHash.processingStatus}`,
+     })
+     return Response.json(
+       {
+         error: "DUPLICATE",
+         message: `Duplicate detected: this exact document already exists as "${existingByHash.periodLabel}" (${existingByHash.processingStatus}).`,
+         existingReport: { id: existingByHash.id, periodLabel: existingByHash.periodLabel, processingStatus: existingByHash.processingStatus },
+       },
+       { status: 409 }
+     )
+   }
 
   // ---- Logical duplicate → VERSIONING (restatement flow, spec #12) ----
   // Same (company, periodType, periodLabel, statementType) but different bytes = a

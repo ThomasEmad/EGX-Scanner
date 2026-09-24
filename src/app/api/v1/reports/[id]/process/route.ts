@@ -1,10 +1,10 @@
 import { readFile } from "node:fs/promises"
 import { db } from "@/lib/db"
-import { isAdmin, unauthorizedResponse } from "@/lib/admin-auth"
+import { requireAdminOrUser, unauthorizedResponse } from "@/lib/access"
 import { audit } from "@/lib/audit"
 import {
   detectDocumentKind, extractFromCsv, extractFromText, extractFromPages,
-  detectLanguage, detectStatementType, detectPeriod,
+  detectLanguage, detectStatementType, detectPeriod, classifyDocument, parseTableMarkup, runValidation, buildDerivedValues, missingMetricReport, confidenceForCandidate, DocumentClassification, ExtractedTable, ExtractedCandidate,
 } from "@/lib/financial/extract"
 import { parsePdf } from "@/lib/financial/pdf"
 import { validateValues, type ValidatableValue } from "@/lib/financial/validate"
@@ -19,7 +19,8 @@ import { recomputeCompany, type RecomputeResult } from "@/lib/financial/recomput
 // Insufficient quality ⇒ NEEDS_REVIEW — bad extraction is never silently accepted
 // and pipeline errors are never silently swallowed (status FAILED + error row).
 export async function POST(req: Request, { params }: { params: Promise<{ id: string }> }) {
-  if (!isAdmin(req)) return unauthorizedResponse()
+  const actor = await requireAdminOrUser(req)
+  if (!actor) return unauthorizedResponse()
   const { id } = await params
 
   const report = await db.financialReport.findUnique({ where: { id }, include: { company: true } })
@@ -175,6 +176,64 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
       },
     })
 
+    // ---------- document classification ----------
+    const docPages: Array<{ pageNumber: number; text: string }> = []
+    if (kind === "PDF") {
+      // pdf is block-scoped to the PDF branch above; rebuild the normalized page
+      // list here so classification/table parsing stay consistent with extraction.
+      const pdfResult = await parsePdf(buffer)
+      docPages.push(...pdfResult.pages.map((p) => ({ pageNumber: p.pageNumber, text: p.text || "" })))
+    } else if (kind === "TEXT" && fullText) {
+      docPages.push({ pageNumber: 1, text: fullText })
+    }
+    const classification = docPages.length > 0 ? classifyDocument(buffer, docPages) : null
+    const tables: ExtractedTable[] = []
+    for (const p of docPages) {
+      const t = parseTableMarkup(p.text, p.pageNumber)
+      if (t) tables.push(t)
+    }
+
+    // ---------- confidence boosting ----------
+    const boostedCandidates = candidates.map((c) => confidenceForCandidate(c, classification, tables))
+    const lowConfidenceCandidates = boostedCandidates.filter((c) => c.confidence < 0.7)
+    const missingMetrics = missingMetricReport(boostedCandidates)
+
+    if (missingMetrics.length > 0) {
+      await db.financialExtractionLog.create({
+        data: {
+          reportId: id,
+          stage: "EXTRACT",
+          level: "WARN",
+          message: `Missing ${missingMetrics.length} core metric(s): ${missingMetrics.slice(0, 10).join(", ")}${missingMetrics.length > 10 ? "..." : ""}`,
+        },
+      })
+    }
+
+    if (lowConfidenceCandidates.length > 0) {
+      await db.financialExtractionLog.create({
+        data: {
+          reportId: id,
+          stage: "EXTRACT",
+          level: "WARN",
+          message: `${lowConfidenceCandidates.length} low-confidence extraction(s) flagged for review`,
+          details: JSON.stringify({ lowConfidenceMetrics: lowConfidenceCandidates.map((c) => c.metricCode) }),
+        },
+      })
+    }
+
+    // ---------- validation ----------
+    const validationResults = runValidation(boostedCandidates)
+    if (validationResults.some((v) => v.passed === false && v.severity === "FAIL")) {
+      await db.financialExtractionLog.create({
+        data: {
+          reportId: id,
+          stage: "VALIDATE",
+          level: "WARN",
+          message: `Validation failures detected: ${validationResults.filter((v) => !v.passed).map((v) => v.rule).join(", ")}`,
+        },
+      })
+    }
+
     // ---------- auto-detection fill-in (never overwrites admin-confirmed fields) ----------
     const finalLanguage = report.language !== "UNKNOWN" ? report.language : safeDetectLanguage(fullText)
     const finalStatementType = report.statementType !== "UNKNOWN" ? report.statementType : safeDetectStatementType(fullText)
@@ -207,12 +266,12 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     }
 
     // ---------- NORMALIZE + VALIDATE stage ----------
-    const validated = validateValues(candidates)
+    const validated = validateValues(boostedCandidates)
 
     // sourceText lives on the extracted candidates but not on the ValidatableValue
     // interface — map it by metricCode (validation keeps the first occurrence per code)
     const sourceTextByCode = new Map<string, string | null>()
-    for (const c of candidates) {
+    for (const c of boostedCandidates) {
       if (!sourceTextByCode.has(c.metricCode)) {
         sourceTextByCode.set(c.metricCode, (c as Partial<{ sourceText?: string | null }>).sourceText ?? null)
       }

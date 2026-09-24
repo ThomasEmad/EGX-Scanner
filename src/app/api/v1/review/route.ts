@@ -6,7 +6,7 @@ import { db } from "@/lib/db"
 export async function GET() {
   const [values, reports] = await Promise.all([
     db.financialValue.findMany({
-      where: { validationStatus: "NEEDS_REVIEW" },
+      where: { validationStatus: "NEEDS_REVIEW", report: { processingStatus: { not: "DELETED" } } },
       include: {
         company: { select: { ticker: true, nameEn: true, nameAr: true } },
         report: { select: { id: true, periodLabel: true, periodType: true, processingStatus: true } },
@@ -14,7 +14,7 @@ export async function GET() {
       orderBy: { createdAt: "desc" },
     }),
     db.financialReport.findMany({
-      where: { processingStatus: { in: ["NEW_DOWNLOADED", "NEEDS_REVIEW", "PROCESSING", "FAILED"] } },
+      where: { processingStatus: { in: ["NEW_DOWNLOADED", "NEEDS_REVIEW", "PROCESSING", "FAILED", "REJECTED"] } },
       include: {
         company: { select: { ticker: true, nameEn: true, nameAr: true } },
         _count: { select: { values: true } },

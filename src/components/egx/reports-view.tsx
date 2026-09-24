@@ -22,6 +22,7 @@ import {
   RefreshCcw,
   ScanSearch,
   ScrollText,
+  Trash2,
   Upload,
   UploadCloud,
   Workflow,
@@ -865,9 +866,10 @@ export function ReportsView({ onOpenCompany }: { onOpenCompany: (id: string) => 
   const queryClient = useQueryClient()
   const fileRef = useRef<HTMLInputElement>(null)
 
-  const [token, setToken] = useState<string | null>(() =>
-    typeof window !== "undefined" ? localStorage.getItem("egx-admin-token") : null
-  )
+  const [token, setToken] = useState<string | null>(() => {
+    if (typeof window === "undefined") return null
+    return localStorage.getItem("egx-admin-token") || localStorage.getItem("egx-user-token") || null
+  })
   const [passcode, setPasscode] = useState("")
 
   // upload form
@@ -931,7 +933,7 @@ export function ReportsView({ onOpenCompany }: { onOpenCompany: (id: string) => 
   }, [clearStageTimer])
 
   const invalidateAll = useCallback(() => {
-    for (const key of ["uploaded-reports", "uploaded-reports-all", "review", "dashboard", "company", "metrics", "report-detail"]) {
+    for (const key of ["uploaded-reports", "review", "dashboard", "company", "metrics", "report-detail"]) {
       queryClient.invalidateQueries({ queryKey: [key] })
     }
   }, [queryClient])
@@ -939,14 +941,18 @@ export function ReportsView({ onOpenCompany }: { onOpenCompany: (id: string) => 
   // ---- data ----
 
   const { data: companies } = useQuery({ queryKey: ["companies-all"], queryFn: () => api.companies({ pageSize: 50, page: 1 }) })
-  const { data: review, refetch: refetchReview } = useQuery({ queryKey: ["review"], queryFn: api.review, enabled: !!token })
+  const { data: review, refetch: refetchReview } = useQuery({
+    queryKey: ["review"],
+    queryFn: api.review,
+    enabled: !!token,
+  })
   const { data: pendingReports, isLoading: pendingLoading } = useQuery({
-    queryKey: ["uploaded-reports", token],
+    queryKey: ["uploaded-reports", "NEW_DOWNLOADED"],
     queryFn: () => api.reports({ status: "NEW_DOWNLOADED" }),
     enabled: !!token,
   })
   const { data: allReports, isLoading: allLoading } = useQuery({
-    queryKey: ["uploaded-reports-all", token],
+    queryKey: ["uploaded-reports", "ALL"],
     queryFn: () => api.reports({ page: 1 }),
     enabled: !!token,
   })
@@ -1151,6 +1157,22 @@ export function ReportsView({ onOpenCompany }: { onOpenCompany: (id: string) => 
       toast({ title: lang === "ar" ? "فشل إجراء المراجعة" : "Review action failed", description: e instanceof Error ? e.message : String(e), variant: "destructive" }),
   })
 
+  const reprocessMutation = useMutation({
+    mutationFn: (id: string) => api.reprocessReport(id, token as string),
+    onSuccess: () => {
+      toast({ title: lang === "ar" ? "تمت إعادة المعالجة" : "Reprocessing started", description: lang === "ar" ? "تم إعادة تعيين الحالة." : "Document status reset." })
+      invalidateAll()
+    },
+  })
+
+  const deleteMutation = useMutation({
+    mutationFn: (id: string) => api.deleteReport(id, token as string),
+    onSuccess: () => {
+      toast({ title: lang === "ar" ? "تم الحذف" : "Document deleted", description: lang === "ar" ? "تم حذف المستند من القائمة النشطة." : "Document removed from active lists." })
+      invalidateAll()
+    },
+  })
+
   // ---- handlers ----
 
   const onFileChange = (f: File | null) => {
@@ -1212,6 +1234,7 @@ export function ReportsView({ onOpenCompany }: { onOpenCompany: (id: string) => 
           className="gap-1.5 text-xs"
           onClick={() => {
             localStorage.removeItem("egx-admin-token")
+            localStorage.removeItem("egx-user-token")
             setToken(null)
           }}
         >
@@ -1616,6 +1639,34 @@ export function ReportsView({ onOpenCompany }: { onOpenCompany: (id: string) => 
                       >
                         <XCircle className="h-3 w-3" />
                         {t("rp.rejectReport")}
+                      </Button>
+                    ) : null}
+                    {["FAILED", "REJECTED", "NEEDS_REVIEW", "NEW_DOWNLOADED", "EXTRACTED", "VALIDATED"].includes(r.processingStatus) && !r.isDemoData ? (
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        className="h-7 gap-1 text-xs"
+                        onClick={() => reprocessMutation.mutate(r.id)}
+                        disabled={reprocessMutation.isPending}
+                      >
+                        {reprocessMutation.isPending && reprocessMutation.variables === r.id ? <Loader2 className="h-3 w-3 animate-spin" /> : <Workflow className="h-3 w-3" />}
+                        {t("rp.reprocess")}
+                      </Button>
+                    ) : null}
+                    {["FAILED", "REJECTED", "NEEDS_REVIEW", "NEW_DOWNLOADED", "VALIDATED"].includes(r.processingStatus) && !r.isDemoData ? (
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        className="h-7 gap-1 text-xs text-red-600 hover:text-red-600"
+                        onClick={() => {
+                          if (confirm(lang === "ar" ? "حذف المستند؟ لا يمكن التراجع." : "Delete this document? This cannot be undone.")) {
+                            deleteMutation.mutate(r.id)
+                          }
+                        }}
+                        disabled={deleteMutation.isPending}
+                      >
+                        {deleteMutation.isPending && deleteMutation.variables === r.id ? <Loader2 className="h-3 w-3 animate-spin" /> : <Trash2 className="h-3 w-3" />}
+                        {t("common.delete")}
                       </Button>
                     ) : null}
                     <Button size="sm" variant="ghost" className="h-7 gap-1 text-xs" onClick={() => openDetail(r.id)}>

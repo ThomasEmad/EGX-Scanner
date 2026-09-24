@@ -1,5 +1,5 @@
 import { db } from "@/lib/db"
-import { isAdmin, unauthorizedResponse } from "@/lib/admin-auth"
+import { requireAdminOrUser, unauthorizedResponse } from "@/lib/access"
 import { audit } from "@/lib/audit"
 
 // POST /api/v1/reports/[id]/reject — admin rejects a report that failed review.
@@ -9,7 +9,8 @@ import { audit } from "@/lib/audit"
 // The report is marked REJECTED, the reason stored in errorMessage, and the
 // rejection is audit-logged. Rejected reports are excluded from recomputation.
 export async function POST(req: Request, { params }: { params: Promise<{ id: string }> }) {
-  if (!isAdmin(req)) return unauthorizedResponse()
+  const actor = await requireAdminOrUser(req)
+  if (!actor) return unauthorizedResponse()
   const { id } = await params
 
   const body = await req.json().catch(() => null)
