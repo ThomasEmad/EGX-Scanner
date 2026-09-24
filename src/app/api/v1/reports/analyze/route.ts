@@ -2,10 +2,10 @@ import { NextRequest } from "next/server"
 import { createHash } from "node:crypto"
 import path from "node:path"
 import { db } from "@/lib/db"
-import { isAdmin, unauthorizedResponse } from "@/lib/admin-auth"
+import { requireAdminOrUser, unauthorizedResponse } from "@/lib/access"
 import {
   detectDocumentKind, detectReportUnit, extractFromCsv, extractFromText, extractFromPages,
-  detectLanguage, detectStatementType, detectPeriod,
+  detectLanguage, detectStatementType, detectPeriod, classifyDocument, parseTableMarkup, DocumentClassification, ExtractedTable,
 } from "@/lib/financial/extract"
 import { parsePdf } from "@/lib/financial/pdf"
 
@@ -19,7 +19,8 @@ const MAX_UPLOAD_BYTES = 30 * 1024 * 1024 // 30MB
 const ALLOWED_EXTENSIONS = [".pdf", ".csv", ".txt"]
 
 export async function POST(req: NextRequest) {
-  if (!isAdmin(req)) return unauthorizedResponse()
+  const actor = await requireAdminOrUser(req)
+  if (!actor) return unauthorizedResponse()
 
   const form = await req.formData().catch(() => null)
   if (!form) {
@@ -111,6 +112,23 @@ export async function POST(req: NextRequest) {
   const reportUnit = fullText ? detectReportUnit(fullText) : "UNIT"
   const period = fullText ? detectPeriod(fullText) : null
 
+   // ---- document classification and table parsing (analyze) ----
+   const docPages: Array<{ pageNumber: number; text: string }> = []
+   if (kind === "PDF") {
+     // pdf is block-scoped above; re-parse is cheap for analyze and keeps
+     // classification consistent with the extraction result.
+     const pdfResult = await parsePdf(buffer)
+     docPages.push(...pdfResult.pages.map((p) => ({ pageNumber: p.pageNumber, text: p.text || "" })))
+   } else if (kind === "TEXT" && fullText) {
+     docPages.push({ pageNumber: 1, text: fullText })
+   }
+  const classification = docPages.length > 0 ? classifyDocument(buffer, docPages) : null
+  const tables: ExtractedTable[] = []
+  for (const p of docPages) {
+    const t = parseTableMarkup(p.text, p.pageNumber)
+    if (t) tables.push(t)
+  }
+
   if (candidates.length === 0 && (kind === "PDF" || kind === "TEXT")) {
     warnings.push("No registry metric labels were matched — processing will likely require manual review.")
   }
@@ -120,24 +138,41 @@ export async function POST(req: NextRequest) {
 
   const candidateCodes = [...new Set(candidates.map((c) => c.metricCode))].sort()
 
+  const detection: Record<string, unknown> = {
+    fileName: baseName,
+    fileSize: buffer.length,
+    fileHash,
+    documentKind: kind,
+    pageCount,
+    looksScanned,
+    engine,
+    language,
+    statementType,
+    reportUnit,
+    period,
+    candidateCount: candidates.length,
+    candidateCodes,
+    warnings,
+    ...(companyContext ? { companyId: companyContext.id, company: { ticker: companyContext.ticker, nameEn: companyContext.nameEn } } : {}),
+  }
+
+  if (classification) {
+    detection.classification = {
+      statementType: classification.statementType,
+      statementScope: classification.statementScope,
+      unit: classification.unit,
+      currency: classification.currency,
+      fiscalYear: classification.fiscalYear,
+      companyName: classification.companyName,
+      confidence: classification.confidence,
+      warnings: classification.warnings,
+    }
+    detection.tableCount = tables.length
+    detection.tableHeaders = tables.slice(0, 5).map((t) => ({ page: t.pageNumber, header: t.header }))
+  }
+
   return Response.json({
     ok: true,
-    detection: {
-      fileName: baseName,
-      fileSize: buffer.length,
-      fileHash,
-      documentKind: kind,
-      pageCount,
-      looksScanned,
-      engine,
-      language,
-      statementType,
-      reportUnit,
-      period,
-      candidateCount: candidates.length,
-      candidateCodes,
-      warnings,
-      ...(companyContext ? { companyId: companyContext.id, company: { ticker: companyContext.ticker, nameEn: companyContext.nameEn } } : {}),
-    },
+    detection,
   })
 }

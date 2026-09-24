@@ -465,7 +465,13 @@ async function handle<T>(res: Response): Promise<T> {
 }
 
 function authHeaders(token?: string | null): Record<string, string> {
-  return token ? { "x-admin-token": token } : {}
+  const headers: Record<string, string> = {}
+  if (token) headers["x-admin-token"] = token
+  if (typeof window !== "undefined") {
+    const userToken = localStorage.getItem("egx-user-token")
+    if (userToken) headers["x-session-token"] = userToken
+  }
+  return headers
 }
 
 export const api = {
@@ -597,7 +603,36 @@ export const api = {
 
   downloadReportUrl: (id: string) => `/api/v1/reports/${id}/download`,
 
+  reprocessReport: (id: string, token: string) =>
+    fetch(`/api/v1/reports/${id}/reprocess`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...authHeaders(token) },
+    }).then((r) => handle<{ ok: boolean; id: string; processingStatus: string }>(r)),
+
+  deleteReport: (id: string, token: string) =>
+    fetch(`/api/v1/reports/${id}/delete`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...authHeaders(token) },
+    }).then((r) => handle<{ ok: boolean; id: string; processingStatus: string }>(r)),
+
   review: () => fetch(`/api/v1/review`).then((r) => handle<ReviewData>(r)),
+
+  subscription: () => fetch("/api/v1/subscription/me").then((r) => handle<{ isPremium: boolean; subscription: unknown }>(r)),
+
+  createPaymentRequest: (body: { planId: string; amount: number; paymentMethod?: string; transactionReference?: string | null }) =>
+    fetch("/api/v1/payment-requests", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }).then((r) => handle<{ id: string; status: string; createdAt: string }>(r)),
+
+  myPaymentRequests: () => fetch("/api/v1/payment-requests/me").then((r) => handle<{ requests: unknown[] }>(r)),
+
+  adminSubscriptions: () =>
+    fetch("/api/v1/admin/subscriptions").then((r) => handle<{ subscriptions: unknown[] }>(r)),
+
+  adminPaymentRequests: () =>
+    fetch("/api/v1/admin/payment-requests").then((r) => handle<{ requests: unknown[] }>(r)),
 
   reviewAction: (valueId: string, body: { action: string; value?: number; metricCode?: string; unit?: string; reason?: string }, token: string) =>
     fetch(`/api/v1/review/values/${valueId}`, {

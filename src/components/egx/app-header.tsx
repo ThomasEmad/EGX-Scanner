@@ -3,11 +3,13 @@
 import { useState } from "react"
 import { useTheme } from "next-themes"
 import { useQuery } from "@tanstack/react-query"
-import { Activity, Building2, CalendarDays, FileCheck2, Gauge, Languages, Moon, ScanSearch, ShieldCheck, Sun, Wand2 } from "lucide-react"
+import { Activity, Building2, CalendarDays, FileCheck2, Gauge, Languages, Moon, ScanSearch, ShieldCheck, Sun, Wand2, Crown } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { useI18n } from "@/lib/i18n"
 import type { ViewKey } from "@/app/page"
+import { UserMenu } from "@/components/user-menu"
+import { AuthForm } from "@/components/auth-form"
 
 export function AppHeader({
   view,
@@ -28,6 +30,9 @@ export function AppHeader({
     staleTime: 60_000,
   })
   const pendingReview = reviewData?.stats.pendingReview ?? 0
+
+  const [authOpen, setAuthOpen] = useState(false)
+  const [premiumOpen, setPremiumOpen] = useState(false)
 
   const tabs: { key: ViewKey; label: string; icon: React.ReactNode }[] = [
     { key: "dashboard", label: t("nav.dashboard"), icon: <Gauge className="h-4 w-4" /> },
@@ -85,14 +90,18 @@ export function AppHeader({
           </nav>
 
           <div className="flex items-center gap-1.5">
-            <Button variant="ghost" size="sm" className="h-8" onClick={() => setMethodologyOpen(true)} title={t("nav.methodology")}>
+            <Button variant="ghost" size="sm" className="h-8 gap-1" onClick={() => setPremiumOpen(true)} title="Premium">
+              <Crown className="h-4 w-4" />
+              <span className="hidden md:inline text-xs font-semibold">Premium</span>
+            </Button>
+            <Button variant="ghost" size="sm" className="h-8 gap-1" onClick={() => setAuthOpen(true)} title="Account">
               <ShieldCheck className="h-4 w-4" />
-              <span className="hidden md:inline text-xs">{t("nav.methodology")}</span>
+              <span className="hidden md:inline text-xs">{lang === "ar" ? "حساب" : "Account"}</span>
             </Button>
             <Button
               variant="ghost"
               size="sm"
-              className="h-8 gap-1"
+              className="h-8"
               onClick={() => setLang(lang === "en" ? "ar" : "en")}
               aria-label="Toggle language"
             >
@@ -163,6 +172,33 @@ export function AppHeader({
             <Button className="mt-5 w-full" onClick={() => setMethodologyOpen(false)}>
               {t("common.close")}
             </Button>
+          </div>
+        </div>
+      ) : null}
+
+      {authOpen ? (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setAuthOpen(false)}>
+          <div onClick={(e) => e.stopPropagation()}>
+            <AuthForm onSuccess={() => setAuthOpen(false)} />
+          </div>
+        </div>
+      ) : null}
+
+      {premiumOpen ? (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setPremiumOpen(false)}>
+          <div className="w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-xl border bg-card p-0 shadow-lg" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between border-b p-4">
+              <h2 className="text-lg font-semibold">Premium</h2>
+              <Button variant="ghost" size="sm" onClick={() => setPremiumOpen(false)}>Close</Button>
+            </div>
+            <div className="p-4">
+              <UserMenu />
+              <div className="mt-4">
+                <a href="/premium" className="text-sm text-primary underline">
+                  View Premium plans and payment instructions
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       ) : null}

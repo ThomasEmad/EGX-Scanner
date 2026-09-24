@@ -1,5 +1,5 @@
 import { db } from "@/lib/db"
-import { isAdmin, unauthorizedResponse } from "@/lib/admin-auth"
+import { requireAdminOrUser, unauthorizedResponse } from "@/lib/access"
 import { audit } from "@/lib/audit"
 import { recomputeCompany } from "@/lib/financial/recompute"
 
@@ -8,7 +8,8 @@ import { recomputeCompany } from "@/lib/financial/recompute"
 // Approval stamps approvedBy/approvedAt + reviewedBy/reviewedAt and triggers
 // recomputation of derived metrics + event detection (statement-type aware).
 export async function POST(req: Request, { params }: { params: Promise<{ id: string }> }) {
-  if (!isAdmin(req)) return unauthorizedResponse()
+  const actor = await requireAdminOrUser(req)
+  if (!actor) return unauthorizedResponse()
   const { id } = await params
 
   const report = await db.financialReport.findUnique({ where: { id }, include: { values: true, company: { select: { ticker: true } } } })
