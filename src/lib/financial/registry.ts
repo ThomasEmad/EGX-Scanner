@@ -3,6 +3,15 @@
 // "Net Sales", "إيرادات نشاط الأعمال"). All map to a canonical code like REVENUE.
 // NEVER destroy original labels — originals are preserved on FinancialValue rows.
 
+import {
+  EXPANDED_METRICS,
+  METRIC_GROUPS,
+  METRIC_CODE_TO_GROUP,
+  getMetricGroup,
+  type MetricGroupDef,
+} from "./expanded-metrics"
+import { SECTOR_KPI_METRICS, SECTOR_METRIC_GROUPS } from "./sector-kpi-metrics"
+
 export type StatementType =
   | "INCOME_STATEMENT"
   | "BALANCE_SHEET"
@@ -21,6 +30,19 @@ export interface RawMetricDef {
   isPerShare?: boolean
   /** Share counts are NEVER multiplied by the report unit scale either */
   isCount?: boolean
+  /** Optional display group key (see METRIC_GROUPS), e.g. "income.revenue" */
+  group?: string
+  /** Optional display order within the group */
+  displayOrder?: number
+}
+
+// Re-export the expanded registry pieces so callers can import from one place.
+export {
+  EXPANDED_METRICS,
+  METRIC_GROUPS,
+  METRIC_CODE_TO_GROUP,
+  getMetricGroup,
+  type MetricGroupDef,
 }
 
 export const RAW_METRICS: RawMetricDef[] = [
@@ -430,6 +452,74 @@ export const RAW_METRICS: RawMetricDef[] = [
       "صافي الزيادة نقصان النقد وما في حكمه", "صافي التغير في النقد وما في حكمه", "صافي التغير في النقد",
     ],
   },
+  // ---------- Codes arriving from the egx-data pipeline (registry-completed) ----------
+  {
+    code: "EBITDA",
+    labelEn: "EBITDA",
+    labelAr: "الأرباح قبل الفوائد والضرائب والإهلاك والإطفاء",
+    statementType: "INCOME_STATEMENT",
+    aliases: ["ebitda", "normalized ebitda"],
+  },
+  {
+    code: "EBIT",
+    labelEn: "EBIT",
+    labelAr: "الأرباح قبل الفوائد والضرائب",
+    statementType: "INCOME_STATEMENT",
+    aliases: ["ebit"],
+  },
+  {
+    code: "EXTRAORDINARY_ITEMS",
+    labelEn: "Extraordinary Items",
+    labelAr: "بنود استثنائية",
+    statementType: "INCOME_STATEMENT",
+    aliases: ["extraordinary items", "total unusual items"],
+  },
+  {
+    code: "DEPRECIATION_AMORTIZATION",
+    labelEn: "Depreciation & Amortization",
+    labelAr: "الإهلاك والاستنفاد",
+    statementType: "CASH_FLOW",
+    aliases: ["depreciation amortization", "reconciled depreciation"],
+  },
+  {
+    code: "WORKING_CAPITAL",
+    labelEn: "Working Capital",
+    labelAr: "رأس المال العامل",
+    statementType: "BALANCE_SHEET",
+    aliases: ["working capital"],
+  },
+  {
+    code: "FREE_CASH_FLOW",
+    labelEn: "Free Cash Flow",
+    labelAr: "التدفق النقدي الحر",
+    statementType: "CASH_FLOW",
+    aliases: ["free cash flow"],
+  },
+  {
+    code: "STOCK_COMPENSATION",
+    labelEn: "Stock-Based Compensation",
+    labelAr: "مصروف مزايا الموظفين بالأسهم",
+    statementType: "CASH_FLOW",
+    aliases: ["stock compensation", "share based compensation"],
+  },
+  {
+    code: "FX_EFFECT_CASH",
+    labelEn: "FX Effect on Cash",
+    labelAr: "أثر تغير العملات على النقد",
+    statementType: "CASH_FLOW",
+    aliases: ["fx effect cash", "effect of exchange rate"],
+  },
+  {
+    code: "INTEREST_PAID_CF",
+    labelEn: "Interest Paid (Cash Flow)",
+    labelAr: "الفوائد المدفوعة (تدفقات)",
+    statementType: "OTHER",
+    aliases: ["interest paid cf"],
+  },
+  // ---------- Expanded metrics (103 added: income/OCI/balance/cf/notes/equity/segments) ----------
+  ...EXPANDED_METRICS,
+  // ---------- Sector-specific KPI metrics (Telecom / Healthcare / Food / Energy / Banks / Industrial / Real Estate / Investment) ----------
+  ...SECTOR_KPI_METRICS,
 ]
 
 // ---------- Calculated (derived) metrics ----------
@@ -460,6 +550,7 @@ export const CALC_METRICS: CalculatedMetricDef[] = [
   { code: "roe", labelEn: "Return on Equity (ROE)", labelAr: "العائد على حقوق الملكية", formulaVersion: "roe@1", kind: "ratio", unit: "PERCENT", requires: ["NET_PROFIT", "TOTAL_EQUITY"], description: "Net profit / period-end equity x 100" },
   { code: "roa", labelEn: "Return on Assets (ROA)", labelAr: "العائد على الأصول", formulaVersion: "roa@1", kind: "ratio", unit: "PERCENT", requires: ["NET_PROFIT", "TOTAL_ASSETS"] },
   { code: "debt_to_equity", labelEn: "Debt / Equity", labelAr: "الدين إلى حقوق الملكية", formulaVersion: "debt_to_equity@1", kind: "ratio", unit: "RATIO", requires: ["TOTAL_DEBT", "TOTAL_EQUITY"] },
+  { code: "liabilities_to_equity", labelEn: "Liabilities / Equity", labelAr: "المطلوبات إلى حقوق الملكية", formulaVersion: "liabilities_to_equity@1", kind: "ratio", unit: "RATIO", requires: ["TOTAL_LIABILITIES", "TOTAL_EQUITY"], description: "Total liabilities / shareholders' equity — leverage computed from the balance sheet's liabilities total" },
   { code: "eps", labelEn: "EPS", labelAr: "ربحية السهم", formulaVersion: "eps@1", kind: "ratio", unit: "EGP_PER_SHARE", requires: ["NET_PROFIT"] },
   { code: "current_ratio", labelEn: "Current Ratio", labelAr: "نسبة التداول", formulaVersion: "current_ratio@1", kind: "ratio", unit: "RATIO", requires: ["CURRENT_ASSETS", "CURRENT_LIABILITIES"], description: "Current assets / current liabilities — liquidity" },
   { code: "eps_growth", labelEn: "EPS Growth (YoY)", labelAr: "نمو ربحية السهم", formulaVersion: "eps_growth@1", kind: "growth", unit: "PERCENT", requires: ["EPS"] },

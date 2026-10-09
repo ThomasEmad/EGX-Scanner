@@ -1,33 +1,19 @@
+import { NextRequest } from "next/server"
 import { db } from "@/lib/db"
-import { runScan } from "@/lib/financial/scan-service"
+import { getPresetScannerCards } from "@/lib/financial/scan-service"
 import type { ScanCondition } from "@/lib/financial/scanner"
+import { getOptionalUser } from "@/lib/optional-auth"
+import { cached } from "@/lib/server-cache"
 
 // GET /api/v1/dashboard — discovery-first dashboard (spec #43/#44):
 // preset scanner counts, recent events, dividend calendar, portfolio stats.
+// Public endpoints only; admin-only stats are served from /api/v1/admin/dashboard.
+// Company Events (recentEvents) are premium-only.
 
-export async function GET() {
-  const presets = await db.scannerRule.findMany({ where: { isPreset: true, isActive: true }, orderBy: { createdAt: "asc" } })
+export async function GET(req: NextRequest) {
+  const { isPremium } = await getOptionalUser(req)
 
-  const scannerCards = await Promise.all(
-    presets.map(async (rule) => {
-      const output = await runScan(JSON.parse(rule.conditions) as ScanCondition[], "LATEST_ANNUAL")
-      return {
-        id: rule.id,
-        presetKey: rule.presetKey,
-        name: rule.name,
-        nameAr: rule.nameAr,
-        description: rule.description,
-        count: output.matched.length,
-        topMatches: output.matched.slice(0, 4).map((m) => ({
-          companyId: m.companyId,
-          ticker: m.ticker,
-          nameEn: m.nameEn,
-          nameAr: m.nameAr,
-          period: m.contextPeriodLabel,
-        })),
-      }
-    })
-  )
+  const scannerCards = await getPresetScannerCards()
 
   const [companyCount, reportCount, valueCount, eventCount, upcomingDividends, recentEvents] = await Promise.all([
     db.company.count({ where: { isActive: true } }),
@@ -40,15 +26,14 @@ export async function GET() {
       orderBy: { announcementDate: "asc" },
       take: 6,
     }),
-    db.financialEvent.findMany({
-      include: { company: { select: { id: true, ticker: true, nameEn: true, nameAr: true, isDemoData: true } } },
-      orderBy: [{ detectedAt: "desc" }],
-      take: 8,
-    }),
+    isPremium
+      ? db.financialEvent.findMany({
+          include: { company: { select: { id: true, ticker: true, nameEn: true, nameAr: true, isDemoData: true } } },
+          orderBy: [{ detectedAt: "desc" }],
+          take: 8,
+        })
+      : Promise.resolve([]),
   ])
-
-  const pendingReview = await db.financialValue.count({ where: { validationStatus: "NEEDS_REVIEW" } })
-  const pendingReports = await db.financialReport.count({ where: { processingStatus: { in: ["NEW_DOWNLOADED", "NEEDS_REVIEW"] } } })
 
   return Response.json({
     stats: {
@@ -56,14 +41,11 @@ export async function GET() {
       reports: reportCount,
       validValues: valueCount,
       events: eventCount,
-      pendingReview,
-      pendingReports,
     },
     scannerCards,
     recentEvents: recentEvents.map((e) => ({
       id: e.id,
       eventType: e.eventType,
-      periodLabel: e.periodLabel,
       explanationEn: e.explanationEn,
       explanationAr: e.explanationAr,
       company: e.company,

@@ -79,8 +79,8 @@ export function CompaniesView({ onOpenCompany }: { onOpenCompany: (id: string) =
           </Select>
           <button
             onClick={() => setWatchlistOnly((v) => !v)}
-            className={`flex h-9 items-center gap-1.5 rounded-md border px-3 text-xs font-medium transition-colors ${
-              watchlistOnly ? "border-amber-400/60 bg-amber-400/10 text-amber-600 dark:text-amber-400" : "text-muted-foreground hover:text-foreground"
+            className={`flex h-9 items-center gap-1.5 rounded-lg border px-3 text-xs font-medium transition-all duration-150 ${
+              watchlistOnly ? "border-amber-400/60 bg-amber-400/10 text-amber-600 dark:text-amber-400" : "border-border/70 text-muted-foreground hover:text-foreground hover:border-primary/30"
             }`}
             aria-pressed={watchlistOnly}
           >
@@ -98,7 +98,7 @@ export function CompaniesView({ onOpenCompany }: { onOpenCompany: (id: string) =
           ))}
         </div>
       ) : !filtered || filtered.companies.length === 0 ? (
-        <Card className="flex h-48 flex-col items-center justify-center gap-2 p-6 text-center text-sm text-muted-foreground">
+        <Card className="flex h-48 flex-col items-center justify-center gap-3 p-6 text-center text-sm text-muted-foreground border-border/60">
           {watchlistOnly && watchItems.length === 0 ? (
             <>
               <Star className="h-6 w-6 text-amber-400/60" />
@@ -126,11 +126,11 @@ export function CompaniesView({ onOpenCompany }: { onOpenCompany: (id: string) =
                     onOpenCompany(c.id)
                   }
                 }}
-                className="group cursor-pointer rounded-xl border bg-card p-4 text-start shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-primary/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
+                className="group cursor-pointer rounded-xl border border-border/60 bg-card p-5 text-start shadow-sm shadow-black/[0.02] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5 hover:border-primary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1"
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex items-center gap-2.5 min-w-0">
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                       <Building2 className="h-4.5 w-4.5" />
                     </span>
                     <div className="min-w-0">
@@ -143,7 +143,7 @@ export function CompaniesView({ onOpenCompany }: { onOpenCompany: (id: string) =
                   </div>
                   <div className="flex shrink-0 items-center gap-0.5">
                     <StarButton companyId={c.id} ticker={c.ticker} />
-                    <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground/50 transition-transform group-hover:translate-x-0.5 group-hover:text-primary rtl-flip" />
+                    <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground/50 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-primary rtl-flip" />
                   </div>
                 </div>
 
@@ -155,26 +155,26 @@ export function CompaniesView({ onOpenCompany }: { onOpenCompany: (id: string) =
                 <dl className="mt-3 grid grid-cols-2 gap-x-3 gap-y-1.5 text-xs">
                   <div>
                     <dt className="text-muted-foreground">{t("co.revenue")}</dt>
-                    <dd className="font-semibold tabular">{c.snapshot.revenue ? formatEgp(c.snapshot.revenue.value) : "—"}</dd>
+                    <dd className="font-semibold tabular num">{c.snapshot.revenue ? formatEgp(c.snapshot.revenue.value) : "—"}</dd>
                   </div>
                   <div>
                     <dt className="text-muted-foreground">{t("co.netProfit")}</dt>
-                    <dd className={`font-semibold tabular ${(c.snapshot.net_profit?.value ?? 0) < 0 ? "text-red-600 dark:text-red-400" : ""}`}>
+                    <dd className={`font-semibold tabular num ${(c.snapshot.net_profit?.value ?? 0) < 0 ? "text-red-600 dark:text-red-400" : ""}`}>
                       {c.snapshot.net_profit ? formatEgp(c.snapshot.net_profit.value) : "—"}
                     </dd>
                   </div>
                   <div>
                     <dt className="text-muted-foreground">{t("co.roe")}</dt>
-                    <dd className="font-semibold tabular">{c.snapshot.roe ? formatPercent(c.snapshot.roe.value) : "—"}</dd>
+                    <dd className="font-semibold tabular num">{c.snapshot.roe ? formatPercent(c.snapshot.roe.value) : "—"}</dd>
                   </div>
                   <div>
                     <dt className="text-muted-foreground">{t("co.assets")}</dt>
-                    <dd className="font-semibold tabular">{c.snapshot.total_assets ? formatEgp(c.snapshot.total_assets.value) : "—"}</dd>
+                    <dd className="font-semibold tabular num">{c.snapshot.total_assets ? formatEgp(c.snapshot.total_assets.value) : "—"}</dd>
                   </div>
                 </dl>
 
-                <div className="mt-3 flex items-center gap-3 border-t pt-2.5 text-[10px] text-muted-foreground">
-                  <span>{c.counts.reports} {t("co.reports")}</span>
+                <div className="mt-3 flex items-center gap-3 border-t border-border/60 pt-2.5 text-[10px] text-muted-foreground">
+                  <span>{((c.counts as unknown as { reports?: number }).reports ?? 0)} {t("co.reports")}</span>
                   <span>{c.counts.events} {t("co.events")}</span>
                   {c.snapshot.revenue?.periodLabel ? <span className="ms-auto font-medium">{c.snapshot.revenue.periodLabel}</span> : null}
                 </div>
@@ -184,13 +184,13 @@ export function CompaniesView({ onOpenCompany }: { onOpenCompany: (id: string) =
 
           {filtered.totalPages > 1 && !watchlistOnly ? (
             <div className="flex items-center justify-center gap-2 pt-2">
-              <Button variant="outline" size="sm" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>
+              <Button variant="outline" size="sm" disabled={page <= 1} onClick={() => setPage((p) => p - 1)} className="border-border/70">
                 ‹
               </Button>
-              <span className="text-xs text-muted-foreground tabular">
+              <span className="text-xs text-muted-foreground tabular num">
                 {page} / {filtered.totalPages}
               </span>
-              <Button variant="outline" size="sm" disabled={page >= filtered.totalPages} onClick={() => setPage((p) => p + 1)}>
+              <Button variant="outline" size="sm" disabled={page >= filtered.totalPages} onClick={() => setPage((p) => p + 1)} className="border-border/70">
                 ›
               </Button>
             </div>

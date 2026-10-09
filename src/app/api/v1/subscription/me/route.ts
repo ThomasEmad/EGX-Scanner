@@ -1,14 +1,21 @@
 import { NextRequest } from "next/server"
 import { db } from "@/lib/db"
-import { getSessionUser } from "@/lib/auth"
+import { requireAuth } from "@/lib/access"
 import { getSubscriptionSummary } from "@/lib/subscription"
-import { audit } from "@/lib/audit"
+import { getSmartAnalysisUsage } from "@/lib/smart-analysis-usage"
 
-// GET /api/v1/subscription/me
+// GET /api/v1/subscription/me — current user's subscription status + smart analysis usage
 export async function GET(req: NextRequest) {
-  const token = req.headers.get("x-session-token") || req.headers.get("authorization")?.replace("Bearer ", "")
-  const userId = getSessionUser(token)
-  if (!userId) return Response.json({ error: "UNAUTHENTICATED" }, { status: 401 })
+  const userId = await requireAuth(req)
+  if (!userId) {
+    return Response.json({ error: "UNAUTHENTICATED", message: "Authentication required." }, { status: 401 })
+  }
+
   const summary = await getSubscriptionSummary(userId)
-  return Response.json(summary)
+  const usage = await getSmartAnalysisUsage(userId)
+
+  return Response.json({
+    ...summary,
+    smartAnalysisUsage: usage,
+  })
 }

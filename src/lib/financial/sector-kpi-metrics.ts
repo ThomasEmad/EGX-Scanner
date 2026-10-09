@@ -1,0 +1,597 @@
+// Sector-specific Expanded Metrics — additional raw metrics for the 4 newly
+// supported sectors (telecom, healthcare, consumer/food, energy/utilities)
+// and the missing bank-specific KPIs.
+//
+// These augment EXPANDED_METRICS without modifying the existing 103 metrics.
+// Every metric carries: code, labelEn, labelAr, statementType, aliases (EN+AR),
+// appliesToSectors so the extractor knows when to attempt matching.
+//
+// Spec section 12 (Sector Intelligence Layer) requires:
+//   - Telecom: subscribers, ARPU, churn, service revenue, data revenue, EBITDA
+//   - Healthcare: bed capacity, occupancy, patient revenue, pharmacy revenue
+//   - Consumer/Food: raw material cost, distribution, volume, exports, brands
+//   - Energy/Utilities: generation volume, capacity, utilization, tariff, fuel cost
+
+import type { RawMetricDef } from "./registry"
+
+// ---------------------------------------------------------------------------
+// Telecom / Technology (7 KPIs)
+// ---------------------------------------------------------------------------
+const TELECOM_KPI_METRICS: RawMetricDef[] = [
+  {
+    code: "TELECOM_SUBSCRIBERS",
+    labelEn: "Total Subscribers (millions)",
+    labelAr: "إجمالي المشتركين (مليون)",
+    statementType: "OTHER",
+    description: "Total active subscriber base — count of SIMs / accounts",
+    group: "sector.telecom",
+    displayOrder: 1,
+    isCount: true,
+    aliases: ["subscribers", "total subscribers", "active subscribers", "customer base", "المشتركين", "إجمالي المشتركين", "قاعدة المشتركين"],
+  },
+  {
+    code: "TELECOM_ARPU",
+    labelEn: "ARPU (Average Revenue Per User)",
+    labelAr: "متوسط الإيراد لكل مشترك",
+    statementType: "OTHER",
+    description: "Average monthly revenue per subscriber",
+    group: "sector.telecom",
+    displayOrder: 2,
+    isPerShare: false,
+    aliases: ["arpu", "average revenue per user", "average revenue per subscriber", "متوسط الإيراد لكل مشترك", "متوسط الإيراد للمستخدم"],
+  },
+  {
+    code: "TELECOM_CHURN",
+    labelEn: "Churn Rate (%)",
+    labelAr: "معدل التسرب",
+    statementType: "OTHER",
+    description: "Monthly subscriber churn rate as % of base",
+    group: "sector.telecom",
+    displayOrder: 3,
+    aliases: ["churn rate", "churn", "subscriber churn", "معدل التسرب", "تسرب المشتركين"],
+  },
+  {
+    code: "TELECOM_SERVICE_REVENUE",
+    labelEn: "Service Revenue",
+    labelAr: "إيرادات الخدمات",
+    statementType: "INCOME_STATEMENT",
+    description: "Recurring service revenue (excludes handset/equipment sales)",
+    group: "sector.telecom",
+    displayOrder: 4,
+    aliases: ["service revenue", "service income", "recurring revenue", "إيرادات الخدمات", "إيرادات الخدمة"],
+  },
+  {
+    code: "TELECOM_DATA_REVENUE",
+    labelEn: "Data Revenue",
+    labelAr: "إيرادات البيانات",
+    statementType: "INCOME_STATEMENT",
+    description: "Revenue from mobile/internet data services",
+    group: "sector.telecom",
+    displayOrder: 5,
+    aliases: ["data revenue", "mobile data revenue", "internet revenue", "إيرادات البيانات", "إيرادات البيانات المتنقلة"],
+  },
+  {
+    code: "TELECOM_EBITDA",
+    labelEn: "EBITDA (Telecom-reported)",
+    labelAr: "الأرباح قبل الفوائد والضرائب والإهلاك",
+    statementType: "INCOME_STATEMENT",
+    description: "Earnings before interest, tax, depreciation, amortization (as reported by telecom)",
+    group: "sector.telecom",
+    displayOrder: 6,
+    aliases: ["ebitda", "earnings before interest tax depreciation amortization", "الأرباح قبل الفوائد والضرائب والإهلاك"],
+  },
+  {
+    code: "TELECOM_NETWORK_CAPEX",
+    labelEn: "Network Capex",
+    labelAr: "الإنفاق الرأسمالي على الشبكة",
+    statementType: "CASH_FLOW",
+    description: "Capital expenditure on network infrastructure",
+    group: "sector.telecom",
+    displayOrder: 7,
+    aliases: ["network capex", "network capital expenditure", "telecom capex", "الإنفاق الرأسمالي على الشبكة", "إنفاق الشبكة"],
+  },
+]
+
+// ---------------------------------------------------------------------------
+// Healthcare (6 KPIs)
+// ---------------------------------------------------------------------------
+const HEALTHCARE_KPI_METRICS: RawMetricDef[] = [
+  {
+    code: "HEALTH_BED_CAPACITY",
+    labelEn: "Licensed Bed Capacity",
+    labelAr: "السرة السريرية المرخصة",
+    statementType: "OTHER",
+    description: "Total licensed beds across all facilities",
+    group: "sector.healthcare",
+    displayOrder: 1,
+    isCount: true,
+    aliases: ["bed capacity", "licensed beds", "total beds", "number of beds", "السرر", "السعة السريرية", "عدد الأسرة"],
+  },
+  {
+    code: "HEALTH_OCCUPANCY",
+    labelEn: "Bed Occupancy Rate (%)",
+    labelAr: "معدل إشغال الأسرة",
+    statementType: "OTHER",
+    description: "Average inpatient bed occupancy rate",
+    group: "sector.healthcare",
+    displayOrder: 2,
+    aliases: ["occupancy rate", "bed occupancy", "inpatient occupancy", "معدل الإشغال", "إشغال الأسرة"],
+  },
+  {
+    code: "HEALTH_PATIENT_REVENUE",
+    labelEn: "Patient Service Revenue",
+    labelAr: "إيرادات خدمات المرضى",
+    statementType: "INCOME_STATEMENT",
+    description: "Revenue from inpatient and outpatient services",
+    group: "sector.healthcare",
+    displayOrder: 3,
+    aliases: ["patient revenue", "patient service revenue", "hospital revenue", "inpatient revenue", "إيرادات المرضى", "إيرادات الخدمات الطبية"],
+  },
+  {
+    code: "HEALTH_PHARMACY_REVENUE",
+    labelEn: "Pharmacy Revenue",
+    labelAr: "إيرادات الصيدلية",
+    statementType: "INCOME_STATEMENT",
+    description: "Revenue from pharmacy / drug retail operations",
+    group: "sector.healthcare",
+    displayOrder: 4,
+    aliases: ["pharmacy revenue", "drug revenue", "pharmacy sales", "إيرادات الصيدلية", "إيرادات الأدوية"],
+  },
+  {
+    code: "HEALTH_DOCTORS_COUNT",
+    labelEn: "Number of Physicians",
+    labelAr: "عدد الأطباء",
+    statementType: "OTHER",
+    description: "Total physicians on staff",
+    group: "sector.healthcare",
+    displayOrder: 5,
+    isCount: true,
+    aliases: ["physicians count", "doctors count", "number of doctors", "medical staff", "عدد الأطباء", "الأطباء"],
+  },
+  {
+    code: "HEALTH_ADMISSIONS",
+    labelEn: "Total Admissions",
+    labelAr: "إجمالي حالات الدخول",
+    statementType: "OTHER",
+    description: "Total inpatient admissions during the period",
+    group: "sector.healthcare",
+    displayOrder: 6,
+    isCount: true,
+    aliases: ["admissions", "inpatient admissions", "patient admissions", "حالات الدخول", "إجمالي حالات القبول"],
+  },
+]
+
+// ---------------------------------------------------------------------------
+// Consumer / Food (6 KPIs)
+// ---------------------------------------------------------------------------
+const FOOD_KPI_METRICS: RawMetricDef[] = [
+  {
+    code: "FOOD_RAW_MATERIAL_COST",
+    labelEn: "Raw Material Cost",
+    labelAr: "تكلفة المواد الخام",
+    statementType: "INCOME_STATEMENT",
+    description: "Cost of raw materials used in production (separate from total COGS)",
+    group: "sector.food",
+    displayOrder: 1,
+    aliases: ["raw material cost", "raw materials consumed", "materials cost", "تكلفة المواد الخام", "مواد خام"],
+  },
+  {
+    code: "FOOD_DISTRIBUTION_EXPENSES",
+    labelEn: "Distribution Expenses",
+    labelAr: "مصروفات التوزيع",
+    statementType: "INCOME_STATEMENT",
+    description: "Distribution and logistics expenses (separate from selling)",
+    group: "sector.food",
+    displayOrder: 2,
+    aliases: ["distribution expenses", "logistics expenses", "freight and distribution", "مصروفات التوزيع", "مصروفات النقل"],
+  },
+  {
+    code: "FOOD_VOLUME_SOLD",
+    labelEn: "Volume Sold",
+    labelAr: "حجم المبيعات",
+    statementType: "OTHER",
+    description: "Total volume sold (tons / liters / units)",
+    group: "sector.food",
+    displayOrder: 3,
+    isCount: true,
+    aliases: ["volume sold", "sales volume", "units sold", "production volume", "حجم المبيعات", "الكمية المباعة"],
+  },
+  {
+    code: "FOOD_EXPORT_REVENUE",
+    labelEn: "Export Revenue",
+    labelAr: "إيرادات التصدير",
+    statementType: "INCOME_STATEMENT",
+    description: "Revenue from export sales",
+    group: "sector.food",
+    displayOrder: 4,
+    aliases: ["export revenue", "export sales", "exports", "إيرادات التصدير", "صادرات"],
+  },
+  {
+    code: "FOOD_BRANDS_COUNT",
+    labelEn: "Number of Brands",
+    labelAr: "عدد العلامات التجارية",
+    statementType: "OTHER",
+    description: "Total number of brands in portfolio",
+    group: "sector.food",
+    displayOrder: 5,
+    isCount: true,
+    aliases: ["brands count", "number of brands", "brand portfolio", "العلامات التجارية", "عدد الماركات"],
+  },
+  {
+    code: "FOOD_SKU_COUNT",
+    labelEn: "Number of SKUs",
+    labelAr: "عدد الأصناف",
+    statementType: "OTHER",
+    description: "Total stock-keeping units in catalog",
+    group: "sector.food",
+    displayOrder: 6,
+    isCount: true,
+    aliases: ["sku count", "number of skus", "stock keeping units", "عدد الأصناف", "عدد المنتجات"],
+  },
+]
+
+// ---------------------------------------------------------------------------
+// Energy / Utilities (6 KPIs)
+// ---------------------------------------------------------------------------
+const ENERGY_KPI_METRICS: RawMetricDef[] = [
+  {
+    code: "ENERGY_GENERATION_VOLUME",
+    labelEn: "Generation Volume (MWh)",
+    labelAr: "حجم التوليد (ميجاوات ساعة)",
+    statementType: "OTHER",
+    description: "Total electricity generated in MWh",
+    group: "sector.energy",
+    displayOrder: 1,
+    isCount: true,
+    aliases: ["generation volume", "energy generated", "electricity generated", "net generation", "حجم التوليد", "الطاقة المولدة"],
+  },
+  {
+    code: "ENERGY_INSTALLED_CAPACITY",
+    labelEn: "Installed Capacity (MW)",
+    labelAr: "القدرة المركبة (ميجاوات)",
+    statementType: "OTHER",
+    description: "Total nameplate installed capacity in MW",
+    group: "sector.energy",
+    displayOrder: 2,
+    isCount: true,
+    aliases: ["installed capacity", "nameplate capacity", "capacity mw", "total capacity", "القدرة المركبة", "القدرة المثبتة"],
+  },
+  {
+    code: "ENERGY_UTILIZATION",
+    labelEn: "Capacity Utilization (%)",
+    labelAr: "معامل الاستخدام",
+    statementType: "OTHER",
+    description: "Capacity factor — actual generation / theoretical maximum",
+    group: "sector.energy",
+    displayOrder: 3,
+    aliases: ["capacity utilization", "capacity factor", "utilization rate", "معامل الاستخدام", "معامل الحمل"],
+  },
+  {
+    code: "ENERGY_TARIFF",
+    labelEn: "Average Tariff (per MWh)",
+    labelAr: "متوسط التعريفة",
+    statementType: "OTHER",
+    description: "Average revenue per MWh sold",
+    group: "sector.energy",
+    displayOrder: 4,
+    aliases: ["tariff", "average tariff", "energy tariff", "تعريفة", "متوسط التعريفة"],
+  },
+  {
+    code: "ENERGY_FUEL_COST",
+    labelEn: "Fuel Cost",
+    labelAr: "تكلفة الوقود",
+    statementType: "INCOME_STATEMENT",
+    description: "Cost of fuel consumed in generation",
+    group: "sector.energy",
+    displayOrder: 5,
+    aliases: ["fuel cost", "fuel expense", "cost of fuel", "تكلفة الوقود", "مصروف الوقود"],
+  },
+  {
+    code: "ENERGY_CO2_EMISSIONS",
+    labelEn: "CO₂ Emissions (tCO₂e)",
+    labelAr: "انبعاثات ثاني أكسيد الكربون",
+    statementType: "OTHER",
+    description: "Total direct CO₂ emissions in tons",
+    group: "sector.energy",
+    displayOrder: 6,
+    isCount: true,
+    aliases: ["co2 emissions", "carbon emissions", "emissions", "carbon footprint", "انبعاثات الكربون", "الانبعاثات"],
+  },
+]
+
+// ---------------------------------------------------------------------------
+// Real Estate (additional KPIs beyond the existing ones)
+// ---------------------------------------------------------------------------
+const REAL_ESTATE_KPI_METRICS: RawMetricDef[] = [
+  {
+    code: "REAL_ESTATE_PRESALES",
+    labelEn: "Pre-sales / Off-plan Sales",
+    labelAr: "المبيعات المسبقة",
+    statementType: "OTHER",
+    description: "Total value of off-plan / pre-sold units",
+    group: "sector.real_estate",
+    displayOrder: 1,
+    aliases: ["presales", "pre-sales", "off-plan sales", "forward sales", "المبيعات المسبقة", "بيع على المخطط"],
+  },
+  {
+    code: "REAL_ESTATE_BACKLOG",
+    labelEn: "Project Backlog",
+    labelAr: "محفظة المشاريع",
+    statementType: "OTHER",
+    description: "Remaining contracted revenue not yet recognized",
+    group: "sector.real_estate",
+    displayOrder: 2,
+    aliases: ["backlog", "project backlog", "contracted backlog", "remaining performance obligations", "محفظة المشاريع", "المتبقي من العقود"],
+  },
+  {
+    code: "REALESTATE_CASH_COLLECTIONS",
+    labelEn: "Cash Collections from Customers",
+    labelAr: "التحصيلات النقدية من العملاء",
+    statementType: "CASH_FLOW",
+    description: "Total cash collected from customers (including presales)",
+    group: "sector.real_estate",
+    displayOrder: 3,
+    aliases: ["cash collections", "customer collections", "cash received from customers", "التحصيلات النقدية", "التحصيل من العملاء"],
+  },
+  {
+    code: "REALESTATE_CONTRACT_ASSETS",
+    labelEn: "Contract Assets",
+    labelAr: "أصول العقود",
+    statementType: "BALANCE_SHEET",
+    description: "Receivables from satisfied performance obligations",
+    group: "sector.real_estate",
+    displayOrder: 4,
+    aliases: ["contract assets", "receivables from contracts", "أصول العقود", "الذمم العقدية"],
+  },
+  {
+    code: "REALESTATE_CONTRACT_LIABILITIES",
+    labelEn: "Contract Liabilities (Deferred Revenue)",
+    labelAr: "التزامات العقود (الإيراد المؤجل)",
+    statementType: "BALANCE_SHEET",
+    description: "Advance payments received but not yet earned",
+    group: "sector.real_estate",
+    displayOrder: 5,
+    aliases: ["contract liabilities", "deferred revenue", "advance from customers", "التزامات العقود", "الإيراد المؤجل", "الدفعات المقدمة"],
+  },
+]
+
+// ---------------------------------------------------------------------------
+// Industrial (additional KPIs)
+// ---------------------------------------------------------------------------
+const INDUSTRIAL_KPI_METRICS: RawMetricDef[] = [
+  {
+    code: "RAW_MATERIALS",
+    labelEn: "Raw Materials (Inventory)",
+    labelAr: "المواد الخام (مخزون)",
+    statementType: "BALANCE_SHEET",
+    description: "Raw materials inventory component",
+    group: "sector.industrial",
+    displayOrder: 1,
+    aliases: ["raw materials", "raw materials inventory", "materials inventory", "المواد الخام", "مواد خام"],
+  },
+  {
+    code: "WORK_IN_PROGRESS",
+    labelEn: "Work in Progress (Inventory)",
+    labelAr: "تحت التشغيل (مخزون)",
+    statementType: "BALANCE_SHEET",
+    description: "Work-in-progress inventory component",
+    group: "sector.industrial",
+    displayOrder: 2,
+    aliases: ["work in progress", "wip", "work in process", "تحت التشغيل", "أثناء التصنيع"],
+  },
+  {
+    code: "FINISHED_GOODS",
+    labelEn: "Finished Goods (Inventory)",
+    labelAr: "البضاعة التامة (مخزون)",
+    statementType: "BALANCE_SHEET",
+    description: "Finished goods inventory component",
+    group: "sector.industrial",
+    displayOrder: 3,
+    aliases: ["finished goods", "finished goods inventory", "completed products", "البضاعة التامة", "المنتجات النهائية"],
+  },
+  {
+    code: "INDUSTRIAL_CAPACITY",
+    labelEn: "Production Capacity",
+    labelAr: "الطاقة الإنتاجية",
+    statementType: "OTHER",
+    description: "Total installed production capacity (units/volume)",
+    group: "sector.industrial",
+    displayOrder: 4,
+    isCount: true,
+    aliases: ["production capacity", "installed capacity", "nameplate capacity", "الطاقة الإنتاجية", "الطاقة المركبة"],
+  },
+  {
+    code: "INDUSTRIAL_UTILIZATION",
+    labelEn: "Capacity Utilization (%)",
+    labelAr: "نسبة استخدام الطاقة",
+    statementType: "OTHER",
+    description: "Capacity utilization rate",
+    group: "sector.industrial",
+    displayOrder: 5,
+    aliases: ["capacity utilization", "utilization rate", "plant utilization", "نسبة استخدام الطاقة", "معامل الاستخدام"],
+  },
+  {
+    code: "INDUSTRIAL_EXPORT_REVENUE",
+    labelEn: "Export Revenue",
+    labelAr: "إيرادات التصدير",
+    statementType: "INCOME_STATEMENT",
+    description: "Revenue from export sales",
+    group: "sector.industrial",
+    displayOrder: 6,
+    aliases: ["export revenue", "export sales", "exports", "إيرادات التصدير", "صادرات"],
+  },
+]
+
+// ---------------------------------------------------------------------------
+// Bank-specific KPIs (beyond what's in the core registry)
+// ---------------------------------------------------------------------------
+const BANK_KPI_METRICS: RawMetricDef[] = [
+  {
+    code: "BANK_NPL",
+    labelEn: "Non-Performing Loans",
+    labelAr: "القروض المتعثرة",
+    statementType: "OTHER",
+    description: "Total non-performing loans (90+ days past due)",
+    group: "sector.banks",
+    displayOrder: 1,
+    aliases: ["non performing loans", "npl", "non-performing loans", "impaired loans", "القروض المتعثرة", "القروض غير المنتظمة"],
+    appliesToSectors: ["Banks"],
+  },
+  {
+    code: "BANK_ECL",
+    labelEn: "Expected Credit Losses",
+    labelAr: "الخسائر الائتمانية المتوقعة",
+    statementType: "OTHER",
+    description: "Total ECL provisions under IFRS 9",
+    group: "sector.banks",
+    displayOrder: 2,
+    aliases: ["expected credit losses", "ecl", "ecl provisions", "credit loss provisions", "الخسائر الائتمانية المتوقعة", "مخصصات الخسائر الائتمانية"],
+    appliesToSectors: ["Banks"],
+  },
+  {
+    code: "BANK_COVERAGE_RATIO",
+    labelEn: "NPL Coverage Ratio (%)",
+    labelAr: "نسبة تغطية القروض المتعثرة",
+    statementType: "OTHER",
+    description: "ECL / NPL — provision coverage of non-performing loans",
+    group: "sector.banks",
+    displayOrder: 3,
+    aliases: ["coverage ratio", "npl coverage", "provision coverage", "نسبة التغطية", "تغطية القروض المتعثرة"],
+    appliesToSectors: ["Banks"],
+  },
+  {
+    code: "BANK_CIR",
+    labelEn: "Cost-to-Income Ratio (%)",
+    labelAr: "نسبة التكلفة إلى الدخل",
+    statementType: "OTHER",
+    description: "Operating expenses / operating income — efficiency",
+    group: "sector.banks",
+    displayOrder: 4,
+    aliases: ["cost to income ratio", "cost income ratio", "cir", "efficiency ratio", "نسبة التكلفة إلى الدخل", "نسبة الكفاءة"],
+    appliesToSectors: ["Banks"],
+  },
+  {
+    code: "BANK_LDR",
+    labelEn: "Loan-to-Deposit Ratio (%)",
+    labelAr: "نسبة القروض إلى الودائع",
+    statementType: "OTHER",
+    description: "Loans / deposits — liquidity indicator",
+    group: "sector.banks",
+    displayOrder: 5,
+    aliases: ["loan to deposit ratio", "ldr", "loans to deposits", "نسبة القروض إلى الودائع"],
+    appliesToSectors: ["Banks"],
+  },
+  {
+    code: "BANK_NIM",
+    labelEn: "Net Interest Margin (%)",
+    labelAr: "هامش الفائدة الصافي",
+    statementType: "OTHER",
+    description: "Net interest income / interest-earning assets",
+    group: "sector.banks",
+    displayOrder: 6,
+    aliases: ["net interest margin", "nim", "interest margin", "هامش الفائدة الصافي", "هامش العائد"],
+    appliesToSectors: ["Banks"],
+  },
+  {
+    code: "BANK_CET1",
+    labelEn: "CET1 Capital Ratio (%)",
+    labelAr: "نسبة رأس المال الأساسي",
+    statementType: "OTHER",
+    description: "Common Equity Tier 1 capital ratio (Basel III)",
+    group: "sector.banks",
+    displayOrder: 7,
+    aliases: ["cet1", "cet1 ratio", "common equity tier 1", "core capital ratio", "نسبة رأس المال الأساسي", "رأس المال الأساسي"],
+    appliesToSectors: ["Banks"],
+  },
+  {
+    code: "BANK_CAR",
+    labelEn: "Capital Adequacy Ratio (%)",
+    labelAr: "نسبة كفاية رأس المال",
+    statementType: "OTHER",
+    description: "Total capital adequacy ratio (Basel III)",
+    group: "sector.banks",
+    displayOrder: 8,
+    aliases: ["capital adequacy ratio", "car", "capital ratio", "نسبة كفاية رأس المال", "كفاية رأس المال"],
+    appliesToSectors: ["Banks"],
+  },
+]
+
+// ---------------------------------------------------------------------------
+// Investment / Holding (additional KPIs)
+// ---------------------------------------------------------------------------
+const INVESTMENT_KPI_METRICS: RawMetricDef[] = [
+  {
+    code: "INVESTMENT_HOLDING_NAV",
+    labelEn: "Net Asset Value",
+    labelAr: "صافي القيمة الأصول",
+    statementType: "OTHER",
+    description: "Total NAV of investment portfolio",
+    group: "sector.investment",
+    displayOrder: 1,
+    aliases: ["net asset value", "nav", "صافي القيمة الأصول", "صافي الأصول"],
+  },
+  {
+    code: "INVESTMENT_HOLDING_AUM",
+    labelEn: "Assets Under Management",
+    labelAr: "الأصول تحت الإدارة",
+    statementType: "OTHER",
+    description: "Total AUM managed by the company",
+    group: "sector.investment",
+    displayOrder: 2,
+    aliases: ["assets under management", "aum", "الأصول تحت الإدارة", "الأصول المدارة"],
+  },
+  {
+    code: "FINANCIAL_SERVICES_AUM",
+    labelEn: "Assets Under Management (FS)",
+    labelAr: "الأصول تحت الإدارة (خدمات مالية)",
+    statementType: "OTHER",
+    description: "Total AUM managed by financial services arm",
+    group: "sector.financial_services",
+    displayOrder: 1,
+    aliases: ["aum", "assets under management", "funds under management", "الأصول تحت الإدارة", "الأصول المدارة"],
+  },
+  {
+    code: "FINANCIAL_SERVICES_FEE_INCOME",
+    labelEn: "Fee and Commission Income",
+    labelAr: "إيرادات العمولات والرسوم",
+    statementType: "INCOME_STATEMENT",
+    description: "Recurring fee income from financial services",
+    group: "sector.financial_services",
+    displayOrder: 2,
+    aliases: ["fee income", "commission income", "fee and commission income", "إيرادات العمولات", "إيرادات الرسوم"],
+  },
+  {
+    code: "FINANCIAL_SERVICES_BROKERAGE_REVENUE",
+    labelEn: "Brokerage Revenue",
+    labelAr: "إيرادات السمسرة",
+    statementType: "INCOME_STATEMENT",
+    description: "Revenue from brokerage operations",
+    group: "sector.financial_services",
+    displayOrder: 3,
+    aliases: ["brokerage revenue", "brokerage income", "commission revenue", "إيرادات السمسرة", "إيرادات الوساطة"],
+  },
+]
+
+export const SECTOR_KPI_METRICS: RawMetricDef[] = [
+  ...TELECOM_KPI_METRICS,
+  ...HEALTHCARE_KPI_METRICS,
+  ...FOOD_KPI_METRICS,
+  ...ENERGY_KPI_METRICS,
+  ...REAL_ESTATE_KPI_METRICS,
+  ...INDUSTRIAL_KPI_METRICS,
+  ...BANK_KPI_METRICS,
+  ...INVESTMENT_KPI_METRICS,
+]
+
+// Group definitions for the new sector KPI groups
+export const SECTOR_METRIC_GROUPS = [
+  { group: "sector.telecom", labelEn: "Telecom KPIs", labelAr: "مؤشرات الاتصالات", displayOrder: 50, metrics: TELECOM_KPI_METRICS.map((m) => m.code) },
+  { group: "sector.healthcare", labelEn: "Healthcare KPIs", labelAr: "مؤشرات الرعاية الصحية", displayOrder: 51, metrics: HEALTHCARE_KPI_METRICS.map((m) => m.code) },
+  { group: "sector.food", labelEn: "Consumer / Food KPIs", labelAr: "مؤشرات الاستهلاكي", displayOrder: 52, metrics: FOOD_KPI_METRICS.map((m) => m.code) },
+  { group: "sector.energy", labelEn: "Energy / Utilities KPIs", labelAr: "مؤشرات الطاقة", displayOrder: 53, metrics: ENERGY_KPI_METRICS.map((m) => m.code) },
+  { group: "sector.real_estate", labelEn: "Real Estate KPIs", labelAr: "مؤشرات العقارات", displayOrder: 54, metrics: REAL_ESTATE_KPI_METRICS.map((m) => m.code) },
+  { group: "sector.industrial", labelEn: "Industrial KPIs", labelAr: "مؤشرات الصناعة", displayOrder: 55, metrics: INDUSTRIAL_KPI_METRICS.map((m) => m.code) },
+  { group: "sector.banks", labelEn: "Banking KPIs", labelAr: "مؤشرات البنوك", displayOrder: 56, metrics: BANK_KPI_METRICS.map((m) => m.code) },
+  { group: "sector.investment", labelEn: "Investment / Holding KPIs", labelAr: "مؤشرات الاستثمار", displayOrder: 57, metrics: INVESTMENT_KPI_METRICS.filter((m) => !m.code.startsWith("FINANCIAL_SERVICES")).map((m) => m.code) },
+  { group: "sector.financial_services", labelEn: "Financial Services KPIs", labelAr: "مؤشرات الخدمات المالية", displayOrder: 58, metrics: INVESTMENT_KPI_METRICS.filter((m) => m.code.startsWith("FINANCIAL_SERVICES")).map((m) => m.code) },
+]

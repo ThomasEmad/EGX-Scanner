@@ -1,90 +1,34 @@
-"use client"
-
-import { useCallback, useState } from "react"
-import { CompaniesView } from "@/components/egx/companies-view"
-import { CompanyDetail } from "@/components/egx/company-detail"
-import { DashboardView } from "@/components/egx/dashboard-view"
-import { DividendsView } from "@/components/egx/dividends-view"
-import { ReportsView } from "@/components/egx/reports-view"
-import { ScannersView } from "@/components/egx/scanners-view"
+import { Metadata } from "next"
+import Link from "next/link"
+import { ArrowRight, Building2, Gauge, ScanSearch, CalendarDays, FileCheck2, Crown } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import { AppFooter } from "@/components/egx/app-footer"
-import { AppHeader } from "@/components/egx/app-header"
-import { Providers } from "./providers"
+import LandingClient from "./landing-client"
 
-export type ViewKey = "dashboard" | "scanners" | "custom" | "companies" | "dividends" | "reports"
-
-function Shell() {
-  const [view, setView] = useState<ViewKey>("dashboard")
-  const [selectedCompanyId, setSelectedCompanyId] = useState<string | null>(null)
-  const [pendingRuleId, setPendingRuleId] = useState<string | null>(null)
-
-  const openCompany = useCallback((id: string) => {
-    setSelectedCompanyId(id)
-  }, [])
-
-  const openScanner = useCallback((ruleId: string) => {
-    setPendingRuleId(ruleId)
-    setView("scanners")
-    setSelectedCompanyId(null)
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }, [])
-
-  const changeView = useCallback((v: ViewKey) => {
-    setView(v)
-    setSelectedCompanyId(null)
-    setPendingRuleId(null)
-    window.scrollTo({ top: 0 })
-  }, [])
-
-  return (
-    <div className="min-h-screen flex flex-col bg-background">
-      <AppHeader view={view} companyOpen={!!selectedCompanyId} onViewChange={changeView} />
-      <main className="flex-1 w-full">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 py-6">
-          {selectedCompanyId ? (
-            <CompanyDetail
-              companyId={selectedCompanyId}
-              onBack={() => setSelectedCompanyId(null)}
-              onOpenScanner={openScanner}
-            />
-          ) : view === "dashboard" ? (
-            <DashboardView
-              onOpenScanner={openScanner}
-              onOpenCompany={openCompany}
-              onViewChange={changeView}
-            />
-          ) : view === "scanners" ? (
-            <ScannersView
-              mode="presets"
-              pendingRuleId={pendingRuleId}
-              onOpenCompany={openCompany}
-              onOpenCustom={() => changeView("custom")}
-            />
-          ) : view === "custom" ? (
-            <ScannersView
-              mode="custom"
-              pendingRuleId={null}
-              onOpenCompany={openCompany}
-              onOpenCustom={() => changeView("custom")}
-            />
-          ) : view === "companies" ? (
-            <CompaniesView onOpenCompany={openCompany} />
-          ) : view === "dividends" ? (
-            <DividendsView onOpenCompany={openCompany} />
-          ) : (
-            <ReportsView onOpenCompany={openCompany} />
-          )}
-        </div>
-      </main>
-      <AppFooter />
-    </div>
-  )
+export const metadata: Metadata = {
+  title: "EGX Financial Scanner — Discovery & Pattern Detection for Egyptian Stocks",
+  description: "Pattern detection for Egyptian Exchange investors — comprehensive financial data from officially published filings. Discover companies by verified financial conditions and changes over time.",
+  keywords: ["EGX", "financial scanner", "Egyptian Exchange", "financial analysis", "pattern detection", "البورصة المصرية", "شركات البورصة", "التحليل المالي"],
+  openGraph: {
+    title: "EGX Financial Scanner",
+    description: "Pattern detection for Egyptian Exchange investors — comprehensive financial data from officially published filings.",
+    type: "website",
+    locale: "en_US",
+    alternateLocale: "ar_EG",
+    siteName: "EGX Financial Scanner",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EGX Financial Scanner",
+    description: "Pattern detection for Egyptian Exchange investors — comprehensive financial data from officially published filings.",
+  },
+  alternates: {
+    canonical: "/",
+  },
 }
 
-export default function Page() {
-  return (
-    <Providers>
-      <Shell />
-    </Providers>
-  )
+export default function HomePage() {
+  return <LandingClient />
 }

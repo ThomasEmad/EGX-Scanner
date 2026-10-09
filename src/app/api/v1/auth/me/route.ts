@@ -5,8 +5,8 @@ import { getSubscriptionSummary } from "@/lib/subscription"
 
 // GET /api/v1/auth/me
 export async function GET(req: NextRequest) {
-  const token = req.headers.get("x-session-token") || req.headers.get("authorization")?.replace("Bearer ", "")
-  const userId = getSessionUser(token)
+  const token = (req.headers.get("x-session-token") ?? req.headers.get("authorization")?.replace("Bearer ", "") ?? null)
+  const userId = await getSessionUser(token)
   if (!userId) return Response.json({ error: "UNAUTHENTICATED" }, { status: 401 })
   const user = await db.user.findUnique({
     where: { id: userId },

@@ -178,3 +178,90 @@ export async function availableReportStatementTypes(companyId: string): Promise<
   })
   return orderStatementTypes(rows.map((r) => r.statementType))
 }
+
+// ---------------------------------------------------------------------------
+// Period view (annual vs interim) — read-path period separation.
+// Investors read annual filings and interim filings differently: mixing FY
+// columns with 9M/H1/Q columns in one table makes both unreadable. Read
+// endpoints accept ?period_view=annual|interim and never mix the two sets.
+// ---------------------------------------------------------------------------
+
+export type PeriodView = "annual" | "interim"
+
+/** Report periodTypes that belong to each view — the sets are disjoint */
+export const PERIOD_VIEW_TYPES: Record<PeriodView, string[]> = {
+  annual: ["ANNUAL"],
+  interim: ["QUARTERLY", "SEMIANNUAL", "NINE_MONTH"],
+}
+
+export function isPeriodView(v: string | null | undefined): v is PeriodView {
+  return v === "annual" || v === "interim"
+}
+
+/** Strict validator for query params: returns null when the value is invalid */
+export function validatePeriodView(v: string | null): PeriodView | null | undefined {
+  if (v == null || v === "") return undefined
+  return isPeriodView(v) ? v : null
+}
+
+/** Annual first — the clearest basis for investors; interim only when no annual data exists */
+export function defaultPeriodView(available: PeriodView[]): PeriodView | null {
+  if (available.includes("annual")) return "annual"
+  if (available.includes("interim")) return "interim"
+  return null
+}
+
+/** Chronological rank of a period within its fiscal year (Q1 < H1 < 9M < FY) */
+export function withinYearRank(periodType: string, label: string): number {
+  const up = label.toUpperCase()
+  if (periodType === "QUARTERLY") {
+    const q = Number(up.match(/Q([1-4])/)?.[1] ?? 1)
+    return q
+  }
+  if (periodType === "SEMIANNUAL") return Number(up.match(/H([1-2])/)?.[1] ?? 1) * 2
+  if (periodType === "NINE_MONTH") return 3
+  if (periodType === "ANNUAL") return 4
+  return 9 // TTM / OTHER last
+}
+
+/**
+ * Period views that actually have trusted reports for a company (optional
+ * statementType narrows to one filing basis).
+ */
+export async function availableReportPeriodViews(
+  companyId: string,
+  statementType?: string
+): Promise<PeriodView[]> {
+  const { db } = await import("@/lib/db")
+  const rows = await db.financialReport.findMany({
+    where: {
+      companyId,
+      processingStatus: { in: [...TRUSTED_REPORT_STATUSES] },
+      ...(statementType ? { statementType } : {}),
+    },
+    select: { periodType: true },
+    distinct: ["periodType"],
+  })
+  const types = new Set(rows.map((r) => r.periodType))
+  const out: PeriodView[] = []
+  for (const view of ["annual", "interim"] as PeriodView[]) {
+    if (PERIOD_VIEW_TYPES[view].some((t) => types.has(t))) out.push(view)
+  }
+  return out
+}
+
+/** Default period view = the view holding the MOST RECENT filing.
+ *  Investors land on the freshest data: when the latest interim filing (Q/H1/9M)
+ *  is newer than the latest annual filing, interim wins the default. */
+export function freshestPeriodView(
+  available: PeriodView[],
+  latestAnnualEnd: Date | null,
+  latestInterimEnd: Date | null,
+): PeriodView | null {
+  if (!available.length) return null
+  if (available.length === 1) return available[0]
+  if (!available.includes("annual")) return "interim"
+  if (!available.includes("interim")) return "annual"
+  if (latestInterimEnd && latestAnnualEnd && latestInterimEnd > latestAnnualEnd) return "interim"
+  return "annual"
+}

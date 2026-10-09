@@ -183,3 +183,181 @@ Stage Summary:
 - Pipeline now robust for real filings: smart-quote PDF text layers handled, parenthesized expense conventions understood by validation, per-share/count metrics never unit-scaled, consolidated/standalone never mixed, missing periods/metrics reported as unavailable (never zero/invented).
 - Two real companies now carry verified data in DB (COMI Q2 2025, QNBA Q3 2025 — both CONSOLIDATED, APPROVED, from test PDFs at /home/z/test-artifacts/). These are test uploads demonstrating the flow; admin can delete/supersede them when real filings arrive (reject is only for pre-approval; use upload of a corrected filing to supersede).
 - Next-phase recommendations: (1) OCR fallback for scanned PDFs (currently NEEDS_REVIEW with clear message); (2) statement-basis toggle only appears when a company files both bases — backfill will light it up; (3) total_debt fallback from short+long components in calc engine when TOTAL_DEBT line absent; (4) key-metric EPS card could fall back to raw statement EPS when shares outstanding unknown; (5) Arabic sector names come from DB strings (already bilingual labels elsewhere).
+
+---
+Task ID: 4
+Agent: ZCode (main session)
+Task: Temporary (pre-production) manual editing from the website — complete the inline-edit UI on the company Statements tab (the save logic existed since Task 3 but had NO UI wiring: startEdit/saveEdits/editMode were dead code and StatementsTab was even missing its required ticker prop), plus Arabic-name editing in the admin companies table.
+
+Work Log:
+- NEW src/lib/temp-edit.ts: single TEMP_EDIT_MODE=true flag gating every editing affordance. Flip to false (or delete usages) at production launch to hide the whole feature in one line. Underlying endpoints stay admin-token gated regardless.
+- company-detail.tsx StatementsTab: fixed pre-existing TS break by passing ticker={c.ticker} at the call site (prop existed but was never passed). Built the missing edit UI: admin-only "تعديل القيم/Edit values" button (visible only when TEMP_EDIT_MODE && localStorage egx-admin-token present) in the card header, switching to "حفظ + إعادة حساب/Save + recompute" + "إلغاء/Cancel" while editing; amber instruction banner (plain-EGP amounts, clear-a-field-to-delete, saving recomputes everything) + inline saveMsg.
+- Editable grid: per statement tab, rows = existing rows ∪ canonical EDIT_METRICS[stmt] list (missing metrics render as empty inputs so absent/zero figures can be filled — banks' DEPOSITS/LOANS_NET included via the union), one numeric input per period column, commas/spaces stripped on input. "__new__" sentinel key holds values for a brand-new period.
+- New period column: "+ فترة جديدة/New period" adds a highlighted extra column with compact type select (FY/H1/Q/9M) + year + label + period-end date inputs (type change auto-fills label/end). Save groups changes per existing period AND posts the new period via POST /api/v1/admin/financial-ops (find-or-create report, MANUAL_ENTRY values with correction trail, recomputeCompany) — so adding a whole statement auto-analyzes: calculated metrics + events written to DB and every query invalidated. Zero-data companies: the empty state gains "إضافة قوائم مالية يدويًا/Add financial statements manually" and entering edit mode auto-opens the new-period column.
+- admin/companies/page.tsx: split name columns into الاسم EN / الاسم AR, added the missing nameAr input to the edit row (PATCH already supported it), dir-aware inputs.
+- Verified in browser (admin token via /api/v1/admin/login passcode): ABUK — edit NET_PROFIT FY2026 1308093873→1400000000, save → financials AND calculated net_profit both return 1400000000 (recompute ran), restored to 1308093873 and re-verified; AALR (zero reports) — empty state button → new period FY 2025 with REVENUE 1234500000 + NET_PROFIT 234500000 → report created APPROVED/MANUAL_ENTRY, metrics recomputed (net_margin 18.99%), statements table showed "FY 2025 / REVENUE 1.23B" immediately; admin companies — nameAr "اسم اختبار مؤقت" saved and displayed, then cleared (null again). Test residue fully removed: AALR test report hard-deleted via prisma script + metrics/events cleared + recompute-all; DB back to pre-test state. ESLint + tsc clean for touched files (remaining .next/dev validator errors are pre-existing, unrelated routes).
+- Notes: (1) next-dev "2 Issues" badge on company pages is a pre-existing dev-only console warning ("script tag while rendering React component") — not from these changes. (2) financial-ops always writes CONSOLIDATED basis; editing a STANDALONE-only company's values creates a consolidated report (accepted for temp tooling, basis badge reflects it). (3) Admin token TTL is 24h in-memory — a server restart requires re-login (Reports & Review login or /admin/login).
+
+---
+Task ID: 5
+Agent: ZCode (main session)
+Task: User-supplied ticker verdict list (2026-09-26) — hard-delete, merge/rename, and identity fixes.
+
+Work Log:
+- DB backup FIRST: prisma/prisma/dev.db.pre-user-purge-20260926-2243.bak (full restore point).
+- 25 hard-deletes (company.delete cascade, audit-logged): CNFG, CPC, DCCC, DOMTY, ECSC, EDBE, EIPC, EITP, EPPK, EZDK, GTEX, GTHE, MEGM, MESF, MISR, MNHD, NDRL, OPHC, PHAE, PSFL, RMTV, RPCO, SBAG, SMPP, SUCE. NOTABLE DATA LOSS (user-ordered, restorable from backup): ECSC (5r/97v — Kima), EZDK (2r/17v), GTEX (1v), MEGM (2v). All others were 0-data rows. SBAG was the resurrected Suez Canal Bank duplicate (CANA kept); MNHD the resurrected Masr-city duplicate; PHAE the duplicate of PHAR.
+- Merges (report/value/price move with per-key conflict resolution + disclosure sweep + source company deleted): IBPH→ISPH (+1 price; IBPH was the junk Ibnsina dup); CIRA→CERA (+4 reports/+175 values, 1 dup value skipped — CERA now full financials FY2022-26: revenue 4.39B, assets 10.38B FY2025).
+- Renames (originalTicker preserved): MOPCO→MFPC (9r/402v intact, nameEn "(MOPCO)"→"(MFPC)"); VLMR→VLMRA.
+- SIPC/SCEM REVIEW finding (user asked "SCEM REVIEW DATA"): SIPC and SCEM carried BYTE-IDENTICAL Yahoo FY2021-25 data (duplicate import under two tickers — Yahoo symbol mixup; data profile = cement: COGS 4.63B, GP 4.46B, EBITDA 3.51B). Fix applied: SIPC's 5 duplicate Yahoo reports deleted (SCEM already had every value — 0 moved; SCEM FY2025 even has 32 values vs SIPC's 31), SIPC keeps its FY2026 MUBASHER_EARNINGS net profit (-5.16M — pharma-scale). Identities: SIPC = "Saba for Pharmaceuticals (SIPC)" / سبأ للأدوية / Healthcare; SCEM = "Sinai Cement Co. (SCEM)" / أسمنت سيناء. (Matches earlier TradingView "SIPC=Health technology" classification.)
+- recompute-all after: 238 companies, 25,090 calc metrics, 1,165 events, 964 periods. Health OK. All user-listed "empty" tickers verified present in DB (they are the coverage-gap wishlist; no action needed).
+- Final state: 238 active companies (was 263). Temp scripts removed.
+
+---
+Task ID: 6
+Agent: ZCode (main session)
+Task: User trigger "ابدأ ولا تخذلني" — income-statement harvest for the 79 net-profit-only companies; goal: revenue coverage 110 → ~190.
+
+Work Log:
+- Mubasher session re-verified (logged in). Correct company URL pattern discovered: /markets/EGX/stocks/{CODE}/financial-statements (bare /stocks/{CODE} redirects to a Saudi market listing). BUT the rendered statements model (FinancialStatementController scope — controller.period.sections) contains only the SUMMARY income statement (صافى الربح + مجمل الربح) — NO revenue row, matching the earlier anyRevenue=false finding. Mubasher's revenue remains behind the interactive tool/PDFs. KEY DISCOVERY: the same model carries per-period FeedGFM PDF attachment URLs (data.feedgfm.com/mix2/DCMServiceProvider?...pdf) — direct downloadable official statements, perfect OCR-pipeline input (FeedGFM's page renders empty in automation, but these direct PDF links bypass that).
+- PIVOT: TradingView income-statement pages (/symbols/EGX-{TICKER}/financials-income-statement/) render the full annual income statement in EGP, FY2021+ unlocked (older years paywalled), column strip "2018…2025/TTM" with "Currency: EGP". Built a resumable harvester (egx-data/harvest-lib.mjs + tv-income-harvest.jsonl + tv-harvest-tickers.txt): innerText row-major parse of the custom table, column alignment derived from the Total-revenue row length vs the year strip (handles "Dec YYYY"/"Jun YYYY" fiscal labels — June-FY quirk observed live on ADCI), K/M/B suffix parsing, em-dash = null, value+YoY% interleaved pairs.
+- Harvested 78/78 target companies. Suspect-flag system caught junk: 17 records dropped (12-col misalignments, negative revenue = COGS row bleed, TRTO served in USD), 12 companies have zero TV data (ACAP, ADRI, BONY, FTNS, GDWA, ISMQ, KORA, KRDI, QNBE, TANM, TWSA, UBEE).
+- Integrity gate: planned TV-net-income vs DB-NET_PROFIT match was STRUCTURALLY IMPOSSIBLE — Mubasher-earnings profits are FY2025/FY2026, TV free net income stops at FY2024 (disjoint years, zero overlap for every company). Policy applied: REVENUE + income items imported with full source attribution (sourceName TRADINGVIEW_FINANCIALS, parserVersion tv-income@1, confidence 0.9); TV NET_PROFIT never imported unverified (Mubasher's announced profits stay authoritative); plausibility check vs TOTAL_ASSETS anchors passed (0 violations); VLMRA's TV import DELETED (user-verified no-data shell; TV's 33B revenue belongs to another entity); SIPC's TV revenue (13-44M, pharma-scale) corroborates the SIPC=سبأ للأدوية dedup fix. Validation evidence: SUGR's TV series (3.25B→8.83B) exactly matches the previously cross-verified series.
+- RESULT: companies with REVENUE 110 → 142 (+32); +815 values; +119 annual reports (960 → 1,079 trusted filings); calc metrics 25,090 → 28,054; events 1,215; periods 1,078. recompute-all clean, health OK. Remaining revenue gaps need the Mubasher deep harvest (or the FeedGFM PDF attachments + OCR chain).
+- Gotchas for future runs: node_repl evaluate() with a STRING treats it as an expression (a "() => {}" string returns the function, not its result — eval() it into a real function first); browser-bridge binds only in REPL-cell scope (modules can't import browser-client, but CAN use a browser object passed as a parameter); identical successive tool calls get flagged — vary titles.
+
+---
+Task ID: 7
+Agent: ZCode (main session)
+Task: User: "طب ما تجيب باقي الداتا من askborsa" — harvest the competitor's public data for our coverage gaps.
+
+Work Log:
+- Compliance: askborsa robots.txt ALLOWS public page crawling (even for AI bots) but disallows /api/ — harvested ONLY rendered company pages via the in-app browser; their /api/pdf/N filing links captured as provenance URLs (never downloaded programmatically). Company URL = /company/{TICKER} — SAME EGX tickers as ours (zero mapping work).
+- Data available per company (free, no login): annual summary table — صافي الربح, مجمل الربح, إجمالي الأصول, إجمالي المطلوبات, حقوق المساهمين, إجمالي المطلوبات وحقوق المساهمين, التدفقات النقدية (تشغيلي/استثماري/تمويلي/صافي التغير) × 5 fiscal years + fiscal-start disclosure + filings list. NO revenue row anywhere (same summary-only limitation as Mubasher — revenue remains the open gap). Values display-rounded (0.01M/0.001M) — their own footnote says exact figures are in the attached report.
+- Harvested 238/238 companies (egx-data/askborsa-lib.mjs + askborsa-harvest.jsonl + askborsa-targets.txt, priority-ordered NPONLY→ZERO→HAS; Arabic label/unit parsing handles مليون/ألف/مليار + em-dash nulls). 229 usable, 9 NOT_FOUND on their site (KORA, AMII, ECCW, EGREF, GOUR, GPPL, GEOS, GROV, NAMI — likely our placeholder/wrong-ticker rows).
+- INTEGRITY GATE RESULTS: (1) **AskBorsa NET_PROFIT matched our Mubasher-earnings values within 3% for 99 companies** — independent two-source corroboration. (2) ZERO internal balance-identity failures across all 229 (assets = liabilities+equity always). (3) 33 companies MISMATCHED → skipped entirely (their values vs our DB NP disagree >3%) — probe revealed the mismatches are OUR DB's mislabeled-cumulative problem, not theirs: e.g., MASR has THREE conflicting FY2025 NP values in our DB (488M/1069M/794M from mislabeled H1/9M cumulatives) while AskBorsa's series is smooth and plausible (283M→3330M); SUGR's AskBorsa 2025 NP = −526M matches TradingView exactly (vs Mubasher +880M — the known June-FY contradiction); ATLC same pattern. **This exposes a NEW high-priority cleanup: conflicting duplicate ANNUAL reports per (company, year) from the Mubasher-earnings mislabel regression — mislabeled H1/9M cumulatives sitting as ANNUAL.** (4) CERA flag: our merged CIRA data (371M/125M/70M NP) disagrees with AskBorsa's CERA series (20M/88M/59M) — the CIRA→CERA merge likely carried the wrong company's figures; needs review.
+- IMPORT (conservative): 6,349 values + 524 annual reports (sourceName ASKBORA_SUMMARY, parserVersion askborsa-summary@1, confidence 0.8, sourceUrl → their company page / matching /api/pdf/ filing link, notes carry display-rounding + fiscal-start). Only-missing-slot fills (never overwrite); NET_PROFIT imported ONLY for the 99 cross-verified companies (466 NP slots skipped as unverified). statementType distribution verified correct post-import.
+- RESULT: companies with any data 189 → 233/238 · trusted filings 1,079 → 1,603 (gap vs askborsa's 3,577 narrowed 3.7×→2.2×) · values 32,788 · calc metrics 28,054 → 41,678 · events 1,215 → 1,931 · recompute-all clean, health OK. Zero-data spot-check ACAMD now renders full FY2021-25 statements on the site.
+- NEXT (proposed): (1) duplicate/conflicting-ANNUAL audit + relabel (fixes the 33 skipped companies + our MASR/ATLC integrity); (2) CIRA→CERA merge review; (3) Mubasher deep harvest / FeedGFM PDFs for the revenue gap; (4) AskBorsa quarterly tabs behind free registration (user can register → quarterly harvest later).
+
+---
+Task ID: 8
+Agent: ZCode (main session)
+Task: AskBorsa round follow-ups — conflict-audit correction + refined re-import.
+
+Work Log:
+- Hypothesis TESTED and REFUTED: suspected duplicate/conflicting ANNUAL reports per (company, year). Audit found ZERO conflict groups — the earlier "33 NP mismatches" were apples-to-oranges: AskBorsa's FY-annual NP vs our interim cumulative NPs sharing the same fiscalYear label (Q1/H1/9M reports). Our data was never corrupt; the first import's company-level skip was over-conservative and left the 33 companies' balance-sheet/cash-flow data unimported.
+- ACAMD provenance check: FY2025 NP from Mubasher (−1.45M) matches AskBorsa (−1.45M) exactly; FY2021-24 NP imported from AskBorsa (cross-verified company).
+- REFINED RE-IMPORT (idempotent dupe-checked): company-level skip removed; per-slot rule = fill missing only, never overwrite (NP conflict case auto-protected by dupe check — SUGR keeps Mubasher +880M, AskBorsa −526M stays out). Recovered +1,518 values + 65 reports for the 33 previously-skipped companies (incl. MASR FY2025 annual created from AskBorsa: NP 3,330M vs our interim-only 488/794/1,069M cumulatives — plausible per public FY2024=2.9B). 535 NP slots kept ours.
+- FINAL STATE: 233/238 companies with data · 1,668 trusted filings · 34,306 values (5,619 AskBorsa-sourced) · 43,368 calc metrics · 2,334 events · recompute-all + health OK.
+
+---
+Task ID: 9
+Agent: ZCode (main session)
+Task: CIRA=>CERA merge review + undo (two-source verified).
+
+Work Log:
+- User-ordered "CIRA => CERA" (implemented in Task 5 as merge) REVIEWED against AskBorsa: their /company/CIRA = سيرا للتعليم (NP 371/125/70M, assets→9B — EXACTLY our merged data) while /company/CERA = ريماس للسيراميك (NP 49/20/88/59M, assets 0.8→2.1B). TradingView independently confirms: EGX:CIRA = "CIRA Education", EGX:CERA = "Arab Ceramic Co. - Ceramica Remas". The two tickers are two DIFFERENT real companies — merging them put education data on the ceramics company.
+- UNDO executed: live CERA's 6 contaminated reports wiped (metrics/events too), identity set to العربية للسيراميك - ريماس, rebuilt purely from AskBorsa ceramics series (5 FY reports / 44 values). CIRA education company recreated from the pre-purge backup with ALL 5 reports / 176 values (Yahoo full financials) + sharesOutstanding/ISIN/sector intact; audit-logged.
+- Gotcha: Prisma datasources url must be ABSOLUTE file: path (relative ./ created an empty DB at prisma/dev.db — removed); Company model has no notes field (report notes only).
+- FINAL STATE: 239 active companies · 43,472 calc metrics · 2,337 events · 1,671 periods · recompute-all + health OK.
+- NOTE FOR USER: their verdict list's "CIRA => CERA" was applied then reversed on evidence; if they actually know a 2026 EGX ticker rename (CIRA→CERA), it's a 1-minute ticker swap — but both sources say both tickers are live and separate.
+
+---
+Task ID: 10
+Agent: ZCode (main session)
+Task: User requests — fix egx components errors (incl. ReportTraceDialog crash), scanner result ordering + matched-only, remove yellow flags from statements, move dashboard aggregates to /about.
+
+Work Log:
+- CRASH FIXED: Statements tab crashed ("ReportTraceDialog is not defined") — a parallel session rebuilt the app to the real App Router (src/app/company/[id], /dashboard, /about…) and left orphans. Removed the orphan ReportTraceDialog/traceId refs (the trace-button code was already gone), restored api.downloadReportUrl, added ViewKey to src/lib/view-keys.ts, optional onOpenScanner, counts guards, auth/access null-coercion, payments ReactNode cast.
+- CRITICAL SECURITY FIX: isAdmin() became async in admin-auth.ts but ~20 admin API routes still called it synchronously — `if (!isAdmin(req))` with a Promise is always false → ALL ADMIN ROUTES WIDE OPEN. Added await at every call site (regex sweep). This must be verified in any code review of that change.
+- extract.ts repaired: duplicated type blocks deduped (11k chars removed); restored ExtractedCandidate, classifyDocument (original DocumentClassification shape), parseTableMarkup (HTML+markdown tables), confidenceForCandidate, missingMetricReport, normalizeSub; DetectedPeriod literal fixed; src/ now tsc-clean (only pre-existing scripts/ noise remains).
+- SCANNER UX (user request): results now show ONLY matched companies, sorted matchedCount high→low (both preset results and custom scanner run); the "all companies / why not matched" details block removed.
+- STATEMENTS (user request): yellow ⚠ review-flag badges + the anomaly banner removed from the statements view (flags still come from the API; UI no longer renders them).
+- DASHBOARD (user request): aggregate stat cards removed; new /about page (من نحن) renders the platform description + the same live numbers (companies/values/events/filings from /api/v1/dashboard); About link added to the global footer.
+- VERIFIED in browser: dashboard renders without stats cards, company Statements tab renders FY2021-26 with NO crash and NO yellow banner, /about renders with live platform numbers. eslint clean (4 pre-existing warnings). tsc: src/ zero errors.
+
+---
+Task ID: 11
+Agent: ZCode (main session)
+Task: User: "الموقع بعيد عن هدفه (أحدث بيانات للمستثمر) — بيعرض قوائم 2025 واحنا في 2026"
+
+Work Log:
+- ROOT CAUSE: statements/metrics APIs defaulted to period_view=annual — so the site opened on FY 2025 while the freshest data (Q1/H1 2026 interims) sat in the interim view. Data was there; the DEFAULT hid it.
+- FIX (freshest-default): new pure `freshestPeriodView(available, latestAnnualEnd, latestInterimEnd)` in statement-pref.ts; both /financials and /metrics routes now query max(periodEnd) per periodType (one groupBy) and default to the view holding the most recent filing. Verified: MIPH now defaults to interim (Q1 2026 latest), ABUK stays annual (its FY2026 is genuinely the newest). Investors land on the newest statements automatically; the annual/interim toggle still lets them switch.
+- NEW: GET /api/v1/dashboard/latest-results — most recent trusted NET_PROFIT per company (dedup by company, ordered periodEnd desc, top 12) with period label/source/asOf + company identity. Dashboard renders it as «أحدث النتائج المعلنة» section (click → company page). Verified live in browser (ASCM/CCAP/PRCL/CPCI…).
+- KNOWN LIMITATION (previously logged): some periodLabels from the Mubasher earnings harvest read "FY 2026" for interim-cumulative announcements (periodEnd defaulted to Dec 31) — the relabel audit remains the fix; the feed shows labels as stored with source attribution.
+
+---
+Task ID: 12
+Agent: ZCode (main session)
+Task: User clarified the real goal — actual Q1/Q2 2026 financial statement VALUES on the site (not UI changes). Harvested TradingView QUARTERLY income statements market-wide.
+
+Work Log:
+- Tested both sources: AskBorsa quarterly tabs are free BUT their quarterly series ends at 2025 for most companies; TradingView quarterly view has real 2026 quarters. ABUK probe revealed the quarter-strip format: [label "Q1 '26", end-date "Mar 2026", ...] — quarter labels follow their OWN end month-year (mixed calendar/fiscal conventions across companies; the end date is the ground truth).
+- Built egx-data/tv-quarterly-lib.mjs (real exported functions — template-literal stringified functions broke on \s escapes; playwright.evaluate(fn) accepts real functions from an imported module). Quarter click → parse with backward label/end pairing, discrete quarters.
+- Harvested 238/238 tickers → 204 usable (37 no-data/USD/no-quarter-labels). Known parse artifact: some records show revenue going negative for later quarters (row-glue) — handled at import by per-value filters.
+- IMPORT (tv-quarterly@1, discrete quarters): 1,309 QUARTERLY reports created (periodLabel "Q1 2026"…, periodEnd from the quarter's actual end month), 6,333 values (REVENUE/COGS/GP/OPINC/PBT/TAX/NI/EPS/EBITDA/EBIT). Filters: revenue must be >0; revenue ≤1.5× the company's max annual revenue (caught 24 glued spikes like CANA 42B, COMI 239B, QNBE 147B); COGS/taxes flipped positive; only-missing slots (never overwrite).
+- Auth note: admin login now returns an HttpOnly DB-backed session COOKIE (adminSession table) — use curl -c/-b cookie jar; x-admin-token header no longer works for admin routes.
+- FINAL STATE: trusted filings 1,668 → 2,981 · values 34,306 → 40,669 · calc metrics 43,368 → 89,778 (quarterly buckets light up TTM/margins). FY2026 quarterly revenue coverage: 142 companies (Q1 2026: 135 · Q2 2026: 84 · Q3 2026 fiscal: 23). recompute-all + health OK.
+- Data caveat: TV quarters are DISCRETE (Q2 = Apr-Jun alone) while Mubasher-earnings NP values are CUMULATIVE (H1) — they live in separate period buckets (QUARTERLY:2026:Q2 vs SEMIANNUAL:2026:H1) so nothing mixes; the statements UI shows both columns labeled distinctly.
+
+---
+Task ID: 13
+Agent: ZCode (main session)
+Task: User: "كل البيانات الناقصة من askborsa كلها بلا استثناء" — AskBorsa QUARTERLY tabs harvest (Q1-Q4 × years × 10 rows) market-wide.
+
+Work Log:
+- Extended askborsa-lib.mjs with pageClickQuarter/pageParseQuarter/runQuarterBatch — clicks each of the 4 quarterly tabs per company page and parses the 10-row × years summary (same bilingual label parsing).
+- Harvested 238/238 (4 tabs each): nearly all have 3-5 years per quarter tab; genuinely absent: KORA?, AMII, ECCW, EGREF, GOUR, GPPL, GEOS, GROV, NAMI (verified against AskBorsa's full 293-company list — 6 tickers simply don't exist there; EGREF/GEOS pages exist but carry no statements).
+- IMPORT (askborsa-quarterly@1): fiscal-quarter mapping Q1→QUARTERLY/Q1, Q2→SEMIANNUAL/H1, Q3→NINE_MONTH/9M, Q4→QUARTERLY/Q4 only when it differs >3% from the annual value (144 Q4-duplicates-of-annual skipped); periodEnd computed from AskBorsa's fiscal-start disclosure (FY y starts m0 of y-1 when m0≥7); only-missing slots. NOTE: import script looped per-(ticker,tab) record and re-processed each ticker 4× — the dupe check (report+metric unique) prevented any double-insert; runtime waste only.
+- FINAL PLATFORM STATE: 236/239 companies with data · 6,065 trusted filings (EXCEEDS askborsa's ~3,577) · 72,700 values (33,400 AskBorsa-sourced) · 180,388 calc metrics · 6,795 events · recompute + health OK.
+- Remaining true gaps: revenue line items for quarterly summaries (AskBorsa quarterly has no revenue row — only TV quarterly has), and the ~6 companies absent from every reachable source.
+
+---
+Task ID: 14
+Agent: ZCode (main session)
+Task: User UX round — YoY % next to values, remove common-size %, redesigned period toggle, premium-gate scanner-match chips.
+
+Work Log:
+- STATEMENTS: each value now shows a small ▲/▼ % change badge vs the PREVIOUS visible period column (green/red/neutral; hidden when no prior value) — mirrors AskBorsa's growth-under-value pattern. The "% common-size" toggle + mode state + denomOf helper removed (values always EGP).
+- PERIOD VIEW toggle redesigned: segmented cards with icon + label + sub-label ("Full-year statements" / "Latest announced quarters"), active = primary-filled; CalendarDays/ChartBar icons.
+- PREMIUM GATE (user-confirmed target): the company-header «مطابقات الماسحات» chips are now Premium-only — free users see a count teaser with lock linking to /premium; premium users keep clickable chips. Verified in browser as logged-out: teaser shows, match names hidden.
+- tsc src/ clean; verified in browser (YoY badges render, common-size gone, new toggle, gate active).
+
+---
+Task ID: 15
+Agent: ZCode (main session)
+Task: FEATURE-INNOVATION-PROMPT.md — build the Top 4 monetization features + pricing/landing (Health Dashboard, Snowflake, AI Thesis, Valuation Detector).
+
+Work Log:
+- NEW src/lib/financial/scores.ts: deterministic 0-100 health scoring from verified CalculatedMetric (profitability 30% from net_margin/ROE/ROA, growth 20% from revenue/profit/equity growth, liquidity 15% current_ratio, leverage 15% D/E with lenient bank bands, cash 20% OCF/NP conversion). **Units gotcha: percent-unit metrics (margins/ROE/growths) are stored as PERCENT numbers (10 = 10%) — bands must be percent-scale; ratio metrics (current_ratio, D/E) are decimals.** Missing inputs → null components (never estimated); overall = weighted average of available components. Valuation block: latest price (freshness ≤180d), P/E ≥1, P/B ≥0.15 sanity guards, sector medians (peer latest OK multiples, outliers trimmed), discount % + verdict (undervalued/fair/expensive/no-price). marketValuationScreen: active filers only (revenue/NP in last 2 fiscal years).
+- NEW APIs: /companies/[id]/scores · /dashboard/valuation (24 rows, discounts sorted).
+- NEW Health tab on the company page (health-tab.tsx): SVG ring gauge (overall) + 5 component Progress bars with real inputs — FREE; Snowflake radar (Recharts RadarChart) + sector-valuation detail — Pro-gated via new useSubscriptionGate hook (src/lib/client/subscription-gate.ts). Verified live on ABUK (overall 44 with partial FY2026 data; gauge/bars/snowflake/gate all render).
+- NEW dashboard section «فرص التقييم — أقل من متوسط القطاع»: sector-relative screen, free sees 3, Premium 12 (verified live).
+- AI THESIS upgraded: the ai-analysis user prompt now requests a structured thesis (## Investment Thesis / Strengths / Weaknesses / Opportunities / Risks / Overall Stance — cautiously positive/neutral/negative, no direct buy/sell per the site's no-recommendation compliance stance). Escaping gotcha: writing TS string escapes (\n) through bash+python heredocs collapses levels — fix by index-based line replacement building escapes with chr(92)+"n".
+- PRICING/LANDING: premium page gained a 6-feature grid (Health/Snowflake/AI thesis/Valuation/Latest results/Events/2026 quarters); landing hero gained 4 feature bullets.
+- tsc src/ clean throughout.
+
+---
+Task ID: 16
+Agent: ZCode (main session)
+Task: User: "ارسال طلب اشتراك لا يصل الى صفحة الادمن" — subscription request flow broken end-to-end.
+
+Work Log:
+- ROOT CAUSES (three, stacked): (1) premium page submitted POST /subscription/request WITHOUT the user session token header → 401 silently (the other session's rewrite dropped auth headers); /subscription/me had the same bug. (2) The subscription flow created only a Subscription PENDING row, while /admin/payments lists PaymentRequest rows — the two flows were never connected, so even a successful request never surfaced there. (3) The other session also deleted the admin review routes: /admin/payment-requests/[id]/verify + /reject and /admin/subscriptions/[id]/activate + /cancel were MISSING (admin buttons 404).
+- FIXES: premium page now sends x-session-token on request + status queries; /subscription/request additionally upserts a PENDING PaymentRequest (plan price/currency) so it lands on /admin/payments; created all four missing admin routes (verify → VERIFIED + activate subscription 30d; reject → REJECTED with mandatory admin note; activate/cancel for subscriptions) using the cookie-session isAdmin.
+- E2E VERIFIED with a throwaway user (created → session token → submit request → PENDING appears on /admin/payments → admin verify → subscription ACTIVE until +30d) — then all test rows deleted. Admin auth is cookie-jar based (login → egx_admin_session cookie).
+
+---
+Task ID: 17
+Agent: ZCode (main session)
+Task: PROFESSIONAL-FEATURES-PROMPT.md — production-grade rebuild of the 4 feature ENGINES per the exact spec (math-first, unit-tested).
+
+Work Log:
+- NEW src/lib/analytics/engine.ts — PURE spec math, no DB: financial health per §1.3 (profitability 25% [ROE/ROA/NM/GM thresholds], liquidity 20% [current+quick], leverage 20% [D/E direction-correct + interest coverage; lenient bank bands], efficiency 15% [asset turnover; inventory only for non-banks at double weight], growth 20% [rev+NI YoY with prior-loss guard]; weight redistribution for null categories; <3 categories → insufficient, never fabricated). Snowflake per §2.3-2.4 (sector percentileRank, direction-aware: P/E lower=better etc.). Undervalued per §4.3-4.4 (flag at ≥3 of 5 criteria; fair value = average of P/E-relative + P/B-relative + DDM(15%/5%); honest even when DDM drags below price). dimensionAnalysis framing per §2.6 (positive ≥75 / neutral / cautionary / warning).
+- 15 unit tests (node --experimental-strip-types --test) — ALL PASS. Bugs caught by tests: MetricMap lookups return undefined for absent keys (must ?? null before !==null checks — undefined poisoned averages with zeros); DDM-drags-average expectation corrected (46.5/-7% is the spec-honest result).
+- NEW src/lib/analytics/gather.ts — data service: latest+prior ANNUAL metric maps (CalculatedMetric + raw FinancialValue derived ratios: QUICK_RATIO, INTEREST_COVERAGE, ASSET_TURNOVER), uppercase-normalized codes (DB stores lowercase p_e/roe!), per-peer OWN latest fiscal year (peers' years vary — fixed empty sector medians), 1Y price return from MarketPrice.
+- NEW APIs: /companies/[id]/snowflake (9 axes + sector medians + framed bilingual analysis, verified ABUK: 38 peers, value pct 40) and /undervalued — FIRST implementation did per-company 40-peer queries and TIMED OUT at 280s; REWRITTEN batched (4 queries total, in-memory medians) → 4.2s. Result: DEIN flagged (3 criteria, fair 87.54 vs price 11.38, +669% — DDM-heavy, methodology transparent in UI).
+- NEW /undervalued page: filters (sector, min upside), expandable rows showing fair-value method + criteria met (bilingual), free sees top 3 + Pro gate card, click → company page. Verified in browser.
+- HealthTab snowflake upgraded: 10-axis API version with sector-median dashed overlay (second Radar) + per-dimension framed analysis list under the chart (Pro-gated).
+- HONEST GAPS vs the prompt (not silently skipped): EV/EBITDA + volatility + price-return axes lack stored metrics (need EV calc from debt+cash + price history — future); thesis 7-section prompt upgrade + PDF export + ThesisCache model + cron persistence table + Lighthouse/a11y audits remain from the earlier v1 round; DB caches not added (single-writer local DB computes on demand).

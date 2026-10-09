@@ -53,6 +53,8 @@ const TTM_FLOW_CODES = new Set([
 /** Raw metrics that are point-in-time (balance sheet) — taken from the end quarter */
 const TTM_POINT_CODES = new Set([
   "TOTAL_ASSETS", "TOTAL_LIABILITIES", "TOTAL_EQUITY", "TOTAL_DEBT", "DEPOSITS", "LOANS_NET",
+  "SHORT_TERM_DEBT", "LONG_TERM_DEBT", "INVENTORY", "EBITDA", "NON_CURRENT_ASSETS",
+  "RETAINED_EARNINGS", "INVESTING_CASH_FLOW", "FINANCING_CASH_FLOW",
   "CASH_AND_EQUIVALENTS", "CURRENT_ASSETS", "NON_CURRENT_ASSETS", "CURRENT_LIABILITIES",
   "NON_CURRENT_LIABILITIES", "ACCOUNTS_RECEIVABLE", "INVENTORY", "INVESTMENTS",
   "SHORT_TERM_DEBT", "LONG_TERM_DEBT", "RETAINED_EARNINGS", "EQUITY_PARENT",
@@ -288,6 +290,9 @@ export async function recomputeCompany(companyId: string): Promise<RecomputeResu
     push("roe", roe(cur["NET_PROFIT"], cur["TOTAL_EQUITY"]), [bucket.periodKey], "roe@1")
     push("roa", roa(cur["NET_PROFIT"], cur["TOTAL_ASSETS"]), [bucket.periodKey], "roa@1")
     push("debt_to_equity", debtToEquity(cur["TOTAL_DEBT"], cur["TOTAL_EQUITY"]), [bucket.periodKey], "debt_to_equity@1")
+    // liabilities-to-equity — fills the leverage gap: total liabilities coverage
+    // is near-universal across sources, unlike the debt-only split
+    push("liabilities_to_equity", debtToEquity(cur["TOTAL_LIABILITIES"], cur["TOTAL_EQUITY"]), [bucket.periodKey], "liabilities_to_equity@1")
     push("current_ratio", currentRatio(cur["CURRENT_ASSETS"], cur["CURRENT_LIABILITIES"]), [bucket.periodKey], "current_ratio@1")
     push("eps", eps(cur["NET_PROFIT"], periodShares), [bucket.periodKey], "eps@1")
     push("book_value_per_share", bookValuePerShare(cur["TOTAL_EQUITY"], periodShares), [bucket.periodKey], "book_value_per_share@1")
@@ -303,6 +308,14 @@ export async function recomputeCompany(companyId: string): Promise<RecomputeResu
     passthrough("total_assets", "TOTAL_ASSETS", "total_assets@1")
     passthrough("total_equity", "TOTAL_EQUITY", "total_equity@1")
     passthrough("total_debt", "TOTAL_DEBT", "total_debt@1")
+    passthrough("short_term_debt", "SHORT_TERM_DEBT", "short_term_debt@1")
+    passthrough("long_term_debt", "LONG_TERM_DEBT", "long_term_debt@1")
+    passthrough("inventory", "INVENTORY", "inventory@1")
+    passthrough("ebitda", "EBITDA", "ebitda@1")
+    passthrough("non_current_assets", "NON_CURRENT_ASSETS", "non_current_assets@1")
+    passthrough("retained_earnings", "RETAINED_EARNINGS", "retained_earnings@1")
+    passthrough("investing_cash_flow", "INVESTING_CASH_FLOW", "investing_cash_flow@1")
+    passthrough("financing_cash_flow", "FINANCING_CASH_FLOW", "financing_cash_flow@1")
 
     // Market metrics — computed from the latest observed price point (p_b@2 …).
     // No price => DATA_UNAVAILABLE; negative earnings/book => NOT_APPLICABLE with reason.

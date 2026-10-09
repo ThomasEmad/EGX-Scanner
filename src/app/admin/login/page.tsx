@@ -24,10 +24,10 @@ export default function AdminLoginPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ passcode }),
+        credentials: "include",
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || "Failed")
-      localStorage.setItem("adminToken", data.token)
       router.replace("/admin/subscriptions")
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed")

@@ -1,10 +1,16 @@
+import { NextRequest } from "next/server"
 import { db } from "@/lib/db"
 import { EVENT_TYPES } from "@/lib/financial/registry"
+import { requirePremium, forbiddenResponse } from "@/lib/access"
 
 // GET /api/v1/companies/[id]/events — detected financial events with explanations
 // generated from actual stored values.
+// Premium-only access.
 
 export async function GET(_req: Request, { params }: { params: Promise<{ id: string }> }) {
+  const premiumUserId = await requirePremium(_req as unknown as NextRequest)
+  if (!premiumUserId) return forbiddenResponse("Premium subscription required for Company Events.")
+
   const { id } = await params
   const company = await db.company.findUnique({ where: { id }, select: { id: true } })
   if (!company) return Response.json({ error: "NOT_FOUND" }, { status: 404 })

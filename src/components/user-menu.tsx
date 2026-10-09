@@ -6,7 +6,7 @@ import { Crown, Loader2, LogOut, User } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { api } from "@/lib/client/api"
+import { authHeaders, clearUserToken } from "@/lib/client/api"
 import { useI18n } from "@/lib/i18n"
 
 export function UserMenu() {
@@ -14,12 +14,20 @@ export function UserMenu() {
   const { t, lang } = useI18n()
   const { data: subData, isLoading } = useQuery({
     queryKey: ["subscription-me"],
-    queryFn: () => fetch("/api/v1/subscription/me").then((r) => (r.ok ? r.json() : { isPremium: false, subscription: null })),
+    queryFn: () => fetch("/api/v1/subscription/me", { headers: authHeaders() }).then((r) => (r.ok ? r.json() : { isPremium: false, subscription: null })),
   })
 
   const logout = useMutation({
-    mutationFn: () => fetch("/api/v1/auth/logout", { method: "POST", headers: { "Content-Type": "application/json" } }),
+    // authHeaders() is required — without the session token the server never
+    // invalidates the session, and without clearUserToken() the dead token
+    // stayed in storage and made the sign-in page bounce back home.
+    mutationFn: () =>
+      fetch("/api/v1/auth/logout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", ...authHeaders() },
+      }),
     onSuccess: () => {
+      clearUserToken()
       qc.invalidateQueries()
       window.location.reload()
     },

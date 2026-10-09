@@ -6,7 +6,7 @@ import { audit } from "@/lib/audit"
 
 // GET /api/v1/admin/payment-requests
 export async function GET(req: NextRequest) {
-  if (!isAdmin(req)) return unauthorizedResponse()
+  if (!(await isAdmin(req))) return await unauthorizedResponse()
   const url = new URL(req.url)
   const status = url.searchParams.get("status") || undefined
 
@@ -42,10 +42,12 @@ export async function GET(req: NextRequest) {
   })) })
 }
 
-// POST /api/v1/admin/payment-requests/{id}/verify
-export async function POST(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  if (!isAdmin(req)) return unauthorizedResponse()
-  const { id } = await params
+// POST /api/v1/admin/payment-requests (verify)
+export async function POST(req: NextRequest) {
+  if (!(await isAdmin(req))) return await unauthorizedResponse()
+  const body = await req.json().catch(() => ({}))
+  const id = body?.id
+  if (!id) return Response.json({ error: "ID_REQUIRED" }, { status: 400 })
   const payment = await db.paymentRequest.findUnique({
     where: { id },
     include: { plan: true, user: { select: { id: true, email: true } } },
@@ -56,7 +58,6 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   const adminId = req.headers.get("x-admin-token") || "admin"
 
   try {
-    const body = await req.json()
     const adminNote = typeof body?.adminNote === "string" ? body.adminNote : null
     const durationDays = typeof body?.durationDays === "number" ? body.durationDays : payment.plan.durationDays
 
@@ -88,16 +89,17 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   }
 }
 
-// POST /api/v1/admin/payment-requests/{id}/reject
-export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  if (!isAdmin(req)) return unauthorizedResponse()
-  const { id } = await params
+// PUT /api/v1/admin/payment-requests (reject)
+export async function PUT(req: NextRequest) {
+  if (!(await isAdmin(req))) return await unauthorizedResponse()
+  const body = await req.json().catch(() => ({}))
+  const id = body?.id
+  if (!id) return Response.json({ error: "ID_REQUIRED" }, { status: 400 })
   const payment = await db.paymentRequest.findUnique({ where: { id } })
   if (!payment) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
   if (payment.status !== "PENDING") return Response.json({ error: "ALREADY_PROCESSED" }, { status: 400 })
 
   try {
-    const body = await req.json()
     const adminNote = typeof body?.adminNote === "string" ? body.adminNote : "Rejected by admin"
 
     const updated = await db.paymentRequest.update({

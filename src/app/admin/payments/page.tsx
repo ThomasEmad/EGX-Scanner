@@ -26,7 +26,7 @@ export default function AdminPaymentsPage() {
     mutationFn: async ({ id, adminNote, durationDays }: { id: string; adminNote?: string; durationDays?: number }) => {
       const res = await fetch(`/api/v1/admin/payment-requests/${id}/verify`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", "x-admin-token": localStorage.getItem("adminToken") ?? "" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ adminNote, durationDays }),
       })
       if (!res.ok) throw new Error((await res.json()).error || "Failed")
@@ -39,7 +39,7 @@ export default function AdminPaymentsPage() {
     mutationFn: async ({ id, adminNote }: { id: string; adminNote?: string }) => {
       const res = await fetch(`/api/v1/admin/payment-requests/${id}/reject`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", "x-admin-token": localStorage.getItem("adminToken") ?? "" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ adminNote }),
       })
       if (!res.ok) throw new Error((await res.json()).error || "Failed")
@@ -72,8 +72,8 @@ export default function AdminPaymentsPage() {
                 <span className="tabular">{(r.amount as number)} {(r.currency as string)}</span>
                 <span className="tabular">{new Date(r.createdAt as string).toLocaleString()}</span>
               </div>
-              {(r.transactionReference as string) ? (
-                <p className="text-muted-foreground">{lang === "ar" ? "مرجع:" : "Ref:"} {r.transactionReference}</p>
+              {(r.transactionReference as string | undefined) ? (
+                <p className="text-muted-foreground">{lang === "ar" ? "مرجع:" : "Ref:"} {String(r.transactionReference ?? "")}</p>
               ) : null}
               {(r.status as string) === "PENDING" ? (
                 <div className="flex flex-wrap items-center gap-2">

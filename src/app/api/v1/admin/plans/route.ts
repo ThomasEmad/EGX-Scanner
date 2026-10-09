@@ -5,14 +5,14 @@ import { audit } from "@/lib/audit"
 
 // GET /api/v1/admin/plans
 export async function GET(req: NextRequest) {
-  if (!isAdmin(req)) return unauthorizedResponse()
+  if (!(await isAdmin(req))) return await unauthorizedResponse()
   const plans = await db.plan.findMany({ orderBy: { sortOrder: "asc" } })
   return Response.json({ plans })
 }
 
 // POST /api/v1/admin/plans
 export async function POST(req: NextRequest) {
-  if (!isAdmin(req)) return unauthorizedResponse()
+  if (!(await isAdmin(req))) return await unauthorizedResponse()
   try {
     const body = await req.json()
     const plan = await db.plan.create({
