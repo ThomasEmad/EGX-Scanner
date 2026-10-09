@@ -7,6 +7,7 @@ import { parsePeriodKey, periodKeyLabel } from "./periods"
 import { evaluateRule, ruleAvailability, validateRuleConditions, type RuleEval, type ScanCondition, type ScanContext } from "./scanner"
 import type { PeriodBasis } from "./periods"
 import { preferConsolidatedRows, type CalcMetricRow } from "./statement-pref"
+import { cached } from "@/lib/server-cache"
 
 // Annotations give the Prisma conditional payload a concrete shape — required
 // for preferConsolidatedRows<T> inference (TS cannot infer generics from
@@ -33,7 +34,13 @@ export interface ScanRunOutput {
   ranAt: string
 }
 
-export async function buildScanContexts(basis: PeriodBasis): Promise<
+// Cached market-wide: ~1.4s per basis to build; only changes on recompute
+// (invalidated by data-mutating admin endpoints).
+export function buildScanContextsCached(basis: PeriodBasis) {
+  return cached(`scanContexts:${basis}`, 30 * 60_000, () => buildScanContextsUncached(basis))
+}
+
+async function buildScanContextsUncached(basis: PeriodBasis): Promise<
   { company: { id: string; ticker: string; nameEn: string; nameAr: string | null; sector: string; isDemoData: boolean }; context: ScanContext; periodKey: string | null }[]
 > {
   const companies = await db.company.findMany({
@@ -93,6 +100,10 @@ export async function buildScanContexts(basis: PeriodBasis): Promise<
 
   const eventsByCompany = new Map<string, Set<string>>()
   for (const row of eventRows) {
+    // events qualify ONLY at the company's own scanned period — a turnaround in
+    // 2023 must not match a company whose latest period is 2025 (and stale
+    // companies' old "latest" keys must not leak history into everyone else)
+    if (row.currentPeriodKey !== latestKeyPerCompany.get(row.companyId)) continue
     if (!eventsByCompany.has(row.companyId)) eventsByCompany.set(row.companyId, new Set())
     eventsByCompany.get(row.companyId)!.add(row.eventType)
   }
@@ -132,7 +143,7 @@ export async function runScan(
   basis: PeriodBasis
 ): Promise<ScanRunOutput> {
   const validation = validateRuleConditions(conditions)
-  const contexts = await buildScanContexts(basis)
+  const contexts = await buildScanContextsCached(basis)
 
   const results: CompanyScanResult[] = contexts.map(({ company, context, periodKey }) => {
     const evaluation = evaluateRule(conditions, context)
@@ -160,4 +171,36 @@ export async function runScan(
     validationErrors: validation.errors,
     ranAt: new Date().toISOString(),
   }
+}
+
+
+// Dashboard scanner cards — every preset scanned on the latest annual basis.
+// ~16s cold (14 rules × full-market scan), so it is cached market-wide and can
+// be warmed in the background right after a recompute.
+export async function getPresetScannerCards(): Promise<
+  { id: string; presetKey: string | null; name: string; nameAr: string | null; description: string | null; count: number; topMatches: { companyId: string; ticker: string; nameEn: string; nameAr: string | null; period: string | null }[] }[]
+> {
+  return cached("dashboard:scannerCards", 30 * 60_000, async () => {
+    const presets = await db.scannerRule.findMany({ where: { isPreset: true, isActive: true }, orderBy: { createdAt: "asc" } })
+    return Promise.all(
+      presets.map(async (rule) => {
+        const output = await runScan(JSON.parse(rule.conditions) as ScanCondition[], "LATEST_ANNUAL")
+        return {
+          id: rule.id,
+          presetKey: rule.presetKey,
+          name: rule.name,
+          nameAr: rule.nameAr,
+          description: rule.description,
+          count: output.matched.length,
+          topMatches: output.matched.slice(0, 4).map((m) => ({
+            companyId: m.companyId,
+            ticker: m.ticker,
+            nameEn: m.nameEn,
+            nameAr: m.nameAr,
+            period: m.contextPeriodLabel,
+          })),
+        }
+      })
+    )
+  })
 }

@@ -98,7 +98,7 @@ export function DividendsView({ onOpenCompany }: { onOpenCompany: (id: string) =
             <CalendarDays className="h-5 w-5 text-primary" />
             {t("nav.dividends")}
           </h1>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground mt-1">
             {lang === "ar"
               ? "لا يتم استنتاج أي تواريخ غير معلنة رسمياً — تظهر كـ «لم يُعلن رسمياً»."
               : "Unofficial dates are never inferred — they are shown as “not officially announced”."}
@@ -109,8 +109,8 @@ export function DividendsView({ onOpenCompany }: { onOpenCompany: (id: string) =
             <button
               key={s}
               onClick={() => setStatus(s)}
-              className={`rounded-full px-3 py-1 text-xs transition-colors ${
-                status === s ? "bg-primary font-medium text-primary-foreground" : "bg-muted text-muted-foreground hover:text-foreground"
+              className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-all duration-150 ${
+                status === s ? "bg-primary text-primary-foreground shadow-sm shadow-primary/15" : "bg-muted/60 text-muted-foreground hover:text-foreground"
               }`}
             >
               {s === "active" ? (lang === "ar" ? "قادمة/معلنة" : "Active") : s === "all" ? (lang === "ar" ? "الكل" : "All") : s.replaceAll("_", " ")}
@@ -120,8 +120,8 @@ export function DividendsView({ onOpenCompany }: { onOpenCompany: (id: string) =
       </div>
 
       {/* Next 12 months calendar grid */}
-      <Card className="p-0">
-        <div className="flex items-center gap-2 border-b p-4 pb-3">
+      <Card className="p-0 border-border/60">
+        <div className="flex items-center gap-2.5 border-b border-border/60 p-4 pb-3">
           <CalendarRange className="h-4 w-4 text-primary" />
           <div>
             <h2 className="text-sm font-semibold leading-tight">{t("dv.next12")}</h2>
@@ -136,16 +136,16 @@ export function DividendsView({ onOpenCompany }: { onOpenCompany: (id: string) =
             ))}
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-px bg-border sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+        <div className="grid grid-cols-2 gap-px bg-border/70 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
           {calLoading
             ? Array.from({ length: 12 }).map((_, i) => (
                 <div key={i} className="bg-card p-3">
-                  <Skeleton className="h-4 w-14" />
+                  <Skeleton className="h-4 w-14 rounded-md" />
                   <Skeleton className="mt-2 h-8 rounded-md" />
                 </div>
               ))
             : months.map((m) => (
-                <div key={m.key} className={`min-h-24 bg-card p-3 transition-colors ${m.items.length > 0 ? "" : "opacity-60"}`}>
+                <div key={m.key} className={`min-h-24 bg-card p-3 transition-colors duration-150 ${m.items.length > 0 ? "" : "opacity-60"}`}>
                   <p className="flex items-baseline gap-1 text-[11px] font-semibold text-muted-foreground">
                     {m.label}
                     <span className="text-[9px] font-normal">{m.year}</span>
@@ -161,7 +161,7 @@ export function DividendsView({ onOpenCompany }: { onOpenCompany: (id: string) =
                         <button
                           key={item.id}
                           onClick={() => item.companyId && onOpenCompany(item.companyId)}
-                          className="flex w-full items-center gap-1.5 rounded-md border px-1.5 py-1 text-start text-[10px] transition-colors hover:bg-muted/60"
+                          className="flex w-full items-center gap-1.5 rounded-lg border border-border/60 px-1.5 py-1.5 text-start text-[10px] transition-all duration-150 hover:bg-muted/60 hover:border-primary/20"
                         >
                           <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${STATUS_DOT[item.status] ?? "bg-slate-400"}`} aria-hidden />
                           <span className="font-bold">{item.ticker}</span>
@@ -179,11 +179,11 @@ export function DividendsView({ onOpenCompany }: { onOpenCompany: (id: string) =
       {isLoading ? (
         <div className="space-y-3">
           {Array.from({ length: 4 }).map((_, i) => (
-            <Skeleton key={i} className="h-24 rounded-lg" />
+            <Skeleton key={i} className="h-24 rounded-xl" />
           ))}
         </div>
       ) : dividends.length === 0 ? (
-        <Card className="flex h-40 items-center justify-center p-6 text-center text-sm text-muted-foreground">
+        <Card className="flex h-40 items-center justify-center p-6 text-center text-sm text-muted-foreground border-border/60">
           {t("common.noData")}
         </Card>
       ) : (
@@ -196,7 +196,7 @@ export function DividendsView({ onOpenCompany }: { onOpenCompany: (id: string) =
                   <button
                     key={d.id}
                     onClick={() => d.company && onOpenCompany(d.company.id)}
-                    className="flex w-full flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 rounded-lg border bg-card p-4 text-start transition-colors hover:bg-muted/40"
+                    className="flex w-full flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 rounded-xl border border-border/60 bg-card p-4 text-start transition-all duration-150 hover:bg-muted/40 hover:border-primary/20"
                   >
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
@@ -207,7 +207,7 @@ export function DividendsView({ onOpenCompany }: { onOpenCompany: (id: string) =
                       {d.notes ? <p className="mt-1 text-[11px] italic text-muted-foreground">{d.notes}</p> : null}
                     </div>
                     {d.dividendPerShare !== null ? (
-                      <div className="text-sm font-bold tabular">
+                      <div className="text-sm font-bold tabular num">
                         {d.dividendPerShare} <span className="text-[10px] font-normal text-muted-foreground">EGP / {t("dv.dps")}</span>
                       </div>
                     ) : null}

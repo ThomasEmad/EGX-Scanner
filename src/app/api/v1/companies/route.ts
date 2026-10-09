@@ -17,6 +17,10 @@ export async function GET(req: NextRequest) {
 
   const where: Record<string, unknown> = { isActive: true }
   if (sector) where.sector = sector
+  // optional listing-status filter (the default keeps delisted history visible
+  // for research; clients pass status=LISTED for the tradable universe)
+  const listingStatus = url.searchParams.get("status")?.trim().toUpperCase() || ""
+  if (["LISTED", "SUSPENDED", "DELISTED"].includes(listingStatus)) where.listingStatus = listingStatus
   if (search) {
     where.OR = [
       { ticker: { contains: search } },
@@ -65,11 +69,14 @@ export async function GET(req: NextRequest) {
     companies: companies.map((c) => ({
       id: c.id,
       ticker: c.ticker,
+      isin: c.isin,
       nameEn: c.nameEn,
       nameAr: c.nameAr,
       sector: c.sector,
       industry: c.industry,
       listingStatus: c.listingStatus,
+      egxCategory: c.egxCategory,
+      irUrl: c.irUrl,
       isDemoData: c.isDemoData,
       counts: c._count,
       snapshot: snapshot[c.id] ?? {},

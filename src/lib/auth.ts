@@ -1,17 +1,10 @@
-// User authentication helpers (session-based, stateless tokens).
+// User authentication helpers (session-based, database-backed tokens).
 
 import { randomUUID } from "node:crypto"
 import bcrypt from "bcryptjs"
 import { db } from "@/lib/db"
 
 const SESSION_TTL_MS = 7 * 24 * 60 * 60 * 1000 // 7 days
-
-const globalForAuth = globalThis as unknown as {
-  __egxUserSessions?: Map<string, { userId: string; expiresAt: number }>
-}
-
-const sessions = globalForAuth.__egxUserSessions ?? new Map<string, { userId: string; expiresAt: number }>()
-globalForAuth.__egxUserSessions = sessions
 
 export async function hashPassword(password: string): Promise<string> {
   return bcrypt.hash(password, 10)
@@ -46,39 +39,40 @@ export async function authenticateUser(email: string, password: string): Promise
   return { id: user.id, email: user.email, role: user.role }
 }
 
-export function createSession(userId: string): string {
+export async function createSession(userId: string): Promise<string> {
   const token = randomUUID()
-  const expiresAt = Date.now() + SESSION_TTL_MS
-  sessions.set(token, { userId, expiresAt })
-  cleanupSessions()
+  const expiresAt = new Date(Date.now() + SESSION_TTL_MS)
+  await db.session.create({
+    data: { userId, token, expiresAt },
+  })
   return token
 }
 
-export function getSessionUser(token: string | null): string | null {
+export async function getSessionUser(token: string | null): Promise<string | null> {
   if (!token) return null
-  const s = sessions.get(token)
-  if (!s) return null
-  if (s.expiresAt < Date.now()) {
-    sessions.delete(token)
+  const session = await db.session.findUnique({
+    where: { token },
+    select: { userId: true, expiresAt: true },
+  })
+  if (!session) return null
+  if (session.expiresAt < new Date()) {
+    await db.session.delete({ where: { token } }).catch(() => {})
     return null
   }
-  return s.userId
+  return session.userId
 }
 
-export function invalidateSession(token: string | null): void {
+export async function invalidateSession(token: string | null): Promise<void> {
   if (!token) return
-  sessions.delete(token)
+  await db.session.delete({ where: { token } }).catch(() => {})
 }
 
-export function invalidateUserSessions(userId: string): void {
-  for (const [token, s] of sessions) {
-    if (s.userId === userId) sessions.delete(token)
-  }
+export async function invalidateUserSessions(userId: string): Promise<void> {
+  await db.session.deleteMany({ where: { userId } }).catch(() => {})
 }
 
-function cleanupSessions(): void {
-  const now = Date.now()
-  for (const [t, s] of sessions) {
-    if (s.expiresAt < now) sessions.delete(t)
-  }
+export async function cleanupExpiredSessions(): Promise<void> {
+  await db.session.deleteMany({
+    where: { expiresAt: { lt: new Date() } },
+  }).catch(() => {})
 }

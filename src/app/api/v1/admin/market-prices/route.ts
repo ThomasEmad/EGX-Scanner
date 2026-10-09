@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server"
+import { invalidateServerCache } from "@/lib/server-cache"
 import { db } from "@/lib/db"
 import { isAdmin, unauthorizedResponse } from "@/lib/admin-auth"
 import { upsertPrice } from "@/lib/financial/market"
@@ -11,8 +12,8 @@ import { audit } from "@/lib/audit"
 // calculation engine (p_b@2 …). Without prices they stay DATA_UNAVAILABLE.
 
 export async function POST(req: NextRequest) {
-  if (!isAdmin(req)) {
-    return unauthorizedResponse()
+  if (!(await isAdmin(req))) {
+    return await unauthorizedResponse()
   }
   const body = await req.json().catch(() => null)
   const companyId = typeof body?.companyId === "string" ? body.companyId : null
@@ -54,8 +55,8 @@ export async function POST(req: NextRequest) {
 }
 
 export async function GET(req: NextRequest) {
-  if (!isAdmin(req)) {
-    return unauthorizedResponse()
+  if (!(await isAdmin(req))) {
+    return await unauthorizedResponse()
   }
   const { searchParams } = new URL(req.url)
   const companyId = searchParams.get("companyId")
@@ -68,5 +69,6 @@ export async function GET(req: NextRequest) {
     include: { company: { select: { ticker: true, nameEn: true } } },
   })
 
+    invalidateServerCache()
   return Response.json({ prices })
 }

@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Badge } from "@/components/ui/badge"
@@ -15,10 +16,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   ]
 
   return (
-    <div className="mx-auto max-w-4xl space-y-5 py-8">
+    <div className="mx-auto max-w-7xl space-y-5 py-8">
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-bold">{lang === "ar" ? "لوحة الإدارة" : "Admin Dashboard"}</h1>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
           {links.map((l) => (
             <Button key={l.href} asChild variant={pathname === l.href ? "default" : "outline"} size="sm">
               <Link href={l.href}>{l.label}</Link>

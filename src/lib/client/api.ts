@@ -67,7 +67,7 @@ export interface CompanyListItem {
   industry: string | null
   listingStatus: string
   isDemoData: boolean
-  counts: { reports: number; events: number; dividends: number }
+  counts: { events: number; dividends: number }
   snapshot: Record<string, { value: number | null; status: string; periodLabel: string }>
 }
 
@@ -87,6 +87,8 @@ export interface CompanyDetail {
     counts: { reports: number; events: number; dividends: number; values: number }
   }
   latestPeriods: { annual?: string; quarterly?: string; ttm?: string }
+  /** freshness: latest trusted filing period-end ("data as of" display) */
+  dataAsOf?: { periodEnd: string; periodLabel: string } | null
   matchedPresets: { presetKey: string; name: string; nameAr: string | null; basis: string }[]
   marketPrice: { price: number; asOf: string; currency: string; sourceName: string; isDemoData: boolean } | null
 }
@@ -127,7 +129,7 @@ export interface DividendItem {
 }
 
 export interface DashboardData {
-  stats: { companies: number; reports: number; validValues: number; events: number; pendingReview: number; pendingReports: number }
+  stats: { companies: number; reports: number; validValues: number; events: number }
   scannerCards: {
     id: string
     presetKey: string | null
@@ -163,47 +165,21 @@ export interface EventFeedItem {
   company: { id: string; ticker: string; nameEn: string; nameAr: string | null; isDemoData: boolean }
 }
 
-export interface ReportListItem {
-  id: string
-  companyId?: string
-  company?: { ticker: string; nameEn: string; nameAr: string | null }
-  reportType: string
-  periodType: string
-  periodLabel: string
-  fiscalYear: number
-  periodEnd?: string
-  publicationDate?: string | null
-  statementType?: string
-  language?: string
-  sourceName: string
-  processingStatus: string
-  extractionMethod: string | null
-  parserVersion?: string | null
-  extractionConfidence?: number | null
-  errorMessage?: string | null
-  uploadedBy?: string | null
-  supersedesId?: string | null
-  fileHash: string | null
-  fileSize?: number | null
-  localFileRef?: string | null
-  version: number
-  isRestatement?: boolean
-  isDemoData: boolean
-  notes: string | null
-  valueCount: number
-  createdAt?: string
-}
-
 export interface FinancialsData {
   statementType?: "CONSOLIDATED" | "STANDALONE" | null
   availableStatementTypes?: string[]
+  periodView?: "annual" | "interim" | null
+  availablePeriodViews?: ("annual" | "interim")[]
+  anomalyCount?: number
   periods: { key: string; label: string; periodType: string; fiscalYear: number }[]
-  statements: Record<string, { code: string; statementType: string; cells: Record<string, { value: number; unit: string; normalizedValue: number; label: string; reportId: string }> }[]>
+  statements: Record<string, { code: string; statementType: string; cells: Record<string, { value: number; unit: string; normalizedValue: number; label: string; reportId: string; flags?: { yoyPct?: number; badSign?: boolean; zero?: boolean; identityFailed?: boolean } }> }[]>
 }
 
 export interface MetricsData {
   statementType?: "CONSOLIDATED" | "STANDALONE"
   availableStatementTypes?: string[]
+  periodView?: "annual" | "interim" | null
+  availablePeriodViews?: ("annual" | "interim")[]
   periods: { key: string; label: string; periodType: string; fiscalYear: number }[]
   rows: {
     code: string
@@ -213,139 +189,6 @@ export interface MetricsData {
     kind: string
     cells: Record<string, { value: number | null; status: string; detail: string | null; formulaVersion: string }>
   }[]
-}
-
-// ---- Financial document pipeline (upload → extract → validate → review) ----
-
-export interface AnalyzeDetection {
-  fileName: string
-  fileSize: number
-  fileHash: string
-  documentKind: string
-  pageCount?: number
-  looksScanned?: boolean
-  engine?: string
-  language: string
-  statementType: string
-  reportUnit?: string
-  period: {
-    periodType: string
-    fiscalYear: number
-    periodLabel: string
-    sub: string
-    periodStart: string | null
-    periodEnd: string | null
-    confidence: number
-  } | null
-  candidateCount: number
-  candidateCodes: string[]
-  warnings: string[]
-}
-
-export interface AnalyzeResult {
-  ok: boolean
-  detection: AnalyzeDetection
-  error?: string
-  message?: string
-}
-
-export interface ValidationCheckRow {
-  id?: string
-  checkName: string
-  category: string
-  status: "PASSED" | "WARNING" | "FAILED" | "SKIPPED"
-  severity: "INFO" | "WARNING" | "CRITICAL"
-  details: string | null
-  createdAt?: string
-}
-
-export interface ExtractionLogRow {
-  id?: string
-  stage: string
-  level: string
-  message: string
-  details: string | null
-  createdAt?: string
-}
-
-export interface ReportValueRow {
-  id: string
-  metricCode: string
-  originalLabel: string
-  value: number
-  unit: string
-  currency: string
-  normalizedValue: number
-  statementType: string
-  sourcePage: number | null
-  sourceText: string | null
-  extractionMethod: string | null
-  confidence: number
-  validationStatus: string
-  validationNotes: string | null
-  isManuallyCorrected: boolean
-  originalValue: number | null
-  correctedBy: string | null
-  correctedAt: string | null
-  correctionReason: string | null
-  createdAt?: string
-}
-
-export interface ReportDetail {
-  report: {
-    id: string
-    company: { id: string; ticker: string; nameEn: string; nameAr: string | null }
-    companyId: string
-    reportType: string
-    periodType: string
-    periodLabel: string
-    fiscalYear: number
-    periodStart: string | null
-    periodEnd: string | null
-    publicationDate: string | null
-    statementType: string
-    language: string
-    sourceName: string
-    sourceUrl: string | null
-    fileName: string | null
-    fileHash: string | null
-    fileSize: number | null
-    processingStatus: string
-    extractionMethod: string | null
-    parserVersion: string | null
-    extractionConfidence: number | null
-    errorMessage: string | null
-    version: number
-    isRestatement: boolean
-    supersedesId: string | null
-    isDemoData: boolean
-    notes: string | null
-    createdAt: string
-    updatedAt: string
-    uploadedBy?: string | null
-    reviewedBy?: string | null
-    reviewedAt?: string | null
-    approvedBy?: string | null
-    approvedAt?: string | null
-    validationResults?: ValidationCheckRow[]
-    extractionLogs?: ExtractionLogRow[]
-    values: ReportValueRow[]
-  }
-}
-
-export interface ProcessResult {
-  ok: boolean
-  status: string
-  message?: string
-  extractedCount?: number
-  validCount?: number
-  needsReviewCount?: number
-  failedCount?: number
-  confidence?: number | null
-  language?: string
-  statementType?: string
-  checks?: { checkName: string; status: string; severity: string }[]
-  notes?: string | null
 }
 
 export interface CompanyDocument {
@@ -421,6 +264,9 @@ export interface MetricRegistry {
 export interface PeerData {
   sector: string
   basis: string
+  /** true when the sector has fewer than 3 listed companies — peers/medians are empty then */
+  insufficient?: boolean
+  sectorCount?: number
   period: { key: string; label: string } | null
   medians: Record<string, number | null>
   peers: {
@@ -464,18 +310,59 @@ async function handle<T>(res: Response): Promise<T> {
   return res.json() as Promise<T>
 }
 
-function authHeaders(token?: string | null): Record<string, string> {
+export function authHeaders(token?: string | null): Record<string, string> {
   const headers: Record<string, string> = {}
-  if (token) headers["x-admin-token"] = token
-  if (typeof window !== "undefined") {
-    const userToken = localStorage.getItem("egx-user-token")
-    if (userToken) headers["x-session-token"] = userToken
-  }
+  const userToken = getUserToken()
+  if (userToken) headers["x-session-token"] = userToken
   return headers
 }
 
+/** Session token, honoring "remember me": localStorage (persistent) or sessionStorage (tab-only) */
+export function getUserToken(): string | null {
+  if (typeof window === "undefined") return null
+  return localStorage.getItem("egx-user-token") ?? sessionStorage.getItem("egx-user-token")
+}
+
+export function setUserToken(token: string, remember: boolean): void {
+  if (typeof window === "undefined") return
+  sessionStorage.removeItem("egx-user-token")
+  localStorage.removeItem("egx-user-token")
+  if (remember) localStorage.setItem("egx-user-token", token)
+  else sessionStorage.setItem("egx-user-token", token)
+  // mirror into a cookie so server components (report page) can resolve the session
+  document.cookie = `egx-user-token=${token}; path=/; max-age=${60 * 60 * 24 * 30}; samesite=lax`
+}
+
+export function clearUserToken(): void {
+  if (typeof window === "undefined") return
+  sessionStorage.removeItem("egx-user-token")
+  localStorage.removeItem("egx-user-token")
+  document.cookie = "egx-user-token=; path=/; max-age=0; samesite=lax"
+}
+
+/** Build a query string from defined params (skips undefined/empty values) */
+function qs(params: Record<string, string | undefined>): string {
+  const q = new URLSearchParams()
+  for (const [k, v] of Object.entries(params)) {
+    if (v) q.set(k, v)
+  }
+  const s = q.toString()
+  return s ? s : ""
+}
+
 export const api = {
-  dashboard: () => fetch("/api/v1/dashboard").then((r) => handle<DashboardData>(r)),
+  dashboard: () => fetch("/api/v1/dashboard", { headers: authHeaders() }).then((r) => handle<DashboardData>(r)),
+
+  latestResults: () =>
+    fetch("/api/v1/dashboard/latest-results").then((r) =>
+      handle<{
+        results: {
+          companyId: string; ticker: string; name: string; nameEn: string
+          periodLabel: string; periodType: string; fiscalYear: number
+          asOf: string; source: string; netProfit: number
+        }[]
+      }>(r)
+    ),
 
   companies: (params: { search?: string; sector?: string; page?: number; pageSize?: number }) => {
     const q = new URLSearchParams()
@@ -490,17 +377,19 @@ export const api = {
 
   company: (id: string) => fetch(`/api/v1/companies/${id}`).then((r) => handle<CompanyDetail>(r)),
 
-  financials: (id: string, statementType?: string) =>
-    fetch(`/api/v1/companies/${id}/financials${statementType ? `?statementType=${statementType}` : ""}`).then((r) => handle<FinancialsData>(r)),
+  financials: (id: string, statementType?: string, periodView?: string) =>
+    fetch(`/api/v1/companies/${id}/financials?${qs({ statementType, period_view: periodView })}`).then((r) => handle<FinancialsData>(r)),
 
-  metrics: (id: string, statementType?: string) =>
-    fetch(`/api/v1/companies/${id}/metrics${statementType ? `?statementType=${statementType}` : ""}`).then((r) => handle<MetricsData>(r)),
+  metrics: (id: string, statementType?: string, periodView?: string) =>
+    fetch(`/api/v1/companies/${id}/metrics?${qs({ statementType, period_view: periodView })}`).then((r) => handle<MetricsData>(r)),
+
+  downloadReportUrl: (id: string) => `/api/v1/reports/${id}/download`,
 
   companyDocuments: (id: string) =>
     fetch(`/api/v1/companies/${id}/documents`).then((r) => handle<{ documents: CompanyDocument[] }>(r)),
 
   aiAnalysis: (id: string) =>
-    fetch(`/api/v1/companies/${id}/ai-analysis`).then((r) => handle<AiAnalysisData>(r)),
+    fetch(`/api/v1/companies/${id}/ai-analysis`, { headers: authHeaders() }).then((r) => handle<AiAnalysisData>(r)),
 
   generateAiAnalysis: (id: string, lang: string, token?: string | null) =>
     fetch(`/api/v1/companies/${id}/ai-analysis`, {
@@ -510,13 +399,10 @@ export const api = {
     }).then((r) => handle<AiAnalysisData & { cached?: boolean }>(r)),
 
   events: (id: string) =>
-    fetch(`/api/v1/companies/${id}/events`).then((r) => handle<{ events: EventItem[] }>(r)),
+    fetch(`/api/v1/companies/${id}/events`, { headers: authHeaders() }).then((r) => handle<{ events: EventItem[] }>(r)),
 
   companyDividends: (id: string) =>
     fetch(`/api/v1/companies/${id}/dividends`).then((r) => handle<{ dividends: DividendItem[] }>(r)),
-
-  companyReports: (id: string) =>
-    fetch(`/api/v1/companies/${id}/reports`).then((r) => handle<{ reports: ReportListItem[] }>(r)),
 
   peers: (id: string) => fetch(`/api/v1/companies/${id}/peers`).then((r) => handle<PeerData>(r)),
 
@@ -524,7 +410,7 @@ export const api = {
     const q = new URLSearchParams()
     if (companyIds && companyIds.length) q.set("companyIds", companyIds.join(","))
     q.set("limit", String(limit))
-    return fetch(`/api/v1/events?${q}`).then((r) => handle<{ events: EventFeedItem[] }>(r))
+    return fetch(`/api/v1/events?${q}`, { headers: authHeaders() }).then((r) => handle<{ events: EventFeedItem[] }>(r))
   },
 
   scanHistory: () =>
@@ -545,7 +431,7 @@ export const api = {
   runScanner: (body: { ruleId?: string; conditions?: ScanCondition[]; periodBasis?: string; name?: string }) =>
     fetch(`/api/v1/scanners/run`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", ...authHeaders() },
       body: JSON.stringify(body),
     }).then((r) => handle<ScanOutput>(r)),
 
@@ -554,17 +440,6 @@ export const api = {
 
   registry: () => fetch(`/api/v1/metrics`).then((r) => handle<MetricRegistry>(r)),
 
-  reports: (params: { companyId?: string; status?: string; page?: number }) => {
-    const q = new URLSearchParams()
-    if (params.companyId) q.set("companyId", params.companyId)
-    if (params.status) q.set("status", params.status)
-    q.set("page", String(params.page ?? 1))
-    q.set("pageSize", "10")
-    return fetch(`/api/v1/reports?${q}`).then((r) =>
-      handle<{ total: number; totalPages: number; reports: ReportListItem[] }>(r)
-    )
-  },
-
   adminLogin: (passcode: string) =>
     fetch(`/api/v1/admin/login`, {
       method: "POST",
@@ -572,61 +447,23 @@ export const api = {
       body: JSON.stringify({ passcode }),
     }).then((r) => handle<{ token: string }>(r)),
 
-  analyzeReport: (file: File, token: string) => {
-    const form = new FormData()
-    form.set("file", file)
-    return fetch(`/api/v1/reports/analyze`, { method: "POST", headers: authHeaders(token), body: form }).then((r) =>
-      handle<AnalyzeResult>(r)
-    )
-  },
+  subscription: () => fetch("/api/v1/subscription/me", { headers: authHeaders() }).then((r) => handle<{ isPremium: boolean; subscription: { id: string; status: string; planName: string; startDate: string | null; endDate: string | null; activatedAt: string | null; activatedBy: string | null; cancelledAt: string | null; notes: string | null } | null; smartAnalysisUsage: { year: number; month: number; usageCount: number; remaining: number; limit: number; resetAt: string | null } }>(r)),
 
-  uploadReport: (form: FormData, token: string) =>
-    fetch(`/api/v1/reports`, { method: "POST", headers: authHeaders(token), body: form }).then((r) =>
-      handle<{ report: { id: string; periodLabel: string; processingStatus: string; fileHash: string; statementType?: string; language?: string; version?: number }; superseded?: boolean; version?: number }>(r)
-    ),
-
-  reportDetail: (id: string, token?: string | null) =>
-    fetch(`/api/v1/reports/${id}`, { headers: authHeaders(token) }).then((r) => handle<ReportDetail>(r)),
-
-  processReport: (id: string, token: string) =>
-    fetch(`/api/v1/reports/${id}/process`, { method: "POST", headers: authHeaders(token) }).then((r) => handle<ProcessResult>(r)),
-
-  approveReport: (id: string, token: string) =>
-    fetch(`/api/v1/reports/${id}/approve`, { method: "POST", headers: authHeaders(token) }).then((r) => handle<{ ok: boolean }>(r)),
-
-  rejectReport: (id: string, reason: string, token: string) =>
-    fetch(`/api/v1/reports/${id}/reject`, {
+  requestSubscription: (notes?: string) =>
+    fetch("/api/v1/subscription/request", {
       method: "POST",
-      headers: { "Content-Type": "application/json", ...authHeaders(token) },
-      body: JSON.stringify({ reason }),
-    }).then((r) => handle<{ ok: boolean; status: string }>(r)),
-
-  downloadReportUrl: (id: string) => `/api/v1/reports/${id}/download`,
-
-  reprocessReport: (id: string, token: string) =>
-    fetch(`/api/v1/reports/${id}/reprocess`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", ...authHeaders(token) },
-    }).then((r) => handle<{ ok: boolean; id: string; processingStatus: string }>(r)),
-
-  deleteReport: (id: string, token: string) =>
-    fetch(`/api/v1/reports/${id}/delete`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", ...authHeaders(token) },
-    }).then((r) => handle<{ ok: boolean; id: string; processingStatus: string }>(r)),
-
-  review: () => fetch(`/api/v1/review`).then((r) => handle<ReviewData>(r)),
-
-  subscription: () => fetch("/api/v1/subscription/me").then((r) => handle<{ isPremium: boolean; subscription: unknown }>(r)),
+      headers: { "Content-Type": "application/json", ...authHeaders() },
+      body: JSON.stringify({ notes }),
+    }).then((r) => handle<{ success: boolean; status: string }>(r)),
 
   createPaymentRequest: (body: { planId: string; amount: number; paymentMethod?: string; transactionReference?: string | null }) =>
     fetch("/api/v1/payment-requests", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", ...authHeaders() },
       body: JSON.stringify(body),
     }).then((r) => handle<{ id: string; status: string; createdAt: string }>(r)),
 
-  myPaymentRequests: () => fetch("/api/v1/payment-requests/me").then((r) => handle<{ requests: unknown[] }>(r)),
+  myPaymentRequests: () => fetch("/api/v1/payment-requests", { headers: authHeaders() }).then((r) => handle<{ requests: unknown[] }>(r)),
 
   adminSubscriptions: () =>
     fetch("/api/v1/admin/subscriptions").then((r) => handle<{ subscriptions: unknown[] }>(r)),
@@ -634,10 +471,10 @@ export const api = {
   adminPaymentRequests: () =>
     fetch("/api/v1/admin/payment-requests").then((r) => handle<{ requests: unknown[] }>(r)),
 
-  reviewAction: (valueId: string, body: { action: string; value?: number; metricCode?: string; unit?: string; reason?: string }, token: string) =>
+  reviewAction: (valueId: string, body: { action: string; value?: number; metricCode?: string; unit?: string; reason?: string }) =>
     fetch(`/api/v1/review/values/${valueId}`, {
       method: "POST",
-      headers: { "Content-Type": "application/json", ...authHeaders(token) },
+      headers: { "Content-Type": "application/json", ...authHeaders() },
       body: JSON.stringify(body),
     }).then((r) => handle<{ ok: boolean }>(r)),
 }

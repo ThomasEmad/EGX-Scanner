@@ -6,7 +6,7 @@ import { audit } from "@/lib/audit"
 
 // GET /api/v1/admin/subscriptions
 export async function GET(req: NextRequest) {
-  if (!isAdmin(req)) return unauthorizedResponse()
+  if (!(await isAdmin(req))) return await unauthorizedResponse()
   const url = new URL(req.url)
   const status = url.searchParams.get("status") || undefined
   const where: Record<string, unknown> = {}
@@ -36,10 +36,12 @@ export async function GET(req: NextRequest) {
   })) })
 }
 
-// POST /api/v1/admin/subscriptions/{id}/activate
-export async function POST(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  if (!isAdmin(req)) return unauthorizedResponse()
-  const { id } = await params
+// POST /api/v1/admin/subscriptions (activate)
+export async function POST(req: NextRequest) {
+  if (!(await isAdmin(req))) return await unauthorizedResponse()
+  const body = await req.json().catch(() => ({}))
+  const id = body?.id
+  if (!id) return Response.json({ error: "ID_REQUIRED" }, { status: 400 })
   const sub = await db.subscription.findUnique({ where: { id }, include: { plan: true } })
   if (!sub) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
 
@@ -47,7 +49,6 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   const adminId = adminToken || "admin"
 
   try {
-    const body = await req.json()
     const durationDays = typeof body?.durationDays === "number" ? body.durationDays : (sub.plan.durationDays || 30)
     const notes = typeof body?.notes === "string" ? body.notes : sub.notes
 
@@ -67,15 +68,16 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   }
 }
 
-// POST /api/v1/admin/subscriptions/{id}/extend
-export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  if (!isAdmin(req)) return unauthorizedResponse()
-  const { id } = await params
+// PUT /api/v1/admin/subscriptions (extend)
+export async function PUT(req: NextRequest) {
+  if (!(await isAdmin(req))) return await unauthorizedResponse()
+  const body = await req.json().catch(() => ({}))
+  const id = body?.id
+  if (!id) return Response.json({ error: "ID_REQUIRED" }, { status: 400 })
   const sub = await db.subscription.findUnique({ where: { id } })
   if (!sub) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
 
   try {
-    const body = await req.json()
     const extraDays = typeof body?.extraDays === "number" ? body.extraDays : 30
     const now = new Date()
     let endDate = new Date(sub.endDate || now)
@@ -103,10 +105,12 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
   }
 }
 
-// POST /api/v1/admin/subscriptions/{id}/cancel
-export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  if (!isAdmin(req)) return unauthorizedResponse()
-  const { id } = await params
+// DELETE /api/v1/admin/subscriptions?id={id}
+export async function DELETE(req: NextRequest) {
+  if (!(await isAdmin(req))) return await unauthorizedResponse()
+  const url = new URL(req.url)
+  const id = url.searchParams.get("id")
+  if (!id) return Response.json({ error: "ID_REQUIRED" }, { status: 400 })
   const result = await cancelSubscription(id, "Cancelled by admin")
   if (!result) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
   await audit("SUBSCRIPTION_CANCELLED", { actor: req.headers.get("x-admin-token") || "admin", entityType: "Subscription", entityId: id, details: "Cancelled by admin" })

@@ -25,16 +25,16 @@ export function adminUnauthorizedResponse(): Response {
 }
 
 export async function requireAdminOrUser(req: NextRequest): Promise<string | null> {
-  if (isAdmin(req)) return "admin"
-  const token = req.headers.get("x-session-token") || req.headers.get("authorization")?.replace("Bearer ", "")
-  const userId = getSessionUser(token)
+  if (await isAdmin(req)) return "admin"
+  const token = req.headers.get("x-session-token") ?? req.headers.get("authorization")?.replace("Bearer ", "") ?? null
+  const userId = await getSessionUser(token)
   if (userId) return userId
   return null
 }
 
 export async function requireAuth(req: NextRequest): Promise<string | null> {
-  const token = req.headers.get("x-session-token") || req.headers.get("authorization")?.replace("Bearer ", "")
-  const userId = getSessionUser(token)
+  const token = req.headers.get("x-session-token") ?? req.headers.get("authorization")?.replace("Bearer ", "") ?? null
+  const userId = await getSessionUser(token)
   if (!userId) return null
   return userId
 }

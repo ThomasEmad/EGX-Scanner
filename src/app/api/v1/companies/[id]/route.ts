@@ -1,5 +1,6 @@
 import { db } from "@/lib/db"
-import { buildScanContexts } from "@/lib/financial/scan-service"
+import { cached } from "@/lib/server-cache"
+import { buildScanContextsCached } from "@/lib/financial/scan-service"
 import { latestCalcPeriodKeys } from "@/lib/financial/statement-pref"
 import { getLatestPrice } from "@/lib/financial/market"
 import { evaluateRule, type ScanCondition } from "@/lib/financial/scanner"
@@ -21,15 +22,29 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   })
   if (!company) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
 
-  const [presets, periods, price] = await Promise.all([
+  const [presets, periods, price, latestReport] = await Promise.all([
     db.scannerRule.findMany({ where: { isPreset: true, isActive: true } }),
     latestCalcPeriodKeys(id),
     getLatestPrice(id),
+    // freshness: latest period-end across trusted filings (data-as-of display)
+    db.financialReport.findFirst({
+      where: { companyId: id, processingStatus: { in: ["VALIDATED", "APPROVED", "EXTRACTED"] } },
+      orderBy: { periodEnd: "desc" },
+      select: { periodEnd: true, periodLabel: true },
+    }),
   ])
 
   const matchedPresets: { presetKey: string; name: string; nameAr: string | null; basis: string }[] = []
-  for (const basis of ["LATEST_ANNUAL", "LATEST_QUARTERLY", "LATEST_TTM"] as const) {
-    const contexts = await buildScanContexts(basis)
+  // the three bases are independent — build/scan them in parallel (each
+  // buildScanContexts scans every company, so serial ×3 dominated this route)
+  // buildScanContexts scans EVERY company — ~1.4s per basis per request. The
+  // result is market-wide and only changes on recompute, so cache per basis.
+  const contextsByBasis = await Promise.all(
+    (["LATEST_ANNUAL", "LATEST_QUARTERLY", "LATEST_TTM"] as const).map((basis) =>
+      buildScanContextsCached(basis).then((contexts) => ({ basis, contexts }))
+    )
+  )
+  for (const { basis, contexts } of contextsByBasis) {
     const mine = contexts.find((c) => c.company.id === id)
     if (!mine) continue
     for (const preset of presets) {
@@ -61,6 +76,9 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
       counts: company._count,
     },
     latestPeriods: periods,
+    dataAsOf: latestReport
+      ? { periodEnd: latestReport.periodEnd.toISOString(), periodLabel: latestReport.periodLabel }
+      : null,
     matchedPresets,
     marketPrice: price
       ? {

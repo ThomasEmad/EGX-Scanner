@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { ChevronDown, Clock, History, Play, Plus, Save, Trash2, TriangleAlert, Wand2, X } from "lucide-react"
+import { parsePeriodKey } from "@/lib/financial/periods"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -99,8 +100,7 @@ function PresetScanners({
 
   const deleteMutation = useMutation({
     mutationFn: (id: string) => {
-      const token = localStorage.getItem("egx-admin-token")
-      return api.deleteScanner(id, token)
+      return api.deleteScanner(id)
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["scanners"] })
@@ -237,23 +237,8 @@ function PresetScanners({
                   {lang === "ar" ? "لا شركات مطابقة في هذه الفترة." : "No matching companies for this period."}
                 </Card>
               ) : (
-                result.matched.map((r) => <ResultRow key={r.companyId} result={r} expanded={expanded === r.companyId} onToggle={() => setExpanded(expanded === r.companyId ? null : r.companyId)} onOpenCompany={onOpenCompany} />)
+                [...result.matched].sort((a, b) => b.evaluation.matchedCount - a.evaluation.matchedCount).map((r) => <ResultRow key={r.companyId} result={r} expanded={expanded === r.companyId} onToggle={() => setExpanded(expanded === r.companyId ? null : r.companyId)} onOpenCompany={onOpenCompany} />)
               )}
-
-              {result.results.filter((r) => !r.evaluation.matched).length > 0 ? (
-                <details className="rounded-lg border">
-                  <summary className="cursor-pointer select-none px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground">
-                    {t("sc.allCompanies")} ({result.results.length}) — {t("sc.whyNotMatched")}
-                  </summary>
-                  <div className="space-y-2 border-t p-3">
-                    {result.results
-                      .filter((r) => !r.evaluation.matched)
-                      .map((r) => (
-                        <ResultRow key={r.companyId} result={r} expanded={expanded === r.companyId} onToggle={() => setExpanded(expanded === r.companyId ? null : r.companyId)} onOpenCompany={onOpenCompany} alwaysDim />
-                      ))}
-                  </div>
-                </details>
-              ) : null}
             </>
           ) : (
             <Card className="flex h-64 items-center justify-center p-6 text-center">
@@ -331,19 +316,21 @@ function ResultRow({
   alwaysDim?: boolean
 }) {
   const { t, lang, pick } = useI18n()
+  const metricCond = result.evaluation.conditions.find((c) => c.kind === "metric")
+  const metricDisplay = metricCond?.actualDisplay ?? ""
   return (
-    <div className={`rounded-lg border bg-card transition-colors ${result.evaluation.matched ? "" : "opacity-70"}`}>
-      <div className="flex items-center gap-3 p-3">
+    <div className={`group rounded-xl border border-border/60 bg-card p-4 shadow-sm shadow-black/[0.02] transition-all duration-200 hover:border-primary/30 hover:shadow-md hover:shadow-black/5 ${result.evaluation.matched ? "" : "opacity-60"}`}>
+      <div className="flex items-center gap-3">
         <button
           onClick={onToggle}
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border text-xs font-bold tabular transition-colors hover:bg-muted"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-border/60 bg-muted/50 text-xs font-bold tabular transition-colors hover:bg-primary/10 hover:text-primary"
           aria-label={t("common.viewWhy")}
-          aria-expanded={expanded}
+          aria-expanded={!!expanded}
         >
           {result.evaluation.matchedCount}/{result.evaluation.conditions.length}
         </button>
         <button onClick={() => onOpenCompany(result.companyId)} className="min-w-0 flex-1 text-start">
-          <div className="flex flex-wrap items-center gap-1.5">
+          <div className="flex flex-wrap items-center gap-2">
             <span className="text-sm font-bold">{result.ticker}</span>
             <span className="truncate text-xs text-muted-foreground">{pick(result.nameEn, result.nameAr)}</span>
           </div>
@@ -351,25 +338,35 @@ function ResultRow({
             <span>{result.sector}</span>
             {result.contextPeriodLabel ? (
               <>
-                <span>·</span>
+                <span className="text-muted-foreground/50">·</span>
                 <span>{t("sc.contextPeriod")}: {result.contextPeriodLabel}</span>
               </>
             ) : null}
           </div>
         </button>
-        {result.evaluation.matched ? (
-          <Badge className="shrink-0 bg-emerald-600 hover:bg-emerald-600 text-white">{t("common.matched")}</Badge>
+        {result.evaluation.matched && metricDisplay ? (
+          <span className="shrink-0 text-xs font-semibold tabular text-foreground">
+            {metricDisplay}
+          </span>
         ) : alwaysDim ? null : (
-          <Badge variant="outline" className="shrink-0">{t("common.notMatched")}</Badge>
+          <span className="shrink-0 text-xs font-medium text-muted-foreground">—</span>
         )}
-        <button onClick={onToggle} className="p-1 text-muted-foreground hover:text-foreground" aria-expanded={expanded} aria-label={t("common.details")}>
-          <ChevronDown className={`h-4 w-4 transition-transform ${expanded ? "rotate-180" : ""}`} />
+        <button onClick={onToggle} className="p-1.5 text-muted-foreground transition-colors hover:text-foreground" aria-expanded={!!expanded} aria-label={t("common.details")}>
+          <svg
+            className={`h-4 w-4 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
         </button>
       </div>
       {expanded ? (
-        <div className="border-t p-3 ps-14">
+        <div className="mt-3 rounded-lg border border-border/40 bg-muted/20 p-3">
           <WhyMatchedPanel conditions={result.evaluation.conditions} matched={result.evaluation.matched} />
-          <Button variant="ghost" size="sm" className="mt-2 h-7 text-xs" onClick={() => onOpenCompany(result.companyId)}>
+          <Button variant="ghost" size="sm" className="mt-2.5 h-7 text-xs" onClick={() => onOpenCompany(result.companyId)}>
             {t("co.profile")}
           </Button>
         </div>
@@ -395,7 +392,7 @@ interface BuilderRow {
 let rowSeq = 1
 
 function CustomScanners({ onOpenCompany }: { onOpenCompany: (id: string) => void }) {
-  const { t, lang } = useI18n()
+  const { t, lang, pick } = useI18n()
   const { toast } = useToast()
   const queryClient = useQueryClient()
   const [rows, setRows] = useState<BuilderRow[]>([
@@ -417,6 +414,30 @@ function CustomScanners({ onOpenCompany }: { onOpenCompany: (id: string) => void
       }),
     [rows]
   )
+
+  const primaryMetricCode = useMemo(
+    () => conditions.find((c) => c.kind === "metric")?.code ?? null,
+    [conditions]
+  )
+
+  const sortedResults = useMemo(() => {
+    if (!result) return []
+    const list = [...result.results].filter((r) => r.evaluation.matched)
+    if (primaryMetricCode) {
+      list.sort((a, b) => {
+        const aKey = parsePeriodKey(a.contextPeriodKey ?? "")
+        const bKey = parsePeriodKey(b.contextPeriodKey ?? "")
+        const dateCmp = bKey.fiscalYear - aKey.fiscalYear || bKey.sub.localeCompare(aKey.sub)
+        if (dateCmp !== 0) return dateCmp
+        const aCond = a.evaluation.conditions.find((c) => c.kind === "metric" && c.code === primaryMetricCode)
+        const bCond = b.evaluation.conditions.find((c) => c.kind === "metric" && c.code === primaryMetricCode)
+        const aVal = aCond?.actualRaw ?? 0
+        const bVal = bCond?.actualRaw ?? 0
+        return bVal - aVal
+      })
+    }
+    return list
+  }, [result, primaryMetricCode])
 
   const runMutation = useMutation({
     mutationFn: () => api.runScanner({ conditions, periodBasis: basis, name: name || undefined }),
@@ -467,7 +488,7 @@ function CustomScanners({ onOpenCompany }: { onOpenCompany: (id: string) => void
         </Select>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-[1fr_380px]">
+      <div className="mx-auto max-w-3xl space-y-6">
         {/* builder */}
         <Card className="p-0">
           <CardHeader className="pb-3">
@@ -604,51 +625,123 @@ function CustomScanners({ onOpenCompany }: { onOpenCompany: (id: string) => void
         </Card>
 
         {/* results */}
-        <div className="space-y-2">
+        <div className="space-y-3">
           {runMutation.isPending ? (
-            Array.from({ length: 4 }).map((_, i) => <Skeleton key={i} className="h-14 rounded-lg" />)
+            <div className="space-y-2">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <Skeleton key={i} className="h-16 rounded-lg" />
+              ))}
+            </div>
           ) : result ? (
             <>
-              <div className="flex items-center gap-2 text-sm">
-                <Badge className="tabular">{result.matched.length} {t("common.matched")}</Badge>
-                <span className="text-xs text-muted-foreground">{result.periodBasis === "LATEST_ANNUAL" ? t("sc.basisAnnual") : t("sc.basisQuarterly")}</span>
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="text-sm font-semibold text-foreground">{t("sc.results")}</span>
+                <Badge variant="outline" className="tabular">
+                  {result.periodBasis === "LATEST_ANNUAL" ? t("sc.basisAnnual") : t("sc.basisQuarterly")}
+                </Badge>
+                <Badge className="tabular">
+                  {result.matched.length} / {result.results.length} {t("sc.matchingCompanies")}
+                </Badge>
               </div>
+
               {result.validationErrors.length > 0 ? (
-                <div className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-3 text-xs text-amber-700 dark:text-amber-400">
-                  <ul className="list-disc ps-4 space-y-0.5">
-                    {result.validationErrors.map((e, i) => (
-                      <li key={i}>{e}</li>
-                    ))}
-                  </ul>
+                <div className="flex items-start gap-2 rounded-lg border border-amber-500/40 bg-amber-500/10 p-3 text-xs text-amber-700 dark:text-amber-400">
+                  <TriangleAlert className="mt-0.5 h-4 w-4 shrink-0" />
+                  <div>
+                    <p className="font-semibold">{t("sc.availability")}</p>
+                    <ul className="list-disc ps-4 mt-1 space-y-0.5">
+                      {result.validationErrors.map((e, i) => (
+                        <li key={i}>{e}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               ) : null}
-              <div className="max-h-[560px] space-y-2 overflow-y-auto scrollbar-thin pe-1">
-                {result.results.map((r) => (
-                  <div key={r.companyId} className={`rounded-lg border bg-card p-2.5 ${r.evaluation.matched ? "" : "opacity-60"}`}>
-                    <button className="flex w-full items-center justify-between gap-2 text-start" onClick={() => setExpanded(expanded === r.companyId ? null : r.companyId)}>
-                      <div className="min-w-0">
-                        <span className="text-sm font-bold">{r.ticker}</span>
-                        <span className="ms-2 truncate text-xs text-muted-foreground">{r.evaluation.matchedCount}/{r.evaluation.conditions.length}</span>
+
+              {result.matched.length === 0 ? (
+                <Card className="p-6 text-center text-sm text-muted-foreground">
+                  {lang === "ar" ? "لا شركات مطابقة في هذه الفترة." : "No matching companies for this period."}
+                </Card>
+              ) : (
+                <div className="max-h-[560px] space-y-2 overflow-y-auto scrollbar-thin pe-1">
+                  {sortedResults.map((r) => (
+                    <div
+                      key={r.companyId}
+                      className={`group rounded-xl border border-border/60 bg-card p-4 shadow-sm shadow-black/[0.02] transition-all duration-200 hover:border-primary/30 hover:shadow-md hover:shadow-black/5 ${
+                        r.evaluation.matched ? "" : "opacity-60"
+                      }`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <button
+                          onClick={() => setExpanded(expanded === r.companyId ? null : r.companyId)}
+                          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-border/60 bg-muted/50 text-xs font-bold tabular transition-colors hover:bg-primary/10 hover:text-primary"
+                          aria-label={t("common.viewWhy")}
+                          aria-expanded={!!expanded}
+                        >
+                          {r.evaluation.matchedCount}/{r.evaluation.conditions.length}
+                        </button>
+                        <button onClick={() => onOpenCompany(r.companyId)} className="min-w-0 flex-1 text-start">
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="text-sm font-bold">{r.ticker}</span>
+                            <span className="truncate text-xs text-muted-foreground">{pick(r.nameEn, r.nameAr)}</span>
+                          </div>
+                          <div className="mt-0.5 flex items-center gap-1.5 text-[11px] text-muted-foreground">
+                            <span>{r.sector}</span>
+                            {r.contextPeriodLabel ? (
+                              <>
+                                <span className="text-muted-foreground/50">·</span>
+                                <span>{t("sc.contextPeriod")}: {r.contextPeriodLabel}</span>
+                              </>
+                            ) : null}
+                          </div>
+                        </button>
+                        {r.evaluation.matched && primaryMetricCode ? (() => {
+                          const metricCond = r.evaluation.conditions.find((c) => c.kind === "metric" && c.code === primaryMetricCode)
+                          const display = metricCond?.actualDisplay ?? ""
+                          return (
+                            <span className="shrink-0 text-xs font-semibold tabular text-foreground">
+                              {display}
+                            </span>
+                          )
+                        })() : null}
+                        <button
+                          onClick={() => setExpanded(expanded === r.companyId ? null : r.companyId)}
+                          className="p-1.5 text-muted-foreground transition-colors hover:text-foreground"
+                          aria-expanded={!!expanded}
+                          aria-label={t("common.details")}
+                        >
+                          <svg
+                            className={`h-4 w-4 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
                       </div>
-                      <span className={`text-xs font-semibold ${r.evaluation.matched ? "text-emerald-600" : "text-muted-foreground"}`}>
-                        {r.evaluation.matched ? "✓" : "✗"}
-                      </span>
-                    </button>
-                    {expanded === r.companyId ? (
-                      <div className="mt-2">
-                        <WhyMatchedPanel conditions={r.evaluation.conditions} matched={r.evaluation.matched} />
-                        <Button variant="ghost" size="sm" className="mt-1.5 h-6 text-xs" onClick={() => onOpenCompany(r.companyId)}>
-                          {t("co.profile")}
-                        </Button>
-                      </div>
-                    ) : null}
-                  </div>
-                ))}
-              </div>
+                      {expanded === r.companyId && (
+                        <div className="mt-3 rounded-lg border border-border/40 bg-muted/20 p-3">
+                          <WhyMatchedPanel conditions={r.evaluation.conditions} matched={r.evaluation.matched} />
+                          <div className="mt-2.5 flex items-center gap-2">
+                            <Button variant="ghost" size="sm" className="h-7 text-xs" onClick={() => onOpenCompany(r.companyId)}>
+                              {t("co.profile")}
+                            </Button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
             </>
           ) : (
             <Card className="flex h-40 items-center justify-center p-6 text-center text-sm text-muted-foreground">
-              {t("sc.noResults")}
+              <div className="space-y-2">
+                <Play className="mx-auto h-8 w-8 opacity-30" />
+                <p>{t("sc.noResults")}</p>
+              </div>
             </Card>
           )}
         </div>

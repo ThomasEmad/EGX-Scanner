@@ -52,3 +52,9 @@ prompt
 server.log
 # Skills directory
 /skills/
+# local SQLite databases & backups (excluded from repo)
+*.db
+*.db*
+*.bak
+prisma/**/*.db
+prisma/**/*.bak

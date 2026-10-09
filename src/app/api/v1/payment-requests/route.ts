@@ -5,8 +5,8 @@ import { audit } from "@/lib/audit"
 
 // GET /api/v1/payment-requests/me
 export async function GET(req: NextRequest) {
-  const token = req.headers.get("x-session-token") || req.headers.get("authorization")?.replace("Bearer ", "")
-  const userId = getSessionUser(token)
+  const token = (req.headers.get("x-session-token") ?? req.headers.get("authorization")?.replace("Bearer ", "") ?? null)
+  const userId = await getSessionUser(token)
   if (!userId) return Response.json({ error: "UNAUTHENTICATED" }, { status: 401 })
   const items = await db.paymentRequest.findMany({
     where: { userId },
@@ -29,8 +29,8 @@ export async function GET(req: NextRequest) {
 
 // POST /api/v1/payment-requests
 export async function POST(req: NextRequest) {
-  const token = req.headers.get("x-session-token") || req.headers.get("authorization")?.replace("Bearer ", "")
-  const userId = getSessionUser(token)
+  const token = (req.headers.get("x-session-token") ?? req.headers.get("authorization")?.replace("Bearer ", "") ?? null)
+  const userId = await getSessionUser(token)
   if (!userId) return Response.json({ error: "UNAUTHENTICATED" }, { status: 401 })
 
   try {

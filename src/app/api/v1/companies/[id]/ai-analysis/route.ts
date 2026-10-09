@@ -1,9 +1,15 @@
 import { createHash } from "node:crypto"
+import { NextRequest } from "next/server"
 import ZAI from "z-ai-web-dev-sdk"
 import { db } from "@/lib/db"
 import { audit } from "@/lib/audit"
+import { requireAuth, unauthorizedResponse } from "@/lib/access"
+import { isPremiumUser } from "@/lib/subscription"
+import { getClientIp } from "@/lib/rate-limit"
+import { canUseSmartAnalysis, getSmartAnalysisUsage, incrementSmartAnalysisUsage } from "@/lib/smart-analysis-usage"
 import { EVENT_TYPE_MAP } from "@/lib/financial/registry"
 import { reportPeriodKey } from "@/lib/financial/periods"
+import { buildRuleBasedAnalysis } from "@/lib/financial/rule-based-analysis"
 import {
   TRUSTED_REPORT_STATUSES,
   fetchCalc,
@@ -75,8 +81,21 @@ function aiFailed(message: string): Response {
   return Response.json({ error: "AI_FAILED", message }, { status: 502 })
 }
 
-// GET — latest stored analysis for the company
-export async function GET(_req: Request, { params }: { params: Promise<{ id: string }> }) {
+// GET — latest stored analysis for the company (auth + usage-gated)
+export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
+  const userId = await requireAuth(req as unknown as NextRequest)
+  if (!userId) return unauthorizedResponse()
+
+  const isPremium = await isPremiumUser(userId)
+  const canAccess = await canUseSmartAnalysis(userId, isPremium)
+  if (!canAccess) {
+    const usage = await getSmartAnalysisUsage(userId)
+    return Response.json(
+      { error: "USAGE_LIMIT_EXCEEDED", message: `Free tier limit: ${usage.limit} Smart Analyses per month. ${usage.remaining} remaining. Resets ${usage.resetAt}.`, usage },
+      { status: 429 }
+    )
+  }
+
   const { id } = await params
   const company = await db.company.findUnique({ where: { id }, select: { id: true } })
   if (!company) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
@@ -99,9 +118,45 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   })
 }
 
+// In-memory per-IP rate limit for the LLM-spending endpoint. Public by design
+// (spec flow has no admin gate) — this caps abuse of the paid generation path.
+const globalForRate = globalThis as unknown as {
+  __egxAiRate?: Map<string, number[]>
+}
+const rateBucket = (globalForRate.__egxAiRate ??= new Map<string, number[]>())
+const RATE_LIMIT = 10 // generations
+const RATE_WINDOW_MS = 10 * 60 * 1000 // per 10 minutes
+
 // POST — generate (or serve cached) grounded analysis
 export async function POST(req: Request, { params }: { params: Promise<{ id: string }> }) {
+  const userId = await requireAuth(req as unknown as NextRequest)
+  if (!userId) return unauthorizedResponse()
+
+  const isPremium = await isPremiumUser(userId)
+  const canAccess = await canUseSmartAnalysis(userId, isPremium)
+  if (!canAccess) {
+    const usage = await getSmartAnalysisUsage(userId)
+    return Response.json(
+      { error: "USAGE_LIMIT_EXCEEDED", message: `Free tier limit: ${usage.limit} Smart Analyses per month. ${usage.remaining} remaining. Resets ${usage.resetAt}.`, usage },
+      { status: 429 }
+    )
+  }
+
+  await incrementSmartAnalysisUsage(userId)
+
   const { id } = await params
+  const ip = getClientIp(req)
+  const now = Date.now()
+  const hits = (rateBucket.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS)
+  if (hits.length >= RATE_LIMIT) {
+    return Response.json(
+      { error: "RATE_LIMITED", message: `AI analysis is limited to ${RATE_LIMIT} generations per 10 minutes.` },
+      { status: 429, headers: { "Retry-After": String(Math.ceil((RATE_WINDOW_MS - (now - hits[0])) / 1000)) } }
+    )
+  }
+  hits.push(now)
+  rateBucket.set(ip, hits)
+
   const company = await db.company.findUnique({ where: { id } })
   if (!company) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
 
@@ -297,8 +352,11 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     })
   }
 
-  // ---------- 4. LLM call (backend only) ----------
+  // ---------- 4. LLM call (backend only) — falls back to the deterministic
+  // rule-based analysis when no LLM is configured/reachable, so the investor
+  // always gets a grounded reading instead of an error ----------
   let content: string | undefined
+  let model = "glm"
   try {
     const zai = await ZAI.create()
     const completion = await withTimeout(
@@ -310,7 +368,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
             content:
               "Company data (JSON):\n" +
               snapshotJson +
-              (lang === "ar" ? "\n\nاكتب التحليل باللغة العربية." : "\n\nWrite the analysis in English."),
+              (lang === "ar" ? "\n\nاكتب أطروحة استثمار باللغة العربية بهذا الهيكل بالعناوين: ## أطروحة استثمار (٣ جمل تلخص الوضع) ## نقاط القوة ## نقاط الضعف ## الفرص ## المخاطر ## الاتجاه العام (إيجابي بحذر / محايد / سلبي — بدون توصية شراء أو بيع مباشرة). استخدم أرقام البيانات فقط مع ذكر فترة كل رقم." : "\n\nWrite an investment thesis in English with headings: ## Investment Thesis (3 sentences) ## Strengths ## Weaknesses ## Opportunities ## Risks ## Overall Stance (cautiously positive / neutral / negative — no direct buy/sell recommendation). Use only data figures with period labels."),
           },
         ],
         thinking: { type: "disabled" },
@@ -320,17 +378,19 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     content = completion?.choices?.[0]?.message?.content
   } catch (e) {
     const message = e instanceof Error ? e.message : String(e)
+    content = buildRuleBasedAnalysis(snapshot, lang === "ar" ? "ar" : "en")
+    model = "rule-based@1"
     await audit("AI_ANALYSIS", {
       actor: "system",
       entityType: "Company",
       entityId: id,
-      details: `AI analysis failed: ${message}`,
+      details: `LLM unavailable (${message.slice(0, 120)}) — served rule-based analysis`,
     })
-    return aiFailed(`Analysis generation failed: ${message}`)
   }
 
   if (!content || !content.trim()) {
-    return aiFailed("The analysis model returned an empty response. Please try again.")
+    content = buildRuleBasedAnalysis(snapshot, lang === "ar" ? "ar" : "en")
+    model = "rule-based@1"
   }
 
   // ---------- 5. Persist (inputSummary truncated for storage sanity) ----------
@@ -341,7 +401,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
       content,
       dataHash,
       inputSummary: snapshotJson.slice(0, MAX_INPUT_SUMMARY_CHARS),
-      model: "glm",
+      model,
     },
   })
 

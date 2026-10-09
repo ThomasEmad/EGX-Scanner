@@ -68,6 +68,20 @@ export type ValidationResult = {
   severity: "INFO" | "WARN" | "FAIL"
 }
 
+
+
+export type ExtractedCandidate = {
+  metricCode: string
+  originalLabel: string
+  value: number
+  unit: Unit
+  currency: string
+  sourcePage: number | null
+  sourceText: string
+  confidence: number
+}
+
+
 export type ExtractedReport = {
   classification: DocumentClassification
   candidates: ExtractedCandidate[]
@@ -648,7 +662,7 @@ function getAliasIndex(): AliasEntry[] {
   return aliasIndex
 }
 
-function matchMetric(lineNorm: string, isArabicLine: boolean): { code: string; alias: string; index: number } | null {
+function matchMetric(lineNorm: string, isArabicLine: boolean): { code: string; alias: string; index: number; isPerShare?: boolean } | null {
   const index = getAliasIndex()
   for (const entry of index) {
     if (entry.isArabic !== isArabicLine) continue
@@ -736,6 +750,12 @@ function pickValue(
   return { value: pool[0].value, count: pool.length }
 }
 
+
+function normalizeSub(sub: string): string {
+  const m = sub.toUpperCase().match(/(Q[1-4]|H[12]|9M|FY)/)
+  return m ? m[1] : ""
+}
+
 function extractFromLine(line: string, sourcePage: number, reportUnit: Unit): ExtractedCandidate | null {
   const isArabicLine = /[\u0600-\u06FF]/.test(line)
   const lineNorm = isArabicLine ? normalizeArabic(line) : normalizeLatin(line)
@@ -769,6 +789,100 @@ function extractFromLine(line: string, sourcePage: number, reportUnit: Unit): Ex
 
 export interface ExtractFromPagesOptions {
   reportUnit?: Unit
+  /** Company sector — when provided, sector-specific metrics that don't apply
+   *  (e.g. BANK_NIM for a telecom company) are skipped during extraction. */
+  companySector?: string
+}
+
+/** Helper — given a company sector, return the set of metric codes that should
+ *  be considered for matching. Sector-specific metrics (e.g. BANK_*, TELECOM_*,
+ *  HEALTH_*, ENERGY_*, FOOD_*, REAL_ESTATE_*, INDUSTRIAL_*, FINANCIAL_SERVICES_*)
+ *  are filtered out when they don't apply to the company's sector.
+ *  This prevents false positives like extracting BANK_CAR from a telecom report. */
+function getSectorApplicableCodes(companySector?: string): Set<string> | null {
+  if (!companySector) return null
+  const out = new Set<string>()
+  const sectorLower = companySector.toLowerCase()
+  const isBank = sectorLower.includes("bank")
+  const isTelecom = sectorLower.includes("telecom")
+  const isHealthcare = sectorLower.includes("healthcare") || sectorLower.includes("health")
+  const isFood = sectorLower.includes("food") || sectorLower.includes("consumer")
+  const isEnergy = sectorLower.includes("energy") || sectorLower.includes("utilit")
+  const isRealEstate = sectorLower.includes("real estate") || sectorLower.includes("real_estate") || sectorLower.includes("realestate")
+  const isIndustrial = sectorLower.includes("industrial") || sectorLower.includes("manufactur") || sectorLower.includes("chemical") || sectorLower.includes("fertiliz")
+  const isFinServ = sectorLower.includes("financial services") || sectorLower.includes("financial_services") || sectorLower.includes("investment") || sectorLower.includes("fintech")
+  for (const m of RAW_METRICS) {
+    if (!m.appliesToSectors || m.appliesToSectors.length === 0) {
+      out.add(m.code)
+      continue
+    }
+    // Sector KPI prefix matching — if metric code starts with a sector prefix,
+    // only include it if the company is in that sector
+    const code = m.code
+    if (code.startsWith("BANK_") && !isBank) continue
+    if (code.startsWith("TELECOM_") && !isTelecom) continue
+    if (code.startsWith("HEALTH_") && !isHealthcare) continue
+    if (code.startsWith("FOOD_") && !isFood) continue
+    if (code.startsWith("ENERGY_") && !isEnergy) continue
+    if (code.startsWith("REAL_ESTATE_") || code.startsWith("REALESTATE_")) {
+      if (!isRealEstate) continue
+    }
+    if (code.startsWith("INDUSTRIAL_") && !isIndustrial) continue
+    if (code.startsWith("FINANCIAL_SERVICES_") && !isFinServ) continue
+    if (code.startsWith("INVESTMENT_HOLDING_") && !isFinServ) continue
+    // appliesToSectors-based matching (legacy)
+    const applies = m.appliesToSectors.some((s) => {
+      const sLower = s.toLowerCase()
+      if (sLower.includes("bank") && isBank) return true
+      if (sLower.includes("financial services") && isFinServ) return true
+      return sectorLower.includes(sLower)
+    })
+    if (applies) out.add(m.code)
+  }
+  return out
+}
+
+/** Helper — reject narrative text labels. Financial labels are short
+ *  ("Total Assets", "Revenue"). Narrative labels are long sentences that
+ *  just happen to contain a metric keyword.
+ *  Returns true if the label is narrative and should be rejected. */
+function isNarrativeLabel(label: string): boolean {
+  if (!label) return false
+  const lower = label.toLowerCase()
+  const wordCount = lower.split(/\s+/).filter(Boolean).length
+  return (
+    // Existing narrative markers
+    lower.includes("during the") || lower.includes("the company") ||
+    lower.includes(" is ") || lower.includes(" was ") ||
+    lower.includes(" are ") || lower.includes(" were ") ||
+    lower.includes("obtained") || lower.includes("issued") ||
+    lower.includes("entered into") || lower.includes("agreement") ||
+    lower.includes("repurchased") || lower.includes("subsequently") ||
+    // New aggressive narrative markers
+    lower.includes("for telecom") ||
+    lower.includes("a total of") || lower.includes("a number of") ||
+    lower.includes("a percentage of") || lower.includes("as a percentage") ||
+    lower.includes("enhanced by") || lower.includes("increased by") ||
+    lower.includes("decreased by") || lower.includes("reached") ||
+    lower.includes("achieved") || lower.includes("recorded") ||
+    lower.includes("compared to") || lower.includes("in addition") ||
+    lower.includes("in order to") || lower.includes("in accordance") ||
+    lower.includes("in 2021") || lower.includes("in 2022") ||
+    lower.includes("in 2023") || lower.includes("in 2024") ||
+    lower.includes("the dividend") || lower.includes("the resolution") ||
+    lower.includes("will be") || lower.includes("was held") ||
+    lower.includes("were granted") || lower.includes("were taken") ||
+    lower.includes("article") || lower.includes("resolution") ||
+    lower.includes("market subscribers") ||
+    lower.includes("branch network") ||
+    lower.includes("participants to join") ||
+    lower.includes("steps were taken") || lower.includes("number of steps") ||
+    lower.includes("labor market") || lower.includes("hospital") ||
+    lower.includes("cancer hospital") ||
+    lower.includes("resolution is unanimous") ||
+    // Very long labels are narrative (financial labels are short)
+    wordCount > 8
+  )
 }
 
 /** Page-aware extraction: matches metric aliases per line, tracks sourcePage,
@@ -781,6 +895,7 @@ export function extractFromPages(
   const allText = pages.map((p) => p.text || "").join("\n")
   const reportUnit = opts?.reportUnit ?? detectReportUnit(allText)
   const classification = classifyDocument(Buffer.from(allText), pages)
+  const sectorCodes = getSectorApplicableCodes(opts?.companySector)
   const tables: ExtractedTable[] = []
   const best = new Map<string, ExtractedCandidate>()
 
@@ -791,22 +906,44 @@ export function extractFromPages(
     if (table) {
       tables.push(table)
       for (const row of table.rows) {
+        // NEW: Reject narrative labels
+        if (isNarrativeLabel(row.label)) continue
+        // NEW: Skip if metric doesn't apply to this company's sector
         const isArabicLine = /[\u0600-\u06FF]/.test(row.label)
         const lineNorm = isArabicLine ? normalizeArabic(row.label) : normalizeLatin(row.label)
         const metric = matchMetric(lineNorm, isArabicLine)
         if (!metric) continue
+        if (sectorCodes && !sectorCodes.has(metric.code)) continue
 
         const nonEmptyCells = row.cells.filter((c) => c.trim().length > 0)
         if (nonEmptyCells.length === 0) continue
 
+        // Improved value picker: reject percentages, year-like numbers, very small
+        // integers (likely note numbers), and tokens that look like multipliers (e.g. "2.1x")
         const pickedToken = nonEmptyCells.find((c) => {
+          const trimmed = c.trim()
+          // Reject percentages (e.g. "40%", "18%") — these are not currency values
+          if (trimmed.includes("%")) return false
+          // Reject tokens ending in 'x' or 'X' (e.g. "2.1x" = multiplier)
+          if (/[xX]$/.test(trimmed)) return false
           const n = parseNumberToken(c)
-          return n !== null && !isYearLike(n)
+          if (n === null) return false
+          if (isYearLike(n)) return false
+          // Reject very small integers (1-50) that are likely note numbers, row numbers, or page references
+          // Per-share metrics (EPS) are an exception — they CAN be small
+          if (!metric.isPerShare && Number.isInteger(n) && n >= 1 && n <= 50) return false
+          // Reject negative values from leading "N-" note number patterns (e.g. "6-" → -6)
+          // These are note numbers, not actual financial values
+          if (n < 0 && n >= -100 && Number.isInteger(n)) return false
+          return true
         })
         if (!pickedToken) continue
 
         const value = parseNumberToken(pickedToken)
         if (value === null) continue
+
+        // Final sanity check: reject zero values (almost certainly wrong extractions)
+        if (value === 0) continue
 
         const candidate: ExtractedCandidate = {
           metricCode: metric.code,
@@ -826,15 +963,110 @@ export function extractFromPages(
     for (const rawLine of page.text.split(/\n+/)) {
       const line = rawLine.trim()
       if (!line) continue
+      // NEW: Reject narrative lines
+      if (isNarrativeLabel(line)) continue
+      // NEW: Reject lines that start with a "N-" pattern (note number prefix)
+      // e.g. "6- Selling and distribution expenses" → the "6-" is a note number
+      if (/^\d+\s*[-–—]\s+\S/.test(line)) continue
+      // NEW: Reject lines that look like "X% something" (percentage-led captions)
+      if (/^\d+(\.\d+)?\s*%/.test(line)) continue
+      // NEW: Reject lines that look like "Nx something" (multiplier-led captions like "2.1x Net debt")
+      if (/^\d+(\.\d+)?\s*[xX]\s/.test(line)) continue
       const candidate = extractFromLine(line, page.pageNumber, reportUnit)
       if (!candidate) continue
+      // NEW: Skip if metric doesn't apply to this company's sector
+      if (sectorCodes && !sectorCodes.has(candidate.metricCode)) continue
       const existing = best.get(candidate.metricCode)
       if (!existing || candidate.confidence > existing.confidence) best.set(candidate.metricCode, candidate)
     }
   }
 
-  const candidates = Array.from(best.values()).map((c) => confidenceForCandidate(c, classification, tables))
+  const candidates = Array.from(best.values()).map((c) => ({ ...c, confidence: confidenceForCandidate(c, classification, tables) }))
   return candidates
+}
+
+
+/** Best-effort document classification (language/statement/period/unit). */
+export function classifyDocument(buffer: Buffer, pages: ReadonlyArray<{ pageNumber: number; text: string }>): DocumentClassification {
+  const allText = pages.map((p) => p.text || "").join(" ")
+  const head = allText.slice(0, 5000)
+  const arabic = (head.match(/[؀-ۿ]/g) || []).length
+  const latin = (head.match(/[A-Za-z]/g) || []).length
+  const language: DetectedLanguage = arabic > 200 && latin > 200 ? "MIXED" : arabic > latin ? "AR" : latin > 50 ? "EN" : "UNKNOWN"
+  const warnings: string[] = []
+  const isAnnual = /annual|fiscal year|سنوي/i.test(head)
+  const q = head.match(/Q([1-4])/i)
+  const h1 = /H1|six months|النصف/i.test(head)
+  const nineM = /9M|nine months/i.test(head)
+  const periodType: PeriodType | "UNKNOWN" = isAnnual ? "ANNUAL" : q ? "QUARTERLY" : nineM ? "NINE_MONTH" : h1 ? "SEMIANNUAL" : "UNKNOWN"
+  const y = head.match(/20\d{2}/)
+  const fiscalYear = y ? parseInt(y[0]) : null
+  const currency = /EGP|جنيه/.test(head) ? "EGP" : /USD/.test(head) ? "USD" : "EGP"
+  const unit = detectReportUnit(allText)
+  const consolidated = /consolidated|موحد/.test(head)
+  const nameMatch = head.match(/^(.{5,80}?)\s+(?:Annual|Interim|Q[1-4]|consolidated)/im)
+  const statementType: DetectedStatementType = consolidated ? "CONSOLIDATED" : /standalone|مستقل/.test(head) ? "STANDALONE" : "UNKNOWN"
+  return {
+    language,
+    statementType,
+    statementScope: statementType,
+    period: periodType === "UNKNOWN" || !fiscalYear
+      ? null
+      : { periodType: periodType as PeriodType, fiscalYear, periodLabel: q ? `Q${q[1]} ${fiscalYear}` : isAnnual ? `FY ${fiscalYear}` : `${periodType} ${fiscalYear}`, sub: q ? `Q${q[1]}` : isAnnual ? "" : periodType === "SEMIANNUAL" ? "H1" : periodType === "NINE_MONTH" ? "9M" : "", periodStart: null, periodEnd: null, confidence: 0.8 },
+    unit,
+    currency,
+    fiscalYear,
+    companyName: nameMatch ? nameMatch[1].trim() : null,
+    confidence: language === "UNKNOWN" ? 0.3 : 0.8,
+    warnings,
+  }
+}
+
+/** Parse an HTML/markdown-ish table from page text into an ExtractedTable (null when none). */
+export function parseTableMarkup(text: string, pageNumber: number): ExtractedTable | null {
+  const rows: TableRow[] = []
+  // HTML tables
+  const htmlRows = text.match(/<tr[\s\S]*?<\/tr>/gi) || []
+  for (const tr of htmlRows) {
+    const cells = (tr.match(/<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/gi) || [])
+      .map((td) => td.replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim())
+      .filter((c) => c.length > 0)
+    if (cells.length < 2) continue
+    rows.push({ label: cells[0], indent: 0, cells: cells.slice(1), numberTokens: [] })
+  }
+  // Markdown pipe tables (only when no HTML rows found)
+  if (!rows.length) {
+    for (const line of (text || "").split("")) {
+      if (!/\|/.test(line)) continue
+      const cells = line.split("|").map((c) => c.replace(/\s+/g, " ").trim()).filter((c) => c.length > 0 && !/^:?-{2,}:?$/.test(c))
+      if (cells.length < 2) continue
+      rows.push({ label: cells[0], indent: 0, cells: cells.slice(1), numberTokens: [] })
+    }
+  }
+  if (rows.length < 2) return null
+  const headerRow = rows[0]
+  const columns: TableColumn[] = headerRow.cells.slice(0, 8).map((c, i) => {
+    const y = c.match(/20\d{2}/)
+    const periodType: PeriodType | "UNKNOWN" = /Q[1-4]/i.test(c) ? "QUARTERLY" : /H[12]/i.test(c) ? "SEMIANNUAL" : /9M/i.test(c) ? "NINE_MONTH" : y ? "ANNUAL" : "UNKNOWN"
+    return {
+      index: i,
+      label: c,
+      periodType: periodType as TableColumn["periodType"],
+      subPeriod: /Q([1-4])/i.exec(c)?.[0] ?? /H([12])/i.exec(c)?.[0] ?? null,
+      fiscalYear: y ? parseInt(y[0]) : null,
+      isCurrent: i === 0,
+      scope: "UNKNOWN" as DetectedStatementType,
+    }
+  })
+  return { pageNumber, header: headerRow.label || "", columns, rows: rows.slice(1) }
+}
+
+/** Adjust a candidate's confidence using document/table context. */
+export function confidenceForCandidate(c: ExtractedCandidate, classification: DocumentClassification, tables: ExtractedTable[]): number {
+  let conf = c.confidence
+  if (classification.statementType === "UNKNOWN") conf -= 0.1
+  if (tables.length > 0) conf += 0.05
+  return Math.max(0.05, Math.min(1, conf))
 }
 
 /** Extract candidate financial values from raw text (single-page view). */
@@ -892,311 +1124,6 @@ const COMPANY_RE = /\b(?:commercial international bank|ci bank|qnb|etisalat|voda
 
 const CURRENCY_RE = /\b(?:EGP|USD|SAR|KWD|EUR|GBP|AED)\b/i
 
-export type DocumentClassification = {
-  language: DetectedLanguage
-  statementType: DetectedStatementType
-  statementScope: DetectedStatementType
-  period: DetectedPeriod | null
-  unit: Unit
-  currency: string
-  fiscalYear: number | null
-  companyName: string | null
-  confidence: number
-  warnings: string[]
-}
-
-export function classifyDocument(buffer: Buffer, pages: ReadonlyArray<{ pageNumber: number; text: string }>, opts?: { uploadedCompanyName?: string | null }): DocumentClassification {
-  const allText = pages.map((p) => p.text || "").join("\n")
-  const language = detectLanguage(allText)
-  const statementType = detectStatementType(allText)
-  const statementScope = detectStatementType(allText)
-  const unit = detectReportUnit(allText)
-  const period = detectPeriod(allText)
-  const currency = (allText.match(CURRENCY_RE)?.[1] || "EGP") as string
-  const companyMatch = allText.match(COMPANY_RE)
-  const companyName = companyMatch ? companyMatch[0].trim() : (opts?.uploadedCompanyName ?? null)
-  const fiscalYear = period?.fiscalYear ?? (allText.match(/\b(?:20\d{2})\b/)?.[0] ? parseInt(allText.match(/\b(20\d{2})\b/)![1]) : null) as number | null
-  const warnings: string[] = []
-
-  if (!period) warnings.push("Period could not be detected confidently")
-  if (statementType === "UNKNOWN" || statementScope === "UNKNOWN") warnings.push("Statement type or scope could not be determined")
-  if (!companyName && opts?.uploadedCompanyName) warnings.push("Uploaded company name does not match document content")
-
-  return {
-    language,
-    statementType,
-    statementScope,
-    period,
-    unit,
-    currency,
-    fiscalYear,
-    companyName,
-    confidence: warnings.length === 0 ? 0.92 : warnings.length === 1 ? 0.78 : 0.55,
-    warnings,
-  }
-}
-
-// ============================================================
-// TABLE-AWARE EXTRACTION
-// ============================================================
-
-export type TableColumn = {
-  index: number
-  label: string
-  periodType: PeriodType | "UNKNOWN" | null
-  subPeriod: string | null
-  fiscalYear: number | null
-  isCurrent: boolean | null
-  scope: DetectedStatementType
-}
-
-export type TableRow = {
-  label: string
-  indent: number
-  cells: string[]
-  numberTokens: NumberTokenHit[][]
-}
-
-export type ExtractedTable = {
-  pageNumber: number
-  header: string
-  columns: TableColumn[]
-  rows: TableRow[]
-}
-
-const PERIOD_RE = /(?:Q[1-4]|H[12]|9M|FY)\s*(?:20\d{2})?/i
-const MONTH_YEAR_TABLE_RE = /(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|يناير|فبراير|مارس|أبريل|مايو|يونيو|يوليو|أغسطس|سبتمبر|أكتوبر|نوفمبر|ديسمبر)[a-z]*\s+20\d{2}/i
-
-function measureIndent(line: string): number {
-  const match = line.match(/^(\s*)/)
-  return match ? match[1].length : 0
-}
-
-function tokenizeNumberTokensInCell(cell: string): NumberTokenHit[] {
-  const hits: NumberTokenHit[] = []
-  for (const m of cell.matchAll(NUMBER_RE)) {
-    const value = parseNumberToken(m[0])
-    if (value !== null) hits.push({ value, start: m.index ?? 0, end: (m.index ?? 0) + m[0].length })
-  }
-  return hits
-}
-
-export function parseTableMarkup(pageText: string, pageNumber: number): ExtractedTable | null {
-  const lines = pageText.split(/\n+/).map((l) => l.trim()).filter((l) => l.length > 1)
-  if (lines.length < 2) return null
-
-  const separatorIdx = lines.findIndex((l) => /^[\s|:-]+$/.test(l) || /^[\s|]+$/.test(l))
-  if (separatorIdx === -1) return null
-
-  const headerLines = lines.slice(0, separatorIdx).join(" ")
-  const dataLines = lines.slice(separatorIdx + 1)
-
-  const headerCols = headerLines.split("|").map((c) => c.trim()).filter((c) => c.length > 0)
-  const columns: TableColumn[] = headerCols.map((c, i) => {
-    const periodMatch = c.match(PERIOD_RE)
-    const fiscalYearMatch = c.match(/(20\d{2})/)
-    const isCurrent = c.toLowerCase().includes("current") || c.toLowerCase().includes("نشط") || i === 0
-    return {
-      index: i,
-      label: c,
-      periodType: periodMatch ? (c.match(/Q[1-4]/i) ? "QUARTERLY" : c.match(/H[12]/i) ? "SEMIANNUAL" : c.match(/9M/i) ? "NINE_MONTH" : "ANNUAL") : "UNKNOWN",
-      subPeriod: periodMatch ? periodMatch[0] : null,
-      fiscalYear: fiscalYearMatch ? parseInt(fiscalYearMatch[1]) : null,
-      isCurrent,
-      scope: "UNKNOWN",
-    }
-  })
-
-  const rows: TableRow[] = []
-  for (const raw of dataLines) {
-    const cells = raw.split("|").map((c) => c.trim()).filter((c) => c.length > 0)
-    if (cells.length < 2) continue
-    const label = cells[0]
-    const values = cells.slice(1)
-    rows.push({
-      label,
-      indent: measureIndent(raw),
-      cells: values,
-      numberTokens: values.map((c) => tokenizeNumberTokensInCell(c)),
-    })
-  }
-
-  if (rows.length === 0) return null
-
-  return {
-    pageNumber,
-    header: headerLines,
-    columns,
-    rows,
-  }
-}
-
-// ============================================================
-// NEGATIVE VALUE HANDLING
-// ============================================================
-
-const PAREN_NEGATIVE_RE = /^\(\s*([\d,]+\.?\d*)\s*\)$/
-const TRAILING_MINUS_RE = /-([\d,]+\.?\d*)$/
-
-export function parseFinancialValue(token: string, reportUnit: Unit, defaultCurrency: string): { value: number; unit: Unit; currency: string; raw: string } | null {
-  let raw = token.trim()
-  if (!raw) return null
-
-  let negative = false
-  let unit = reportUnit
-  let currency = defaultCurrency
-
-  const parenMatch = PAREN_NEGATIVE_RE.exec(raw)
-  if (parenMatch) {
-    negative = true
-    raw = parenMatch[1]
-  } else if (raw.startsWith("(") && !raw.endsWith(")")) {
-    negative = true
-    raw = raw.slice(1).trim()
-  }
-
-  if (TRAILING_MINUS_RE.test(raw)) {
-    negative = !negative
-    raw = raw.replace(TRAILING_MINUS_RE, "$1")
-  }
-
-  if (raw.startsWith("-")) {
-    negative = !negative
-    raw = raw.slice(1).trim()
-  }
-
-  raw = raw.replace(/\s+/g, "")
-  raw = raw.replace(/[^0-9.,]/g, "")
-
-  const numStr = normalizeNumberToken(raw)
-  if (numStr === null) return null
-
-  const num = Number(numStr)
-  const signed = negative ? -Math.abs(num) : num
-  return { value: signed, unit, currency, raw: token }
-}
-
-// ============================================================
-// VALIDATION RULES
-// ============================================================
-
-export type ValidationResult = {
-  rule: string
-  passed: boolean
-  detail: string
-  severity: "INFO" | "WARN" | "FAIL"
-}
-
-function validateBalanceSheet(values: { code: string; value: number }[]): ValidationResult[] {
-  const results: ValidationResult[] = []
-  const assets = values.find((v) => v.code === "TOTAL_ASSETS")
-  const totalEqLiab = values.find((v) => v.code === "TOTAL_EQUITY_AND_LIABILITIES")
-  const liab = values.find((v) => v.code === "TOTAL_LIABILITIES")
-  const equity = values.find((v) => v.code === "TOTAL_EQUITY")
-
-  if (assets && totalEqLiab) {
-    const diff = Math.abs(assets.value - totalEqLiab.value)
-    const tol = Math.max(Math.abs(assets.value), 1) * 0.02
-    results.push({ rule: "BALANCE_SHEET_IDENTITY", passed: diff <= tol, detail: `Assets ${assets.value} vs TotalEq+Liab ${totalEqLiab.value} (diff ${diff}, tol ${tol})`, severity: diff <= tol ? "INFO" : "WARN" })
-  } else if (assets && liab && equity) {
-    const sum = liab.value + equity.value
-    const diff = Math.abs(assets.value - sum)
-    const tol = Math.max(Math.abs(assets.value), 1) * 0.02
-    results.push({ rule: "BALANCE_SHEET_IDENTITY", passed: diff <= tol, detail: `Assets ${assets.value} vs Liab+Equity ${sum} (diff ${diff}, tol ${tol})`, severity: diff <= tol ? "INFO" : "WARN" })
-  }
-  return results
-}
-
-function validateIncomeStatement(values: { code: string; value: number }[]): ValidationResult[] {
-  const results: ValidationResult[] = []
-  const revenue = values.find((v) => v.code === "REVENUE")
-  const cogs = values.find((v) => v.code === "COGS")
-  const gp = values.find((v) => v.code === "GROSS_PROFIT")
-  const pbt = values.find((v) => v.code === "PROFIT_BEFORE_TAX")
-  const tax = values.find((v) => v.code === "INCOME_TAX")
-  const ni = values.find((v) => v.code === "NET_PROFIT")
-
-  if (revenue && cogs && gp) {
-    const expected = revenue.value - cogs.value
-    const diff = Math.abs(expected - gp.value)
-    const tol = Math.max(Math.abs(revenue.value), 1) * 0.03
-    results.push({ rule: "GROSS_PROFIT_CHECK", passed: diff <= tol, detail: `Revenue ${revenue.value} - COGS ${cogs.value} = ${expected}, GP = ${gp.value} (diff ${diff})`, severity: diff <= tol ? "INFO" : "WARN" })
-  }
-
-  if (pbt && tax && ni) {
-    const expected = pbt.value - tax.value
-    const diff = Math.abs(expected - ni.value)
-    const tol = Math.max(Math.abs(pbt.value), 1) * 0.05
-    results.push({ rule: "PBT_TAX_NI_CHECK", passed: diff <= tol, detail: `PBT ${pbt.value} - Tax ${tax.value} = ${expected}, NI = ${ni.value} (diff ${diff})`, severity: diff <= tol ? "INFO" : "WARN" })
-  }
-  return results
-}
-
-export function runValidation(candidates: ExtractedCandidate[]): ValidationResult[] {
-  const values = candidates.map((c) => ({ code: c.metricCode, value: c.value }))
-  const bs = validateBalanceSheet(values)
-  const is_ = validateIncomeStatement(values)
-  return [...bs, ...is_]
-}
-
-// ============================================================
-// CONFIDENCE BOOSTING
-// ============================================================
-
-export function confidenceForCandidate(
-  candidate: ExtractedCandidate,
-  classification: DocumentClassification,
-  tables: ExtractedTable[],
-): ExtractedCandidate {
-  let c = candidate.confidence
-  if (classification.statementType !== "UNKNOWN") c += 0.03
-  if (classification.period) c += 0.02
-  if (classification.fiscalYear) c += 0.01
-  if (tables.length > 0) c += 0.02
-  if (candidate.sourcePage && candidate.sourcePage > 0) c += 0.01
-  if (/\b(?:mn|millions?|bn|billions?|thousands?|000s)\b/i.test(candidate.originalLabel)) c += 0.02
-  candidate.confidence = Math.max(0, Math.min(c, 0.99))
-  return candidate
-}
-
-// ============================================================
-// MISSING METRIC REPORT
-// ============================================================
-
-export function missingMetricReport(candidates: ExtractedCandidate[]): string[] {
-  const extractedCodes = new Set(candidates.map((c) => c.metricCode))
-  const incomeRequired = ["REVENUE", "COGS", "GROSS_PROFIT", "OPERATING_INCOME", "NET_PROFIT", "PROFIT_BEFORE_TAX", "INCOME_TAX"]
-  const bsRequired = ["TOTAL_ASSETS", "TOTAL_LIABILITIES", "TOTAL_EQUITY"]
-  const cfRequired = ["OPERATING_CASH_FLOW", "INVESTING_CASH_FLOW", "FINANCING_CASH_FLOW", "NET_CHANGE_IN_CASH"]
-  const missing: string[] = []
-  for (const code of incomeRequired) { if (!extractedCodes.has(code)) missing.push(`INCOME_STATEMENT:${code}`) }
-  for (const code of bsRequired) { if (!extractedCodes.has(code)) missing.push(`BALANCE_SHEET:${code}`) }
-  for (const code of cfRequired) { if (!extractedCodes.has(code)) missing.push(`CASH_FLOW:${code}`) }
-  return missing
-}
-
-// ============================================================
-// DERIVED VALUES
-// ============================================================
-
-export type DerivedPeriodSource = {
-  metricCode: string
-  periodType: PeriodType
-  sub: string
-  fiscalYear: number
-  statementType: string
-  statementScope: DetectedStatementType
-  unit: Unit
-  value: number
-  sourcePage: number | null
-  sourceLabel: string
-  confidence: number
-  originalText: string
-}
-
-function normalizeSub(sub: string): string {
-  return sub.toUpperCase().replace(/\s+/g, " ").trim()
-}
 
 export function buildDerivedValues(candidates: ExtractedCandidate[]): DerivedPeriodSource[] {
   const derived: DerivedPeriodSource[] = []
@@ -1291,6 +1218,14 @@ export type ExtractionSummary = {
   needsReview: number
   derived: number
   lowConfidence: number
+}
+
+
+/** Report which canonical metrics are missing from the candidate set. */
+function missingMetricReport(candidates: ExtractedCandidate[]): string[] {
+  const have = new Set(candidates.map((c) => c.metricCode))
+  const CORE = ["REVENUE", "NET_PROFIT", "TOTAL_ASSETS", "TOTAL_EQUITY", "OPERATING_CASH_FLOW"]
+  return CORE.filter((code) => !have.has(code))
 }
 
 export function buildExtractionSummary(candidates: ExtractedCandidate[], tables: ExtractedTable[], derived: DerivedPeriodSource[]): ExtractionSummary {

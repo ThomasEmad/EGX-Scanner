@@ -1,12 +1,17 @@
 import { NextRequest } from "next/server"
 import { db } from "@/lib/db"
 import { EVENT_TYPE_MAP } from "@/lib/financial/registry"
+import { requirePremium, forbiddenResponse } from "@/lib/access"
 
 // GET /api/v1/events?companyIds=id1,id2&limit=15 — latest detected financial events
 // with company info. Used by the watchlist alerts digest (filter to watched
 // companies) and available as a general recent-events feed.
+// Premium-only access.
 
 export async function GET(req: NextRequest) {
+  const premiumUserId = await requirePremium(req)
+  if (!premiumUserId) return forbiddenResponse("Premium subscription required for Company Events.")
+
   const { searchParams } = new URL(req.url)
   const companyIdsParam = searchParams.get("companyIds")
   const limit = Math.min(Math.max(Number(searchParams.get("limit") ?? 15) || 15, 1), 50)

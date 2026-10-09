@@ -84,6 +84,8 @@ async function main() {
         aliases: JSON.stringify(m.aliases),
         appliesToSectors: m.appliesToSectors ? JSON.stringify(m.appliesToSectors) : null,
         calcRole: "INPUT",
+        group: m.group ?? null,
+        displayOrder: m.displayOrder ?? null,
       },
       update: {
         labelEn: m.labelEn,
@@ -92,6 +94,8 @@ async function main() {
         description: m.description ?? null,
         aliases: JSON.stringify(m.aliases),
         appliesToSectors: m.appliesToSectors ? JSON.stringify(m.appliesToSectors) : null,
+        group: m.group ?? null,
+        displayOrder: m.displayOrder ?? null,
       },
     })
     metricCount++

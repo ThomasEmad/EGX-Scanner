@@ -4,7 +4,7 @@ import { isAdmin, unauthorizedResponse } from "@/lib/admin-auth"
 
 // GET /api/v1/admin/settings
 export async function GET(req: NextRequest) {
-  if (!isAdmin(req)) return unauthorizedResponse()
+  if (!(await isAdmin(req))) return await unauthorizedResponse()
   const settings = await db.setting.findMany()
   const map: Record<string, unknown> = {}
   for (const s of settings) {
@@ -19,7 +19,7 @@ export async function GET(req: NextRequest) {
 
 // POST /api/v1/admin/settings
 export async function POST(req: NextRequest) {
-  if (!isAdmin(req)) return unauthorizedResponse()
+  if (!(await isAdmin(req))) return await unauthorizedResponse()
   try {
     const body = await req.json()
     if (!body || typeof body !== "object") return Response.json({ error: "INVALID_PAYLOAD" }, { status: 400 })

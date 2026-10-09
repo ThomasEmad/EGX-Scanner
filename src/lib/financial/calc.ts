@@ -37,6 +37,13 @@ export function growth(current: number | undefined, previous: number | undefined
     )
   }
   const pct = ((current - previous) / Math.abs(previous)) * 100
+  // Terminal convention (Bloomberg/Refinitiv "NM"): beyond ±999% the base period is too small
+  // relative to the move for a percentage to convey anything — show NM, compare absolutes.
+  if (Math.abs(pct) > 999) {
+    return NOT_APPLICABLE(
+      "Growth beyond ±999% — base period too small or one-off jump for a percentage to be meaningful (reported as NM, not meaningful)"
+    )
+  }
   const detail = current < 0 ? "Current value is negative (transition into negative territory)" : undefined
   return { status: "OK", value: pct, detail }
 }
@@ -151,7 +158,10 @@ export function priceToBook(price: number | undefined, sharesOutstanding: number
   if (sharesOutstanding === undefined) return UNAVAILABLE("Shares outstanding not available")
   if (equity === undefined) return UNAVAILABLE("Shareholders' equity not available for this period")
   if (equity <= 0) return NOT_APPLICABLE("Book value (equity) is zero or negative — P/B is not meaningful")
-  return OK((price * sharesOutstanding) / equity)
+  const pb = (price * sharesOutstanding) / equity
+  // Equity negligible relative to market value: the multiple explodes and stops informing.
+  if (pb > 100) return NOT_APPLICABLE("P/B above 100 — equity base too small for the multiple to be meaningful (NM)")
+  return OK(pb)
 }
 
 /** P/E = price / EPS (earnings per share of the evaluated period) */
@@ -166,7 +176,11 @@ export function priceToEarnings(price: number | undefined, sharesOutstanding: nu
         : "Earnings are negative (a loss) — P/E is not meaningful. Reported as NOT_APPLICABLE, not a negative multiple"
     )
   }
-  return OK(price / (netProfit / sharesOutstanding))
+  const pe = price / (netProfit / sharesOutstanding)
+  // Earnings negligible relative to price (e.g. near-zero profit on a real market cap):
+  // the multiple explodes (1000+) and stops informing — terminal convention NM.
+  if (pe > 1000) return NOT_APPLICABLE("P/E above 1000 — earnings negligible relative to price; the multiple is not meaningful (NM)")
+  return OK(pe)
 }
 
 /**

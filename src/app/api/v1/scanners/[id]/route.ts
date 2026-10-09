@@ -4,7 +4,7 @@ import { audit } from "@/lib/audit"
 
 // DELETE /api/v1/scanners/[id] — remove a custom rule (presets cannot be deleted)
 export async function DELETE(_req: Request, { params }: { params: Promise<{ id: string }> }) {
-  if (!isAdmin(_req)) return unauthorizedResponse()
+  if (!(await isAdmin(_req))) return await unauthorizedResponse()
   const { id } = await params
   const rule = await db.scannerRule.findUnique({ where: { id } })
   if (!rule) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
