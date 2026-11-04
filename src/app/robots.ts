@@ -14,9 +14,14 @@ export default function robots(): MetadataRoute.Robots {
           "/login",
           "/register",
           "/forgot-password",
+          "/dashboard",
+          "/watchlist",
+          "/portfolio",
+          "/company/*/report",
         ],
       },
     ],
-    sitemap: `${SITE_URL}/sitemap.xml`,
+    sitemap: `${SITE_URL.replace(/\/$/, "")}/sitemap.xml`,
+    host: SITE_URL.replace(/\/$/, ""),
   }
 }

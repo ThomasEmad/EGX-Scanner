@@ -1,0 +1,150 @@
+﻿
+=== AUDIT v2 DRY RUN — 264 companies in 4.9s ===
+total=2218 critical=88 high=263 medium=740 low=1127
+by class: { blocker: 77, coverage: 608, advisory: 1302, metadata: 231 }
+certification: { certified: 85, provisional: 135, review_required: 44 }
+accuracy bands (100 / 95-99 / 80-94 / <80): { perfect: 45, near: 162, fair: 22, poor: 35 }
+
+--- root causes (all findings) ---
+  336 YOY_MOVE           Large year-over-year move
+  308 CASH_QUALITY       Operating cash vs profit
+  272 TREND_COVERAGE     Trend history gap
+  246 MISSING_METRIC     Missing critical metric
+  231 ISIN               ISIN metadata
+  216 CF_IDENTITY        Cash-flow identity
+   96 IS_TAX_BASIS       Tax / net-profit basis
+   88 DEBT_DEFINITION    Debt components definition
+   72 BS_COMPONENTS      Balance sheet components mismatch
+   71 BS_IDENTITY        Balance sheet does not balance
+   66 RATIO_OUTLIER      Ratio outside normal band
+   65 IS_GROSS_PROFIT    Gross profit identity
+   50 SECTOR_RULE        Sector rule violation / gap
+   40 FRESHNESS          Stale data
+   23 IS_OPERATING       Operating vs net profit gap
+   21 DUPLICATE_PERIOD   Duplicate period data
+   12 BS_MAPPING         Balance-sheet line mis-mapped
+    5 IS_MARGIN          Impossible margin
+
+--- blocker findings by root cause ---
+   18 BS_COMPONENTS
+   16 CF_IDENTITY
+   14 IS_GROSS_PROFIT
+   12 BS_MAPPING
+    7 IS_TAX_BASIS
+    5 DUPLICATE_PERIOD
+    3 BS_IDENTITY
+    2 IS_MARGIN
+
+--- companies with blockers (top 25 by blocker count) ---
+companies with ≥1 blocker: 41 of 264
+SPHT   blockers=  7 accuracy=3 completeness=75 conf=41 [IS_GROSS_PROFIT,BS_COMPONENTS,IS_MARGIN]
+IRON   blockers=  6 accuracy=11 completeness=75 conf=47 [IS_GROSS_PROFIT,BS_IDENTITY,BS_MAPPING,DUPLICATE_PERIOD]
+RAKT   blockers=  4 accuracy=77 completeness=62 conf=74 [BS_MAPPING]
+UEGC   blockers=  4 accuracy=33 completeness=99 conf=64 [BS_MAPPING,CF_IDENTITY,BS_COMPONENTS]
+COPR   blockers=  3 accuracy=64 completeness=43 conf=63 [BS_MAPPING,BS_COMPONENTS]
+COSG   blockers=  3 accuracy=48 completeness=99 conf=72 [BS_MAPPING,CF_IDENTITY]
+MFPC   blockers=  3 accuracy=47 completeness=100 conf=74 [BS_COMPONENTS,CF_IDENTITY]
+NDRL   blockers=  3 accuracy=67 completeness=81 conf=74 [BS_COMPONENTS]
+SIPC   blockers=  3 accuracy=58 completeness=62 conf=67 [BS_MAPPING,DUPLICATE_PERIOD]
+ASCM   blockers=  2 accuracy=48 completeness=87 conf=68 [BS_MAPPING,CF_IDENTITY]
+ASPI   blockers=  2 accuracy=61 completeness=43 conf=64 [BS_COMPONENTS]
+FWRY   blockers=  2 accuracy=63 completeness=100 conf=81 [IS_GROSS_PROFIT]
+MAAL   blockers=  2 accuracy=64 completeness=100 conf=80 [CF_IDENTITY]
+NAHO   blockers=  2 accuracy=35 completeness=99 conf=65 [BS_IDENTITY,IS_TAX_BASIS]
+NCEM   blockers=  2 accuracy=48 completeness=62 conf=48 [BS_COMPONENTS,IS_GROSS_PROFIT]
+OFH    blockers=  2 accuracy=62 completeness=81 conf=74 [IS_TAX_BASIS]
+PHDC   blockers=  2 accuracy=66 completeness=100 conf=83 [CF_IDENTITY]
+SCTS   blockers=  2 accuracy=79 completeness=100 conf=87 [BS_COMPONENTS]
+AMER   blockers=  1 accuracy=67 completeness=85 conf=80 [IS_GROSS_PROFIT]
+AMOC   blockers=  1 accuracy=75 completeness=100 conf=88 [IS_GROSS_PROFIT]
+ATQA   blockers=  1 accuracy=67 completeness=100 conf=79 [CF_IDENTITY]
+BINV   blockers=  1 accuracy=63 completeness=43 conf=65 [IS_TAX_BASIS]
+DAPH   blockers=  1 accuracy=67 completeness=99 conf=81 [IS_GROSS_PROFIT]
+DSCW   blockers=  1 accuracy=65 completeness=100 conf=80 [CF_IDENTITY]
+EFIC   blockers=  1 accuracy=68 completeness=100 conf=80 [BS_COMPONENTS]
+
+--- blocker samples (first 40) ---
+[AMER] GROSS_PROFIT_IDENTITY Q2 2026 :: GROSS_PROFIT_IDENTITY FAILED: gap 127.04% (-344.4M EGP; materiality threshold 5.4M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after ot
+[AMOC] GROSS_PROFIT_IDENTITY FY 2020 :: GROSS_PROFIT_IDENTITY FAILED: gap 7.20% (676.5M EGP; materiality threshold 187.9M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after oth
+[ASCM] BALANCE_SHEET_EQUATION FY 2021 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (1.36B) but the L/E split leaves a -234.2M gap (15.52%) — an equity or liability line is mis-mappe
+[ASCM] CASH_FLOW_SUM FY 2023 :: CASH_FLOW_SUM FAILED: gap 147.13% (239.8M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[ASPI] ASSET_COMPONENTS FY 2023 :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 27.5M vs TOTAL_ASSETS = 1.44B (98.09%) — missing/extra component or mapping gap.
+[ASPI] ASSET_COMPONENTS FY 2024 :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 94.3M vs TOTAL_ASSETS = 2.56B (96.31%) — missing/extra component or mapping gap.
+[ATQA] CASH_FLOW_SUM FY 2024 :: CASH_FLOW_SUM FAILED: gap 200.00% (4.32B EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[BINV] PBT_TAX_NET_PROFIT Q2 2026 :: PBT_TAX_NET_PROFIT FAILED: gap 76.93% (79.7M EGP; materiality threshold 1.6M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority interest, discontinue
+[COPR] BALANCE_SHEET_EQUATION FY 2022 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (44.9M) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ -13.3M). Re-extract the liabilities 
+[COPR] ASSET_COMPONENTS FY 2023 :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 531.4K vs TOTAL_ASSETS = 93.9M (99.43%) — missing/extra component or mapping gap.
+[COPR] BALANCE_SHEET_EQUATION FY 2024 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (6.2M) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ -5.9M). Re-extract the liabilities li
+[COSG] BALANCE_SHEET_EQUATION FY 2021 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (300.0M) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ -110.7M). Re-extract the liabilitie
+[COSG] CASH_FLOW_SUM FY 2023 :: CASH_FLOW_SUM FAILED: gap 200.01% (49.8M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[COSG] CASH_FLOW_SUM FY 2024 :: CASH_FLOW_SUM FAILED: gap 200.00% (261.5M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[DAPH] GROSS_PROFIT_IDENTITY FY 2025 :: GROSS_PROFIT_IDENTITY FAILED: gap 13.31% (77.4M EGP; materiality threshold 11.6M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after othe
+[DSCW] CASH_FLOW_SUM FY 2024 :: CASH_FLOW_SUM FAILED: gap 116.36% (1.20B EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[EFIC] ASSET_COMPONENTS FY 2025 :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 5.55B vs TOTAL_ASSETS = 11.77B (52.86%) — missing/extra component or mapping gap.
+[EGAS] CASH_FLOW_SUM FY 2022 :: CASH_FLOW_SUM FAILED: gap 176.18% (2.12B EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX effect 3.5M tested; verify the cash-flow statement.
+[EMFD] PBT_TAX_NET_PROFIT Q2 2026 :: PBT_TAX_NET_PROFIT FAILED: gap 33.51% (890.7M EGP; materiality threshold 39.9M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority interest, discontin
+[FWRY] GROSS_PROFIT_IDENTITY FY 2019 :: GROSS_PROFIT_IDENTITY FAILED: gap 20.00% (-187.4M EGP; materiality threshold 18.7M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after ot
+[FWRY] GROSS_PROFIT_IDENTITY FY 2021 :: GROSS_PROFIT_IDENTITY FAILED: gap 9.29% (154.8M EGP; materiality threshold 33.3M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after othe
+[GIHD] PBT_TAX_NET_PROFIT FY 2024 :: PBT_TAX_NET_PROFIT FAILED: gap 52.44% (-1.0M EGP; materiality threshold 29.9K) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority interest, discontinu
+[HRHO] PBT_TAX_NET_PROFIT Q2 2026 :: PBT_TAX_NET_PROFIT FAILED: gap 34.78% (-600.8M EGP; materiality threshold 25.9M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority interest, disconti
+[IRON] GROSS_PROFIT_IDENTITY FY 2011 :: GROSS_PROFIT_IDENTITY FAILED: gap 22.50% (712.5M EGP; materiality threshold 63.3M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after oth
+[IRON] BALANCE_SHEET_EQUATION FY 2013 :: BALANCE_SHEET_EQUATION FAILED: gap 7.89% (-273.9M EGP; materiality threshold 17.3M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabiliti
+[IRON] GROSS_PROFIT_IDENTITY FY 2018 :: GROSS_PROFIT_IDENTITY FAILED: gap 79.65% (2.19B EGP; materiality threshold 54.9M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after othe
+[IRON] BALANCE_SHEET_EQUATION FY 2019 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (8.20B) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ -950.0M). Re-extract the liabilities
+[IRON] BALANCE_SHEET_EQUATION FY 2020 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (8.60B) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ -2.94B). Re-extract the liabilities 
+[IRON] CROSS_QUARTER_DUPLICATE Q3 2021 :: Q3 2021 repeats 10/10 values of the previous quarter Q4 2021 (±0.05%) — a tab-switch harvest copy; quarantine the later record and re-extract.
+[MAAL] CASH_OPENING_CLOSING FY 2022 :: CASH_OPENING_CLOSING FAILED: gap 75.98% (75.4M EGP; materiality threshold 992.1K) on [OPENING_CASH, CLOSING_CASH, NET_CHANGE_IN_CASH]. The difference is often the FX effect on cash.
+[MAAL] CASH_FLOW_SUM FY 2023 :: CASH_FLOW_SUM FAILED: gap 99.96% (5.26B EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[MBSC] CASH_FLOW_SUM FY 2021 :: CASH_FLOW_SUM FAILED: gap 1.55% (2.2M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[MFPC] ASSET_COMPONENTS FY 2021 :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 22.29B vs TOTAL_ASSETS = 26.76B (16.69%) — missing/extra component or mapping gap.
+[MFPC] ASSET_COMPONENTS FY 2022 :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 35.98B vs TOTAL_ASSETS = 43.81B (17.86%) — missing/extra component or mapping gap.
+[MFPC] CASH_FLOW_SUM FY 2023 :: CASH_FLOW_SUM FAILED: gap 146.51% (5.05B EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX effect 1.34B tested; verify the cash-flow statement.
+[MIPH] CASH_FLOW_SUM FY 2024 :: CASH_FLOW_SUM FAILED: gap 21.15% (278.4M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[MPCO] GROSS_PROFIT_IDENTITY FY 2022 :: GROSS_PROFIT_IDENTITY FAILED: gap 28.51% (48.1M EGP; materiality threshold 3.4M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after other
+[NAHO] BALANCE_SHEET_EQUATION FY 2023 :: BALANCE_SHEET_EQUATION FAILED: gap 15.38% (35.9M EGP; materiality threshold 1.2M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilities
+[NAHO] PBT_TAX_NET_PROFIT Q2 2026 :: PBT_TAX_NET_PROFIT FAILED: gap 63.61% (-688.8K EGP; materiality threshold 16.2K) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority interest, disconti
+[NCEM] ASSET_COMPONENTS FY 2012 :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 1.15B vs TOTAL_ASSETS = 1.46B (21.05%) — missing/extra component or mapping gap.
+
+--- lowest overall quality (top 20) ---
+SPHT   score= 41 acc=  3 comp= 75 fresh= 85 prov= 80 review_required
+IRON   score= 47 acc= 11 comp= 75 fresh=100 prov= 80 review_required
+NCEM   score= 48 acc= 48 comp= 62 fresh= 15 prov= 65 review_required
+RMTV   score= 55 acc= 82 comp= 22 fresh= 15 prov= 65 review_required
+SMPP   score= 59 acc= 82 comp= 37 fresh= 15 prov= 65 review_required
+MIPH   score= 61 acc= 62 comp= 37 fresh= 85 prov= 80 review_required
+KORA   score= 62 acc=100 comp= 22 fresh= 15 prov= 40 provisional
+COPR   score= 63 acc= 64 comp= 43 fresh= 85 prov= 80 review_required
+ASPI   score= 64 acc= 61 comp= 43 fresh=100 prov= 80 review_required
+NCGC   score= 64 acc=100 comp= 23 fresh= 15 prov= 65 provisional
+NOAF   score= 64 acc=100 comp= 23 fresh= 15 prov= 65 provisional
+SIMO   score= 64 acc=100 comp= 22 fresh= 15 prov= 65 provisional
+UEGC   score= 64 acc= 33 comp= 99 fresh=100 prov= 80 review_required
+BINV   score= 65 acc= 63 comp= 43 fresh=100 prov= 80 review_required
+NAHO   score= 65 acc= 35 comp= 99 fresh=100 prov= 80 review_required
+GOCO   score= 67 acc=100 comp= 34 fresh= 15 prov= 65 provisional
+SIPC   score= 67 acc= 58 comp= 62 fresh=100 prov= 80 review_required
+TORA   score= 67 acc= 92 comp= 49 fresh= 15 prov= 65 review_required
+UASG   score= 67 acc=100 comp= 34 fresh= 15 prov= 65 provisional
+ASCM   score= 68 acc= 48 comp= 87 fresh=100 prov= 80 review_required
+
+--- quarantine load (top 20) ---
+ENGC   usable= 462 quarantined= 223
+UNIT   usable= 373 quarantined= 201
+CCAP   usable= 350 quarantined= 197
+MCQE   usable= 517 quarantined= 195
+DSCW   usable= 533 quarantined= 188
+ARCC   usable= 508 quarantined= 187
+RMDA   usable= 370 quarantined= 186
+JUFO   usable= 547 quarantined= 181
+MTIE   usable= 498 quarantined= 181
+BTFH   usable= 445 quarantined= 177
+SKPC   usable= 569 quarantined= 174
+EFID   usable= 549 quarantined= 173
+ATLC   usable= 324 quarantined= 168
+TMGH   usable= 580 quarantined= 167
+SWDY   usable= 528 quarantined= 165
+EFIC   usable= 402 quarantined= 159
+EFIH   usable= 491 quarantined= 159
+ORWE   usable= 558 quarantined= 159
+ASCM   usable= 383 quarantined= 157
+LCSW   usable= 361 quarantined= 154

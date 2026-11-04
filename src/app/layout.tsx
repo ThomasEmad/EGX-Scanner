@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Providers } from "./providers";
 import { OrganizationSchema, WebSiteSchema } from "@/components/seo/structured-data";
+import { siteConfig } from "@/lib/seo-config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,47 +23,82 @@ const plexArabic = IBM_Plex_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
+  applicationName: siteConfig.name,
   title: {
-    default: "EGX Financial Scanner — Discovery & Pattern Detection",
+    default: "EGX Financial Scanner — Egyptian Exchange Financial Data & Rankings",
     template: "%s · EGX Financial Scanner",
   },
-  description:
-    "Discover Egyptian Exchange companies by verified financial conditions and changes over time: turnarounds, profit growth, debt reduction, cash flow improvement — with a factual explanation for every match and comprehensive financial data.",
-  keywords: ["EGX", "financial scanner", "Egyptian Exchange", "financial analysis", "pattern detection", "البورصة المصرية", "شركات البورصة", "التحليل المالي"],
-  authors: [{ name: "EGX Financial Scanner" }],
+  description: siteConfig.description,
+  keywords: [
+    "EGX",
+    "Egyptian Exchange",
+    "Egyptian stocks",
+    "financial statements Egypt",
+    "EGX rankings",
+    "stock screener Egypt",
+    "financial analysis",
+    "البورصة المصرية",
+    "أسهم مصر",
+    "القوائم المالية",
+    "التحليل المالي",
+    "ترتيب الشركات",
+  ],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: "finance",
+  formatDetection: { telephone: false, email: false, address: false },
   openGraph: {
-    title: "EGX Financial Scanner",
-    description:
-      "Pattern detection for Egyptian Exchange investors — comprehensive financial data from officially published filings.",
+    title: siteConfig.name,
+    description: siteConfig.description,
     type: "website",
     locale: "en_US",
     alternateLocale: "ar_EG",
-    siteName: "EGX Financial Scanner",
+    siteName: siteConfig.name,
+    url: "/",
     images: [
       {
-        url: "/og-image.png",
+        url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: "EGX Financial Scanner",
+        alt: "EGX Financial Scanner — audited Egyptian Exchange financial data",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "EGX Financial Scanner",
-    description:
-      "Pattern detection for Egyptian Exchange investors — comprehensive financial data from officially published filings.",
-    images: ["/og-image.png"],
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
   alternates: {
     canonical: "/",
+    languages: {
+      en: "/",
+      "ar-EG": "/",
+    },
+  },
+  // Canonical URLs are set per page. A global canonical would point every
+  // route at "/" and de-index the whole site.
+  icons: {
+    icon: [{ url: "/logo.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/logo.svg" }],
   },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b1220" },
+  ],
 };
 
 export default function RootLayout({
@@ -76,6 +112,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${plexArabic.variable} antialiased bg-background text-foreground`}
         style={{ fontFamily: "var(--font-geist-sans), var(--font-arabic), ui-sans-serif, system-ui, sans-serif" }}
       >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:text-primary-foreground"
+        >
+          Skip to content — تجاوز إلى المحتوى
+        </a>
         <Providers>{children}</Providers>
         <Toaster />
         <OrganizationSchema />

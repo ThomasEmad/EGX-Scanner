@@ -1,0 +1,19 @@
+{
+  "generatedAt": "2026-11-03T17:15:22.757Z",
+  "values": [
+    {
+      "companyId": "cmugriqiy0012bx50sox6s3cz",
+      "ticker": "FAIT",
+      "oldValue": 637845023,
+      "newValue": 225910908,
+      "reason": "Mubasher (225,910,908) and the scanner (225,911,000, rounded) agree; the current value is wrong."
+    },
+    {
+      "companyId": "cmui726mx005abx9054iq80tw",
+      "ticker": "SEIG",
+      "oldValue": 5000000,
+      "newValue": 2500000,
+      "reason": "Mubasher (2,500,000) and the scanner (2,500,000) agree; the current value is 2x too high."
+    }
+  ]
+}

@@ -1,0 +1,3966 @@
+{
+  "generatedAt": "2026-10-30T01:55:45.785Z",
+  "companies": [
+    {
+      "id": "cmvublwqu0000bx7okl0aazzs",
+      "ticker": "ARPI"
+    },
+    {
+      "id": "cmvublwr30001bx7oh9eu9f3i",
+      "ticker": "DIFC"
+    },
+    {
+      "id": "cmvublwr80002bx7o1sahv69o",
+      "ticker": "GETO"
+    },
+    {
+      "id": "cmvublwrd0003bx7oi2tctn2g",
+      "ticker": "MKIT"
+    },
+    {
+      "id": "cmvublwri0004bx7ofgbwa59t",
+      "ticker": "POCO"
+    },
+    {
+      "id": "cmvublwrn0005bx7o5ojoih11",
+      "ticker": "PTCC"
+    },
+    {
+      "id": "cmvublwrr0006bx7ovkxom003",
+      "ticker": "TRST"
+    },
+    {
+      "id": "cmvublwrw0007bx7ork65rfiw",
+      "ticker": "WATP"
+    }
+  ],
+  "reports": [
+    {
+      "id": "cmvublws30009bx7oa3orzcn4",
+      "ticker": "ARPI",
+      "year": 2020
+    },
+    {
+      "id": "cmvublwtt000rbx7ow7sknufm",
+      "ticker": "ARPI",
+      "year": 2021
+    },
+    {
+      "id": "cmvublwvb001dbx7oo526zlg0",
+      "ticker": "ARPI",
+      "year": 2022
+    },
+    {
+      "id": "cmvublwwm001xbx7oxtjl2qec",
+      "ticker": "ARPI",
+      "year": 2023
+    },
+    {
+      "id": "cmvublwy9002hbx7o3hsm7wvg",
+      "ticker": "DCCC",
+      "year": 2015
+    },
+    {
+      "id": "cmvublwz9002vbx7okrgd4fbo",
+      "ticker": "DCCC",
+      "year": 2016
+    },
+    {
+      "id": "cmvublx0l003hbx7o96bygj9y",
+      "ticker": "DCCC",
+      "year": 2018
+    },
+    {
+      "id": "cmvublx200043bx7od1vh9hcz",
+      "ticker": "DIFC",
+      "year": 2015
+    },
+    {
+      "id": "cmvublx3m004pbx7ou6cdxhnh",
+      "ticker": "DIFC",
+      "year": 2016
+    },
+    {
+      "id": "cmvublx56005bbx7oier076i3",
+      "ticker": "DIFC",
+      "year": 2017
+    },
+    {
+      "id": "cmvublx6i005vbx7ojylcyea1",
+      "ticker": "DIFC",
+      "year": 2018
+    },
+    {
+      "id": "cmvublx7w006hbx7oal07mohe",
+      "ticker": "DIFC",
+      "year": 2019
+    },
+    {
+      "id": "cmvublx920071bx7onvb3gwig",
+      "ticker": "GETO",
+      "year": 2017
+    },
+    {
+      "id": "cmvublxa7007lbx7ouqhdtw8q",
+      "ticker": "GETO",
+      "year": 2018
+    },
+    {
+      "id": "cmvublxbg0083bx7o095ah4jo",
+      "ticker": "GETO",
+      "year": 2020
+    },
+    {
+      "id": "cmvublxce008jbx7ohfoswno4",
+      "ticker": "GETO",
+      "year": 2021
+    },
+    {
+      "id": "cmvublxdc008zbx7o12x0u2is",
+      "ticker": "MISR",
+      "year": 2020
+    },
+    {
+      "id": "cmvublxea009fbx7odiei8vqa",
+      "ticker": "MISR",
+      "year": 2021
+    },
+    {
+      "id": "cmvublxfl009xbx7ofx50nc5q",
+      "ticker": "MISR",
+      "year": 2022
+    },
+    {
+      "id": "cmvublxgj00adbx7om4lujurz",
+      "ticker": "MISR",
+      "year": 2023
+    },
+    {
+      "id": "cmvublxhm00avbx7o69ecaywg",
+      "ticker": "MISR",
+      "year": 2024
+    },
+    {
+      "id": "cmvublxim00bbbx7o38s8x0us",
+      "ticker": "MKIT",
+      "year": 2020
+    },
+    {
+      "id": "cmvublxk300bxbx7osrw4t2lw",
+      "ticker": "MKIT",
+      "year": 2021
+    },
+    {
+      "id": "cmvublxlc00cjbx7owxu9t4bg",
+      "ticker": "MKIT",
+      "year": 2022
+    },
+    {
+      "id": "cmvublxmv00d5bx7oxdt16sbj",
+      "ticker": "MKIT",
+      "year": 2023
+    },
+    {
+      "id": "cmvublxol00drbx7og8u2ltma",
+      "ticker": "MKIT",
+      "year": 2024
+    },
+    {
+      "id": "cmvublxq300edbx7ot0mst9o9",
+      "ticker": "POCO",
+      "year": 2014
+    },
+    {
+      "id": "cmvublxrh00ezbx7o6ca1ur95",
+      "ticker": "POCO",
+      "year": 2015
+    },
+    {
+      "id": "cmvublxt000flbx7oz363eop5",
+      "ticker": "POCO",
+      "year": 2016
+    },
+    {
+      "id": "cmvublxu900g7bx7osxqncgks",
+      "ticker": "POCO",
+      "year": 2017
+    },
+    {
+      "id": "cmvublxv400glbx7ophhxk67p",
+      "ticker": "POCO",
+      "year": 2018
+    },
+    {
+      "id": "cmvublxwi00h7bx7ol2jwpv94",
+      "ticker": "PTCC",
+      "year": 2018
+    },
+    {
+      "id": "cmvublxy700hpbx7o8c1hzpa2",
+      "ticker": "PTCC",
+      "year": 2019
+    },
+    {
+      "id": "cmvublxze00i7bx7ovhw7wbjl",
+      "ticker": "PTCC",
+      "year": 2020
+    },
+    {
+      "id": "cmvubly0m00ipbx7oy65fib07",
+      "ticker": "PTCC",
+      "year": 2021
+    },
+    {
+      "id": "cmvubly2300j7bx7oa1gn0mv2",
+      "ticker": "PTCC",
+      "year": 2022
+    },
+    {
+      "id": "cmvubly3600jnbx7o20s88vx2",
+      "ticker": "SUCE",
+      "year": 2015
+    },
+    {
+      "id": "cmvubly4l00k9bx7oa1fszjmo",
+      "ticker": "SUCE",
+      "year": 2016
+    },
+    {
+      "id": "cmvubly6d00kvbx7ock16x1m4",
+      "ticker": "SUCE",
+      "year": 2017
+    },
+    {
+      "id": "cmvubly7y00lhbx7oz7q5k5gj",
+      "ticker": "SUCE",
+      "year": 2018
+    },
+    {
+      "id": "cmvubly9g00m3bx7oup78tvr7",
+      "ticker": "SUCE",
+      "year": 2019
+    },
+    {
+      "id": "cmvublyb700mpbx7op6qydwbt",
+      "ticker": "TRST",
+      "year": 2018
+    },
+    {
+      "id": "cmvublyca00n7bx7o0y1jc10v",
+      "ticker": "TRST",
+      "year": 2019
+    },
+    {
+      "id": "cmvublydf00nrbx7o50pm45jw",
+      "ticker": "TRST",
+      "year": 2020
+    },
+    {
+      "id": "cmvublyeh00o9bx7odctciyd4",
+      "ticker": "TRST",
+      "year": 2021
+    },
+    {
+      "id": "cmvublyfn00orbx7ov5lqfjrg",
+      "ticker": "TRST",
+      "year": 2022
+    },
+    {
+      "id": "cmvublygs00p9bx7ofj44mzvy",
+      "ticker": "WATP",
+      "year": 2015
+    },
+    {
+      "id": "cmvublyi300pvbx7oes1tswgp",
+      "ticker": "WATP",
+      "year": 2016
+    },
+    {
+      "id": "cmvublyjd00qhbx7onoae21zc",
+      "ticker": "WATP",
+      "year": 2017
+    },
+    {
+      "id": "cmvublyla00r3bx7og7tzy6nj",
+      "ticker": "WATP",
+      "year": 2018
+    }
+  ],
+  "values": [
+    {
+      "id": "cmvublws8000bbx7ondfg4rxl",
+      "ticker": "ARPI",
+      "year": 2020,
+      "metric": "NET_PROFIT",
+      "value": -689803,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwsh000dbx7oqlmkqgie",
+      "ticker": "ARPI",
+      "year": 2020,
+      "metric": "GROSS_PROFIT",
+      "value": 585914,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwsq000fbx7ouhyzjtre",
+      "ticker": "ARPI",
+      "year": 2020,
+      "metric": "TOTAL_ASSETS",
+      "value": 27693416,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwt0000hbx7obj4tpc2t",
+      "ticker": "ARPI",
+      "year": 2020,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 442587,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwt7000jbx7on0g30v71",
+      "ticker": "ARPI",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY",
+      "value": 27250829,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwtd000lbx7orjm049yp",
+      "ticker": "ARPI",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 27693416,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwti000nbx7ori36v26v",
+      "ticker": "ARPI",
+      "year": 2020,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -2055474.0000000002,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwtn000pbx7o72c8yerq",
+      "ticker": "ARPI",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -523328.99999999994,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwtx000tbx7ojmfih2bv",
+      "ticker": "ARPI",
+      "year": 2021,
+      "metric": "NET_PROFIT",
+      "value": 511587,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwu3000vbx7ogzjh4f26",
+      "ticker": "ARPI",
+      "year": 2021,
+      "metric": "GROSS_PROFIT",
+      "value": 821633,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwu8000xbx7ofgtdozai",
+      "ticker": "ARPI",
+      "year": 2021,
+      "metric": "TOTAL_ASSETS",
+      "value": 26185237,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwuc000zbx7otk6z64wl",
+      "ticker": "ARPI",
+      "year": 2021,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 5639475,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwuh0011bx7olrjwfa46",
+      "ticker": "ARPI",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY",
+      "value": 20545762,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwul0013bx7o7ts6r83x",
+      "ticker": "ARPI",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 26185237,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwuq0015bx7oo8qra60s",
+      "ticker": "ARPI",
+      "year": 2021,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 46648,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwuw0017bx7oen0k4z7i",
+      "ticker": "ARPI",
+      "year": 2021,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -212748,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwv10019bx7o32f5ygdo",
+      "ticker": "ARPI",
+      "year": 2021,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -2226337,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwv6001bbx7od9xyosae",
+      "ticker": "ARPI",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -2392437,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwvf001fbx7o64imtqlz",
+      "ticker": "ARPI",
+      "year": 2022,
+      "metric": "NET_PROFIT",
+      "value": -4133180.9999999995,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwvk001hbx7oqauwqx5r",
+      "ticker": "ARPI",
+      "year": 2022,
+      "metric": "GROSS_PROFIT",
+      "value": 13547,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwvp001jbx7onvi75l2l",
+      "ticker": "ARPI",
+      "year": 2022,
+      "metric": "TOTAL_ASSETS",
+      "value": 17184072,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwvu001lbx7o44ulq2nd",
+      "ticker": "ARPI",
+      "year": 2022,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 771491,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwvz001nbx7okbay6pp6",
+      "ticker": "ARPI",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY",
+      "value": 16412580.999999998,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublww3001pbx7oqx23b9g4",
+      "ticker": "ARPI",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 17184072,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublww7001rbx7o7728isbd",
+      "ticker": "ARPI",
+      "year": 2022,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 4166212.0000000005,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwwc001tbx7owjaycgm4",
+      "ticker": "ARPI",
+      "year": 2022,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -4990315,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwwg001vbx7odqsiydn8",
+      "ticker": "ARPI",
+      "year": 2022,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -824103,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwwx001zbx7or92hww9g",
+      "ticker": "ARPI",
+      "year": 2023,
+      "metric": "NET_PROFIT",
+      "value": -2620520,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwx50021bx7o1r4afcp3",
+      "ticker": "ARPI",
+      "year": 2023,
+      "metric": "GROSS_PROFIT",
+      "value": 414798,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwxa0023bx7osi4vx4ph",
+      "ticker": "ARPI",
+      "year": 2023,
+      "metric": "TOTAL_ASSETS",
+      "value": 14567006,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwxe0025bx7o39xq8oa9",
+      "ticker": "ARPI",
+      "year": 2023,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 774945,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwxj0027bx7o3w9lnryd",
+      "ticker": "ARPI",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY",
+      "value": 13792061,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwxp0029bx7oizhqdh6k",
+      "ticker": "ARPI",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 14567006,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwxv002bbx7obatwve1k",
+      "ticker": "ARPI",
+      "year": 2023,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 717586,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwy0002dbx7oghmvkys1",
+      "ticker": "ARPI",
+      "year": 2023,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -923797,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwy4002fbx7osfqak3qn",
+      "ticker": "ARPI",
+      "year": 2023,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -206211,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwye002jbx7owb5vy54b",
+      "ticker": "DCCC",
+      "year": 2015,
+      "metric": "NET_PROFIT",
+      "value": 218079,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwyj002lbx7oq1s7znvc",
+      "ticker": "DCCC",
+      "year": 2015,
+      "metric": "GROSS_PROFIT",
+      "value": 182850,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwyo002nbx7oy40s0t4v",
+      "ticker": "DCCC",
+      "year": 2015,
+      "metric": "TOTAL_ASSETS",
+      "value": 1130899,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwyt002pbx7ouwkzfu29",
+      "ticker": "DCCC",
+      "year": 2015,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 270452,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwyx002rbx7oy1d5att7",
+      "ticker": "DCCC",
+      "year": 2015,
+      "metric": "TOTAL_EQUITY",
+      "value": 860447,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwz3002tbx7ooq5bczev",
+      "ticker": "DCCC",
+      "year": 2015,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1130899,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwzd002xbx7oye3393z0",
+      "ticker": "DCCC",
+      "year": 2016,
+      "metric": "NET_PROFIT",
+      "value": 416600,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwzh002zbx7opq0wjnbq",
+      "ticker": "DCCC",
+      "year": 2016,
+      "metric": "GROSS_PROFIT",
+      "value": 339536,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwzl0031bx7op26f848a",
+      "ticker": "DCCC",
+      "year": 2016,
+      "metric": "TOTAL_ASSETS",
+      "value": 1496325,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwzp0033bx7oyb1ddnwo",
+      "ticker": "DCCC",
+      "year": 2016,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 483167,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwzt0035bx7osfutc7m2",
+      "ticker": "DCCC",
+      "year": 2016,
+      "metric": "TOTAL_EQUITY",
+      "value": 1013158,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublwzx0037bx7oj0ekr9lm",
+      "ticker": "DCCC",
+      "year": 2016,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1496325,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx020039bx7oztauea55",
+      "ticker": "DCCC",
+      "year": 2016,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 406360,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx06003bbx7ovo6yuikr",
+      "ticker": "DCCC",
+      "year": 2016,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -27557,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx0a003dbx7od3cv9kes",
+      "ticker": "DCCC",
+      "year": 2016,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -147488,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx0f003fbx7ox56krhey",
+      "ticker": "DCCC",
+      "year": 2016,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 231315,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx0p003jbx7ozjrhqfgr",
+      "ticker": "DCCC",
+      "year": 2018,
+      "metric": "NET_PROFIT",
+      "value": 1158481,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx0t003lbx7oegnuge6o",
+      "ticker": "DCCC",
+      "year": 2018,
+      "metric": "GROSS_PROFIT",
+      "value": 1108621,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx0x003nbx7oep8gkyxc",
+      "ticker": "DCCC",
+      "year": 2018,
+      "metric": "TOTAL_ASSETS",
+      "value": 3063048,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx11003pbx7o8kgc2myl",
+      "ticker": "DCCC",
+      "year": 2018,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1945124,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx15003rbx7ofepddw4e",
+      "ticker": "DCCC",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY",
+      "value": 1117924,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx19003tbx7owixnd7sa",
+      "ticker": "DCCC",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 3063048,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx1e003vbx7o5u164c9r",
+      "ticker": "DCCC",
+      "year": 2018,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 1346171,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx1k003xbx7ow25maehm",
+      "ticker": "DCCC",
+      "year": 2018,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -223203,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx1p003zbx7o4n09yl9q",
+      "ticker": "DCCC",
+      "year": 2018,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -1023423,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx1u0041bx7oc8rcqqjm",
+      "ticker": "DCCC",
+      "year": 2018,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 99545,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx250045bx7ogedyu2vl",
+      "ticker": "DIFC",
+      "year": 2015,
+      "metric": "NET_PROFIT",
+      "value": 290444,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx2a0047bx7oih6q119f",
+      "ticker": "DIFC",
+      "year": 2015,
+      "metric": "GROSS_PROFIT",
+      "value": 2532204,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx2f0049bx7okig7pe2k",
+      "ticker": "DIFC",
+      "year": 2015,
+      "metric": "TOTAL_ASSETS",
+      "value": 10324482,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx2k004bbx7ozkd0lxvn",
+      "ticker": "DIFC",
+      "year": 2015,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 651286,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx2p004dbx7ogin0xkxm",
+      "ticker": "DIFC",
+      "year": 2015,
+      "metric": "TOTAL_EQUITY",
+      "value": 9673196,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx2u004fbx7oyijzl1kt",
+      "ticker": "DIFC",
+      "year": 2015,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 10324482,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx2z004hbx7ovf6fbges",
+      "ticker": "DIFC",
+      "year": 2015,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 680005,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx35004jbx7o99f5oeye",
+      "ticker": "DIFC",
+      "year": 2015,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -213824,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx3a004lbx7ooim4aauh",
+      "ticker": "DIFC",
+      "year": 2015,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -196466,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx3g004nbx7on5aq969h",
+      "ticker": "DIFC",
+      "year": 2015,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 350395,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx3r004rbx7oiijx7usk",
+      "ticker": "DIFC",
+      "year": 2016,
+      "metric": "NET_PROFIT",
+      "value": 57153,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx3w004tbx7o761ckg3a",
+      "ticker": "DIFC",
+      "year": 2016,
+      "metric": "GROSS_PROFIT",
+      "value": 2804334,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx41004vbx7om8cthydy",
+      "ticker": "DIFC",
+      "year": 2016,
+      "metric": "TOTAL_ASSETS",
+      "value": 9039868,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx47004xbx7o5y83kbrg",
+      "ticker": "DIFC",
+      "year": 2016,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 783289,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx4d004zbx7o13zgbz00",
+      "ticker": "DIFC",
+      "year": 2016,
+      "metric": "TOTAL_EQUITY",
+      "value": 8256579,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx4i0051bx7od3x9fcdn",
+      "ticker": "DIFC",
+      "year": 2016,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 9039868,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx4n0053bx7o1hug4c6j",
+      "ticker": "DIFC",
+      "year": 2016,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 863261,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx4s0055bx7oxchyua20",
+      "ticker": "DIFC",
+      "year": 2016,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -227802,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx4w0057bx7ovboeaslj",
+      "ticker": "DIFC",
+      "year": 2016,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -1473771,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx510059bx7oj8qim6sw",
+      "ticker": "DIFC",
+      "year": 2016,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -838312,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx5b005dbx7owp61gz5b",
+      "ticker": "DIFC",
+      "year": 2017,
+      "metric": "NET_PROFIT",
+      "value": 151149,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx5f005fbx7o42w16hei",
+      "ticker": "DIFC",
+      "year": 2017,
+      "metric": "GROSS_PROFIT",
+      "value": 3093734,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx5j005hbx7ojzwv6jk5",
+      "ticker": "DIFC",
+      "year": 2017,
+      "metric": "TOTAL_ASSETS",
+      "value": 9399249,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx5n005jbx7ooh6xilhr",
+      "ticker": "DIFC",
+      "year": 2017,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 991521,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx5r005lbx7o9po22s9q",
+      "ticker": "DIFC",
+      "year": 2017,
+      "metric": "TOTAL_EQUITY",
+      "value": 8407728,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx5u005nbx7o65ud6p5b",
+      "ticker": "DIFC",
+      "year": 2017,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 9399249,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx60005pbx7okzpaly8k",
+      "ticker": "DIFC",
+      "year": 2017,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 814817,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx65005rbx7o4s3g79hh",
+      "ticker": "DIFC",
+      "year": 2017,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -17389,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx6b005tbx7oa89781j6",
+      "ticker": "DIFC",
+      "year": 2017,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 797429,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx6n005xbx7oofvgv2zm",
+      "ticker": "DIFC",
+      "year": 2018,
+      "metric": "NET_PROFIT",
+      "value": -511873,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx6r005zbx7oamx1hrkf",
+      "ticker": "DIFC",
+      "year": 2018,
+      "metric": "GROSS_PROFIT",
+      "value": 2585101,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx6w0061bx7oau8p2geu",
+      "ticker": "DIFC",
+      "year": 2018,
+      "metric": "TOTAL_ASSETS",
+      "value": 8569206,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx720063bx7og6v7hwsn",
+      "ticker": "DIFC",
+      "year": 2018,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 703512,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx770065bx7osjk8mh04",
+      "ticker": "DIFC",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY",
+      "value": 7865694,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx7a0067bx7oj0mrqe9x",
+      "ticker": "DIFC",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 8569206,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx7e0069bx7oguo14j12",
+      "ticker": "DIFC",
+      "year": 2018,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 460513,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx7i006bbx7oav8uj3xi",
+      "ticker": "DIFC",
+      "year": 2018,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -678867,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx7m006dbx7o7oofzfyk",
+      "ticker": "DIFC",
+      "year": 2018,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -30162,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx7q006fbx7ofvf2l2qx",
+      "ticker": "DIFC",
+      "year": 2018,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -739718,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx81006jbx7ovu5z6n3a",
+      "ticker": "DIFC",
+      "year": 2019,
+      "metric": "NET_PROFIT",
+      "value": 567428,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx85006lbx7omptrotmt",
+      "ticker": "DIFC",
+      "year": 2019,
+      "metric": "GROSS_PROFIT",
+      "value": 6313595,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx88006nbx7op677nwen",
+      "ticker": "DIFC",
+      "year": 2019,
+      "metric": "TOTAL_ASSETS",
+      "value": 9995568,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx8d006pbx7oji1to42x",
+      "ticker": "DIFC",
+      "year": 2019,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1562447,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx8h006rbx7one7nexh0",
+      "ticker": "DIFC",
+      "year": 2019,
+      "metric": "TOTAL_EQUITY",
+      "value": 8433121,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx8k006tbx7owwd6s2nd",
+      "ticker": "DIFC",
+      "year": 2019,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 9995568,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx8o006vbx7olj59h6le",
+      "ticker": "DIFC",
+      "year": 2019,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 1087268,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx8t006xbx7oh4u5kttc",
+      "ticker": "DIFC",
+      "year": 2019,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -747697,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx8y006zbx7o82akklwm",
+      "ticker": "DIFC",
+      "year": 2019,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 339571,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx960073bx7oq9hyiukd",
+      "ticker": "GETO",
+      "year": 2017,
+      "metric": "NET_PROFIT",
+      "value": 716148,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx9a0075bx7oi3lkpod4",
+      "ticker": "GETO",
+      "year": 2017,
+      "metric": "GROSS_PROFIT",
+      "value": 1885352,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx9e0077bx7ooz1vc3of",
+      "ticker": "GETO",
+      "year": 2017,
+      "metric": "TOTAL_ASSETS",
+      "value": 7228262,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx9h0079bx7og0jqbmj8",
+      "ticker": "GETO",
+      "year": 2017,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 512032.00000000006,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx9l007bbx7o1q2wj202",
+      "ticker": "GETO",
+      "year": 2017,
+      "metric": "TOTAL_EQUITY",
+      "value": 6716230,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx9p007dbx7osnqsz7g7",
+      "ticker": "GETO",
+      "year": 2017,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 7228262,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx9t007fbx7oijayduvw",
+      "ticker": "GETO",
+      "year": 2017,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 1303788,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublx9y007hbx7owovqipud",
+      "ticker": "GETO",
+      "year": 2017,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -2203794,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxa2007jbx7o8fy5kv84",
+      "ticker": "GETO",
+      "year": 2017,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -900006,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxaa007nbx7oe66lk02n",
+      "ticker": "GETO",
+      "year": 2018,
+      "metric": "NET_PROFIT",
+      "value": 290936,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxae007pbx7om4f5nd3u",
+      "ticker": "GETO",
+      "year": 2018,
+      "metric": "GROSS_PROFIT",
+      "value": 1162112,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxak007rbx7obzqsgk22",
+      "ticker": "GETO",
+      "year": 2018,
+      "metric": "TOTAL_ASSETS",
+      "value": 7339729,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxas007tbx7om0jacg86",
+      "ticker": "GETO",
+      "year": 2018,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 332563,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxaz007vbx7otslr8t86",
+      "ticker": "GETO",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY",
+      "value": 7007166,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxb3007xbx7oplputemt",
+      "ticker": "GETO",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 7339729,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxb7007zbx7ox21nkjk0",
+      "ticker": "GETO",
+      "year": 2018,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -526077,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxbb0081bx7ok9utdlqu",
+      "ticker": "GETO",
+      "year": 2018,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -13956,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxbk0085bx7ok2lpl868",
+      "ticker": "GETO",
+      "year": 2020,
+      "metric": "NET_PROFIT",
+      "value": -502686,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxbo0087bx7osl2z5q4z",
+      "ticker": "GETO",
+      "year": 2020,
+      "metric": "TOTAL_ASSETS",
+      "value": 6724744,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxbt0089bx7o7akt5jx5",
+      "ticker": "GETO",
+      "year": 2020,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 250420,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxbx008bbx7o8546rynd",
+      "ticker": "GETO",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY",
+      "value": 6474324,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxc1008dbx7orrvbeinz",
+      "ticker": "GETO",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6724744,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxc5008fbx7orzwu1x2g",
+      "ticker": "GETO",
+      "year": 2020,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -213435,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxc9008hbx7ol6qjbqc9",
+      "ticker": "GETO",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -213435,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxci008lbx7ots138e5d",
+      "ticker": "GETO",
+      "year": 2021,
+      "metric": "NET_PROFIT",
+      "value": -417819,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxcm008nbx7omr0wn3hz",
+      "ticker": "GETO",
+      "year": 2021,
+      "metric": "TOTAL_ASSETS",
+      "value": 6469940,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxcq008pbx7on67v2clm",
+      "ticker": "GETO",
+      "year": 2021,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 413435,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxcu008rbx7o32yxvpik",
+      "ticker": "GETO",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY",
+      "value": 6056505,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxcy008tbx7oko3rnj91",
+      "ticker": "GETO",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6469940,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxd4008vbx7odoqgp9x9",
+      "ticker": "GETO",
+      "year": 2021,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 20000,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxd8008xbx7ozcjxtbl7",
+      "ticker": "GETO",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 20000,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxdg0091bx7o6mnycuew",
+      "ticker": "MISR",
+      "year": 2020,
+      "metric": "NET_PROFIT",
+      "value": -774822,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxdk0093bx7oxwr9srv9",
+      "ticker": "MISR",
+      "year": 2020,
+      "metric": "GROSS_PROFIT",
+      "value": -716674,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxdo0095bx7oje967sc3",
+      "ticker": "MISR",
+      "year": 2020,
+      "metric": "TOTAL_ASSETS",
+      "value": 6973737,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxdt0097bx7o4p7gqvta",
+      "ticker": "MISR",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY",
+      "value": 6973737,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxdx0099bx7og62ixy8n",
+      "ticker": "MISR",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6973737,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxe1009bbx7oltapo5ri",
+      "ticker": "MISR",
+      "year": 2020,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -412721,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxe5009dbx7ojroz5hzl",
+      "ticker": "MISR",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -412721,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxef009hbx7obq0pqzsc",
+      "ticker": "MISR",
+      "year": 2021,
+      "metric": "NET_PROFIT",
+      "value": -646764,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxel009jbx7oddxu8lk9",
+      "ticker": "MISR",
+      "year": 2021,
+      "metric": "GROSS_PROFIT",
+      "value": -354163,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxeq009lbx7ob7f40r0a",
+      "ticker": "MISR",
+      "year": 2021,
+      "metric": "TOTAL_ASSETS",
+      "value": 6374642,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxew009nbx7ombl5v9kb",
+      "ticker": "MISR",
+      "year": 2021,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 47669,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxf1009pbx7oq7u12a9s",
+      "ticker": "MISR",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY",
+      "value": 6326973,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxf6009rbx7oaieea6ey",
+      "ticker": "MISR",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6374642,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxfb009tbx7o9h274not",
+      "ticker": "MISR",
+      "year": 2021,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 849230,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxff009vbx7o58bn2uwc",
+      "ticker": "MISR",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 849230,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxfq009zbx7odfi43n5v",
+      "ticker": "MISR",
+      "year": 2022,
+      "metric": "NET_PROFIT",
+      "value": -44003,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxft00a1bx7oxjec76vm",
+      "ticker": "MISR",
+      "year": 2022,
+      "metric": "GROSS_PROFIT",
+      "value": 68121,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxfx00a3bx7oduicu0pm",
+      "ticker": "MISR",
+      "year": 2022,
+      "metric": "TOTAL_ASSETS",
+      "value": 6282970,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxg100a5bx7orr6px913",
+      "ticker": "MISR",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY",
+      "value": 6282970,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxg500a7bx7odxcgv2vp",
+      "ticker": "MISR",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6282970,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxg900a9bx7o2ioqn5qt",
+      "ticker": "MISR",
+      "year": 2022,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 639252,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxge00abbx7o62p5xwpe",
+      "ticker": "MISR",
+      "year": 2022,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 639252,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxgn00afbx7ozzizcjus",
+      "ticker": "MISR",
+      "year": 2023,
+      "metric": "NET_PROFIT",
+      "value": -1119728,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxgr00ahbx7o14qtyphd",
+      "ticker": "MISR",
+      "year": 2023,
+      "metric": "GROSS_PROFIT",
+      "value": -907940,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxgv00ajbx7oblclu1u5",
+      "ticker": "MISR",
+      "year": 2023,
+      "metric": "TOTAL_ASSETS",
+      "value": 5170298,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxgz00albx7ok8cp9jj7",
+      "ticker": "MISR",
+      "year": 2023,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 7056,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxh300anbx7oywymjudl",
+      "ticker": "MISR",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY",
+      "value": 5163242,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxh900apbx7o96rrkyin",
+      "ticker": "MISR",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 5170298,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxhe00arbx7o1a44sfbh",
+      "ticker": "MISR",
+      "year": 2023,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -137388,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxhi00atbx7otvccwrnl",
+      "ticker": "MISR",
+      "year": 2023,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 2926856,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxhq00axbx7ok4kzj36e",
+      "ticker": "MISR",
+      "year": 2024,
+      "metric": "NET_PROFIT",
+      "value": -951398,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxhv00azbx7o11pgnfvd",
+      "ticker": "MISR",
+      "year": 2024,
+      "metric": "GROSS_PROFIT",
+      "value": -596989,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxhz00b1bx7okkxiuxwp",
+      "ticker": "MISR",
+      "year": 2024,
+      "metric": "TOTAL_ASSETS",
+      "value": 6011844,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxi300b3bx7oadn8w7x3",
+      "ticker": "MISR",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY",
+      "value": 4211844,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxi800b5bx7o7od7mvb8",
+      "ticker": "MISR",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6011844,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxid00b7bx7o7g236pcv",
+      "ticker": "MISR",
+      "year": 2024,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 1083083,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxih00b9bx7orl67j2ba",
+      "ticker": "MISR",
+      "year": 2024,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 1083083,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxis00bdbx7o43c6k00c",
+      "ticker": "MKIT",
+      "year": 2020,
+      "metric": "NET_PROFIT",
+      "value": -836089,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxiy00bfbx7oyvgb0k9k",
+      "ticker": "MKIT",
+      "year": 2020,
+      "metric": "GROSS_PROFIT",
+      "value": 1750173,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxj300bhbx7omfezvozg",
+      "ticker": "MKIT",
+      "year": 2020,
+      "metric": "TOTAL_ASSETS",
+      "value": 20145526,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxj700bjbx7otehr8qtq",
+      "ticker": "MKIT",
+      "year": 2020,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 10645311,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxjc00blbx7o2o25fc4d",
+      "ticker": "MKIT",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY",
+      "value": 9500215,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxjh00bnbx7ozl85xi5l",
+      "ticker": "MKIT",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 20145526,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxjm00bpbx7o0qmroehw",
+      "ticker": "MKIT",
+      "year": 2020,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 1294129,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxjq00brbx7ona9p4npc",
+      "ticker": "MKIT",
+      "year": 2020,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -714112,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxju00btbx7oo13ddaln",
+      "ticker": "MKIT",
+      "year": 2020,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -529070,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxjy00bvbx7oob8860wi",
+      "ticker": "MKIT",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 50947,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxk700bzbx7o4i6u463o",
+      "ticker": "MKIT",
+      "year": 2021,
+      "metric": "NET_PROFIT",
+      "value": -4961111,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxkb00c1bx7o1ffxb4su",
+      "ticker": "MKIT",
+      "year": 2021,
+      "metric": "GROSS_PROFIT",
+      "value": -1381053,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxkf00c3bx7olqezgq40",
+      "ticker": "MKIT",
+      "year": 2021,
+      "metric": "TOTAL_ASSETS",
+      "value": 19012236,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxki00c5bx7oe54eouca",
+      "ticker": "MKIT",
+      "year": 2021,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 14473132,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxkm00c7bx7od13x7zn6",
+      "ticker": "MKIT",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY",
+      "value": 4539104,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxkq00c9bx7ok2g5sahu",
+      "ticker": "MKIT",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 19012236,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxku00cbbx7otbe5reyj",
+      "ticker": "MKIT",
+      "year": 2021,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -2084540,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxky00cdbx7ocn2os266",
+      "ticker": "MKIT",
+      "year": 2021,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -302928,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxl100cfbx7oqbxz0xgz",
+      "ticker": "MKIT",
+      "year": 2021,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 2310427,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxl700chbx7oclzahwzc",
+      "ticker": "MKIT",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -77041,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxlh00clbx7oef88pkd5",
+      "ticker": "MKIT",
+      "year": 2022,
+      "metric": "NET_PROFIT",
+      "value": -3200057,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxlm00cnbx7ox0oo76e2",
+      "ticker": "MKIT",
+      "year": 2022,
+      "metric": "GROSS_PROFIT",
+      "value": 854694,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxlr00cpbx7ou7eubbs7",
+      "ticker": "MKIT",
+      "year": 2022,
+      "metric": "TOTAL_ASSETS",
+      "value": 17825053,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxlw00crbx7ofus4e58i",
+      "ticker": "MKIT",
+      "year": 2022,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 16486005.000000002,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxm000ctbx7oi8zzn2j2",
+      "ticker": "MKIT",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY",
+      "value": 1339048,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxm600cvbx7oc13e4dim",
+      "ticker": "MKIT",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 17825053,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxmb00cxbx7oy6zx6o1i",
+      "ticker": "MKIT",
+      "year": 2022,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 776833,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxmg00czbx7o9la6h5wl",
+      "ticker": "MKIT",
+      "year": 2022,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -40000,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxmk00d1bx7op4dhkifh",
+      "ticker": "MKIT",
+      "year": 2022,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -706952,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxmp00d3bx7og9fxaptf",
+      "ticker": "MKIT",
+      "year": 2022,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 29881,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxn200d7bx7o5dl0e8s7",
+      "ticker": "MKIT",
+      "year": 2023,
+      "metric": "NET_PROFIT",
+      "value": 192538,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxn900d9bx7oawg395zg",
+      "ticker": "MKIT",
+      "year": 2023,
+      "metric": "GROSS_PROFIT",
+      "value": 3380770,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxnf00dbbx7ox8zoi2i9",
+      "ticker": "MKIT",
+      "year": 2023,
+      "metric": "TOTAL_ASSETS",
+      "value": 16323007,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxnk00ddbx7okj5m6wmo",
+      "ticker": "MKIT",
+      "year": 2023,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 14791423,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxnq00dfbx7o01o6lnpw",
+      "ticker": "MKIT",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY",
+      "value": 1531584,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxnu00dhbx7oqa80n2dj",
+      "ticker": "MKIT",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 16323007,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxnz00djbx7o4xgd6rpo",
+      "ticker": "MKIT",
+      "year": 2023,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 1316663,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxo500dlbx7ouxxv3zh4",
+      "ticker": "MKIT",
+      "year": 2023,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 463500,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxoa00dnbx7o7ztmdd6a",
+      "ticker": "MKIT",
+      "year": 2023,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -58669,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxof00dpbx7ojwkzgx83",
+      "ticker": "MKIT",
+      "year": 2023,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -41694,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxop00dtbx7od7bpx1u2",
+      "ticker": "MKIT",
+      "year": 2024,
+      "metric": "NET_PROFIT",
+      "value": -2606436,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxov00dvbx7or79q8shy",
+      "ticker": "MKIT",
+      "year": 2024,
+      "metric": "GROSS_PROFIT",
+      "value": 1190315,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxp000dxbx7ozjdczw4u",
+      "ticker": "MKIT",
+      "year": 2024,
+      "metric": "TOTAL_ASSETS",
+      "value": 15344292,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxp400dzbx7o1csgeeid",
+      "ticker": "MKIT",
+      "year": 2024,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 16419143,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxp900e1bx7osy36q2gi",
+      "ticker": "MKIT",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY",
+      "value": -1074851,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxpd00e3bx7oevb7fzvs",
+      "ticker": "MKIT",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 15344292,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxpi00e5bx7okl62e5ad",
+      "ticker": "MKIT",
+      "year": 2024,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -2577899,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxpm00e7bx7o5fl31m4j",
+      "ticker": "MKIT",
+      "year": 2024,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 1477185,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxpt00e9bx7owcioo95z",
+      "ticker": "MKIT",
+      "year": 2024,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 1074076,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxpx00ebbx7oy0cfozjs",
+      "ticker": "MKIT",
+      "year": 2024,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -26638,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxq700efbx7o6ym556wx",
+      "ticker": "POCO",
+      "year": 2014,
+      "metric": "NET_PROFIT",
+      "value": 247748.752,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxqd00ehbx7oqiahikn8",
+      "ticker": "POCO",
+      "year": 2014,
+      "metric": "GROSS_PROFIT",
+      "value": 282619.579,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxqj00ejbx7o7qnyfdz9",
+      "ticker": "POCO",
+      "year": 2014,
+      "metric": "TOTAL_ASSETS",
+      "value": 974021.98,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxqn00elbx7omrv468tb",
+      "ticker": "POCO",
+      "year": 2014,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 252400.545,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxqt00enbx7oqq9uuinm",
+      "ticker": "POCO",
+      "year": 2014,
+      "metric": "TOTAL_EQUITY",
+      "value": 721621.435,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxqx00epbx7o4fy1e2nu",
+      "ticker": "POCO",
+      "year": 2014,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 974021.98,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxr100erbx7orlgm8x33",
+      "ticker": "POCO",
+      "year": 2014,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 202851.34,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxr500etbx7omxtehcsn",
+      "ticker": "POCO",
+      "year": 2014,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -153373.679,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxr900evbx7oe7h8q7z2",
+      "ticker": "POCO",
+      "year": 2014,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -130738.013,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxrc00exbx7o3j0ynxsc",
+      "ticker": "POCO",
+      "year": 2014,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -81260.352,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxrl00f1bx7o7gut23ct",
+      "ticker": "POCO",
+      "year": 2015,
+      "metric": "NET_PROFIT",
+      "value": 302105.487,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxrr00f3bx7ocdl9fnb5",
+      "ticker": "POCO",
+      "year": 2015,
+      "metric": "GROSS_PROFIT",
+      "value": 354631.093,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxry00f5bx7o2yeemmyg",
+      "ticker": "POCO",
+      "year": 2015,
+      "metric": "TOTAL_ASSETS",
+      "value": 1146953.745,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxs400f7bx7orui22k39",
+      "ticker": "POCO",
+      "year": 2015,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 328852.245,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxs800f9bx7ojzye476v",
+      "ticker": "POCO",
+      "year": 2015,
+      "metric": "TOTAL_EQUITY",
+      "value": 818101.5,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxsc00fbbx7o7gmwldrg",
+      "ticker": "POCO",
+      "year": 2015,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1146953.745,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxsg00fdbx7osdn2cxa3",
+      "ticker": "POCO",
+      "year": 2015,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 358936.377,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxsm00ffbx7osb8iop3t",
+      "ticker": "POCO",
+      "year": 2015,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -164902.204,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxsq00fhbx7oziydmsn9",
+      "ticker": "POCO",
+      "year": 2015,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -139094.913,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxsv00fjbx7oayqwmsl2",
+      "ticker": "POCO",
+      "year": 2015,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 54939.26,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxt400fnbx7org74i8lm",
+      "ticker": "POCO",
+      "year": 2016,
+      "metric": "NET_PROFIT",
+      "value": 344237.742,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxt800fpbx7od41jbb1u",
+      "ticker": "POCO",
+      "year": 2016,
+      "metric": "GROSS_PROFIT",
+      "value": 338151.931,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxtc00frbx7ou4970199",
+      "ticker": "POCO",
+      "year": 2016,
+      "metric": "TOTAL_ASSETS",
+      "value": 1289905.46,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxtg00ftbx7oejdi8745",
+      "ticker": "POCO",
+      "year": 2016,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 372559.344,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxtk00fvbx7o8uo13stj",
+      "ticker": "POCO",
+      "year": 2016,
+      "metric": "TOTAL_EQUITY",
+      "value": 917346.116,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxtp00fxbx7oo5dyj3kx",
+      "ticker": "POCO",
+      "year": 2016,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1289905.46,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxtt00fzbx7os3169cst",
+      "ticker": "POCO",
+      "year": 2016,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 351961.001,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxtw00g1bx7o5jenbui4",
+      "ticker": "POCO",
+      "year": 2016,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -164729.522,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxu100g3bx7otxkpods5",
+      "ticker": "POCO",
+      "year": 2016,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -181521.129,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxu400g5bx7ogscnmcau",
+      "ticker": "POCO",
+      "year": 2016,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 5710.35,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxue00g9bx7oxphelk6v",
+      "ticker": "POCO",
+      "year": 2017,
+      "metric": "NET_PROFIT",
+      "value": 708061.426,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxuj00gbbx7otbqaw5or",
+      "ticker": "POCO",
+      "year": 2017,
+      "metric": "GROSS_PROFIT",
+      "value": 668375.664,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxun00gdbx7o7ja4ao58",
+      "ticker": "POCO",
+      "year": 2017,
+      "metric": "TOTAL_ASSETS",
+      "value": 1924776.556,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxuq00gfbx7oso4xao8a",
+      "ticker": "POCO",
+      "year": 2017,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 606373.459,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxuu00ghbx7o7byw44qz",
+      "ticker": "POCO",
+      "year": 2017,
+      "metric": "TOTAL_EQUITY",
+      "value": 1318403.097,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxuy00gjbx7odlwvoaua",
+      "ticker": "POCO",
+      "year": 2017,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1924776.556,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxv900gnbx7ogu7a9m8c",
+      "ticker": "POCO",
+      "year": 2018,
+      "metric": "NET_PROFIT",
+      "value": 749605.585,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxve00gpbx7o02iqgmfy",
+      "ticker": "POCO",
+      "year": 2018,
+      "metric": "GROSS_PROFIT",
+      "value": 738645.188,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxvi00grbx7ovuttehyf",
+      "ticker": "POCO",
+      "year": 2018,
+      "metric": "TOTAL_ASSETS",
+      "value": 1656471.675,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxvm00gtbx7o279lvd5e",
+      "ticker": "POCO",
+      "year": 2018,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 649113.784,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxvq00gvbx7ocv9jhzw2",
+      "ticker": "POCO",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY",
+      "value": 1007357.891,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxvu00gxbx7oy6mpqidk",
+      "ticker": "POCO",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1656471.675,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxvy00gzbx7owkk7300w",
+      "ticker": "POCO",
+      "year": 2018,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 762820.071,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxw200h1bx7og4pdfakp",
+      "ticker": "POCO",
+      "year": 2018,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -81381.723,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxw700h3bx7ohqruv68u",
+      "ticker": "POCO",
+      "year": 2018,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -942117.181,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxwc00h5bx7oqkttebxu",
+      "ticker": "POCO",
+      "year": 2018,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -260678.833,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxwp00h9bx7o9m7gcl58",
+      "ticker": "PTCC",
+      "year": 2018,
+      "metric": "NET_PROFIT",
+      "value": 142308,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxwt00hbbx7omtlj37fw",
+      "ticker": "PTCC",
+      "year": 2018,
+      "metric": "GROSS_PROFIT",
+      "value": 702369,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxwy00hdbx7oktag7r8y",
+      "ticker": "PTCC",
+      "year": 2018,
+      "metric": "TOTAL_ASSETS",
+      "value": 13506069,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxx200hfbx7ou3r6b5hq",
+      "ticker": "PTCC",
+      "year": 2018,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1370121,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxx700hhbx7ol58k8n42",
+      "ticker": "PTCC",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY",
+      "value": 12135948,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxxe00hjbx7oedhmknvr",
+      "ticker": "PTCC",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 13506069,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxxv00hlbx7ohn7clmii",
+      "ticker": "PTCC",
+      "year": 2018,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -132540,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxy100hnbx7oakksotuv",
+      "ticker": "PTCC",
+      "year": 2018,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -132540,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxyc00hrbx7o0mkw6gib",
+      "ticker": "PTCC",
+      "year": 2019,
+      "metric": "NET_PROFIT",
+      "value": 184338,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxyg00htbx7o697ql6j2",
+      "ticker": "PTCC",
+      "year": 2019,
+      "metric": "GROSS_PROFIT",
+      "value": 724972,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxyk00hvbx7okm7j1b2t",
+      "ticker": "PTCC",
+      "year": 2019,
+      "metric": "TOTAL_ASSETS",
+      "value": 12844437,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxyo00hxbx7oq51q6g3z",
+      "ticker": "PTCC",
+      "year": 2019,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 524150.99999999994,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxyt00hzbx7octx0qi4f",
+      "ticker": "PTCC",
+      "year": 2019,
+      "metric": "TOTAL_EQUITY",
+      "value": 12320286,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxyy00i1bx7ocbzwvxel",
+      "ticker": "PTCC",
+      "year": 2019,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 12844437,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxz300i3bx7orfgm7m9q",
+      "ticker": "PTCC",
+      "year": 2019,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -32339,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxz900i5bx7o8nl1q96s",
+      "ticker": "PTCC",
+      "year": 2019,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -32339,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxzi00i9bx7ouq1bcs2j",
+      "ticker": "PTCC",
+      "year": 2020,
+      "metric": "NET_PROFIT",
+      "value": -1834761,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxzn00ibbx7o3gsne9bi",
+      "ticker": "PTCC",
+      "year": 2020,
+      "metric": "GROSS_PROFIT",
+      "value": 74379,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxzs00idbx7od83wts4h",
+      "ticker": "PTCC",
+      "year": 2020,
+      "metric": "TOTAL_ASSETS",
+      "value": 12638262,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublxzx00ifbx7o8he59s98",
+      "ticker": "PTCC",
+      "year": 2020,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 2152737,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly0200ihbx7o8w9upf4o",
+      "ticker": "PTCC",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY",
+      "value": 10485525,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly0800ijbx7ojskn1uxv",
+      "ticker": "PTCC",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 12638262,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly0c00ilbx7obims77d3",
+      "ticker": "PTCC",
+      "year": 2020,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 214803,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly0h00inbx7oj6h1dx86",
+      "ticker": "PTCC",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 214803,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly0r00irbx7oijgvtnt4",
+      "ticker": "PTCC",
+      "year": 2021,
+      "metric": "NET_PROFIT",
+      "value": -4584440,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly0x00itbx7oy4aetmvt",
+      "ticker": "PTCC",
+      "year": 2021,
+      "metric": "GROSS_PROFIT",
+      "value": 123684,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly1600ivbx7o4q9agr3p",
+      "ticker": "PTCC",
+      "year": 2021,
+      "metric": "TOTAL_ASSETS",
+      "value": 8297468.999999999,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly1d00ixbx7oed0i1lz5",
+      "ticker": "PTCC",
+      "year": 2021,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 2396384,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly1i00izbx7o2v8c3crt",
+      "ticker": "PTCC",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY",
+      "value": 5901085,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly1m00j1bx7op3xmb9gs",
+      "ticker": "PTCC",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 8297468.999999999,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly1r00j3bx7omamipwzi",
+      "ticker": "PTCC",
+      "year": 2021,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -259185,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly1w00j5bx7otnor7tvf",
+      "ticker": "PTCC",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -259185,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly2800j9bx7os8n0lrwq",
+      "ticker": "PTCC",
+      "year": 2022,
+      "metric": "NET_PROFIT",
+      "value": -1900738,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly2c00jbbx7oiam445ns",
+      "ticker": "PTCC",
+      "year": 2022,
+      "metric": "TOTAL_ASSETS",
+      "value": 6261854,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly2h00jdbx7oqu5lw1c4",
+      "ticker": "PTCC",
+      "year": 2022,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 2261507,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly2l00jfbx7oxei4qhle",
+      "ticker": "PTCC",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY",
+      "value": 4000347,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly2q00jhbx7omvm60aah",
+      "ticker": "PTCC",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6261854,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly2w00jjbx7o6r0j54ln",
+      "ticker": "PTCC",
+      "year": 2022,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -367258,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly3100jlbx7o6f76l3dr",
+      "ticker": "PTCC",
+      "year": 2022,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -367258,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly3b00jpbx7ocawc83i7",
+      "ticker": "SUCE",
+      "year": 2015,
+      "metric": "NET_PROFIT",
+      "value": -129514013,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly3g00jrbx7o7sdnnn3r",
+      "ticker": "SUCE",
+      "year": 2015,
+      "metric": "GROSS_PROFIT",
+      "value": 167197168,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly3l00jtbx7o6mqqwf1k",
+      "ticker": "SUCE",
+      "year": 2015,
+      "metric": "TOTAL_ASSETS",
+      "value": 10022913937,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly3r00jvbx7oupwh8q6g",
+      "ticker": "SUCE",
+      "year": 2015,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 2801221365,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly3v00jxbx7ocnlvh788",
+      "ticker": "SUCE",
+      "year": 2015,
+      "metric": "TOTAL_EQUITY",
+      "value": 7221692572,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly3z00jzbx7oayswjqc0",
+      "ticker": "SUCE",
+      "year": 2015,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 10022913937,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly4300k1bx7o8jkckljh",
+      "ticker": "SUCE",
+      "year": 2015,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 45086489,
+      "quarantined": true
+    },
+    {
+      "id": "cmvubly4700k3bx7olhc7hylg",
+      "ticker": "SUCE",
+      "year": 2015,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -239935733,
+      "quarantined": true
+    },
+    {
+      "id": "cmvubly4c00k5bx7o1jdvjo4j",
+      "ticker": "SUCE",
+      "year": 2015,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -3449651,
+      "quarantined": true
+    },
+    {
+      "id": "cmvubly4g00k7bx7os35f96g5",
+      "ticker": "SUCE",
+      "year": 2015,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -737250951,
+      "quarantined": true
+    },
+    {
+      "id": "cmvubly4p00kbbx7o11r9wlvh",
+      "ticker": "SUCE",
+      "year": 2016,
+      "metric": "NET_PROFIT",
+      "value": -527595248,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly4v00kdbx7om3qppgb1",
+      "ticker": "SUCE",
+      "year": 2016,
+      "metric": "GROSS_PROFIT",
+      "value": 1224503647,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly5000kfbx7oe9ie8ly9",
+      "ticker": "SUCE",
+      "year": 2016,
+      "metric": "TOTAL_ASSETS",
+      "value": 11247574607,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly5500khbx7oi01jkxns",
+      "ticker": "SUCE",
+      "year": 2016,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 4324830727,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly5b00kjbx7ojv1m9fyp",
+      "ticker": "SUCE",
+      "year": 2016,
+      "metric": "TOTAL_EQUITY",
+      "value": 6922743880,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly5g00klbx7o6act7gpg",
+      "ticker": "SUCE",
+      "year": 2016,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 11247574607,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly5m00knbx7okh6aegjx",
+      "ticker": "SUCE",
+      "year": 2016,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 351877345,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly5u00kpbx7ooiope6u2",
+      "ticker": "SUCE",
+      "year": 2016,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -493253894,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly6300krbx7o77v0s4ig",
+      "ticker": "SUCE",
+      "year": 2016,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 188508084,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly6800ktbx7orrs6byxu",
+      "ticker": "SUCE",
+      "year": 2016,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 47131535,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly6j00kxbx7o91vdt86c",
+      "ticker": "SUCE",
+      "year": 2017,
+      "metric": "NET_PROFIT",
+      "value": -937615084,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly6o00kzbx7opb1terct",
+      "ticker": "SUCE",
+      "year": 2017,
+      "metric": "GROSS_PROFIT",
+      "value": 514727119,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly6t00l1bx7oa57oqf5j",
+      "ticker": "SUCE",
+      "year": 2017,
+      "metric": "TOTAL_ASSETS",
+      "value": 10079764731,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly6y00l3bx7owbrfm56u",
+      "ticker": "SUCE",
+      "year": 2017,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 4302398921,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly7300l5bx7o0ysbi9hy",
+      "ticker": "SUCE",
+      "year": 2017,
+      "metric": "TOTAL_EQUITY",
+      "value": 5777365810,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly7700l7bx7ouholjvue",
+      "ticker": "SUCE",
+      "year": 2017,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 10079764731,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly7c00l9bx7ot0vnzlo7",
+      "ticker": "SUCE",
+      "year": 2017,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 147805296,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly7h00lbbx7osqhw7l41",
+      "ticker": "SUCE",
+      "year": 2017,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -337161136,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly7n00ldbx7opwuo5hk5",
+      "ticker": "SUCE",
+      "year": 2017,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -391056486,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly7s00lfbx7o4qvdfswq",
+      "ticker": "SUCE",
+      "year": 2017,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -580412326,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly8300ljbx7oxl69c14s",
+      "ticker": "SUCE",
+      "year": 2018,
+      "metric": "NET_PROFIT",
+      "value": 40332071,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly8700llbx7oi0i6ujgx",
+      "ticker": "SUCE",
+      "year": 2018,
+      "metric": "GROSS_PROFIT",
+      "value": 1087550333,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly8c00lnbx7oy3oasjsq",
+      "ticker": "SUCE",
+      "year": 2018,
+      "metric": "TOTAL_ASSETS",
+      "value": 10621686483,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly8h00lpbx7o66ssxtpz",
+      "ticker": "SUCE",
+      "year": 2018,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 4914160209,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly8m00lrbx7oyf6rhwq7",
+      "ticker": "SUCE",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY",
+      "value": 5707526274,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly8q00ltbx7oiclv96n6",
+      "ticker": "SUCE",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 10621686483,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly8u00lvbx7oh27h2ghj",
+      "ticker": "SUCE",
+      "year": 2018,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 228043567,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly8z00lxbx7o7qve8g0n",
+      "ticker": "SUCE",
+      "year": 2018,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -190835510,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly9500lzbx7ooqd59l58",
+      "ticker": "SUCE",
+      "year": 2018,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 38487160,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly9900m1bx7oxwouuizf",
+      "ticker": "SUCE",
+      "year": 2018,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 75695217,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly9k00m5bx7oqej6nr3q",
+      "ticker": "SUCE",
+      "year": 2019,
+      "metric": "NET_PROFIT",
+      "value": -977683108,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly9p00m7bx7o2xab1g9u",
+      "ticker": "SUCE",
+      "year": 2019,
+      "metric": "GROSS_PROFIT",
+      "value": 111745711,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly9u00m9bx7oymi1tj3m",
+      "ticker": "SUCE",
+      "year": 2019,
+      "metric": "TOTAL_ASSETS",
+      "value": 8036923228,
+      "quarantined": false
+    },
+    {
+      "id": "cmvubly9z00mbbx7owjsxlky5",
+      "ticker": "SUCE",
+      "year": 2019,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 5373370403,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublya400mdbx7o7ntnpid2",
+      "ticker": "SUCE",
+      "year": 2019,
+      "metric": "TOTAL_EQUITY",
+      "value": 2663552825,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublya900mfbx7ocrf9v6jl",
+      "ticker": "SUCE",
+      "year": 2019,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 8036923228,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyaf00mhbx7ouqo3af53",
+      "ticker": "SUCE",
+      "year": 2019,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -1586027353,
+      "quarantined": true
+    },
+    {
+      "id": "cmvublyao00mjbx7oae8vlspi",
+      "ticker": "SUCE",
+      "year": 2019,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -98739272,
+      "quarantined": true
+    },
+    {
+      "id": "cmvublyaw00mlbx7oamzjauot",
+      "ticker": "SUCE",
+      "year": 2019,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 972728960,
+      "quarantined": true
+    },
+    {
+      "id": "cmvublyb100mnbx7os2pyez9y",
+      "ticker": "SUCE",
+      "year": 2019,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -54747086,
+      "quarantined": true
+    },
+    {
+      "id": "cmvublybc00mrbx7oqkb9t5h6",
+      "ticker": "TRST",
+      "year": 2018,
+      "metric": "NET_PROFIT",
+      "value": 243793,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublybg00mtbx7ozcoc8ddj",
+      "ticker": "TRST",
+      "year": 2018,
+      "metric": "GROSS_PROFIT",
+      "value": 492725,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublybk00mvbx7oslmj1eia",
+      "ticker": "TRST",
+      "year": 2018,
+      "metric": "TOTAL_ASSETS",
+      "value": 4961532,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublybo00mxbx7o6htksr3r",
+      "ticker": "TRST",
+      "year": 2018,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 199973,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublybt00mzbx7ocizur6ws",
+      "ticker": "TRST",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY",
+      "value": 4761559,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublybx00n1bx7otmtn1ixy",
+      "ticker": "TRST",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 4961532,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyc100n3bx7om8xz1gmq",
+      "ticker": "TRST",
+      "year": 2018,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -37781,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyc500n5bx7oob387fmb",
+      "ticker": "TRST",
+      "year": 2018,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -37781,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublycd00n9bx7od41oltkd",
+      "ticker": "TRST",
+      "year": 2019,
+      "metric": "NET_PROFIT",
+      "value": 85955,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublych00nbbx7o1343kh70",
+      "ticker": "TRST",
+      "year": 2019,
+      "metric": "GROSS_PROFIT",
+      "value": 525640,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublycl00ndbx7oiyim0fjz",
+      "ticker": "TRST",
+      "year": 2019,
+      "metric": "TOTAL_ASSETS",
+      "value": 5115736,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublycp00nfbx7oegfa82ns",
+      "ticker": "TRST",
+      "year": 2019,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 268221,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublycs00nhbx7orngt3zpm",
+      "ticker": "TRST",
+      "year": 2019,
+      "metric": "TOTAL_EQUITY",
+      "value": 4847515,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublycw00njbx7o67m5xsog",
+      "ticker": "TRST",
+      "year": 2019,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 5115736,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyd200nlbx7ofl6m9t7e",
+      "ticker": "TRST",
+      "year": 2019,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 1920701,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyd600nnbx7o6wh07zyt",
+      "ticker": "TRST",
+      "year": 2019,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -1938106,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyda00npbx7ohprd45op",
+      "ticker": "TRST",
+      "year": 2019,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -17405,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublydi00ntbx7o0hgl2cqa",
+      "ticker": "TRST",
+      "year": 2020,
+      "metric": "NET_PROFIT",
+      "value": -829769,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublydm00nvbx7o2i40836f",
+      "ticker": "TRST",
+      "year": 2020,
+      "metric": "GROSS_PROFIT",
+      "value": 36672,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublydq00nxbx7owc6m617p",
+      "ticker": "TRST",
+      "year": 2020,
+      "metric": "TOTAL_ASSETS",
+      "value": 5509294,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublydv00nzbx7ob69oqq6c",
+      "ticker": "TRST",
+      "year": 2020,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1491548,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublye000o1bx7oevrdmc1a",
+      "ticker": "TRST",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY",
+      "value": 4017746,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublye400o3bx7ocgbh6xc2",
+      "ticker": "TRST",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 5509294,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublye800o5bx7o00widhax",
+      "ticker": "TRST",
+      "year": 2020,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 985396,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyec00o7bx7oko1m352j",
+      "ticker": "TRST",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 985396,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyek00obbx7ow7p5s58i",
+      "ticker": "TRST",
+      "year": 2021,
+      "metric": "NET_PROFIT",
+      "value": 963268,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyeo00odbx7oloq388oq",
+      "ticker": "TRST",
+      "year": 2021,
+      "metric": "GROSS_PROFIT",
+      "value": 1955300,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyes00ofbx7ofder6864",
+      "ticker": "TRST",
+      "year": 2021,
+      "metric": "TOTAL_ASSETS",
+      "value": 6494677,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyex00ohbx7or7aja48g",
+      "ticker": "TRST",
+      "year": 2021,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1513663,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyf100ojbx7ozdo6sqxt",
+      "ticker": "TRST",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY",
+      "value": 4981014,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyf700olbx7oyjh4inxu",
+      "ticker": "TRST",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6494677,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyfd00onbx7owk279vgr",
+      "ticker": "TRST",
+      "year": 2021,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -351266,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyfi00opbx7ono9ceydc",
+      "ticker": "TRST",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -351266,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyfq00otbx7onkjajgnl",
+      "ticker": "TRST",
+      "year": 2022,
+      "metric": "NET_PROFIT",
+      "value": 799234,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyfu00ovbx7o9cmjk1gt",
+      "ticker": "TRST",
+      "year": 2022,
+      "metric": "GROSS_PROFIT",
+      "value": 2524041,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyg000oxbx7ofk6s7mf6",
+      "ticker": "TRST",
+      "year": 2022,
+      "metric": "TOTAL_ASSETS",
+      "value": 8203485.000000001,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyg400ozbx7o4har2k5p",
+      "ticker": "TRST",
+      "year": 2022,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 2501491,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyga00p1bx7o1uqdtryv",
+      "ticker": "TRST",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY",
+      "value": 5701994,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyge00p3bx7o7jy4rqak",
+      "ticker": "TRST",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 8203485.000000001,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublygj00p5bx7oy3a9aqb6",
+      "ticker": "TRST",
+      "year": 2022,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 3202241,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublygn00p7bx7ovdjyab3x",
+      "ticker": "TRST",
+      "year": 2022,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 3202241,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublygx00pbbx7olvlc3tx4",
+      "ticker": "WATP",
+      "year": 2015,
+      "metric": "NET_PROFIT",
+      "value": -87176803,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyh100pdbx7ofzb32xyv",
+      "ticker": "WATP",
+      "year": 2015,
+      "metric": "GROSS_PROFIT",
+      "value": 2220183,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyh500pfbx7oca54sbp6",
+      "ticker": "WATP",
+      "year": 2015,
+      "metric": "TOTAL_ASSETS",
+      "value": 168444832,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyh900phbx7onqcrjn5d",
+      "ticker": "WATP",
+      "year": 2015,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 128109944,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyhd00pjbx7o5any0v9h",
+      "ticker": "WATP",
+      "year": 2015,
+      "metric": "TOTAL_EQUITY",
+      "value": 40334888,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyhh00plbx7o9b8bmzrl",
+      "ticker": "WATP",
+      "year": 2015,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 168444832,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyhl00pnbx7opju2utlo",
+      "ticker": "WATP",
+      "year": 2015,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 36562487,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyhq00ppbx7oeqyuy7u6",
+      "ticker": "WATP",
+      "year": 2015,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -27374555,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyhu00prbx7oc1u97tp3",
+      "ticker": "WATP",
+      "year": 2015,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -7972850,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyhy00ptbx7oyzmh3mw5",
+      "ticker": "WATP",
+      "year": 2015,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 1215082,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyi700pxbx7os7exid5e",
+      "ticker": "WATP",
+      "year": 2016,
+      "metric": "NET_PROFIT",
+      "value": 5219990,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyic00pzbx7oydyr0xlx",
+      "ticker": "WATP",
+      "year": 2016,
+      "metric": "GROSS_PROFIT",
+      "value": 33515247.000000004,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyig00q1bx7otvht862c",
+      "ticker": "WATP",
+      "year": 2016,
+      "metric": "TOTAL_ASSETS",
+      "value": 197270797,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyil00q3bx7oa0qdjtqd",
+      "ticker": "WATP",
+      "year": 2016,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 146109028,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyip00q5bx7ohnbrdesq",
+      "ticker": "WATP",
+      "year": 2016,
+      "metric": "TOTAL_EQUITY",
+      "value": 51161769,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyit00q7bx7o13o6cauc",
+      "ticker": "WATP",
+      "year": 2016,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 197270797,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyix00q9bx7o9khemglm",
+      "ticker": "WATP",
+      "year": 2016,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 21295486,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyj100qbbx7oibc7ohj6",
+      "ticker": "WATP",
+      "year": 2016,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -20192456,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyj500qdbx7odha2g3ok",
+      "ticker": "WATP",
+      "year": 2016,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -3900343,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyj800qfbx7oefjhp7xl",
+      "ticker": "WATP",
+      "year": 2016,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -2797313,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyjj00qjbx7orlfdnq8s",
+      "ticker": "WATP",
+      "year": 2017,
+      "metric": "NET_PROFIT",
+      "value": 6221732,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyjz00qlbx7oseogfrns",
+      "ticker": "WATP",
+      "year": 2017,
+      "metric": "GROSS_PROFIT",
+      "value": 67096807,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyk600qnbx7odtl2vf3d",
+      "ticker": "WATP",
+      "year": 2017,
+      "metric": "TOTAL_ASSETS",
+      "value": 224853331,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublykb00qpbx7o9j7tj9cs",
+      "ticker": "WATP",
+      "year": 2017,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 113293368,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublykg00qrbx7obp4uycq9",
+      "ticker": "WATP",
+      "year": 2017,
+      "metric": "TOTAL_EQUITY",
+      "value": 111559963,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublykl00qtbx7oay7ns18y",
+      "ticker": "WATP",
+      "year": 2017,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 224853331,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublykq00qvbx7ok500bxut",
+      "ticker": "WATP",
+      "year": 2017,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -22242070,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublykw00qxbx7o1uj1ub2e",
+      "ticker": "WATP",
+      "year": 2017,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 60704450,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyl000qzbx7oz9tqegpo",
+      "ticker": "WATP",
+      "year": 2017,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -36116191,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyl500r1bx7o3wirawe0",
+      "ticker": "WATP",
+      "year": 2017,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 2346189,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyle00r5bx7orccwekwe",
+      "ticker": "WATP",
+      "year": 2018,
+      "metric": "NET_PROFIT",
+      "value": 43619646,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublylj00r7bx7ohhhr8qf3",
+      "ticker": "WATP",
+      "year": 2018,
+      "metric": "GROSS_PROFIT",
+      "value": 76365455,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublylo00r9bx7oynghr70x",
+      "ticker": "WATP",
+      "year": 2018,
+      "metric": "TOTAL_ASSETS",
+      "value": 261245177,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublyls00rbbx7ogxgttc74",
+      "ticker": "WATP",
+      "year": 2018,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 115163653,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublylx00rdbx7o8l2dytuw",
+      "ticker": "WATP",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY",
+      "value": 146081524,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublym200rfbx7ovakg9cyk",
+      "ticker": "WATP",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 261245177,
+      "quarantined": false
+    },
+    {
+      "id": "cmvublym700rhbx7ogtflq3qr",
+      "ticker": "WATP",
+      "year": 2018,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 42207144,
+      "quarantined": true
+    },
+    {
+      "id": "cmvublymb00rjbx7ogacxwdpm",
+      "ticker": "WATP",
+      "year": 2018,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -21064735,
+      "quarantined": true
+    },
+    {
+      "id": "cmvublymg00rlbx7olkchonco",
+      "ticker": "WATP",
+      "year": 2018,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -23324554,
+      "quarantined": true
+    },
+    {
+      "id": "cmvublyml00rnbx7ojo3aunak",
+      "ticker": "WATP",
+      "year": 2018,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -20987512,
+      "quarantined": true
+    }
+  ],
+  "skipped": [
+    {
+      "ticker": "ARPI",
+      "year": 2022,
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ZERO_VALUE"
+    },
+    {
+      "ticker": "CFGH",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "DIFC",
+      "year": 2017,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 1,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 113314,
+      "ratio": 0
+    },
+    {
+      "ticker": "EGSA",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "EGX30ETF",
+      "reason": "EXCLUDED_INSTRUMENT"
+    },
+    {
+      "ticker": "ELNA",
+      "reason": "NO_FISCAL_CALENDAR"
+    },
+    {
+      "ticker": "ESAC",
+      "reason": "UNKNOWN_SECTOR",
+      "sectorSlug": null
+    },
+    {
+      "ticker": "FAITA",
+      "reason": "ALIAS_OF",
+      "canonical": "FAIT"
+    },
+    {
+      "ticker": "FCMD",
+      "reason": "ALIAS_OF",
+      "canonical": "ICMI"
+    },
+    {
+      "ticker": "GRCA",
+      "reason": "NO_FISCAL_CALENDAR"
+    },
+    {
+      "ticker": "GTEX",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "GTHE",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "KASABF",
+      "reason": "ALIAS_OF",
+      "canonical": "ODIN"
+    },
+    {
+      "ticker": "MISR",
+      "year": 2024,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1800000,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 47669,
+      "ratio": 37.7604
+    },
+    {
+      "ticker": "MOIL",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "NAHO",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "NDRL",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "ORAS",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "SAIB",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "SEIG",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "SPHT",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "VLMR",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "VLMRA",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    }
+  ]
+}

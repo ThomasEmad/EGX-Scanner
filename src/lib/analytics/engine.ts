@@ -28,11 +28,11 @@ export function thresholdScore(value: number, points: [number, number][]): numbe
 const avg = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null)
 
 // ---------------- Feature 1: Financial Health (spec §1.3) ----------------
-// Percent-unit metrics (margins, ROE, ROA, growth) are PERCENT numbers.
-// Ratio metrics (current/quick ratio, D/E, coverage, turnover) are decimals.
+// Percent-unit metrics (margins, ROE, ROA) are PERCENT numbers.
+// Ratio metrics (quick ratio, D/E, coverage, turnover) are decimals.
 
 export type HealthCategory = {
-  name: "profitability" | "liquidity" | "leverage" | "efficiency" | "growth"
+  name: "profitability" | "liquidity" | "leverage" | "efficiency"
   weight: number
   score: number | null
   metrics: { code: string; value: number | null; score: number | null }[]
@@ -58,9 +58,9 @@ export function profitabilityScore(m: MetricMap): number | null {
 }
 
 export function liquidityScore(m: MetricMap): number | null {
-  const cr = m.CURRENT_RATIO ?? null, qr = m.QUICK_RATIO ?? null
+  // current-ratio metric removed from the product — liquidity scores on quick ratio only
+  const qr = m.QUICK_RATIO ?? null
   const parts: (number | null)[] = []
-  if (cr !== null) parts.push(thresholdScore(cr, [[0.5, 0], [1.0, 40], [1.5, 70], [2.0, 100]]))
   if (qr !== null) parts.push(thresholdScore(qr, [[0.5, 0], [0.7, 35], [1.0, 70], [1.5, 100]]))
   const scored = parts.filter((x): x is number => x !== null)
   return scored.length ? clampScore(avg(scored)!) : null
@@ -96,17 +96,6 @@ export function efficiencyScore(m: MetricMap, isBank: boolean): number | null {
   return parts.length ? clampScore(avg(parts)!) : null
 }
 
-export function growthScore(m: MetricMap, prior: MetricMap | null): number | null {
-  // prefer stored YoY metrics; fall back to computing from prior-year map
-  const parts: (number | null)[] = []
-  const rev = m.REVENUE_GROWTH_YOY ?? (prior?.REVENUE && m.REVENUE && prior.REVENUE !== 0 ? ((m.REVENUE - prior.REVENUE) / Math.abs(prior.REVENUE)) * 100 : null)
-  const ni = m.NET_INCOME_GROWTH_YOY ?? (prior?.NET_PROFIT && m.NET_PROFIT && prior.NET_PROFIT > 0 && m.NET_PROFIT > 0 ? ((m.NET_PROFIT - prior.NET_PROFIT) / prior.NET_PROFIT) * 100 : null)
-  if (rev !== null) parts.push(thresholdScore(rev, [[0, 0], [5, 45], [15, 75], [25, 100]]))
-  if (ni !== null) parts.push(thresholdScore(ni, [[0, 0], [5, 45], [15, 75], [30, 100]]))
-  const scored = parts.filter((x): x is number => x !== null)
-  return scored.length ? clampScore(avg(scored)!) : null
-}
-
 export function computeFinancialHealth(
   latest: MetricMap,
   opts: { prior?: MetricMap | null; isBank?: boolean } = {},
@@ -120,7 +109,6 @@ export function computeFinancialHealth(
       { code: "GROSS_MARGIN", value: latest.GROSS_MARGIN ?? null, score: null },
     ] },
     { name: "liquidity", weight: 0.20, score: liquidityScore(latest), metrics: [
-      { code: "CURRENT_RATIO", value: latest.CURRENT_RATIO ?? null, score: null },
       { code: "QUICK_RATIO", value: latest.QUICK_RATIO ?? null, score: null },
     ] },
     { name: "leverage", weight: 0.20, score: leverageScore(latest, isBank), metrics: [
@@ -130,10 +118,6 @@ export function computeFinancialHealth(
     { name: "efficiency", weight: 0.15, score: efficiencyScore(latest, isBank), metrics: [
       { code: "ASSET_TURNOVER", value: latest.ASSET_TURNOVER ?? null, score: null },
       { code: "INVENTORY_TURNOVER", value: latest.INVENTORY_TURNOVER ?? null, score: null },
-    ] },
-    { name: "growth", weight: 0.20, score: growthScore(latest, opts.prior ?? null), metrics: [
-      { code: "REVENUE_GROWTH_YOY", value: latest.REVENUE_GROWTH_YOY ?? null, score: null },
-      { code: "NET_INCOME_GROWTH_YOY", value: latest.NET_INCOME_GROWTH_YOY ?? null, score: null },
     ] },
   ]
   const withData = categories.filter((c) => c.score !== null)
@@ -184,8 +168,6 @@ export function computeSnowflake(
   return [
     axis("value", "P_E", "lower_better"),
     axis("quality", "ROE", "higher_better"),
-    axis("growth", "REVENUE_GROWTH_YOY", "higher_better"),
-    axis("health", "CURRENT_RATIO", "higher_better"),
     axis("dividend", "DIVIDEND_YIELD", "higher_better"),
     axis("profitability", "NET_MARGIN", "higher_better"),
     axis("efficiency", "ASSET_TURNOVER", "higher_better"),
@@ -224,6 +206,9 @@ export type UndervaluationResult = {
   upside: number | null
   method: string
   flagged: boolean
+  /** True when the computed gap is implausible and needs a unit/period check. */
+  reviewRequired: boolean
+  reviewReason: string | null
 }
 
 /** A company is flagged when ≥3 of the 5 criteria hold (spec §4.3). */
@@ -265,10 +250,25 @@ export function evaluateUndervaluation(
   let fairValue: number | null = null
   let upside: number | null = null
   let method = ""
+  let reviewRequired = false
+  let reviewReason: string | null = null
   if (methods.length && price && price > 0) {
-    fairValue = Math.round((methods.reduce((s, x) => s + x.value, 0) / methods.length) * 100) / 100
-    upside = Math.round(((fairValue - price) / price) * 1000) / 10
+    const rawFair = methods.reduce((s, x) => s + x.value, 0) / methods.length
+    const ratio = rawFair / price
     method = methods.map((x) => x.method).join(", ")
+    if (!Number.isFinite(ratio) || ratio > 10 || ratio < 0.1) {
+      // A >10× gap almost always means EPS/BVPS and price are in different
+      // units or periods. Do not publish the number as a fair value.
+      fairValue = null
+      upside = null
+      reviewRequired = true
+      reviewReason = "EXTREME_VALUATION_GAP"
+    } else {
+      fairValue = Math.round(rawFair * 100) / 100
+      upside = Math.round(((fairValue - price) / price) * 1000) / 10
+      reviewRequired = upside >= 200
+      reviewReason = reviewRequired ? "EXTREME_VALUATION_GAP" : null
+    }
   }
-  return { criteriaMet, fairValue, upside, method, flagged: criteriaMet.length >= 3 }
+  return { criteriaMet, fairValue, upside, method, flagged: criteriaMet.length >= 3, reviewRequired, reviewReason }
 }

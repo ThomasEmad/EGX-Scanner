@@ -1,0 +1,5400 @@
+{
+  "generatedAt": "2026-10-30T02:02:18.806Z",
+  "reports": [
+    {
+      "id": "cmvububzv0001bxmopll5jeh7",
+      "ticker": "ARPI",
+      "fiscalYear": 2020,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubuc0o000bbxmo0bxhrr5j",
+      "ticker": "ARPI",
+      "fiscalYear": 2020,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubuc1q000lbxmodpvv3hyd",
+      "ticker": "ARPI",
+      "fiscalYear": 2020,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubuc2o000vbxmo1sny68ip",
+      "ticker": "ARPI",
+      "fiscalYear": 2021,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubuc3m0015bxmoub0zzrmf",
+      "ticker": "ARPI",
+      "fiscalYear": 2021,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubuc4m001fbxmouyc1oxl0",
+      "ticker": "ARPI",
+      "fiscalYear": 2021,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubuc5j001pbxmozcfjxc5j",
+      "ticker": "ARPI",
+      "fiscalYear": 2022,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubuc6j001zbxmodr4i1zu9",
+      "ticker": "ARPI",
+      "fiscalYear": 2022,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubuc7d0029bxmov6p5ve2m",
+      "ticker": "ARPI",
+      "fiscalYear": 2022,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubuc8b002jbxmo4smj29wy",
+      "ticker": "ARPI",
+      "fiscalYear": 2023,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubuc9a002tbxmoobyv6rig",
+      "ticker": "ARPI",
+      "fiscalYear": 2023,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubuca90033bxmohm17tuy4",
+      "ticker": "ARPI",
+      "fiscalYear": 2023,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubucbh003dbxmowwinmqht",
+      "ticker": "DCCC",
+      "fiscalYear": 2015,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubuccd003nbxmo4dbgnvzf",
+      "ticker": "DCCC",
+      "fiscalYear": 2016,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubucd6003xbxmolujzmoec",
+      "ticker": "DCCC",
+      "fiscalYear": 2018,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubucdv0047bxmoqmtoirrz",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubucez004lbxmobmn7e4cg",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubucgi0053bxmo1ruvx2x5",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubuci1005lbxmo0dci8r5a",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubucjn0063bxmo8sgvcjk9",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubucl4006nbxmonwbhrs52",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubucmn0077bxmoah7pyro1",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubucok007rbxmozr4tgs0k",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubucqb008bbxmo33y5xh4d",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubucrp008tbxmohuwgc768",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubuct7009bbxmonvu68rtb",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubucu4009pbxmott4r0agh",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubucva00a7bxmodcwer06o",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubucwe00apbxmoveqyw8j4",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubucy200b5bxmoa37g6uii",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubuczh00bnbxmoocvswry5",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubud0v00c5bxmoil1cvdh2",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubud2f00clbxmoy2jt2rot",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubud3p00czbxmocq6p79qw",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubud5000dfbxmobxzx6wbf",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubud6600dvbxmoc32blaz1",
+      "ticker": "GETO",
+      "fiscalYear": 2017,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubud6w00e5bxmouf79q7j8",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubud7z00ejbxmog7t9vpx5",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubud9700exbxmo3ci3wafw",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubud9p00f3bxmorsk9g7e4",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubudau00fhbxmob7qg9t0k",
+      "ticker": "GETO",
+      "fiscalYear": 2020,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubudc300frbxmof2jz0sle",
+      "ticker": "GETO",
+      "fiscalYear": 2020,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubudcw00g1bxmoy660qsiu",
+      "ticker": "GETO",
+      "fiscalYear": 2020,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubuddm00gbbxmo8wrpkx9h",
+      "ticker": "GETO",
+      "fiscalYear": 2021,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubudec00glbxmosmlle0pv",
+      "ticker": "GETO",
+      "fiscalYear": 2021,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubudf300gvbxmondwax9o8",
+      "ticker": "GETO",
+      "fiscalYear": 2021,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubudfw00h5bxmozeh8n2f6",
+      "ticker": "MISR",
+      "fiscalYear": 2020,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubudgy00hdbxmolf0dlmca",
+      "ticker": "MISR",
+      "fiscalYear": 2021,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubudhu00hnbxmotgcc12u4",
+      "ticker": "MISR",
+      "fiscalYear": 2022,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubudim00hxbxmo0qopg20j",
+      "ticker": "MISR",
+      "fiscalYear": 2022,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubudix00i1bxmoddf5ku0c",
+      "ticker": "MISR",
+      "fiscalYear": 2022,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubudjy00ibbxmov2v6n3ir",
+      "ticker": "MISR",
+      "fiscalYear": 2022,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubudkq00ilbxmor25rs65f",
+      "ticker": "MISR",
+      "fiscalYear": 2023,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubudlv00ivbxmowto8j04l",
+      "ticker": "MISR",
+      "fiscalYear": 2023,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubudmh00j3bxmoen84h05k",
+      "ticker": "MISR",
+      "fiscalYear": 2023,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubudnd00jdbxmollh8kcwp",
+      "ticker": "MISR",
+      "fiscalYear": 2024,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubudoc00jpbxmoes1nk392",
+      "ticker": "MISR",
+      "fiscalYear": 2024,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubudop00jtbxmo850dwj7w",
+      "ticker": "MISR",
+      "fiscalYear": 2024,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubudq500k3bxmofccqz5s7",
+      "ticker": "MISR",
+      "fiscalYear": 2024,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubudrt00kdbxmo1l18whb2",
+      "ticker": "MKIT",
+      "fiscalYear": 2020,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubudst00knbxmof16uwgq2",
+      "ticker": "MKIT",
+      "fiscalYear": 2021,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubudto00kxbxmo4oebe11u",
+      "ticker": "MKIT",
+      "fiscalYear": 2021,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubudum00l7bxmodjgvm45f",
+      "ticker": "MKIT",
+      "fiscalYear": 2021,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubudvf00lhbxmorwgxi582",
+      "ticker": "MKIT",
+      "fiscalYear": 2022,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubudw900lrbxmoqyucxc2m",
+      "ticker": "MKIT",
+      "fiscalYear": 2022,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubudx300m1bxmo4zfavxcb",
+      "ticker": "MKIT",
+      "fiscalYear": 2022,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubudyb00mbbxmo0u2aw8no",
+      "ticker": "MKIT",
+      "fiscalYear": 2023,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubudzd00mlbxmor1snx4n6",
+      "ticker": "MKIT",
+      "fiscalYear": 2023,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubue0b00mvbxmov7zo9qv0",
+      "ticker": "MKIT",
+      "fiscalYear": 2023,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubue1600n5bxmoq9wgvraw",
+      "ticker": "MKIT",
+      "fiscalYear": 2024,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubue1v00nfbxmoqyc9eq3j",
+      "ticker": "MKIT",
+      "fiscalYear": 2024,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubue2o00npbxmow5v8ndob",
+      "ticker": "MKIT",
+      "fiscalYear": 2024,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubue3h00nzbxmozdtc2l1m",
+      "ticker": "POCO",
+      "fiscalYear": 2014,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubue4c00o9bxmoxh4chkyq",
+      "ticker": "POCO",
+      "fiscalYear": 2015,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubue5700ojbxmov1n3ddz1",
+      "ticker": "POCO",
+      "fiscalYear": 2016,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubue6e00otbxmoxoovp8nz",
+      "ticker": "POCO",
+      "fiscalYear": 2017,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubue7800p3bxmooye9xl6c",
+      "ticker": "POCO",
+      "fiscalYear": 2018,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubue8100pdbxmopcolj4x4",
+      "ticker": "PTCC",
+      "fiscalYear": 2018,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubue8r00pnbxmoq8ue6opu",
+      "ticker": "PTCC",
+      "fiscalYear": 2019,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubue9h00pxbxmoqxngztyo",
+      "ticker": "PTCC",
+      "fiscalYear": 2019,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubuea700q7bxmox1khmzwn",
+      "ticker": "PTCC",
+      "fiscalYear": 2019,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubueb800qhbxmoc1ji80f1",
+      "ticker": "PTCC",
+      "fiscalYear": 2020,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubuec100qrbxmo34ufsfjz",
+      "ticker": "PTCC",
+      "fiscalYear": 2020,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubueci00qxbxmo1bsqzxbn",
+      "ticker": "PTCC",
+      "fiscalYear": 2020,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubued600r7bxmo6nib7t4u",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubuee100rjbxmounw9df50",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubueef00rnbxmo2wpmko8a",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubuefj00rzbxmouqtv37f3",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubuegg00sbbxmovjoten6u",
+      "ticker": "PTCC",
+      "fiscalYear": 2022,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubueh800slbxmoa0rgk0fy",
+      "ticker": "PTCC",
+      "fiscalYear": 2022,
+      "quarter": "Q3"
+    },
+    {
+      "id": "cmvubuei200svbxmoo7eiwls7",
+      "ticker": "PTCC",
+      "fiscalYear": 2022,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubueiy00t5bxmodxut5502",
+      "ticker": "SUCE",
+      "fiscalYear": 2015,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubuejo00tfbxmopkrjhat8",
+      "ticker": "SUCE",
+      "fiscalYear": 2016,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubuekf00tpbxmoxu8sre3t",
+      "ticker": "SUCE",
+      "fiscalYear": 2016,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubuel700tzbxmon6age0vg",
+      "ticker": "SUCE",
+      "fiscalYear": 2016,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubuem200u9bxmociqftyh3",
+      "ticker": "SUCE",
+      "fiscalYear": 2017,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubuems00ujbxmok0lpgpdu",
+      "ticker": "SUCE",
+      "fiscalYear": 2017,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubuenf00utbxmoinvw09vy",
+      "ticker": "SUCE",
+      "fiscalYear": 2017,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubueo600v3bxmo8odgsnyc",
+      "ticker": "SUCE",
+      "fiscalYear": 2018,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubueov00vdbxmo0s72m42y",
+      "ticker": "SUCE",
+      "fiscalYear": 2018,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubuepq00vnbxmowz3wws42",
+      "ticker": "SUCE",
+      "fiscalYear": 2018,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubueqh00vxbxmoy2r8wci6",
+      "ticker": "SUCE",
+      "fiscalYear": 2019,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubuer800w7bxmopxda6s45",
+      "ticker": "SUCE",
+      "fiscalYear": 2019,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubues000whbxmo2lt2xtga",
+      "ticker": "SUCE",
+      "fiscalYear": 2019,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubuet800wrbxmorbcla1nb",
+      "ticker": "TRST",
+      "fiscalYear": 2018,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubueu400x1bxmon2msz2cw",
+      "ticker": "TRST",
+      "fiscalYear": 2019,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubueuz00xbbxmoww7w74tq",
+      "ticker": "TRST",
+      "fiscalYear": 2019,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubuevk00xjbxmoknpt738f",
+      "ticker": "TRST",
+      "fiscalYear": 2019,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubuewa00xtbxmomjfts1n6",
+      "ticker": "TRST",
+      "fiscalYear": 2020,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubuewz00y3bxmoolnjnkyi",
+      "ticker": "TRST",
+      "fiscalYear": 2020,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubuexw00ydbxmo12qts8be",
+      "ticker": "TRST",
+      "fiscalYear": 2021,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubueyo00ynbxmoem4cu0oq",
+      "ticker": "TRST",
+      "fiscalYear": 2021,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubuezf00yxbxmok0hnxsjs",
+      "ticker": "TRST",
+      "fiscalYear": 2021,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubuf0300z7bxmois96er62",
+      "ticker": "TRST",
+      "fiscalYear": 2022,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubuf0t00zhbxmo36mebnc5",
+      "ticker": "TRST",
+      "fiscalYear": 2022,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubuf1n00zrbxmoq56id0nv",
+      "ticker": "TRST",
+      "fiscalYear": 2022,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubuf2b0101bxmog404gl0j",
+      "ticker": "WATP",
+      "fiscalYear": 2015,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubuf30010bbxmod9jq347h",
+      "ticker": "WATP",
+      "fiscalYear": 2015,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubuf3q010lbxmo2l3erm92",
+      "ticker": "WATP",
+      "fiscalYear": 2015,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubuf4d010vbxmo5ttz2aho",
+      "ticker": "WATP",
+      "fiscalYear": 2016,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubuf5d0115bxmo0n7ornrl",
+      "ticker": "WATP",
+      "fiscalYear": 2016,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubuf6u011fbxmogw5uha7k",
+      "ticker": "WATP",
+      "fiscalYear": 2016,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubuf7j011pbxmo6omaq1xt",
+      "ticker": "WATP",
+      "fiscalYear": 2017,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubuf86011zbxmo5yquotvz",
+      "ticker": "WATP",
+      "fiscalYear": 2017,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubuf8y0129bxmoph9nedp4",
+      "ticker": "WATP",
+      "fiscalYear": 2017,
+      "quarter": "Q4"
+    },
+    {
+      "id": "cmvubuf9y012jbxmozyf23qho",
+      "ticker": "WATP",
+      "fiscalYear": 2018,
+      "quarter": "Q1"
+    },
+    {
+      "id": "cmvubufap012tbxmozeyvcu8c",
+      "ticker": "WATP",
+      "fiscalYear": 2018,
+      "quarter": "Q2"
+    },
+    {
+      "id": "cmvubufb6012zbxmocpaf8e2s",
+      "ticker": "WATP",
+      "fiscalYear": 2018,
+      "quarter": "Q4"
+    }
+  ],
+  "values": [
+    {
+      "id": "cmvubuc020003bxmocchnt3x3",
+      "ticker": "ARPI",
+      "fiscalYear": 2020,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 27125163
+    },
+    {
+      "id": "cmvubuc080005bxmopdl50y26",
+      "ticker": "ARPI",
+      "fiscalYear": 2020,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 272109
+    },
+    {
+      "id": "cmvubuc0d0007bxmog56kbciw",
+      "ticker": "ARPI",
+      "fiscalYear": 2020,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 26853054
+    },
+    {
+      "id": "cmvubuc0i0009bxmo8wi529l8",
+      "ticker": "ARPI",
+      "fiscalYear": 2020,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 27125163
+    },
+    {
+      "id": "cmvubuc0u000dbxmo55nypzgf",
+      "ticker": "ARPI",
+      "fiscalYear": 2020,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 26819459
+    },
+    {
+      "id": "cmvubuc10000fbxmokrz0guws",
+      "ticker": "ARPI",
+      "fiscalYear": 2020,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 273302
+    },
+    {
+      "id": "cmvubuc16000hbxmoxr458dcc",
+      "ticker": "ARPI",
+      "fiscalYear": 2020,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 26546157
+    },
+    {
+      "id": "cmvubuc1e000jbxmowfo17wtv",
+      "ticker": "ARPI",
+      "fiscalYear": 2020,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 26819459
+    },
+    {
+      "id": "cmvubuc1x000nbxmo2p68o87k",
+      "ticker": "ARPI",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 27693416
+    },
+    {
+      "id": "cmvubuc24000pbxmomeju7e1o",
+      "ticker": "ARPI",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 442587
+    },
+    {
+      "id": "cmvubuc29000rbxmogrgki4en",
+      "ticker": "ARPI",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 27250829
+    },
+    {
+      "id": "cmvubuc2f000tbxmout64olp5",
+      "ticker": "ARPI",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 27693416
+    },
+    {
+      "id": "cmvubuc2u000xbxmogxbl0i7z",
+      "ticker": "ARPI",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 26808294
+    },
+    {
+      "id": "cmvubuc2z000zbxmo6trcb26s",
+      "ticker": "ARPI",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 7473401
+    },
+    {
+      "id": "cmvubuc350011bxmo7dpwulca",
+      "ticker": "ARPI",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 19334893
+    },
+    {
+      "id": "cmvubuc3c0013bxmodc43cahh",
+      "ticker": "ARPI",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 26808294
+    },
+    {
+      "id": "cmvubuc3u0017bxmomz2zt55l",
+      "ticker": "ARPI",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 28338235
+    },
+    {
+      "id": "cmvubuc410019bxmok8coz0so",
+      "ticker": "ARPI",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 7417661
+    },
+    {
+      "id": "cmvubuc48001bbxmomuyrsbqe",
+      "ticker": "ARPI",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 20920574
+    },
+    {
+      "id": "cmvubuc4e001dbxmo6qfpqq7o",
+      "ticker": "ARPI",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 28338235
+    },
+    {
+      "id": "cmvubuc4t001hbxmommc80n09",
+      "ticker": "ARPI",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 26185237
+    },
+    {
+      "id": "cmvubuc4z001jbxmo3m55kmx9",
+      "ticker": "ARPI",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 5639475
+    },
+    {
+      "id": "cmvubuc54001lbxmom6c3fonr",
+      "ticker": "ARPI",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 20545762
+    },
+    {
+      "id": "cmvubuc5a001nbxmozagxjvpp",
+      "ticker": "ARPI",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 26185237
+    },
+    {
+      "id": "cmvubuc5o001rbxmohpy9kpez",
+      "ticker": "ARPI",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 24474347
+    },
+    {
+      "id": "cmvubuc5v001tbxmo0wuequsc",
+      "ticker": "ARPI",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 4339169
+    },
+    {
+      "id": "cmvubuc62001vbxmo380y21j2",
+      "ticker": "ARPI",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 20135178
+    },
+    {
+      "id": "cmvubuc6a001xbxmozwrsliys",
+      "ticker": "ARPI",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 24474347
+    },
+    {
+      "id": "cmvubuc6o0021bxmo7ojrbbgs",
+      "ticker": "ARPI",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 17462494
+    },
+    {
+      "id": "cmvubuc6t0023bxmo8980hgal",
+      "ticker": "ARPI",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 676540
+    },
+    {
+      "id": "cmvubuc6z0025bxmouss7b0dq",
+      "ticker": "ARPI",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 16785954
+    },
+    {
+      "id": "cmvubuc740027bxmocp7v3zc4",
+      "ticker": "ARPI",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 17462494
+    },
+    {
+      "id": "cmvubuc7j002bbxmo1y9ggokp",
+      "ticker": "ARPI",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 17184072
+    },
+    {
+      "id": "cmvubuc7p002dbxmou9ghj1a1",
+      "ticker": "ARPI",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 771491
+    },
+    {
+      "id": "cmvubuc7v002fbxmoarvkzymn",
+      "ticker": "ARPI",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 16412581
+    },
+    {
+      "id": "cmvubuc82002hbxmo55wdlrkq",
+      "ticker": "ARPI",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 17184072
+    },
+    {
+      "id": "cmvubuc8h002lbxmo5s81b58g",
+      "ticker": "ARPI",
+      "fiscalYear": 2023,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 13872889
+    },
+    {
+      "id": "cmvubuc8o002nbxmowbnhuuvi",
+      "ticker": "ARPI",
+      "fiscalYear": 2023,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 794958
+    },
+    {
+      "id": "cmvubuc8t002pbxmoeey9nzzf",
+      "ticker": "ARPI",
+      "fiscalYear": 2023,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 13077931
+    },
+    {
+      "id": "cmvubuc8z002rbxmoisd86rkl",
+      "ticker": "ARPI",
+      "fiscalYear": 2023,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 13872889
+    },
+    {
+      "id": "cmvubuc9h002vbxmo5cy5ni2e",
+      "ticker": "ARPI",
+      "fiscalYear": 2023,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 14420468
+    },
+    {
+      "id": "cmvubuc9p002xbxmo53eubm4x",
+      "ticker": "ARPI",
+      "fiscalYear": 2023,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 742184
+    },
+    {
+      "id": "cmvubuc9v002zbxmoxs8lo2gw",
+      "ticker": "ARPI",
+      "fiscalYear": 2023,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 13678284
+    },
+    {
+      "id": "cmvubuca10031bxmopfm3rgtz",
+      "ticker": "ARPI",
+      "fiscalYear": 2023,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 14420468
+    },
+    {
+      "id": "cmvubucaf0035bxmo55cu1jd6",
+      "ticker": "ARPI",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 14567006
+    },
+    {
+      "id": "cmvubucam0037bxmo21uq4tnz",
+      "ticker": "ARPI",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 774945
+    },
+    {
+      "id": "cmvubucav0039bxmoajjm2d7c",
+      "ticker": "ARPI",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 13792061
+    },
+    {
+      "id": "cmvubucb5003bbxmoc65pub7v",
+      "ticker": "ARPI",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 14567006
+    },
+    {
+      "id": "cmvubucbn003fbxmoz8hj0u5q",
+      "ticker": "DCCC",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 1130899
+    },
+    {
+      "id": "cmvubucbt003hbxmocwljm68t",
+      "ticker": "DCCC",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 270452
+    },
+    {
+      "id": "cmvubucc0003jbxmonm6yxlgn",
+      "ticker": "DCCC",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 860447
+    },
+    {
+      "id": "cmvubucc6003lbxmofhu04dhr",
+      "ticker": "DCCC",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1130899
+    },
+    {
+      "id": "cmvubuccj003pbxmoy31f9vpw",
+      "ticker": "DCCC",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 1496325
+    },
+    {
+      "id": "cmvubucco003rbxmomafrbctz",
+      "ticker": "DCCC",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 483167
+    },
+    {
+      "id": "cmvubuccu003tbxmomy1pjc9v",
+      "ticker": "DCCC",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 1013158
+    },
+    {
+      "id": "cmvubuccz003vbxmol8at27ud",
+      "ticker": "DCCC",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1496325
+    },
+    {
+      "id": "cmvubucda003zbxmon8sdo2xo",
+      "ticker": "DCCC",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 3063048
+    },
+    {
+      "id": "cmvubucdf0041bxmomy6f5cp8",
+      "ticker": "DCCC",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1945124
+    },
+    {
+      "id": "cmvubucdj0043bxmofg93ih29",
+      "ticker": "DCCC",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 1117924
+    },
+    {
+      "id": "cmvubucdn0045bxmoogo23boh",
+      "ticker": "DCCC",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 3063048
+    },
+    {
+      "id": "cmvubuce00049bxmot7gif181",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q1",
+      "metric": "NET_PROFIT",
+      "value": 126717
+    },
+    {
+      "id": "cmvubuce7004bbxmoa5zne134",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 605034
+    },
+    {
+      "id": "cmvubucec004dbxmo6mdcgxpx",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 9759289
+    },
+    {
+      "id": "cmvubuceh004fbxmokup81qb2",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q1",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 69221
+    },
+    {
+      "id": "cmvubucem004hbxmo20ftgl35",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q1",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -27285
+    },
+    {
+      "id": "cmvubucer004jbxmopmu08iw3",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q1",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 41936
+    },
+    {
+      "id": "cmvubucf7004nbxmozsk4ok28",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q2",
+      "metric": "NET_PROFIT",
+      "value": 94282
+    },
+    {
+      "id": "cmvubucfe004pbxmoj0btciu6",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 10102967
+    },
+    {
+      "id": "cmvubucfj004rbxmocdvgxne5",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 499215
+    },
+    {
+      "id": "cmvubucfp004tbxmod70k6z2i",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 9603752
+    },
+    {
+      "id": "cmvubucfu004vbxmolywxj9wu",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 10102967
+    },
+    {
+      "id": "cmvubucg0004xbxmogg2fstsz",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q2",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 105724
+    },
+    {
+      "id": "cmvubucg6004zbxmok9g5itlv",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q2",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -4398
+    },
+    {
+      "id": "cmvubucgb0051bxmolqq0evuo",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q2",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -219054
+    },
+    {
+      "id": "cmvubucgo0055bxmocbvhy2fv",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q3",
+      "metric": "NET_PROFIT",
+      "value": 183817
+    },
+    {
+      "id": "cmvubucgv0057bxmoopmefpnf",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 10248408
+    },
+    {
+      "id": "cmvubuch10059bxmoc57c2836",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 460840
+    },
+    {
+      "id": "cmvubuch7005bbxmosf9pnonz",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 9787568
+    },
+    {
+      "id": "cmvubuchc005dbxmob6xcou07",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 10248408
+    },
+    {
+      "id": "cmvubuchj005fbxmo7en1aam6",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q3",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 335830
+    },
+    {
+      "id": "cmvubuchq005hbxmokw19zdyf",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q3",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -239391
+    },
+    {
+      "id": "cmvubuchw005jbxmonyf0gt7w",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q3",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 96438
+    },
+    {
+      "id": "cmvubuci7005nbxmo8ng39iuz",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 290444
+    },
+    {
+      "id": "cmvubucib005pbxmoygkwzegy",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 10324482
+    },
+    {
+      "id": "cmvubucig005rbxmo9wizz045",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 651286
+    },
+    {
+      "id": "cmvubucil005tbxmoumk3h0gr",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 9673196
+    },
+    {
+      "id": "cmvubuciu005vbxmocpmhkcys",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 10324482
+    },
+    {
+      "id": "cmvubucj3005xbxmofedxi860",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 680005
+    },
+    {
+      "id": "cmvubucj8005zbxmognjzbb1e",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -213824
+    },
+    {
+      "id": "cmvubucje0061bxmo509o3u4m",
+      "ticker": "DIFC",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 350395
+    },
+    {
+      "id": "cmvubucjv0065bxmo25og11h0",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "metric": "NET_PROFIT",
+      "value": 119248
+    },
+    {
+      "id": "cmvubuck00067bxmo8j6pbnqb",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 10377769
+    },
+    {
+      "id": "cmvubuck50069bxmomd43v7ip",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 612916
+    },
+    {
+      "id": "cmvubucka006bbxmo4brv6v0r",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 9764853
+    },
+    {
+      "id": "cmvubuckf006dbxmou4lc5lhi",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 10377769
+    },
+    {
+      "id": "cmvubuckk006fbxmoron0tw5e",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 250102
+    },
+    {
+      "id": "cmvubucko006hbxmo3y19580v",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -24781
+    },
+    {
+      "id": "cmvubuckt006jbxmozv1qjdqt",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -27592
+    },
+    {
+      "id": "cmvubucky006lbxmox64fj092",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 197729
+    },
+    {
+      "id": "cmvubucl9006pbxmo018pa755",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "metric": "NET_PROFIT",
+      "value": 107713
+    },
+    {
+      "id": "cmvubuclg006rbxmoxsvjnog1",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 10553875
+    },
+    {
+      "id": "cmvubuclm006tbxmo93s354j5",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 681310
+    },
+    {
+      "id": "cmvubuclr006vbxmoarpht7m9",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 9872565
+    },
+    {
+      "id": "cmvubuclw006xbxmofaatrc3z",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 10553875
+    },
+    {
+      "id": "cmvubucm1006zbxmod8olr2ow",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 309065
+    },
+    {
+      "id": "cmvubucm50071bxmoyifp0wtm",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -203021
+    },
+    {
+      "id": "cmvubucmb0073bxmosa1xazu3",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 0
+    },
+    {
+      "id": "cmvubucmh0075bxmov90pnsei",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 106044
+    },
+    {
+      "id": "cmvubucmr0079bxmohwgbxxff",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q3",
+      "metric": "NET_PROFIT",
+      "value": -154128
+    },
+    {
+      "id": "cmvubucmw007bbxmohgkrg397",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 10397510
+    },
+    {
+      "id": "cmvubucn2007dbxmo24tqzrzd",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 679072
+    },
+    {
+      "id": "cmvubucn9007fbxmois01yq9q",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 9718438
+    },
+    {
+      "id": "cmvubucnf007hbxmoxc6le0r0",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 10397510
+    },
+    {
+      "id": "cmvubucno007jbxmo5mvw25t5",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q3",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 36336
+    },
+    {
+      "id": "cmvubuco0007lbxmonv9ncop1",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q3",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 0
+    },
+    {
+      "id": "cmvubuco6007nbxmok3nenmru",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q3",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -3
+    },
+    {
+      "id": "cmvubucod007pbxmokwzsws2i",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q3",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 36333
+    },
+    {
+      "id": "cmvubucop007tbxmo7uvf0s9f",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 57153
+    },
+    {
+      "id": "cmvubucou007vbxmolzdeiypy",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 9039868
+    },
+    {
+      "id": "cmvubucoz007xbxmokajqqtpt",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 783289
+    },
+    {
+      "id": "cmvubucp5007zbxmozh900zoz",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 8256579
+    },
+    {
+      "id": "cmvubucpe0081bxmojrgavtrx",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 9039868
+    },
+    {
+      "id": "cmvubucpk0083bxmol6oz85x5",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 863261
+    },
+    {
+      "id": "cmvubucpp0085bxmokhzcnvem",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -227802
+    },
+    {
+      "id": "cmvubucpv0087bxmofkug3d8u",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -1473771
+    },
+    {
+      "id": "cmvubucq20089bxmoy6i0ifhq",
+      "ticker": "DIFC",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -838312
+    },
+    {
+      "id": "cmvubucqg008dbxmowjer8far",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "metric": "NET_PROFIT",
+      "value": -64785
+    },
+    {
+      "id": "cmvubucql008fbxmobqlt30yl",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 8981057
+    },
+    {
+      "id": "cmvubucqr008hbxmo2b0b9qzt",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 789261
+    },
+    {
+      "id": "cmvubucqw008jbxmo3vzl8vv6",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 8191796
+    },
+    {
+      "id": "cmvubucr3008lbxmogvwj5ici",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 8981057
+    },
+    {
+      "id": "cmvubucr9008nbxmodr1f4j30",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -77657
+    },
+    {
+      "id": "cmvubucre008pbxmoshuvvjxc",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -1250
+    },
+    {
+      "id": "cmvubucri008rbxmoy4eevyu2",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -78907
+    },
+    {
+      "id": "cmvubucrt008vbxmoipwyew2u",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "metric": "NET_PROFIT",
+      "value": 32867
+    },
+    {
+      "id": "cmvubucs2008xbxmok6cfw1lq",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 9009770
+    },
+    {
+      "id": "cmvubucsa008zbxmo31ehwer8",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 785107
+    },
+    {
+      "id": "cmvubucsg0091bxmov17sfra8",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 8224663
+    },
+    {
+      "id": "cmvubucsl0093bxmook5b9k1f",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 9009770
+    },
+    {
+      "id": "cmvubucsq0095bxmog4zti5ex",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -81121
+    },
+    {
+      "id": "cmvubucsw0097bxmo40t1gozh",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 0
+    },
+    {
+      "id": "cmvubuct10099bxmo49k0e64d",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -81121
+    },
+    {
+      "id": "cmvubuctc009dbxmolo71jcg1",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q3",
+      "metric": "NET_PROFIT",
+      "value": 249320
+    },
+    {
+      "id": "cmvubucth009fbxmoxh6n23dm",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 907500
+    },
+    {
+      "id": "cmvubuctl009hbxmodg52u3di",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 8473981
+    },
+    {
+      "id": "cmvubuctq009jbxmoz4ysas25",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q3",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 530605
+    },
+    {
+      "id": "cmvubuctv009lbxmofp9hvdkm",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q3",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 0
+    },
+    {
+      "id": "cmvubuctz009nbxmoncx4g4gy",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q3",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 530605
+    },
+    {
+      "id": "cmvubucu8009rbxmou7m3op4o",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 151149
+    },
+    {
+      "id": "cmvubucuc009tbxmor5gzwzzc",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 9399249
+    },
+    {
+      "id": "cmvubucui009vbxmoihfzjjxu",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 991521
+    },
+    {
+      "id": "cmvubucum009xbxmof8oe5rlw",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 8407728
+    },
+    {
+      "id": "cmvubucur009zbxmoom5sinmo",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 9399249
+    },
+    {
+      "id": "cmvubucuw00a1bxmo8a2y4039",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 814817
+    },
+    {
+      "id": "cmvubucv100a3bxmohz88g6bl",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -17389
+    },
+    {
+      "id": "cmvubucv600a5bxmolx2x8sqk",
+      "ticker": "DIFC",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 797429
+    },
+    {
+      "id": "cmvubucve00a9bxmo2l31r3m5",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "NET_PROFIT",
+      "value": -319861
+    },
+    {
+      "id": "cmvubucvi00abbxmo4duvp7sa",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 8983987
+    },
+    {
+      "id": "cmvubucvm00adbxmoub2724ac",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 809365
+    },
+    {
+      "id": "cmvubucvr00afbxmo1llp1mkt",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 8174622
+    },
+    {
+      "id": "cmvubucvw00ahbxmonqx5wgvd",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 8983987
+    },
+    {
+      "id": "cmvubucvz00ajbxmonjfv7cx7",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -1116735
+    },
+    {
+      "id": "cmvubucw400albxmoz6tk26vt",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -94008
+    },
+    {
+      "id": "cmvubucw800anbxmoh0cd8iw0",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 86754
+    },
+    {
+      "id": "cmvubucwn00arbxmonux5jw1n",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "NET_PROFIT",
+      "value": -163692
+    },
+    {
+      "id": "cmvubucwx00atbxmo01l4hicr",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 8728955
+    },
+    {
+      "id": "cmvubucx500avbxmoxxjyscmo",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 834941
+    },
+    {
+      "id": "cmvubucxd00axbxmof2s67xi1",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 8728955
+    },
+    {
+      "id": "cmvubucxk00azbxmofscpzcht",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 568610
+    },
+    {
+      "id": "cmvubucxq00b1bxmobohnkfir",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -584859
+    },
+    {
+      "id": "cmvubucxv00b3bxmoz01zjigb",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -116916
+    },
+    {
+      "id": "cmvubucy700b7bxmons1m4w22",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q3",
+      "metric": "NET_PROFIT",
+      "value": 134205
+    },
+    {
+      "id": "cmvubucyc00b9bxmoafieszvq",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 8784729
+    },
+    {
+      "id": "cmvubucyi00bbbxmorfoq3c94",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 756510
+    },
+    {
+      "id": "cmvubucyo00bdbxmo8jq4e3bi",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 8028219
+    },
+    {
+      "id": "cmvubucyu00bfbxmo3ant9yc4",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 8784729
+    },
+    {
+      "id": "cmvubucyy00bhbxmonb73ls59",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q3",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 56923
+    },
+    {
+      "id": "cmvubucz300bjbxmo9mto5455",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q3",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 0
+    },
+    {
+      "id": "cmvubucz900blbxmoab7gpe5s",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q3",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 1
+    },
+    {
+      "id": "cmvubuczn00bpbxmoaq2p1w51",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": -511873
+    },
+    {
+      "id": "cmvubuczt00brbxmozylzzg4i",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 8569206
+    },
+    {
+      "id": "cmvubuczy00btbxmokduluf7l",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 703512
+    },
+    {
+      "id": "cmvubud0200bvbxmo2vn8bhde",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 7865694
+    },
+    {
+      "id": "cmvubud0700bxbxmoflp31xa6",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 8569206
+    },
+    {
+      "id": "cmvubud0d00bzbxmomgwdf36l",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 460513
+    },
+    {
+      "id": "cmvubud0j00c1bxmoxfrwdydv",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -678867
+    },
+    {
+      "id": "cmvubud0n00c3bxmoaxkzk2sr",
+      "ticker": "DIFC",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -30162
+    },
+    {
+      "id": "cmvubud1100c7bxmo2qrccgfn",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 9030421
+    },
+    {
+      "id": "cmvubud1b00c9bxmo160dnpmr",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1125681
+    },
+    {
+      "id": "cmvubud1j00cbbxmojktkz4rc",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 7904740
+    },
+    {
+      "id": "cmvubud1q00cdbxmofwwhjfl3",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 9030421
+    },
+    {
+      "id": "cmvubud1v00cfbxmompsnlyzh",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 16754
+    },
+    {
+      "id": "cmvubud2000chbxmo6v9y2dwl",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -295426
+    },
+    {
+      "id": "cmvubud2800cjbxmocmxe1rzb",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -278672
+    },
+    {
+      "id": "cmvubud2j00cnbxmoozlq1667",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 11511702
+    },
+    {
+      "id": "cmvubud2p00cpbxmol0a12glb",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 3108810
+    },
+    {
+      "id": "cmvubud2w00crbxmorik8d9n6",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 11511702
+    },
+    {
+      "id": "cmvubud3400ctbxmorsbou0ay",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q2",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 2806308
+    },
+    {
+      "id": "cmvubud3c00cvbxmo0y64jp42",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q2",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -7741
+    },
+    {
+      "id": "cmvubud3j00cxbxmon4rswplr",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q2",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 2711063
+    },
+    {
+      "id": "cmvubud3u00d1bxmouon18t12",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 10382894
+    },
+    {
+      "id": "cmvubud3z00d3bxmo3nq3wl8c",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1499642
+    },
+    {
+      "id": "cmvubud4400d5bxmo4kks8yyd",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 8883252
+    },
+    {
+      "id": "cmvubud4a00d7bxmo2fikysmm",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 10382894
+    },
+    {
+      "id": "cmvubud4f00d9bxmoss7e6u67",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q3",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -1840415
+    },
+    {
+      "id": "cmvubud4m00dbbxmotxu08nsa",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q3",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -211062
+    },
+    {
+      "id": "cmvubud4s00ddbxmo8agi8k4y",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q3",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -1963973
+    },
+    {
+      "id": "cmvubud5600dhbxmoks1jb2yc",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 9995568
+    },
+    {
+      "id": "cmvubud5a00djbxmo6qt5oc2s",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1562447
+    },
+    {
+      "id": "cmvubud5f00dlbxmoe6zr3yqr",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 8433121
+    },
+    {
+      "id": "cmvubud5l00dnbxmoud8b9wh6",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 9995568
+    },
+    {
+      "id": "cmvubud5q00dpbxmovlgrud3r",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 1087268
+    },
+    {
+      "id": "cmvubud5v00drbxmos6np5dnv",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -747697
+    },
+    {
+      "id": "cmvubud6100dtbxmog461om8s",
+      "ticker": "DIFC",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 339571
+    },
+    {
+      "id": "cmvubud6b00dxbxmo93xdcfuy",
+      "ticker": "GETO",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 7228262
+    },
+    {
+      "id": "cmvubud6g00dzbxmoy6uf33u8",
+      "ticker": "GETO",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 512032.0000000001
+    },
+    {
+      "id": "cmvubud6k00e1bxmoh6avdqdt",
+      "ticker": "GETO",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 6716230
+    },
+    {
+      "id": "cmvubud6o00e3bxmovliapopi",
+      "ticker": "GETO",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 7228262
+    },
+    {
+      "id": "cmvubud7100e7bxmox677kxwt",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 7300189
+    },
+    {
+      "id": "cmvubud7600e9bxmol8g4rm6u",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 552302
+    },
+    {
+      "id": "cmvubud7c00ebbxmorykpgjzi",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 6747887
+    },
+    {
+      "id": "cmvubud7h00edbxmopkhn84p9",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 7300189
+    },
+    {
+      "id": "cmvubud7l00efbxmojw1c9fl7",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 327867
+    },
+    {
+      "id": "cmvubud7q00ehbxmofofl2u6f",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 327867
+    },
+    {
+      "id": "cmvubud8800elbxmovrhg3ijn",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 7073218
+    },
+    {
+      "id": "cmvubud8f00enbxmo6onqvr3n",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 301594
+    },
+    {
+      "id": "cmvubud8l00epbxmorn97vtyp",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 6771624
+    },
+    {
+      "id": "cmvubud8q00erbxmoueoo03a0",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 7073218
+    },
+    {
+      "id": "cmvubud8w00etbxmof145x98u",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -93479
+    },
+    {
+      "id": "cmvubud9200evbxmox1vetid1",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -93479
+    },
+    {
+      "id": "cmvubud9c00ezbxmo8d8ma7y0",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q3",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -13956
+    },
+    {
+      "id": "cmvubud9h00f1bxmoicb3qdua",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q3",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -526077
+    },
+    {
+      "id": "cmvubud9v00f5bxmogfr8lfy8",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 7339729
+    },
+    {
+      "id": "cmvubuda000f7bxmorqzgk86b",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 332563
+    },
+    {
+      "id": "cmvubuda500f9bxmohwycypch",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 7007166
+    },
+    {
+      "id": "cmvubudaa00fbbxmott9g94iy",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 7339729
+    },
+    {
+      "id": "cmvubudaf00fdbxmorpetder4",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -526077
+    },
+    {
+      "id": "cmvubudam00ffbxmooj0nu2jn",
+      "ticker": "GETO",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -526077
+    },
+    {
+      "id": "cmvubudb300fjbxmombk4485i",
+      "ticker": "GETO",
+      "fiscalYear": 2020,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 7103523
+    },
+    {
+      "id": "cmvubudb800flbxmo2s0127c7",
+      "ticker": "GETO",
+      "fiscalYear": 2020,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 261485
+    },
+    {
+      "id": "cmvubudbe00fnbxmodn4knm5z",
+      "ticker": "GETO",
+      "fiscalYear": 2020,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 6842038
+    },
+    {
+      "id": "cmvubudbo00fpbxmoppx12jos",
+      "ticker": "GETO",
+      "fiscalYear": 2020,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 7103523
+    },
+    {
+      "id": "cmvubudc900ftbxmoq0broktu",
+      "ticker": "GETO",
+      "fiscalYear": 2020,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 6936512
+    },
+    {
+      "id": "cmvubudcf00fvbxmoxskxr9sh",
+      "ticker": "GETO",
+      "fiscalYear": 2020,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 243544
+    },
+    {
+      "id": "cmvubudcl00fxbxmo9m3ky5d4",
+      "ticker": "GETO",
+      "fiscalYear": 2020,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 6692968
+    },
+    {
+      "id": "cmvubudcq00fzbxmostnxpfyn",
+      "ticker": "GETO",
+      "fiscalYear": 2020,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6936512
+    },
+    {
+      "id": "cmvubudd100g3bxmo9k2xjoqz",
+      "ticker": "GETO",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 6724744
+    },
+    {
+      "id": "cmvubudd600g5bxmo2q7epemk",
+      "ticker": "GETO",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 250420
+    },
+    {
+      "id": "cmvubudda00g7bxmog87oesp2",
+      "ticker": "GETO",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 6474324
+    },
+    {
+      "id": "cmvubudde00g9bxmo23j1yfxg",
+      "ticker": "GETO",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6724744
+    },
+    {
+      "id": "cmvubuddr00gdbxmooiuredki",
+      "ticker": "GETO",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 6653543
+    },
+    {
+      "id": "cmvubuddx00gfbxmoesrvd3qy",
+      "ticker": "GETO",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 250420
+    },
+    {
+      "id": "cmvubude100ghbxmopo41anf8",
+      "ticker": "GETO",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 6403123
+    },
+    {
+      "id": "cmvubude600gjbxmol5hqdfv2",
+      "ticker": "GETO",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6653543
+    },
+    {
+      "id": "cmvubudeh00gnbxmodnvymwfr",
+      "ticker": "GETO",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 6582342
+    },
+    {
+      "id": "cmvubudel00gpbxmo0yqiqfr5",
+      "ticker": "GETO",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 250420
+    },
+    {
+      "id": "cmvubudeq00grbxmou5fa6fsc",
+      "ticker": "GETO",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 6331922
+    },
+    {
+      "id": "cmvubudew00gtbxmola849hqi",
+      "ticker": "GETO",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6582342
+    },
+    {
+      "id": "cmvubudf700gxbxmof40vlmn9",
+      "ticker": "GETO",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 6469940
+    },
+    {
+      "id": "cmvubudfe00gzbxmomrtm91zb",
+      "ticker": "GETO",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 413435
+    },
+    {
+      "id": "cmvubudfl00h1bxmotu9fam5z",
+      "ticker": "GETO",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 6056505
+    },
+    {
+      "id": "cmvubudfr00h3bxmo5cq0z9zk",
+      "ticker": "GETO",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6469940
+    },
+    {
+      "id": "cmvubudg200h7bxmoy449jq0s",
+      "ticker": "MISR",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 6973737
+    },
+    {
+      "id": "cmvubudgc00h9bxmo5vam7i1j",
+      "ticker": "MISR",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 6973737
+    },
+    {
+      "id": "cmvubudgq00hbbxmo6ej9rtwu",
+      "ticker": "MISR",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6973737
+    },
+    {
+      "id": "cmvubudh400hfbxmo7jskwiy4",
+      "ticker": "MISR",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 6374642
+    },
+    {
+      "id": "cmvubudhb00hhbxmok90pvnfx",
+      "ticker": "MISR",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 47669
+    },
+    {
+      "id": "cmvubudhh00hjbxmor4zsweqg",
+      "ticker": "MISR",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 6326973
+    },
+    {
+      "id": "cmvubudhn00hlbxmo3dt4z4uy",
+      "ticker": "MISR",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6374642
+    },
+    {
+      "id": "cmvubudhz00hpbxmoshb5aotd",
+      "ticker": "MISR",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "metric": "GROSS_PROFIT",
+      "value": 18892
+    },
+    {
+      "id": "cmvubudi400hrbxmodbyzy23k",
+      "ticker": "MISR",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 6916890
+    },
+    {
+      "id": "cmvubudib00htbxmoi0gx565g",
+      "ticker": "MISR",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 6247203
+    },
+    {
+      "id": "cmvubudig00hvbxmo1tkhkbxw",
+      "ticker": "MISR",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6916890
+    },
+    {
+      "id": "cmvubudiq00hzbxmobsdihi9y",
+      "ticker": "MISR",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "GROSS_PROFIT",
+      "value": 102318
+    },
+    {
+      "id": "cmvubudj300i3bxmo63xmajyh",
+      "ticker": "MISR",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "GROSS_PROFIT",
+      "value": 65374
+    },
+    {
+      "id": "cmvubudj900i5bxmobn5l1t5b",
+      "ticker": "MISR",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 6737202
+    },
+    {
+      "id": "cmvubudjj00i7bxmorg1vec6u",
+      "ticker": "MISR",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 6108692
+    },
+    {
+      "id": "cmvubudjq00i9bxmo59cdy6sa",
+      "ticker": "MISR",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6737202
+    },
+    {
+      "id": "cmvubudk400idbxmox9mvg4dz",
+      "ticker": "MISR",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "GROSS_PROFIT",
+      "value": 68121
+    },
+    {
+      "id": "cmvubudk900ifbxmo68vnoxtg",
+      "ticker": "MISR",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 6282970
+    },
+    {
+      "id": "cmvubudke00ihbxmo79rhrn1m",
+      "ticker": "MISR",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 6282970
+    },
+    {
+      "id": "cmvubudkj00ijbxmo1fb4qlqy",
+      "ticker": "MISR",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6282970
+    },
+    {
+      "id": "cmvubudkx00inbxmosm0fh42e",
+      "ticker": "MISR",
+      "fiscalYear": 2023,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 6479747
+    },
+    {
+      "id": "cmvubudl900ipbxmoou3dw6lw",
+      "ticker": "MISR",
+      "fiscalYear": 2023,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 50111
+    },
+    {
+      "id": "cmvubudli00irbxmomm70i2ag",
+      "ticker": "MISR",
+      "fiscalYear": 2023,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 6429636
+    },
+    {
+      "id": "cmvubudln00itbxmocaev0ro2",
+      "ticker": "MISR",
+      "fiscalYear": 2023,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6479747
+    },
+    {
+      "id": "cmvubudm000ixbxmozxo31ypy",
+      "ticker": "MISR",
+      "fiscalYear": 2023,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 6000655
+    },
+    {
+      "id": "cmvubudm600izbxmok7juu2nm",
+      "ticker": "MISR",
+      "fiscalYear": 2023,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 5993599
+    },
+    {
+      "id": "cmvubudmb00j1bxmo02dlp5d2",
+      "ticker": "MISR",
+      "fiscalYear": 2023,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6000655
+    },
+    {
+      "id": "cmvubudmm00j5bxmoyvpvfmdq",
+      "ticker": "MISR",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 5170298
+    },
+    {
+      "id": "cmvubudmt00j7bxmok13j8v61",
+      "ticker": "MISR",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 7056
+    },
+    {
+      "id": "cmvubudmz00j9bxmo2kk0f3d5",
+      "ticker": "MISR",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 5163242
+    },
+    {
+      "id": "cmvubudn500jbbxmokqn18mj2",
+      "ticker": "MISR",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 5170298
+    },
+    {
+      "id": "cmvubudnj00jfbxmog1hjsi4h",
+      "ticker": "MISR",
+      "fiscalYear": 2024,
+      "quarter": "Q1",
+      "metric": "GROSS_PROFIT",
+      "value": 8481
+    },
+    {
+      "id": "cmvubudno00jhbxmoutq0fmbr",
+      "ticker": "MISR",
+      "fiscalYear": 2024,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 6174615
+    },
+    {
+      "id": "cmvubudnu00jjbxmofyxvq2a2",
+      "ticker": "MISR",
+      "fiscalYear": 2024,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1008027
+    },
+    {
+      "id": "cmvubudo000jlbxmofm1grm5l",
+      "ticker": "MISR",
+      "fiscalYear": 2024,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 5166588
+    },
+    {
+      "id": "cmvubudo600jnbxmobshl8iqt",
+      "ticker": "MISR",
+      "fiscalYear": 2024,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6174615
+    },
+    {
+      "id": "cmvubudoh00jrbxmo5p1pw332",
+      "ticker": "MISR",
+      "fiscalYear": 2024,
+      "quarter": "Q2",
+      "metric": "GROSS_PROFIT",
+      "value": 155597
+    },
+    {
+      "id": "cmvubudow00jvbxmo6udbuzj7",
+      "ticker": "MISR",
+      "fiscalYear": 2024,
+      "quarter": "Q3",
+      "metric": "GROSS_PROFIT",
+      "value": -248083
+    },
+    {
+      "id": "cmvubudp100jxbxmoa2w09hr6",
+      "ticker": "MISR",
+      "fiscalYear": 2024,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 5973552
+    },
+    {
+      "id": "cmvubudp700jzbxmo06sdrf3l",
+      "ticker": "MISR",
+      "fiscalYear": 2024,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 4173552
+    },
+    {
+      "id": "cmvubudpd00k1bxmoy3fzm67r",
+      "ticker": "MISR",
+      "fiscalYear": 2024,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 5973552
+    },
+    {
+      "id": "cmvubudqq00k5bxmow4e3hhsf",
+      "ticker": "MISR",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "metric": "GROSS_PROFIT",
+      "value": 155597
+    },
+    {
+      "id": "cmvubudr300k7bxmojpflvzmr",
+      "ticker": "MISR",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 6011844
+    },
+    {
+      "id": "cmvubudrb00k9bxmovexcvh5n",
+      "ticker": "MISR",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 4211844
+    },
+    {
+      "id": "cmvubudri00kbbxmo6ynqginx",
+      "ticker": "MISR",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6011844
+    },
+    {
+      "id": "cmvubuds000kfbxmodwz99y5w",
+      "ticker": "MKIT",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 20145526
+    },
+    {
+      "id": "cmvubuds700khbxmo008d8nr9",
+      "ticker": "MKIT",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 10645311
+    },
+    {
+      "id": "cmvubudse00kjbxmod5u3268v",
+      "ticker": "MKIT",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 9500215
+    },
+    {
+      "id": "cmvubudsk00klbxmobho1ckv3",
+      "ticker": "MKIT",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 20145526
+    },
+    {
+      "id": "cmvubudsz00kpbxmoidnygrh5",
+      "ticker": "MKIT",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 20151957
+    },
+    {
+      "id": "cmvubudt500krbxmons2boxar",
+      "ticker": "MKIT",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 11286012
+    },
+    {
+      "id": "cmvubudtb00ktbxmorbgfq95e",
+      "ticker": "MKIT",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 8865945
+    },
+    {
+      "id": "cmvubudth00kvbxmo2jlwiczu",
+      "ticker": "MKIT",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 20151957
+    },
+    {
+      "id": "cmvubudtu00kzbxmojbdjsvmy",
+      "ticker": "MKIT",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 19487710
+    },
+    {
+      "id": "cmvubudu100l1bxmo0afacr0w",
+      "ticker": "MKIT",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 13850593
+    },
+    {
+      "id": "cmvubudu800l3bxmogcj674te",
+      "ticker": "MKIT",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 5637117
+    },
+    {
+      "id": "cmvubuduf00l5bxmoeci262yc",
+      "ticker": "MKIT",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 19487710
+    },
+    {
+      "id": "cmvubudur00l9bxmo9y0iujfz",
+      "ticker": "MKIT",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 19012236
+    },
+    {
+      "id": "cmvubudux00lbbxmoeddndtvg",
+      "ticker": "MKIT",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 14473132
+    },
+    {
+      "id": "cmvubudv300ldbxmo1qbam6oh",
+      "ticker": "MKIT",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 4539104
+    },
+    {
+      "id": "cmvubudv800lfbxmoe8qaky7g",
+      "ticker": "MKIT",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 19012236
+    },
+    {
+      "id": "cmvubudvl00ljbxmocyurtg69",
+      "ticker": "MKIT",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 19358282
+    },
+    {
+      "id": "cmvubudvq00llbxmo1c2lbuqj",
+      "ticker": "MKIT",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 15915835
+    },
+    {
+      "id": "cmvubudvv00lnbxmodjq0s2o1",
+      "ticker": "MKIT",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 3442447
+    },
+    {
+      "id": "cmvubudw000lpbxmoge6jieic",
+      "ticker": "MKIT",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 19358282
+    },
+    {
+      "id": "cmvubudwf00ltbxmo7oyx3fjl",
+      "ticker": "MKIT",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 18538827
+    },
+    {
+      "id": "cmvubudwk00lvbxmofdny4uup",
+      "ticker": "MKIT",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 16985544
+    },
+    {
+      "id": "cmvubudwq00lxbxmo0bwqne6o",
+      "ticker": "MKIT",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 1553283
+    },
+    {
+      "id": "cmvubudww00lzbxmo51ioc50t",
+      "ticker": "MKIT",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 18538827
+    },
+    {
+      "id": "cmvubudxa00m3bxmo8v1o0zq3",
+      "ticker": "MKIT",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 17825053
+    },
+    {
+      "id": "cmvubudxh00m5bxmoqx7y6a60",
+      "ticker": "MKIT",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 16486005
+    },
+    {
+      "id": "cmvubudxp00m7bxmo0ccfqumj",
+      "ticker": "MKIT",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 1339048
+    },
+    {
+      "id": "cmvubudxy00m9bxmodlscegy8",
+      "ticker": "MKIT",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 17825053
+    },
+    {
+      "id": "cmvubudyj00mdbxmoon6wwdvp",
+      "ticker": "MKIT",
+      "fiscalYear": 2023,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 17801437
+    },
+    {
+      "id": "cmvubudyq00mfbxmo2onzeimm",
+      "ticker": "MKIT",
+      "fiscalYear": 2023,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 16434639
+    },
+    {
+      "id": "cmvubudyx00mhbxmozictg8u0",
+      "ticker": "MKIT",
+      "fiscalYear": 2023,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 1366798
+    },
+    {
+      "id": "cmvubudz200mjbxmo4djeruym",
+      "ticker": "MKIT",
+      "fiscalYear": 2023,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 17801437
+    },
+    {
+      "id": "cmvubudzk00mnbxmobh954rwo",
+      "ticker": "MKIT",
+      "fiscalYear": 2023,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 16550617
+    },
+    {
+      "id": "cmvubudzq00mpbxmo4k3p1hew",
+      "ticker": "MKIT",
+      "fiscalYear": 2023,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 15055325
+    },
+    {
+      "id": "cmvubudzw00mrbxmo4indgvg3",
+      "ticker": "MKIT",
+      "fiscalYear": 2023,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 1495292
+    },
+    {
+      "id": "cmvubue0300mtbxmokwvsve2p",
+      "ticker": "MKIT",
+      "fiscalYear": 2023,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 16550617
+    },
+    {
+      "id": "cmvubue0i00mxbxmov7afc1ij",
+      "ticker": "MKIT",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 16323007
+    },
+    {
+      "id": "cmvubue0o00mzbxmohoy0mac2",
+      "ticker": "MKIT",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 14791423
+    },
+    {
+      "id": "cmvubue0t00n1bxmo7k7f6krx",
+      "ticker": "MKIT",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 1531584
+    },
+    {
+      "id": "cmvubue0z00n3bxmoy23avuzq",
+      "ticker": "MKIT",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 16323007
+    },
+    {
+      "id": "cmvubue1b00n7bxmok3pwfhaq",
+      "ticker": "MKIT",
+      "fiscalYear": 2024,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 16160172
+    },
+    {
+      "id": "cmvubue1g00n9bxmo1cnua017",
+      "ticker": "MKIT",
+      "fiscalYear": 2024,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 15080381
+    },
+    {
+      "id": "cmvubue1l00nbbxmobkfn12jn",
+      "ticker": "MKIT",
+      "fiscalYear": 2024,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 1079791
+    },
+    {
+      "id": "cmvubue1p00ndbxmo1s0sv58v",
+      "ticker": "MKIT",
+      "fiscalYear": 2024,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 16160172
+    },
+    {
+      "id": "cmvubue2000nhbxmon99ofkm6",
+      "ticker": "MKIT",
+      "fiscalYear": 2024,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 15581720
+    },
+    {
+      "id": "cmvubue2500njbxmoqo7mgyws",
+      "ticker": "MKIT",
+      "fiscalYear": 2024,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 12735108
+    },
+    {
+      "id": "cmvubue2c00nlbxmofztq5k0n",
+      "ticker": "MKIT",
+      "fiscalYear": 2024,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 2846612
+    },
+    {
+      "id": "cmvubue2i00nnbxmo0499qduc",
+      "ticker": "MKIT",
+      "fiscalYear": 2024,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 15581720
+    },
+    {
+      "id": "cmvubue2u00nrbxmo61rjxkf5",
+      "ticker": "MKIT",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 15344292
+    },
+    {
+      "id": "cmvubue3200ntbxmouo0xnr1h",
+      "ticker": "MKIT",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 16419143
+    },
+    {
+      "id": "cmvubue3700nvbxmoc8sowe7a",
+      "ticker": "MKIT",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": -1074851
+    },
+    {
+      "id": "cmvubue3c00nxbxmou9x2x0cf",
+      "ticker": "MKIT",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 15344292
+    },
+    {
+      "id": "cmvubue3n00o1bxmoy83qi9tf",
+      "ticker": "POCO",
+      "fiscalYear": 2014,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 974021.98
+    },
+    {
+      "id": "cmvubue3v00o3bxmoumnyk1fz",
+      "ticker": "POCO",
+      "fiscalYear": 2014,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 252400.545
+    },
+    {
+      "id": "cmvubue4000o5bxmoefgzy66g",
+      "ticker": "POCO",
+      "fiscalYear": 2014,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 721621.435
+    },
+    {
+      "id": "cmvubue4500o7bxmo8ayid072",
+      "ticker": "POCO",
+      "fiscalYear": 2014,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 974021.98
+    },
+    {
+      "id": "cmvubue4i00obbxmoryhlbwew",
+      "ticker": "POCO",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 1146953.745
+    },
+    {
+      "id": "cmvubue4n00odbxmo46z7w4sm",
+      "ticker": "POCO",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 328852.245
+    },
+    {
+      "id": "cmvubue4v00ofbxmokjn0cof1",
+      "ticker": "POCO",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 818101.5
+    },
+    {
+      "id": "cmvubue5000ohbxmoksw2dzbm",
+      "ticker": "POCO",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1146953.745
+    },
+    {
+      "id": "cmvubue5c00olbxmoage5y3jc",
+      "ticker": "POCO",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 1289905.46
+    },
+    {
+      "id": "cmvubue5j00onbxmovy56me6x",
+      "ticker": "POCO",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 372559.344
+    },
+    {
+      "id": "cmvubue5r00opbxmoxo3ox1gp",
+      "ticker": "POCO",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 917346.116
+    },
+    {
+      "id": "cmvubue6800orbxmotiwmsg4g",
+      "ticker": "POCO",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1289905.46
+    },
+    {
+      "id": "cmvubue6k00ovbxmo7db66vcb",
+      "ticker": "POCO",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 1924776.556
+    },
+    {
+      "id": "cmvubue6q00oxbxmod9mih8w8",
+      "ticker": "POCO",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 606373.459
+    },
+    {
+      "id": "cmvubue6w00ozbxmogtwul2x9",
+      "ticker": "POCO",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 1318403.097
+    },
+    {
+      "id": "cmvubue7200p1bxmohw9rt9ti",
+      "ticker": "POCO",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1924776.556
+    },
+    {
+      "id": "cmvubue7e00p5bxmonwfefeul",
+      "ticker": "POCO",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 1656471.675
+    },
+    {
+      "id": "cmvubue7j00p7bxmoh5z4e8p2",
+      "ticker": "POCO",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 649113.784
+    },
+    {
+      "id": "cmvubue7o00p9bxmol1o9ig3p",
+      "ticker": "POCO",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 1007357.891
+    },
+    {
+      "id": "cmvubue7u00pbbxmor2igzubu",
+      "ticker": "POCO",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1656471.675
+    },
+    {
+      "id": "cmvubue8500pfbxmojxxhs2vw",
+      "ticker": "PTCC",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 13506069
+    },
+    {
+      "id": "cmvubue8a00phbxmorr97izg4",
+      "ticker": "PTCC",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1370121
+    },
+    {
+      "id": "cmvubue8f00pjbxmo0ta9s3d0",
+      "ticker": "PTCC",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 12135948
+    },
+    {
+      "id": "cmvubue8l00plbxmo4t59lqd0",
+      "ticker": "PTCC",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 13506069
+    },
+    {
+      "id": "cmvubue8w00ppbxmoolpbx0sx",
+      "ticker": "PTCC",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 13386884
+    },
+    {
+      "id": "cmvubue9200prbxmora9ey436",
+      "ticker": "PTCC",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1209239
+    },
+    {
+      "id": "cmvubue9600ptbxmoq5c68fwu",
+      "ticker": "PTCC",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 12177645
+    },
+    {
+      "id": "cmvubue9b00pvbxmoheyuw56z",
+      "ticker": "PTCC",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 13386884
+    },
+    {
+      "id": "cmvubue9o00pzbxmolexz0nd1",
+      "ticker": "PTCC",
+      "fiscalYear": 2019,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 13717106
+    },
+    {
+      "id": "cmvubue9s00q1bxmol6mj3f9u",
+      "ticker": "PTCC",
+      "fiscalYear": 2019,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1281554
+    },
+    {
+      "id": "cmvubue9w00q3bxmormvlzwsl",
+      "ticker": "PTCC",
+      "fiscalYear": 2019,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 12435552
+    },
+    {
+      "id": "cmvubuea200q5bxmouu809f96",
+      "ticker": "PTCC",
+      "fiscalYear": 2019,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 13717106
+    },
+    {
+      "id": "cmvubueac00q9bxmoztxzabax",
+      "ticker": "PTCC",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 12844437
+    },
+    {
+      "id": "cmvubueaj00qbbxmo9bl5rapm",
+      "ticker": "PTCC",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 524150.9999999999
+    },
+    {
+      "id": "cmvubueav00qdbxmo6ian3c1g",
+      "ticker": "PTCC",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 12320286
+    },
+    {
+      "id": "cmvubueb200qfbxmo62yq7zee",
+      "ticker": "PTCC",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 12844437
+    },
+    {
+      "id": "cmvubuebe00qjbxmocloobtb1",
+      "ticker": "PTCC",
+      "fiscalYear": 2020,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 14725802
+    },
+    {
+      "id": "cmvubuebk00qlbxmoiz2sfiqc",
+      "ticker": "PTCC",
+      "fiscalYear": 2020,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 2330551
+    },
+    {
+      "id": "cmvubuebq00qnbxmoggcmqw0t",
+      "ticker": "PTCC",
+      "fiscalYear": 2020,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 12395251
+    },
+    {
+      "id": "cmvubuebw00qpbxmoiop96cqf",
+      "ticker": "PTCC",
+      "fiscalYear": 2020,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 14725802
+    },
+    {
+      "id": "cmvubuec500qtbxmo39zjeu01",
+      "ticker": "PTCC",
+      "fiscalYear": 2020,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1662259
+    },
+    {
+      "id": "cmvubuecb00qvbxmopkdrksz4",
+      "ticker": "PTCC",
+      "fiscalYear": 2020,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 10957868
+    },
+    {
+      "id": "cmvubuecm00qzbxmog2b3muvv",
+      "ticker": "PTCC",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 12638262
+    },
+    {
+      "id": "cmvubuecr00r1bxmolpwswqax",
+      "ticker": "PTCC",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 2152737
+    },
+    {
+      "id": "cmvubuecv00r3bxmo3hgb3qti",
+      "ticker": "PTCC",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 10485525
+    },
+    {
+      "id": "cmvubued000r5bxmoaclfyv76",
+      "ticker": "PTCC",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 12638262
+    },
+    {
+      "id": "cmvubuedb00r9bxmokqleqw8p",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 8421870
+    },
+    {
+      "id": "cmvubuedg00rbbxmorjxxbwvl",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 2346585
+    },
+    {
+      "id": "cmvubuedl00rdbxmo0eal7gxr",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 6075285
+    },
+    {
+      "id": "cmvubuedq00rfbxmohqx21ksj",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 8421870
+    },
+    {
+      "id": "cmvubuedv00rhbxmo0fgp4sfo",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -206328
+    },
+    {
+      "id": "cmvubuee600rlbxmodw41whbg",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 60913
+    },
+    {
+      "id": "cmvubueel00rpbxmoyllp3lwz",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 8365180
+    },
+    {
+      "id": "cmvubuees00rrbxmo1g1tj66i",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 2507790
+    },
+    {
+      "id": "cmvubueex00rtbxmob15t66fz",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 5857390
+    },
+    {
+      "id": "cmvubuef600rvbxmony5tm56k",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 8365180
+    },
+    {
+      "id": "cmvubuefd00rxbxmorj1nesiw",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -54990
+    },
+    {
+      "id": "cmvubuefo00s1bxmosjlksa92",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 8297468.999999999
+    },
+    {
+      "id": "cmvubueft00s3bxmoqpcgn8ee",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 2396384
+    },
+    {
+      "id": "cmvubuefy00s5bxmo48bo2a21",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 5901085
+    },
+    {
+      "id": "cmvubueg500s7bxmowtevhuwd",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 8297468.999999999
+    },
+    {
+      "id": "cmvubuega00s9bxmozlm5luwu",
+      "ticker": "PTCC",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 60913
+    },
+    {
+      "id": "cmvubuegl00sdbxmoass1zmeq",
+      "ticker": "PTCC",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 8164513
+    },
+    {
+      "id": "cmvubuegq00sfbxmo71m55744",
+      "ticker": "PTCC",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 2409384
+    },
+    {
+      "id": "cmvubuegv00shbxmojq6oytdm",
+      "ticker": "PTCC",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 5755129
+    },
+    {
+      "id": "cmvubueh000sjbxmoyq4z7z8d",
+      "ticker": "PTCC",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 8164513
+    },
+    {
+      "id": "cmvubuehc00snbxmostgta7rc",
+      "ticker": "PTCC",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 7799262
+    },
+    {
+      "id": "cmvubuehi00spbxmoyp0hu7im",
+      "ticker": "PTCC",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 2226507
+    },
+    {
+      "id": "cmvubueho00srbxmott4mq1t9",
+      "ticker": "PTCC",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 5572755
+    },
+    {
+      "id": "cmvubuehv00stbxmoxt3nzk2s",
+      "ticker": "PTCC",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 7799262
+    },
+    {
+      "id": "cmvubuei700sxbxmo1egx50fa",
+      "ticker": "PTCC",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 6261854
+    },
+    {
+      "id": "cmvubueig00szbxmozir3q3w5",
+      "ticker": "PTCC",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 2261507
+    },
+    {
+      "id": "cmvubueim00t1bxmojjrutb3y",
+      "ticker": "PTCC",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 4000347
+    },
+    {
+      "id": "cmvubueis00t3bxmomf1zeh79",
+      "ticker": "PTCC",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6261854
+    },
+    {
+      "id": "cmvubuej300t7bxmowufysq3i",
+      "ticker": "SUCE",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 10022913937
+    },
+    {
+      "id": "cmvubuej800t9bxmo01hgtdff",
+      "ticker": "SUCE",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 2801221365
+    },
+    {
+      "id": "cmvubuejd00tbbxmopsakcvxr",
+      "ticker": "SUCE",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 7221692572
+    },
+    {
+      "id": "cmvubuejh00tdbxmo9siasdxc",
+      "ticker": "SUCE",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 10022913937
+    },
+    {
+      "id": "cmvubuejs00thbxmojd5fim6m",
+      "ticker": "SUCE",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 10178917355
+    },
+    {
+      "id": "cmvubuejx00tjbxmo97irdmy9",
+      "ticker": "SUCE",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 3118659858
+    },
+    {
+      "id": "cmvubuek400tlbxmo9u0sufvg",
+      "ticker": "SUCE",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 7060257497
+    },
+    {
+      "id": "cmvubuek800tnbxmo80693qch",
+      "ticker": "SUCE",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 10178917355
+    },
+    {
+      "id": "cmvubuekk00trbxmogoewuxlk",
+      "ticker": "SUCE",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 10413862658
+    },
+    {
+      "id": "cmvubuekq00ttbxmocaol2xu9",
+      "ticker": "SUCE",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 3309854201
+    },
+    {
+      "id": "cmvubuekv00tvbxmozbz52npn",
+      "ticker": "SUCE",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 7104008457
+    },
+    {
+      "id": "cmvubuel100txbxmobgqi2ji4",
+      "ticker": "SUCE",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 10413862658
+    },
+    {
+      "id": "cmvubuelb00u1bxmof3w84azh",
+      "ticker": "SUCE",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 11247574607
+    },
+    {
+      "id": "cmvubuelg00u3bxmokzp11j4v",
+      "ticker": "SUCE",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 4324830727
+    },
+    {
+      "id": "cmvubuelk00u5bxmojvsfe0um",
+      "ticker": "SUCE",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 6922743880
+    },
+    {
+      "id": "cmvubuels00u7bxmos7dswr1y",
+      "ticker": "SUCE",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 11247574607
+    },
+    {
+      "id": "cmvubuem700ubbxmo3i0gj50s",
+      "ticker": "SUCE",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 11057152923
+    },
+    {
+      "id": "cmvubuemb00udbxmo2f1kgzr0",
+      "ticker": "SUCE",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 4167984822
+    },
+    {
+      "id": "cmvubuemg00ufbxmo377bbfbh",
+      "ticker": "SUCE",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 6889168101
+    },
+    {
+      "id": "cmvubueml00uhbxmocgxik5f1",
+      "ticker": "SUCE",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 11057152923
+    },
+    {
+      "id": "cmvubuemw00ulbxmoruswthvd",
+      "ticker": "SUCE",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 11010748394
+    },
+    {
+      "id": "cmvubuen100unbxmowrhu1ux4",
+      "ticker": "SUCE",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 4198629663
+    },
+    {
+      "id": "cmvubuen500upbxmognh9h59m",
+      "ticker": "SUCE",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 6812118731
+    },
+    {
+      "id": "cmvubuen900urbxmow7gdhcne",
+      "ticker": "SUCE",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 11010748394
+    },
+    {
+      "id": "cmvubuenk00uvbxmovxv8fnsi",
+      "ticker": "SUCE",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 10079764731
+    },
+    {
+      "id": "cmvubuenq00uxbxmo7695b5ye",
+      "ticker": "SUCE",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 4302398921
+    },
+    {
+      "id": "cmvubuenv00uzbxmosohxrpr1",
+      "ticker": "SUCE",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 5777365810
+    },
+    {
+      "id": "cmvubueo000v1bxmotij2yk22",
+      "ticker": "SUCE",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 10079764731
+    },
+    {
+      "id": "cmvubueoa00v5bxmoatmd8fuj",
+      "ticker": "SUCE",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 10486795631
+    },
+    {
+      "id": "cmvubueoe00v7bxmod2e29e4l",
+      "ticker": "SUCE",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 4608894879
+    },
+    {
+      "id": "cmvubueok00v9bxmo10zclh09",
+      "ticker": "SUCE",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 5877900752
+    },
+    {
+      "id": "cmvubueop00vbbxmowsmgooug",
+      "ticker": "SUCE",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 10486795631
+    },
+    {
+      "id": "cmvubueoz00vfbxmohwwtgzjo",
+      "ticker": "SUCE",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 10354948340
+    },
+    {
+      "id": "cmvubuep400vhbxmoz07eqg6h",
+      "ticker": "SUCE",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 4407508688
+    },
+    {
+      "id": "cmvubuepa00vjbxmo9t52fgzr",
+      "ticker": "SUCE",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 5947439652
+    },
+    {
+      "id": "cmvubuepj00vlbxmougrws17y",
+      "ticker": "SUCE",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 10354948340
+    },
+    {
+      "id": "cmvubuepv00vpbxmoiwga1l9g",
+      "ticker": "SUCE",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 10621686483
+    },
+    {
+      "id": "cmvubueq000vrbxmo3t6qbrsz",
+      "ticker": "SUCE",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 4914160209
+    },
+    {
+      "id": "cmvubueq500vtbxmotix1eu8g",
+      "ticker": "SUCE",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 5707526274
+    },
+    {
+      "id": "cmvubueqa00vvbxmoq1fl3uef",
+      "ticker": "SUCE",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 10621686483
+    },
+    {
+      "id": "cmvubueqn00vzbxmo0xvojr14",
+      "ticker": "SUCE",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 8866970103
+    },
+    {
+      "id": "cmvubueqs00w1bxmok3ecox8t",
+      "ticker": "SUCE",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 4412040086
+    },
+    {
+      "id": "cmvubueqx00w3bxmoeephjo6o",
+      "ticker": "SUCE",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 4454930017
+    },
+    {
+      "id": "cmvubuer200w5bxmo8w6yo4ql",
+      "ticker": "SUCE",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 8866970103
+    },
+    {
+      "id": "cmvubuerd00w9bxmo7qfd1b2k",
+      "ticker": "SUCE",
+      "fiscalYear": 2019,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 8683464910
+    },
+    {
+      "id": "cmvubuerj00wbbxmoxvz4wjvc",
+      "ticker": "SUCE",
+      "fiscalYear": 2019,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 5108214446
+    },
+    {
+      "id": "cmvubuero00wdbxmo21airwi9",
+      "ticker": "SUCE",
+      "fiscalYear": 2019,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 3575250464
+    },
+    {
+      "id": "cmvubueru00wfbxmo6js9wuul",
+      "ticker": "SUCE",
+      "fiscalYear": 2019,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 8683464910
+    },
+    {
+      "id": "cmvubues500wjbxmoxr5enet5",
+      "ticker": "SUCE",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 8036923228
+    },
+    {
+      "id": "cmvubuesb00wlbxmouyszil80",
+      "ticker": "SUCE",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 5373370403
+    },
+    {
+      "id": "cmvubuesh00wnbxmo6nw5n0ag",
+      "ticker": "SUCE",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 2663552825
+    },
+    {
+      "id": "cmvubuesq00wpbxmoydjaklre",
+      "ticker": "SUCE",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 8036923228
+    },
+    {
+      "id": "cmvubuetf00wtbxmoxsy4sfxj",
+      "ticker": "TRST",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 4961532
+    },
+    {
+      "id": "cmvubuetm00wvbxmofp60q42n",
+      "ticker": "TRST",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 199973
+    },
+    {
+      "id": "cmvubuetr00wxbxmopxhjsah9",
+      "ticker": "TRST",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 4761559
+    },
+    {
+      "id": "cmvubuetw00wzbxmoybxr0kwi",
+      "ticker": "TRST",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 4961532
+    },
+    {
+      "id": "cmvubueuc00x3bxmoxyuz0jcm",
+      "ticker": "TRST",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 5021567
+    },
+    {
+      "id": "cmvubueuh00x5bxmozq6c8ezg",
+      "ticker": "TRST",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 219229
+    },
+    {
+      "id": "cmvubueun00x7bxmo5tarkewa",
+      "ticker": "TRST",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 4802338
+    },
+    {
+      "id": "cmvubueus00x9bxmosu9z9v50",
+      "ticker": "TRST",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 5021567
+    },
+    {
+      "id": "cmvubuev500xdbxmo7yyksfcd",
+      "ticker": "TRST",
+      "fiscalYear": 2019,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 5217090
+    },
+    {
+      "id": "cmvubueva00xfbxmofbcscog6",
+      "ticker": "TRST",
+      "fiscalYear": 2019,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 4949108
+    },
+    {
+      "id": "cmvubueve00xhbxmop9yv397l",
+      "ticker": "TRST",
+      "fiscalYear": 2019,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 5217090
+    },
+    {
+      "id": "cmvubuevp00xlbxmoy4eozqpb",
+      "ticker": "TRST",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 5115736
+    },
+    {
+      "id": "cmvubuevu00xnbxmol193sf32",
+      "ticker": "TRST",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 268221
+    },
+    {
+      "id": "cmvubuew000xpbxmolwhivtrl",
+      "ticker": "TRST",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 4847515
+    },
+    {
+      "id": "cmvubuew500xrbxmoqx47lwnb",
+      "ticker": "TRST",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 5115736
+    },
+    {
+      "id": "cmvubuewe00xvbxmoi2m6ml3r",
+      "ticker": "TRST",
+      "fiscalYear": 2020,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 4728020
+    },
+    {
+      "id": "cmvubuewj00xxbxmohttxpo4b",
+      "ticker": "TRST",
+      "fiscalYear": 2020,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 268221
+    },
+    {
+      "id": "cmvubuewn00xzbxmoandpaz4f",
+      "ticker": "TRST",
+      "fiscalYear": 2020,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 4459799
+    },
+    {
+      "id": "cmvubuews00y1bxmolon3qd0l",
+      "ticker": "TRST",
+      "fiscalYear": 2020,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 4728020
+    },
+    {
+      "id": "cmvubuex400y5bxmoqorwxpa9",
+      "ticker": "TRST",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 5509294
+    },
+    {
+      "id": "cmvubuexa00y7bxmobdt83xwy",
+      "ticker": "TRST",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1491548
+    },
+    {
+      "id": "cmvubuexg00y9bxmoe3rb453y",
+      "ticker": "TRST",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 4017746
+    },
+    {
+      "id": "cmvubuexp00ybbxmod2r5wfic",
+      "ticker": "TRST",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 5509294
+    },
+    {
+      "id": "cmvubuey000yfbxmocpi0leiu",
+      "ticker": "TRST",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 5346605
+    },
+    {
+      "id": "cmvubuey500yhbxmo2qjmu20d",
+      "ticker": "TRST",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1491548
+    },
+    {
+      "id": "cmvubueya00yjbxmocjefrcoz",
+      "ticker": "TRST",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 3855057
+    },
+    {
+      "id": "cmvubueyh00ylbxmo4x3xwi0m",
+      "ticker": "TRST",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 5346605
+    },
+    {
+      "id": "cmvubueyt00ypbxmo42a40kso",
+      "ticker": "TRST",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 4885141
+    },
+    {
+      "id": "cmvubueyz00yrbxmoquzj6wvf",
+      "ticker": "TRST",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1491548
+    },
+    {
+      "id": "cmvubuez300ytbxmoz6rwwfmx",
+      "ticker": "TRST",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 3393593
+    },
+    {
+      "id": "cmvubuez900yvbxmoyeppirmi",
+      "ticker": "TRST",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 4885141
+    },
+    {
+      "id": "cmvubuezk00yzbxmoijdkhvba",
+      "ticker": "TRST",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 6494677
+    },
+    {
+      "id": "cmvubuezp00z1bxmo0zwokijc",
+      "ticker": "TRST",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1513663
+    },
+    {
+      "id": "cmvubuezt00z3bxmo6hiud65g",
+      "ticker": "TRST",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 4981014
+    },
+    {
+      "id": "cmvubuezx00z5bxmo4g87rkip",
+      "ticker": "TRST",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6494677
+    },
+    {
+      "id": "cmvubuf0700z9bxmowejzzzuz",
+      "ticker": "TRST",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 6673445
+    },
+    {
+      "id": "cmvubuf0c00zbbxmo3ywzpjbo",
+      "ticker": "TRST",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1513663
+    },
+    {
+      "id": "cmvubuf0h00zdbxmoezkguequ",
+      "ticker": "TRST",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 5159782
+    },
+    {
+      "id": "cmvubuf0n00zfbxmorb90y29a",
+      "ticker": "TRST",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6673445
+    },
+    {
+      "id": "cmvubuf0z00zjbxmo7f2dqdan",
+      "ticker": "TRST",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 7287472
+    },
+    {
+      "id": "cmvubuf1600zlbxmolyijt58j",
+      "ticker": "TRST",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1513663
+    },
+    {
+      "id": "cmvubuf1c00znbxmoi5i3qmsj",
+      "ticker": "TRST",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 5773809
+    },
+    {
+      "id": "cmvubuf1h00zpbxmoanbu2xv7",
+      "ticker": "TRST",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 7287472
+    },
+    {
+      "id": "cmvubuf1s00ztbxmodvh275io",
+      "ticker": "TRST",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 8203485.000000001
+    },
+    {
+      "id": "cmvubuf1w00zvbxmo7eo75nv7",
+      "ticker": "TRST",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 2501491
+    },
+    {
+      "id": "cmvubuf2000zxbxmoiq4iqy43",
+      "ticker": "TRST",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 5701994
+    },
+    {
+      "id": "cmvubuf2500zzbxmov8zn29n1",
+      "ticker": "TRST",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 8203485.000000001
+    },
+    {
+      "id": "cmvubuf2g0103bxmo5jupmx3l",
+      "ticker": "WATP",
+      "fiscalYear": 2015,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 276039793
+    },
+    {
+      "id": "cmvubuf2l0105bxmo4lde2myx",
+      "ticker": "WATP",
+      "fiscalYear": 2015,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 149031385
+    },
+    {
+      "id": "cmvubuf2q0107bxmoxovvrxmw",
+      "ticker": "WATP",
+      "fiscalYear": 2015,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 127008408
+    },
+    {
+      "id": "cmvubuf2v0109bxmojzei6p4e",
+      "ticker": "WATP",
+      "fiscalYear": 2015,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 276039793
+    },
+    {
+      "id": "cmvubuf34010dbxmofj7lpbph",
+      "ticker": "WATP",
+      "fiscalYear": 2015,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 264724592
+    },
+    {
+      "id": "cmvubuf38010fbxmofbwm255a",
+      "ticker": "WATP",
+      "fiscalYear": 2015,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 142117411
+    },
+    {
+      "id": "cmvubuf3e010hbxmoi6gz1350",
+      "ticker": "WATP",
+      "fiscalYear": 2015,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 122607181
+    },
+    {
+      "id": "cmvubuf3j010jbxmomzgjqgeq",
+      "ticker": "WATP",
+      "fiscalYear": 2015,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 264724592
+    },
+    {
+      "id": "cmvubuf3u010nbxmo1b329xe6",
+      "ticker": "WATP",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 168444832
+    },
+    {
+      "id": "cmvubuf3z010pbxmohuea8s6j",
+      "ticker": "WATP",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 128109944
+    },
+    {
+      "id": "cmvubuf43010rbxmoeaw5lxzr",
+      "ticker": "WATP",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 40334888
+    },
+    {
+      "id": "cmvubuf48010tbxmo6ek6wv6u",
+      "ticker": "WATP",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 168444832
+    },
+    {
+      "id": "cmvubuf4l010xbxmoor03wqq8",
+      "ticker": "WATP",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 177706633
+    },
+    {
+      "id": "cmvubuf4u010zbxmoo9mvm4n2",
+      "ticker": "WATP",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 136469216
+    },
+    {
+      "id": "cmvubuf500111bxmoj1jvirgn",
+      "ticker": "WATP",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 41237417
+    },
+    {
+      "id": "cmvubuf560113bxmommcyz36k",
+      "ticker": "WATP",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 177706633
+    },
+    {
+      "id": "cmvubuf5j0117bxmo4tq1dq76",
+      "ticker": "WATP",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 175215792
+    },
+    {
+      "id": "cmvubuf5n0119bxmo2irdn6oz",
+      "ticker": "WATP",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 134442734
+    },
+    {
+      "id": "cmvubuf6d011bbxmo0xe7mwc1",
+      "ticker": "WATP",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 40773058
+    },
+    {
+      "id": "cmvubuf6p011dbxmourjaxi06",
+      "ticker": "WATP",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 175215792
+    },
+    {
+      "id": "cmvubuf6z011hbxmosierckay",
+      "ticker": "WATP",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 197270797
+    },
+    {
+      "id": "cmvubuf74011jbxmoacdmznqz",
+      "ticker": "WATP",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 146109028
+    },
+    {
+      "id": "cmvubuf78011lbxmogey7gb3p",
+      "ticker": "WATP",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 51161769
+    },
+    {
+      "id": "cmvubuf7d011nbxmo34smadc5",
+      "ticker": "WATP",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 197270797
+    },
+    {
+      "id": "cmvubuf7o011rbxmotk8y1m4w",
+      "ticker": "WATP",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 192416868
+    },
+    {
+      "id": "cmvubuf7s011tbxmod1rmvkw7",
+      "ticker": "WATP",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 96757877
+    },
+    {
+      "id": "cmvubuf7w011vbxmo6wktpp3q",
+      "ticker": "WATP",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 95658991
+    },
+    {
+      "id": "cmvubuf80011xbxmocmr5kdxa",
+      "ticker": "WATP",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 192416868
+    },
+    {
+      "id": "cmvubuf8c0121bxmof21rk7jl",
+      "ticker": "WATP",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 197694133
+    },
+    {
+      "id": "cmvubuf8g0123bxmok291ftm7",
+      "ticker": "WATP",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 104664948
+    },
+    {
+      "id": "cmvubuf8m0125bxmoy0jmbnfx",
+      "ticker": "WATP",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 93029185
+    },
+    {
+      "id": "cmvubuf8s0127bxmovgxf8xkt",
+      "ticker": "WATP",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 197694133
+    },
+    {
+      "id": "cmvubuf93012bbxmo2e6j9kvu",
+      "ticker": "WATP",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 224853331
+    },
+    {
+      "id": "cmvubuf9c012dbxmonn698pgg",
+      "ticker": "WATP",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 113293368
+    },
+    {
+      "id": "cmvubuf9m012fbxmovtbto9bv",
+      "ticker": "WATP",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 111559963
+    },
+    {
+      "id": "cmvubuf9q012hbxmojo1mx35s",
+      "ticker": "WATP",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 224853331
+    },
+    {
+      "id": "cmvubufa3012lbxmo0b2osctz",
+      "ticker": "WATP",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 235195632
+    },
+    {
+      "id": "cmvubufa8012nbxmo3rasi007",
+      "ticker": "WATP",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 118401912
+    },
+    {
+      "id": "cmvubufad012pbxmoh71xyw3b",
+      "ticker": "WATP",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY",
+      "value": 116793720
+    },
+    {
+      "id": "cmvubufai012rbxmo9t8gxk70",
+      "ticker": "WATP",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 235195632
+    },
+    {
+      "id": "cmvubufau012vbxmo1dmlc536",
+      "ticker": "WATP",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 145913238
+    },
+    {
+      "id": "cmvubufb0012xbxmo19ynv16t",
+      "ticker": "WATP",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 114405540
+    },
+    {
+      "id": "cmvubufba0131bxmoake2pgj4",
+      "ticker": "WATP",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_ASSETS",
+      "value": 261245177
+    },
+    {
+      "id": "cmvubufbf0133bxmo9tzq3ltu",
+      "ticker": "WATP",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 115163653
+    },
+    {
+      "id": "cmvubufbk0135bxmob5y3f4f5",
+      "ticker": "WATP",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY",
+      "value": 146081524
+    },
+    {
+      "id": "cmvubufbo0137bxmoyl9olkqr",
+      "ticker": "WATP",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 261245177
+    }
+  ],
+  "skipped": []
+}

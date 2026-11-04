@@ -1,0 +1,87 @@
+{
+  "applied": true,
+  "ticker": "VLMR",
+  "nameEn": "VLMR",
+  "currency": "USD",
+  "samples": 3,
+  "years": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "reportsCreated": 2,
+  "valuesCreated": 26,
+  "valuesSkipped": 0,
+  "summary": [
+    {
+      "year": 2021,
+      "values": 6,
+      "balanceNote": null,
+      "reportId": null,
+      "metrics": [
+        "TOTAL_EQUITY_AND_LIABILITIES:2165677106",
+        "TOTAL_EQUITY:913442974",
+        "TOTAL_ASSETS:2165677106",
+        "TOTAL_LIABILITIES:1252234132",
+        "NET_PROFIT:170859668",
+        "GROSS_PROFIT:348635690"
+      ]
+    },
+    {
+      "year": 2022,
+      "values": 6,
+      "balanceNote": null,
+      "reportId": "cmw0w52k60001bxyk3i01mq0d",
+      "metrics": [
+        "TOTAL_EQUITY_AND_LIABILITIES:1960281096",
+        "TOTAL_EQUITY:843063795",
+        "TOTAL_ASSETS:1960281096",
+        "TOTAL_LIABILITIES:1117217301",
+        "NET_PROFIT:241062732",
+        "GROSS_PROFIT:538120825"
+      ]
+    },
+    {
+      "year": 2023,
+      "values": 6,
+      "balanceNote": null,
+      "reportId": null,
+      "metrics": [
+        "TOTAL_EQUITY_AND_LIABILITIES:1745727760",
+        "TOTAL_EQUITY:640047644",
+        "TOTAL_ASSETS:1745727760",
+        "TOTAL_LIABILITIES:1105680116",
+        "NET_PROFIT:179176871",
+        "GROSS_PROFIT:365926627"
+      ]
+    },
+    {
+      "year": 2024,
+      "values": 6,
+      "balanceNote": null,
+      "reportId": "cmw0w52m4000fbxykc0f17big",
+      "metrics": [
+        "TOTAL_EQUITY_AND_LIABILITIES:1449224726",
+        "TOTAL_EQUITY:493164177",
+        "TOTAL_ASSETS:1449224726",
+        "TOTAL_LIABILITIES:956060549",
+        "NET_PROFIT:163028530",
+        "GROSS_PROFIT:266563202"
+      ]
+    },
+    {
+      "year": 2025,
+      "values": 2,
+      "balanceNote": null,
+      "reportId": "cmw0w52nr000tbxyk2rv6grpl",
+      "metrics": [
+        "NET_PROFIT:161182385",
+        "GROSS_PROFIT:285650707"
+      ]
+    }
+  ],
+  "skipped": [],
+  "conflicts": []
+}

@@ -1,0 +1,2 @@
+﻿src/lib/audit/accounting-checks.ts(291,26): error TS2339: Property 'NET_PROFIT_PARENT' does not exist on type 'BSPeriodValues'.
+src/lib/audit/accounting-checks.ts(302,57): error TS2339: Property 'NET_PROFIT_PARENT' does not exist on type 'BSPeriodValues'.

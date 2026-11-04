@@ -1,0 +1,229 @@
+﻿
+=== ELKA ===
+2025 Q1 2025 QUARTERLY ASKBORA_SUMMARY
+  NET_PROFIT 14160000 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_ASSETS 8130000000.000001 VALID إجمالي الأصول AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_EQUITY 5220000000 VALID حقوق المساهمين AskBorsa quarterly summary (display-rounded 0.01M)
+2025 Q2 2025 QUARTERLY ASKBORA_SUMMARY (DERIVED)
+  NET_PROFIT 6200000 VALID DERIVED Q2 2025 = H1 2025 − Q1 2025 (source: ASKBORA_SUMMARY) 
+  TOTAL_EQUITY 5190000000 NEEDS_REVIEW COPIED from H1 2025 balance sheet (source: ASKBORA_SUMMARY) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+2024 Q1 2024 QUARTERLY ASKBORA_SUMMARY
+  NET_PROFIT 1150000000 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_ASSETS 7840000000 VALID إجمالي الأصول AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_EQUITY 4680000000 VALID حقوق المساهمين AskBorsa quarterly summary (display-rounded 0.01M)
+2024 Q4 2024 QUARTERLY ASKBORA_SUMMARY
+  NET_PROFIT 8940000 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_ASSETS 8250000000 VALID إجمالي الأصول AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_EQUITY 5210000000 VALID حقوق المساهمين AskBorsa quarterly summary (display-rounded 0.01M)
+
+=== MHOT ===
+2026 FY 2026 ANNUAL MUBASHER_EARNINGS
+  NET_PROFIT 462943798 VALID الربح المُعلن Mubasher earnings announcements table (public, logged-in session)
+2026 Q1 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 462943798 NEEDS_REVIEW NET_PROFIT (derived: PBT - tax) AUDIT_QUARANTINE: annual-copy contamination (equals FY 2026 NET_PROFIT); no genuine quarterly replac
+2026 Q2 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 462943798 NEEDS_REVIEW صافي الربح (AskBorsa quarterly Q2) AUDIT_QUARANTINE: annual-copy contamination (equals FY 2026 NET_PROFIT); no genuine quarterly replac
+  TOTAL_EQUITY 3729824962 NEEDS_REVIEW COPIED from H1 2026 balance sheet (source: ASKBORA_SUMMARY) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+2026 Q3 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 462943798 NEEDS_REVIEW DERIVED Q3 2026 = 9M 2026 − H1 2026 (source: ASKBORA_SUMMARY) AUDIT_QUARANTINE: annual-copy contamination (equals FY 2026 NET_PROFIT); no genuine quarterly replac
+  TOTAL_EQUITY 3729824962 NEEDS_REVIEW COPIED from 9M 2026 balance sheet (source: ASKBORA_SUMMARY) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+
+=== GRCA ===
+2026 Q4 2026 QUARTERLY ASKBORA_SUMMARY
+  TOTAL_EQUITY 80660000 VALID حقوق المساهمين AskBorsa quarterly summary (display-rounded 0.01M)
+2026 FY 2026 ANNUAL ASKBORA_SUMMARY
+  NET_PROFIT 27400 VALID صافي الربح (AskBorsa annual) 
+2025 FY 2025 ANNUAL ASKBORA_SUMMARY
+  NET_PROFIT 11370000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts ابريل
+  TOTAL_ASSETS 62180000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M), fiscal year starts ابريل
+  TOTAL_EQUITY 51210000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M), fiscal year starts ابريل
+2025 Q1 2025 QUARTERLY ASKBORA_SUMMARY
+  NET_PROFIT -984000 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_ASSETS 50420000 VALID إجمالي الأصول AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_EQUITY 38850000 VALID حقوق المساهمين AskBorsa quarterly summary (display-rounded 0.01M)
+
+=== GSSC ===
+2026 FY 2026 ANNUAL MUBASHER_EARNINGS
+  NET_PROFIT 61660823 VALID الربح المُعلن Mubasher earnings announcements table (public, logged-in session)
+2026 Q1 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+2026 Q2 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 91400000 VALID صافي الربح (AskBorsa quarterly Q2) 
+  TOTAL_EQUITY 803000000 NEEDS_REVIEW COPIED from H1 2026 balance sheet (source: ASKBORA_SUMMARY) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+2026 Q3 2026 QUARTERLY ASKBORA_SUMMARY (DERIVED)
+  NET_PROFIT 88940000 VALID DERIVED Q3 2026 = 9M 2026 − H1 2026 (source: ASKBORA_SUMMARY) 
+  TOTAL_EQUITY 895000000 NEEDS_REVIEW COPIED from 9M 2026 balance sheet (source: ASKBORA_SUMMARY) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+
+=== UNIT ===
+2026 Q1 2026 QUARTERLY YAHOO_FINANCE_API
+  NET_PROFIT -70300000 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT -85800000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 13111400000 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 319700000 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+2026 Q2 2026 QUARTERLY YAHOO_FINANCE_API (DERIVED)
+  NET_PROFIT -155900000 VALID DERIVED Q2 2026 = H1 2026 − Q1 2026 (source: YAHOO_FINANCE_API) 
+  NET_PROFIT_PARENT -171600000 VALID DERIVED Q2 2026 = H1 2026 − Q1 2026 (source: YAHOO_FINANCE_API) 
+  TOTAL_ASSETS 12980900000 NEEDS_REVIEW COPIED from H1 2026 balance sheet (source: YAHOO_FINANCE_API) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  TOTAL_EQUITY 161500000 NEEDS_REVIEW COPIED from H1 2026 balance sheet (source: YAHOO_FINANCE_API) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+2025 FY 2025 ANNUAL YAHOO_FINANCE_API
+  NET_PROFIT 1031700000 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT 1248700000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 12036700000 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 380300000 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+2025 Q1 2025 QUARTERLY YAHOO_FINANCE_API
+  NET_PROFIT 1304700000 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_ASSETS 2220000000 VALID إجمالي الأصول 
+  TOTAL_EQUITY 812000000 VALID حقوق المساهمين 
+
+=== SIPC ===
+2026 Q1 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT -5160000 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_ASSETS 168000000 VALID إجمالي الأصول AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_EQUITY 100000000 VALID حقوق المساهمين AskBorsa quarterly summary (display-rounded 0.01M)
+2026 Q2 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+2025 FY 2025 ANNUAL ASKBORA_SUMMARY
+  TOTAL_ASSETS 8294717672 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 6020338736 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+2025 Q1 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 2284539004 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_ASSETS 177000000 VALID إجمالي الأصول 
+  TOTAL_EQUITY 99700000 VALID حقوق المساهمين 
+
+=== EAST ===
+2026 FY 2026 ANNUAL MUBASHER_EARNINGS
+  NET_PROFIT 4154625000 VALID الربح المُعلن Mubasher earnings announcements table (public, logged-in session)
+2026 Q1 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 2136270000 VALID Net Income (S&P Global via stockanalysis.com quarterly, name-verified) 
+2026 Q2 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 3412890000 VALID Net Income (S&P Global via stockanalysis.com quarterly, name-verified) 
+2026 Q3 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+
+=== HELI ===
+2025 Q1 2025 QUARTERLY YAHOO_FINANCE_API
+  NET_PROFIT 478056306 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT 478056306 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 14366271841 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 9843542922 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+2025 Q2 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 478056306 VALID صافي الربح (AskBorsa quarterly Q2) 
+2025 Q3 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 478056306 VALID DERIVED Q3 2025 = 9M 2025 − H1 2025 (source: ASKBORA_SUMMARY) 
+2025 Q4 2025 QUARTERLY ASKBORA_SUMMARY
+  NET_PROFIT 478056306 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+
+=== CANA ===
+2026 Q1 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 1438408000 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_ASSETS 306253933000 VALID إجمالي الأصول AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_EQUITY 21003066000 VALID حقوق المساهمين AskBorsa quarterly summary (display-rounded 0.01M)
+2026 Q2 2026 QUARTERLY DERIVED (ASKBORA_SUMMARY chain)
+  NET_PROFIT 1752323000 VALID Net Income (S&P Global via stockanalysis.com, name-verified) 
+2025 FY 2025 ANNUAL ASKBORA_SUMMARY
+  NET_PROFIT 5652258000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_ASSETS 270122160000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 20267115000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+2025 Q4 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 1370000000 VALID صافي الربح 
+  TOTAL_ASSETS 270122160000 VALID إجمالي الأصول AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_EQUITY 20267115000 VALID حقوق المساهمين AskBorsa quarterly summary (display-rounded 0.01M)
+
+=== COPR ===
+2025 FY 2025 ANNUAL MUBASHER_EARNINGS
+  NET_PROFIT -5137332 VALID الربح المُعلن Mubasher earnings announcements table (public, logged-in session)
+2025 Q1 2025 QUARTERLY ASKBORA_SUMMARY
+  NET_PROFIT -3170000 VALID صافي الربح 
+  TOTAL_ASSETS 315918 VALID إجمالي الأصول AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_EQUITY -5168954 VALID حقوق المساهمين AskBorsa quarterly summary (display-rounded 0.01M)
+2025 Q2 2025 QUARTERLY ASKBORA_SUMMARY (DERIVED)
+  TOTAL_ASSETS 315918 NEEDS_REVIEW COPIED from H1 2025 balance sheet (source: ASKBORA_SUMMARY) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  TOTAL_EQUITY -5168954 NEEDS_REVIEW COPIED from H1 2025 balance sheet (source: ASKBORA_SUMMARY) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+2024 FY 2024 ANNUAL YAHOO_FINANCE_API
+  NET_PROFIT -3712047 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT -3712047 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 151770 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY -6060609 VALID Stockholders Equity AUDIT_CORRECTION: equity sign corrected from 6060609 to -6060609
+
+=== EGAS ===
+2026 Q1 2026 QUARTERLY YAHOO_FINANCE_API + REUTERS_FINANCIALS_PAGE
+  NET_PROFIT 219304903 VALID Net Income From Continuing Operation Net Minority Interest API import — YAHOO_FINANCE_API (2 sources agree)
+  NET_PROFIT_PARENT 219304903 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 21527764892 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 4983999122 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+2026 Q2 2026 QUARTERLY DERIVED (REUTERS_FINANCIALS_PAGE chain)
+  NET_PROFIT 219304903 VALID Net Income (S&P Global via stockanalysis.com, name-verified) 
+  TOTAL_ASSETS 21527764892 NEEDS_REVIEW COPIED from H1 2026 balance sheet (source: REUTERS_FINANCIALS_PAGE) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  TOTAL_EQUITY 4983999122 NEEDS_REVIEW COPIED from H1 2026 balance sheet (source: REUTERS_FINANCIALS_PAGE) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+2025 FY 2025 ANNUAL YAHOO_FINANCE_API + REUTERS_FINANCIALS_PAGE
+  NET_PROFIT 321852599 VALID Net Income From Continuing Operation Net Minority Interest API import — YAHOO_FINANCE_API (6 sources agree)
+  NET_PROFIT_PARENT 312255371 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API (2 sources agree)
+  TOTAL_ASSETS 19466561430 VALID Total Assets API import — YAHOO_FINANCE_API (3 sources agree)
+  TOTAL_EQUITY 4747451217 VALID Stockholders Equity API import — YAHOO_FINANCE_API (3 sources agree)
+2025 Q1 2025 QUARTERLY YAHOO_FINANCE_API
+  NET_PROFIT 196368473 VALID Net Income From Continuing Operation Net Minority Interest API import — YAHOO_FINANCE_API (2 sources agree)
+  NET_PROFIT_PARENT 196368473 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 17860000000 VALID إجمالي الأصول 
+  TOTAL_EQUITY 4620000000 VALID حقوق المساهمين 
+
+=== DAPH ===
+2026 Q1 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+2026 Q2 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+2025 FY 2025 ANNUAL MUBASHER_EARNINGS
+  NET_PROFIT -138400000 VALID الربح المُعلن Mubasher earnings announcements table (public, logged-in session)
+  TOTAL_ASSETS 1130000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_EQUITY 497000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M)
+2025 Q1 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 12150000 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_ASSETS 4390000000 VALID إجمالي الأصول AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_EQUITY 933000000 VALID حقوق المساهمين AskBorsa quarterly summary (display-rounded 0.01M)
+
+=== OFH ===
+2026 Q2 2026 QUARTERLY YAHOO_FINANCE_API + REUTERS_FINANCIALS_PAGE
+  NET_PROFIT -107630000 VALID Net Income From Continuing Operation Net Minority Interest API import — YAHOO_FINANCE_API (2 sources agree)
+  NET_PROFIT_PARENT -68920000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 3192747000 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 3096022000 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+2026 Q1 2026 QUARTERLY REUTERS_FINANCIALS_PAGE
+  NET_PROFIT -68920000 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_ASSETS 3192747000 VALID إجمالي الأصول AskBorsa quarterly summary (display-rounded 0.01M)
+  TOTAL_EQUITY 3096022000 VALID حقوق المساهمين AskBorsa quarterly summary (display-rounded 0.01M)
+2025 Q2 2025 QUARTERLY YAHOO_FINANCE_API
+  NET_PROFIT -5782000 VALID Net Income From Continuing Operation Net Minority Interest API import — YAHOO_FINANCE_API (2 sources agree)
+  NET_PROFIT_PARENT 613063000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+2025 FY 2025 ANNUAL REUTERS_FINANCIALS_PAGE
+  NET_PROFIT 153000 VALID NET_PROFIT API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  TOTAL_ASSETS 3186777000 VALID TOTAL_ASSETS API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  TOTAL_EQUITY 3099207000 VALID TOTAL_EQUITY API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+
+=== ASPI ===
+2026 Q1 2026 QUARTERLY YAHOO_FINANCE_API
+  NET_PROFIT -26768000 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT -6878000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 587669000 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 289001000 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+2026 Q2 2026 QUARTERLY YAHOO_FINANCE_API (DERIVED)
+  NET_PROFIT -33585000 VALID DERIVED Q2 2026 = H1 2026 − Q1 2026 (source: YAHOO_FINANCE_API) 
+  NET_PROFIT_PARENT -33585000 VALID DERIVED Q2 2026 = H1 2026 − Q1 2026 (source: YAHOO_FINANCE_API) 
+  TOTAL_ASSETS 572046000 NEEDS_REVIEW COPIED from H1 2026 balance sheet (source: YAHOO_FINANCE_API) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  TOTAL_EQUITY 264693000 NEEDS_REVIEW COPIED from H1 2026 balance sheet (source: YAHOO_FINANCE_API) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+2025 FY 2025 ANNUAL MUBASHER_EARNINGS
+  NET_PROFIT -175092000 VALID الربح المُعلن Mubasher earnings announcements table (public, logged-in session)
+2025 Q1 2025 QUARTERLY YAHOO_FINANCE_API
+
+=== ATLC ===
+2026 Q1 2026 QUARTERLY YAHOO_FINANCE_API
+  NET_PROFIT 44175000 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT 41867000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 7465034000 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 648435000 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+2026 Q2 2026 QUARTERLY YAHOO_FINANCE_API (DERIVED)
+  NET_PROFIT 49719000 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT 47411000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 7491770000 NEEDS_REVIEW COPIED from H1 2026 balance sheet (source: YAHOO_FINANCE_API) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  TOTAL_EQUITY 701879000 NEEDS_REVIEW COPIED from H1 2026 balance sheet (source: YAHOO_FINANCE_API) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+2025 FY 2025 ANNUAL MUBASHER_EARNINGS
+  NET_PROFIT 122204000 VALID الربح المُعلن Mubasher earnings announcements table (public, logged-in session)
+  TOTAL_ASSETS 7623088000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_EQUITY 608700000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M)
+2025 Q1 2025 QUARTERLY YAHOO_FINANCE_API
+  NET_PROFIT 41070000 VALID صافي الربح 
+  TOTAL_ASSETS 7190000000 VALID إجمالي الأصول 
+  TOTAL_EQUITY 762000000 VALID حقوق المساهمين 

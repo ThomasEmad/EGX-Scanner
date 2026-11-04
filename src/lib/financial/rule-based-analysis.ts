@@ -51,19 +51,15 @@ const FORMATTERS: Record<string, (v: number) => string> = {
 // metric code -> [en label, ar label, unit]
 const METRICS: Record<string, [string, string, string]> = {
   revenue: ["Revenue", "الإيرادات", "EGP"],
-  revenue_growth: ["Revenue growth (YoY)", "نمو الإيرادات (سنويًا)", "PERCENT"],
   net_profit: ["Net profit", "صافي الربح", "EGP"],
-  profit_growth: ["Profit growth (YoY)", "نمو صافي الربح (سنويًا)", "PERCENT"],
   net_margin: ["Net margin", "هامش صافي الربح", "PERCENT"],
   gross_margin: ["Gross margin", "هامش الربح الإجمالي", "PERCENT"],
   roe: ["Return on equity", "العائد على حقوق الملكية", "PERCENT"],
   roa: ["Return on assets", "العائد على الأصول", "PERCENT"],
   debt_to_equity: ["Debt / equity", "الدين إلى حقوق الملكية", "RATIO"],
-  current_ratio: ["Current ratio", "نسبة التداول", "RATIO"],
   eps: ["EPS", "ربحية السهم", "EGP_PER_SHARE"],
   book_value_per_share: ["Book value per share", "القيمة الدفترية للسهم", "EGP_PER_SHARE"],
   operating_cash_flow: ["Operating cash flow", "التدفق النقدي التشغيلي", "EGP"],
-  ocf_growth: ["Operating cash flow growth", "نمو التدفق التشغيلي", "PERCENT"],
   total_assets: ["Total assets", "إجمالي الأصول", "EGP"],
   total_equity: ["Shareholders' equity", "حقوق المساهمين", "EGP"],
   total_debt: ["Total debt", "إجمالي الدين", "EGP"],
@@ -139,10 +135,10 @@ export function buildRuleBasedAnalysis(snapshot: AnalysisSnapshot, lang: Lang): 
     }
   }
 
-  section("Revenue & Growth", "الإيرادات والنمو", ["revenue", "revenue_growth", "net_profit", "profit_growth"])
+  section("Revenue", "الإيرادات", ["revenue", "net_profit"])
   section("Profitability", "الربحية", ["gross_margin", "net_margin", "roe", "roa"])
-  section("Balance Sheet & Leverage", "الميزانية والرفع المالي", ["total_assets", "total_equity", "total_debt", "debt_to_equity", "current_ratio"])
-  section("Cash Flow", "التدفقات النقدية", ["operating_cash_flow", "ocf_growth"])
+  section("Balance Sheet & Leverage", "الميزانية والرفع المالي", ["total_assets", "total_equity", "total_debt", "debt_to_equity"])
+  section("Cash Flow", "التدفقات النقدية", ["operating_cash_flow"])
   section("Per-share & Market", "قيم السهم والسوق", ["eps", "book_value_per_share", "market_cap", "p_e", "p_b"])
 
   if (snapshot.events.length) {

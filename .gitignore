@@ -58,3 +58,4 @@ server.log
 *.bak
 prisma/**/*.db
 prisma/**/*.bak
+/backups/

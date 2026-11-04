@@ -1,0 +1,772 @@
+[
+  {
+    "ticker": "AALR",
+    "from": "Financial Services",
+    "to": "Construction"
+  },
+  {
+    "ticker": "ABUK",
+    "from": "Industrial",
+    "to": "Basic Materials"
+  },
+  {
+    "ticker": "ACAMD",
+    "from": "Financial Services",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "ACAP",
+    "from": "Financial Services",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "ACGC",
+    "from": "Industrial",
+    "to": "Textiles"
+  },
+  {
+    "ticker": "AFMC",
+    "from": "Consumer",
+    "to": "Food"
+  },
+  {
+    "ticker": "AIFI",
+    "from": "Food",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "AIHC",
+    "from": "Investment",
+    "to": "Financial Services"
+  },
+  {
+    "ticker": "ALCN",
+    "from": "Industrial",
+    "to": "Transport"
+  },
+  {
+    "ticker": "ALEX",
+    "from": "Industrial",
+    "to": "Building Materials"
+  },
+  {
+    "ticker": "ALUM",
+    "from": "Industrial",
+    "to": "Basic Materials"
+  },
+  {
+    "ticker": "AMOC",
+    "from": "Industrial",
+    "to": "Energy"
+  },
+  {
+    "ticker": "APSW",
+    "from": "Industrial",
+    "to": "Textiles"
+  },
+  {
+    "ticker": "ARAB",
+    "from": "Financial Services",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "ARCC",
+    "from": "Industrial",
+    "to": "Building Materials"
+  },
+  {
+    "ticker": "AREH",
+    "from": "Industrial",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "ARVA",
+    "from": "Industrial",
+    "to": "Building Materials"
+  },
+  {
+    "ticker": "ASCM",
+    "from": "Industrial",
+    "to": "Basic Materials"
+  },
+  {
+    "ticker": "ATQA",
+    "from": "Industrial",
+    "to": "Basic Materials"
+  },
+  {
+    "ticker": "BIDI",
+    "from": "Industrial",
+    "to": "Basic Materials"
+  },
+  {
+    "ticker": "BIGP",
+    "from": "Industrial",
+    "to": "Trade"
+  },
+  {
+    "ticker": "BIOC",
+    "from": "Industrial",
+    "to": "Healthcare"
+  },
+  {
+    "ticker": "BONY",
+    "from": "Financial Services",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "CAED",
+    "from": "Consumer",
+    "to": "Education"
+  },
+  {
+    "ticker": "CCAP",
+    "from": "Real Estate",
+    "to": "Financial Services"
+  },
+  {
+    "ticker": "CCRS",
+    "from": "Financial Services",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "CEFM",
+    "from": "Industrial",
+    "to": "Food"
+  },
+  {
+    "ticker": "CERA",
+    "from": "Industrial",
+    "to": "Building Materials"
+  },
+  {
+    "ticker": "CFGH",
+    "from": "Consumer",
+    "to": "Textiles"
+  },
+  {
+    "ticker": "CIRA",
+    "from": "Consumer",
+    "to": "Education"
+  },
+  {
+    "ticker": "COPR",
+    "from": "Financial Services",
+    "to": "Construction"
+  },
+  {
+    "ticker": "CRST",
+    "from": "Industrial",
+    "to": "Construction"
+  },
+  {
+    "ticker": "CSAG",
+    "from": "Industrial",
+    "to": "Transport"
+  },
+  {
+    "ticker": "DCRC",
+    "from": "Industrial",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "DSCW",
+    "from": "Consumer",
+    "to": "Textiles"
+  },
+  {
+    "ticker": "EALR",
+    "from": "Financial Services",
+    "to": "Construction"
+  },
+  {
+    "ticker": "EAST",
+    "from": "Consumer",
+    "to": "Food"
+  },
+  {
+    "ticker": "ECAP",
+    "from": "Industrial",
+    "to": "Building Materials"
+  },
+  {
+    "ticker": "EEII",
+    "from": "Telecom",
+    "to": "Industrial"
+  },
+  {
+    "ticker": "EFIC",
+    "from": "Industrial",
+    "to": "Basic Materials"
+  },
+  {
+    "ticker": "EFIH",
+    "from": "Financial Services",
+    "to": "Telecom"
+  },
+  {
+    "ticker": "EGAL",
+    "from": "Industrial",
+    "to": "Basic Materials"
+  },
+  {
+    "ticker": "EGREF",
+    "from": "Consumer",
+    "to": "Financial Services"
+  },
+  {
+    "ticker": "EGSA",
+    "from": "Industrial",
+    "to": "Telecom"
+  },
+  {
+    "ticker": "EGTS",
+    "from": "Industrial",
+    "to": "Travel & Leisure"
+  },
+  {
+    "ticker": "EITP",
+    "from": "Industrial",
+    "to": "Travel & Leisure"
+  },
+  {
+    "ticker": "ELKA",
+    "from": "Financial Services",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "ELNA",
+    "from": "Industrial",
+    "to": "Food"
+  },
+  {
+    "ticker": "ELSH",
+    "from": "Financial Services",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "ELWA",
+    "from": "Consumer",
+    "to": "Travel & Leisure"
+  },
+  {
+    "ticker": "EMFD",
+    "from": "Financial Services",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "ENGC",
+    "from": "Industrial",
+    "to": "Construction"
+  },
+  {
+    "ticker": "EPCO",
+    "from": "Industrial",
+    "to": "Food"
+  },
+  {
+    "ticker": "EPPK",
+    "from": "Industrial",
+    "to": "Paper"
+  },
+  {
+    "ticker": "ETRS",
+    "from": "Industrial",
+    "to": "Transport"
+  },
+  {
+    "ticker": "FERC",
+    "from": "Industrial",
+    "to": "Basic Materials"
+  },
+  {
+    "ticker": "FIRE",
+    "from": "Financial Services",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "FNAR",
+    "from": "Industrial",
+    "to": "Construction"
+  },
+  {
+    "ticker": "FTNS",
+    "from": "Telecom",
+    "to": "Travel & Leisure"
+  },
+  {
+    "ticker": "FWRY",
+    "from": "Financial Services",
+    "to": "Telecom"
+  },
+  {
+    "ticker": "GBCO",
+    "from": "Financial Services",
+    "to": "Industrial"
+  },
+  {
+    "ticker": "GEOS",
+    "from": "Other",
+    "to": "Construction"
+  },
+  {
+    "ticker": "GGCC",
+    "from": "Industrial",
+    "to": "Construction"
+  },
+  {
+    "ticker": "GGRN",
+    "from": "Investment",
+    "to": "Food"
+  },
+  {
+    "ticker": "GMCI",
+    "from": "Industrial",
+    "to": "Trade"
+  },
+  {
+    "ticker": "GOCO",
+    "from": "Industrial",
+    "to": "Travel & Leisure"
+  },
+  {
+    "ticker": "GPIM",
+    "from": "Financial Services",
+    "to": "Construction"
+  },
+  {
+    "ticker": "GPPL",
+    "from": "Financial Services",
+    "to": "Travel & Leisure"
+  },
+  {
+    "ticker": "GSSC",
+    "from": "Consumer",
+    "to": "Food"
+  },
+  {
+    "ticker": "GTEX",
+    "from": "Consumer",
+    "to": "Textiles"
+  },
+  {
+    "ticker": "GTWL",
+    "from": "Industrial",
+    "to": "Textiles"
+  },
+  {
+    "ticker": "HBCO",
+    "from": "Food",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "HELI",
+    "from": "Consumer",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "ICFC",
+    "from": "Industrial",
+    "to": "Basic Materials"
+  },
+  {
+    "ticker": "ICID",
+    "from": "Other",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "IDRE",
+    "from": "Consumer",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "IEEC",
+    "from": "Industrial",
+    "to": "Construction"
+  },
+  {
+    "ticker": "IFAP",
+    "from": "Industrial",
+    "to": "Trade"
+  },
+  {
+    "ticker": "IRAX",
+    "from": "Industrial",
+    "to": "Basic Materials"
+  },
+  {
+    "ticker": "IRON",
+    "from": "Industrial",
+    "to": "Basic Materials"
+  },
+  {
+    "ticker": "ISMA",
+    "from": "Industrial",
+    "to": "Food"
+  },
+  {
+    "ticker": "ISMQ",
+    "from": "Industrial",
+    "to": "Basic Materials"
+  },
+  {
+    "ticker": "KABO",
+    "from": "Food",
+    "to": "Textiles"
+  },
+  {
+    "ticker": "KORA",
+    "from": "Industrial",
+    "to": "Construction"
+  },
+  {
+    "ticker": "KRDI",
+    "from": "Financial Services",
+    "to": "Food"
+  },
+  {
+    "ticker": "KZPC",
+    "from": "Industrial",
+    "to": "Basic Materials"
+  },
+  {
+    "ticker": "LCSW",
+    "from": "Industrial",
+    "to": "Building Materials"
+  },
+  {
+    "ticker": "LUTS",
+    "from": "Industrial",
+    "to": "Food"
+  },
+  {
+    "ticker": "MBSC",
+    "from": "Industrial",
+    "to": "Building Materials"
+  },
+  {
+    "ticker": "MCQE",
+    "from": "Industrial",
+    "to": "Building Materials"
+  },
+  {
+    "ticker": "MEGM",
+    "from": "Other",
+    "to": "Paper"
+  },
+  {
+    "ticker": "MENA",
+    "from": "Financial Services",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "MEPA",
+    "from": "Industrial",
+    "to": "Healthcare"
+  },
+  {
+    "ticker": "MFPC",
+    "from": "Industrial",
+    "to": "Basic Materials"
+  },
+  {
+    "ticker": "MFSC",
+    "from": "Consumer",
+    "to": "Trade"
+  },
+  {
+    "ticker": "MHOT",
+    "from": "Consumer",
+    "to": "Travel & Leisure"
+  },
+  {
+    "ticker": "MICH",
+    "from": "Industrial",
+    "to": "Basic Materials"
+  },
+  {
+    "ticker": "MILS",
+    "from": "Industrial",
+    "to": "Food"
+  },
+  {
+    "ticker": "MMAT",
+    "from": "Real Estate",
+    "to": "Travel & Leisure"
+  },
+  {
+    "ticker": "MOED",
+    "from": "Investment",
+    "to": "Education"
+  },
+  {
+    "ticker": "MOIL",
+    "from": "Industrial",
+    "to": "Energy"
+  },
+  {
+    "ticker": "MOSC",
+    "from": "Industrial",
+    "to": "Food"
+  },
+  {
+    "ticker": "MPCO",
+    "from": "Industrial",
+    "to": "Food"
+  },
+  {
+    "ticker": "MPRC",
+    "from": "Consumer",
+    "to": "Telecom"
+  },
+  {
+    "ticker": "MTIE",
+    "from": "Financial Services",
+    "to": "Trade"
+  },
+  {
+    "ticker": "NAMI",
+    "from": "Other",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "NAPR",
+    "from": "Industrial",
+    "to": "Paper"
+  },
+  {
+    "ticker": "NARE",
+    "from": "Financial Services",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "NCCW",
+    "from": "Industrial",
+    "to": "Construction"
+  },
+  {
+    "ticker": "NCGC",
+    "from": "Food",
+    "to": "Textiles"
+  },
+  {
+    "ticker": "NDRL",
+    "from": "Investment",
+    "to": "Energy"
+  },
+  {
+    "ticker": "NEDA",
+    "from": "Industrial",
+    "to": "Food"
+  },
+  {
+    "ticker": "NHPS",
+    "from": "Financial Services",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "OBRI",
+    "from": "Financial Services",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "ORAS",
+    "from": "Industrial",
+    "to": "Construction"
+  },
+  {
+    "ticker": "ORWE",
+    "from": "Consumer",
+    "to": "Textiles"
+  },
+  {
+    "ticker": "PACH",
+    "from": "Industrial",
+    "to": "Basic Materials"
+  },
+  {
+    "ticker": "PHTV",
+    "from": "Consumer",
+    "to": "Travel & Leisure"
+  },
+  {
+    "ticker": "POUL",
+    "from": "Industrial",
+    "to": "Food"
+  },
+  {
+    "ticker": "PRCL",
+    "from": "Consumer",
+    "to": "Building Materials"
+  },
+  {
+    "ticker": "PRDC",
+    "from": "Financial Services",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "RACC",
+    "from": "Investment",
+    "to": "Telecom"
+  },
+  {
+    "ticker": "RAKT",
+    "from": "Industrial",
+    "to": "Paper"
+  },
+  {
+    "ticker": "RAYA",
+    "from": "Investment",
+    "to": "Financial Services"
+  },
+  {
+    "ticker": "RKAZ",
+    "from": "Financial Services",
+    "to": "Industrial"
+  },
+  {
+    "ticker": "RMTV",
+    "from": "Industrial",
+    "to": "Travel & Leisure"
+  },
+  {
+    "ticker": "ROTO",
+    "from": "Financial Services",
+    "to": "Travel & Leisure"
+  },
+  {
+    "ticker": "RTVC",
+    "from": "Industrial",
+    "to": "Travel & Leisure"
+  },
+  {
+    "ticker": "RUBX",
+    "from": "Industrial",
+    "to": "Building Materials"
+  },
+  {
+    "ticker": "SCEM",
+    "from": "Industrial",
+    "to": "Building Materials"
+  },
+  {
+    "ticker": "SCFM",
+    "from": "Industrial",
+    "to": "Food"
+  },
+  {
+    "ticker": "SCTS",
+    "from": "Investment",
+    "to": "Education"
+  },
+  {
+    "ticker": "SDTI",
+    "from": "Consumer",
+    "to": "Travel & Leisure"
+  },
+  {
+    "ticker": "SIMO",
+    "from": "Industrial",
+    "to": "Paper"
+  },
+  {
+    "ticker": "SKPC",
+    "from": "Industrial",
+    "to": "Basic Materials"
+  },
+  {
+    "ticker": "SMFR",
+    "from": "Industrial",
+    "to": "Trade"
+  },
+  {
+    "ticker": "SNFC",
+    "from": "Industrial",
+    "to": "Food"
+  },
+  {
+    "ticker": "SPHT",
+    "from": "Consumer",
+    "to": "Travel & Leisure"
+  },
+  {
+    "ticker": "SPIN",
+    "from": "Industrial",
+    "to": "Textiles"
+  },
+  {
+    "ticker": "SVCE",
+    "from": "Industrial",
+    "to": "Building Materials"
+  },
+  {
+    "ticker": "TALM",
+    "from": "Consumer",
+    "to": "Education"
+  },
+  {
+    "ticker": "TANM",
+    "from": "Financial Services",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "TORA",
+    "from": "Basic Materials",
+    "to": "Building Materials"
+  },
+  {
+    "ticker": "TRTO",
+    "from": "Investment",
+    "to": "Travel & Leisure"
+  },
+  {
+    "ticker": "UASG",
+    "from": "Industrial",
+    "to": "Transport"
+  },
+  {
+    "ticker": "UEFM",
+    "from": "Industrial",
+    "to": "Food"
+  },
+  {
+    "ticker": "UEGC",
+    "from": "Industrial",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "UNIP",
+    "from": "Industrial",
+    "to": "Paper"
+  },
+  {
+    "ticker": "UNIT",
+    "from": "Financial Services",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "UPMS",
+    "from": "Healthcare",
+    "to": "Real Estate"
+  },
+  {
+    "ticker": "WCDF",
+    "from": "Industrial",
+    "to": "Food"
+  },
+  {
+    "ticker": "WKOL",
+    "from": "Industrial",
+    "to": "Construction"
+  },
+  {
+    "ticker": "ZEOT",
+    "from": "Industrial",
+    "to": "Food"
+  },
+  {
+    "ticker": "ZMID",
+    "from": "Financial Services",
+    "to": "Real Estate"
+  }
+]

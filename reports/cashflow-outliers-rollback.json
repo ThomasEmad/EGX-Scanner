@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-11-03T16:50:45.954Z",
+  "values": [
+    {
+      "valueId": "cmujo4m9j05f9bx3wvli23wio",
+      "ticker": "ABUK",
+      "periodLabel": "FY 2025",
+      "metricCode": "OPERATING_CASH_FLOW",
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher",
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher AUDIT_QUARANTINE: cash-flow contradiction (C-O -2250160998; legs+FX -3125634430; net -2810000000). neither side reconciles to opening/closing cash; the whole flow block is unreliable."
+    },
+    {
+      "valueId": "cmuiomu2v000ubxq0piu2uba0",
+      "ticker": "ABUK",
+      "periodLabel": "FY 2025",
+      "metricCode": "INVESTING_CASH_FLOW",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API (2 sources agree)",
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "API import — YAHOO_FINANCE_API (2 sources agree) AUDIT_QUARANTINE: cash-flow contradiction (C-O -2250160998; legs+FX -3125634430; net -2810000000). neither side reconciles to opening/closing cash; the whole flow block is unreliable."
+    },
+    {
+      "valueId": "cmuiomu2v000tbxq0gqrquf0m",
+      "ticker": "ABUK",
+      "periodLabel": "FY 2025",
+      "metricCode": "FINANCING_CASH_FLOW",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API (2 sources agree)",
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "API import — YAHOO_FINANCE_API (2 sources agree) AUDIT_QUARANTINE: cash-flow contradiction (C-O -2250160998; legs+FX -3125634430; net -2810000000). neither side reconciles to opening/closing cash; the whole flow block is unreliable."
+    },
+    {
+      "valueId": "cmuiomu2v000sbxq05iabptjp",
+      "ticker": "ABUK",
+      "periodLabel": "FY 2025",
+      "metricCode": "FX_EFFECT_CASH",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API (2 sources agree)",
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "API import — YAHOO_FINANCE_API (2 sources agree) AUDIT_QUARANTINE: cash-flow contradiction (C-O -2250160998; legs+FX -3125634430; net -2810000000). neither side reconciles to opening/closing cash; the whole flow block is unreliable."
+    },
+    {
+      "valueId": "cmujo4m9v05fbbx3we7ebrhcz",
+      "ticker": "ABUK",
+      "periodLabel": "FY 2025",
+      "metricCode": "NET_CHANGE_IN_CASH",
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher",
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher AUDIT_QUARANTINE: cash-flow contradiction (C-O -2250160998; legs+FX -3125634430; net -2810000000). neither side reconciles to opening/closing cash; the whole flow block is unreliable."
+    },
+    {
+      "valueId": "cmujo4qo3063tbx3wq5ejypfq",
+      "ticker": "CFGH",
+      "periodLabel": "FY 2022",
+      "metricCode": "NET_CHANGE_IN_CASH",
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher",
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher AUDIT_QUARANTINE: cash-flow contradiction (C-O -12115689; legs+FX -12115689; net -11500000). both sides are near opening/closing cash; the reported net-change line is the residual outlier."
+    }
+  ]
+}

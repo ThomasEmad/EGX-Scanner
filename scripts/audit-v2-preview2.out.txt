@@ -1,0 +1,153 @@
+﻿
+=== AUDIT v2 DRY RUN — 264 companies in 6.4s ===
+total=2346 critical=167 high=342 medium=711 low=1126
+by class: { blocker: 245, coverage: 608, advisory: 1262, metadata: 231 }
+certification: { certified: 70, provisional: 93, review_required: 101 }
+accuracy bands (100 / 95-99 / 80-94 / <80): { perfect: 41, near: 119, fair: 18, poor: 86 }
+
+--- root causes (all findings) ---
+  347 YOY_MOVE           Large year-over-year move
+  309 CASH_QUALITY       Operating cash vs profit
+  272 TREND_COVERAGE     Trend history gap
+  246 MISSING_METRIC     Missing critical metric
+  231 ISIN               ISIN metadata
+  218 CF_IDENTITY        Cash-flow identity
+  108 DEBT_DEFINITION    Debt components definition
+  105 BS_IDENTITY        Balance sheet does not balance
+   97 IS_TAX_BASIS       Tax / net-profit basis
+   75 BS_COMPONENTS      Balance sheet components mismatch
+   66 RATIO_OUTLIER      Ratio outside normal band
+   64 IS_GROSS_PROFIT    Gross profit identity
+   50 SECTOR_RULE        Sector rule violation / gap
+   41 BS_MAPPING         Balance-sheet line mis-mapped
+   40 FRESHNESS          Stale data
+   29 DUPLICATE_PERIOD   Duplicate period data
+   22 IS_OPERATING       Operating vs net profit gap
+   19 SIGN_INVERSION     Sign inversion
+    7 IS_MARGIN          Impossible margin
+
+--- blocker findings by root cause ---
+   55 BS_IDENTITY
+   41 BS_MAPPING
+   30 DEBT_DEFINITION
+   28 BS_COMPONENTS
+   22 IS_TAX_BASIS
+   19 SIGN_INVERSION
+   16 CF_IDENTITY
+   14 IS_GROSS_PROFIT
+   13 DUPLICATE_PERIOD
+    7 IS_MARGIN
+
+--- companies with blockers (top 25 by blocker count) ---
+companies with ≥1 blocker: 101 of 264
+IRON   blockers= 15 accuracy=0 completeness=75 conf=42 [IS_GROSS_PROFIT,SIGN_INVERSION,BS_IDENTITY,BS_MAPPING,DUPLICATE_PERIOD]
+ASCM   blockers=  7 accuracy=0 completeness=87 conf=45 [BS_MAPPING,BS_IDENTITY,DEBT_DEFINITION,CF_IDENTITY,IS_MARGIN,DUPLICATE_PERIOD]
+SPHT   blockers=  7 accuracy=3 completeness=75 conf=41 [IS_GROSS_PROFIT,BS_COMPONENTS,IS_MARGIN]
+FWRY   blockers=  6 accuracy=29 completeness=100 conf=64 [BS_IDENTITY,IS_TAX_BASIS]
+SNFI   blockers=  6 accuracy=33 completeness=75 conf=58 [SIGN_INVERSION,IS_GROSS_PROFIT,IS_MARGIN]
+AALR   blockers=  5 accuracy=75 completeness=61 conf=76 [BS_MAPPING]
+ABUK   blockers=  5 accuracy=57 completeness=100 conf=76 [BS_IDENTITY,BS_MAPPING]
+ALEX   blockers=  5 accuracy=74 completeness=87 conf=69 [BS_MAPPING]
+AMOC   blockers=  5 accuracy=45 completeness=100 conf=72 [BS_IDENTITY,IS_GROSS_PROFIT,BS_COMPONENTS,DEBT_DEFINITION]
+NCEM   blockers=  5 accuracy=33 completeness=62 conf=40 [BS_COMPONENTS,IS_GROSS_PROFIT,BS_IDENTITY]
+OFH    blockers=  5 accuracy=31 completeness=81 conf=58 [DEBT_DEFINITION,SIGN_INVERSION,IS_GROSS_PROFIT,IS_TAX_BASIS]
+SCFM   blockers=  5 accuracy=74 completeness=74 conf=76 [BS_MAPPING]
+ASPI   blockers=  4 accuracy=41 completeness=43 conf=54 [BS_IDENTITY,BS_COMPONENTS,DUPLICATE_PERIOD]
+CIRA   blockers=  4 accuracy=74 completeness=38 conf=71 [DEBT_DEFINITION]
+CLHO   blockers=  4 accuracy=76 completeness=99 conf=88 [DEBT_DEFINITION]
+COPR   blockers=  4 accuracy=62 completeness=43 conf=63 [BS_MAPPING,BS_COMPONENTS,BS_IDENTITY]
+COSG   blockers=  4 accuracy=18 completeness=99 conf=57 [BS_MAPPING,CF_IDENTITY,IS_TAX_BASIS]
+ISPH   blockers=  4 accuracy=76 completeness=100 conf=88 [DEBT_DEFINITION]
+MFPC   blockers=  4 accuracy=6 completeness=100 conf=53 [BS_COMPONENTS,CF_IDENTITY,IS_MARGIN]
+MHOT   blockers=  4 accuracy=30 completeness=37 conf=47 [BS_IDENTITY,BS_COMPONENTS,IS_MARGIN]
+RAKT   blockers=  4 accuracy=77 completeness=62 conf=74 [BS_MAPPING]
+SIPC   blockers=  4 accuracy=44 completeness=62 conf=61 [BS_IDENTITY,DUPLICATE_PERIOD]
+UEGC   blockers=  4 accuracy=33 completeness=99 conf=64 [BS_IDENTITY,CF_IDENTITY,BS_COMPONENTS]
+AMER   blockers=  3 accuracy=48 completeness=85 conf=70 [DEBT_DEFINITION,IS_GROSS_PROFIT]
+CFGH   blockers=  3 accuracy=62 completeness=37 conf=61 [BS_IDENTITY]
+
+--- blocker samples (first 40) ---
+[AALR] BALANCE_SHEET_EQUATION FY 2021 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (950.0M) is calibrated like total equity & liabilities, not liabilities (expected ≈ 127.0M). Re-extract the liabilities line.
+[AALR] BALANCE_SHEET_EQUATION FY 2022 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (1.00B) is calibrated like total equity & liabilities, not liabilities (expected ≈ 121.0M). Re-extract the liabilities line.
+[AALR] BALANCE_SHEET_EQUATION FY 2023 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (1.04B) is calibrated like total equity & liabilities, not liabilities (expected ≈ 93.0M). Re-extract the liabilities line.
+[AALR] BALANCE_SHEET_EQUATION FY 2024 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (1.06B) is calibrated like total equity & liabilities, not liabilities (expected ≈ 112.0M). Re-extract the liabilities line.
+[AALR] BALANCE_SHEET_EQUATION FY 2025 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (1.11B) is calibrated like total equity & liabilities, not liabilities (expected ≈ 100.0M). Re-extract the liabilities line.
+[ABUK] BALANCE_SHEET_EQUATION FY 2017 :: BALANCE_SHEET_EQUATION FAILED: gap 3.03% (206.4M EGP; materiality threshold 34.1M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilitie
+[ABUK] BALANCE_SHEET_EQUATION FY 2019 :: BALANCE_SHEET_EQUATION FAILED: gap 2.08% (189.3M EGP; materiality threshold 45.4M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilitie
+[ABUK] BALANCE_SHEET_EQUATION FY 2022 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (22.37B) is calibrated like total equity & liabilities, not liabilities (expected ≈ 4.57B). Re-extract the liabilities line.
+[ABUK] BALANCE_SHEET_EQUATION FY 2023 :: BALANCE_SHEET_EQUATION FAILED: TOTAL_EQUITY_AND_LIABILITIES (35.43B) does not equal TOTAL_ASSETS (34.72B) — the statement itself is inconsistent.
+[ABUK] BALANCE_SHEET_EQUATION Q1 2026 :: BALANCE_SHEET_EQUATION FAILED: TOTAL_EQUITY_AND_LIABILITIES (44.02B) does not equal TOTAL_ASSETS (37.41B) — the statement itself is inconsistent.
+[ACAP] ASSET_COMPONENTS FY 2023 :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 5.45B vs TOTAL_ASSETS = 5.11B (6.67%) — missing/extra component or mapping gap.
+[ACTF] BALANCE_SHEET_EQUATION FY 2021 :: BALANCE_SHEET_EQUATION FAILED: gap 4.75% (21.4M EGP; materiality threshold 2.3M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilities 
+[ACTF] BALANCE_SHEET_EQUATION FY 2022 :: BALANCE_SHEET_EQUATION FAILED: gap 2.62% (12.8M EGP; materiality threshold 2.4M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilities 
+[ALCN] BALANCE_SHEET_EQUATION FY 2025 :: BALANCE_SHEET_EQUATION FAILED: TOTAL_EQUITY_AND_LIABILITIES (12.31B) does not equal TOTAL_ASSETS (12.61B) — the statement itself is inconsistent.
+[ALEX] BALANCE_SHEET_EQUATION FY 2016 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (4.21B) is calibrated like total equity & liabilities, not liabilities (expected ≈ 3.43B). Re-extract the liabilities line.
+[ALEX] BALANCE_SHEET_EQUATION FY 2017 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (4.94B) is calibrated like total equity & liabilities, not liabilities (expected ≈ 3.12B). Re-extract the liabilities line.
+[ALEX] BALANCE_SHEET_EQUATION FY 2018 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (4.83B) is calibrated like total equity & liabilities, not liabilities (expected ≈ 4.75B). Re-extract the liabilities line.
+[ALEX] BALANCE_SHEET_EQUATION FY 2019 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (4.43B) is calibrated like total equity & liabilities, not liabilities (expected ≈ 3.88B). Re-extract the liabilities line.
+[ALEX] BALANCE_SHEET_EQUATION Q2 2020 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (4.70B) is calibrated like total equity & liabilities, not liabilities (expected ≈ 3.72B). Re-extract the liabilities line.
+[AMER] DEBT_COMPONENTS FY 2021 :: DEBT_COMPONENTS FAILED: ST+LT = 837.9M vs TOTAL_DEBT = 430.1M (48.7%). Components exceed the reported total — mapping error.
+[AMER] DEBT_COMPONENTS FY 2022 :: DEBT_COMPONENTS FAILED: ST+LT = 1.02B vs TOTAL_DEBT = 555.8M (45.7%). Components exceed the reported total — mapping error.
+[AMER] GROSS_PROFIT_IDENTITY Q2 2026 :: GROSS_PROFIT_IDENTITY FAILED: gap 127.04% (-344.4M EGP; materiality threshold 5.4M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after ot
+[AMES] BALANCE_SHEET_EQUATION FY 2023 :: BALANCE_SHEET_EQUATION FAILED: TOTAL_EQUITY_AND_LIABILITIES (299.0M) does not equal TOTAL_ASSETS (296.5M) — the statement itself is inconsistent.
+[AMOC] BALANCE_SHEET_EQUATION FY 2017 :: BALANCE_SHEET_EQUATION FAILED: gap 4.76% (-206.4M EGP; materiality threshold 21.7M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabiliti
+[AMOC] GROSS_PROFIT_IDENTITY FY 2020 :: GROSS_PROFIT_IDENTITY FAILED: gap 7.20% (676.5M EGP; materiality threshold 187.9M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after oth
+[AMOC] ASSET_COMPONENTS FY 2022 :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 4.65B vs TOTAL_ASSETS = 4.92B (5.56%) — missing/extra component or mapping gap.
+[AMOC] DEBT_COMPONENTS FY 2023 :: DEBT_COMPONENTS FAILED: ST+LT = 0.00 vs TOTAL_DEBT = 10.1M (100.0%). Total debt may include leases/other debt; confirm the definition.
+[AMOC] DEBT_COMPONENTS FY 2025 :: DEBT_COMPONENTS FAILED: ST+LT = 26.5M vs TOTAL_DEBT = 158.7M (83.3%). Total debt may include leases/other debt; confirm the definition.
+[AMPI] GROSS_PROFIT_IDENTITY FY 2024 :: GROSS_PROFIT_IDENTITY FAILED: reported 3.3M has the opposite sign of REVENUE − COGS = -3.3M — sign inversion, quarantine and re-extract.
+[APSW] GROSS_PROFIT_IDENTITY Q4 2025 :: GROSS_PROFIT_IDENTITY FAILED: reported 13.5M has the opposite sign of REVENUE − COGS = -13.5M — sign inversion, quarantine and re-extract.
+[APSW] GROSS_PROFIT_IDENTITY Q2 2026 :: GROSS_PROFIT_IDENTITY FAILED: reported 16.3M has the opposite sign of REVENUE − COGS = -16.3M — sign inversion, quarantine and re-extract.
+[ARAB] BALANCE_SHEET_EQUATION FY 2025 :: BALANCE_SHEET_EQUATION FAILED: TOTAL_EQUITY_AND_LIABILITIES (12.72B) does not equal TOTAL_ASSETS (11.85B) — the statement itself is inconsistent.
+[ASCM] BALANCE_SHEET_EQUATION FY 2020 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (1.38B) is calibrated like total equity & liabilities, not liabilities (expected ≈ 1.22B). Re-extract the liabilities line.
+[ASCM] BALANCE_SHEET_EQUATION FY 2021 :: BALANCE_SHEET_EQUATION FAILED: gap 15.52% (-234.2M EGP; materiality threshold 7.5M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabiliti
+[ASCM] DEBT_COMPONENTS FY 2022 :: DEBT_COMPONENTS FAILED: ST+LT = 1.37B vs TOTAL_DEBT = 1.17B (14.4%). Components exceed the reported total — mapping error.
+[ASCM] CASH_FLOW_SUM FY 2023 :: CASH_FLOW_SUM FAILED: gap 147.13% (239.8M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[ASCM] DEBT_COMPONENTS FY 2023 :: DEBT_COMPONENTS FAILED: ST+LT = 1.93B vs TOTAL_DEBT = 1.60B (17.2%). Components exceed the reported total — mapping error.
+[ASCM] NET_MARGIN_IMPOSSIBLE FY 2023 :: Net margin 102% > 100% (non-financial) — impossible.
+[ASCM] CROSS_QUARTER_DUPLICATE Q3 2025 :: Q3 2025 repeats 9/9 values of the previous quarter Q2 2025 (±0.05%) — a tab-switch harvest copy; quarantine the later record and re-extract.
+[ASPI] BALANCE_SHEET_EQUATION FY 2022 :: BALANCE_SHEET_EQUATION FAILED: TOTAL_EQUITY_AND_LIABILITIES (1.13B) does not equal TOTAL_ASSETS (12.5M) — the statement itself is inconsistent.
+
+--- lowest overall quality (top 20) ---
+LCSW   score= 40 acc= 15 comp= 37 fresh=100 prov= 80 review_required
+NCEM   score= 40 acc= 33 comp= 62 fresh= 15 prov= 65 review_required
+CNFN   score= 41 acc= 15 comp= 43 fresh=100 prov= 80 review_required
+SPHT   score= 41 acc=  3 comp= 75 fresh= 85 prov= 80 review_required
+IRON   score= 42 acc=  0 comp= 75 fresh=100 prov= 80 review_required
+ASCM   score= 45 acc=  0 comp= 87 fresh=100 prov= 80 review_required
+MHOT   score= 47 acc= 30 comp= 37 fresh=100 prov= 80 review_required
+RMTV   score= 49 acc= 70 comp= 22 fresh= 15 prov= 65 review_required
+CICH   score= 51 acc= 34 comp= 43 fresh=100 prov= 80 review_required
+MFPC   score= 53 acc=  6 comp=100 fresh=100 prov=100 review_required
+SMPP   score= 53 acc= 70 comp= 37 fresh= 15 prov= 65 review_required
+ASPI   score= 54 acc= 41 comp= 43 fresh=100 prov= 80 review_required
+BINV   score= 56 acc= 45 comp= 43 fresh=100 prov= 80 review_required
+NAHO   score= 56 acc= 17 comp= 99 fresh=100 prov= 80 review_required
+COSG   score= 57 acc= 18 comp= 99 fresh=100 prov= 80 review_required
+PHAR   score= 57 acc= 50 comp= 37 fresh=100 prov= 80 review_required
+OFH    score= 58 acc= 31 comp= 81 fresh=100 prov= 80 review_required
+SNFI   score= 58 acc= 33 comp= 75 fresh=100 prov= 80 review_required
+EGAL   score= 59 acc= 49 comp= 38 fresh=100 prov=100 review_required
+MASR   score= 59 acc= 49 comp= 40 fresh=100 prov=100 review_required
+
+--- quarantine load (top 20) ---
+ENGC   usable= 462 quarantined= 223
+UNIT   usable= 373 quarantined= 201
+CCAP   usable= 350 quarantined= 197
+MCQE   usable= 517 quarantined= 195
+DSCW   usable= 533 quarantined= 188
+ARCC   usable= 508 quarantined= 187
+RMDA   usable= 370 quarantined= 186
+JUFO   usable= 547 quarantined= 181
+MTIE   usable= 498 quarantined= 181
+BTFH   usable= 445 quarantined= 177
+SKPC   usable= 569 quarantined= 174
+EFID   usable= 549 quarantined= 173
+ATLC   usable= 324 quarantined= 168
+TMGH   usable= 580 quarantined= 167
+SWDY   usable= 528 quarantined= 165
+EFIC   usable= 402 quarantined= 159
+EFIH   usable= 491 quarantined= 159
+ORWE   usable= 558 quarantined= 159
+FWRY   usable= 533 quarantined= 158
+RAYA   usable= 592 quarantined= 154

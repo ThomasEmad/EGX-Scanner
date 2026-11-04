@@ -1,14 +1,16 @@
 export const siteConfig = {
   name: "EGX Financial Scanner",
   description:
-    "Discover Egyptian Exchange companies by verified financial conditions and changes over time: turnarounds, profit growth, debt reduction, cash flow improvement — with full source traceability.",
-  url: "https://egx-scanner.com",
+    "Independent, audited financial data for Egyptian Exchange companies — statements, metrics, sector rankings and data-quality indicators in Arabic and English.",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://egx-scanner.com",
   ogImage: "/og-image.png",
   twitterHandle: "@egxscanner",
   links: {
     homepage: "/",
-    companies: "/companies",
-    scanners: "/scanners",
+    companies: "/rankings",
+    sectors: "/sectors",
+    scanners: "/dashboard#/scanners",
+    dataQuality: "/data-quality",
     premium: "/premium",
   },
 }

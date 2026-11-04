@@ -153,14 +153,35 @@ export async function latestCalcPeriodKeys(
   companyId: string
 ): Promise<{ annual?: string; quarterly?: string; ttm?: string }> {
   const { parsePeriodKey } = await import("./periods")
+
+  // Chronological rank inside a fiscal year. The old implementation compared
+  // only `fiscalYear`, so for EAST it kept Q1 2026 and ignored Q2/Q3 2026 (all
+  // the same fiscal year). That made "latest period" displays and sector
+  // aggregates silently use a stale quarter. Compare the sub-period too.
+  const subRank = (sub: string): number => {
+    const q = /^Q([1-4])$/.exec(sub)
+    if (q) return Number(q[1]) - 1
+    if (sub === "H1") return 1
+    if (sub === "9M") return 2
+    if (sub === "H2") return 3
+    return 3 // annual / year-end / unknown
+  }
+  const isLater = (current: string | undefined, candidate: string): boolean => {
+    if (!current) return true
+    const a = parsePeriodKey(current)
+    const b = parsePeriodKey(candidate)
+    if (b.fiscalYear !== a.fiscalYear) return b.fiscalYear > a.fiscalYear
+    return subRank(b.sub) > subRank(a.sub)
+  }
+
   const { filtered } = await fetchCalc(companyId, { code: "revenue" })
   let annual: string | undefined
   let quarterly: string | undefined
   let ttm: string | undefined
   for (const m of filtered) {
-    if (m.periodType === "ANNUAL" && (!annual || m.fiscalYear > parsePeriodKey(annual).fiscalYear)) annual = m.periodKey
-    if (m.periodType === "QUARTERLY" && (!quarterly || m.fiscalYear > parsePeriodKey(quarterly).fiscalYear)) quarterly = m.periodKey
-    if (m.periodType === "TTM" && (!ttm || m.fiscalYear > parsePeriodKey(ttm).fiscalYear)) ttm = m.periodKey
+    if (m.periodType === "ANNUAL" && isLater(annual, m.periodKey)) annual = m.periodKey
+    if (m.periodType === "QUARTERLY" && isLater(quarterly, m.periodKey)) quarterly = m.periodKey
+    if (m.periodType === "TTM" && isLater(ttm, m.periodKey)) ttm = m.periodKey
   }
   return { annual, quarterly, ttm }
 }

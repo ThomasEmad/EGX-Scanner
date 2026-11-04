@@ -1,0 +1,251 @@
+{
+  "generatedAt": "2026-10-30T01:55:54.286Z",
+  "plan": [],
+  "skipped": [
+    {
+      "ticker": "AALR",
+      "year": 2025,
+      "metric": "NET_PROFIT",
+      "reason": "ZERO_OR_INVALID"
+    },
+    {
+      "ticker": "ARPI",
+      "year": 2022,
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ZERO_OR_INVALID"
+    },
+    {
+      "ticker": "BQDC",
+      "reason": "KNOWN_SOURCE_SCALE_ERROR"
+    },
+    {
+      "ticker": "CANA",
+      "year": 2021,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "CANA",
+      "year": 2022,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "CANA",
+      "year": 2023,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "CANA",
+      "year": 2024,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "CANA",
+      "year": 2025,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "CFGH",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "CNFN",
+      "year": 2021,
+      "metric": "GROSS_PROFIT",
+      "reason": "ZERO_OR_INVALID"
+    },
+    {
+      "ticker": "COSG",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY",
+      "value": -10136059,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 456417012,
+      "ratio": 0.0222,
+      "sourceUrl": "https://askborsa.com/company/COSG"
+    },
+    {
+      "ticker": "CRST",
+      "year": 2025,
+      "metric": "TOTAL_ASSETS",
+      "value": 3430636736,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 255000000,
+      "ratio": 13.4535,
+      "sourceUrl": "https://askborsa.com/company/CRST"
+    },
+    {
+      "ticker": "CRST",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 3430636736,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 255000000,
+      "ratio": 13.4535,
+      "sourceUrl": "https://askborsa.com/company/CRST"
+    },
+    {
+      "ticker": "DIFC",
+      "year": 2017,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 1,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 196466,
+      "ratio": 0,
+      "sourceUrl": "https://askborsa.com/company/DIFC"
+    },
+    {
+      "ticker": "EASB",
+      "year": 2020,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "EASB",
+      "year": 2021,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "EASB",
+      "year": 2022,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "EASB",
+      "year": 2023,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "EASB",
+      "year": 2024,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "EGCH",
+      "year": 2022,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -6335717,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 1619682333.27,
+      "ratio": 0.0039,
+      "sourceUrl": "https://askborsa.com/company/EGCH"
+    },
+    {
+      "ticker": "EGSA",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "GTEX",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "GTHE",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "IEEC",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY",
+      "value": 2671050,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 100770000,
+      "ratio": 0.0265,
+      "sourceUrl": "https://askborsa.com/company/IEEC"
+    },
+    {
+      "ticker": "IRON",
+      "reason": "KNOWN_SOURCE_SCALE_ERROR"
+    },
+    {
+      "ticker": "MHOT",
+      "year": 2021,
+      "metric": "GROSS_PROFIT",
+      "value": 8267,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 1106919085,
+      "ratio": 0,
+      "sourceUrl": "https://askborsa.com/company/MHOT"
+    },
+    {
+      "ticker": "MICH",
+      "reason": "ALIAS_OF",
+      "canonical": "MCQE"
+    },
+    {
+      "ticker": "MISR",
+      "year": 2024,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1800000,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 27362.5,
+      "ratio": 65.7835,
+      "sourceUrl": "https://askborsa.com/company/MISR"
+    },
+    {
+      "ticker": "MOIL",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "NAHO",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "NDRL",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "OIH",
+      "year": 2024,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -3578000,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 513142447.06,
+      "ratio": 0.007,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "ticker": "ORAS",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "SAIB",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "SEIG",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "SPHT",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "UBEE",
+      "year": 2023,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "UBEE",
+      "year": 2024,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "VLMR",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "VLMRA",
+      "reason": "USD_DENOMINATED"
+    }
+  ]
+}

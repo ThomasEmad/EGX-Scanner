@@ -1,0 +1,11 @@
+﻿
+=== Unit-scale repair DRY RUN ===
+
+reports scanned: 6451
+reports to repair: 2 | monetary values: 40
+
+examples:
+  FWRY FY 2021 ÷1000 (TOTAL_ASSETS 4.120e+12 vs anchor 1.326e+10; 15 values, YAHOO_FINANCE_API)
+  MHOT FY 2022 ÷1000 (TOTAL_ASSETS 2.031e+12 vs anchor 3.270e+9; 25 values, YAHOO_FINANCE_API)
+
+Dry run — re-run with --apply.

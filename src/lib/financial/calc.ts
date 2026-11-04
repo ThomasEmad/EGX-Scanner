@@ -20,34 +20,6 @@ const UNAVAILABLE = (detail: string): MetricResult => ({ status: "DATA_UNAVAILAB
 const NOT_APPLICABLE = (detail: string): MetricResult => ({ status: "NOT_APPLICABLE", detail })
 const NOT_COMPUTABLE = (detail: string): MetricResult => ({ status: "NOT_COMPUTABLE", detail })
 
-/** Percentage growth: (current - previous) / |previous| x 100 */
-export function growth(current: number | undefined, previous: number | undefined, opts?: { signTransitionDetail?: string }): MetricResult {
-  if (current === undefined || previous === undefined || current === null || previous === null) {
-    return UNAVAILABLE("Data unavailable for one of the two periods — not treated as zero")
-  }
-  if (previous === 0) {
-    return NOT_COMPUTABLE("Previous period value is zero — percentage growth is undefined")
-  }
-  if (previous < 0) {
-    // e.g. previous is a loss / negative cash flow: percentage growth is misleading.
-    // The transition itself is detected as an event instead.
-    return NOT_APPLICABLE(
-      opts?.signTransitionDetail ??
-        "Previous period value is negative — percentage growth is not meaningful; the transition is detected as an event"
-    )
-  }
-  const pct = ((current - previous) / Math.abs(previous)) * 100
-  // Terminal convention (Bloomberg/Refinitiv "NM"): beyond ±999% the base period is too small
-  // relative to the move for a percentage to convey anything — show NM, compare absolutes.
-  if (Math.abs(pct) > 999) {
-    return NOT_APPLICABLE(
-      "Growth beyond ±999% — base period too small or one-off jump for a percentage to be meaningful (reported as NM, not meaningful)"
-    )
-  }
-  const detail = current < 0 ? "Current value is negative (transition into negative territory)" : undefined
-  return { status: "OK", value: pct, detail }
-}
-
 /** Margin: part / whole x 100 */
 export function margin(part: number | undefined, whole: number | undefined): MetricResult {
   if (part === undefined || whole === undefined) return UNAVAILABLE("Required inputs not available for this period")
@@ -60,18 +32,6 @@ export function ratio(numerator: number | undefined, denominator: number | undef
   if (numerator === undefined || denominator === undefined) return UNAVAILABLE("Required inputs not available for this period")
   if (denominator === 0) return NOT_COMPUTABLE("Denominator is zero")
   return OK(numerator / denominator)
-}
-
-/** Current ratio = current assets / current liabilities (liquidity).
- *  Missing inputs => DATA_UNAVAILABLE; zero denominator => NOT_APPLICABLE (ratio undefined). */
-export function currentRatio(currentAssets: number | undefined, currentLiabilities: number | undefined): MetricResult {
-  if (currentAssets === undefined || currentLiabilities === undefined) {
-    return UNAVAILABLE("Required inputs not available for this period")
-  }
-  if (currentLiabilities === 0) {
-    return NOT_APPLICABLE("Current liabilities are zero — current ratio is undefined")
-  }
-  return OK(currentAssets / currentLiabilities)
 }
 
 /** Book value per share = total equity / shares outstanding.
@@ -95,14 +55,23 @@ export function netMargin(netProfit: number | undefined, revenue: number | undef
   return margin(netProfit, revenue)
 }
 
-/** ROE = net profit / period-end equity x 100 (documented approximation: period-end, not average) */
+/** ROE = net profit / period-end equity x 100 (documented approximation: period-end, not average).
+ *  Equity <= 0 is NOT a small denominator to divide by — the ratio flips sign and
+ *  becomes meaningless (e.g. a loss-making company with negative equity would show
+ *  a positive "57% ROE"). Report it as not applicable instead of ranking it. */
 export function roe(netProfit: number | undefined, equity: number | undefined): MetricResult {
+  if (equity !== undefined && equity <= 0) {
+    return NOT_APPLICABLE("Equity is zero or negative — ROE is not meaningful")
+  }
   const r = ratio(netProfit, equity)
   return r.status === "OK" ? OK((r.value as number) * 100) : r
 }
 
 /** ROA = net profit / period-end assets x 100 */
 export function roa(netProfit: number | undefined, assets: number | undefined): MetricResult {
+  if (assets !== undefined && assets <= 0) {
+    return NOT_APPLICABLE("Total assets are zero or negative — ROA is not meaningful")
+  }
   const r = ratio(netProfit, assets)
   return r.status === "OK" ? OK((r.value as number) * 100) : r
 }

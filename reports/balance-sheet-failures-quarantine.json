@@ -1,0 +1,151 @@
+{
+  "applied": true,
+  "cases": 8,
+  "values": 10,
+  "rows": [
+    {
+      "ticker": "ARVA",
+      "periodLabel": "FY 2022",
+      "metricCodes": [
+        "TOTAL_ASSETS"
+      ],
+      "reason": "TOTAL_ASSETS 264,768,835.62 is identical to GOCO FY2022 and is 44.22% above the internally consistent L+E total; asset line is the outlier.",
+      "code": "TOTAL_ASSETS",
+      "status": "quarantined",
+      "reportId": "cmupv8wpu008nbxn0g8xto3pa",
+      "valueId": "cmupv8wq5008tbxn0xe09ldl5",
+      "oldStatus": "VALID",
+      "normalizedValue": 264768835.62
+    },
+    {
+      "ticker": "ARVA",
+      "periodLabel": "FY 2023",
+      "metricCodes": [
+        "TOTAL_ASSETS"
+      ],
+      "reason": "TOTAL_ASSETS 340,458,874.55 is 44.69% above the internally consistent L+E total; asset line is the outlier.",
+      "code": "TOTAL_ASSETS",
+      "status": "quarantined",
+      "reportId": "cmupv8wph008hbxn0x15vl8tr",
+      "valueId": "cmupv8wpq008lbxn0zv7lbo6q",
+      "oldStatus": "VALID",
+      "normalizedValue": 340458874.55
+    },
+    {
+      "ticker": "GOCO",
+      "periodLabel": "FY 2022",
+      "metricCodes": [
+        "TOTAL_ASSETS"
+      ],
+      "reason": "TOTAL_ASSETS 264,768,835.62 is identical to ARVA FY2022 and is 23.09% above the internally consistent L+E total; asset line is the outlier.",
+      "code": "TOTAL_ASSETS",
+      "status": "quarantined",
+      "reportId": "cmupv8zp601c5bxn0o630an8d",
+      "valueId": "cmupv8zpb01c7bxn0kcx4ey9r",
+      "oldStatus": "VALID",
+      "normalizedValue": 264768835.62
+    },
+    {
+      "ticker": "EHDR",
+      "periodLabel": "FY 2024",
+      "metricCodes": [
+        "TOTAL_EQUITY"
+      ],
+      "reason": "Parent TOTAL_EQUITY excludes a 333.6M gap that is consistent with non-controlling interest; total equity including NCI is not available.",
+      "code": "TOTAL_EQUITY",
+      "status": "quarantined",
+      "reportId": "cmupv8yrc00zpbxn01dpzegmf",
+      "valueId": "cmupv8yrj00ztbxn0ow3bj246",
+      "oldStatus": "VALID",
+      "normalizedValue": 525830831.35
+    },
+    {
+      "ticker": "IRON",
+      "periodLabel": "FY 2013",
+      "metricCodes": [
+        "TOTAL_EQUITY"
+      ],
+      "reason": "Assets are 273.9M below liabilities + parent equity; a negative/non-controlling interest balance is not captured, so the parent equity base is incomplete.",
+      "code": "TOTAL_EQUITY",
+      "status": "quarantined",
+      "reportId": "cmuprf7d604zxbxg0g90e3tih",
+      "valueId": "cmuprf7e7050fbxg0zo1er09l",
+      "oldStatus": "VALID",
+      "normalizedValue": 182613559.5
+    },
+    {
+      "ticker": "NAHO",
+      "periodLabel": "FY 2023",
+      "metricCodes": [
+        "TOTAL_EQUITY"
+      ],
+      "reason": "Assets exceed liabilities + parent equity by 35.9M (15.38%); the gap is consistent with missing non-controlling interest.",
+      "code": "TOTAL_EQUITY",
+      "status": "quarantined",
+      "reportId": "cmuprfijq09u1bxg0a98o4mhv",
+      "valueId": "cmuprfikj09udbxg0o0rvcvuh",
+      "oldStatus": "VALID",
+      "normalizedValue": 174816592
+    },
+    {
+      "ticker": "MAAL",
+      "periodLabel": "FY 2021",
+      "metricCodes": [
+        "TOTAL_ASSETS",
+        "TOTAL_LIABILITIES"
+      ],
+      "reason": "TOTAL_ASSETS (2.56T) and TOTAL_LIABILITIES (2.43T) are 1000x the internally consistent TOTAL_EQUITY_AND_LIABILITIES (2.56B); downward scale correction is not auto-applied.",
+      "code": "TOTAL_ASSETS",
+      "status": "quarantined",
+      "reportId": "cmuiomww006q6bxq0ks5fb5yz",
+      "valueId": "cmvu2lric03rlbxfc2y6ew0b1",
+      "oldStatus": "VALID",
+      "normalizedValue": 2560404271000
+    },
+    {
+      "ticker": "MAAL",
+      "periodLabel": "FY 2021",
+      "metricCodes": [
+        "TOTAL_ASSETS",
+        "TOTAL_LIABILITIES"
+      ],
+      "reason": "TOTAL_ASSETS (2.56T) and TOTAL_LIABILITIES (2.43T) are 1000x the internally consistent TOTAL_EQUITY_AND_LIABILITIES (2.56B); downward scale correction is not auto-applied.",
+      "code": "TOTAL_LIABILITIES",
+      "status": "quarantined",
+      "reportId": "cmuiomww006q6bxq0ks5fb5yz",
+      "valueId": "cmvu2lrhm03rjbxfc5o2jz3ih",
+      "oldStatus": "VALID",
+      "normalizedValue": 2427895488000
+    },
+    {
+      "ticker": "MAAL",
+      "periodLabel": "FY 2022",
+      "metricCodes": [
+        "TOTAL_ASSETS",
+        "TOTAL_LIABILITIES"
+      ],
+      "reason": "TOTAL_ASSETS (2.53T) and TOTAL_LIABILITIES (2.40T) are 1000x the internally consistent TOTAL_EQUITY_AND_LIABILITIES (2.57B); downward scale correction is not auto-applied.",
+      "code": "TOTAL_ASSETS",
+      "status": "quarantined",
+      "reportId": "cmuiomwvg06osbxq0smltgsd2",
+      "valueId": "cmvu2lrgc03rfbxfc6uutzdzd",
+      "oldStatus": "VALID",
+      "normalizedValue": 2528024973000
+    },
+    {
+      "ticker": "MAAL",
+      "periodLabel": "FY 2022",
+      "metricCodes": [
+        "TOTAL_ASSETS",
+        "TOTAL_LIABILITIES"
+      ],
+      "reason": "TOTAL_ASSETS (2.53T) and TOTAL_LIABILITIES (2.40T) are 1000x the internally consistent TOTAL_EQUITY_AND_LIABILITIES (2.57B); downward scale correction is not auto-applied.",
+      "code": "TOTAL_LIABILITIES",
+      "status": "quarantined",
+      "reportId": "cmuiomwvg06osbxq0smltgsd2",
+      "valueId": "cmvu2lrfs03rdbxfcob7fsmxg",
+      "oldStatus": "VALID",
+      "normalizedValue": 2397511987000
+    }
+  ]
+}

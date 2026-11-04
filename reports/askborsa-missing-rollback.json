@@ -1,0 +1,3930 @@
+{
+  "generatedAt": "2026-10-30T01:13:18.116Z",
+  "created": [
+    {
+      "id": "cmvua3ay90001bxh0sv1n99gq",
+      "ticker": "AALR",
+      "year": 2025,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -5834827,
+      "sourceUrl": "https://askborsa.com/company/AALR"
+    },
+    {
+      "id": "cmvua3ayn0003bxh0bivtn84v",
+      "ticker": "ACAP",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 5267835014,
+      "sourceUrl": "https://askborsa.com/company/ACAP"
+    },
+    {
+      "id": "cmvua3ayy0005bxh06sbor8ap",
+      "ticker": "ACRO",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1965117194,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3az70007bxh0ogqhr4n0",
+      "ticker": "ACRO",
+      "year": 2020,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 14733865,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3azg0009bxh0sieap4de",
+      "ticker": "ACRO",
+      "year": 2020,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -69361279,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3azr000bbxh0gtx6baed",
+      "ticker": "ACRO",
+      "year": 2020,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 63013779,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3b07000dbxh0im3q1plt",
+      "ticker": "ACRO",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 8386365,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3b0h000fbxh08kp94xfe",
+      "ticker": "ACRO",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 2333666324,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3b0p000hbxh0zgkas0c4",
+      "ticker": "ACRO",
+      "year": 2021,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 14735021,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3b0v000jbxh0w1wiwo20",
+      "ticker": "ACRO",
+      "year": 2021,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -29003066,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3b12000lbxh00zgs5pd1",
+      "ticker": "ACRO",
+      "year": 2021,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -8830969,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3b19000nbxh0p41p1li9",
+      "ticker": "ACRO",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -3826230,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3b1f000pbxh09hoemvnk",
+      "ticker": "ACRO",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 2602897137,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3b1k000rbxh00hzdfloi",
+      "ticker": "ACRO",
+      "year": 2022,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -62116951,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3b1o000tbxh0imbhouwk",
+      "ticker": "ACRO",
+      "year": 2022,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -90569453,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3b1t000vbxh0reh2wbbl",
+      "ticker": "ACRO",
+      "year": 2022,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -5959074,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3b20000xbxh0fvs0u7tm",
+      "ticker": "ACRO",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 3295874985,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3b26000zbxh0eeuiz0lj",
+      "ticker": "ACRO",
+      "year": 2023,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -126680340,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3b2c0011bxh0mb8uu8dk",
+      "ticker": "ACRO",
+      "year": 2023,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 67365514,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3b2g0013bxh0chvuijfz",
+      "ticker": "ACRO",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 5407956793,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3b2l0015bxh0h5k1zuqb",
+      "ticker": "ACRO",
+      "year": 2024,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -156912412,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3b2s0017bxh0nzubh35h",
+      "ticker": "ACRO",
+      "year": 2024,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -58599349,
+      "sourceUrl": "https://askborsa.com/company/ACRO"
+    },
+    {
+      "id": "cmvua3b2z0019bxh0jx3r9vqt",
+      "ticker": "AIHC",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 4090224129,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b36001bbxh0tfen5trc",
+      "ticker": "AIHC",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -191543423,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b3b001dbxh0r4iek2fj",
+      "ticker": "AIHC",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 4394779951,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b3g001fbxh0x4ctger3",
+      "ticker": "AIHC",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -383096535,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b3k001hbxh0hrxh3pxb",
+      "ticker": "AIHC",
+      "year": 2022,
+      "metric": "NET_PROFIT",
+      "value": 70462441,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b3p001jbxh021qb5kx3",
+      "ticker": "AIHC",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 4457463584,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b3w001lbxh0ss2g802y",
+      "ticker": "AIHC",
+      "year": 2022,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 62882333,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b42001nbxh0ku3s063p",
+      "ticker": "AIHC",
+      "year": 2022,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -22646530,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b48001pbxh0kipvt3kh",
+      "ticker": "AIHC",
+      "year": 2022,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -16320364,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b4d001rbxh0hev5206d",
+      "ticker": "AIHC",
+      "year": 2022,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 23915439,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b4j001tbxh09d4w9c1w",
+      "ticker": "AIHC",
+      "year": 2023,
+      "metric": "NET_PROFIT",
+      "value": 90159974,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b4u001vbxh0867z0vky",
+      "ticker": "AIHC",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 5103393101,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b51001xbxh079obe5uf",
+      "ticker": "AIHC",
+      "year": 2023,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -140627232,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b58001zbxh02kzdgagx",
+      "ticker": "AIHC",
+      "year": 2023,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -29509292,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b5e0021bxh0h9aogz5p",
+      "ticker": "AIHC",
+      "year": 2023,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 182815803,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b5j0023bxh0lmtidq8f",
+      "ticker": "AIHC",
+      "year": 2024,
+      "metric": "NET_PROFIT",
+      "value": -23591833,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b5p0025bxh0dtvfw8oq",
+      "ticker": "AIHC",
+      "year": 2024,
+      "metric": "GROSS_PROFIT",
+      "value": 188304351,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b5x0027bxh0ab0mzah8",
+      "ticker": "AIHC",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 4188705068,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b630029bxh0rgct8ax6",
+      "ticker": "AIHC",
+      "year": 2024,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 25173414,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b6d002bbxh0iuhmmweh",
+      "ticker": "AIHC",
+      "year": 2024,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -162831801,
+      "sourceUrl": "https://askborsa.com/company/AIHC"
+    },
+    {
+      "id": "cmvua3b6i002dbxh0hb5y4bdt",
+      "ticker": "AMPI",
+      "year": 2024,
+      "metric": "TOTAL_ASSETS",
+      "value": 28566950,
+      "sourceUrl": "https://askborsa.com/company/AMPI"
+    },
+    {
+      "id": "cmvua3b6p002fbxh00f01rlgb",
+      "ticker": "AMPI",
+      "year": 2024,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 8567635,
+      "sourceUrl": "https://askborsa.com/company/AMPI"
+    },
+    {
+      "id": "cmvua3b6x002hbxh022s0rxq9",
+      "ticker": "AMPI",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY",
+      "value": 19999315,
+      "sourceUrl": "https://askborsa.com/company/AMPI"
+    },
+    {
+      "id": "cmvua3b73002jbxh0g2cxl9ii",
+      "ticker": "AMPI",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 28566950,
+      "sourceUrl": "https://askborsa.com/company/AMPI"
+    },
+    {
+      "id": "cmvua3b78002lbxh0bsothplx",
+      "ticker": "APPC",
+      "year": 2015,
+      "metric": "GROSS_PROFIT",
+      "value": -7830619,
+      "sourceUrl": "https://askborsa.com/company/APPC"
+    },
+    {
+      "id": "cmvua3b7d002nbxh041quotr0",
+      "ticker": "APPC",
+      "year": 2015,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 27380515,
+      "sourceUrl": "https://askborsa.com/company/APPC"
+    },
+    {
+      "id": "cmvua3b7i002pbxh05bk41ji5",
+      "ticker": "APPC",
+      "year": 2015,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 74154729,
+      "sourceUrl": "https://askborsa.com/company/APPC"
+    },
+    {
+      "id": "cmvua3b7o002rbxh0ha43k8f6",
+      "ticker": "APPC",
+      "year": 2015,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -31722091,
+      "sourceUrl": "https://askborsa.com/company/APPC"
+    },
+    {
+      "id": "cmvua3b7v002tbxh0nysj6knd",
+      "ticker": "APPC",
+      "year": 2015,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 28725590,
+      "sourceUrl": "https://askborsa.com/company/APPC"
+    },
+    {
+      "id": "cmvua3b80002vbxh01x30mxzg",
+      "ticker": "APPC",
+      "year": 2015,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 2796854,
+      "sourceUrl": "https://askborsa.com/company/APPC"
+    },
+    {
+      "id": "cmvua3b85002xbxh0abw3yuxz",
+      "ticker": "APPC",
+      "year": 2015,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -199647,
+      "sourceUrl": "https://askborsa.com/company/APPC"
+    },
+    {
+      "id": "cmvua3b8b002zbxh01ayto1m1",
+      "ticker": "ARVA",
+      "year": 2021,
+      "metric": "NET_PROFIT",
+      "value": 2132827,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3b8h0031bxh0j2ap0nd2",
+      "ticker": "ARVA",
+      "year": 2021,
+      "metric": "GROSS_PROFIT",
+      "value": 12344360,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3b8n0033bxh0r555yksr",
+      "ticker": "ARVA",
+      "year": 2021,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 46093627,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3b8s0035bxh0mce22uix",
+      "ticker": "ARVA",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 143933974,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3b8y0037bxh05vzkl671",
+      "ticker": "ARVA",
+      "year": 2021,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -17241510,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3b920039bxh0yakmbxco",
+      "ticker": "ARVA",
+      "year": 2021,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -1719433,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3b9a003bbxh00q4i2t86",
+      "ticker": "ARVA",
+      "year": 2021,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 20199672,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3b9m003dbxh0qimrf06c",
+      "ticker": "ARVA",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 1238729,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3b9u003fbxh0ow8afifw",
+      "ticker": "ARVA",
+      "year": 2022,
+      "metric": "NET_PROFIT",
+      "value": 9052864,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3b9z003hbxh06cqejaye",
+      "ticker": "ARVA",
+      "year": 2022,
+      "metric": "GROSS_PROFIT",
+      "value": 27227834,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3ba6003jbxh0qyk5g7r1",
+      "ticker": "ARVA",
+      "year": 2022,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 41047536,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3bad003lbxh0l23zd8p5",
+      "ticker": "ARVA",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY",
+      "value": 106632911,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3bal003nbxh0pwuwqn5s",
+      "ticker": "ARVA",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 147680447,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3bar003pbxh00rtt3xvt",
+      "ticker": "ARVA",
+      "year": 2022,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 21372055,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3bax003rbxh0d5h6k30o",
+      "ticker": "ARVA",
+      "year": 2022,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -4849281,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3bb2003tbxh0va31ulew",
+      "ticker": "ARVA",
+      "year": 2022,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -17315581,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3bb9003vbxh0ajw12ds8",
+      "ticker": "ARVA",
+      "year": 2022,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -792807,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3bbf003xbxh00v6ceffw",
+      "ticker": "ARVA",
+      "year": 2023,
+      "metric": "NET_PROFIT",
+      "value": 2398316,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3bbl003zbxh0ihw916a6",
+      "ticker": "ARVA",
+      "year": 2023,
+      "metric": "GROSS_PROFIT",
+      "value": 39126231,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3bbr0041bxh0cts9ppqi",
+      "ticker": "ARVA",
+      "year": 2023,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 64444687,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3bbw0043bxh0gr9h1o59",
+      "ticker": "ARVA",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY",
+      "value": 123854681,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3bc10045bxh0tdnlzxc2",
+      "ticker": "ARVA",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 188299368,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3bc60047bxh0vv41bkjl",
+      "ticker": "ARVA",
+      "year": 2023,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 632782,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3bcb0049bxh014925t0z",
+      "ticker": "ARVA",
+      "year": 2023,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -5318190,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3bci004bbxh0ijoqv63e",
+      "ticker": "ARVA",
+      "year": 2023,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 15753064,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3bcn004dbxh07k4jfbst",
+      "ticker": "ARVA",
+      "year": 2023,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 11067656,
+      "sourceUrl": "https://askborsa.com/company/ARVA"
+    },
+    {
+      "id": "cmvua3bcs004fbxh0j4riaz0j",
+      "ticker": "ASPI",
+      "year": 2022,
+      "metric": "GROSS_PROFIT",
+      "value": 167129787,
+      "sourceUrl": "https://askborsa.com/company/ASPI"
+    },
+    {
+      "id": "cmvua3bcx004hbxh0aabf6lcu",
+      "ticker": "AXPH",
+      "year": 2026,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -67148524,
+      "sourceUrl": "https://askborsa.com/company/AXPH"
+    },
+    {
+      "id": "cmvua3bd4004jbxh0ks7nw8ut",
+      "ticker": "AXPH",
+      "year": 2026,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -343422723,
+      "sourceUrl": "https://askborsa.com/company/AXPH"
+    },
+    {
+      "id": "cmvua3bdd004lbxh0t9pvkh75",
+      "ticker": "AXPH",
+      "year": 2026,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 111137562,
+      "sourceUrl": "https://askborsa.com/company/AXPH"
+    },
+    {
+      "id": "cmvua3bdn004nbxh0l2qmepqe",
+      "ticker": "BINV",
+      "year": 2020,
+      "metric": "DIVIDENDS_PAID",
+      "value": -64785721,
+      "sourceUrl": "https://askborsa.com/company/BINV"
+    },
+    {
+      "id": "cmvua3bdx004pbxh0gyryrit5",
+      "ticker": "BINV",
+      "year": 2021,
+      "metric": "DIVIDENDS_PAID",
+      "value": -203786520,
+      "sourceUrl": "https://askborsa.com/company/BINV"
+    },
+    {
+      "id": "cmvua3be3004rbxh07426zh87",
+      "ticker": "CAED",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 190465596,
+      "sourceUrl": "https://askborsa.com/company/CAED"
+    },
+    {
+      "id": "cmvua3bea004tbxh0k6sjgrzc",
+      "ticker": "CEFM",
+      "year": 2025,
+      "metric": "NET_PROFIT",
+      "value": 52853427,
+      "sourceUrl": "https://askborsa.com/company/CEFM"
+    },
+    {
+      "id": "cmvua3beh004vbxh0wisdx9gk",
+      "ticker": "CERA",
+      "year": 2025,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 138903500,
+      "sourceUrl": "https://askborsa.com/company/CERA"
+    },
+    {
+      "id": "cmvua3ben004xbxh0gi075x40",
+      "ticker": "CERA",
+      "year": 2025,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -210676571,
+      "sourceUrl": "https://askborsa.com/company/CERA"
+    },
+    {
+      "id": "cmvua3bes004zbxh0nj16ew14",
+      "ticker": "CERA",
+      "year": 2025,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 61764906,
+      "sourceUrl": "https://askborsa.com/company/CERA"
+    },
+    {
+      "id": "cmvua3bf00051bxh0shjoxwat",
+      "ticker": "CERA",
+      "year": 2025,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -10008165,
+      "sourceUrl": "https://askborsa.com/company/CERA"
+    },
+    {
+      "id": "cmvua3bf50053bxh09ikw28aa",
+      "ticker": "CIRA",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 2429971946,
+      "sourceUrl": "https://askborsa.com/company/CIRA"
+    },
+    {
+      "id": "cmvua3bfb0055bxh0uv4oh3r3",
+      "ticker": "CIRA",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 45600400,
+      "sourceUrl": "https://askborsa.com/company/CIRA"
+    },
+    {
+      "id": "cmvua3bfg0057bxh04w2v3qvo",
+      "ticker": "CIRA",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 4505338237,
+      "sourceUrl": "https://askborsa.com/company/CIRA"
+    },
+    {
+      "id": "cmvua3bfl0059bxh0c5fgodxt",
+      "ticker": "CIRA",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -211278988,
+      "sourceUrl": "https://askborsa.com/company/CIRA"
+    },
+    {
+      "id": "cmvua3bfq005bbxh0l8arvc41",
+      "ticker": "CIRA",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6630768616,
+      "sourceUrl": "https://askborsa.com/company/CIRA"
+    },
+    {
+      "id": "cmvua3bfv005dbxh0ld5ajnuu",
+      "ticker": "CIRA",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 7898084835,
+      "sourceUrl": "https://askborsa.com/company/CIRA"
+    },
+    {
+      "id": "cmvua3bg0005fbxh0yi7ncjre",
+      "ticker": "CIRA",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 9042230608,
+      "sourceUrl": "https://askborsa.com/company/CIRA"
+    },
+    {
+      "id": "cmvua3bg6005hbxh088e0r1i0",
+      "ticker": "COMI",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 427842167000,
+      "sourceUrl": "https://askborsa.com/company/COMI"
+    },
+    {
+      "id": "cmvua3bgd005jbxh0hvgbbm2k",
+      "ticker": "COMI",
+      "year": 2020,
+      "metric": "DIVIDENDS_PAID",
+      "value": -3370464000,
+      "sourceUrl": "https://askborsa.com/company/COMI"
+    },
+    {
+      "id": "cmvua3bgj005lbxh0sjigryq9",
+      "ticker": "COMI",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 498235838000,
+      "sourceUrl": "https://askborsa.com/company/COMI"
+    },
+    {
+      "id": "cmvua3bgo005nbxh0n6c5r16a",
+      "ticker": "COMI",
+      "year": 2021,
+      "metric": "DIVIDENDS_PAID",
+      "value": -1384721000,
+      "sourceUrl": "https://askborsa.com/company/COMI"
+    },
+    {
+      "id": "cmvua3bgu005pbxh0wxg5sqv8",
+      "ticker": "COMI",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 635831917000,
+      "sourceUrl": "https://askborsa.com/company/COMI"
+    },
+    {
+      "id": "cmvua3bh0005rbxh0zlqp379l",
+      "ticker": "COMI",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 834866099000,
+      "sourceUrl": "https://askborsa.com/company/COMI"
+    },
+    {
+      "id": "cmvua3bh7005tbxh0fjvi3exb",
+      "ticker": "COMI",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1214973261000,
+      "sourceUrl": "https://askborsa.com/company/COMI"
+    },
+    {
+      "id": "cmvua3bhe005vbxh0fydb7f1w",
+      "ticker": "CRST",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY",
+      "value": 244734390,
+      "sourceUrl": "https://askborsa.com/company/CRST"
+    },
+    {
+      "id": "cmvua3bhl005xbxh0g2x4uxbf",
+      "ticker": "DCRC",
+      "year": 2019,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 16544670.999999998,
+      "sourceUrl": "https://askborsa.com/company/DCRC"
+    },
+    {
+      "id": "cmvua3bhr005zbxh0jzcdvwee",
+      "ticker": "DCRC",
+      "year": 2019,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -33563765,
+      "sourceUrl": "https://askborsa.com/company/DCRC"
+    },
+    {
+      "id": "cmvua3bhy0061bxh0k71bprec",
+      "ticker": "DCRC",
+      "year": 2019,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 3919385,
+      "sourceUrl": "https://askborsa.com/company/DCRC"
+    },
+    {
+      "id": "cmvua3bi40063bxh0nk4rqhfm",
+      "ticker": "DCRC",
+      "year": 2019,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -13099709,
+      "sourceUrl": "https://askborsa.com/company/DCRC"
+    },
+    {
+      "id": "cmvua3bia0065bxh0upvdb8pm",
+      "ticker": "EAST",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 43595915000,
+      "sourceUrl": "https://askborsa.com/company/EAST"
+    },
+    {
+      "id": "cmvua3bik0067bxh0itthz48q",
+      "ticker": "EDFM",
+      "year": 2026,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1802202667,
+      "sourceUrl": "https://askborsa.com/company/EDFM"
+    },
+    {
+      "id": "cmvua3biu0069bxh0a7qmtkzz",
+      "ticker": "EGBE",
+      "year": 2020,
+      "metric": "DIVIDENDS_PAID",
+      "value": -90310084,
+      "sourceUrl": "https://askborsa.com/company/EGBE"
+    },
+    {
+      "id": "cmvua3bj8006bbxh0btzh370j",
+      "ticker": "EGBE",
+      "year": 2021,
+      "metric": "DIVIDENDS_PAID",
+      "value": -83612211,
+      "sourceUrl": "https://askborsa.com/company/EGBE"
+    },
+    {
+      "id": "cmvua3bjd006dbxh0dcyxp3n7",
+      "ticker": "EGCH",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 13205983418,
+      "sourceUrl": "https://askborsa.com/company/EGCH"
+    },
+    {
+      "id": "cmvua3bjk006fbxh0h6jjl8bt",
+      "ticker": "EGCH",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -225323935,
+      "sourceUrl": "https://askborsa.com/company/EGCH"
+    },
+    {
+      "id": "cmvua3bjr006hbxh0m8mgx0t4",
+      "ticker": "EGCH",
+      "year": 2021,
+      "metric": "GROSS_PROFIT",
+      "value": 306359295,
+      "sourceUrl": "https://askborsa.com/company/EGCH"
+    },
+    {
+      "id": "cmvua3bjw006jbxh0unj8t2xb",
+      "ticker": "EGCH",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 12648295675,
+      "sourceUrl": "https://askborsa.com/company/EGCH"
+    },
+    {
+      "id": "cmvua3bk1006lbxh0m9ozibhy",
+      "ticker": "EGCH",
+      "year": 2021,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -65985918.00000001,
+      "sourceUrl": "https://askborsa.com/company/EGCH"
+    },
+    {
+      "id": "cmvua3bk8006nbxh0zhe8ljh2",
+      "ticker": "EGCH",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -40679521,
+      "sourceUrl": "https://askborsa.com/company/EGCH"
+    },
+    {
+      "id": "cmvua3bke006pbxh0wj5gy2xg",
+      "ticker": "EGCH",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 13801769000,
+      "sourceUrl": "https://askborsa.com/company/EGCH"
+    },
+    {
+      "id": "cmvua3bkk006rbxh05li0ako7",
+      "ticker": "EGCH",
+      "year": 2022,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 430419982,
+      "sourceUrl": "https://askborsa.com/company/EGCH"
+    },
+    {
+      "id": "cmvua3bkp006tbxh0n83urcqh",
+      "ticker": "EGCH",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 18727840000,
+      "sourceUrl": "https://askborsa.com/company/EGCH"
+    },
+    {
+      "id": "cmvua3bkv006vbxh0p171hrli",
+      "ticker": "EGCH",
+      "year": 2023,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -35729523,
+      "sourceUrl": "https://askborsa.com/company/EGCH"
+    },
+    {
+      "id": "cmvua3bl1006xbxh09jhg5an1",
+      "ticker": "EGCH",
+      "year": 2023,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -923186352,
+      "sourceUrl": "https://askborsa.com/company/EGCH"
+    },
+    {
+      "id": "cmvua3bl8006zbxh0l72x4scw",
+      "ticker": "EGCH",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 29161022000,
+      "sourceUrl": "https://askborsa.com/company/EGCH"
+    },
+    {
+      "id": "cmvua3blf0071bxh0krhs9g1k",
+      "ticker": "EGCH",
+      "year": 2024,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 1687123214,
+      "sourceUrl": "https://askborsa.com/company/EGCH"
+    },
+    {
+      "id": "cmvua3blk0073bxh07wvhipac",
+      "ticker": "EGCH",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 30048334000,
+      "sourceUrl": "https://askborsa.com/company/EGCH"
+    },
+    {
+      "id": "cmvua3blp0075bxh02vy47zoc",
+      "ticker": "EHDR",
+      "year": 2021,
+      "metric": "NET_PROFIT",
+      "value": 38709849,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3blw0077bxh00endfdzf",
+      "ticker": "EHDR",
+      "year": 2021,
+      "metric": "GROSS_PROFIT",
+      "value": 55347592,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bm30079bxh0hk78nogh",
+      "ticker": "EHDR",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 851606096,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bma007bbxh0d1n1a1yt",
+      "ticker": "EHDR",
+      "year": 2021,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 1693555,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bmg007dbxh018m7b5xw",
+      "ticker": "EHDR",
+      "year": 2021,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 9485260,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bmm007fbxh0i4omrun2",
+      "ticker": "EHDR",
+      "year": 2021,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -2895530,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bmt007hbxh00156zglg",
+      "ticker": "EHDR",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 22325122,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bn0007jbxh0780qqbtq",
+      "ticker": "EHDR",
+      "year": 2022,
+      "metric": "NET_PROFIT",
+      "value": 16620683,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bn8007lbxh099w70s9h",
+      "ticker": "EHDR",
+      "year": 2022,
+      "metric": "GROSS_PROFIT",
+      "value": 28599885,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bnh007nbxh09rd70fb6",
+      "ticker": "EHDR",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 822896244,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bnp007pbxh0xbw0fpiw",
+      "ticker": "EHDR",
+      "year": 2022,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 35576353,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bnw007rbxh0s1yifibp",
+      "ticker": "EHDR",
+      "year": 2022,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -23661198,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bo2007tbxh02co0n1xv",
+      "ticker": "EHDR",
+      "year": 2022,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -4695451,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bo8007vbxh0w3pynaiv",
+      "ticker": "EHDR",
+      "year": 2023,
+      "metric": "NET_PROFIT",
+      "value": 58079355,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bod007xbxh04dpnvjtp",
+      "ticker": "EHDR",
+      "year": 2023,
+      "metric": "GROSS_PROFIT",
+      "value": 99950409,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3boj007zbxh06sglvs1w",
+      "ticker": "EHDR",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 778687481,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3boo0081bxh00fero422",
+      "ticker": "EHDR",
+      "year": 2023,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 10461208,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bot0083bxh073vew47u",
+      "ticker": "EHDR",
+      "year": 2023,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 24606402,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3boz0085bxh0p3wehkq7",
+      "ticker": "EHDR",
+      "year": 2023,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -11774957,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bp40087bxh05zt72x64",
+      "ticker": "EHDR",
+      "year": 2023,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 29291384,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bpa0089bxh0z2ng6unz",
+      "ticker": "EHDR",
+      "year": 2024,
+      "metric": "NET_PROFIT",
+      "value": 65295251,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bph008bbxh0b3xwrpc8",
+      "ticker": "EHDR",
+      "year": 2024,
+      "metric": "GROSS_PROFIT",
+      "value": 143180791,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bpn008dbxh08af9amw2",
+      "ticker": "EHDR",
+      "year": 2024,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 192201929,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bps008fbxh0jwo72x4e",
+      "ticker": "EHDR",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 836546061,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bpy008hbxh0pp2zyvdm",
+      "ticker": "EHDR",
+      "year": 2024,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 113530895,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bq3008jbxh0tmyu0oyw",
+      "ticker": "EHDR",
+      "year": 2024,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -16321760,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bq8008lbxh0wvemqzri",
+      "ticker": "EHDR",
+      "year": 2024,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -59016822,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bqe008nbxh0x2ta1jex",
+      "ticker": "EHDR",
+      "year": 2024,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 38192313,
+      "sourceUrl": "https://askborsa.com/company/EHDR"
+    },
+    {
+      "id": "cmvua3bqk008pbxh0tyl2qd6t",
+      "ticker": "EITP",
+      "year": 2015,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1880944069,
+      "sourceUrl": "https://askborsa.com/company/EITP"
+    },
+    {
+      "id": "cmvua3bqp008rbxh0fykxkaj9",
+      "ticker": "EITP",
+      "year": 2015,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 89766156,
+      "sourceUrl": "https://askborsa.com/company/EITP"
+    },
+    {
+      "id": "cmvua3bqu008tbxh0ylpxz9no",
+      "ticker": "EITP",
+      "year": 2016,
+      "metric": "NET_PROFIT",
+      "value": 41256312,
+      "sourceUrl": "https://askborsa.com/company/EITP"
+    },
+    {
+      "id": "cmvua3bqz008vbxh02k1kniak",
+      "ticker": "EITP",
+      "year": 2016,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 2031168306,
+      "sourceUrl": "https://askborsa.com/company/EITP"
+    },
+    {
+      "id": "cmvua3br3008xbxh0zgpcbnay",
+      "ticker": "EITP",
+      "year": 2016,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -27629100,
+      "sourceUrl": "https://askborsa.com/company/EITP"
+    },
+    {
+      "id": "cmvua3br8008zbxh0c532pd5c",
+      "ticker": "EITP",
+      "year": 2017,
+      "metric": "NET_PROFIT",
+      "value": -11795914,
+      "sourceUrl": "https://askborsa.com/company/EITP"
+    },
+    {
+      "id": "cmvua3bre0091bxh0kqzpo4qt",
+      "ticker": "EITP",
+      "year": 2017,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 2300561404,
+      "sourceUrl": "https://askborsa.com/company/EITP"
+    },
+    {
+      "id": "cmvua3brk0093bxh0fm94swwr",
+      "ticker": "EITP",
+      "year": 2017,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -48593758,
+      "sourceUrl": "https://askborsa.com/company/EITP"
+    },
+    {
+      "id": "cmvua3bro0095bxh0u09efjig",
+      "ticker": "EITP",
+      "year": 2017,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -32746758,
+      "sourceUrl": "https://askborsa.com/company/EITP"
+    },
+    {
+      "id": "cmvua3brv0097bxh036ly81mv",
+      "ticker": "EITP",
+      "year": 2018,
+      "metric": "NET_PROFIT",
+      "value": 29287072,
+      "sourceUrl": "https://askborsa.com/company/EITP"
+    },
+    {
+      "id": "cmvua3bs40099bxh0bnkskhrc",
+      "ticker": "EITP",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 2269364705,
+      "sourceUrl": "https://askborsa.com/company/EITP"
+    },
+    {
+      "id": "cmvua3bsa009bbxh0kkisb3tv",
+      "ticker": "EITP",
+      "year": 2018,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -91719787,
+      "sourceUrl": "https://askborsa.com/company/EITP"
+    },
+    {
+      "id": "cmvua3bsf009dbxh0dkus763a",
+      "ticker": "EITP",
+      "year": 2018,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 77999363,
+      "sourceUrl": "https://askborsa.com/company/EITP"
+    },
+    {
+      "id": "cmvua3bsl009fbxh0jzi5h1qs",
+      "ticker": "EITP",
+      "year": 2019,
+      "metric": "NET_PROFIT",
+      "value": 13324957,
+      "sourceUrl": "https://askborsa.com/company/EITP"
+    },
+    {
+      "id": "cmvua3bsq009hbxh0n6ldaflq",
+      "ticker": "EITP",
+      "year": 2019,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1912331183,
+      "sourceUrl": "https://askborsa.com/company/EITP"
+    },
+    {
+      "id": "cmvua3bsv009jbxh021o8pwde",
+      "ticker": "EITP",
+      "year": 2019,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -68089297,
+      "sourceUrl": "https://askborsa.com/company/EITP"
+    },
+    {
+      "id": "cmvua3bt1009lbxh04fs33unj",
+      "ticker": "EITP",
+      "year": 2019,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -75417244,
+      "sourceUrl": "https://askborsa.com/company/EITP"
+    },
+    {
+      "id": "cmvua3bt6009nbxh03589ipha",
+      "ticker": "ELKA",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 8248202895,
+      "sourceUrl": "https://askborsa.com/company/ELKA"
+    },
+    {
+      "id": "cmvua3btc009pbxh0byxtwsbt",
+      "ticker": "EPPK",
+      "year": 2020,
+      "metric": "NET_PROFIT",
+      "value": -2978004,
+      "sourceUrl": "https://askborsa.com/company/EPPK"
+    },
+    {
+      "id": "cmvua3bth009rbxh0uuap4r7p",
+      "ticker": "EPPK",
+      "year": 2020,
+      "metric": "GROSS_PROFIT",
+      "value": 5323225,
+      "sourceUrl": "https://askborsa.com/company/EPPK"
+    },
+    {
+      "id": "cmvua3btl009tbxh0d43t2feu",
+      "ticker": "EPPK",
+      "year": 2020,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 55980939,
+      "sourceUrl": "https://askborsa.com/company/EPPK"
+    },
+    {
+      "id": "cmvua3btq009vbxh0aso91lml",
+      "ticker": "EPPK",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY",
+      "value": 73320338,
+      "sourceUrl": "https://askborsa.com/company/EPPK"
+    },
+    {
+      "id": "cmvua3btu009xbxh0ouz91514",
+      "ticker": "EPPK",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 129301277,
+      "sourceUrl": "https://askborsa.com/company/EPPK"
+    },
+    {
+      "id": "cmvua3btz009zbxh0ozn4iwzi",
+      "ticker": "EPPK",
+      "year": 2020,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -13056060,
+      "sourceUrl": "https://askborsa.com/company/EPPK"
+    },
+    {
+      "id": "cmvua3bu400a1bxh0hd1xecus",
+      "ticker": "EPPK",
+      "year": 2020,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 178753,
+      "sourceUrl": "https://askborsa.com/company/EPPK"
+    },
+    {
+      "id": "cmvua3bua00a3bxh0y6337544",
+      "ticker": "EPPK",
+      "year": 2020,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 9054189,
+      "sourceUrl": "https://askborsa.com/company/EPPK"
+    },
+    {
+      "id": "cmvua3buf00a5bxh0jm46jvg2",
+      "ticker": "EPPK",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -3823118,
+      "sourceUrl": "https://askborsa.com/company/EPPK"
+    },
+    {
+      "id": "cmvua3bum00a7bxh0i76t9lzo",
+      "ticker": "EPPK",
+      "year": 2021,
+      "metric": "NET_PROFIT",
+      "value": -4786984,
+      "sourceUrl": "https://askborsa.com/company/EPPK"
+    },
+    {
+      "id": "cmvua3but00a9bxh0e8l2ah26",
+      "ticker": "EPPK",
+      "year": 2021,
+      "metric": "GROSS_PROFIT",
+      "value": 199912,
+      "sourceUrl": "https://askborsa.com/company/EPPK"
+    },
+    {
+      "id": "cmvua3buz00abbxh0nf7q6u5n",
+      "ticker": "EPPK",
+      "year": 2021,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 82608009,
+      "sourceUrl": "https://askborsa.com/company/EPPK"
+    },
+    {
+      "id": "cmvua3bv500adbxh0ajbwmenf",
+      "ticker": "EPPK",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY",
+      "value": 59473295,
+      "sourceUrl": "https://askborsa.com/company/EPPK"
+    },
+    {
+      "id": "cmvua3bva00afbxh0z9ovm5ra",
+      "ticker": "EPPK",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 142081304,
+      "sourceUrl": "https://askborsa.com/company/EPPK"
+    },
+    {
+      "id": "cmvua3bvg00ahbxh0ceiofkoo",
+      "ticker": "EPPK",
+      "year": 2021,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -477355,
+      "sourceUrl": "https://askborsa.com/company/EPPK"
+    },
+    {
+      "id": "cmvua3bvl00ajbxh0t0fq1ptg",
+      "ticker": "EPPK",
+      "year": 2021,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -674674,
+      "sourceUrl": "https://askborsa.com/company/EPPK"
+    },
+    {
+      "id": "cmvua3bvq00albxh0vxt2ncz2",
+      "ticker": "EPPK",
+      "year": 2021,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 6431491,
+      "sourceUrl": "https://askborsa.com/company/EPPK"
+    },
+    {
+      "id": "cmvua3bvw00anbxh01d94wksf",
+      "ticker": "EPPK",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 6312749,
+      "sourceUrl": "https://askborsa.com/company/EPPK"
+    },
+    {
+      "id": "cmvua3bw400apbxh0ktkh7zt2",
+      "ticker": "ESRS",
+      "year": 2019,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 44184210000,
+      "sourceUrl": "https://askborsa.com/company/ESRS"
+    },
+    {
+      "id": "cmvua3bwc00arbxh06bia3kfx",
+      "ticker": "ESRS",
+      "year": 2019,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -393693000,
+      "sourceUrl": "https://askborsa.com/company/ESRS"
+    },
+    {
+      "id": "cmvua3bwi00atbxh0vqso7u3v",
+      "ticker": "ESRS",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 42787772000,
+      "sourceUrl": "https://askborsa.com/company/ESRS"
+    },
+    {
+      "id": "cmvua3bwn00avbxh001315u30",
+      "ticker": "ESRS",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 362171000,
+      "sourceUrl": "https://askborsa.com/company/ESRS"
+    },
+    {
+      "id": "cmvua3bwu00axbxh05rdc1uve",
+      "ticker": "ESRS",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 50023824000,
+      "sourceUrl": "https://askborsa.com/company/ESRS"
+    },
+    {
+      "id": "cmvua3bx100azbxh07nli8xfu",
+      "ticker": "ESRS",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 1149834000,
+      "sourceUrl": "https://askborsa.com/company/ESRS"
+    },
+    {
+      "id": "cmvua3bx700b1bxh03jti24s5",
+      "ticker": "ESRS",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 66214136000,
+      "sourceUrl": "https://askborsa.com/company/ESRS"
+    },
+    {
+      "id": "cmvua3bxd00b3bxh06leut7b3",
+      "ticker": "ESRS",
+      "year": 2022,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 8435126000,
+      "sourceUrl": "https://askborsa.com/company/ESRS"
+    },
+    {
+      "id": "cmvua3bxi00b5bxh0tdpw6pas",
+      "ticker": "ESRS",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 113370524000,
+      "sourceUrl": "https://askborsa.com/company/ESRS"
+    },
+    {
+      "id": "cmvua3bxm00b7bxh0y907q293",
+      "ticker": "ESRS",
+      "year": 2023,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 8388098000,
+      "sourceUrl": "https://askborsa.com/company/ESRS"
+    },
+    {
+      "id": "cmvua3bxs00b9bxh0altzyfvk",
+      "ticker": "EXPA",
+      "year": 2020,
+      "metric": "DIVIDENDS_PAID",
+      "value": -451450000,
+      "sourceUrl": "https://askborsa.com/company/EXPA"
+    },
+    {
+      "id": "cmvua3by000bbbxh00609b7oi",
+      "ticker": "EXPA",
+      "year": 2021,
+      "metric": "DIVIDENDS_PAID",
+      "value": -161147000,
+      "sourceUrl": "https://askborsa.com/company/EXPA"
+    },
+    {
+      "id": "cmvua3by500bdbxh02r4hq58q",
+      "ticker": "FIRE",
+      "year": 2024,
+      "metric": "NET_PROFIT",
+      "value": 1318719,
+      "sourceUrl": "https://askborsa.com/company/FIRE"
+    },
+    {
+      "id": "cmvua3bya00bfbxh005r0zmux",
+      "ticker": "GDWA",
+      "year": 2021,
+      "metric": "TOTAL_ASSETS",
+      "value": 7179417337,
+      "sourceUrl": "https://askborsa.com/company/GDWA"
+    },
+    {
+      "id": "cmvua3byh00bhbxh0m2138o2p",
+      "ticker": "GDWA",
+      "year": 2021,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 4776699759,
+      "sourceUrl": "https://askborsa.com/company/GDWA"
+    },
+    {
+      "id": "cmvua3byn00bjbxh0wpwmjtfr",
+      "ticker": "GDWA",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY",
+      "value": 2402717578,
+      "sourceUrl": "https://askborsa.com/company/GDWA"
+    },
+    {
+      "id": "cmvua3byt00blbxh0kwmwvbr8",
+      "ticker": "GDWA",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 7179417337,
+      "sourceUrl": "https://askborsa.com/company/GDWA"
+    },
+    {
+      "id": "cmvua3byz00bnbxh0vtfzch2v",
+      "ticker": "GDWA",
+      "year": 2021,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -239477847,
+      "sourceUrl": "https://askborsa.com/company/GDWA"
+    },
+    {
+      "id": "cmvua3bz500bpbxh0vm4h0vgx",
+      "ticker": "GDWA",
+      "year": 2021,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -17946136,
+      "sourceUrl": "https://askborsa.com/company/GDWA"
+    },
+    {
+      "id": "cmvua3bzc00brbxh002g1vj1c",
+      "ticker": "GDWA",
+      "year": 2021,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 288019989,
+      "sourceUrl": "https://askborsa.com/company/GDWA"
+    },
+    {
+      "id": "cmvua3bzh00btbxh0xo09rk64",
+      "ticker": "GDWA",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 30596006,
+      "sourceUrl": "https://askborsa.com/company/GDWA"
+    },
+    {
+      "id": "cmvua3bzo00bvbxh07lwxqn6x",
+      "ticker": "GOCO",
+      "year": 2018,
+      "metric": "NET_PROFIT",
+      "value": 17139853,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3bzu00bxbxh0ll5ri4a2",
+      "ticker": "GOCO",
+      "year": 2018,
+      "metric": "GROSS_PROFIT",
+      "value": 21227518,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c0000bzbxh0mssnnehh",
+      "ticker": "GOCO",
+      "year": 2018,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 96905446,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c0400c1bxh05c49pdi8",
+      "ticker": "GOCO",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 199429168,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c0900c3bxh0r26y1iwa",
+      "ticker": "GOCO",
+      "year": 2018,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -12670005,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c0d00c5bxh01s6ongbd",
+      "ticker": "GOCO",
+      "year": 2018,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -7881194,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c0j00c7bxh0gkilrnqe",
+      "ticker": "GOCO",
+      "year": 2018,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 42333109,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c0p00c9bxh02r0ttswr",
+      "ticker": "GOCO",
+      "year": 2018,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 21781910,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c0w00cbbxh09qsz4j8j",
+      "ticker": "GOCO",
+      "year": 2020,
+      "metric": "NET_PROFIT",
+      "value": 7184987,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c1400cdbxh0fi7z00sx",
+      "ticker": "GOCO",
+      "year": 2020,
+      "metric": "GROSS_PROFIT",
+      "value": 12858655,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c1900cfbxh0tz36kwob",
+      "ticker": "GOCO",
+      "year": 2020,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 79298935,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c1f00chbxh05omd0loo",
+      "ticker": "GOCO",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 200367300,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c1q00cjbxh0qqgato44",
+      "ticker": "GOCO",
+      "year": 2020,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 8209116,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c1x00clbxh0ppvosw7w",
+      "ticker": "GOCO",
+      "year": 2020,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -10489115,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c2400cnbxh0vioidksa",
+      "ticker": "GOCO",
+      "year": 2020,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -413559,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c2900cpbxh07illz8ul",
+      "ticker": "GOCO",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -2693558,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c2f00crbxh05x7wwc4u",
+      "ticker": "GOCO",
+      "year": 2021,
+      "metric": "NET_PROFIT",
+      "value": 3903297,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c2l00ctbxh09nun0ac3",
+      "ticker": "GOCO",
+      "year": 2021,
+      "metric": "GROSS_PROFIT",
+      "value": 10482345,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c2s00cvbxh03spjk8o4",
+      "ticker": "GOCO",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 213158037,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c2w00cxbxh0fklcwndy",
+      "ticker": "GOCO",
+      "year": 2021,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 1357456,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c3100czbxh0l69oip2h",
+      "ticker": "GOCO",
+      "year": 2021,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -1502972,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c3700d1bxh0a7ww5l3w",
+      "ticker": "GOCO",
+      "year": 2021,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -3942119,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c3d00d3bxh0eobsxj3t",
+      "ticker": "GOCO",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -1842909,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c3k00d5bxh0fu70nvzc",
+      "ticker": "GOCO",
+      "year": 2022,
+      "metric": "NET_PROFIT",
+      "value": -2193453,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c3q00d7bxh0dzukbcsh",
+      "ticker": "GOCO",
+      "year": 2022,
+      "metric": "GROSS_PROFIT",
+      "value": -399490,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c3u00d9bxh0jav5ocyl",
+      "ticker": "GOCO",
+      "year": 2022,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 83835889,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c4000dbbxh07o0oixok",
+      "ticker": "GOCO",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY",
+      "value": 119798751,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c4400ddbxh0uncle65g",
+      "ticker": "GOCO",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 203634640,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c4a00dfbxh0txzbjx2d",
+      "ticker": "GOCO",
+      "year": 2022,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 1287689,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c4g00dhbxh07za9fkei",
+      "ticker": "GOCO",
+      "year": 2022,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -3789,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c4n00djbxh0toh5z1n2",
+      "ticker": "GOCO",
+      "year": 2022,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -5638549,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c4t00dlbxh0j0te2phq",
+      "ticker": "GOCO",
+      "year": 2022,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -4354649,
+      "sourceUrl": "https://askborsa.com/company/GOCO"
+    },
+    {
+      "id": "cmvua3c4y00dnbxh0gwnchd45",
+      "ticker": "GRCA",
+      "year": 2026,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 96811766,
+      "sourceUrl": "https://askborsa.com/company/GRCA"
+    },
+    {
+      "id": "cmvua3c5400dpbxh0j20xf9ce",
+      "ticker": "GTWL",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY",
+      "value": 968575777,
+      "sourceUrl": "https://askborsa.com/company/GTWL"
+    },
+    {
+      "id": "cmvua3c5b00drbxh0xc50snqc",
+      "ticker": "GTWL",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 2263481807,
+      "sourceUrl": "https://askborsa.com/company/GTWL"
+    },
+    {
+      "id": "cmvua3c5i00dtbxh00j5fboxj",
+      "ticker": "HRHO",
+      "year": 2020,
+      "metric": "DIVIDENDS_PAID",
+      "value": -132802448,
+      "sourceUrl": "https://askborsa.com/company/HRHO"
+    },
+    {
+      "id": "cmvua3c5s00dvbxh06g8mursi",
+      "ticker": "HRHO",
+      "year": 2021,
+      "metric": "DIVIDENDS_PAID",
+      "value": -43164735,
+      "sourceUrl": "https://askborsa.com/company/HRHO"
+    },
+    {
+      "id": "cmvua3c6200dxbxh0aqzg7qq8",
+      "ticker": "IRAX",
+      "year": 2019,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 391067026,
+      "sourceUrl": "https://askborsa.com/company/IRAX"
+    },
+    {
+      "id": "cmvua3c6b00dzbxh0con1pnsd",
+      "ticker": "ISMQ",
+      "year": 2026,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1144253008,
+      "sourceUrl": "https://askborsa.com/company/ISMQ"
+    },
+    {
+      "id": "cmvua3c6k00e1bxh00624ehom",
+      "ticker": "MASR",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 18472773592,
+      "sourceUrl": "https://askborsa.com/company/MASR"
+    },
+    {
+      "id": "cmvua3c6r00e3bxh01nuon0fu",
+      "ticker": "MASR",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 27526358718,
+      "sourceUrl": "https://askborsa.com/company/MASR"
+    },
+    {
+      "id": "cmvua3c6x00e5bxh0qitlxazu",
+      "ticker": "MASR",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 39384150758,
+      "sourceUrl": "https://askborsa.com/company/MASR"
+    },
+    {
+      "id": "cmvua3c7300e7bxh06asmuw7w",
+      "ticker": "MCRO",
+      "year": 2025,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -22883309,
+      "sourceUrl": "https://askborsa.com/company/MCRO"
+    },
+    {
+      "id": "cmvua3c7a00e9bxh0jftx5vz0",
+      "ticker": "MCRO",
+      "year": 2025,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -19591932,
+      "sourceUrl": "https://askborsa.com/company/MCRO"
+    },
+    {
+      "id": "cmvua3c7h00ebbxh0dtvjku7n",
+      "ticker": "MEGM",
+      "year": 2020,
+      "metric": "NET_PROFIT",
+      "value": 93078357,
+      "sourceUrl": "https://askborsa.com/company/MEGM"
+    },
+    {
+      "id": "cmvua3c7m00edbxh0fxwj654h",
+      "ticker": "MEGM",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 3167871014,
+      "sourceUrl": "https://askborsa.com/company/MEGM"
+    },
+    {
+      "id": "cmvua3c7r00efbxh07k60okcz",
+      "ticker": "MEGM",
+      "year": 2020,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 73961887,
+      "sourceUrl": "https://askborsa.com/company/MEGM"
+    },
+    {
+      "id": "cmvua3c7x00ehbxh02ukdnht7",
+      "ticker": "MEGM",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 431806121,
+      "sourceUrl": "https://askborsa.com/company/MEGM"
+    },
+    {
+      "id": "cmvua3c8200ejbxh0vr9if6nk",
+      "ticker": "MEGM",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 3531855511,
+      "sourceUrl": "https://askborsa.com/company/MEGM"
+    },
+    {
+      "id": "cmvua3c8800elbxh0e0jia4ou",
+      "ticker": "MEGM",
+      "year": 2021,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 34387841,
+      "sourceUrl": "https://askborsa.com/company/MEGM"
+    },
+    {
+      "id": "cmvua3c8e00enbxh0wvdxb1e1",
+      "ticker": "MEGM",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 63728182,
+      "sourceUrl": "https://askborsa.com/company/MEGM"
+    },
+    {
+      "id": "cmvua3c8q00epbxh0ub5enhe0",
+      "ticker": "MEGM",
+      "year": 2022,
+      "metric": "NET_PROFIT",
+      "value": 75934165,
+      "sourceUrl": "https://askborsa.com/company/MEGM"
+    },
+    {
+      "id": "cmvua3c8x00erbxh0zru8oicu",
+      "ticker": "MEGM",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 4464343981,
+      "sourceUrl": "https://askborsa.com/company/MEGM"
+    },
+    {
+      "id": "cmvua3c9700etbxh0htictg89",
+      "ticker": "MEGM",
+      "year": 2022,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 65103008,
+      "sourceUrl": "https://askborsa.com/company/MEGM"
+    },
+    {
+      "id": "cmvua3c9g00evbxh0ue1xjabe",
+      "ticker": "MEGM",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 5520148632,
+      "sourceUrl": "https://askborsa.com/company/MEGM"
+    },
+    {
+      "id": "cmvua3c9n00exbxh0fzop8gg2",
+      "ticker": "MEGM",
+      "year": 2023,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 201814482,
+      "sourceUrl": "https://askborsa.com/company/MEGM"
+    },
+    {
+      "id": "cmvua3c9u00ezbxh0quv836dy",
+      "ticker": "MEGM",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 7016412852,
+      "sourceUrl": "https://askborsa.com/company/MEGM"
+    },
+    {
+      "id": "cmvua3ca400f1bxh0npl21a1o",
+      "ticker": "MEGM",
+      "year": 2024,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 88374080,
+      "sourceUrl": "https://askborsa.com/company/MEGM"
+    },
+    {
+      "id": "cmvua3cah00f3bxh07uub650e",
+      "ticker": "MOIN",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 3734632800,
+      "sourceUrl": "https://askborsa.com/company/MOIN"
+    },
+    {
+      "id": "cmvua3cas00f5bxh0i7hea8ke",
+      "ticker": "MPCI",
+      "year": 2026,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 63351397,
+      "sourceUrl": "https://askborsa.com/company/MPCI"
+    },
+    {
+      "id": "cmvua3caz00f7bxh0irvm77u4",
+      "ticker": "MPCI",
+      "year": 2026,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -350873983,
+      "sourceUrl": "https://askborsa.com/company/MPCI"
+    },
+    {
+      "id": "cmvua3cb600f9bxh0svgrz7za",
+      "ticker": "MPCI",
+      "year": 2026,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -67241241,
+      "sourceUrl": "https://askborsa.com/company/MPCI"
+    },
+    {
+      "id": "cmvua3cbb00fbbxh0fepogmtx",
+      "ticker": "NAPR",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 5458637427,
+      "sourceUrl": "https://askborsa.com/company/NAPR"
+    },
+    {
+      "id": "cmvua3cbh00fdbxh0mmhhj3rk",
+      "ticker": "NAPR",
+      "year": 2023,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 121110131,
+      "sourceUrl": "https://askborsa.com/company/NAPR"
+    },
+    {
+      "id": "cmvua3cbm00ffbxh0fle2smu2",
+      "ticker": "NAPR",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 6949870967,
+      "sourceUrl": "https://askborsa.com/company/NAPR"
+    },
+    {
+      "id": "cmvua3cbr00fhbxh0j0l6er9c",
+      "ticker": "NAPR",
+      "year": 2024,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 92491490,
+      "sourceUrl": "https://askborsa.com/company/NAPR"
+    },
+    {
+      "id": "cmvua3cbx00fjbxh0372nnc6x",
+      "ticker": "NCGC",
+      "year": 2016,
+      "metric": "NET_PROFIT",
+      "value": -11832341,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cc400flbxh0rv6bi79n",
+      "ticker": "NCGC",
+      "year": 2016,
+      "metric": "GROSS_PROFIT",
+      "value": -2141704,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cca00fnbxh0vme3xshq",
+      "ticker": "NCGC",
+      "year": 2016,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 561336776,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3ccf00fpbxh07xczkxc1",
+      "ticker": "NCGC",
+      "year": 2016,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 4481795,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3ccn00frbxh0pxefchuh",
+      "ticker": "NCGC",
+      "year": 2016,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 3375089,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cct00ftbxh08i6an0jh",
+      "ticker": "NCGC",
+      "year": 2016,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -511428,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cd300fvbxh0qsa82nf8",
+      "ticker": "NCGC",
+      "year": 2016,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 7345456,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cd800fxbxh0x36xoswu",
+      "ticker": "NCGC",
+      "year": 2017,
+      "metric": "NET_PROFIT",
+      "value": -72238989,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cde00fzbxh0bixckyq2",
+      "ticker": "NCGC",
+      "year": 2017,
+      "metric": "GROSS_PROFIT",
+      "value": -620518,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cdk00g1bxh05rrdjls2",
+      "ticker": "NCGC",
+      "year": 2017,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 558710580,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cdq00g3bxh0i8py572s",
+      "ticker": "NCGC",
+      "year": 2017,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 1228728,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cdw00g5bxh05s66q0vw",
+      "ticker": "NCGC",
+      "year": 2017,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -42706,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3ce400g7bxh0euozq3th",
+      "ticker": "NCGC",
+      "year": 2017,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -1239,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cec00g9bxh0dcqdr811",
+      "ticker": "NCGC",
+      "year": 2017,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 1184783,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cel00gbbxh0m2jbd60y",
+      "ticker": "NCGC",
+      "year": 2018,
+      "metric": "NET_PROFIT",
+      "value": -2615354,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3ces00gdbxh09a8h9lts",
+      "ticker": "NCGC",
+      "year": 2018,
+      "metric": "GROSS_PROFIT",
+      "value": 6043475,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cey00gfbxh0jlegntug",
+      "ticker": "NCGC",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 554408317,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cf300ghbxh0gm9t1ygd",
+      "ticker": "NCGC",
+      "year": 2018,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -3311226,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cf900gjbxh0fjrn81a0",
+      "ticker": "NCGC",
+      "year": 2018,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 1671018,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cfe00glbxh0mvgmpwei",
+      "ticker": "NCGC",
+      "year": 2018,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -697342,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cfi00gnbxh0qoe81ou0",
+      "ticker": "NCGC",
+      "year": 2018,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -2337550,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cfo00gpbxh06y1h9dy8",
+      "ticker": "NCGC",
+      "year": 2019,
+      "metric": "NET_PROFIT",
+      "value": 7844669,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cfu00grbxh01ntn9015",
+      "ticker": "NCGC",
+      "year": 2019,
+      "metric": "GROSS_PROFIT",
+      "value": 8450957,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cfz00gtbxh0iqhhf9jf",
+      "ticker": "NCGC",
+      "year": 2019,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 556210342,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cg300gvbxh0z8hi1ley",
+      "ticker": "NCGC",
+      "year": 2019,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -3442754,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cg700gxbxh0kye4dphr",
+      "ticker": "NCGC",
+      "year": 2019,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 327171,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cgc00gzbxh0eyrf5q2b",
+      "ticker": "NCGC",
+      "year": 2019,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -3261058,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cgh00h1bxh00ju8ei6o",
+      "ticker": "NCGC",
+      "year": 2019,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -6376641,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cgn00h3bxh06h4gmt5e",
+      "ticker": "NCGC",
+      "year": 2020,
+      "metric": "NET_PROFIT",
+      "value": 54487393,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cgs00h5bxh0jd644t4k",
+      "ticker": "NCGC",
+      "year": 2020,
+      "metric": "GROSS_PROFIT",
+      "value": -11006,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cgx00h7bxh0f2dzbs5p",
+      "ticker": "NCGC",
+      "year": 2020,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 48202558,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3ch100h9bxh0kwgfpywn",
+      "ticker": "NCGC",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 492632324,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3ch600hbbxh0ljrlq964",
+      "ticker": "NCGC",
+      "year": 2020,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 11942468,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cha00hdbxh0yjqjr27p",
+      "ticker": "NCGC",
+      "year": 2020,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 15291778,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3che00hfbxh0wp8hdted",
+      "ticker": "NCGC",
+      "year": 2020,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -45238705,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3chj00hhbxh0svrxaqdl",
+      "ticker": "NCGC",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -18004459,
+      "sourceUrl": "https://askborsa.com/company/NCGC"
+    },
+    {
+      "id": "cmvua3cho00hjbxh06vgytnwk",
+      "ticker": "NEDA",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 42333864,
+      "sourceUrl": "https://askborsa.com/company/NEDA"
+    },
+    {
+      "id": "cmvua3chv00hlbxh0x8lc5juz",
+      "ticker": "OIH",
+      "year": 2020,
+      "metric": "GROSS_PROFIT",
+      "value": -67793000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3ci100hnbxh04yaqr9xp",
+      "ticker": "OIH",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 3638479000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3ci500hpbxh0af4t4xzt",
+      "ticker": "OIH",
+      "year": 2020,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -115619000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3cib00hrbxh0b9h2zp0v",
+      "ticker": "OIH",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -408873000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3cik00htbxh0r921ymsa",
+      "ticker": "OIH",
+      "year": 2021,
+      "metric": "GROSS_PROFIT",
+      "value": -47166000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3ciq00hvbxh05cg9g23w",
+      "ticker": "OIH",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 4012133000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3civ00hxbxh05kgobfai",
+      "ticker": "OIH",
+      "year": 2021,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 14038000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3cj000hzbxh0csbmu3td",
+      "ticker": "OIH",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -342188000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3cj400i1bxh051mjwlas",
+      "ticker": "OIH",
+      "year": 2022,
+      "metric": "GROSS_PROFIT",
+      "value": -24847000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3cj800i3bxh0cajf0g8k",
+      "ticker": "OIH",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 4025797000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3cjd00i5bxh030llaawv",
+      "ticker": "OIH",
+      "year": 2022,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -13324000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3cjj00i7bxh09h3oczh9",
+      "ticker": "OIH",
+      "year": 2022,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -181000000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3cjo00i9bxh0gfqh3g1x",
+      "ticker": "OIH",
+      "year": 2023,
+      "metric": "NET_PROFIT",
+      "value": -28220000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3cju00ibbxh0qay52ymv",
+      "ticker": "OIH",
+      "year": 2023,
+      "metric": "GROSS_PROFIT",
+      "value": 32723000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3ck000idbxh0npl56imi",
+      "ticker": "OIH",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 4841556000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3ck500ifbxh0n9u3f3xl",
+      "ticker": "OIH",
+      "year": 2023,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -159083000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3cka00ihbxh0p1hbn6u2",
+      "ticker": "OIH",
+      "year": 2023,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -296227000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3ckh00ijbxh0ko7agz5f",
+      "ticker": "OIH",
+      "year": 2024,
+      "metric": "GROSS_PROFIT",
+      "value": -57099000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3ckm00ilbxh0ext77yhp",
+      "ticker": "OIH",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 9508425000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3ckq00inbxh09n9x3zkh",
+      "ticker": "OIH",
+      "year": 2024,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -1291686000,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "id": "cmvua3ckv00ipbxh07o6i09ia",
+      "ticker": "PHGC",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 2144386080,
+      "sourceUrl": "https://askborsa.com/company/PHGC"
+    },
+    {
+      "id": "cmvua3ckz00irbxh0zpxuqhps",
+      "ticker": "PRDC",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 60761953525,
+      "sourceUrl": "https://askborsa.com/company/PRDC"
+    },
+    {
+      "id": "cmvua3cl500itbxh0sdr9r3hk",
+      "ticker": "RMTV",
+      "year": 2016,
+      "metric": "NET_PROFIT",
+      "value": 4079000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cla00ivbxh0evst02xj",
+      "ticker": "RMTV",
+      "year": 2016,
+      "metric": "GROSS_PROFIT",
+      "value": 13729000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3clf00ixbxh0edusio8n",
+      "ticker": "RMTV",
+      "year": 2016,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 607525000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3clk00izbxh0bhueit1d",
+      "ticker": "RMTV",
+      "year": 2016,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 5255000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3clo00j1bxh0xxlq9r0e",
+      "ticker": "RMTV",
+      "year": 2016,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -32238000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cls00j3bxh0pbg37chi",
+      "ticker": "RMTV",
+      "year": 2016,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 21782000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3clw00j5bxh087cyz2ih",
+      "ticker": "RMTV",
+      "year": 2016,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -5201000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cm100j7bxh0nr1wo1x9",
+      "ticker": "RMTV",
+      "year": 2017,
+      "metric": "NET_PROFIT",
+      "value": -6706000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cm600j9bxh04vin6clv",
+      "ticker": "RMTV",
+      "year": 2017,
+      "metric": "GROSS_PROFIT",
+      "value": 18649000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cmc00jbbxh005g2dsjm",
+      "ticker": "RMTV",
+      "year": 2017,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 648389000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cmh00jdbxh0469yrjg6",
+      "ticker": "RMTV",
+      "year": 2017,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 46000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cmp00jfbxh08obyx286",
+      "ticker": "RMTV",
+      "year": 2017,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -33091000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cmw00jhbxh09oxop9p1",
+      "ticker": "RMTV",
+      "year": 2017,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 35040000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cn100jjbxh0xfzjtt11",
+      "ticker": "RMTV",
+      "year": 2017,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 1995000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cn700jlbxh0iy5bjoow",
+      "ticker": "RMTV",
+      "year": 2019,
+      "metric": "NET_PROFIT",
+      "value": -1765000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cnd00jnbxh0pb9sapjk",
+      "ticker": "RMTV",
+      "year": 2019,
+      "metric": "GROSS_PROFIT",
+      "value": 57064000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cnh00jpbxh0cdlrno9n",
+      "ticker": "RMTV",
+      "year": 2019,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 711107000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cnl00jrbxh0jmc5cczb",
+      "ticker": "RMTV",
+      "year": 2019,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 46900000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cnp00jtbxh0c4h3hehc",
+      "ticker": "RMTV",
+      "year": 2019,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -34004000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cnt00jvbxh0fhea4ay4",
+      "ticker": "RMTV",
+      "year": 2019,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -5635000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cny00jxbxh00rozx8rp",
+      "ticker": "RMTV",
+      "year": 2019,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 7261000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3co300jzbxh0c3awc4rk",
+      "ticker": "RMTV",
+      "year": 2020,
+      "metric": "NET_PROFIT",
+      "value": -56457000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3co800k1bxh0j5u2b4qn",
+      "ticker": "RMTV",
+      "year": 2020,
+      "metric": "GROSS_PROFIT",
+      "value": -17816000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cod00k3bxh05xkx8up6",
+      "ticker": "RMTV",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 686189000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3col00k5bxh0d2ojkcit",
+      "ticker": "RMTV",
+      "year": 2020,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 20262000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cos00k7bxh0v0bocai7",
+      "ticker": "RMTV",
+      "year": 2020,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -20314000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3coy00k9bxh0ly6fe42w",
+      "ticker": "RMTV",
+      "year": 2020,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -3781000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cp500kbbxh0b353ptwn",
+      "ticker": "RMTV",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -3833000,
+      "sourceUrl": "https://askborsa.com/company/RMTV"
+    },
+    {
+      "id": "cmvua3cpb00kdbxh09vxa9cco",
+      "ticker": "SAUD",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY",
+      "value": 5053861290,
+      "sourceUrl": "https://askborsa.com/company/SAUD"
+    },
+    {
+      "id": "cmvua3cph00kfbxh0ti56l5gr",
+      "ticker": "SCTS",
+      "year": 2021,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 565933000,
+      "sourceUrl": "https://askborsa.com/company/SCTS"
+    },
+    {
+      "id": "cmvua3cpm00khbxh0whfwrz17",
+      "ticker": "SMPP",
+      "year": 2016,
+      "metric": "NET_PROFIT",
+      "value": 34115670,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3cpr00kjbxh0rapk4jtc",
+      "ticker": "SMPP",
+      "year": 2016,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1147916642,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3cpx00klbxh0vt722495",
+      "ticker": "SMPP",
+      "year": 2016,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 29133421,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3cq200knbxh0acllx4mi",
+      "ticker": "SMPP",
+      "year": 2016,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 10141210,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3cq700kpbxh0ozvmswwj",
+      "ticker": "SMPP",
+      "year": 2017,
+      "metric": "NET_PROFIT",
+      "value": 72970562,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3cqc00krbxh0f98lc25s",
+      "ticker": "SMPP",
+      "year": 2017,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1386640376,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3cqh00ktbxh0iafdw8ir",
+      "ticker": "SMPP",
+      "year": 2017,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 4151455,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3cqm00kvbxh03sazfcg6",
+      "ticker": "SMPP",
+      "year": 2017,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -66492431,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3cqr00kxbxh0wboheu0u",
+      "ticker": "SMPP",
+      "year": 2017,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 47549352,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3cqy00kzbxh0fomhwp4r",
+      "ticker": "SMPP",
+      "year": 2017,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -14791624,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3cr400l1bxh0im5gzzv0",
+      "ticker": "SMPP",
+      "year": 2018,
+      "metric": "NET_PROFIT",
+      "value": 41792119,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3cr900l3bxh0uyye6ak0",
+      "ticker": "SMPP",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1598451701,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3crg00l5bxh0b9xl5ttf",
+      "ticker": "SMPP",
+      "year": 2018,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -3762081,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3cro00l7bxh05wlscxk2",
+      "ticker": "SMPP",
+      "year": 2018,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -95416508,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3cru00l9bxh07x5dj7i8",
+      "ticker": "SMPP",
+      "year": 2018,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 23538563,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3cs100lbbxh0gj16dh8a",
+      "ticker": "SMPP",
+      "year": 2019,
+      "metric": "NET_PROFIT",
+      "value": 60362121,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3cs600ldbxh0vyc94iwt",
+      "ticker": "SMPP",
+      "year": 2019,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1575757203,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3csb00lfbxh0b7uayold",
+      "ticker": "SMPP",
+      "year": 2019,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 37459689,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3csh00lhbxh09nuas9f2",
+      "ticker": "SMPP",
+      "year": 2019,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -26326899,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3csn00ljbxh0l5f2r6nd",
+      "ticker": "SMPP",
+      "year": 2019,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -14089026,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3csu00llbxh053nqcccz",
+      "ticker": "SMPP",
+      "year": 2019,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -2956236,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3ct000lnbxh0zsq0dznj",
+      "ticker": "SMPP",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1837522972,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3ct500lpbxh08ubi1ri6",
+      "ticker": "SMPP",
+      "year": 2020,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -54953060,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3ctb00lrbxh0hpuhz169",
+      "ticker": "SMPP",
+      "year": 2020,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 49770625,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3cth00ltbxh0s35n7ko4",
+      "ticker": "SMPP",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 87724414,
+      "sourceUrl": "https://askborsa.com/company/SMPP"
+    },
+    {
+      "id": "cmvua3ctn00lvbxh02ffv82ub",
+      "ticker": "TORA",
+      "year": 2015,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 1000664857,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3ctt00lxbxh0p26zo0pm",
+      "ticker": "TORA",
+      "year": 2015,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -33243011,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cty00lzbxh0rmtnfnrb",
+      "ticker": "TORA",
+      "year": 2015,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -187040801,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cu200m1bxh0yvy5edd1",
+      "ticker": "TORA",
+      "year": 2016,
+      "metric": "GROSS_PROFIT",
+      "value": 75883619,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cu700m3bxh0utn1z9lc",
+      "ticker": "TORA",
+      "year": 2016,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 945184998,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cub00m5bxh0a8kbaukv",
+      "ticker": "TORA",
+      "year": 2016,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -29289257,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cui00m7bxh0qp2g47sx",
+      "ticker": "TORA",
+      "year": 2016,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -24314777,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cuv00m9bxh0om9mtcq5",
+      "ticker": "TORA",
+      "year": 2016,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 7751109,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cv000mbbxh0xyp8sjdc",
+      "ticker": "TORA",
+      "year": 2017,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 775655276,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cv500mdbxh07avhgbql",
+      "ticker": "TORA",
+      "year": 2017,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -43391791,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cvb00mfbxh0q2og2ubc",
+      "ticker": "TORA",
+      "year": 2017,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 40003090,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cvh00mhbxh0lazc6c6z",
+      "ticker": "TORA",
+      "year": 2017,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -30633271,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cvn00mjbxh0sbgqrm7k",
+      "ticker": "TORA",
+      "year": 2017,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -34021972,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cvs00mlbxh0uuf079sk",
+      "ticker": "TORA",
+      "year": 2018,
+      "metric": "NET_PROFIT",
+      "value": 36092525,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cvx00mnbxh0zzrcuuyv",
+      "ticker": "TORA",
+      "year": 2018,
+      "metric": "GROSS_PROFIT",
+      "value": 150126615,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cw300mpbxh0saz5ckpz",
+      "ticker": "TORA",
+      "year": 2018,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 854118806,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cwa00mrbxh09epnw0vo",
+      "ticker": "TORA",
+      "year": 2018,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 57725918,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cwh00mtbxh00154dmqv",
+      "ticker": "TORA",
+      "year": 2018,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -33658317,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cwn00mvbxh0f1h4p69f",
+      "ticker": "TORA",
+      "year": 2019,
+      "metric": "GROSS_PROFIT",
+      "value": -45049603,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cwt00mxbxh0d3t8efn9",
+      "ticker": "TORA",
+      "year": 2019,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 654328851,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cwy00mzbxh0a1vlqm8y",
+      "ticker": "TORA",
+      "year": 2019,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 34924622,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cx300n1bxh0gppphoe6",
+      "ticker": "TORA",
+      "year": 2019,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -24596833,
+      "sourceUrl": "https://askborsa.com/company/TORA"
+    },
+    {
+      "id": "cmvua3cx800n3bxh0vmh9z4em",
+      "ticker": "TRTO",
+      "year": 2024,
+      "metric": "TOTAL_ASSETS",
+      "value": 103110323,
+      "sourceUrl": "https://askborsa.com/company/TRTO"
+    },
+    {
+      "id": "cmvua3cxf00n5bxh0yzf0uo4a",
+      "ticker": "TRTO",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY",
+      "value": 88449224,
+      "sourceUrl": "https://askborsa.com/company/TRTO"
+    },
+    {
+      "id": "cmvua3cxl00n7bxh0bxoy6e9j",
+      "ticker": "TRTO",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 103110323,
+      "sourceUrl": "https://askborsa.com/company/TRTO"
+    },
+    {
+      "id": "cmvua3cxr00n9bxh0riuig8oe",
+      "ticker": "TRTO",
+      "year": 2024,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -3360908,
+      "sourceUrl": "https://askborsa.com/company/TRTO"
+    },
+    {
+      "id": "cmvua3cxz00nbbxh0bskxu401",
+      "ticker": "TRTO",
+      "year": 2024,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 6810710,
+      "sourceUrl": "https://askborsa.com/company/TRTO"
+    },
+    {
+      "id": "cmvua3cy400ndbxh051onnjap",
+      "ticker": "TRTO",
+      "year": 2024,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 3536337,
+      "sourceUrl": "https://askborsa.com/company/TRTO"
+    },
+    {
+      "id": "cmvua3cya00nfbxh0jmd0yurr",
+      "ticker": "UASG",
+      "year": 2020,
+      "metric": "NET_PROFIT",
+      "value": -29108978,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3cyg00nhbxh0g7ww2xqi",
+      "ticker": "UASG",
+      "year": 2020,
+      "metric": "GROSS_PROFIT",
+      "value": -10951676,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3cyl00njbxh03gp66dze",
+      "ticker": "UASG",
+      "year": 2020,
+      "metric": "TOTAL_ASSETS",
+      "value": 20205432,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3cyq00nlbxh0iat0kv7e",
+      "ticker": "UASG",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 20205432,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3cyv00nnbxh0t12w55hf",
+      "ticker": "UASG",
+      "year": 2020,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -29373411,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3cz000npbxh0i9hquu7k",
+      "ticker": "UASG",
+      "year": 2020,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -2820,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3cz500nrbxh04spfx0hq",
+      "ticker": "UASG",
+      "year": 2020,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 28831000,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3cza00ntbxh0ocfgv1g7",
+      "ticker": "UASG",
+      "year": 2020,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -545231,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3czg00nvbxh0qwbqqlfj",
+      "ticker": "UASG",
+      "year": 2021,
+      "metric": "NET_PROFIT",
+      "value": -28187389,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3czm00nxbxh0wt8d3syq",
+      "ticker": "UASG",
+      "year": 2021,
+      "metric": "GROSS_PROFIT",
+      "value": -12372491,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3czr00nzbxh0elpn1iug",
+      "ticker": "UASG",
+      "year": 2021,
+      "metric": "TOTAL_ASSETS",
+      "value": 28079085,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3czv00o1bxh0xobv9c6o",
+      "ticker": "UASG",
+      "year": 2021,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 28079085,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d0000o3bxh0vrwf6320",
+      "ticker": "UASG",
+      "year": 2021,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -12610218,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d0400o5bxh0wflyiwuk",
+      "ticker": "UASG",
+      "year": 2021,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -7936441,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d0a00o7bxh04ceaqv8v",
+      "ticker": "UASG",
+      "year": 2021,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 20968000,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d0h00o9bxh0mk603n54",
+      "ticker": "UASG",
+      "year": 2021,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 421341,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d0o00obbxh0u3k2v5ds",
+      "ticker": "UASG",
+      "year": 2022,
+      "metric": "NET_PROFIT",
+      "value": -21859922,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d0t00odbxh0sq3elqs8",
+      "ticker": "UASG",
+      "year": 2022,
+      "metric": "GROSS_PROFIT",
+      "value": -2986059,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d0x00ofbxh0la29zf9s",
+      "ticker": "UASG",
+      "year": 2022,
+      "metric": "TOTAL_ASSETS",
+      "value": 21324072,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d1200ohbxh0lbl131sd",
+      "ticker": "UASG",
+      "year": 2022,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 21324072,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d1800ojbxh0tw2h971w",
+      "ticker": "UASG",
+      "year": 2022,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -11486496,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d1d00olbxh0c0kdtfaj",
+      "ticker": "UASG",
+      "year": 2022,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 11594940,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d1h00onbxh069opgxhr",
+      "ticker": "UASG",
+      "year": 2022,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 108444,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d1l00opbxh0dqhc08m4",
+      "ticker": "UASG",
+      "year": 2023,
+      "metric": "NET_PROFIT",
+      "value": -15015090,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d1q00orbxh0c6robevi",
+      "ticker": "UASG",
+      "year": 2023,
+      "metric": "GROSS_PROFIT",
+      "value": -1902298,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d1u00otbxh0cneuowg1",
+      "ticker": "UASG",
+      "year": 2023,
+      "metric": "TOTAL_ASSETS",
+      "value": 22190074,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d1y00ovbxh0hn6hmgg5",
+      "ticker": "UASG",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 22190074,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d2300oxbxh0ipo42el0",
+      "ticker": "UASG",
+      "year": 2023,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -18943910,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d2800ozbxh060jejj69",
+      "ticker": "UASG",
+      "year": 2023,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 18578000,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d2e00p1bxh0srorlswe",
+      "ticker": "UASG",
+      "year": 2023,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -356910,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d2i00p3bxh0sqfyrhw5",
+      "ticker": "UASG",
+      "year": 2024,
+      "metric": "NET_PROFIT",
+      "value": -20489066,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d2m00p5bxh0yirea013",
+      "ticker": "UASG",
+      "year": 2024,
+      "metric": "GROSS_PROFIT",
+      "value": -16403890,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d2q00p7bxh0f2co8imh",
+      "ticker": "UASG",
+      "year": 2024,
+      "metric": "TOTAL_ASSETS",
+      "value": 22157297,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d2u00p9bxh0lzjrydds",
+      "ticker": "UASG",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 22157297,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d2z00pbbxh0z0ko90oh",
+      "ticker": "UASG",
+      "year": 2024,
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -19005513,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d3500pdbxh0jv7vusk2",
+      "ticker": "UASG",
+      "year": 2024,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 2476603,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d3900pfbxh0szefmeau",
+      "ticker": "UASG",
+      "year": 2024,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 16039000,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d3e00phbxh0ht97227c",
+      "ticker": "UASG",
+      "year": 2024,
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -489910,
+      "sourceUrl": "https://askborsa.com/company/UASG"
+    },
+    {
+      "id": "cmvua3d3i00pjbxh0f4giyjfz",
+      "ticker": "UEGC",
+      "year": 2023,
+      "metric": "TOTAL_EQUITY",
+      "value": 1215522503,
+      "sourceUrl": "https://askborsa.com/company/UEGC"
+    },
+    {
+      "id": "cmvua3d3o00plbxh0t9idkh7n",
+      "ticker": "WKOL",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 776720727,
+      "sourceUrl": "https://askborsa.com/company/WKOL"
+    },
+    {
+      "id": "cmvua3d3t00pnbxh0kmm5ry8t",
+      "ticker": "ZEOT",
+      "year": 2021,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 120891000,
+      "sourceUrl": "https://askborsa.com/company/ZEOT"
+    },
+    {
+      "id": "cmvua3d3y00ppbxh0gq90qg78",
+      "ticker": "ZEOT",
+      "year": 2023,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 188554000,
+      "sourceUrl": "https://askborsa.com/company/ZEOT"
+    }
+  ],
+  "skipped": [
+    {
+      "ticker": "AALR",
+      "year": 2025,
+      "metric": "NET_PROFIT",
+      "reason": "ZERO_OR_INVALID"
+    },
+    {
+      "ticker": "BQDC",
+      "reason": "KNOWN_SOURCE_SCALE_ERROR"
+    },
+    {
+      "ticker": "CANA",
+      "year": 2021,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "CANA",
+      "year": 2022,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "CANA",
+      "year": 2023,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "CANA",
+      "year": 2024,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "CANA",
+      "year": 2025,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "CFGH",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "CNFN",
+      "year": 2021,
+      "metric": "GROSS_PROFIT",
+      "reason": "ZERO_OR_INVALID"
+    },
+    {
+      "ticker": "COSG",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY",
+      "value": -10136059,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 456417012,
+      "ratio": 0.0222,
+      "sourceUrl": "https://askborsa.com/company/COSG"
+    },
+    {
+      "ticker": "CRST",
+      "year": 2025,
+      "metric": "TOTAL_ASSETS",
+      "value": 3430636736,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 255000000,
+      "ratio": 13.4535,
+      "sourceUrl": "https://askborsa.com/company/CRST"
+    },
+    {
+      "ticker": "CRST",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 3430636736,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 255000000,
+      "ratio": 13.4535,
+      "sourceUrl": "https://askborsa.com/company/CRST"
+    },
+    {
+      "ticker": "EASB",
+      "year": 2020,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "EASB",
+      "year": 2021,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "EASB",
+      "year": 2022,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "EASB",
+      "year": 2023,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "EASB",
+      "year": 2024,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "EGCH",
+      "year": 2022,
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -6335717,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 2170910406.51,
+      "ratio": 0.0029,
+      "sourceUrl": "https://askborsa.com/company/EGCH"
+    },
+    {
+      "ticker": "EGSA",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "GTEX",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "GTHE",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "IEEC",
+      "year": 2020,
+      "metric": "TOTAL_EQUITY",
+      "value": 2671050,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 100770000,
+      "ratio": 0.0265,
+      "sourceUrl": "https://askborsa.com/company/IEEC"
+    },
+    {
+      "ticker": "IRON",
+      "reason": "KNOWN_SOURCE_SCALE_ERROR"
+    },
+    {
+      "ticker": "MHOT",
+      "year": 2021,
+      "metric": "GROSS_PROFIT",
+      "value": 8267,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 1106919085,
+      "ratio": 0,
+      "sourceUrl": "https://askborsa.com/company/MHOT"
+    },
+    {
+      "ticker": "MICH",
+      "reason": "ALIAS_OF",
+      "canonical": "MCQE"
+    },
+    {
+      "ticker": "MOIL",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "NAHO",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "NDRL",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "OIH",
+      "year": 2024,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -3578000,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 858148572.285,
+      "ratio": 0.0042,
+      "sourceUrl": "https://askborsa.com/company/OIH"
+    },
+    {
+      "ticker": "ORAS",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "SAIB",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "SEIG",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "SPHT",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "UBEE",
+      "year": 2023,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "UBEE",
+      "year": 2024,
+      "metric": "DIVIDENDS_PAID",
+      "reason": "NO_DIVIDEND_SIGN_ANCHOR"
+    },
+    {
+      "ticker": "VLMR",
+      "reason": "USD_DENOMINATED"
+    },
+    {
+      "ticker": "VLMRA",
+      "reason": "USD_DENOMINATED"
+    }
+  ]
+}

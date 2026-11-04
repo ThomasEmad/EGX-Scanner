@@ -18,5 +18,5 @@ export async function register() {
         // warm-up is best-effort; the cache fills on first real request otherwise
       }
     })()
-  }, 3000)
+  }, 0)
 }

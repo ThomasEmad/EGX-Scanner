@@ -1,0 +1,41 @@
+
+=== GSSC
+  FY2023 ASKBORA_SUMMARY                NET_PROFIT         = 72,190,000 status=VALID notes="AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو"
+  FY2023 ASKBORA_SUMMARY                REVENUE            = 1,024,226,684.15 status=NEEDS_REVIEW notes="AUDIT_QUARANTINE: fabricated template value — identical value 1024226684.15 for "
+  FY2024 YAHOO_FINANCE_API              NET_PROFIT         = 206,020,690 status=CORRECTED notes="AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as "
+  FY2024 YAHOO_FINANCE_API              NET_PROFIT_PARENT  = 206,020,690 status=CORRECTED notes="AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as "
+  FY2024 YAHOO_FINANCE_API              REVENUE            = 1,341,232,013 status=CORRECTED notes="AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as "
+  FY2025 YAHOO_FINANCE_API              NET_PROFIT         = 265,160,968.67 status=CORRECTED notes="AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as "
+  FY2025 YAHOO_FINANCE_API              NET_PROFIT_PARENT  = 265,160,968.67 status=CORRECTED notes="AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as "
+  FY2025 YAHOO_FINANCE_API              REVENUE            = 1,487,765,839.86 status=CORRECTED notes="AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as "
+
+=== EXPA
+  FY2024 YAHOO_FINANCE_API              NET_PROFIT         = 5,203,185,000 status=CORRECTED notes="API import — YAHOO_FINANCE_API"
+  FY2024 YAHOO_FINANCE_API              NET_PROFIT_PARENT  = 5,203,185,000 status=VALID notes="API import — YAHOO_FINANCE_API"
+  FY2024 YAHOO_FINANCE_API              REVENUE            = 11,402,967,000 status=CORRECTED notes="API import — YAHOO_FINANCE_API"
+  FY2025 YAHOO_FINANCE_API              NET_PROFIT         = 6,032,606,000 status=CORRECTED notes="API import — YAHOO_FINANCE_API"
+  FY2025 YAHOO_FINANCE_API              NET_PROFIT_PARENT  = 6,032,606,000 status=VALID notes="API import — YAHOO_FINANCE_API"
+  FY2025 YAHOO_FINANCE_API              REVENUE            = 13,041,159,000 status=CORRECTED notes="API import — YAHOO_FINANCE_API"
+
+=== MAAL
+  FY2023 YAHOO_FINANCE_API + REUTERS_FI NET_PROFIT         = 56,267,054 status=CORRECTED notes="AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as "
+  FY2023 YAHOO_FINANCE_API + REUTERS_FI NET_PROFIT_PARENT  = 56,267,054 status=CORRECTED notes="AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as "
+  FY2023 YAHOO_FINANCE_API + REUTERS_FI REVENUE            = 230,655,018 status=CORRECTED notes="AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as "
+  FY2025 REUTERS_FINANCIALS_PAGE        NET_PROFIT         = 105,154,590 status=VALID notes="API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)"
+  FY2025 REUTERS_FINANCIALS_PAGE        REVENUE            = 1,112,556,740 status=VALID notes="API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)"
+
+=== CCAP
+  FY2022 YAHOO_FINANCE_API              NET_PROFIT         = 17,239,808,000 status=CORRECTED notes="API import — YAHOO_FINANCE_API (3 sources agree)"
+  FY2022 YAHOO_FINANCE_API              NET_PROFIT_PARENT  = 1,256,287,000 status=VALID notes="API import — YAHOO_FINANCE_API"
+  FY2022 YAHOO_FINANCE_API              REVENUE            = 82,718,112,000 status=VALID notes="API import — YAHOO_FINANCE_API (2 sources agree)"
+  FY2024 YAHOO_FINANCE_API              NET_PROFIT         = -1,755,208,000 status=CORRECTED notes="API import — YAHOO_FINANCE_API (6 sources agree)"
+  FY2024 YAHOO_FINANCE_API              NET_PROFIT_PARENT  = 6,391,184,000 status=VALID notes="API import — YAHOO_FINANCE_API (2 sources agree)"
+  FY2024 YAHOO_FINANCE_API              REVENUE            = 148,874,356,000 status=VALID notes="API import — YAHOO_FINANCE_API (4 sources agree)"
+
+=== HDBK
+  FY2024 YAHOO_FINANCE_API              NET_PROFIT         = 12,425,820,549 status=VALID notes="API import — YAHOO_FINANCE_API"
+  FY2024 YAHOO_FINANCE_API              NET_PROFIT_PARENT  = 12,425,820,549 status=VALID notes="API import — YAHOO_FINANCE_API"
+  FY2024 YAHOO_FINANCE_API              REVENUE            = 21,096,133,153 status=VALID notes="API import — YAHOO_FINANCE_API"
+  FY2025 YAHOO_FINANCE_API              NET_PROFIT         = 18,680,766,637 status=VALID notes="API import — YAHOO_FINANCE_API"
+  FY2025 YAHOO_FINANCE_API              NET_PROFIT_PARENT  = 18,680,766,637 status=VALID notes="API import — YAHOO_FINANCE_API"
+  FY2025 YAHOO_FINANCE_API              REVENUE            = 30,606,239,603 status=VALID notes="API import — YAHOO_FINANCE_API"

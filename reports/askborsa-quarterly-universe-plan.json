@@ -1,0 +1,4560 @@
+{
+  "generatedAt": "2026-10-30T02:02:13.625Z",
+  "plans": [
+    {
+      "ticker": "ARPI",
+      "companyId": "cmvublwqu0000bx7okl0aazzs",
+      "fiscalYear": 2020,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2020",
+      "periodStart": "2020-04-01T00:00:00.000Z",
+      "periodEnd": "2020-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/ARPI",
+      "annualReportId": "cmvublws30009bx7oa3orzcn4",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 27125163,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 272109,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 26853054,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 27125163,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "ARPI",
+      "companyId": "cmvublwqu0000bx7okl0aazzs",
+      "fiscalYear": 2020,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2020",
+      "periodStart": "2020-07-01T00:00:00.000Z",
+      "periodEnd": "2020-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/ARPI",
+      "annualReportId": "cmvublws30009bx7oa3orzcn4",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 26819459,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 273302,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 26546157,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 26819459,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "ARPI",
+      "companyId": "cmvublwqu0000bx7okl0aazzs",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2020",
+      "periodStart": "2020-10-01T00:00:00.000Z",
+      "periodEnd": "2020-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/ARPI",
+      "annualReportId": "cmvublws30009bx7oa3orzcn4",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 27693416,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 442587,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 27250829,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 27693416,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "ARPI",
+      "companyId": "cmvublwqu0000bx7okl0aazzs",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2021",
+      "periodStart": "2021-04-01T00:00:00.000Z",
+      "periodEnd": "2021-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/ARPI",
+      "annualReportId": "cmvublwtt000rbx7ow7sknufm",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 26808294,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 7473401,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 19334893,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 26808294,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "ARPI",
+      "companyId": "cmvublwqu0000bx7okl0aazzs",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2021",
+      "periodStart": "2021-07-01T00:00:00.000Z",
+      "periodEnd": "2021-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/ARPI",
+      "annualReportId": "cmvublwtt000rbx7ow7sknufm",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 28338235,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 7417661,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 20920574,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 28338235,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "ARPI",
+      "companyId": "cmvublwqu0000bx7okl0aazzs",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2021",
+      "periodStart": "2021-10-01T00:00:00.000Z",
+      "periodEnd": "2021-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/ARPI",
+      "annualReportId": "cmvublwtt000rbx7ow7sknufm",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 26185237,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 5639475,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 20545762,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 26185237,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "ARPI",
+      "companyId": "cmvublwqu0000bx7okl0aazzs",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2022",
+      "periodStart": "2022-04-01T00:00:00.000Z",
+      "periodEnd": "2022-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/ARPI",
+      "annualReportId": "cmvublwvb001dbx7oo526zlg0",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 24474347,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 4339169,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 20135178,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 24474347,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "ARPI",
+      "companyId": "cmvublwqu0000bx7okl0aazzs",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2022",
+      "periodStart": "2022-07-01T00:00:00.000Z",
+      "periodEnd": "2022-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/ARPI",
+      "annualReportId": "cmvublwvb001dbx7oo526zlg0",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 17462494,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 676540,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 16785954,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 17462494,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "ARPI",
+      "companyId": "cmvublwqu0000bx7okl0aazzs",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2022",
+      "periodStart": "2022-10-01T00:00:00.000Z",
+      "periodEnd": "2022-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/ARPI",
+      "annualReportId": "cmvublwvb001dbx7oo526zlg0",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 17184072,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 771491,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 16412581,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 17184072,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "ARPI",
+      "companyId": "cmvublwqu0000bx7okl0aazzs",
+      "fiscalYear": 2023,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2023",
+      "periodStart": "2023-04-01T00:00:00.000Z",
+      "periodEnd": "2023-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/ARPI",
+      "annualReportId": "cmvublwwm001xbx7oxtjl2qec",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 13872889,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 794958,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 13077931,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 13872889,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "ARPI",
+      "companyId": "cmvublwqu0000bx7okl0aazzs",
+      "fiscalYear": 2023,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2023",
+      "periodStart": "2023-07-01T00:00:00.000Z",
+      "periodEnd": "2023-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/ARPI",
+      "annualReportId": "cmvublwwm001xbx7oxtjl2qec",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 14420468,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 742184,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 13678284,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 14420468,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "ARPI",
+      "companyId": "cmvublwqu0000bx7okl0aazzs",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2023",
+      "periodStart": "2023-10-01T00:00:00.000Z",
+      "periodEnd": "2023-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/ARPI",
+      "annualReportId": "cmvublwwm001xbx7oxtjl2qec",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 14567006,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 774945,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 13792061,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 14567006,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DCCC",
+      "companyId": "cmvu2glob000kbxg4knkregdp",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2015",
+      "periodStart": "2015-04-01T00:00:00.000Z",
+      "periodEnd": "2015-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DCCC",
+      "annualReportId": "cmvublwy9002hbx7o3hsm7wvg",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 1130899,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 270452,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 860447,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 1130899,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DCCC",
+      "companyId": "cmvu2glob000kbxg4knkregdp",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2016",
+      "periodStart": "2016-04-01T00:00:00.000Z",
+      "periodEnd": "2016-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DCCC",
+      "annualReportId": "cmvublwz9002vbx7okrgd4fbo",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 1496325,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 483167,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 1013158,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 1496325,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DCCC",
+      "companyId": "cmvu2glob000kbxg4knkregdp",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2018",
+      "periodStart": "2018-04-01T00:00:00.000Z",
+      "periodEnd": "2018-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DCCC",
+      "annualReportId": "cmvublx0l003hbx7o96bygj9y",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 3063048,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 1945124,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 1117924,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 3063048,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2015,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2015",
+      "periodStart": "2015-01-01T00:00:00.000Z",
+      "periodEnd": "2015-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx200043bx7od1vh9hcz",
+      "values": [
+        {
+          "metric": "NET_PROFIT",
+          "value": 126717,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 605034,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 9759289,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 69221,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": -27285,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": 41936,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2015,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2015",
+      "periodStart": "2015-04-01T00:00:00.000Z",
+      "periodEnd": "2015-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx200043bx7od1vh9hcz",
+      "values": [
+        {
+          "metric": "NET_PROFIT",
+          "value": 94282,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 10102967,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 499215,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 9603752,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 10102967,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 105724,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": -4398,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": -219054,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2015,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2015",
+      "periodStart": "2015-07-01T00:00:00.000Z",
+      "periodEnd": "2015-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx200043bx7od1vh9hcz",
+      "values": [
+        {
+          "metric": "NET_PROFIT",
+          "value": 183817,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 10248408,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 460840,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 9787568,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 10248408,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 335830,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": -239391,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": 96438,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2015",
+      "periodStart": "2015-10-01T00:00:00.000Z",
+      "periodEnd": "2015-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx200043bx7od1vh9hcz",
+      "values": [
+        {
+          "metric": "NET_PROFIT",
+          "value": 290444,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 10324482,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 651286,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 9673196,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 10324482,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 680005,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": -213824,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": 350395,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2016",
+      "periodStart": "2016-01-01T00:00:00.000Z",
+      "periodEnd": "2016-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx3m004pbx7ou6cdxhnh",
+      "values": [
+        {
+          "metric": "NET_PROFIT",
+          "value": 119248,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 10377769,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 612916,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 9764853,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 10377769,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 250102,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": -24781,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "value": -27592,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": 197729,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2016",
+      "periodStart": "2016-04-01T00:00:00.000Z",
+      "periodEnd": "2016-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx3m004pbx7ou6cdxhnh",
+      "values": [
+        {
+          "metric": "NET_PROFIT",
+          "value": 107713,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 10553875,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 681310,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 9872565,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 10553875,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 309065,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": -203021,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "value": 0,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": 106044,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2016,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2016",
+      "periodStart": "2016-07-01T00:00:00.000Z",
+      "periodEnd": "2016-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx3m004pbx7ou6cdxhnh",
+      "values": [
+        {
+          "metric": "NET_PROFIT",
+          "value": -154128,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 10397510,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 679072,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 9718438,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 10397510,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 36336,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": 0,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "value": -3,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": 36333,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2016",
+      "periodStart": "2016-10-01T00:00:00.000Z",
+      "periodEnd": "2016-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx3m004pbx7ou6cdxhnh",
+      "values": [
+        {
+          "metric": "NET_PROFIT",
+          "value": 57153,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 9039868,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 783289,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 8256579,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 9039868,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 863261,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": -227802,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "value": -1473771,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": -838312,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2017",
+      "periodStart": "2017-01-01T00:00:00.000Z",
+      "periodEnd": "2017-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx56005bbx7oier076i3",
+      "values": [
+        {
+          "metric": "NET_PROFIT",
+          "value": -64785,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 8981057,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 789261,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 8191796,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 8981057,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": -77657,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": -1250,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": -78907,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2017",
+      "periodStart": "2017-04-01T00:00:00.000Z",
+      "periodEnd": "2017-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx56005bbx7oier076i3",
+      "values": [
+        {
+          "metric": "NET_PROFIT",
+          "value": 32867,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 9009770,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 785107,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 8224663,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 9009770,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": -81121,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": 0,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": -81121,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2017,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2017",
+      "periodStart": "2017-07-01T00:00:00.000Z",
+      "periodEnd": "2017-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx56005bbx7oier076i3",
+      "values": [
+        {
+          "metric": "NET_PROFIT",
+          "value": 249320,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 907500,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 8473981,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 530605,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": 0,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": 530605,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2017",
+      "periodStart": "2017-10-01T00:00:00.000Z",
+      "periodEnd": "2017-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx56005bbx7oier076i3",
+      "values": [
+        {
+          "metric": "NET_PROFIT",
+          "value": 151149,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 9399249,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 991521,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 8407728,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 9399249,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 814817,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": -17389,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": 797429,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2018",
+      "periodStart": "2018-01-01T00:00:00.000Z",
+      "periodEnd": "2018-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx6i005vbx7ojylcyea1",
+      "values": [
+        {
+          "metric": "NET_PROFIT",
+          "value": -319861,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 8983987,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 809365,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 8174622,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 8983987,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": -1116735,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": -94008,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "value": 86754,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2018",
+      "periodStart": "2018-04-01T00:00:00.000Z",
+      "periodEnd": "2018-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx6i005vbx7ojylcyea1",
+      "values": [
+        {
+          "metric": "NET_PROFIT",
+          "value": -163692,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 8728955,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 834941,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 8728955,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 568610,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": -584859,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "value": -116916,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2018,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2018",
+      "periodStart": "2018-07-01T00:00:00.000Z",
+      "periodEnd": "2018-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx6i005vbx7ojylcyea1",
+      "values": [
+        {
+          "metric": "NET_PROFIT",
+          "value": 134205,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 8784729,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 756510,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 8028219,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 8784729,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 56923,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": 0,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "value": 1,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2018",
+      "periodStart": "2018-10-01T00:00:00.000Z",
+      "periodEnd": "2018-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx6i005vbx7ojylcyea1",
+      "values": [
+        {
+          "metric": "NET_PROFIT",
+          "value": -511873,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 8569206,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 703512,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 7865694,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 8569206,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 460513,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": -678867,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "value": -30162,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2019",
+      "periodStart": "2019-01-01T00:00:00.000Z",
+      "periodEnd": "2019-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx7w006hbx7oal07mohe",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 9030421,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 1125681,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 7904740,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 9030421,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 16754,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": -295426,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": -278672,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2019,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2019",
+      "periodStart": "2019-04-01T00:00:00.000Z",
+      "periodEnd": "2019-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx7w006hbx7oal07mohe",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 11511702,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 3108810,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 11511702,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 2806308,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": -7741,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": 2711063,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2019,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2019",
+      "periodStart": "2019-07-01T00:00:00.000Z",
+      "periodEnd": "2019-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx7w006hbx7oal07mohe",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 10382894,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 1499642,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 8883252,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 10382894,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": -1840415,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": -211062,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": -1963973,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": "cmvublwr30001bx7oh9eu9f3i",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2019",
+      "periodStart": "2019-10-01T00:00:00.000Z",
+      "periodEnd": "2019-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "annualReportId": "cmvublx7w006hbx7oal07mohe",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 9995568,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 1562447,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 8433121,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 9995568,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 1087268,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "value": -747697,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": 339571,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "GETO",
+      "companyId": "cmvublwr80002bx7o1sahv69o",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2017",
+      "periodStart": "2017-10-01T00:00:00.000Z",
+      "periodEnd": "2017-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/GETO",
+      "annualReportId": "cmvublx920071bx7onvb3gwig",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 7228262,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 512032.0000000001,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6716230,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 7228262,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "GETO",
+      "companyId": "cmvublwr80002bx7o1sahv69o",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2018",
+      "periodStart": "2018-01-01T00:00:00.000Z",
+      "periodEnd": "2018-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/GETO",
+      "annualReportId": "cmvublxa7007lbx7ouqhdtw8q",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 7300189,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 552302,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6747887,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 7300189,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 327867,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": 327867,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "GETO",
+      "companyId": "cmvublwr80002bx7o1sahv69o",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2018",
+      "periodStart": "2018-04-01T00:00:00.000Z",
+      "periodEnd": "2018-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/GETO",
+      "annualReportId": "cmvublxa7007lbx7ouqhdtw8q",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 7073218,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 301594,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6771624,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 7073218,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": -93479,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": -93479,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "GETO",
+      "companyId": "cmvublwr80002bx7o1sahv69o",
+      "fiscalYear": 2018,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2018",
+      "periodStart": "2018-07-01T00:00:00.000Z",
+      "periodEnd": "2018-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/GETO",
+      "annualReportId": "cmvublxa7007lbx7ouqhdtw8q",
+      "values": [
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": -13956,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": -526077,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "GETO",
+      "companyId": "cmvublwr80002bx7o1sahv69o",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2018",
+      "periodStart": "2018-10-01T00:00:00.000Z",
+      "periodEnd": "2018-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/GETO",
+      "annualReportId": "cmvublxa7007lbx7ouqhdtw8q",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 7339729,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 332563,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 7007166,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 7339729,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": -526077,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "value": -526077,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "GETO",
+      "companyId": "cmvublwr80002bx7o1sahv69o",
+      "fiscalYear": 2020,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2020",
+      "periodStart": "2020-01-01T00:00:00.000Z",
+      "periodEnd": "2020-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/GETO",
+      "annualReportId": "cmvublxbg0083bx7o095ah4jo",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 7103523,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 261485,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6842038,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 7103523,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "GETO",
+      "companyId": "cmvublwr80002bx7o1sahv69o",
+      "fiscalYear": 2020,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2020",
+      "periodStart": "2020-04-01T00:00:00.000Z",
+      "periodEnd": "2020-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/GETO",
+      "annualReportId": "cmvublxbg0083bx7o095ah4jo",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 6936512,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 243544,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6692968,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 6936512,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "GETO",
+      "companyId": "cmvublwr80002bx7o1sahv69o",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2020",
+      "periodStart": "2020-10-01T00:00:00.000Z",
+      "periodEnd": "2020-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/GETO",
+      "annualReportId": "cmvublxbg0083bx7o095ah4jo",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 6724744,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 250420,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6474324,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 6724744,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "GETO",
+      "companyId": "cmvublwr80002bx7o1sahv69o",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2021",
+      "periodStart": "2021-01-01T00:00:00.000Z",
+      "periodEnd": "2021-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/GETO",
+      "annualReportId": "cmvublxce008jbx7ohfoswno4",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 6653543,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 250420,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6403123,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 6653543,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "GETO",
+      "companyId": "cmvublwr80002bx7o1sahv69o",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2021",
+      "periodStart": "2021-04-01T00:00:00.000Z",
+      "periodEnd": "2021-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/GETO",
+      "annualReportId": "cmvublxce008jbx7ohfoswno4",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 6582342,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 250420,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6331922,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 6582342,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "GETO",
+      "companyId": "cmvublwr80002bx7o1sahv69o",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2021",
+      "periodStart": "2021-10-01T00:00:00.000Z",
+      "periodEnd": "2021-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/GETO",
+      "annualReportId": "cmvublxce008jbx7ohfoswno4",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 6469940,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 413435,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6056505,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 6469940,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "MISR",
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2020",
+      "periodStart": "2020-10-01T00:00:00.000Z",
+      "periodEnd": "2020-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MISR",
+      "annualReportId": "cmvublxdc008zbx7o12x0u2is",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 6973737,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6973737,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 6973737,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "MISR",
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2021",
+      "periodStart": "2021-10-01T00:00:00.000Z",
+      "periodEnd": "2021-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MISR",
+      "annualReportId": "cmvublxea009fbx7odiei8vqa",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 6374642,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 47669,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6326973,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 6374642,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "MISR",
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2022",
+      "periodStart": "2022-01-01T00:00:00.000Z",
+      "periodEnd": "2022-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MISR",
+      "annualReportId": "cmvublxfl009xbx7ofx50nc5q",
+      "values": [
+        {
+          "metric": "GROSS_PROFIT",
+          "value": 18892,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 6916890,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6247203,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 6916890,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "MISR",
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2022",
+      "periodStart": "2022-04-01T00:00:00.000Z",
+      "periodEnd": "2022-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MISR",
+      "annualReportId": "cmvublxfl009xbx7ofx50nc5q",
+      "values": [
+        {
+          "metric": "GROSS_PROFIT",
+          "value": 102318,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "MISR",
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2022",
+      "periodStart": "2022-07-01T00:00:00.000Z",
+      "periodEnd": "2022-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MISR",
+      "annualReportId": "cmvublxfl009xbx7ofx50nc5q",
+      "values": [
+        {
+          "metric": "GROSS_PROFIT",
+          "value": 65374,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 6737202,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6108692,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 6737202,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "MISR",
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2022",
+      "periodStart": "2022-10-01T00:00:00.000Z",
+      "periodEnd": "2022-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MISR",
+      "annualReportId": "cmvublxfl009xbx7ofx50nc5q",
+      "values": [
+        {
+          "metric": "GROSS_PROFIT",
+          "value": 68121,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 6282970,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6282970,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 6282970,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "MISR",
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "fiscalYear": 2023,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2023",
+      "periodStart": "2023-01-01T00:00:00.000Z",
+      "periodEnd": "2023-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MISR",
+      "annualReportId": "cmvublxgj00adbx7om4lujurz",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 6479747,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 50111,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6429636,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 6479747,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "MISR",
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "fiscalYear": 2023,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2023",
+      "periodStart": "2023-07-01T00:00:00.000Z",
+      "periodEnd": "2023-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MISR",
+      "annualReportId": "cmvublxgj00adbx7om4lujurz",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 6000655,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 5993599,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 6000655,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "MISR",
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2023",
+      "periodStart": "2023-10-01T00:00:00.000Z",
+      "periodEnd": "2023-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MISR",
+      "annualReportId": "cmvublxgj00adbx7om4lujurz",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 5170298,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 7056,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 5163242,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 5170298,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "MISR",
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "fiscalYear": 2024,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2024",
+      "periodStart": "2024-01-01T00:00:00.000Z",
+      "periodEnd": "2024-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MISR",
+      "annualReportId": "cmvublxhm00avbx7o69ecaywg",
+      "values": [
+        {
+          "metric": "GROSS_PROFIT",
+          "value": 8481,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 6174615,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 1008027,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 5166588,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 6174615,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "MISR",
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "fiscalYear": 2024,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2024",
+      "periodStart": "2024-04-01T00:00:00.000Z",
+      "periodEnd": "2024-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MISR",
+      "annualReportId": "cmvublxhm00avbx7o69ecaywg",
+      "values": [
+        {
+          "metric": "GROSS_PROFIT",
+          "value": 155597,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "MISR",
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "fiscalYear": 2024,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2024",
+      "periodStart": "2024-07-01T00:00:00.000Z",
+      "periodEnd": "2024-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MISR",
+      "annualReportId": "cmvublxhm00avbx7o69ecaywg",
+      "values": [
+        {
+          "metric": "GROSS_PROFIT",
+          "value": -248083,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 5973552,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 4173552,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 5973552,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "MISR",
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2024",
+      "periodStart": "2024-10-01T00:00:00.000Z",
+      "periodEnd": "2024-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MISR",
+      "annualReportId": "cmvublxhm00avbx7o69ecaywg",
+      "values": [
+        {
+          "metric": "GROSS_PROFIT",
+          "value": 155597,
+          "verifiedBy": "SUM_TO_FY"
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 6011844,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 4211844,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 6011844,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "MKIT",
+      "companyId": "cmvublwrd0003bx7oi2tctn2g",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2020",
+      "periodStart": "2020-10-01T00:00:00.000Z",
+      "periodEnd": "2020-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MKIT",
+      "annualReportId": "cmvublxim00bbbx7o38s8x0us",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 20145526,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 10645311,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 9500215,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 20145526,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "MKIT",
+      "companyId": "cmvublwrd0003bx7oi2tctn2g",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2021",
+      "periodStart": "2021-01-01T00:00:00.000Z",
+      "periodEnd": "2021-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MKIT",
+      "annualReportId": "cmvublxk300bxbx7osrw4t2lw",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 20151957,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 11286012,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 8865945,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 20151957,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "MKIT",
+      "companyId": "cmvublwrd0003bx7oi2tctn2g",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2021",
+      "periodStart": "2021-07-01T00:00:00.000Z",
+      "periodEnd": "2021-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MKIT",
+      "annualReportId": "cmvublxk300bxbx7osrw4t2lw",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 19487710,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 13850593,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 5637117,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 19487710,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "MKIT",
+      "companyId": "cmvublwrd0003bx7oi2tctn2g",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2021",
+      "periodStart": "2021-10-01T00:00:00.000Z",
+      "periodEnd": "2021-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MKIT",
+      "annualReportId": "cmvublxk300bxbx7osrw4t2lw",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 19012236,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 14473132,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 4539104,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 19012236,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "MKIT",
+      "companyId": "cmvublwrd0003bx7oi2tctn2g",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2022",
+      "periodStart": "2022-01-01T00:00:00.000Z",
+      "periodEnd": "2022-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MKIT",
+      "annualReportId": "cmvublxlc00cjbx7owxu9t4bg",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 19358282,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 15915835,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 3442447,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 19358282,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "MKIT",
+      "companyId": "cmvublwrd0003bx7oi2tctn2g",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2022",
+      "periodStart": "2022-07-01T00:00:00.000Z",
+      "periodEnd": "2022-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MKIT",
+      "annualReportId": "cmvublxlc00cjbx7owxu9t4bg",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 18538827,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 16985544,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 1553283,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 18538827,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "MKIT",
+      "companyId": "cmvublwrd0003bx7oi2tctn2g",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2022",
+      "periodStart": "2022-10-01T00:00:00.000Z",
+      "periodEnd": "2022-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MKIT",
+      "annualReportId": "cmvublxlc00cjbx7owxu9t4bg",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 17825053,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 16486005,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 1339048,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 17825053,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "MKIT",
+      "companyId": "cmvublwrd0003bx7oi2tctn2g",
+      "fiscalYear": 2023,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2023",
+      "periodStart": "2023-01-01T00:00:00.000Z",
+      "periodEnd": "2023-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MKIT",
+      "annualReportId": "cmvublxmv00d5bx7oxdt16sbj",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 17801437,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 16434639,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 1366798,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 17801437,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "MKIT",
+      "companyId": "cmvublwrd0003bx7oi2tctn2g",
+      "fiscalYear": 2023,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2023",
+      "periodStart": "2023-07-01T00:00:00.000Z",
+      "periodEnd": "2023-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MKIT",
+      "annualReportId": "cmvublxmv00d5bx7oxdt16sbj",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 16550617,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 15055325,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 1495292,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 16550617,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "MKIT",
+      "companyId": "cmvublwrd0003bx7oi2tctn2g",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2023",
+      "periodStart": "2023-10-01T00:00:00.000Z",
+      "periodEnd": "2023-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MKIT",
+      "annualReportId": "cmvublxmv00d5bx7oxdt16sbj",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 16323007,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 14791423,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 1531584,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 16323007,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "MKIT",
+      "companyId": "cmvublwrd0003bx7oi2tctn2g",
+      "fiscalYear": 2024,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2024",
+      "periodStart": "2024-01-01T00:00:00.000Z",
+      "periodEnd": "2024-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MKIT",
+      "annualReportId": "cmvublxol00drbx7og8u2ltma",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 16160172,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 15080381,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 1079791,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 16160172,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "MKIT",
+      "companyId": "cmvublwrd0003bx7oi2tctn2g",
+      "fiscalYear": 2024,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2024",
+      "periodStart": "2024-07-01T00:00:00.000Z",
+      "periodEnd": "2024-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MKIT",
+      "annualReportId": "cmvublxol00drbx7og8u2ltma",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 15581720,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 12735108,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 2846612,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 15581720,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "MKIT",
+      "companyId": "cmvublwrd0003bx7oi2tctn2g",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2024",
+      "periodStart": "2024-10-01T00:00:00.000Z",
+      "periodEnd": "2024-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MKIT",
+      "annualReportId": "cmvublxol00drbx7og8u2ltma",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 15344292,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 16419143,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": -1074851,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 15344292,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "POCO",
+      "companyId": "cmvublwri0004bx7ofgbwa59t",
+      "fiscalYear": 2014,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2014",
+      "periodStart": "2014-04-01T00:00:00.000Z",
+      "periodEnd": "2014-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/POCO",
+      "annualReportId": "cmvublxq300edbx7ot0mst9o9",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 974021.98,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 252400.545,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 721621.435,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 974021.98,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "POCO",
+      "companyId": "cmvublwri0004bx7ofgbwa59t",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2015",
+      "periodStart": "2015-04-01T00:00:00.000Z",
+      "periodEnd": "2015-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/POCO",
+      "annualReportId": "cmvublxrh00ezbx7o6ca1ur95",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 1146953.745,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 328852.245,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 818101.5,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 1146953.745,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "POCO",
+      "companyId": "cmvublwri0004bx7ofgbwa59t",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2016",
+      "periodStart": "2016-04-01T00:00:00.000Z",
+      "periodEnd": "2016-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/POCO",
+      "annualReportId": "cmvublxt000flbx7oz363eop5",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 1289905.46,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 372559.344,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 917346.116,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 1289905.46,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "POCO",
+      "companyId": "cmvublwri0004bx7ofgbwa59t",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2017",
+      "periodStart": "2017-04-01T00:00:00.000Z",
+      "periodEnd": "2017-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/POCO",
+      "annualReportId": "cmvublxu900g7bx7osxqncgks",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 1924776.556,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 606373.459,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 1318403.097,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 1924776.556,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "POCO",
+      "companyId": "cmvublwri0004bx7ofgbwa59t",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2018",
+      "periodStart": "2018-04-01T00:00:00.000Z",
+      "periodEnd": "2018-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/POCO",
+      "annualReportId": "cmvublxv400glbx7ophhxk67p",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 1656471.675,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 649113.784,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 1007357.891,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 1656471.675,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": "cmvublwrn0005bx7o5ojoih11",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2018",
+      "periodStart": "2018-10-01T00:00:00.000Z",
+      "periodEnd": "2018-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "annualReportId": "cmvublxwi00h7bx7ol2jwpv94",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 13506069,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 1370121,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 12135948,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 13506069,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": "cmvublwrn0005bx7o5ojoih11",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2019",
+      "periodStart": "2019-01-01T00:00:00.000Z",
+      "periodEnd": "2019-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "annualReportId": "cmvublxy700hpbx7o8c1hzpa2",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 13386884,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 1209239,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 12177645,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 13386884,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": "cmvublwrn0005bx7o5ojoih11",
+      "fiscalYear": 2019,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2019",
+      "periodStart": "2019-07-01T00:00:00.000Z",
+      "periodEnd": "2019-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "annualReportId": "cmvublxy700hpbx7o8c1hzpa2",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 13717106,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 1281554,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 12435552,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 13717106,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": "cmvublwrn0005bx7o5ojoih11",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2019",
+      "periodStart": "2019-10-01T00:00:00.000Z",
+      "periodEnd": "2019-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "annualReportId": "cmvublxy700hpbx7o8c1hzpa2",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 12844437,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 524150.9999999999,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 12320286,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 12844437,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": "cmvublwrn0005bx7o5ojoih11",
+      "fiscalYear": 2020,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2020",
+      "periodStart": "2020-01-01T00:00:00.000Z",
+      "periodEnd": "2020-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "annualReportId": "cmvublxze00i7bx7ovhw7wbjl",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 14725802,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 2330551,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 12395251,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 14725802,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": "cmvublwrn0005bx7o5ojoih11",
+      "fiscalYear": 2020,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2020",
+      "periodStart": "2020-07-01T00:00:00.000Z",
+      "periodEnd": "2020-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "annualReportId": "cmvublxze00i7bx7ovhw7wbjl",
+      "values": [
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 1662259,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 10957868,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": "cmvublwrn0005bx7o5ojoih11",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2020",
+      "periodStart": "2020-10-01T00:00:00.000Z",
+      "periodEnd": "2020-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "annualReportId": "cmvublxze00i7bx7ovhw7wbjl",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 12638262,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 2152737,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 10485525,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 12638262,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": "cmvublwrn0005bx7o5ojoih11",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2021",
+      "periodStart": "2021-01-01T00:00:00.000Z",
+      "periodEnd": "2021-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "annualReportId": "cmvubly0m00ipbx7oy65fib07",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 8421870,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 2346585,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6075285,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 8421870,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": -206328,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": "cmvublwrn0005bx7o5ojoih11",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2021",
+      "periodStart": "2021-04-01T00:00:00.000Z",
+      "periodEnd": "2021-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "annualReportId": "cmvubly0m00ipbx7oy65fib07",
+      "values": [
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 60913,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": "cmvublwrn0005bx7o5ojoih11",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2021",
+      "periodStart": "2021-07-01T00:00:00.000Z",
+      "periodEnd": "2021-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "annualReportId": "cmvubly0m00ipbx7oy65fib07",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 8365180,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 2507790,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 5857390,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 8365180,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": -54990,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": "cmvublwrn0005bx7o5ojoih11",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2021",
+      "periodStart": "2021-10-01T00:00:00.000Z",
+      "periodEnd": "2021-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "annualReportId": "cmvubly0m00ipbx7oy65fib07",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 8297468.999999999,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 2396384,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 5901085,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 8297468.999999999,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "value": 60913,
+          "verifiedBy": "SUM_TO_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": "cmvublwrn0005bx7o5ojoih11",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2022",
+      "periodStart": "2022-01-01T00:00:00.000Z",
+      "periodEnd": "2022-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "annualReportId": "cmvubly2300j7bx7oa1gn0mv2",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 8164513,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 2409384,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 5755129,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 8164513,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": "cmvublwrn0005bx7o5ojoih11",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "periodLabel": "Q3 2022",
+      "periodStart": "2022-07-01T00:00:00.000Z",
+      "periodEnd": "2022-09-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "annualReportId": "cmvubly2300j7bx7oa1gn0mv2",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 7799262,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 2226507,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 5572755,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 7799262,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": "cmvublwrn0005bx7o5ojoih11",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2022",
+      "periodStart": "2022-10-01T00:00:00.000Z",
+      "periodEnd": "2022-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "annualReportId": "cmvubly2300j7bx7oa1gn0mv2",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 6261854,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 2261507,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 4000347,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 6261854,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "SUCE",
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2015",
+      "periodStart": "2015-10-01T00:00:00.000Z",
+      "periodEnd": "2015-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/SUCE",
+      "annualReportId": "cmvubly3600jnbx7o20s88vx2",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 10022913937,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 2801221365,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 7221692572,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 10022913937,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "SUCE",
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2016",
+      "periodStart": "2016-01-01T00:00:00.000Z",
+      "periodEnd": "2016-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/SUCE",
+      "annualReportId": "cmvubly4l00k9bx7oa1fszjmo",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 10178917355,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 3118659858,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 7060257497,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 10178917355,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "SUCE",
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2016",
+      "periodStart": "2016-04-01T00:00:00.000Z",
+      "periodEnd": "2016-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/SUCE",
+      "annualReportId": "cmvubly4l00k9bx7oa1fszjmo",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 10413862658,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 3309854201,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 7104008457,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 10413862658,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "SUCE",
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2016",
+      "periodStart": "2016-10-01T00:00:00.000Z",
+      "periodEnd": "2016-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/SUCE",
+      "annualReportId": "cmvubly4l00k9bx7oa1fszjmo",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 11247574607,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 4324830727,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6922743880,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 11247574607,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "SUCE",
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2017",
+      "periodStart": "2017-01-01T00:00:00.000Z",
+      "periodEnd": "2017-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/SUCE",
+      "annualReportId": "cmvubly6d00kvbx7ock16x1m4",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 11057152923,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 4167984822,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6889168101,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 11057152923,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "SUCE",
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2017",
+      "periodStart": "2017-04-01T00:00:00.000Z",
+      "periodEnd": "2017-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/SUCE",
+      "annualReportId": "cmvubly6d00kvbx7ock16x1m4",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 11010748394,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 4198629663,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 6812118731,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 11010748394,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "SUCE",
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2017",
+      "periodStart": "2017-10-01T00:00:00.000Z",
+      "periodEnd": "2017-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/SUCE",
+      "annualReportId": "cmvubly6d00kvbx7ock16x1m4",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 10079764731,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 4302398921,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 5777365810,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 10079764731,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "SUCE",
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2018",
+      "periodStart": "2018-01-01T00:00:00.000Z",
+      "periodEnd": "2018-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/SUCE",
+      "annualReportId": "cmvubly7y00lhbx7oz7q5k5gj",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 10486795631,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 4608894879,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 5877900752,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 10486795631,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "SUCE",
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2018",
+      "periodStart": "2018-04-01T00:00:00.000Z",
+      "periodEnd": "2018-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/SUCE",
+      "annualReportId": "cmvubly7y00lhbx7oz7q5k5gj",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 10354948340,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 4407508688,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 5947439652,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 10354948340,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "SUCE",
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2018",
+      "periodStart": "2018-10-01T00:00:00.000Z",
+      "periodEnd": "2018-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/SUCE",
+      "annualReportId": "cmvubly7y00lhbx7oz7q5k5gj",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 10621686483,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 4914160209,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 5707526274,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 10621686483,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "SUCE",
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2019",
+      "periodStart": "2019-01-01T00:00:00.000Z",
+      "periodEnd": "2019-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/SUCE",
+      "annualReportId": "cmvubly9g00m3bx7oup78tvr7",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 8866970103,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 4412040086,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 4454930017,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 8866970103,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "SUCE",
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "fiscalYear": 2019,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2019",
+      "periodStart": "2019-04-01T00:00:00.000Z",
+      "periodEnd": "2019-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/SUCE",
+      "annualReportId": "cmvubly9g00m3bx7oup78tvr7",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 8683464910,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 5108214446,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 3575250464,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 8683464910,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "SUCE",
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2019",
+      "periodStart": "2019-10-01T00:00:00.000Z",
+      "periodEnd": "2019-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/SUCE",
+      "annualReportId": "cmvubly9g00m3bx7oup78tvr7",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 8036923228,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 5373370403,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 2663552825,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 8036923228,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "TRST",
+      "companyId": "cmvublwrr0006bx7ovkxom003",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2018",
+      "periodStart": "2018-10-01T00:00:00.000Z",
+      "periodEnd": "2018-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/TRST",
+      "annualReportId": "cmvublyb700mpbx7op6qydwbt",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 4961532,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 199973,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 4761559,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 4961532,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "TRST",
+      "companyId": "cmvublwrr0006bx7ovkxom003",
+      "fiscalYear": 2019,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2019",
+      "periodStart": "2019-01-01T00:00:00.000Z",
+      "periodEnd": "2019-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/TRST",
+      "annualReportId": "cmvublyca00n7bx7o0y1jc10v",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 5021567,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 219229,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 4802338,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 5021567,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "TRST",
+      "companyId": "cmvublwrr0006bx7ovkxom003",
+      "fiscalYear": 2019,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2019",
+      "periodStart": "2019-04-01T00:00:00.000Z",
+      "periodEnd": "2019-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/TRST",
+      "annualReportId": "cmvublyca00n7bx7o0y1jc10v",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 5217090,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 4949108,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 5217090,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "TRST",
+      "companyId": "cmvublwrr0006bx7ovkxom003",
+      "fiscalYear": 2019,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2019",
+      "periodStart": "2019-10-01T00:00:00.000Z",
+      "periodEnd": "2019-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/TRST",
+      "annualReportId": "cmvublyca00n7bx7o0y1jc10v",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 5115736,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 268221,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 4847515,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 5115736,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "TRST",
+      "companyId": "cmvublwrr0006bx7ovkxom003",
+      "fiscalYear": 2020,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2020",
+      "periodStart": "2020-04-01T00:00:00.000Z",
+      "periodEnd": "2020-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/TRST",
+      "annualReportId": "cmvublydf00nrbx7o50pm45jw",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 4728020,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 268221,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 4459799,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 4728020,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "TRST",
+      "companyId": "cmvublwrr0006bx7ovkxom003",
+      "fiscalYear": 2020,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2020",
+      "periodStart": "2020-10-01T00:00:00.000Z",
+      "periodEnd": "2020-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/TRST",
+      "annualReportId": "cmvublydf00nrbx7o50pm45jw",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 5509294,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 1491548,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 4017746,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 5509294,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "TRST",
+      "companyId": "cmvublwrr0006bx7ovkxom003",
+      "fiscalYear": 2021,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2021",
+      "periodStart": "2021-01-01T00:00:00.000Z",
+      "periodEnd": "2021-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/TRST",
+      "annualReportId": "cmvublyeh00o9bx7odctciyd4",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 5346605,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 1491548,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 3855057,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 5346605,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "TRST",
+      "companyId": "cmvublwrr0006bx7ovkxom003",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2021",
+      "periodStart": "2021-04-01T00:00:00.000Z",
+      "periodEnd": "2021-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/TRST",
+      "annualReportId": "cmvublyeh00o9bx7odctciyd4",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 4885141,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 1491548,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 3393593,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 4885141,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "TRST",
+      "companyId": "cmvublwrr0006bx7ovkxom003",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2021",
+      "periodStart": "2021-10-01T00:00:00.000Z",
+      "periodEnd": "2021-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/TRST",
+      "annualReportId": "cmvublyeh00o9bx7odctciyd4",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 6494677,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 1513663,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 4981014,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 6494677,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "TRST",
+      "companyId": "cmvublwrr0006bx7ovkxom003",
+      "fiscalYear": 2022,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2022",
+      "periodStart": "2022-01-01T00:00:00.000Z",
+      "periodEnd": "2022-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/TRST",
+      "annualReportId": "cmvublyfn00orbx7ov5lqfjrg",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 6673445,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 1513663,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 5159782,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 6673445,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "TRST",
+      "companyId": "cmvublwrr0006bx7ovkxom003",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2022",
+      "periodStart": "2022-04-01T00:00:00.000Z",
+      "periodEnd": "2022-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/TRST",
+      "annualReportId": "cmvublyfn00orbx7ov5lqfjrg",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 7287472,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 1513663,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 5773809,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 7287472,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "TRST",
+      "companyId": "cmvublwrr0006bx7ovkxom003",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2022",
+      "periodStart": "2022-10-01T00:00:00.000Z",
+      "periodEnd": "2022-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/TRST",
+      "annualReportId": "cmvublyfn00orbx7ov5lqfjrg",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 8203485.000000001,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 2501491,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 5701994,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 8203485.000000001,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "WATP",
+      "companyId": "cmvublwrw0007bx7ork65rfiw",
+      "fiscalYear": 2015,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2015",
+      "periodStart": "2015-01-01T00:00:00.000Z",
+      "periodEnd": "2015-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/WATP",
+      "annualReportId": "cmvublygs00p9bx7ofj44mzvy",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 276039793,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 149031385,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 127008408,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 276039793,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "WATP",
+      "companyId": "cmvublwrw0007bx7ork65rfiw",
+      "fiscalYear": 2015,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2015",
+      "periodStart": "2015-04-01T00:00:00.000Z",
+      "periodEnd": "2015-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/WATP",
+      "annualReportId": "cmvublygs00p9bx7ofj44mzvy",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 264724592,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 142117411,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 122607181,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 264724592,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "WATP",
+      "companyId": "cmvublwrw0007bx7ork65rfiw",
+      "fiscalYear": 2015,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2015",
+      "periodStart": "2015-10-01T00:00:00.000Z",
+      "periodEnd": "2015-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/WATP",
+      "annualReportId": "cmvublygs00p9bx7ofj44mzvy",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 168444832,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 128109944,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 40334888,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 168444832,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "WATP",
+      "companyId": "cmvublwrw0007bx7ork65rfiw",
+      "fiscalYear": 2016,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2016",
+      "periodStart": "2016-01-01T00:00:00.000Z",
+      "periodEnd": "2016-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/WATP",
+      "annualReportId": "cmvublyi300pvbx7oes1tswgp",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 177706633,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 136469216,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 41237417,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 177706633,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "WATP",
+      "companyId": "cmvublwrw0007bx7ork65rfiw",
+      "fiscalYear": 2016,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2016",
+      "periodStart": "2016-04-01T00:00:00.000Z",
+      "periodEnd": "2016-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/WATP",
+      "annualReportId": "cmvublyi300pvbx7oes1tswgp",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 175215792,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 134442734,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 40773058,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 175215792,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "WATP",
+      "companyId": "cmvublwrw0007bx7ork65rfiw",
+      "fiscalYear": 2016,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2016",
+      "periodStart": "2016-10-01T00:00:00.000Z",
+      "periodEnd": "2016-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/WATP",
+      "annualReportId": "cmvublyi300pvbx7oes1tswgp",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 197270797,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 146109028,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 51161769,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 197270797,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "WATP",
+      "companyId": "cmvublwrw0007bx7ork65rfiw",
+      "fiscalYear": 2017,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2017",
+      "periodStart": "2017-01-01T00:00:00.000Z",
+      "periodEnd": "2017-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/WATP",
+      "annualReportId": "cmvublyjd00qhbx7onoae21zc",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 192416868,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 96757877,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 95658991,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 192416868,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "WATP",
+      "companyId": "cmvublwrw0007bx7ork65rfiw",
+      "fiscalYear": 2017,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2017",
+      "periodStart": "2017-04-01T00:00:00.000Z",
+      "periodEnd": "2017-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/WATP",
+      "annualReportId": "cmvublyjd00qhbx7onoae21zc",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 197694133,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 104664948,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 93029185,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 197694133,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "WATP",
+      "companyId": "cmvublwrw0007bx7ork65rfiw",
+      "fiscalYear": 2017,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2017",
+      "periodStart": "2017-10-01T00:00:00.000Z",
+      "periodEnd": "2017-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/WATP",
+      "annualReportId": "cmvublyjd00qhbx7onoae21zc",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 224853331,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 113293368,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 111559963,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 224853331,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    },
+    {
+      "ticker": "WATP",
+      "companyId": "cmvublwrw0007bx7ork65rfiw",
+      "fiscalYear": 2018,
+      "quarter": "Q1",
+      "periodLabel": "Q1 2018",
+      "periodStart": "2018-01-01T00:00:00.000Z",
+      "periodEnd": "2018-03-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/WATP",
+      "annualReportId": "cmvublyla00r3bx7og7tzy6nj",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 235195632,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 118401912,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 116793720,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 235195632,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "WATP",
+      "companyId": "cmvublwrw0007bx7ork65rfiw",
+      "fiscalYear": 2018,
+      "quarter": "Q2",
+      "periodLabel": "Q2 2018",
+      "periodStart": "2018-04-01T00:00:00.000Z",
+      "periodEnd": "2018-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/WATP",
+      "annualReportId": "cmvublyla00r3bx7og7tzy6nj",
+      "values": [
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 145913238,
+          "verifiedBy": "POINT_IN_TIME"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 114405540,
+          "verifiedBy": "POINT_IN_TIME"
+        }
+      ]
+    },
+    {
+      "ticker": "WATP",
+      "companyId": "cmvublwrw0007bx7ork65rfiw",
+      "fiscalYear": 2018,
+      "quarter": "Q4",
+      "periodLabel": "Q4 2018",
+      "periodStart": "2018-10-01T00:00:00.000Z",
+      "periodEnd": "2018-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/WATP",
+      "annualReportId": "cmvublyla00r3bx7og7tzy6nj",
+      "values": [
+        {
+          "metric": "TOTAL_ASSETS",
+          "value": 261245177,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "value": 115163653,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "value": 146081524,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "value": 261245177,
+          "verifiedBy": "Q4_EQUALS_APP_FY"
+        }
+      ]
+    }
+  ],
+  "skipped": []
+}

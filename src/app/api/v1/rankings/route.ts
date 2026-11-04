@@ -1,13 +1,31 @@
 import { NextRequest } from "next/server"
 import { db } from "@/lib/db"
 import { CALC_METRIC_MAP } from "@/lib/financial/registry"
+import {
+  isStalePeriod,
+  periodOrder,
+  selectLatestByCompany,
+  type PeriodRef,
+} from "@/lib/financial/latest-period"
 
 // GET /api/v1/rankings?metric=roe&sector=Banks&order=desc&basis=latest
-// basis=latest  → each company's LATEST ANNOUNCED period (Q1/H1/9M/Q4) — the
-//                 freshest figures on the site (default, per user request)
-// basis=annual  → each company's latest verified ANNUAL value
-// Mixed periods are expected under `latest` (companies announce at different
-// cadences) — every row displays its own periodLabel so nothing is hidden.
+//
+// basis=latest → each company's LATEST AVAILABLE value for the metric, with
+//                 the period that supplied it. There is deliberately NO shared
+//                 "2025 window": companies file on different calendars, and
+//                 forcing everyone onto one year either hides a Q2 2026 filing
+//                 or compares a stale annual ROE with a current quarter.
+//                 For ROE/ROA, "latest" means the latest FULL period (TTM or
+//                 annual): a Q1 return is not annualised, so it cannot be
+//                 ranked against a TTM/annual return.
+//                 Rows older than the market's freshest period by more than
+//                 four quarters are flagged `stale` (shown with a badge) rather
+//                 than silently dropped.
+// basis=annual → each company's latest ANNUAL value.
+// basis=ttm    → each company's latest TTM value (full-period, like-for-like
+//                 for flow metrics such as ROE / margins / revenue).
+//
+// Every row displays its own periodLabel, so the basis of each figure is visible.
 
 interface RankRow {
   companyId: string
@@ -19,16 +37,7 @@ interface RankRow {
   fiscalYear: number
   periodLabel: string
   periodType: string
-}
-
-// chronological index within a fiscal year from the period label
-function quarterIndex(periodType: string, periodLabel: string): number {
-  const q = periodLabel.match(/Q([1-4])/)
-  if (q) return Number(q[1])
-  if (/9M/i.test(periodLabel)) return 3
-  if (/H1/i.test(periodLabel)) return 2
-  if (periodType === "ANNUAL") return 4
-  return 0
+  stale: boolean
 }
 
 export async function GET(req: NextRequest) {
@@ -39,49 +48,82 @@ export async function GET(req: NextRequest) {
   }
   const sector = url.searchParams.get("sector")
   const order = url.searchParams.get("order") === "asc" ? "ASC" : "DESC"
-  const basis = url.searchParams.get("basis") === "annual" ? "annual" : "latest"
+  const rawBasis = url.searchParams.get("basis")
+  const basis: "latest" | "annual" | "ttm" = rawBasis === "annual" || rawBasis === "ttm" ? rawBasis : "latest"
 
-  const rows = (await db.$queryRawUnsafe(
-    `SELECT c.id AS companyId, cm.value, cm."fiscalYear", cm."periodLabel", cm."periodType",
-            c.ticker, c."nameEn", c."nameAr", c.sector
-     FROM CalculatedMetric cm
-     JOIN Company c ON c.id = cm.companyId AND c."isActive" = 1
-     WHERE cm.code = ? AND cm."valueStatus" = 'OK' AND cm.value IS NOT NULL
-       AND cm."fiscalYear" >= 2023
-       ${sector ? `AND c.sector = ?` : ""}`,
-    metric,
-    ...(sector ? [sector] : [])
-  )) as (RankRow & { periodType: string })[]
-
-  // per company: latest ANNOUNCED interim (basis=latest) or latest ANNUAL.
-  // Freshness gate: "latest quarter" must mean the site's current reporting
-  // window — only periods within the last 4 quarter-slots of the freshest one
-  // qualify, so a company stuck on 2024 data never tops a 2026 leaderboard.
-  const withKeys = rows.map((r) => ({ ...r, sortKey: r.fiscalYear * 10 + quarterIndex(r.periodType, r.periodLabel) }))
-  const maxKey = withKeys.reduce((m, r) => Math.max(m, r.sortKey), 0)
-  const minKey = basis === "latest" ? maxKey - 4 : (Math.floor(maxKey / 10) - 1) * 10 + Math.max(0, maxKey % 10)
-  const byCompany = new Map<string, RankRow & { sortKey: number }>()
-  for (const r of withKeys) {
-    if (basis === "latest" && (r.periodType === "ANNUAL" || r.sortKey < minKey)) continue
-    if (basis === "annual" && (r.periodType !== "ANNUAL" || r.sortKey < minKey)) continue
-    const prev = byCompany.get(r.companyId)
-    if (!prev || r.sortKey > prev.sortKey) byCompany.set(r.companyId, { ...r })
+  const companies = await db.company.findMany({
+    where: { isActive: true, ...(sector ? { sector } : {}) },
+    select: { id: true, ticker: true, nameEn: true, nameAr: true, sector: true },
+  })
+  if (companies.length === 0) {
+    return Response.json({ metric: metricInfo(metric), basis, results: [], sectors: await sectors(), total: 0 })
   }
-  let results = [...byCompany.values()].sort((a, b) => (order === "ASC" ? a.value - b.value : b.value - a.value))
 
-  const sectors = await db.company.findMany({
+  const rows = await db.calculatedMetric.findMany({
+    where: {
+      companyId: { in: companies.map((c) => c.id) },
+      code: metric,
+      valueStatus: "OK",
+      value: { not: null },
+    },
+  })
+
+  const filtered = basis === "latest"
+    ? rows
+    : rows.filter((r) => r.periodType === (basis === "annual" ? "ANNUAL" : "TTM"))
+
+  const latest = selectLatestByCompany(filtered, [metric], {
+    fullPeriodCodes: ["roe", "roa", "roic", "roce"],
+  })
+  const anchors = [...latest.values()]
+    .map((v) => v.periods[metric])
+    .filter((p): p is PeriodRef => p !== null)
+  const freshestOrder = anchors.reduce((m, p) => Math.max(m, periodOrder(p.type, p.fiscalYear, p.label)), 0)
+
+  const results: RankRow[] = []
+  for (const c of companies) {
+    const row = latest.get(c.id)
+    const value = row?.values[metric]
+    const period = row?.periods[metric]
+    if (value === null || value === undefined || !period) continue
+    results.push({
+      companyId: c.id,
+      ticker: c.ticker,
+      nameEn: c.nameEn,
+      nameAr: c.nameAr,
+      sector: c.sector,
+      value,
+      fiscalYear: period.fiscalYear,
+      periodLabel: period.label,
+      periodType: period.type,
+      stale: isStalePeriod(period, freshestOrder),
+    })
+  }
+  results.sort((a, b) =>
+    Number(a.stale) - Number(b.stale) ||
+    (order === "ASC" ? a.value - b.value : b.value - a.value)
+  )
+
+  return Response.json({
+    metric: metricInfo(metric),
+    basis,
+    results,
+    sectors: await sectors(),
+    total: results.length,
+  })
+}
+
+function metricInfo(code: string) {
+  const def = CALC_METRIC_MAP[code]
+  return { code, labelEn: def.labelEn, labelAr: def.labelAr, unit: def.unit }
+}
+
+async function sectors(): Promise<string[]> {
+  const rows = await db.company.findMany({
     where: { isActive: true },
     select: { sector: true },
     distinct: ["sector"],
     orderBy: { sector: "asc" },
   })
-
-  const def = CALC_METRIC_MAP[metric]
-  return Response.json({
-    metric: { code: metric, labelEn: def.labelEn, labelAr: def.labelAr, unit: def.unit },
-    basis,
-    results,
-    sectors: sectors.map((s) => s.sector),
-    total: results.length,
-  })
+  return rows.map((s) => s.sector)
 }

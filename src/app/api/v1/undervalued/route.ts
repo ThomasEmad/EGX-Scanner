@@ -1,5 +1,6 @@
 import { db } from "@/lib/db"
 import { evaluateUndervaluation, type MetricMap } from "@/lib/analytics/engine"
+import { latestPriceByCompany } from "@/lib/financial/latest-price"
 
 // GET /api/v1/undervalued — 5-criteria undervaluation screen (spec §4.3) with
 // 3-method fair value (spec §4.4). BATCHED: 4 queries total, computed in memory.
@@ -11,7 +12,7 @@ function buildMaps(
   allMetrics: { companyId: string; code: string; value: number | null; fiscalYear: number }[],
   reports: { id: string; companyId: string; fiscalYear: number }[],
   rawVals: { reportId: string; metricCode: string; normalizedValue: number | null }[],
-  prices: { companyId: string; price: number }[],
+  prices: { companyId: string; price: number; asOf: Date }[],
 ) {
   // latest consolidated metric per company+code
   const cmMap = new Map<string, MetricMap>()
@@ -30,7 +31,9 @@ function buildMaps(
     if (!rawByReport.has(v.reportId)) rawByReport.set(v.reportId, {})
     ;(rawByReport.get(v.reportId) as MetricMap)[v.metricCode.toUpperCase()] = v.normalizedValue
   }
-  const priceByCo = new Map(prices.map((p) => [p.companyId, p.price]))
+  // Rows arrive ordered by asOf DESC, but the helper compares timestamps
+  // explicitly so the freshest snapshot wins regardless of query order.
+  const priceByCo = latestPriceByCompany(prices)
 
   const buildLatest = (companyId: string): MetricMap | null => {
     const year = cmYear.get(companyId)
@@ -45,18 +48,18 @@ function buildMaps(
     if (year === undefined) return null
     return cmMap.get(companyId + "|" + (year - 1)) ?? null
   }
-  const priceOf = (companyId: string) => priceByCo.get(companyId) ?? null
-  return { buildLatest, buildPrior, priceOf, cmYear }
+  const priceOf = (companyId: string) => priceByCo.get(companyId)?.price ?? null
+  const priceAsOfOf = (companyId: string) => priceByCo.get(companyId)?.asOf ?? null
+  return { buildLatest, buildPrior, priceOf, priceAsOfOf, cmYear }
 }
 
 export async function GET() {
-  const year = new Date().getFullYear()
   const companies = await db.company.findMany({ where: { isActive: true }, select: { id: true, ticker: true, nameAr: true, nameEn: true, sector: true } })
   const ids = companies.map((c) => c.id)
 
   const [allMetrics, reports, rawVals, prices] = await Promise.all([
     db.calculatedMetric.findMany({
-      where: { companyId: { in: ids }, valueStatus: "OK", statementType: "CONSOLIDATED" },
+      where: { companyId: { in: ids }, valueStatus: "OK", statementType: "CONSOLIDATED", periodType: "ANNUAL" },
       select: { companyId: true, code: true, value: true, fiscalYear: true },
     }),
     db.financialReport.findMany({
@@ -71,12 +74,12 @@ export async function GET() {
     db.marketPrice.findMany({
       where: { companyId: { in: ids }, asOf: { gte: new Date(Date.now() - 180 * 24 * 60 * 60 * 1000) } },
       orderBy: { asOf: "desc" },
-      select: { companyId: true, price: true },
+      select: { companyId: true, price: true, asOf: true },
     }),
   ])
 
-  const { buildLatest, buildPrior, priceOf } = buildMaps(allMetrics, reports, rawVals, prices)
-  // dedupe reports to latest version per (company, year)
+  // Dedupe reports to the latest version per (company, year) BEFORE building
+  // the maps, so raw statement values always come from the newest filing.
   const seenRep = new Set<string>()
   const latestReports = reports.filter((r) => {
     const k = r.companyId + "|" + r.fiscalYear
@@ -84,17 +87,18 @@ export async function GET() {
     seenRep.add(k)
     return true
   })
-  const { buildLatest: bL, buildPrior: bP } = buildMaps(
-    allMetrics, latestReports.map((r) => ({ id: r.id, companyId: r.companyId, fiscalYear: r.fiscalYear })), rawVals, prices,
+  const { buildLatest, priceOf, priceAsOfOf, cmYear } = buildMaps(
+    allMetrics,
+    latestReports.map((r) => ({ id: r.id, companyId: r.companyId, fiscalYear: r.fiscalYear })),
+    rawVals,
+    prices,
   )
-  void buildLatest
-  void buildPrior
 
   const companyOf = new Map(companies.map((c) => [c.id, c]))
   // per-company maps
   const maps = new Map<string, MetricMap>()
   for (const r of latestReports) {
-    const m = bL(r.companyId)
+    const m = buildLatest(r.companyId)
     if (m) maps.set(r.companyId, m)
   }
 
@@ -133,10 +137,27 @@ export async function GET() {
       }
       const r = evaluateUndervaluation({ ...m, currentPrice: price } as Parameters<typeof evaluateUndervaluation>[0], sectorStats)
       if (!r.flagged) continue
+      // The engine rejects a fair value whose gap exceeds 10× (usually a
+      // unit/period mismatch) and flags a ≥200% gap for review. Keep the row
+      // because its criteria are still factual, but never present an extreme
+      // gap as a clean signal.
       out.push({
-        companyId: co.id, ticker: co.ticker, name: co.nameAr || co.nameEn, sector: co.sector,
-        currentPrice: price, fairValue: r.fairValue, upside: r.upside,
-        method: r.method, criteriaMet: r.criteriaMet,
+        companyId: co.id,
+        ticker: co.ticker,
+        name: co.nameAr || co.nameEn,
+        nameEn: co.nameEn,
+        nameAr: co.nameAr,
+        sector: co.sector,
+        currentPrice: price,
+        priceAsOf: priceAsOfOf(co.id)?.toISOString() ?? null,
+        fiscalYear: cmYear.get(co.id) ?? null,
+        fairValue: r.fairValue,
+        upside: r.upside,
+        method: r.method,
+        criteriaMet: r.criteriaMet,
+        extreme: r.reviewRequired,
+        reviewRequired: r.reviewRequired,
+        reviewReason: r.reviewReason,
       })
     }
   }

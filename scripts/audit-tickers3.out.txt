@@ -1,0 +1,39 @@
+﻿
+===== ASCM acc=48 comp=87 conf=68 review_required =====
+[BALANCE_SHEET_EQUATION] FY 2021 high :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (1.36B) but the L/E split leaves a -234.2M gap (15.52%) — an equity or liability line is mis-mapped.
+[CASH_FLOW_SUM] FY 2023 critical :: CASH_FLOW_SUM FAILED: gap 147.13% (239.8M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+
+===== COPR acc=64 comp=43 conf=63 review_required =====
+[BALANCE_SHEET_EQUATION] FY 2022 high :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (44.9M) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ -13.3M). Re-extract the liabilities line.
+[ASSET_COMPONENTS] FY 2023 critical :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 531.4K vs TOTAL_ASSETS = 93.9M (99.43%) — missing/extra component or mapping gap.
+[BALANCE_SHEET_EQUATION] FY 2024 high :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (6.2M) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ -5.9M). Re-extract the liabilities line.
+
+===== COSG acc=48 comp=99 conf=72 review_required =====
+[BALANCE_SHEET_EQUATION] FY 2021 high :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (300.0M) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ -110.7M). Re-extract the liabilities line.
+[CASH_FLOW_SUM] FY 2023 critical :: CASH_FLOW_SUM FAILED: gap 200.01% (49.8M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[CASH_FLOW_SUM] FY 2024 critical :: CASH_FLOW_SUM FAILED: gap 200.00% (261.5M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+
+===== IRON acc=11 comp=75 conf=47 review_required =====
+[GROSS_PROFIT_IDENTITY] FY 2011 critical :: GROSS_PROFIT_IDENTITY FAILED: gap 22.50% (712.5M EGP; materiality threshold 63.3M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after other operating items.
+[BALANCE_SHEET_EQUATION] FY 2013 critical :: BALANCE_SHEET_EQUATION FAILED: gap 7.89% (-273.9M EGP; materiality threshold 17.3M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilities mapping issue.
+[GROSS_PROFIT_IDENTITY] FY 2018 critical :: GROSS_PROFIT_IDENTITY FAILED: gap 79.65% (2.19B EGP; materiality threshold 54.9M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after other operating items.
+[BALANCE_SHEET_EQUATION] FY 2019 high :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (8.20B) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ -950.0M). Re-extract the liabilities line.
+[BALANCE_SHEET_EQUATION] FY 2020 high :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (8.60B) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ -2.94B). Re-extract the liabilities line.
+[CROSS_QUARTER_DUPLICATE] Q3 2021 high :: Q3 2021 repeats 10/10 values of the previous quarter Q4 2021 (±0.05%) — a tab-switch harvest copy; quarantine the later record and re-extract.
+
+===== RAKT acc=77 comp=62 conf=74 review_required =====
+[BALANCE_SHEET_EQUATION] FY 2021 high :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (739.0M) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ -425.0M). Re-extract the liabilities line.
+[BALANCE_SHEET_EQUATION] FY 2022 high :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (380.0M) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ -57.0M). Re-extract the liabilities line.
+[BALANCE_SHEET_EQUATION] FY 2023 high :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (412.0M) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ -124.0M). Re-extract the liabilities line.
+[BALANCE_SHEET_EQUATION] FY 2025 high :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (1.10B) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ -846.0M). Re-extract the liabilities line.
+
+===== SIPC acc=58 comp=62 conf=67 review_required =====
+[BALANCE_SHEET_EQUATION] FY 2024 high :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (169.0M) but the L/E split leaves a -1.89B gap (96.32%) — an equity or liability line is mis-mapped.
+[CROSS_QUARTER_DUPLICATE] Q2 2025 high :: Q2 2025 repeats 6/6 values of the previous quarter Q1 2025 (±0.05%) — a tab-switch harvest copy; quarantine the later record and re-extract.
+[CROSS_QUARTER_DUPLICATE] Q3 2025 high :: Q3 2025 repeats 6/6 values of the previous quarter Q2 2025 (±0.05%) — a tab-switch harvest copy; quarantine the later record and re-extract.
+
+===== UEGC acc=33 comp=99 conf=64 review_required =====
+[BALANCE_SHEET_EQUATION] FY 2021 high :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (831.2M) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ -203.6M). Re-extract the liabilities line.
+[CASH_FLOW_SUM] FY 2021 critical :: CASH_FLOW_SUM FAILED: gap 177.81% (528.3M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[ASSET_COMPONENTS] FY 2021 critical :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 19.19B vs TOTAL_ASSETS = 832.2M (2206.09%) — missing/extra component or mapping gap.
+[ASSET_COMPONENTS] FY 2024 high :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 2.89B vs TOTAL_ASSETS = 3.79B (23.74%) — missing/extra component or mapping gap.

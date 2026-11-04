@@ -1,0 +1,98 @@
+﻿
+=== 1. Issues by check name × severity (latest run) ===
+  288 CASH_FLOW_SUM FAILED | critical
+  231 No ISIN on record — cannot cross-verify against EGX master l | medium
+  188 OCF/NI+D&A ratio 0 | medium
+  133 BALANCE_SHEET_EQUATION FAILED | high
+  132 BALANCE_SHEET_EQUATION FAILED | critical
+  117 CASH_FLOW_SUM FAILED | high
+  114 OCF/NI+D&A ratio 3 | medium
+  106 Missing revenue data for years | medium
+   88 DEBT_COMPONENTS FAILED | critical
+   80 BALANCE_SHEET_EQUATION FAILED | medium
+   68 GROSS_PROFIT_IDENTITY FAILED | critical
+   64 OCF/NI+D&A ratio 4 | medium
+   64 Sector Industrial expects INVENTORY — absent in database | medium
+   61 Sector Financial Services expects INVESTMENTS — absent in da | medium
+   60 PBT_TAX_NET_PROFIT FAILED | high
+   53 Only 0 of last 5 years have revenue data | high
+   51 INCOME_TAX > 60% of OPERATING_INCOME — verify consolidated v | medium
+   50 REVENUE has no annual data ever recorded — cannot compute es | critical
+   42 COGS has no annual data ever recorded — cannot compute essen | high
+   36 OCF/NI+D&A ratio 5 | medium
+   34 DEBT_COMPONENTS FAILED | high
+   33 TOTAL_ASSETS has no annual data ever recorded — cannot compu | high
+   33 TOTAL_EQUITY has no annual data ever recorded — cannot compu | high
+   32 NET_PROFIT has no annual data ever recorded — cannot compute | critical
+   30 TOTAL_EQUITY negative — accumulated losses; flag for review | medium
+   27 NET_PROFIT > 2 | high
+   27 OPERATING_CASH_FLOW has no annual data ever recorded — canno | high
+   24 OCF/NI+D&A ratio 6 | medium
+   24 PBT_TAX_NET_PROFIT FAILED | critical
+   24 Sector Industrial requires Cost of Sales — absent across all | medium
+   18 OCF/NI+D&A ratio 7 | medium
+   18 Only 2 of last 5 years have revenue data | high
+   16 OCF/NI+D&A ratio 8 | medium
+   15 TOTAL_EQUITY dropped 100% YoY | high
+   14 Sector Banks requires Loans to Customers — absent across all | medium
+   14 Sector Banks requires Customer Deposits — absent across all  | medium
+   14 LOANS_TO_CUSTOMERS has no annual data ever recorded — cannot | high
+   14 CUSTOMER_DEPOSITS has no annual data ever recorded — cannot  | high
+   14 Sector Banks expects LOANS_TO_CUSTOMERS — absent in database | medium
+   14 Sector Banks expects CUSTOMER_DEPOSITS — absent in database | medium
+
+=== 2. Confidence distribution ===
+{ critical: 99, low: 111, medium: 40, high: 14 }
+lowest 15: SUGR=0(critical), SIPC=0(critical), ALEX=0(critical), ASPI=0(critical), BIDI=0(critical), BINV=0(critical), CAED=0(critical), CFGH=0(critical), COPR=0(critical), EDFM=0(critical), EGTS=0(critical), MHOT=0(critical), MIPH=0(critical), MOSC=0(critical), RTVC=0(critical)
+average score: 39 | companies: 264
+
+=== 3. Issues per company (top 15) ===
+   30 ASCM
+   29 FAIT
+   29 CNFN
+   29 UNIT
+   28 GBCO
+   28 OFH
+   27 FWRY
+   27 ASPI
+   27 BINV
+   27 RAKT
+   27 SCFM
+   26 MIPH
+   24 COPR
+   24 MOIL
+   23 ORAS
+
+=== 4. Duplicate reports per company+periodLabel (consolidation / version mixing) ===
+groups with >1 report: 1 | of which mixed stmt/source: 1
+   cmuexbjtt001sbxn8bbpnblsn|Q2 2026 → CONSOLIDATED/TRADINGVIEW_FINANCIALS/v1 , STANDALONE/Manual upload/v1
+
+=== 5. Values by validation status ===
+NEEDS_REVIEW   12719
+PENDING        5
+VALID          74785
+quarantined: 12719
+
+=== 6. Reports by processing status / extraction method ===
+APPROVED           6500
+EXTRACTED          2
+VALIDATED          1
+null               1425
+API_IMPORT         3995
+MANUAL_ENTRY       1080
+PDF_TEXT           1
+YAHOO_API          2
+
+=== 7. Latest fiscal year coverage ===
+latest annual FY 2026 → 15 companies
+latest annual FY 2025 → 178 companies
+latest annual FY 2024 → 52 companies
+latest annual FY 2023 → 1 companies
+latest annual FY 2022 → 3 companies
+latest annual FY 2021 → 1 companies
+latest annual FY 2020 → 3 companies
+latest annual FY 2019 → 3 companies
+latest annual FY 2017 → 2 companies
+latest annual FY 2015 → 1 companies
+latest annual FY 2013 → 1 companies
+latest annual FY 0 → 4 companies

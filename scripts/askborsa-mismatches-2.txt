@@ -1,0 +1,169 @@
+﻿
+ACRO
+  net_profit ask2024=1140000000 app=951563397.24 parent= ratio=0.834705 MISMATCH 
+
+AFDI
+  net_profit ask2025=4210000 app=5261095 parent= ratio=1.249666 MISMATCH 
+
+AIFI
+  net_profit ask2023=-277000 app=387860 parent= ratio=-1.400217 MISMATCH 
+  total_equity ask2023=80390000 app=58448860 parent= ratio=0.727066 MISMATCH 
+
+AIHC
+  total_equity ask2024=1170000000 app=1051661662.7 parent= ratio=0.898856 MISMATCH 
+
+ALUM
+  net_profit ask2025=2009999.9999999998 app=-6600014 parent= ratio=-3.283589 MISMATCH 
+
+AMOC
+  net_profit ask2024=1700000000 app=1506006588 parent=1439557574 ratio=0.885886 MISMATCH 
+
+AMPI
+  net_profit ask2025=-10940000 app=-2796430 parent= ratio=0.255615 MISMATCH 
+
+ARCC
+  net_profit ask2024=495000000 app=1160129411 parent=1145083684 ratio=2.343696 MISMATCH 
+
+ASPI
+  net_profit ask2024=67930000 app=-32334000 parent=-35114000 ratio=-0.47599 MISMATCH 
+  total_equity ask2024=566000000 app=2516819000 parent= ratio=4.446677 MISMATCH 
+
+ATLC
+  net_profit ask2025=271000000 app=122204000 parent= ratio=0.450937 MISMATCH 
+  total_equity ask2025=1430000000 app=608700000 parent= ratio=0.425664 MISMATCH 
+
+BINV
+  net_profit ask2024=1490000000 app=1655571043 parent=1477218293 ratio=1.111122 PARENT_MATCH AskBorsa net profit matches app NET_PROFIT_PARENT; app total includes NCI
+
+BQDC
+  net_profit ask2020=3160000 app=3235030552.81 parent= ratio=1023.743846 ASK_SCALE_SUSPECT App value is continuous with adjacent years; AskBorsa appears x1000 off (do not auto-scale)
+  total_assets ask2020=205000000 app=205418661455.79 parent= ratio=1002.042251 ASK_SCALE_SUSPECT App value is continuous with adjacent years; AskBorsa appears x1000 off (do not auto-scale)
+  total_equity ask2020=17580000 app=17629213483.15 parent= ratio=1002.799402 ASK_SCALE_SUSPECT App value is continuous with adjacent years; AskBorsa appears x1000 off (do not auto-scale)
+
+CANA
+  net_profit ask2025=1370000000 app=6421000000 parent= ratio=4.686861 MISMATCH 
+
+CIRA
+  net_profit ask2024=70150000 app=35609296 parent=59625581 ratio=0.507616 MISMATCH 
+  total_equity ask2024=1680000000 app=1285245466 parent= ratio=0.765027 MISMATCH 
+
+CLHO
+  net_profit ask2025=824000000 app=967866317 parent=669824828 ratio=1.174595 MISMATCH 
+
+CNFN
+  net_profit ask2024=658000000 app=771637193 parent=692299804 ratio=1.172701 MISMATCH 
+
+CRST
+  net_profit ask2025=77700000 app=103629124 parent= ratio=1.333708 MISMATCH 
+
+DAPH
+  net_profit ask2025=17950000 app=-138400000 parent= ratio=-7.710306 MISMATCH 
+
+DSCW
+  net_profit ask2025=367000000 app=109586217 parent= ratio=0.2986 MISMATCH 
+
+EBSC
+  net_profit ask2025=16770000 app=9263060 parent= ratio=0.552359 MISMATCH 
+
+EFIC
+  total_equity ask2025=3040000000 app=6221175217 parent= ratio=2.046439 MISMATCH 
+
+EGTS
+  net_profit ask2024=205000000 app=-473084858 parent=-186751180 ratio=-2.307731 MISMATCH 
+  total_equity ask2024=680000000 app=215868788 parent= ratio=0.317454 MISMATCH 
+
+ENGC
+  net_profit ask2024=1020000000 app=1268633709 parent=1022748688 ratio=1.243759 PARENT_MATCH AskBorsa net profit matches app NET_PROFIT_PARENT; app total includes NCI
+
+ESRS
+  net_profit ask2023=-113000000 app=-661926983.02 parent= ratio=5.857761 MISMATCH 
+
+GIHD
+  net_profit ask2024=1990000 app=945600 parent= ratio=0.475176 MISMATCH 
+
+GOCO
+  total_assets ask2022=204000000 app=264768835.62 parent= ratio=1.297886 MISMATCH 
+
+GTHE
+  net_profit ask2018=-342000000 app=-141536212.07 parent= ratio=0.413849 MISMATCH 
+  total_equity ask2018=-439000000 app=481695568.4 parent= ratio=-1.097256 MISMATCH 
+
+HDBK
+  net_profit ask2024=27990000 app=12425820549 parent=12425820549 ratio=443.937855 MISMATCH 
+
+HELI
+  net_profit ask2024=2560000000 app=761250717.792 parent= ratio=0.297364 MISMATCH 
+
+HRHO
+  net_profit ask2024=945000000 app=5331086000 parent=4253970000 ratio=5.641361 MISMATCH 
+  total_equity ask2024=39370000000 app=34058826000 parent= ratio=0.865096 MISMATCH 
+
+ICID
+  net_profit ask2025=5530000 app=13263231 parent= ratio=2.398414 MISMATCH 
+
+IFAP
+  net_profit ask2025=91300000 app=111275045 parent= ratio=1.218785 MISMATCH 
+
+IRON
+  net_profit ask2020=-983000 app=-983000000 parent= ratio=1000 ASK_SCALE_SUSPECT App value is continuous with adjacent years; AskBorsa appears x1000 off (do not auto-scale)
+  total_assets ask2020=2830000 app=2830000000 parent= ratio=1000 ASK_SCALE_SUSPECT App value is continuous with adjacent years; AskBorsa appears x1000 off (do not auto-scale)
+  total_equity ask2020=-5770000 app=-5770000000 parent= ratio=1000 ASK_SCALE_SUSPECT App value is continuous with adjacent years; AskBorsa appears x1000 off (do not auto-scale)
+
+MCQE
+  net_profit ask2024=238000000 app=271383437 parent=237678745 ratio=1.140267 PARENT_MATCH AskBorsa net profit matches app NET_PROFIT_PARENT; app total includes NCI
+
+MCRO
+  net_profit ask2025=116000000 app=34977131 parent= ratio=0.301527 MISMATCH 
+
+MEGM
+  net_profit ask2024=1070000000.0000001 app=951563397.24 parent= ratio=0.889312 MISMATCH 
+  total_equity ask2024=1850000000 app=1577492494.05 parent= ratio=0.852699 MISMATCH 
+
+MHOT
+  total_assets ask2025=6150000000 app=4654246877 parent= ratio=0.756788 MISMATCH 
+
+MMAT
+  net_profit ask2025=303000 app=-455280 parent= ratio=-1.502574 MISMATCH 
+
+MPRC
+  net_profit ask2025=776000000 app=171832130 parent= ratio=0.221433 MISMATCH 
+  total_equity ask2025=4280000000.0000005 app=3715754454 parent= ratio=0.868167 MISMATCH 
+
+NAHO
+  net_profit ask2024=822000 app=3396541 parent=822026 ratio=4.132045 PARENT_MATCH AskBorsa net profit matches app NET_PROFIT_PARENT; app total includes NCI
+
+OFH
+  net_profit ask2024=-2980000 app=40965900 parent= ratio=-13.746946 MISMATCH 
+
+ORHD
+  net_profit ask2024=3110000000 app=3445320163 parent=3108487743 ratio=1.10782 PARENT_MATCH AskBorsa net profit matches app NET_PROFIT_PARENT; app total includes NCI
+  total_equity ask2024=13140000000 app=11577518840 parent= ratio=0.88109 MISMATCH 
+
+PHGC
+  total_equity ask2024=483000000 app=145801520 parent= ratio=0.301867 MISMATCH 
+
+PRDC
+  net_profit ask2024=1100000000 app=1427345095.86 parent= ratio=1.297586 MISMATCH 
+
+RAYA
+  net_profit ask2024=1690000000 app=1899212284 parent=1688543816 ratio=1.123794 PARENT_MATCH AskBorsa net profit matches app NET_PROFIT_PARENT; app total includes NCI
+  total_equity ask2024=4750000000 app=3733435792 parent= ratio=0.785986 MISMATCH 
+
+TANM
+  net_profit ask2025=34820000 app=30205843 parent= ratio=0.867485 MISMATCH 
+
+TAQA
+  net_profit ask2024=277000000 app=794740000 parent= ratio=2.869097 MISMATCH 
+
+TMGH
+  net_profit ask2024=10720000000 app=12769517325 parent=9025066065 ratio=1.191186 MISMATCH 
+
+TORA
+  net_profit ask2019=-101000000 app=-562334802.62 parent= ratio=5.567671 MISMATCH 
+  total_equity ask2019=-817000000 app=-717440530.9 parent= ratio=0.87814 MISMATCH 
+
+TYCN
+  net_profit ask2024=1570000 app=939000 parent= ratio=0.598089 MISMATCH 
+
+VERT
+  net_profit ask2025=1470000 app=993560 parent= ratio=0.675891 MISMATCH 

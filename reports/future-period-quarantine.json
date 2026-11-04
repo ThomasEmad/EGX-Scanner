@@ -1,0 +1,67 @@
+{
+  "generatedAt": "2026-11-03T16:27:48.125Z",
+  "reports": [
+    {
+      "reportId": "cmvu2gnc9007nbxg4xc2m4lmk",
+      "oldStatus": "APPROVED",
+      "oldNotes": null
+    },
+    {
+      "reportId": "cmvu2gncj007pbxg4s8xvlnpy",
+      "oldStatus": "APPROVED",
+      "oldNotes": null
+    }
+  ],
+  "values": [
+    {
+      "valueId": "cmvu2rdmq00usbx5ksz1a323j",
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "valueId": "cmvu2rdmq00urbx5kqzhqoh8z",
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "valueId": "cmvu2rdmq00uqbx5k1lf98xva",
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "valueId": "cmvu2rdmq00upbx5ku3xdh4r0",
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "valueId": "cmvu2rdmr00v0bx5kp5j2c76y",
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "valueId": "cmvu2rdmr00v1bx5kk4q3lo33",
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "valueId": "cmvu2rdmq00uxbx5kpta38yw6",
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "valueId": "cmvu2rdmq00uybx5k43z8fu9k",
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "valueId": "cmvu2rdmq00uwbx5kxb63goox",
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "valueId": "cmvu2rdmq00uzbx5khzrrems3",
+      "oldStatus": "VALID",
+      "oldNotes": null
+    }
+  ]
+}

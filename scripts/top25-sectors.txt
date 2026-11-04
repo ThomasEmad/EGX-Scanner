@@ -1,0 +1,25 @@
+﻿ABUK  | Basic Materials      | Abu Qir Fertilizers & Chemical Industries
+ADCI  | Healthcare           | Arab Pharmaceuticals
+ADRI  | Financial Services   | Arab Development & Real Estate Investment
+ALCN  | Transport            | Alexandria Container & Cargo Handling
+ARCC  | Building Materials   | Arabian Cement Company
+AXPH  | Healthcare           | Alexandria Company for Pharmaceuticals and Chemical Industries
+CPCI  | Healthcare           | Kahira Pharmaceuticals & Chemical Industries Co.
+CSAG  | Transport            | Canal Shipping Agencies Co.
+EAST  | Food                 | Eastern Company
+EDFM  | Food                 | East Delta Flour Mills Co.
+EFID  | Food                 | Edita Food Industries
+EGAL  | Basic Materials      | Egypt Aluminum (Egyptalum)
+FERC  | Basic Materials      | FERCHEM MISR CO. FOR FERTILLIZERS & CHEMICALS
+HDBK  | Banks                | Housing & Development Bank
+ISMQ  | Basic Materials      | Iron And Steel for Mines and Quarries
+MAAL  | Real Estate          | Marseilla Al Masreia Al Khalegeya Holding
+MBSC  | Building Materials   | Misr Beni Suef Cement
+MCQE  | Building Materials   | Misr Chemical Industries
+MFSC  | Trade                | Misr Duty Free Shops
+MHOT  | Travel & Leisure     | Misr Hotels
+MPCI  | Healthcare           | Memphis Pharmaceuticals
+OLFI  | Food                 | Obour Land For Food Industries
+POUL  | Food                 | Cairo Poultry
+SCTS  | Education            | Sues Canal Company For Technology Settling
+WCDF  | Food                 | Middle & West Delta Flour Mills

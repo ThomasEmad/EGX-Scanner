@@ -1,0 +1,108 @@
+{
+  "generatedAt": "2026-11-03T16:03:13.611Z",
+  "source": "TRADINGVIEW_SYMBOL_PAGE",
+  "fills": [
+    {
+      "companyId": "cmugriqef0005bx50nh8b19d2",
+      "ticker": "ALCN",
+      "oldIsin": null,
+      "newIsin": "EGS42111C012"
+    },
+    {
+      "companyId": "cmui725hc000xbx90m7zwtdit",
+      "ticker": "BINV",
+      "oldIsin": null,
+      "newIsin": "EGS691T1C010"
+    },
+    {
+      "companyId": "cmupv8vs30008bxn0fdpsrofm",
+      "ticker": "BQDC",
+      "oldIsin": null,
+      "newIsin": "EGS600K1C019"
+    },
+    {
+      "companyId": "cmvu2glob000kbxg4knkregdp",
+      "ticker": "DCCC",
+      "oldIsin": null,
+      "newIsin": "EGS42121C011"
+    },
+    {
+      "companyId": "cmugriqh2000obx5085ojhvyy",
+      "ticker": "EFIH",
+      "oldIsin": null,
+      "newIsin": "EGS743O1C013"
+    },
+    {
+      "companyId": "cmugriqhr000tbx506hgvmzeu",
+      "ticker": "EGSA",
+      "oldIsin": null,
+      "newIsin": "EGS48022C015"
+    },
+    {
+      "companyId": "cmugriqjf0016bx50ma3hmant",
+      "ticker": "GOUR",
+      "oldIsin": null,
+      "newIsin": "EGS540S1C014"
+    },
+    {
+      "companyId": "cmui725zy002ubx90po2vu87b",
+      "ticker": "GROV",
+      "oldIsin": null,
+      "newIsin": "EGS69921C012"
+    },
+    {
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "ticker": "MISR",
+      "oldIsin": null,
+      "newIsin": "EGS3C4P1C011"
+    },
+    {
+      "companyId": "cmvublwrd0003bx7oi2tctn2g",
+      "ticker": "MKIT",
+      "oldIsin": null,
+      "newIsin": "EGS659O1C015"
+    },
+    {
+      "companyId": "cmui726c20047bx90hp0zbuxt",
+      "ticker": "NAMI",
+      "oldIsin": null,
+      "newIsin": "EGS73M81C012"
+    },
+    {
+      "companyId": "cmui726ha004pbx90kc1d7fjx",
+      "ticker": "PACH",
+      "oldIsin": null,
+      "newIsin": "EGS38311C014"
+    },
+    {
+      "companyId": "cmvublwri0004bx7ofgbwa59t",
+      "ticker": "POCO",
+      "oldIsin": null,
+      "newIsin": "EGS42101C013"
+    },
+    {
+      "companyId": "cmui726jx004zbx90jec74s1t",
+      "ticker": "RACC",
+      "oldIsin": null,
+      "newIsin": "EGS74191C015"
+    },
+    {
+      "companyId": "cmugriqou0024bx50y6oj3tkw",
+      "ticker": "SIPC",
+      "oldIsin": null,
+      "newIsin": "EGS382M1C011"
+    },
+    {
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "ticker": "SUCE",
+      "oldIsin": null,
+      "newIsin": "EGS3C181C012"
+    },
+    {
+      "companyId": "cmvublwrw0007bx7ork65rfiw",
+      "ticker": "WATP",
+      "oldIsin": null,
+      "newIsin": "EGS3J041C011"
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "corrections": [
+    {
+      "id": "cmuion2ro0k6jbxq0ewt1f4n9",
+      "ticker": "SPHT",
+      "year": 2022,
+      "metric": "NON_CURRENT_ASSETS",
+      "oldValue": 387414382,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldOriginalValue": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmuiw4s2t00anbxxs112pc00f",
+      "ticker": "DAPH",
+      "year": 2025,
+      "metric": "GROSS_PROFIT",
+      "oldValue": 38720000,
+      "oldStatus": "VALID",
+      "oldNotes": "TradingView income statement, company-level verification unavailable",
+      "oldOriginalValue": -38720000,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmupwl63h00p3bxssfqmeihat",
+      "ticker": "AMER",
+      "year": 2026,
+      "metric": "COGS",
+      "oldValue": -98899900,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldOriginalValue": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmupwl63t00p9bxssf5vjwtd2",
+      "ticker": "AMER",
+      "year": 2026,
+      "metric": "GROSS_PROFIT",
+      "oldValue": -271114258,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldOriginalValue": -73314458,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuiomvmo03mhbxq0la14kfmo",
+      "ticker": "EGAS",
+      "year": 2024,
+      "metric": "PROFIT_BEFORE_TAX",
+      "oldValue": 315.79712,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — REUTERS_FINANCIALS_PAGE (2 sources agree)",
+      "oldOriginalValue": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmuiomvmo03mzbxq04um9wlhi",
+      "ticker": "EGAS",
+      "year": 2024,
+      "metric": "INCOME_TAX",
+      "oldValue": 248365.1,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)",
+      "oldOriginalValue": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmuiomvmo03mibxq0hwhsskdf",
+      "ticker": "EGAS",
+      "year": 2024,
+      "metric": "OPERATING_INCOME",
+      "oldValue": 654.09459,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — REUTERS_FINANCIALS_PAGE (2 sources agree)",
+      "oldOriginalValue": -654.09459,
+      "oldIsManuallyCorrected": true
+    }
+  ],
+  "quarantines": [
+    {
+      "id": "cmuion0g40etzbxq015h0sznl",
+      "ticker": "COPR",
+      "year": 2023,
+      "metric": "CURRENT_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0g40etybxq0tzrbf6th",
+      "ticker": "COPR",
+      "year": 2023,
+      "metric": "NON_CURRENT_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0g50eu0bxq0pk1882e4",
+      "ticker": "COPR",
+      "year": 2023,
+      "metric": "CASH_AND_EQUIVALENTS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuiomzz60dmnbxq0v4lrvvvz",
+      "ticker": "ASPI",
+      "year": 2023,
+      "metric": "CURRENT_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuiomzz60dmlbxq06yfdvfbm",
+      "ticker": "ASPI",
+      "year": 2023,
+      "metric": "NON_CURRENT_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuiomzyv0dllbxq04vs52202",
+      "ticker": "ASPI",
+      "year": 2024,
+      "metric": "CURRENT_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuiomzyu0dljbxq0384ch43q",
+      "ticker": "ASPI",
+      "year": 2024,
+      "metric": "NON_CURRENT_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0oi0fbgbxq0ynuz4xy4",
+      "ticker": "EFIC",
+      "year": 2025,
+      "metric": "CURRENT_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0oi0fbfbxq0jzzcoupb",
+      "ticker": "EFIC",
+      "year": 2025,
+      "metric": "NON_CURRENT_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmupv90qu01pbbxn0o8fro2x9",
+      "ticker": "NDRL",
+      "year": 2020,
+      "metric": "CURRENT_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmur7hb9205d5bx5k2pcqm90g",
+      "ticker": "NDRL",
+      "year": 2020,
+      "metric": "NON_CURRENT_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmuion2rz0k74bxq0no0y0397",
+      "ticker": "SPHT",
+      "year": 2021,
+      "metric": "GROSS_PROFIT",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2ro0k6abxq0tz1ho4wv",
+      "ticker": "SPHT",
+      "year": 2022,
+      "metric": "GROSS_PROFIT",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2wi0khwbxq0ldoywpz1",
+      "ticker": "UEGC",
+      "year": 2021,
+      "metric": "CURRENT_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2wh0khvbxq0c0irfmk1",
+      "ticker": "UEGC",
+      "year": 2021,
+      "metric": "NON_CURRENT_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    }
+  ]
+}

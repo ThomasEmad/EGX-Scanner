@@ -1,0 +1,116 @@
+{
+  "reports": [
+    {
+      "id": "cmvttiht60001bxb8urleffjs",
+      "ticker": "MPCI",
+      "year": 2026,
+      "version": 1
+    },
+    {
+      "id": "cmvttihw2000hbxb8ltlwl3ha",
+      "ticker": "AXPH",
+      "year": 2025,
+      "version": 2
+    },
+    {
+      "id": "cmvttihyd000vbxb86x49dy87",
+      "ticker": "AXPH",
+      "year": 2026,
+      "version": 1
+    }
+  ],
+  "periodEnds": [
+    {
+      "id": "cmuiw4u0a00v9bxxsyzqbqhve",
+      "ticker": "MPCI",
+      "year": 2021,
+      "old": "2021-12-31"
+    },
+    {
+      "id": "cmuiw4u1t00vrbxxs5yciotgv",
+      "ticker": "MPCI",
+      "year": 2022,
+      "old": "2022-12-31"
+    },
+    {
+      "id": "cmuiw4u3c00w9bxxs4lvoe1br",
+      "ticker": "MPCI",
+      "year": 2023,
+      "old": "2023-12-31"
+    },
+    {
+      "id": "cmuiw4u4s00wrbxxsax0quyfm",
+      "ticker": "MPCI",
+      "year": 2024,
+      "old": "2024-12-31"
+    },
+    {
+      "id": "cmuiw4u6b00x9bxxs3ei8ltkt",
+      "ticker": "MPCI",
+      "year": 2025,
+      "old": "2025-12-31"
+    },
+    {
+      "id": "cmujo3snr0075bx3wqmqapqo9",
+      "ticker": "AXPH",
+      "year": 2021,
+      "old": "2021-12-31"
+    },
+    {
+      "id": "cmujo3sqp007pbx3wg7g4cdvz",
+      "ticker": "AXPH",
+      "year": 2022,
+      "old": "2022-12-31"
+    },
+    {
+      "id": "cmujo3su40089bx3w8v880g4x",
+      "ticker": "AXPH",
+      "year": 2023,
+      "old": "2023-12-31"
+    },
+    {
+      "id": "cmujo3sxh008tbx3w5w16dfyh",
+      "ticker": "AXPH",
+      "year": 2024,
+      "old": "2024-12-31"
+    }
+  ],
+  "quarantines": [
+    {
+      "id": "cmupremg100r7bxg0q2vwcsti",
+      "metric": "NET_PROFIT",
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmupremfe00r5bxg04aju76ei",
+      "metric": "GROSS_PROFIT",
+      "oldStatus": "NEEDS_REVIEW",
+      "oldNotes": "AUDIT_QUARANTINE: fabricated template value — identical value 539894111.09 for GROSS_PROFIT FY2025 shared across many unrelated companies (EXCEL_STATEMENTS batch). Provably not real; awaiting re-extraction from filings."
+    },
+    {
+      "id": "cmupremhq00rdbxg0aa9stnax",
+      "metric": "TOTAL_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmupremiy00rhbxg0job5zykc",
+      "metric": "TOTAL_EQUITY",
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmupremic00rfbxg0o3rtjdm7",
+      "metric": "TOTAL_LIABILITIES",
+      "oldStatus": "NEEDS_REVIEW",
+      "oldNotes": "AUDIT_QUARANTINE: fabricated template value — identical value 583999245.69 for TOTAL_LIABILITIES FY2025 shared across many unrelated companies (EXCEL_STATEMENTS batch). Provably not real; awaiting re-extraction from filings."
+    },
+    {
+      "id": "cmupremeg00r1bxg0tpdgcvw3",
+      "metric": "REVENUE",
+      "oldStatus": "NEEDS_REVIEW",
+      "oldNotes": "AUDIT_QUARANTINE: fabricated template value — identical value 2699470555.46 for REVENUE FY2025 shared across many unrelated companies (EXCEL_STATEMENTS batch). Provably not real; awaiting re-extraction from filings."
+    }
+  ]
+}

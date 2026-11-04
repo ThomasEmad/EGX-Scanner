@@ -1,0 +1,40 @@
+{
+  "generatedAt": "2026-11-03T16:06:41.040Z",
+  "fills": [
+    {
+      "companyId": "cmupv8vrv0006bxn0z0s9e1pn",
+      "ticker": "AIHC",
+      "oldShares": null,
+      "newShares": 1558128698,
+      "source": "THNDR_MARKETWATCH"
+    },
+    {
+      "companyId": "cmupv8vtf000mbxn0h55l6w9s",
+      "ticker": "GTEX",
+      "oldShares": null,
+      "newShares": 470250000,
+      "source": "THNDR_MARKETWATCH"
+    },
+    {
+      "companyId": "cmvublwrd0003bx7oi2tctn2g",
+      "ticker": "MKIT",
+      "oldShares": null,
+      "newShares": 20000000,
+      "source": "TRADINGVIEW_SCANNER"
+    },
+    {
+      "companyId": "cmupv8vut0010bxn0gaql6ckq",
+      "ticker": "NAPR",
+      "oldShares": null,
+      "newShares": 215338669,
+      "source": "THNDR_MARKETWATCH"
+    },
+    {
+      "companyId": "cmupv8vua000ubxn028wpinft",
+      "ticker": "SIMO",
+      "oldShares": null,
+      "newShares": 5000000,
+      "source": "THNDR_MARKETWATCH"
+    }
+  ]
+}

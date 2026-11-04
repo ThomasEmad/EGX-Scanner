@@ -35,6 +35,7 @@ export interface AuditIssue {
   id: string;
   auditRunId: string;
   ticker: string;
+  checkName?: string;
   metricCode?: string;
   period?: string;
   category: AuditCategory;
@@ -53,21 +54,34 @@ export interface AuditIssue {
 
 export interface CompanyConfidenceScore {
   ticker: string;
-  score: number; // 0-100
+  score: number; // 0-100 — overall quality score
   rating: 'high' | 'medium' | 'low' | 'critical';
   breakdown: ConfidenceBreakdown;
   computedAt: Date;
   auditRunId: string;
 }
 
+export type Certification = 'certified' | 'provisional' | 'review_required';
+
 export interface ConfidenceBreakdown {
-  coverage: number;          // 0-100: critical metric coverage
+  // Legacy penalty breakdown (kept so the public breakdown matches old rows).
+  coverage: number;          // legacy coverage penalty (0 = no penalty)
   violations: number;        // accounting violations penalty
   conflicts: number;         // cross-source conflicts penalty
   anomalies: number;         // temporal anomalies penalty
   stale: number;             // stale data penalty
   sourceDiversity: number;   // single source penalty
   isin: number;              // placeholder ISIN penalty
+  // Data-quality v2 — four independent, auditable dimensions (0-100).
+  accuracy?: number;         // 100 = no material contradictions (blockers)
+  completeness?: number;     // metric/period coverage
+  freshness?: number;        // filing recency
+  provenance?: number;       // source/ISIN/timestamps
+  certification?: Certification;
+  blockerCount?: number;
+  coverageGapCount?: number;
+  advisoryCount?: number;
+  metadataCount?: number;
 }
 
 export interface AuditCheckResult {
@@ -85,6 +99,12 @@ export interface AuditCheckResult {
   source?: string;
   autoFixable: boolean;
   autoFixAction?: string;
+  /** Precision-layer classification (filled by the runner when absent). */
+  issueClass?: 'blocker' | 'coverage' | 'advisory' | 'metadata';
+  rootCause?: string;
+  /** Materiality evidence for identity checks. */
+  materialityRel?: number;
+  materialityAbs?: number;
 }
 
 export interface CompanyAuditReport {

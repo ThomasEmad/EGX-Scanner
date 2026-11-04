@@ -1,0 +1,87 @@
+﻿
+=== EGAS 2024 ANNUAL Egypt Gas (Natural Gas & Mining Project) YAHOO_FINANCE_API + REUTERS_FINANCIALS_PAGE v1 ===
+  COGS 7427735579.999999 VALID API import — REUTERS_FINANCIALS_PAGE (2 sources agree)
+  GROSS_PROFIT 78739200 VALID API import — REUTERS_FINANCIALS_PAGE (2 sources agree)
+  INCOME_TAX 248365.1 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  NET_PROFIT 291000000 VALID AUDIT_CORRECTION: AskBorsa FY2024 net profit is 291m; stored −248k was a unit/parse error 
+  OPERATING_INCOME 654.09459 VALID API import — REUTERS_FINANCIALS_PAGE (2 sources agree)
+  PROFIT_BEFORE_TAX 315.79712 VALID API import — REUTERS_FINANCIALS_PAGE (2 sources agree)
+  REVENUE 7506474779.999999 VALID API import — REUTERS_FINANCIALS_PAGE (4 sources agree)
+  TOTAL_ASSETS 16271356750 VALID API import — YAHOO_FINANCE_API (3 sources agree)
+  TOTAL_EQUITY 4488293979 VALID API import — YAHOO_FINANCE_API (3 sources agree)
+  TOTAL_LIABILITIES 11783062771 VALID API import — YAHOO_FINANCE_API (3 sources agree)
+
+=== OFH 2024 ANNUAL O B Financial Holding REUTERS_FINANCIALS_PAGE v1 ===
+  INCOME_TAX 34530000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  NET_PROFIT 40965900 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  NON_CONTROLLING_INTERESTS 2268000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  OPERATING_INCOME 8265000.000000001 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  PROFIT_BEFORE_TAX 255977000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  REVENUE 43122000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  TOTAL_ASSETS 2569304000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  TOTAL_EQUITY 2386738000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  TOTAL_LIABILITIES 182566000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+
+=== DAPH 2025 ANNUAL Development & Engineering Consultants MUBASHER_EARNINGS v1 ===
+  COGS 581630000 VALID TradingView income statement, company-level verification unavailable
+  GROSS_PROFIT 38720000 VALID TradingView income statement, company-level verification unavailable
+  INCOME_TAX 5280000 VALID TradingView income statement, company-level verification unavailable
+  NET_PROFIT -138400000 VALID Mubasher earnings announcements table (public, logged-in session)
+  OPERATING_INCOME 38720000 VALID TradingView income statement, company-level verification unavailable
+  PROFIT_BEFORE_TAX -133120000 VALID TradingView income statement, company-level verification unavailable
+  REVENUE 542910000 VALID TradingView income statement, company-level verification unavailable
+  TOTAL_ASSETS 1130000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_EQUITY 497000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_LIABILITIES 630000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+
+=== AMER 2026 Q2 Amer Group YAHOO_FINANCE_API (DERIVED) v1 ===
+  COGS -98899900 VALID 
+  GROSS_PROFIT -271114258 VALID 
+  INCOME_TAX -23534034 VALID 
+  NET_PROFIT -130518526 VALID 
+  NET_PROFIT_PARENT -46458590 VALID 
+  OPERATING_INCOME 77664292 VALID 
+  PROFIT_BEFORE_TAX -106984492 VALID 
+  REVENUE 172214358 VALID 
+
+=== BINV 2026 Q2 B Investments Holding SAE TRADINGVIEW_FINANCIALS v1 ===
+  COGS 14651436 VALID 
+  GROSS_PROFIT 32817724 VALID 
+  INCOME_TAX -66468568 VALID 
+  NET_PROFIT 103620879 VALID 
+  NET_PROFIT_PARENT 103620879 VALID 
+  OPERATING_INCOME 261211676 VALID 
+  PROFIT_BEFORE_TAX 90378075 VALID 
+  REVENUE 47469160 VALID API import — YAHOO_FINANCE_API
+  REVENUE 47469160 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+  TOTAL_ASSETS 7579076861 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  TOTAL_EQUITY 6885782399 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  TOTAL_LIABILITIES 693294462 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+
+=== EMFD 2026 Q2 Emaar Misr for Development YAHOO_FINANCE_API (DERIVED) v1 ===
+  COGS 2072673221 VALID 
+  GROSS_PROFIT 2243617203 VALID 
+  INCOME_TAX -445343264 VALID 
+  NET_PROFIT -2212957405 VALID 
+  NET_PROFIT_PARENT -2212957405 VALID 
+  OPERATING_INCOME 1081144647 VALID 
+  PROFIT_BEFORE_TAX -2658300669 VALID 
+  REVENUE 4316290424 VALID 
+  TOTAL_ASSETS 208895863207 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  TOTAL_EQUITY 71834425249 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  TOTAL_LIABILITIES 137061436679 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+
+=== HRHO 2026 Q2 EFG Holding TRADINGVIEW_FINANCIALS v1 ===
+  COGS 8321490000 VALID API import — YAHOO_FINANCE_API
+  GROSS_PROFIT 4470353000 VALID 
+  INCOME_TAX 351055000 VALID 
+  NET_PROFIT 775587000 VALID 
+  NET_PROFIT_PARENT 775587000 VALID 
+  NON_CONTROLLING_INTERESTS 10101606000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  OPERATING_INCOME 2525232000 VALID 
+  PROFIT_BEFORE_TAX 1727471000 VALID 
+  REVENUE 12791843000 VALID API import — YAHOO_FINANCE_API (2 sources agree)
+  REVENUE 12791843000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+  TOTAL_ASSETS 260670559000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  TOTAL_EQUITY 36122300000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  TOTAL_LIABILITIES 214446653000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing

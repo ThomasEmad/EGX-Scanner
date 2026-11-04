@@ -36,9 +36,9 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { PremiumGate } from "@/components/egx/premium-gate"
+import { ConfidenceBadge } from "@/components/egx/confidence-badge"
 import { HealthTab } from "@/components/egx/health-tab"
 import { PriceChart } from "@/components/egx/price-chart"
 import { QaBox } from "@/components/egx/qa-box"
@@ -56,7 +56,6 @@ import { DemoBadge, EventBadge, StarButton, StatusChip } from "./shared"
 const PEER_METRICS = [
   { code: "roe", fmt: (v: number) => formatPercent(v), betterWhen: "higher" },
   { code: "net_margin", fmt: (v: number) => formatPercent(v), betterWhen: "higher" },
-  { code: "revenue_growth", fmt: (v: number) => formatPercent(v, { sign: true }), betterWhen: "higher" },
   { code: "debt_to_equity", fmt: (v: number) => formatRatio(v), betterWhen: "lower" },
   { code: "net_profit", fmt: (v: number) => formatEgp(v), betterWhen: "higher" },
   // bank-sector metrics (server picks the set per sector)
@@ -65,7 +64,7 @@ const PEER_METRICS = [
   { code: "p_b", fmt: (v: number) => formatRatio(v), betterWhen: "lower" },
 ] as const
 
-type SubTab = "overview" | "statements" | "growth" | "health" | "events" | "peers" | "dividends" | "documents" | "ai"
+type SubTab = "overview" | "statements" | "health" | "events" | "peers" | "dividends" | "documents" | "ai"
 
 /** Bilingual label for a report statement basis (CONSOLIDATED / STANDALONE). */
 function basisBadgeLabel(basis: string | null | undefined, t: (k: DictKey) => string): string {
@@ -165,12 +164,13 @@ export function CompanyDetail({
                 {c.ticker.slice(0, 4)}
               </span>
               <h1 className="text-2xl font-bold tracking-tight">{c.ticker}</h1>
+              <ConfidenceBadge ticker={c.ticker} />
               {c.isDemoData ? <DemoBadge /> : null}
               <StatusChip status={c.listingStatus} />
               {c.counts.values > 0 ? (
                 <Badge
                   variant="outline"
-                  className="border-emerald-500/40 bg-emerald-500/8 text-[10px] text-emerald-700 dark:text-emerald-400"
+                  className="border-success/40 bg-success/10 text-[10px] text-success-foreground"
                   title={t("co.aiGrounded")}
                 >
                   <ShieldCheck className="me-1 h-3 w-3" aria-hidden />
@@ -228,7 +228,7 @@ export function CompanyDetail({
                       className="tabular-nums"
                       title={lang === "ar" ? "أحدث فترة موثقة لهذه الشركة" : "Latest verified filing period for this company"}
                     >
-                      · <span className={stale ? "font-medium text-amber-600 dark:text-amber-400" : ""}>
+                      · <span className={stale ? "font-medium text-warning-foreground" : ""}>
                         {lang === "ar" ? `البيانات حتى ${data.dataAsOf.periodLabel}` : `Data as of ${data.dataAsOf.periodLabel}`}
                       </span>
                       {stale ? " ⚠" : ""}
@@ -296,13 +296,12 @@ export function CompanyDetail({
         <TabsList className="w-full justify-start overflow-x-auto h-auto flex-wrap sm:flex-nowrap rounded-xl bg-muted/60 p-1 backdrop-blur-sm">
           <TabsTrigger value="overview" className="gap-1.5"><BarChart3 className="h-3.5 w-3.5" />{t("co.keyMetrics")}</TabsTrigger>
           <TabsTrigger value="statements" className="gap-1.5"><Table2 className="h-3.5 w-3.5" />{t("co.statements")}</TabsTrigger>
-          <TabsTrigger value="growth" className="gap-1.5"><Flame className="h-3.5 w-3.5" />{t("co.growth")}</TabsTrigger>
-          <TabsTrigger value="health" className="gap-1.5"><HeartPulse className="h-3.5 w-3.5 text-rose-500" />{t("co.health")}</TabsTrigger>
+          <TabsTrigger value="health" className="gap-1.5"><HeartPulse className="h-3.5 w-3.5 text-destructive" />{t("co.health")}</TabsTrigger>
           <TabsTrigger value="events" className="gap-1.5"><Flame className="h-3.5 w-3.5" />{t("co.events")} ({c.counts.events}) {!isPremium ? <Lock className="h-3 w-3 text-amber-500" aria-hidden /> : null}</TabsTrigger>
           <TabsTrigger value="peers" className="gap-1.5"><Users className="h-3.5 w-3.5" />{t("peers.tab")}</TabsTrigger>
           <TabsTrigger value="dividends" className="gap-1.5"><CalendarDays className="h-3.5 w-3.5" />{t("co.dividends")}</TabsTrigger>
-          <TabsTrigger value="documents" className="gap-1.5"><FileText className="h-3.5 w-3.5 text-blue-500" />{t("co.filings")} ({c.counts.reports ?? 0})</TabsTrigger>
-          <TabsTrigger value="ai" className="gap-1.5"><Sparkles className="h-3.5 w-3.5 text-violet-500" />{t("co.aiAnalysis")}</TabsTrigger>
+          <TabsTrigger value="documents" className="gap-1.5"><FileText className="h-3.5 w-3.5 text-info" />{t("co.filings")} ({c.counts.reports ?? 0})</TabsTrigger>
+          <TabsTrigger value="ai" className="gap-1.5"><Sparkles className="h-3.5 w-3.5 text-primary" />{t("co.aiAnalysis")}</TabsTrigger>
         </TabsList>
 
         <TabsContent value="overview" className="mt-4 space-y-4">
@@ -312,9 +311,6 @@ export function CompanyDetail({
         </TabsContent>
         <TabsContent value="statements" className="mt-4">
           <StatementsTab companyId={companyId} ticker={c.ticker} basis={basisOverride} periodView={effectivePeriodView} />
-        </TabsContent>
-        <TabsContent value="growth" className="mt-4">
-          <GrowthTab companyId={companyId} basis={basisOverride} periodView={effectivePeriodView} />
         </TabsContent>
         <TabsContent value="health" className="mt-4">
           <HealthTab companyId={companyId} />
@@ -443,8 +439,8 @@ function ErrorState({ onRetry, label }: { onRetry: () => void; label?: string })
   const { t, lang } = useI18n()
   return (
     <Card className="p-6 flex flex-col items-center justify-center gap-3 text-center">
-      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-500/10">
-        <AlertTriangle className="h-5 w-5 text-red-500" aria-hidden />
+      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-destructive/10">
+        <AlertTriangle className="h-5 w-5 text-destructive" aria-hidden />
       </div>
       <p className="text-sm text-muted-foreground">{label ?? (lang === "ar" ? "تعذر تحميل البيانات — تحقق من الاتصال وحاول مرة أخرى." : "Could not load this data — check your connection and try again.")}</p>
       <Button variant="outline" size="sm" onClick={onRetry}>{lang === "ar" ? "إعادة المحاولة" : "Retry"}</Button>
@@ -503,7 +499,7 @@ function OverviewTab({ companyId, basis }: { companyId: string; basis: string | 
     { code: "net_profit", label: t("co.netProfit"), fmt: (v) => formatEgp(v), invert: true },
     { code: "roe", label: t("co.roe"), fmt: (v) => formatPercent(v) },
     { code: "total_assets", label: t("co.assets"), fmt: (v) => formatEgp(v) },
-    { code: "debt_to_equity", label: t("co.growth") + " D/E", fmt: (v) => formatRatio(v) },
+    { code: "debt_to_equity", label: t("co.debtToEquity"), fmt: (v) => formatRatio(v) },
     { code: "eps", label: "EPS", fmt: (v) => `EGP ${v.toFixed(2)}` },
   ]
 
@@ -541,7 +537,7 @@ function OverviewTab({ companyId, basis }: { companyId: string; basis: string | 
                   </Tooltip>
                 </TooltipProvider>
               ) : (
-                <p className={`mt-1.5 text-sm font-bold tabular num tracking-tight ${card.invert && (cell.value as number) < 0 ? "text-red-600 dark:text-red-400" : ""}`}>
+                <p className={`mt-1.5 text-sm font-bold tabular num tracking-tight ${card.invert && (cell.value as number) < 0 ? "text-destructive" : ""}`}>
                   {card.fmt(cell.value as number)}
                 </p>
               )}
@@ -680,7 +676,7 @@ function TrendChart({ data }: { data: { label: string; revenue: number | null; p
             {lang === "ar" ? "الإيرادات" : "Revenue"}
           </span>
           <span className="flex items-center gap-1.5 text-muted-foreground text-[11px]">
-            <span className="h-2.5 w-2.5 rounded bg-emerald-500" />
+            <span className="h-2.5 w-2.5 rounded bg-success" />
             {lang === "ar" ? "صافي الربح" : "Net profit"}
           </span>
         </div>
@@ -688,7 +684,7 @@ function TrendChart({ data }: { data: { label: string; revenue: number | null; p
           <div className="flex items-center gap-3 text-[11px] font-semibold">
             <span>{hovered.label}:</span>
             <span className="text-primary tabular">{formatEgp(hovered.revenue)}</span>
-            <span className={`tabular ${(hovered.profit ?? 0) >= 0 ? "text-emerald-600 dark:text-emerald-400" : "text-rose-600 dark:text-rose-400"}`}>
+            <span className={`tabular ${(hovered.profit ?? 0) >= 0 ? "text-success" : "text-rose-600 dark:text-rose-400"}`}>
               {formatEgp(hovered.profit)}
               {margin !== null ? ` (${margin.toFixed(1)}%)` : ""}
             </span>
@@ -720,8 +716,8 @@ function TrendChart({ data }: { data: { label: string; revenue: number | null; p
                 <div
                   className={`w-full rounded-t-md transition-all duration-300 ease-out shadow-xs ${
                     (d.profit ?? 0) < 0
-                      ? "bg-rose-500 group-hover:bg-rose-600"
-                      : "bg-emerald-500 group-hover:bg-emerald-600"
+                      ? "bg-destructive group-hover:bg-destructive/90"
+                      : "bg-success group-hover:bg-success/90"
                   }`}
                   style={{ height: `${Math.max(4, (Math.abs(d.profit ?? 0) / max) * 100)}%` }}
                   title={`Net profit: ${formatEgp(d.profit)}`}
@@ -747,19 +743,6 @@ function StatementsTab({ companyId, ticker, basis, periodView }: { companyId: st
     queryFn: () => api.financials(companyId, basis ?? undefined, periodView ?? undefined),
   })
   const [stmt, setStmt] = useState<"INCOME_STATEMENT" | "BALANCE_SHEET" | "CASH_FLOW">("INCOME_STATEMENT")
-  const [auditCell, setAuditCell] = useState<{
-    code: string
-    label: string
-    periodLabel: string
-    cell: {
-      value: number
-      unit: string
-      normalizedValue: number
-      label: string
-      reportId: string
-      flags?: { yoyPct?: number; badSign?: boolean; zero?: boolean; identityFailed?: boolean }
-    }
-  } | null>(null)
   const qc = useQueryClient()
 
   // ---- Admin inline edit mode (temporary until production launch, gated by TEMP_EDIT_MODE) ----
@@ -787,7 +770,7 @@ function StatementsTab({ companyId, ticker, basis, periodView }: { companyId: st
     }
   }, [])
 
-  const canEdit = TEMP_EDIT_MODE && isAdminUser
+  const canEdit = isAdminUser
 
   const EDIT_METRICS: Record<string, string[]> = {
     INCOME_STATEMENT: ["REVENUE","COGS","GROSS_PROFIT","OPERATING_INCOME","PROFIT_BEFORE_TAX","INCOME_TAX","NET_PROFIT","NET_PROFIT_PARENT","EBITDA","EBIT","FINANCE_COST","INTEREST_EXPENSE","INTEREST_INCOME","NET_INTEREST_INCOME","ADMIN_EXPENSES","OPERATING_EXPENSES_TOTAL","OTHER_INCOME","OTHER_EXPENSES","DILUTED_EPS","BASIC_EPS","WEIGHTED_AVG_SHARES"],
@@ -1028,7 +1011,7 @@ function StatementsTab({ companyId, ticker, basis, periodView }: { companyId: st
           </div>
         </CardHeader>
         {editMode ? (
-          <div className="border-b border-amber-500/30 bg-amber-500/8 px-4 py-2 text-xs leading-relaxed text-amber-800 dark:text-amber-300">
+          <div className="border-b border-warning/30 bg-warning/10 px-4 py-2 text-xs leading-relaxed text-warning-foreground">
             {lang === "ar"
               ? "وضع التعديل المؤقت (قبل الإطلاق): عدّل أي قيمة أو املأ الفراغات — امسح الحقل لحذف القيمة. القيم تُدخل بالجنيه المصري الكامل (مثال: 25400000000). الحفظ يكتب في قاعدة البيانات ويعيد حساب كل النسب والأحداث تلقائيًا."
               : "Temporary edit mode (pre-launch): edit any value or fill blanks — clear a field to delete the value. Amounts are plain EGP (e.g. 25400000000). Saving writes to the database and recomputes all ratios and events."}
@@ -1186,20 +1169,9 @@ function StatementsTab({ companyId, ticker, basis, periodView }: { companyId: st
                         return (
                           <td
                             key={p.key}
-                            onClick={() => {
-                              if (cell) {
-                                setAuditCell({
-                                  code: row.code,
-                                  label: (lang === "ar" && def?.labelAr) ? def.labelAr : (def?.labelEn ?? original),
-                                  periodLabel: p.label,
-                                  cell,
-                                })
-                              }
-                            }}
                             className={`p-2.5 text-end tabular whitespace-nowrap transition-colors ${
-                              cell ? "cursor-pointer hover:bg-primary/10 hover:text-primary" : ""
-                            } ${cell && cell.normalizedValue < 0 ? "text-red-600 dark:text-red-400" : ""}`}
-                            title={cell ? (lang === "ar" ? "اضغط لعرض تفاصيل التحقق والمصدر" : "Click to view audit provenance & source") : undefined}
+                              cell && cell.normalizedValue < 0 ? "text-destructive" : ""
+                            }`}
                           >
                             {cell ? (
                               <span className="inline-flex flex-col items-end leading-tight">
@@ -1210,7 +1182,7 @@ function StatementsTab({ companyId, ticker, basis, periodView }: { companyId: st
                                   <span>{formatEgp(cell.normalizedValue, { withCurrency: false })}</span>
                                 </span>
                                 {chg !== null && Number.isFinite(chg) ? (
-                                  <span className={`text-[9px] font-medium ${chg > 0.05 ? "text-emerald-600 dark:text-emerald-400" : chg < -0.05 ? "text-red-600 dark:text-red-400" : "text-muted-foreground"}`}>
+                                  <span className={`text-[9px] font-medium ${chg > 0.05 ? "text-success" : chg < -0.05 ? "text-destructive" : "text-muted-foreground"}`}>
                                     {chg > 0.05 ? "▲" : chg < -0.05 ? "▼" : "●"} {Math.abs(chg).toFixed(1)}%
                                   </span>
                                 ) : null}
@@ -1233,91 +1205,6 @@ function StatementsTab({ companyId, ticker, basis, periodView }: { companyId: st
           )}
         </CardContent>
       </Card>
-
-      {/* Audit provenance dialog when clicking any financial cell */}
-      {auditCell ? (
-        <Dialog open={!!auditCell} onOpenChange={(open) => !open && setAuditCell(null)}>
-          <DialogContent className="sm:max-w-md">
-            <DialogHeader>
-              <div className="flex items-center gap-2.5">
-                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <ShieldCheck className="h-4 w-4" />
-                </span>
-                <div>
-                  <DialogTitle className="text-base font-bold">
-                    {auditCell.label}
-                  </DialogTitle>
-                  <DialogDescription className="text-xs">
-                    {auditCell.periodLabel} · {t("co.valueAudit")}
-                  </DialogDescription>
-                </div>
-              </div>
-            </DialogHeader>
-
-            <div className="space-y-3.5 pt-2 text-xs">
-              <div className="grid grid-cols-2 gap-2">
-                <div className="rounded-xl border border-border/60 bg-muted/30 p-3">
-                  <span className="text-[10px] uppercase tracking-wide text-muted-foreground font-medium">
-                    {lang === "ar" ? "القيمة الموحدة (ج.م)" : "Normalized (EGP)"}
-                  </span>
-                  <p className="mt-1 text-base font-bold tabular text-primary">
-                    {formatEgp(auditCell.cell.normalizedValue)}
-                  </p>
-                </div>
-                <div className="rounded-xl border border-border/60 bg-muted/30 p-3">
-                  <span className="text-[10px] uppercase tracking-wide text-muted-foreground font-medium">
-                    {lang === "ar" ? "القيمة الأصلية بالتقرير" : "Raw Extracted Value"}
-                  </span>
-                  <p className="mt-1 text-base font-bold tabular">
-                    {auditCell.cell.value.toLocaleString()} <span className="text-xs font-normal text-muted-foreground">{auditCell.cell.unit}</span>
-                  </p>
-                </div>
-              </div>
-
-              <div className="rounded-xl border border-border/60 bg-card p-3 space-y-2">
-                <div className="flex justify-between items-center text-xs">
-                  <span className="text-muted-foreground">{t("co.originalLabel")}:</span>
-                  <span className="font-semibold">{auditCell.cell.label}</span>
-                </div>
-                <div className="flex justify-between items-center text-xs">
-                  <span className="text-muted-foreground">{lang === "ar" ? "رمز البند القياسي" : "Metric Code"}:</span>
-                  <span className="font-mono text-[11px] font-semibold">{auditCell.code}</span>
-                </div>
-                <div className="flex justify-between items-center text-xs">
-                  <span className="text-muted-foreground">{lang === "ar" ? "حالة التحقق" : "Validation Status"}:</span>
-                  <Badge variant="outline" className="border-emerald-500/40 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 font-semibold text-[10px]">
-                    <ShieldCheck className="me-1 h-3 w-3" />
-                    {lang === "ar" ? "موثق 100%" : "Verified 100%"}
-                  </Badge>
-                </div>
-                {auditCell.cell.flags?.identityFailed ? (
-                  <div className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-2 text-amber-700 dark:text-amber-400 text-[11px] flex items-start gap-1.5">
-                    <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5" />
-                    <span>{t("co.flagIdentity")}</span>
-                  </div>
-                ) : null}
-              </div>
-
-              <div className="flex items-center justify-between pt-1">
-                <span className="text-[11px] text-muted-foreground">
-                  {lang === "ar" ? "مستخرج ومراجع آلياً" : "Machine extracted & verified"}
-                </span>
-                {auditCell.cell.reportId ? (
-                  <a
-                    href={`/api/v1/reports/${auditCell.cell.reportId}/download`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"
-                  >
-                    <Download className="h-3 w-3" />
-                    {t("rp.download")}
-                  </a>
-                ) : null}
-              </div>
-            </div>
-          </DialogContent>
-        </Dialog>
-      ) : null}
     </>
   )
 }
@@ -1347,95 +1234,6 @@ function Sparkline({ values }: { values: (number | undefined)[] }) {
       <path d={path} fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
       <circle cx={last.x} cy={last.y} r="1.8" fill="currentColor" />
     </svg>
-  )
-}
-
-/* ---------------- Growth & ratios tab ---------------- */
-
-function GrowthTab({ companyId, basis, periodView }: { companyId: string; basis: string | null; periodView: string | null }) {
-  const { t, lang } = useI18n()
-  const { data, isLoading, isError, refetch } = useQuery({
-    queryKey: ["metrics", companyId, basis ?? "auto", periodView ?? "auto"],
-    queryFn: () => api.metrics(companyId, basis ?? undefined, periodView ?? undefined),
-  })
-
-  if (isError) return <ErrorState onRetry={() => refetch()} />
-  if (isLoading || !data) return <Skeleton className="h-72 rounded-xl" />
-
-  // server returns periods chronologically (fiscalYear, within-year sequence)
-  const periods = data.periods
-  const interesting = data.rows.filter((r) => r.kind !== "passthrough")
-  const shownBasis = data.statementType ?? basis ?? null
-
-  const fmtCell = (code: string, value: number | null) => {
-    const row = data.rows.find((r) => r.code === code)
-    if (value === null) return null
-    if (row?.unit === "PERCENT") return formatPercent(value)
-    if (row?.unit === "RATIO") return formatRatio(value)
-    if (row?.unit === "EGP_PER_SHARE") return `EGP ${value.toFixed(2)}`
-    if (row?.unit === "EGP") return formatEgp(value, { withCurrency: false })
-    return value.toFixed(2)
-  }
-
-  return (
-    <Card className="p-0 border-border/60">
-      <CardHeader className="pb-2">
-        <CardTitle className="flex flex-wrap items-center gap-2 text-sm font-semibold">
-          {t("co.growth")}
-          {shownBasis ? <Badge variant="outline" className="text-[10px]">{basisBadgeLabel(shownBasis, t)}</Badge> : null}
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="p-0">
-        {data.periods.length === 0 || interesting.length === 0 ? (
-          <NoFinancialsEmpty bare />
-        ) : (
-          <div className="max-h-[520px] overflow-auto scrollbar-thin">
-            <table className="w-full text-xs">
-              <thead className="sticky top-0 bg-card">
-                <tr className="border-b border-border/70">
-                  <th className="p-2.5 text-start font-medium text-muted-foreground min-w-48">{lang === "ar" ? "المؤشر" : "Metric"}</th>
-                  {periods.map((p) => (
-                    <th key={p.key} className="p-2.5 text-end font-medium text-muted-foreground whitespace-nowrap">{p.label}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {interesting.map((row) => (
-                  <tr key={row.code} className="border-b border-border/50 last:border-0 hover:bg-muted/40 transition-colors duration-150">
-                    <td className="p-2.5 font-medium">
-                      {lang === "ar" ? row.labelAr : row.labelEn}
-                      <span className="ms-1.5 text-[9px] text-muted-foreground/70">{row.cells[Object.keys(row.cells)[0]]?.formulaVersion ?? ""}</span>
-                    </td>
-                    {periods.map((p) => {
-                      const cell = row.cells[p.key]
-                      const text = cell ? fmtCell(row.code, cell.value) : null
-                      return (
-                        <td key={p.key} className="p-2.5 text-end tabular whitespace-nowrap">
-                          {cell && cell.status === "OK" && text ? (
-                            <span className={/^[-]/.test(text.trim()) ? "text-red-600 dark:text-red-400" : ""}>{text}</span>
-                          ) : (
-                            <TooltipProvider delayDuration={0}>
-                              <Tooltip>
-                                <TooltipTrigger asChild>
-                                  <span className="cursor-help text-slate-400 transition-colors duration-150 hover:text-foreground">—</span>
-                                </TooltipTrigger>
-                                <TooltipContent side="top" className="max-w-56 text-[11px]">
-                                  {cell?.detail || t("co.notAvailable")}
-                                </TooltipContent>
-                              </Tooltip>
-                            </TooltipProvider>
-                          )}
-                        </td>
-                      )
-                    })}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </CardContent>
-    </Card>
   )
 }
 
@@ -1488,7 +1286,11 @@ export function EventsList({ events, emptyText }: { events: EventItem[]; emptyTe
 
 function PeersTab({ companyId }: { companyId: string }) {
   const { t, lang, pick } = useI18n()
-  const { data, isLoading, isError, refetch } = useQuery({ queryKey: ["peers", companyId], queryFn: () => api.peers(companyId) })
+  const [basis, setBasis] = useState<"latest" | "annual" | "ttm">("latest")
+  const { data, isLoading, isError, refetch } = useQuery({
+    queryKey: ["peers", companyId, basis],
+    queryFn: () => api.peers(companyId, basis),
+  })
 
   if (isError) return <ErrorState onRetry={() => refetch()} />
   if (isLoading || !data) return <Skeleton className="h-72 rounded-xl" />
@@ -1510,13 +1312,19 @@ function PeersTab({ companyId }: { companyId: string }) {
   }
   // only the metrics the server computed for this sector
   const sectorMetrics = PEER_METRICS.filter((m) => m.code in data.medians)
+  const basisText = basis === "latest"
+    ? pick("Latest available", "أحدث بيانات متاحة")
+    : basis === "annual"
+      ? pick("Latest annual", "آخر سنة سنوية")
+      : pick("TTM", "آخر 12 شهراً")
 
   return (
     <Card className="p-0">
       <CardHeader className="pb-3">
         <CardTitle className="text-sm flex flex-wrap items-center gap-2">
           {t("peers.title")}
-          <Badge variant="secondary" className="text-[10px]">{data.basis}</Badge>
+          <Badge variant="secondary" className="text-[10px]">{data.sector}</Badge>
+          <Badge variant="outline" className="text-[10px]">{data.period.label}</Badge>
           <a
             href={`/compare?ids=${companyId}`}
             className="ms-auto inline-flex items-center gap-1 rounded-lg border border-primary/40 bg-primary/5 px-2.5 py-1 text-[11px] font-semibold text-primary transition-colors hover:bg-primary/10"
@@ -1524,15 +1332,45 @@ function PeersTab({ companyId }: { companyId: string }) {
             <Scale className="h-3 w-3" />
             {lang === "ar" ? "قارن في أداة المقارنة" : "Open in Compare"}
           </a>
-          <Badge variant="outline" className="text-[10px]">{data.period.label}</Badge>
         </CardTitle>
+        <div className="mt-2 inline-flex overflow-hidden rounded-lg border border-border/60">
+          {([
+            ["latest", pick("Latest available", "أحدث بيانات متاحة")],
+            ["annual", pick("Latest annual", "آخر سنة سنوية")],
+            ["ttm", pick("TTM", "آخر 12 شهراً")],
+          ] as const).map(([key, label]) => (
+            <button
+              key={key}
+              onClick={() => setBasis(key)}
+              className={`px-3 py-1 text-[11px] font-semibold transition-colors ${basis === key ? "bg-primary text-primary-foreground" : "bg-card text-muted-foreground hover:bg-muted/60"}`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+        <p className="mt-2 text-[10px] leading-relaxed text-muted-foreground">
+          {pick(
+            "Every company is shown on its own latest available period — the period is printed next to each value. Period lengths can differ (a quarter is not annualised), so use the Annual or TTM basis for a like-for-like comparison. ROE/ROA always use the latest full period (TTM or annual).",
+            "كل شركة تظهر على أحدث فترة متاحة لها — والفترة مطبوعة بجانب كل قيمة. أطوال الفترات قد تختلف (الربع ليس سنوياً)، استخدم أساس السنة السنوية أو آخر 12 شهراً لمقارنة متماثلة. ويُحسب ROE/ROA دائماً على آخر فترة كاملة (TTM أو سنوية)."
+          )}
+        </p>
       </CardHeader>
       <CardContent className="space-y-6">
         {sectorMetrics.map((metric) => {
           const entries = data.peers
-            .map((p) => ({ peer: p, value: p.values[metric.code] ?? null }))
-            .filter((e) => e.value !== null) as { peer: (typeof data.peers)[number]; value: number }[]
+            .map((p) => ({
+              peer: p,
+              value: p.values[metric.code] ?? null,
+              period: p.periods[metric.code] ?? null,
+            }))
+            // A peer whose own value for THIS metric is years old is not a
+            // comparable bar (ALEX FY2018 ROE −977% would flatten every other
+            // bar). Keep the self row visible; exclude other stale values.
+            .filter((e) => e.value !== null && (e.peer.isSelf || !e.peer.staleCodes?.includes(metric.code))) as { peer: (typeof data.peers)[number]; value: number; period: { label: string } | null }[]
           if (entries.length === 0) return null
+          const staleExcluded = data.peers.filter(
+            (p) => !p.isSelf && p.staleCodes?.includes(metric.code) && p.values[metric.code] !== null,
+          ).length
           const maxAbs = Math.max(...entries.map((e) => Math.abs(e.value)), Math.abs(data.medians[metric.code] ?? 0), 1e-9)
           const self = entries.find((e) => e.peer.isSelf)
           const med = data.medians[metric.code]
@@ -1549,7 +1387,7 @@ function PeersTab({ companyId }: { companyId: string }) {
               <div className="space-y-1.5">
                 {entries
                   .sort((a, b) => (metric.betterWhen === "higher" ? b.value - a.value : a.value - b.value))
-                  .map(({ peer, value }) => {
+                  .map(({ peer, value, period }) => {
                     const width = Math.max(2, (Math.abs(value) / maxAbs) * 100)
                     const positive = value >= 0
                     return (
@@ -1578,16 +1416,29 @@ function PeersTab({ companyId }: { companyId: string }) {
                             />
                           ) : null}
                         </div>
-                        <span className={`w-20 shrink-0 text-end text-[11px] tabular ${value < 0 ? "text-red-600 dark:text-red-400" : peer.isSelf ? "font-bold" : "text-muted-foreground"}`}>
+                        <span className={`w-20 shrink-0 text-end text-[11px] tabular ${value < 0 ? "text-destructive" : peer.isSelf ? "font-bold" : "text-muted-foreground"}`}>
                           {metric.fmt(value)}
+                        </span>
+                        <span className="w-24 shrink-0 text-end text-[9px] text-muted-foreground/80" title={period?.label ?? ""}>
+                          {period?.label ?? "—"}
+                          {peer.stale ? <span className="ms-1 text-warning-foreground">*</span> : null}
                         </span>
                       </div>
                     )
                   })}
               </div>
+              {staleExcluded > 0 ? (
+                <p className="mt-1 text-[9px] text-muted-foreground/80">
+                  {pick(
+                    `${staleExcluded} stale peer${staleExcluded === 1 ? "" : "s"} excluded from this metric (last value more than four quarters behind the sector).`,
+                    `${staleExcluded} شركة قديمة مستبعدة من هذا المؤشر (آخر قيمة أقدم من القطاع بأكثر من أربعة أرباع).`,
+                  )}
+                </p>
+              ) : null}
               {self ? (
                 <p className="mt-1.5 text-[10px] text-muted-foreground">
                   {t("peers.you")}: <span className="font-medium text-foreground tabular">{metric.fmt(self.value)}</span>
+                  {self.period ? <span className="ms-1 text-muted-foreground/80">({self.period.label})</span> : null}
                   {med !== null ? (
                     <>
                       {" "}
@@ -1607,6 +1458,12 @@ function PeersTab({ companyId }: { companyId: string }) {
             </div>
           )
         })}
+        <p className="text-[10px] text-muted-foreground/80">
+          {pick(
+            `${basisText} · * marks a period older than the sector's freshest by more than four quarters.`,
+            `${basisText} · * تشير إلى فترة أقدم من أحدث فترة في القطاع بأكثر من أربعة أرباع.`
+          )}
+        </p>
       </CardContent>
     </Card>
   )
@@ -1955,7 +1812,7 @@ function AiAnalysisTab({ companyId }: { companyId: string }) {
           </CardContent>
           <div className="border-t px-6 py-3">
             <p className="flex items-start gap-1.5 text-[11px] leading-relaxed text-muted-foreground">
-              <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-600 dark:text-emerald-400" aria-hidden />
+              <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-success" aria-hidden />
               {t("co.aiGrounded")}
             </p>
           </div>

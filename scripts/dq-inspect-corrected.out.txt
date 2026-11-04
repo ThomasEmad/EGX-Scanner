@@ -1,0 +1,12 @@
+﻿{
+  metricCode: 'LOANS_NET',
+  value: 1000,
+  normalizedValue: 1000000000,
+  originalValue: 1,
+  unit: 'MILLION',
+  correctedBy: 'repair-engine-v2',
+  correctionReason: 'Unit normalization: Major company COMI value 1.0 too small, multiplied by 1B (billions)',
+  validationNotes: null,
+  validationStatus: 'VALID'
+}
+TEAL mismatches >1%: [ { n: 125n } ]

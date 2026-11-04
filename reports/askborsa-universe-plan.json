@@ -1,0 +1,4103 @@
+{
+  "generatedAt": "2026-10-30T01:55:40.346Z",
+  "newCompanies": [
+    {
+      "id": null,
+      "ticker": "ARPI",
+      "nameEn": "Arabian Rocks Plastic Industries",
+      "nameAr": "الصخور العربية للصناعات البلاستيكية",
+      "sector": "Building Materials",
+      "isActive": true,
+      "_count": {
+        "reports": 0
+      }
+    },
+    {
+      "id": null,
+      "ticker": "DIFC",
+      "nameEn": "DIFCO2",
+      "nameAr": "ديفكو2",
+      "sector": "Basic Materials",
+      "isActive": true,
+      "_count": {
+        "reports": 0
+      }
+    },
+    {
+      "id": null,
+      "ticker": "GETO",
+      "nameEn": "Genial Tours",
+      "nameAr": "جينيال تورز",
+      "sector": "Travel & Leisure",
+      "isActive": true,
+      "_count": {
+        "reports": 0
+      }
+    },
+    {
+      "id": null,
+      "ticker": "MKIT",
+      "nameEn": "Meatello",
+      "nameAr": "المصرية الكويتية للاستثمار والتجارة",
+      "sector": "Food",
+      "isActive": true,
+      "_count": {
+        "reports": 0
+      }
+    },
+    {
+      "id": null,
+      "ticker": "POCO",
+      "nameEn": "PSCCHC",
+      "nameAr": "بورسعيد لتداول الحاويات والبضائع",
+      "sector": "Transport",
+      "isActive": true,
+      "_count": {
+        "reports": 0
+      }
+    },
+    {
+      "id": null,
+      "ticker": "PTCC",
+      "nameEn": "Pharaoh Tech",
+      "nameAr": "فاروتك",
+      "sector": "Construction",
+      "isActive": true,
+      "_count": {
+        "reports": 0
+      }
+    },
+    {
+      "id": null,
+      "ticker": "TRST",
+      "nameEn": "Thiqah for Business Administration and Development",
+      "nameAr": "ثقة لإدارة الأعمال والتنمية",
+      "sector": "Food",
+      "isActive": true,
+      "_count": {
+        "reports": 0
+      }
+    },
+    {
+      "id": null,
+      "ticker": "WATP",
+      "nameEn": "Bitumode",
+      "nameAr": "بيتومود",
+      "sector": "Building Materials",
+      "isActive": true,
+      "_count": {
+        "reports": 0
+      }
+    }
+  ],
+  "plans": [
+    {
+      "ticker": "ARPI",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "ARPI",
+        "nameEn": "Arabian Rocks Plastic Industries",
+        "nameAr": "الصخور العربية للصناعات البلاستيكية",
+        "sector": "Building Materials",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2020,
+      "periodStart": "2020-01-01T00:00:00.000Z",
+      "periodEnd": "2020-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/ARPI",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -689803
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 585914
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 27693416
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 442587
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 27250829
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 27693416
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": -2055474.0000000002
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -523328.99999999994
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "ARPI",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "ARPI",
+        "nameEn": "Arabian Rocks Plastic Industries",
+        "nameAr": "الصخور العربية للصناعات البلاستيكية",
+        "sector": "Building Materials",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2021,
+      "periodStart": "2021-01-01T00:00:00.000Z",
+      "periodEnd": "2021-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/ARPI",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 511587
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 821633
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 26185237
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 5639475
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 20545762
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 26185237
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 46648
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -212748
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -2226337
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -2392437
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "ARPI",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "ARPI",
+        "nameEn": "Arabian Rocks Plastic Industries",
+        "nameAr": "الصخور العربية للصناعات البلاستيكية",
+        "sector": "Building Materials",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2022,
+      "periodStart": "2022-01-01T00:00:00.000Z",
+      "periodEnd": "2022-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/ARPI",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -4133180.9999999995
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 13547
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 17184072
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 771491
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 16412580.999999998
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 17184072
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 4166212.0000000005
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -4990315
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -824103
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "ARPI",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "ARPI",
+        "nameEn": "Arabian Rocks Plastic Industries",
+        "nameAr": "الصخور العربية للصناعات البلاستيكية",
+        "sector": "Building Materials",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2023,
+      "periodStart": "2023-01-01T00:00:00.000Z",
+      "periodEnd": "2023-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/ARPI",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -2620520
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 414798
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 14567006
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 774945
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 13792061
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 14567006
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 717586
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -923797
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -206211
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "DCCC",
+      "companyId": "cmvu2glob000kbxg4knkregdp",
+      "company": {
+        "id": "cmvu2glob000kbxg4knkregdp",
+        "ticker": "DCCC",
+        "nameEn": "Damietta Container and Cargo Handling",
+        "nameAr": null,
+        "isActive": true,
+        "sector": "Industrial",
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2015,
+      "periodStart": "2014-07-01T00:00:00.000Z",
+      "periodEnd": "2015-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DCCC",
+      "fiscalYearStartMonth": 7,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 218079
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 182850
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 1130899
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 270452
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 860447
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 1130899
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "DCCC",
+      "companyId": "cmvu2glob000kbxg4knkregdp",
+      "company": {
+        "id": "cmvu2glob000kbxg4knkregdp",
+        "ticker": "DCCC",
+        "nameEn": "Damietta Container and Cargo Handling",
+        "nameAr": null,
+        "isActive": true,
+        "sector": "Industrial",
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2016,
+      "periodStart": "2015-07-01T00:00:00.000Z",
+      "periodEnd": "2016-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DCCC",
+      "fiscalYearStartMonth": 7,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 416600
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 339536
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 1496325
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 483167
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 1013158
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 1496325
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 406360
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -27557
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -147488
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 231315
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "DCCC",
+      "companyId": "cmvu2glob000kbxg4knkregdp",
+      "company": {
+        "id": "cmvu2glob000kbxg4knkregdp",
+        "ticker": "DCCC",
+        "nameEn": "Damietta Container and Cargo Handling",
+        "nameAr": null,
+        "isActive": true,
+        "sector": "Industrial",
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2018,
+      "periodStart": "2017-07-01T00:00:00.000Z",
+      "periodEnd": "2018-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DCCC",
+      "fiscalYearStartMonth": 7,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 1158481
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 1108621
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 3063048
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 1945124
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 1117924
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 3063048
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 1346171
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -223203
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -1023423
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 99545
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "DIFC",
+        "nameEn": "DIFCO2",
+        "nameAr": "ديفكو2",
+        "sector": "Basic Materials",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2015,
+      "periodStart": "2015-01-01T00:00:00.000Z",
+      "periodEnd": "2015-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 290444
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 2532204
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 10324482
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 651286
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 9673196
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 10324482
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 680005
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -213824
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -196466
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 350395
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "DIFC",
+        "nameEn": "DIFCO2",
+        "nameAr": "ديفكو2",
+        "sector": "Basic Materials",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2016,
+      "periodStart": "2016-01-01T00:00:00.000Z",
+      "periodEnd": "2016-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 57153
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 2804334
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 9039868
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 783289
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 8256579
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 9039868
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 863261
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -227802
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -1473771
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -838312
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "DIFC",
+        "nameEn": "DIFCO2",
+        "nameAr": "ديفكو2",
+        "sector": "Basic Materials",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2017,
+      "periodStart": "2017-01-01T00:00:00.000Z",
+      "periodEnd": "2017-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 151149
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 3093734
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 9399249
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 991521
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 8407728
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 9399249
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 814817
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -17389
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 797429
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "DIFC",
+        "nameEn": "DIFCO2",
+        "nameAr": "ديفكو2",
+        "sector": "Basic Materials",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2018,
+      "periodStart": "2018-01-01T00:00:00.000Z",
+      "periodEnd": "2018-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -511873
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 2585101
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 8569206
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 703512
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 7865694
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 8569206
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 460513
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -678867
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -30162
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -739718
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "DIFC",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "DIFC",
+        "nameEn": "DIFCO2",
+        "nameAr": "ديفكو2",
+        "sector": "Basic Materials",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2019,
+      "periodStart": "2019-01-01T00:00:00.000Z",
+      "periodEnd": "2019-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/DIFC",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 567428
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 6313595
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 9995568
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 1562447
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 8433121
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 9995568
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 1087268
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -747697
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 339571
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "GETO",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "GETO",
+        "nameEn": "Genial Tours",
+        "nameAr": "جينيال تورز",
+        "sector": "Travel & Leisure",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2017,
+      "periodStart": "2017-01-01T00:00:00.000Z",
+      "periodEnd": "2017-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/GETO",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 716148
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 1885352
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 7228262
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 512032.00000000006
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 6716230
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 7228262
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 1303788
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -2203794
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -900006
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "GETO",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "GETO",
+        "nameEn": "Genial Tours",
+        "nameAr": "جينيال تورز",
+        "sector": "Travel & Leisure",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2018,
+      "periodStart": "2018-01-01T00:00:00.000Z",
+      "periodEnd": "2018-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/GETO",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 290936
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 1162112
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 7339729
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 332563
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 7007166
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 7339729
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": -526077
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -13956
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "GETO",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "GETO",
+        "nameEn": "Genial Tours",
+        "nameAr": "جينيال تورز",
+        "sector": "Travel & Leisure",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2020,
+      "periodStart": "2020-01-01T00:00:00.000Z",
+      "periodEnd": "2020-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/GETO",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -502686
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 6724744
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 250420
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 6474324
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 6724744
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": -213435
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -213435
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "GETO",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "GETO",
+        "nameEn": "Genial Tours",
+        "nameAr": "جينيال تورز",
+        "sector": "Travel & Leisure",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2021,
+      "periodStart": "2021-01-01T00:00:00.000Z",
+      "periodEnd": "2021-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/GETO",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -417819
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 6469940
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 413435
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 6056505
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 6469940
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 20000
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 20000
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "MISR",
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "company": {
+        "id": "cmvu2glol000lbxg4sy5p28y0",
+        "ticker": "MISR",
+        "nameEn": "MISR",
+        "nameAr": null,
+        "isActive": true,
+        "sector": "Industrial",
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2020,
+      "periodStart": "2020-01-01T00:00:00.000Z",
+      "periodEnd": "2020-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MISR",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -774822
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": -716674
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 6973737
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 6973737
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 6973737
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": -412721
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -412721
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "MISR",
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "company": {
+        "id": "cmvu2glol000lbxg4sy5p28y0",
+        "ticker": "MISR",
+        "nameEn": "MISR",
+        "nameAr": null,
+        "isActive": true,
+        "sector": "Industrial",
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2021,
+      "periodStart": "2021-01-01T00:00:00.000Z",
+      "periodEnd": "2021-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MISR",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -646764
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": -354163
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 6374642
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 47669
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 6326973
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 6374642
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 849230
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 849230
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "MISR",
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "company": {
+        "id": "cmvu2glol000lbxg4sy5p28y0",
+        "ticker": "MISR",
+        "nameEn": "MISR",
+        "nameAr": null,
+        "isActive": true,
+        "sector": "Industrial",
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2022,
+      "periodStart": "2022-01-01T00:00:00.000Z",
+      "periodEnd": "2022-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MISR",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -44003
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 68121
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 6282970
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 6282970
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 6282970
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 639252
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 639252
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "MISR",
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "company": {
+        "id": "cmvu2glol000lbxg4sy5p28y0",
+        "ticker": "MISR",
+        "nameEn": "MISR",
+        "nameAr": null,
+        "isActive": true,
+        "sector": "Industrial",
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2023,
+      "periodStart": "2023-01-01T00:00:00.000Z",
+      "periodEnd": "2023-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MISR",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -1119728
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": -907940
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 5170298
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 7056
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 5163242
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 5170298
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": -137388
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 2926856
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "MISR",
+      "companyId": "cmvu2glol000lbxg4sy5p28y0",
+      "company": {
+        "id": "cmvu2glol000lbxg4sy5p28y0",
+        "ticker": "MISR",
+        "nameEn": "MISR",
+        "nameAr": null,
+        "isActive": true,
+        "sector": "Industrial",
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2024,
+      "periodStart": "2024-01-01T00:00:00.000Z",
+      "periodEnd": "2024-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MISR",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -951398
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": -596989
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 6011844
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 4211844
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 6011844
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 1083083
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 1083083
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "MKIT",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "MKIT",
+        "nameEn": "Meatello",
+        "nameAr": "المصرية الكويتية للاستثمار والتجارة",
+        "sector": "Food",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2020,
+      "periodStart": "2020-01-01T00:00:00.000Z",
+      "periodEnd": "2020-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MKIT",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -836089
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 1750173
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 20145526
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 10645311
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 9500215
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 20145526
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 1294129
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -714112
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -529070
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 50947
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "MKIT",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "MKIT",
+        "nameEn": "Meatello",
+        "nameAr": "المصرية الكويتية للاستثمار والتجارة",
+        "sector": "Food",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2021,
+      "periodStart": "2021-01-01T00:00:00.000Z",
+      "periodEnd": "2021-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MKIT",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -4961111
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": -1381053
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 19012236
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 14473132
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 4539104
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 19012236
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": -2084540
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -302928
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": 2310427
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -77041
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "MKIT",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "MKIT",
+        "nameEn": "Meatello",
+        "nameAr": "المصرية الكويتية للاستثمار والتجارة",
+        "sector": "Food",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2022,
+      "periodStart": "2022-01-01T00:00:00.000Z",
+      "periodEnd": "2022-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MKIT",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -3200057
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 854694
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 17825053
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 16486005.000000002
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 1339048
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 17825053
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 776833
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -40000
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -706952
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 29881
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "MKIT",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "MKIT",
+        "nameEn": "Meatello",
+        "nameAr": "المصرية الكويتية للاستثمار والتجارة",
+        "sector": "Food",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2023,
+      "periodStart": "2023-01-01T00:00:00.000Z",
+      "periodEnd": "2023-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MKIT",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 192538
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 3380770
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 16323007
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 14791423
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 1531584
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 16323007
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 1316663
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": 463500
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -58669
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -41694
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "MKIT",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "MKIT",
+        "nameEn": "Meatello",
+        "nameAr": "المصرية الكويتية للاستثمار والتجارة",
+        "sector": "Food",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2024,
+      "periodStart": "2024-01-01T00:00:00.000Z",
+      "periodEnd": "2024-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/MKIT",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -2606436
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 1190315
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 15344292
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 16419143
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": -1074851
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 15344292
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": -2577899
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": 1477185
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": 1074076
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -26638
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "POCO",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "POCO",
+        "nameEn": "PSCCHC",
+        "nameAr": "بورسعيد لتداول الحاويات والبضائع",
+        "sector": "Transport",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2014,
+      "periodStart": "2013-07-01T00:00:00.000Z",
+      "periodEnd": "2014-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/POCO",
+      "fiscalYearStartMonth": 7,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 247748.752
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 282619.579
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 974021.98
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 252400.545
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 721621.435
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 974021.98
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 202851.34
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -153373.679
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -130738.013
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -81260.352
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "POCO",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "POCO",
+        "nameEn": "PSCCHC",
+        "nameAr": "بورسعيد لتداول الحاويات والبضائع",
+        "sector": "Transport",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2015,
+      "periodStart": "2014-07-01T00:00:00.000Z",
+      "periodEnd": "2015-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/POCO",
+      "fiscalYearStartMonth": 7,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 302105.487
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 354631.093
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 1146953.745
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 328852.245
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 818101.5
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 1146953.745
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 358936.377
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -164902.204
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -139094.913
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 54939.26
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "POCO",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "POCO",
+        "nameEn": "PSCCHC",
+        "nameAr": "بورسعيد لتداول الحاويات والبضائع",
+        "sector": "Transport",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2016,
+      "periodStart": "2015-07-01T00:00:00.000Z",
+      "periodEnd": "2016-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/POCO",
+      "fiscalYearStartMonth": 7,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 344237.742
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 338151.931
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 1289905.46
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 372559.344
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 917346.116
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 1289905.46
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 351961.001
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -164729.522
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -181521.129
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 5710.35
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "POCO",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "POCO",
+        "nameEn": "PSCCHC",
+        "nameAr": "بورسعيد لتداول الحاويات والبضائع",
+        "sector": "Transport",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2017,
+      "periodStart": "2016-07-01T00:00:00.000Z",
+      "periodEnd": "2017-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/POCO",
+      "fiscalYearStartMonth": 7,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 708061.426
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 668375.664
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 1924776.556
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 606373.459
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 1318403.097
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 1924776.556
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "POCO",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "POCO",
+        "nameEn": "PSCCHC",
+        "nameAr": "بورسعيد لتداول الحاويات والبضائع",
+        "sector": "Transport",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2018,
+      "periodStart": "2017-07-01T00:00:00.000Z",
+      "periodEnd": "2018-06-30T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/POCO",
+      "fiscalYearStartMonth": 7,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 749605.585
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 738645.188
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 1656471.675
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 649113.784
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 1007357.891
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 1656471.675
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 762820.071
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -81381.723
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -942117.181
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -260678.833
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "PTCC",
+        "nameEn": "Pharaoh Tech",
+        "nameAr": "فاروتك",
+        "sector": "Construction",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2018,
+      "periodStart": "2018-01-01T00:00:00.000Z",
+      "periodEnd": "2018-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 142308
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 702369
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 13506069
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 1370121
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 12135948
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 13506069
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": -132540
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -132540
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "PTCC",
+        "nameEn": "Pharaoh Tech",
+        "nameAr": "فاروتك",
+        "sector": "Construction",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2019,
+      "periodStart": "2019-01-01T00:00:00.000Z",
+      "periodEnd": "2019-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 184338
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 724972
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 12844437
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 524150.99999999994
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 12320286
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 12844437
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": -32339
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -32339
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "PTCC",
+        "nameEn": "Pharaoh Tech",
+        "nameAr": "فاروتك",
+        "sector": "Construction",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2020,
+      "periodStart": "2020-01-01T00:00:00.000Z",
+      "periodEnd": "2020-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -1834761
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 74379
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 12638262
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 2152737
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 10485525
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 12638262
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 214803
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 214803
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "PTCC",
+        "nameEn": "Pharaoh Tech",
+        "nameAr": "فاروتك",
+        "sector": "Construction",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2021,
+      "periodStart": "2021-01-01T00:00:00.000Z",
+      "periodEnd": "2021-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -4584440
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 123684
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 8297468.999999999
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 2396384
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 5901085
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 8297468.999999999
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": -259185
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -259185
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "PTCC",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "PTCC",
+        "nameEn": "Pharaoh Tech",
+        "nameAr": "فاروتك",
+        "sector": "Construction",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2022,
+      "periodStart": "2022-01-01T00:00:00.000Z",
+      "periodEnd": "2022-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/PTCC",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -1900738
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 6261854
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 2261507
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 4000347
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 6261854
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": -367258
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -367258
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "SUCE",
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "company": {
+        "id": "cmvu2glot000mbxg4yjinh334",
+        "ticker": "SUCE",
+        "nameEn": "SUCE",
+        "nameAr": null,
+        "isActive": true,
+        "sector": "Industrial",
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2015,
+      "periodStart": "2015-01-01T00:00:00.000Z",
+      "periodEnd": "2015-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/SUCE",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -129514013
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 167197168
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 10022913937
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 2801221365
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 7221692572
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 10022913937
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 45086489
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -239935733
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -3449651
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -737250951
+        }
+      ],
+      "quarantine": [
+        "OPERATING_CASH_FLOW",
+        "INVESTING_CASH_FLOW",
+        "FINANCING_CASH_FLOW",
+        "NET_CHANGE_IN_CASH"
+      ],
+      "identityNotes": [
+        "cash-flow identity gap 538952056"
+      ]
+    },
+    {
+      "ticker": "SUCE",
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "company": {
+        "id": "cmvu2glot000mbxg4yjinh334",
+        "ticker": "SUCE",
+        "nameEn": "SUCE",
+        "nameAr": null,
+        "isActive": true,
+        "sector": "Industrial",
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2016,
+      "periodStart": "2016-01-01T00:00:00.000Z",
+      "periodEnd": "2016-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/SUCE",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -527595248
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 1224503647
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 11247574607
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 4324830727
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 6922743880
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 11247574607
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 351877345
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -493253894
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": 188508084
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 47131535
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "SUCE",
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "company": {
+        "id": "cmvu2glot000mbxg4yjinh334",
+        "ticker": "SUCE",
+        "nameEn": "SUCE",
+        "nameAr": null,
+        "isActive": true,
+        "sector": "Industrial",
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2017,
+      "periodStart": "2017-01-01T00:00:00.000Z",
+      "periodEnd": "2017-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/SUCE",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -937615084
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 514727119
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 10079764731
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 4302398921
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 5777365810
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 10079764731
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 147805296
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -337161136
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -391056486
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -580412326
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "SUCE",
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "company": {
+        "id": "cmvu2glot000mbxg4yjinh334",
+        "ticker": "SUCE",
+        "nameEn": "SUCE",
+        "nameAr": null,
+        "isActive": true,
+        "sector": "Industrial",
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2018,
+      "periodStart": "2018-01-01T00:00:00.000Z",
+      "periodEnd": "2018-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/SUCE",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 40332071
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 1087550333
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 10621686483
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 4914160209
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 5707526274
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 10621686483
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 228043567
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -190835510
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": 38487160
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 75695217
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "SUCE",
+      "companyId": "cmvu2glot000mbxg4yjinh334",
+      "company": {
+        "id": "cmvu2glot000mbxg4yjinh334",
+        "ticker": "SUCE",
+        "nameEn": "SUCE",
+        "nameAr": null,
+        "isActive": true,
+        "sector": "Industrial",
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2019,
+      "periodStart": "2019-01-01T00:00:00.000Z",
+      "periodEnd": "2019-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/SUCE",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -977683108
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 111745711
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 8036923228
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 5373370403
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 2663552825
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 8036923228
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": -1586027353
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -98739272
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": 972728960
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -54747086
+        }
+      ],
+      "quarantine": [
+        "OPERATING_CASH_FLOW",
+        "INVESTING_CASH_FLOW",
+        "FINANCING_CASH_FLOW",
+        "NET_CHANGE_IN_CASH"
+      ],
+      "identityNotes": [
+        "cash-flow identity gap -657290579"
+      ]
+    },
+    {
+      "ticker": "TRST",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "TRST",
+        "nameEn": "Thiqah for Business Administration and Development",
+        "nameAr": "ثقة لإدارة الأعمال والتنمية",
+        "sector": "Food",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2018,
+      "periodStart": "2018-01-01T00:00:00.000Z",
+      "periodEnd": "2018-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/TRST",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 243793
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 492725
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 4961532
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 199973
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 4761559
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 4961532
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": -37781
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -37781
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "TRST",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "TRST",
+        "nameEn": "Thiqah for Business Administration and Development",
+        "nameAr": "ثقة لإدارة الأعمال والتنمية",
+        "sector": "Food",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2019,
+      "periodStart": "2019-01-01T00:00:00.000Z",
+      "periodEnd": "2019-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/TRST",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 85955
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 525640
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 5115736
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 268221
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 4847515
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 5115736
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 1920701
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -1938106
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -17405
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "TRST",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "TRST",
+        "nameEn": "Thiqah for Business Administration and Development",
+        "nameAr": "ثقة لإدارة الأعمال والتنمية",
+        "sector": "Food",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2020,
+      "periodStart": "2020-01-01T00:00:00.000Z",
+      "periodEnd": "2020-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/TRST",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -829769
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 36672
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 5509294
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 1491548
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 4017746
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 5509294
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 985396
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 985396
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "TRST",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "TRST",
+        "nameEn": "Thiqah for Business Administration and Development",
+        "nameAr": "ثقة لإدارة الأعمال والتنمية",
+        "sector": "Food",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2021,
+      "periodStart": "2021-01-01T00:00:00.000Z",
+      "periodEnd": "2021-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/TRST",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 963268
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 1955300
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 6494677
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 1513663
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 4981014
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 6494677
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": -351266
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -351266
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "TRST",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "TRST",
+        "nameEn": "Thiqah for Business Administration and Development",
+        "nameAr": "ثقة لإدارة الأعمال والتنمية",
+        "sector": "Food",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2022,
+      "periodStart": "2022-01-01T00:00:00.000Z",
+      "periodEnd": "2022-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/TRST",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 799234
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 2524041
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 8203485.000000001
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 2501491
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 5701994
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 8203485.000000001
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 3202241
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 3202241
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "WATP",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "WATP",
+        "nameEn": "Bitumode",
+        "nameAr": "بيتومود",
+        "sector": "Building Materials",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2015,
+      "periodStart": "2015-01-01T00:00:00.000Z",
+      "periodEnd": "2015-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/WATP",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": -87176803
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 2220183
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 168444832
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 128109944
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 40334888
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 168444832
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 36562487
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -27374555
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -7972850
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 1215082
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "WATP",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "WATP",
+        "nameEn": "Bitumode",
+        "nameAr": "بيتومود",
+        "sector": "Building Materials",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2016,
+      "periodStart": "2016-01-01T00:00:00.000Z",
+      "periodEnd": "2016-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/WATP",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 5219990
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 33515247.000000004
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 197270797
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 146109028
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 51161769
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 197270797
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 21295486
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -20192456
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -3900343
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -2797313
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "WATP",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "WATP",
+        "nameEn": "Bitumode",
+        "nameAr": "بيتومود",
+        "sector": "Building Materials",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2017,
+      "periodStart": "2017-01-01T00:00:00.000Z",
+      "periodEnd": "2017-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/WATP",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 6221732
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 67096807
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 224853331
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 113293368
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 111559963
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 224853331
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": -22242070
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": 60704450
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -36116191
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": 2346189
+        }
+      ],
+      "quarantine": [],
+      "identityNotes": []
+    },
+    {
+      "ticker": "WATP",
+      "companyId": null,
+      "company": {
+        "id": null,
+        "ticker": "WATP",
+        "nameEn": "Bitumode",
+        "nameAr": "بيتومود",
+        "sector": "Building Materials",
+        "isActive": true,
+        "_count": {
+          "reports": 0
+        }
+      },
+      "year": 2018,
+      "periodStart": "2018-01-01T00:00:00.000Z",
+      "periodEnd": "2018-12-31T00:00:00.000Z",
+      "sourceUrl": "https://askborsa.com/company/WATP",
+      "fiscalYearStartMonth": 1,
+      "rows": [
+        {
+          "metric": "NET_PROFIT",
+          "item": "net_profit",
+          "label": "صافي الربح",
+          "value": 43619646
+        },
+        {
+          "metric": "GROSS_PROFIT",
+          "item": "gross_profit",
+          "label": "مجمل الربح",
+          "value": 76365455
+        },
+        {
+          "metric": "TOTAL_ASSETS",
+          "item": "total_assets",
+          "label": "إجمالي الأصول",
+          "value": 261245177
+        },
+        {
+          "metric": "TOTAL_LIABILITIES",
+          "item": "total_liabilities",
+          "label": "إجمالي المطلوبات",
+          "value": 115163653
+        },
+        {
+          "metric": "TOTAL_EQUITY",
+          "item": "total_equity",
+          "label": "حقوق المساهمين",
+          "value": 146081524
+        },
+        {
+          "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+          "item": "total_liabilities_and_equity",
+          "label": "إجمالي المطلوبات وحقوق المساهمين",
+          "value": 261245177
+        },
+        {
+          "metric": "OPERATING_CASH_FLOW",
+          "item": "cf_operating",
+          "label": "التدفق النقدي التشغيلي",
+          "value": 42207144
+        },
+        {
+          "metric": "INVESTING_CASH_FLOW",
+          "item": "cf_investing",
+          "label": "التدفق النقدي الاستثماري",
+          "value": -21064735
+        },
+        {
+          "metric": "FINANCING_CASH_FLOW",
+          "item": "cf_financing",
+          "label": "التدفق النقدي التمويلي",
+          "value": -23324554
+        },
+        {
+          "metric": "NET_CHANGE_IN_CASH",
+          "item": "net_change_in_cash",
+          "label": "صافي التغير في النقد",
+          "value": -20987512
+        }
+      ],
+      "quarantine": [
+        "OPERATING_CASH_FLOW",
+        "INVESTING_CASH_FLOW",
+        "FINANCING_CASH_FLOW",
+        "NET_CHANGE_IN_CASH"
+      ],
+      "identityNotes": [
+        "cash-flow identity gap 18805367"
+      ]
+    }
+  ],
+  "skipped": [
+    {
+      "ticker": "ARPI",
+      "year": 2022,
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ZERO_VALUE"
+    },
+    {
+      "ticker": "CFGH",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "DIFC",
+      "year": 2017,
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 1,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 113314,
+      "ratio": 0
+    },
+    {
+      "ticker": "EGSA",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "EGX30ETF",
+      "reason": "EXCLUDED_INSTRUMENT"
+    },
+    {
+      "ticker": "ELNA",
+      "reason": "NO_FISCAL_CALENDAR"
+    },
+    {
+      "ticker": "ESAC",
+      "reason": "UNKNOWN_SECTOR",
+      "sectorSlug": null
+    },
+    {
+      "ticker": "FAITA",
+      "reason": "ALIAS_OF",
+      "canonical": "FAIT"
+    },
+    {
+      "ticker": "FCMD",
+      "reason": "ALIAS_OF",
+      "canonical": "ICMI"
+    },
+    {
+      "ticker": "GRCA",
+      "reason": "NO_FISCAL_CALENDAR"
+    },
+    {
+      "ticker": "GTEX",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "GTHE",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "KASABF",
+      "reason": "ALIAS_OF",
+      "canonical": "ODIN"
+    },
+    {
+      "ticker": "MISR",
+      "year": 2024,
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1800000,
+      "reason": "SCALE_SUSPECT",
+      "localMedian": 47669,
+      "ratio": 37.7604
+    },
+    {
+      "ticker": "MOIL",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "NAHO",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "NDRL",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "ORAS",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "SAIB",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "SEIG",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "SPHT",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "VLMR",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    },
+    {
+      "ticker": "VLMRA",
+      "reason": "NON_EGP",
+      "currency": "USD"
+    }
+  ]
+}

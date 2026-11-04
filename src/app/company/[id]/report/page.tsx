@@ -95,8 +95,6 @@ export default async function CompanyReportPage({ params }: { params: Promise<{ 
     { label: "هامش صافي الربح", value: pct(latest["NET_MARGIN"]) },
     { label: "العائد على حقوق الملكية ROE", value: pct(latest["ROE"]) },
     { label: "العائد على الأصول ROA", value: pct(latest["ROA"]) },
-    { label: "نمو الإيرادات", value: pct(latest["REVENUE_GROWTH"]) },
-    { label: "نمو صافي الربح", value: pct(latest["PROFIT_GROWTH"]) },
     { label: "الدين / حقوق الملكية", value: latest["DEBT_TO_EQUITY"] !== null && latest["DEBT_TO_EQUITY"] !== undefined ? latest["DEBT_TO_EQUITY"].toFixed(2) : "—" },
     { label: "ربحية السهم EPS", value: latest["EPS"] !== null && latest["EPS"] !== undefined ? `${latest["EPS"].toFixed(2)} EGP` : "—" },
     { label: "القيمة الدفترية للسهم", value: latest["BOOK_VALUE_PER_SHARE"] !== null && latest["BOOK_VALUE_PER_SHARE"] !== undefined ? `${latest["BOOK_VALUE_PER_SHARE"].toFixed(2)} EGP` : "—" },
@@ -148,7 +146,7 @@ export default async function CompanyReportPage({ params }: { params: Promise<{ 
               {Math.round(scores.overall)}
             </div>
             <div className="flex-1 text-[11px] text-slate-600">
-              من 100 — حسابية من مؤشرات متحقق منها (ربحية/نمو/سيولة/رفع مالي/نقدية). الدرجة استرشادية وليست توصية.
+              من 100 — حسابية من مؤشرات متحقق منها (الربحية/الرفع المالي/جودة النقد). الدرجة استرشادية وليست توصية.
             </div>
           </div>
         </section>

@@ -26,7 +26,8 @@ export default function AdminLoginPage() {
         body: JSON.stringify({ passcode }),
         credentials: "include",
       })
-      const data = await res.json()
+      let data: { error?: string } = {}
+      try { data = await res.json() } catch {}
       if (!res.ok) throw new Error(data.error || "Failed")
       router.replace("/admin/subscriptions")
     } catch (err) {

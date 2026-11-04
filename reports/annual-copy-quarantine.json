@@ -1,0 +1,2125 @@
+{
+  "generatedAt": "2026-10-30T01:18:01.720Z",
+  "quarantined": [
+    {
+      "id": "cmura7on40czpbxz091yfvox7",
+      "ticker": "SUGR",
+      "fiscalYear": 2026,
+      "quarter": "Q2",
+      "metric": "GROSS_PROFIT",
+      "value": 507000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7omb0czhbxz0xd58h8be",
+      "ticker": "SUGR",
+      "fiscalYear": 2026,
+      "quarter": "Q2",
+      "metric": "NET_PROFIT",
+      "value": 103000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6hs006y7bxz02pivcniq",
+      "ticker": "BTFH",
+      "fiscalYear": 2025,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 16530000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6hr906y5bxz0fpyzzrpv",
+      "ticker": "BTFH",
+      "fiscalYear": 2025,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -1360000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6hqq06y3bxz0k63lbpvc",
+      "ticker": "BTFH",
+      "fiscalYear": 2025,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -10600000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmuion34y0l2ibxq0wz5iyas7",
+      "ticker": "ZMID",
+      "fiscalYear": 2025,
+      "quarter": "Q3",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -391105554,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmupwm6jy0ftvbxsszu3ybq9s",
+      "ticker": "ZMID",
+      "fiscalYear": 2025,
+      "quarter": "Q2",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -391105554,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura68510629bxz0f0fvb9ms",
+      "ticker": "ALCN",
+      "fiscalYear": 2025,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -5600000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura684c0627bxz0l8i77kp6",
+      "ticker": "ALCN",
+      "fiscalYear": 2025,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -2220000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura685t062bbxz0o0qbbt7q",
+      "ticker": "ALCN",
+      "fiscalYear": 2025,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -2890000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura680v061vbxz050zuv598",
+      "ticker": "ALCN",
+      "fiscalYear": 2025,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 6620000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura683o0625bxz0olotj1of",
+      "ticker": "ALCN",
+      "fiscalYear": 2025,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 4920000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmuiomuqv01rabxq0ezh6j95r",
+      "ticker": "CCAP",
+      "fiscalYear": 2025,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 187653495000,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuiomuqv01r5bxq02wabhnj5",
+      "ticker": "CCAP",
+      "fiscalYear": 2025,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 121905098000,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuiomyaa0a3nbxq09tkj1zvo",
+      "ticker": "SAIB",
+      "fiscalYear": 2025,
+      "quarter": "Q1",
+      "metric": "TOTAL_ASSETS",
+      "value": 3200000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmuiomyaa0a3lbxq0dy7ujxq2",
+      "ticker": "SAIB",
+      "fiscalYear": 2025,
+      "quarter": "Q1",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 2830000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7iam0bqdbxz08k8bis0y",
+      "ticker": "ORAS",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 172720000,
+      "oldStatus": "VALID",
+      "oldNotes": "AUDIT_CURRENCY_FIX: Orascom Construction reports in USD; converted USD->EGP @ 50.8 (CBE period-end rate). Original USD value preserved in originalValue."
+    },
+    {
+      "id": "cmura7iad0bqbbxz0j2zp1os9",
+      "ticker": "ORAS",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -3246120000,
+      "oldStatus": "VALID",
+      "oldNotes": "AUDIT_CURRENCY_FIX: Orascom Construction reports in USD; converted USD->EGP @ 50.8 (CBE period-end rate). Original USD value preserved in originalValue."
+    },
+    {
+      "id": "cmura7ia20bq9bxz07syo8ui2",
+      "ticker": "ORAS",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 32766000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AUDIT_CURRENCY_FIX: Orascom Construction reports in USD; converted USD->EGP @ 50.8 (CBE period-end rate). Original USD value preserved in originalValue."
+    },
+    {
+      "id": "cmura76dt09dnbxz0szzx0oq9",
+      "ticker": "HBCO",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 19740000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura76cf09d9bxz0jykvq5k6",
+      "ticker": "HBCO",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "metric": "GROSS_PROFIT",
+      "value": 68920000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura76do09dlbxz0ygdqp73g",
+      "ticker": "HBCO",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -5230000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura76dy09dpbxz0t8tagx7o",
+      "ticker": "HBCO",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -1780000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura76c709d7bxz0y9d6sjrx",
+      "ticker": "HBCO",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 41640000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura76di09djbxz0e4vnin0d",
+      "ticker": "HBCO",
+      "fiscalYear": 2024,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -16290000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmupwm0nx0ddvbxsscn2bx9c4",
+      "ticker": "OLFI",
+      "fiscalYear": 2024,
+      "quarter": "Q3",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -573065312,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmupwlc7303frbxssltjed6mf",
+      "ticker": "DSCW",
+      "fiscalYear": 2024,
+      "quarter": "Q3",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -598729317,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6o1o07ivbxz0h2xhcpcc",
+      "ticker": "COSG",
+      "fiscalYear": 2024,
+      "quarter": "Q3",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -130742370,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7sth0ds1bxz0d9pce8lh",
+      "ticker": "ZMID",
+      "fiscalYear": 2024,
+      "quarter": "Q2",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -127000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmupwlo44087jbxssazw3yefo",
+      "ticker": "COSG",
+      "fiscalYear": 2024,
+      "quarter": "Q2",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -130742370,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7hsf0bmzbxz083fq0b1n",
+      "ticker": "OLFI",
+      "fiscalYear": 2024,
+      "quarter": "Q2",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -573065312,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmupwlc2l03dvbxssq54l2u7c",
+      "ticker": "DSCW",
+      "fiscalYear": 2024,
+      "quarter": "Q2",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -598729317,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7jx00c1pbxz0zfk3ez1d",
+      "ticker": "PHGC",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 21790000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7jwo0c1nbxz0k8sapld2",
+      "ticker": "PHGC",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -7540000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7jxn0c1rbxz02bfua871",
+      "ticker": "PHGC",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 27360000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7jv10c19bxz0e9t92ml3",
+      "ticker": "PHGC",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 8410000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7jwg0c1lbxz0anb1oswd",
+      "ticker": "PHGC",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 13110000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura637u05mdbxz0u4h0yref",
+      "ticker": "ACTF",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 88470000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura630505llbxz0jwu71dzi",
+      "ticker": "ACTF",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "GROSS_PROFIT",
+      "value": 697000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura636n05m9bxz0g92m7pmc",
+      "ticker": "ACTF",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -22830000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5rrx04ljbxz0vq32byl1",
+      "ticker": "NBKE",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 984000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5rr904lhbxz0jrmxo5dp",
+      "ticker": "NBKE",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 3250000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5rsm04llbxz0ud71pm5p",
+      "ticker": "NBKE",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 2650000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5rnr04l5bxz0u2km8vuo",
+      "ticker": "NBKE",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 4020000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5rqr04lfbxz0uveubibs",
+      "ticker": "NBKE",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -1580000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5n16044hbxz0oxji0256",
+      "ticker": "INEG",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 10900000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5mxj0443bxz0l7bupuq1",
+      "ticker": "INEG",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "GROSS_PROFIT",
+      "value": 11240000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5n0q044fbxz0tpvc50t9",
+      "ticker": "INEG",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -227000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5n1i044jbxz0jgfuqe8e",
+      "ticker": "INEG",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 4250000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5mwz0441bxz0sl92nxrl",
+      "ticker": "INEG",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 807000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5n04044dbxz0dz0o6hjz",
+      "ticker": "INEG",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -6430000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5kqn03uvbxz0yud2y7p4",
+      "ticker": "GGRN",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 34590000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5kkm03u3bxz00bstobo2",
+      "ticker": "GGRN",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "GROSS_PROFIT",
+      "value": 54520000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5kpr03urbxz01ko5gp3v",
+      "ticker": "GGRN",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -24030000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5kra03uzbxz0647o4im6",
+      "ticker": "GGRN",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -1480000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5kju03tzbxz0mw0uddzz",
+      "ticker": "GGRN",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 44680000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5kov03unbxz03zim7ib1",
+      "ticker": "GGRN",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -12040000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura59gz02lrbxz06nz8casr",
+      "ticker": "UBEE",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -312000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura59g702lnbxz0v2q9zv7m",
+      "ticker": "UBEE",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 1030000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura59hn02lvbxz05m6ydtc8",
+      "ticker": "UBEE",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 20880000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura59ds02l7bxz03x9mggxj",
+      "ticker": "UBEE",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 1730000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura59fs02ljbxz00dkwpnen",
+      "ticker": "UBEE",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 20160000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura57r002ezbxz0ey0nrciu",
+      "ticker": "SPMD",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -21040000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura57qe02exbxz0glk667zt",
+      "ticker": "SPMD",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -5620000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura57rm02f1bxz0w7k8z0z7",
+      "ticker": "SPMD",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -211000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura57m002ejbxz0bu1z19kh",
+      "ticker": "SPMD",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": -49010000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura57pw02evbxz00kptafq9",
+      "ticker": "SPMD",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 26440000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4vvo014jbxz00u2lywu0",
+      "ticker": "FTNS",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -5380000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4vnj013dbxz091jba10j",
+      "ticker": "FTNS",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "GROSS_PROFIT",
+      "value": 11500000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4vud014dbxz0ltte1cke",
+      "ticker": "FTNS",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -500000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4vww014pbxz0g1qr1dzo",
+      "ticker": "FTNS",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 147000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4vmk0137bxz0jzj7bshx",
+      "ticker": "FTNS",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 4840000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4vsy0147bxz0jbciw57g",
+      "ticker": "FTNS",
+      "fiscalYear": 2023,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 6030000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6snv07yhbxz0xga604sg",
+      "ticker": "EAST",
+      "fiscalYear": 2024,
+      "quarter": "Q2",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -9090000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6o1807itbxz0hnstqj0v",
+      "ticker": "COSG",
+      "fiscalYear": 2023,
+      "quarter": "Q3",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -24897603,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7kds0c5bbxz0m770vv6m",
+      "ticker": "RAYA",
+      "fiscalYear": 2023,
+      "quarter": "Q3",
+      "metric": "GROSS_PROFIT",
+      "value": -9456479454,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmupwlu8s0as1bxsszill7vll",
+      "ticker": "IBCT",
+      "fiscalYear": 2023,
+      "quarter": "Q2",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 1823000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmupwlo50087zbxssd2gmet9s",
+      "ticker": "COSG",
+      "fiscalYear": 2023,
+      "quarter": "Q2",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -24897603,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura74tu093lbxz0fiwvhktf",
+      "ticker": "FWRY",
+      "fiscalYear": 2023,
+      "quarter": "Q2",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 927000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6oou07l7bxz0fyhqqjiu",
+      "ticker": "CSAG",
+      "fiscalYear": 2023,
+      "quarter": "Q3",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -180000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7pzc0d9tbxz068vwyveo",
+      "ticker": "TAQA",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 546000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7pyv0d9pbxz0kt8eibqm",
+      "ticker": "TAQA",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -366000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7pzu0d9xbxz0by6lwv9f",
+      "ticker": "TAQA",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 855000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7pyb0d9lbxz0nqpmn62g",
+      "ticker": "TAQA",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 675000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7aib0a7vbxz061j0h01v",
+      "ticker": "LUTS",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 45200000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7afr0a7hbxz0yi9y5gad",
+      "ticker": "LUTS",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "GROSS_PROFIT",
+      "value": 31930000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7ai10a7tbxz0blzk8f3x",
+      "ticker": "LUTS",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -8710000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7ail0a7xbxz02ciehuxy",
+      "ticker": "LUTS",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 8140000.000000001,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7aff0a7fbxz04ao6k1hv",
+      "ticker": "LUTS",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 12280000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura637b05mbbxz0kx3w1ttj",
+      "ticker": "ACTF",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -9490000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura62zr05ljbxz0rvul2qdh",
+      "ticker": "ACTF",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "GROSS_PROFIT",
+      "value": 61530000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura636505m7bxz0rpwvh4ql",
+      "ticker": "ACTF",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -18710000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura638h05mfbxz033x7wppn",
+      "ticker": "ACTF",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -51990000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura635105m3bxz0mcy3kyxt",
+      "ticker": "ACTF",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -23790000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5kq803utbxz0zret01qc",
+      "ticker": "GGRN",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 18920000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5kk803u1bxz0cuet9gev",
+      "ticker": "GGRN",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "GROSS_PROFIT",
+      "value": 20210000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5kpc03upbxz0nm075bo2",
+      "ticker": "GGRN",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -44180000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5kr403uxbxz0kpdiivcr",
+      "ticker": "GGRN",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -967000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5kj803tvbxz0ooe036zf",
+      "ticker": "GGRN",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 15100000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5kom03ulbxz0qeko1m52",
+      "ticker": "GGRN",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 24300000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5con02z7bxz0xpukz5ux",
+      "ticker": "AJWA",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 23650000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5co302z5bxz0uxcohm0x",
+      "ticker": "AJWA",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -18630000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5ck002yrbxz0mqzk8w9j",
+      "ticker": "AJWA",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 26150000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5cnj02z3bxz0r3yclqzw",
+      "ticker": "AJWA",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 85150000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4vva014hbxz0lgs90onl",
+      "ticker": "FTNS",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 6380000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4vnb013bbxz0zg2i6r2h",
+      "ticker": "FTNS",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "GROSS_PROFIT",
+      "value": 9650000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4vty014bbxz0eg64yrz5",
+      "ticker": "FTNS",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -11860000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4vwh014nbxz0zxaayusw",
+      "ticker": "FTNS",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 75820,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4vm60133bxz0bmu3blyu",
+      "ticker": "FTNS",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 4150000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4vsj0145bxz0hwayoba1",
+      "ticker": "FTNS",
+      "fiscalYear": 2022,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 5550000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7qqp0dfdbxz0wng5v67r",
+      "ticker": "UEGC",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 1120000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura75uu09ahbxz0h4hsyqvh",
+      "ticker": "GIHD",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 37630000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura710c08ovbxz0uqj5ls2x",
+      "ticker": "ETEL",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 46390000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6yfn08gbbxz0rmbxlgpi",
+      "ticker": "EGTS",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "GROSS_PROFIT",
+      "value": -16686930,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6wzt08bpbxz0j0eq7anr",
+      "ticker": "EGBE",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 86390000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6x2m08c1bxz07ysaqtzt",
+      "ticker": "EGBE",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 86390000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6x1208btbxz0tygptozv",
+      "ticker": "EGBE",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 81350000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6wc7089rbxz02da5z3tn",
+      "ticker": "EGAS",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -1057566090,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura69oe0677bxz0dgg4ylpo",
+      "ticker": "AMES",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 315000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura69pn067dbxz0f2ro6ng6",
+      "ticker": "AMES",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 315000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5l8103x1bxz0pkvyetg4",
+      "ticker": "GMCI",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 63060000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5l7b03wxbxz0drpr1o6a",
+      "ticker": "GMCI",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 22120000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5dvr034hbxz0t7v7czat",
+      "ticker": "APSW",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 359000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5dxe034nbxz06gq8i0e1",
+      "ticker": "APSW",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 359000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7hax0bkjbxz0s0j3hzm4",
+      "ticker": "OCDI",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 7230000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7oz00d23bxz0mux9dobc",
+      "ticker": "SVCE",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 2510000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7oqj0d0jbxz0q3q2z9us",
+      "ticker": "SUGR",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 275000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7ooj0czzbxz03tokh5dp",
+      "ticker": "SUGR",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -2470000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7on90czrbxz0ld8dqr5c",
+      "ticker": "SUGR",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 2890000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7onr0czvbxz0aey4mp3i",
+      "ticker": "SUGR",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 1650000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7oo70czxbxz0vfbi8hse",
+      "ticker": "SUGR",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 2890000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7onj0cztbxz080qsfv9l",
+      "ticker": "SUGR",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 1240000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7kui0c8bbxz06cguqq2x",
+      "ticker": "ROTO",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 415000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7kv80c8hbxz0l0i3okrg",
+      "ticker": "ROTO",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 415000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7fy00babbxz0pt1u8ahg",
+      "ticker": "MTIE",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": -425000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura79t60a2xbxz0p26mws0v",
+      "ticker": "JUFO",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 6243794933,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6y1d08evbxz0jhufqgi5",
+      "ticker": "EGTS",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "GROSS_PROFIT",
+      "value": -16686930,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6w17088pbxz0si4924r5",
+      "ticker": "EGAS",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -1057566090,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6pjv07o1bxz01jsqb1s2",
+      "ticker": "DCRC",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 600000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6poc07ojbxz0lr9v6m9z",
+      "ticker": "DCRC",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 600000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6c6806f9bxz0bh31hfig",
+      "ticker": "ARCC",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 3771380478,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5ky103vrbxz0s842kdp0",
+      "ticker": "GMCI",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 63080000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5kxk03vnbxz0d85ar6y6",
+      "ticker": "GMCI",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 22120000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5doh033jbxz0z8eqlkew",
+      "ticker": "APSW",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 359000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5dq6033pbxz0b6wrnq38",
+      "ticker": "APSW",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 359000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4tcj00ojbxz00efjqf4w",
+      "ticker": "CRST",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 256000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4td900opbxz02jpgbx8l",
+      "ticker": "CRST",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 256000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7sqz0drlbxz08hfgian1",
+      "ticker": "ZMID",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 2520000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7srw0drrbxz0s42h201o",
+      "ticker": "ZMID",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 2520000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5vjs04xrbxz07kk8b8ty",
+      "ticker": "PRMH",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 633000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5vnb04y3bxz0ldes027k",
+      "ticker": "PRMH",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 633000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura56ku02ahbxz0nyesdc38",
+      "ticker": "SCFM",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 331000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura56mu02apbxz0vl65zgc3",
+      "ticker": "SCFM",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 62550000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura56np02atbxz0gv8vqqod",
+      "ticker": "SCFM",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 331000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura56lu02albxz0woy07j03",
+      "ticker": "SCFM",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 268450000,
+      "oldStatus": "VALID",
+      "oldNotes": "AUDIT_CORRECTION: liabilities corrected from 393000000 to TOTAL_ASSETS − TOTAL_EQUITY = 268450000"
+    },
+    {
+      "id": "cmura5416020lbxz0dhmcs3kt",
+      "ticker": "PRCL",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 311000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura543k020xbxz0vqk98gs1",
+      "ticker": "PRCL",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 311000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7pz40d9rbxz0hhtt7bfy",
+      "ticker": "TAQA",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 2870000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7pyo0d9nbxz0eqronl7m",
+      "ticker": "TAQA",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -299000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7pzo0d9vbxz0n38a644l",
+      "ticker": "TAQA",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 2920000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7pxz0d9jbxz0a2lrv8p8",
+      "ticker": "TAQA",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 345000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5vep04xfbxz0jopvqufk",
+      "ticker": "PRDC",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 142000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5vay04x1bxz0nco5mz34",
+      "ticker": "PRDC",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "GROSS_PROFIT",
+      "value": 283000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5ve504xdbxz0z9ls06t9",
+      "ticker": "PRDC",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -184000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5vfg04xhbxz0tb1x7l3y",
+      "ticker": "PRDC",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -51940000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5vae04wzbxz0scpzu4ph",
+      "ticker": "PRDC",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 359000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5vde04xbbxz01jvyzib2",
+      "ticker": "PRDC",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -9730000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5juv03r9bxz0mxaukeei",
+      "ticker": "ELNA",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 66860000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5jxp03rlbxz08zngb7q9",
+      "ticker": "ELNA",
+      "fiscalYear": 2022,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 66860000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5h6203gfbxz0368pblns",
+      "ticker": "DGTZ",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "GROSS_PROFIT",
+      "value": 3580000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5h8203grbxz03q6dezay",
+      "ticker": "DGTZ",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -9030000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5h8c03gtbxz0z7j7uw55",
+      "ticker": "DGTZ",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -1720000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5h5n03gdbxz0zl7lie47",
+      "ticker": "DGTZ",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 906000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5h7u03gpbxz0nec0os9b",
+      "ticker": "DGTZ",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 7310000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4wbg016lbxz0p7st0qn1",
+      "ticker": "GDWA",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 288000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4w910167bxz06f8g6ygu",
+      "ticker": "GDWA",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "GROSS_PROFIT",
+      "value": 243000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4waw016jbxz0xdu8j47n",
+      "ticker": "GDWA",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -17950000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4wbz016nbxz0uyizlefk",
+      "ticker": "GDWA",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 30600000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4w8l0165bxz003rsdid7",
+      "ticker": "GDWA",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 115000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4vuv014fbxz0azbuad41",
+      "ticker": "FTNS",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 4520000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4vmv0139bxz0kwf8sykt",
+      "ticker": "FTNS",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "GROSS_PROFIT",
+      "value": 9850000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4vtf0149bxz0ilfpeqwt",
+      "ticker": "FTNS",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -9530000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4vw3014lbxz09d6d915x",
+      "ticker": "FTNS",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -2220000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4vlg012zbxz0yml4u7b8",
+      "ticker": "FTNS",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "NET_PROFIT",
+      "value": 4580000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4vs50143bxz0g6y7hvsk",
+      "ticker": "FTNS",
+      "fiscalYear": 2021,
+      "quarter": "Q4",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 2800000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4rry00ajbxz0v48a7sc8",
+      "ticker": "AXPH",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 876000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4rsk00apbxz0ve5ayeqt",
+      "ticker": "AXPH",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 876000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7qrj0dfjbxz01ecr791s",
+      "ticker": "UEGC",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -264144746,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7p4r0d3jbxz0cv425rgw",
+      "ticker": "SVCE",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 4170000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7p6a0d3vbxz03ad7mhsn",
+      "ticker": "SVCE",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 4170000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6wz608bnbxz0c2s78loy",
+      "ticker": "EGBE",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 80300000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6x2508bzbxz0dfyfua95",
+      "ticker": "EGBE",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 80300000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6x0d08brbxz0avx7k1qc",
+      "ticker": "EGBE",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 74670000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5j8j03olbxz0d3wdzsie",
+      "ticker": "ELKA",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 5940000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5jbs03oxbxz06fmvydn1",
+      "ticker": "ELKA",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 5940000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5j9f03opbxz090gv5e38",
+      "ticker": "ELKA",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_LIABILITIES",
+      "value": 2710000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4rbv006pbxz0a65ajuh2",
+      "ticker": "ADRI",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 49230000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4rcr006xbxz0i416hnek",
+      "ticker": "ADRI",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY",
+      "value": 37470000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4rdd0071bxz0ntzl33tr",
+      "ticker": "ADRI",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 49230000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6gvm06vhbxz07jqdp6aa",
+      "ticker": "BINV",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 2110000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6gyz06vtbxz0l6a9hq71",
+      "ticker": "BINV",
+      "fiscalYear": 2021,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 2110000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6jgl073xbxz0fsa48gky",
+      "ticker": "CFGH",
+      "fiscalYear": 2022,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 373000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7ql20de1bxz02c21fm2c",
+      "ticker": "UEGC",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -264144746,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7qk70ddtbxz0ovek27tl",
+      "ticker": "UEGC",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY",
+      "value": 1040000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4zbm01jhbxz00fxowgwk",
+      "ticker": "ISMA",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 453000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura4ze901jtbxz0e8191mv7",
+      "ticker": "ISMA",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 453000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7ivt0bu7bxz06lj57zi4",
+      "ticker": "PACH",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 736000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura7ix80bupbxz0ggg586r1",
+      "ticker": "PACH",
+      "fiscalYear": 2021,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 736000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6ekp06nbbxz0ju10dou7",
+      "ticker": "ASPI",
+      "fiscalYear": 2020,
+      "quarter": "Q3",
+      "metric": "TOTAL_ASSETS",
+      "value": 18810000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura6epn06nnbxz07ivfgc3z",
+      "ticker": "ASPI",
+      "fiscalYear": 2020,
+      "quarter": "Q3",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 18810000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5r7704j5bxz00zn6to4y",
+      "ticker": "NBKE",
+      "fiscalYear": 2020,
+      "quarter": "Q2",
+      "metric": "TOTAL_ASSETS",
+      "value": 62000000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmura5r9p04jhbxz05r7z4pqf",
+      "ticker": "NBKE",
+      "fiscalYear": 2020,
+      "quarter": "Q2",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "value": 62000000000,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    }
+  ]
+}

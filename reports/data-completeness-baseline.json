@@ -1,0 +1,7009 @@
+{
+  "generatedAt": "2026-11-03T17:29:23.299Z",
+  "universe": {
+    "companiesTotal": 297,
+    "companiesActive": 276,
+    "companiesInactive": 21,
+    "sectors": {
+      "Construction": 16,
+      "Basic Materials": 21,
+      "Real Estate": 38,
+      "Textiles": 10,
+      "Financial Services": 37,
+      "Healthcare": 20,
+      "Banks": 14,
+      "Food": 33,
+      "Transport": 6,
+      "Building Materials": 17,
+      "Industrial": 13,
+      "Energy": 5,
+      "Telecom": 11,
+      "Trade": 6,
+      "Education": 5,
+      "Travel & Leisure": 16,
+      "Paper": 6,
+      "Consumer": 1,
+      "Other": 1
+    }
+  },
+  "metadata": {
+    "isin": {
+      "numerator": 258,
+      "denominator": 276,
+      "pct": 93.48
+    },
+    "sharesOutstanding": {
+      "numerator": 253,
+      "denominator": 276,
+      "pct": 91.67
+    },
+    "website": {
+      "numerator": 24,
+      "denominator": 276,
+      "pct": 8.7
+    },
+    "egxCategory": {
+      "numerator": 242,
+      "denominator": 276,
+      "pct": 87.68
+    },
+    "sourceUrl": {
+      "numerator": 102,
+      "denominator": 276,
+      "pct": 36.96
+    },
+    "irUrl": {
+      "numerator": 24,
+      "denominator": 276,
+      "pct": 8.7
+    },
+    "lastVerifiedAt": {
+      "numerator": 33,
+      "denominator": 276,
+      "pct": 11.96
+    },
+    "missingIsinTickers": [
+      "ACRO",
+      "AIHC",
+      "ARPI",
+      "ARVA",
+      "DIFC",
+      "ESRS",
+      "GETO",
+      "GOCO",
+      "LUTS",
+      "MMAT",
+      "NAPR",
+      "NCEM",
+      "NOAF",
+      "PTCC",
+      "SIMO",
+      "TRST",
+      "UASG",
+      "VLMR"
+    ],
+    "missingSharesTickers": [
+      "ACRO",
+      "ARPI",
+      "ARVA",
+      "BQDC",
+      "DCCC",
+      "DIFC",
+      "EITP",
+      "ESRS",
+      "GETO",
+      "GOCO",
+      "IRAX",
+      "NCEM",
+      "NCGC",
+      "NOAF",
+      "POCO",
+      "PTCC",
+      "RMTV",
+      "SMPP",
+      "SUCE",
+      "TORA",
+      "TRST",
+      "UASG",
+      "WATP"
+    ]
+  },
+  "reports": {
+    "totalRows": 6817,
+    "trustedNonDeleted": 6803,
+    "deleted": 9,
+    "future": 5,
+    "byPeriodType": {
+      "QUARTERLY": 4331,
+      "ANNUAL": 2370,
+      "SEMIANNUAL": 81,
+      "NINE_MONTH": 35
+    },
+    "byProcessingStatus": {
+      "VALIDATED": 6,
+      "APPROVED": 6628,
+      "NEEDS_REVIEW": 5,
+      "EXTRACTED": 178
+    },
+    "byStatementType": {
+      "CONSOLIDATED": 6816,
+      "STANDALONE": 1
+    },
+    "annualCompanies": 271,
+    "companiesWithAnyTrusted": 275,
+    "companiesWithNoTrusted": [
+      "KORA"
+    ],
+    "companiesWithNoAnnual": [
+      "AIDC",
+      "AMII",
+      "CPME",
+      "EGREF",
+      "KORA"
+    ],
+    "latestAnnualFyDistribution": {
+      "2013": 1,
+      "2015": 2,
+      "2017": 1,
+      "2018": 3,
+      "2019": 5,
+      "2020": 3,
+      "2021": 2,
+      "2022": 6,
+      "2023": 2,
+      "2024": 53,
+      "2025": 181,
+      "2026": 12
+    },
+    "publicationDateCoverage": {
+      "numerator": 0,
+      "denominator": 6803,
+      "pct": 0
+    },
+    "sourceUrlCoverage": {
+      "numerator": 1398,
+      "denominator": 6803,
+      "pct": 20.55
+    }
+  },
+  "values": {
+    "total": 99230,
+    "valid": 80244,
+    "needsReview": 18986,
+    "failed": 0,
+    "pending": 0,
+    "authoritative": 80215,
+    "quarantined": 19015,
+    "provenancePageTextCoverage": {
+      "numerator": 4381,
+      "denominator": 99230,
+      "pct": 4.41
+    },
+    "extractionMethodCoverage": {
+      "numerator": 99230,
+      "denominator": 99230,
+      "pct": 100
+    }
+  },
+  "fieldCoverage": [
+    {
+      "code": "ACCOUNTS_RECEIVABLE",
+      "labelEn": "Trade & Other Receivables",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 66,
+      "companiesWithLatestAnnual": 64,
+      "anyCoverage": {
+        "numerator": 66,
+        "denominator": 276,
+        "pct": 23.91
+      },
+      "latestAnnualCoverage": {
+        "numerator": 64,
+        "denominator": 276,
+        "pct": 23.19
+      },
+      "valuesTotal": 471,
+      "valuesValid": 362,
+      "valuesNeedsReview": 109,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "ASSOCIATES_CARRYING",
+      "labelEn": "Investments in Associates (Carrying Value)",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "CASH_AND_EQUIVALENTS",
+      "labelEn": "Cash and Cash Equivalents",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 108,
+      "companiesWithLatestAnnual": 103,
+      "anyCoverage": {
+        "numerator": 108,
+        "denominator": 276,
+        "pct": 39.13
+      },
+      "latestAnnualCoverage": {
+        "numerator": 103,
+        "denominator": 276,
+        "pct": 37.32
+      },
+      "valuesTotal": 722,
+      "valuesValid": 531,
+      "valuesNeedsReview": 191,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "CURRENT_ASSETS",
+      "labelEn": "Total Current Assets",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 144,
+      "companiesWithLatestAnnual": 143,
+      "anyCoverage": {
+        "numerator": 144,
+        "denominator": 276,
+        "pct": 52.17
+      },
+      "latestAnnualCoverage": {
+        "numerator": 143,
+        "denominator": 276,
+        "pct": 51.81
+      },
+      "valuesTotal": 2089,
+      "valuesValid": 926,
+      "valuesNeedsReview": 1163,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "CURRENT_LIABILITIES",
+      "labelEn": "Total Current Liabilities",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 111,
+      "companiesWithLatestAnnual": 110,
+      "anyCoverage": {
+        "numerator": 111,
+        "denominator": 276,
+        "pct": 40.22
+      },
+      "latestAnnualCoverage": {
+        "numerator": 110,
+        "denominator": 276,
+        "pct": 39.86
+      },
+      "valuesTotal": 1597,
+      "valuesValid": 590,
+      "valuesNeedsReview": 1007,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "DEFERRED_TAX_ASSETS",
+      "labelEn": "Deferred Tax Assets",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "DEFERRED_TAX_LIABILITIES",
+      "labelEn": "Deferred Tax Liabilities",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "DEPOSITS",
+      "labelEn": "Customer Deposits",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": [
+        "Banks"
+      ],
+      "applicableCompanies": 14,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "valuesTotal": 1,
+      "valuesValid": 0,
+      "valuesNeedsReview": 1,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "EQUITY_PARENT",
+      "labelEn": "Equity Attributable to Parent",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 44,
+      "companiesWithLatestAnnual": 44,
+      "anyCoverage": {
+        "numerator": 44,
+        "denominator": 276,
+        "pct": 15.94
+      },
+      "latestAnnualCoverage": {
+        "numerator": 44,
+        "denominator": 276,
+        "pct": 15.94
+      },
+      "valuesTotal": 385,
+      "valuesValid": 293,
+      "valuesNeedsReview": 92,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FINANCIAL_ASSETS",
+      "labelEn": "Financial Assets",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FINISHED_GOODS",
+      "labelEn": "Finished Goods (Inventory)",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FVOCI_ASSETS",
+      "labelEn": "Financial Assets at FVOCI",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FVPL_ASSETS",
+      "labelEn": "Financial Assets at FVTPL",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "GOODWILL",
+      "labelEn": "Goodwill",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 21,
+      "companiesWithLatestAnnual": 19,
+      "anyCoverage": {
+        "numerator": 21,
+        "denominator": 276,
+        "pct": 7.61
+      },
+      "latestAnnualCoverage": {
+        "numerator": 19,
+        "denominator": 276,
+        "pct": 6.88
+      },
+      "valuesTotal": 181,
+      "valuesValid": 136,
+      "valuesNeedsReview": 45,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INTANGIBLE_ASSETS",
+      "labelEn": "Intangible Assets",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 22,
+      "companiesWithLatestAnnual": 21,
+      "anyCoverage": {
+        "numerator": 22,
+        "denominator": 276,
+        "pct": 7.97
+      },
+      "latestAnnualCoverage": {
+        "numerator": 21,
+        "denominator": 276,
+        "pct": 7.61
+      },
+      "valuesTotal": 63,
+      "valuesValid": 63,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INVENTORY",
+      "labelEn": "Inventories",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 109,
+      "companiesWithLatestAnnual": 107,
+      "anyCoverage": {
+        "numerator": 109,
+        "denominator": 276,
+        "pct": 39.49
+      },
+      "latestAnnualCoverage": {
+        "numerator": 107,
+        "denominator": 276,
+        "pct": 38.77
+      },
+      "valuesTotal": 1344,
+      "valuesValid": 656,
+      "valuesNeedsReview": 688,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INVESTED_CAPITAL",
+      "labelEn": "Invested Capital",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 4,
+      "companiesWithLatestAnnual": 4,
+      "anyCoverage": {
+        "numerator": 4,
+        "denominator": 276,
+        "pct": 1.45
+      },
+      "latestAnnualCoverage": {
+        "numerator": 4,
+        "denominator": 276,
+        "pct": 1.45
+      },
+      "valuesTotal": 14,
+      "valuesValid": 14,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INVESTMENTS",
+      "labelEn": "Investments",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 10,
+      "companiesWithLatestAnnual": 10,
+      "anyCoverage": {
+        "numerator": 10,
+        "denominator": 276,
+        "pct": 3.62
+      },
+      "latestAnnualCoverage": {
+        "numerator": 10,
+        "denominator": 276,
+        "pct": 3.62
+      },
+      "valuesTotal": 70,
+      "valuesValid": 58,
+      "valuesNeedsReview": 12,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INVESTMENT_PROPERTY",
+      "labelEn": "Investment Property",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "JV_CARRYING",
+      "labelEn": "Investments in Joint Ventures",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "LEASE_LIABILITIES",
+      "labelEn": "Lease Liabilities",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "LEASE_LIABILITIES_CURRENT",
+      "labelEn": "Lease Liabilities (Current)",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 34,
+      "companiesWithLatestAnnual": 33,
+      "anyCoverage": {
+        "numerator": 34,
+        "denominator": 276,
+        "pct": 12.32
+      },
+      "latestAnnualCoverage": {
+        "numerator": 33,
+        "denominator": 276,
+        "pct": 11.96
+      },
+      "valuesTotal": 92,
+      "valuesValid": 92,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "LEASE_LIABILITIES_NONCURRENT",
+      "labelEn": "Lease Liabilities (Non-Current)",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 26,
+      "companiesWithLatestAnnual": 26,
+      "anyCoverage": {
+        "numerator": 26,
+        "denominator": 276,
+        "pct": 9.42
+      },
+      "latestAnnualCoverage": {
+        "numerator": 26,
+        "denominator": 276,
+        "pct": 9.42
+      },
+      "valuesTotal": 249,
+      "valuesValid": 244,
+      "valuesNeedsReview": 5,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "LOANS_NET",
+      "labelEn": "Loans (Net)",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": [
+        "Banks"
+      ],
+      "applicableCompanies": 14,
+      "companiesWithAny": 1,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 1,
+        "denominator": 14,
+        "pct": 7.14
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "valuesTotal": 1,
+      "valuesValid": 1,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "LONG_TERM_DEBT",
+      "labelEn": "Long-Term Borrowings",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 107,
+      "companiesWithLatestAnnual": 105,
+      "anyCoverage": {
+        "numerator": 107,
+        "denominator": 276,
+        "pct": 38.77
+      },
+      "latestAnnualCoverage": {
+        "numerator": 105,
+        "denominator": 276,
+        "pct": 38.04
+      },
+      "valuesTotal": 1011,
+      "valuesValid": 678,
+      "valuesNeedsReview": 333,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "NET_DEBT",
+      "labelEn": "Net Debt",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 4,
+      "companiesWithLatestAnnual": 4,
+      "anyCoverage": {
+        "numerator": 4,
+        "denominator": 276,
+        "pct": 1.45
+      },
+      "latestAnnualCoverage": {
+        "numerator": 4,
+        "denominator": 276,
+        "pct": 1.45
+      },
+      "valuesTotal": 14,
+      "valuesValid": 14,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "NON_CONTROLLING_INTERESTS",
+      "labelEn": "Non-Controlling Interests",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 42,
+      "companiesWithLatestAnnual": 41,
+      "anyCoverage": {
+        "numerator": 42,
+        "denominator": 276,
+        "pct": 15.22
+      },
+      "latestAnnualCoverage": {
+        "numerator": 41,
+        "denominator": 276,
+        "pct": 14.86
+      },
+      "valuesTotal": 337,
+      "valuesValid": 257,
+      "valuesNeedsReview": 80,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "NON_CURRENT_ASSETS",
+      "labelEn": "Total Non-Current Assets",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 124,
+      "companiesWithLatestAnnual": 124,
+      "anyCoverage": {
+        "numerator": 124,
+        "denominator": 276,
+        "pct": 44.93
+      },
+      "latestAnnualCoverage": {
+        "numerator": 124,
+        "denominator": 276,
+        "pct": 44.93
+      },
+      "valuesTotal": 1645,
+      "valuesValid": 918,
+      "valuesNeedsReview": 727,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "NON_CURRENT_LIABILITIES",
+      "labelEn": "Total Non-Current Liabilities",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 1,
+      "companiesWithLatestAnnual": 1,
+      "anyCoverage": {
+        "numerator": 1,
+        "denominator": 276,
+        "pct": 0.36
+      },
+      "latestAnnualCoverage": {
+        "numerator": 1,
+        "denominator": 276,
+        "pct": 0.36
+      },
+      "valuesTotal": 1,
+      "valuesValid": 1,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "OCI_RESERVES",
+      "labelEn": "OCI Reserve",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "OTHER_PAYABLES",
+      "labelEn": "Other Payables",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 28,
+      "companiesWithLatestAnnual": 25,
+      "anyCoverage": {
+        "numerator": 28,
+        "denominator": 276,
+        "pct": 10.14
+      },
+      "latestAnnualCoverage": {
+        "numerator": 25,
+        "denominator": 276,
+        "pct": 9.06
+      },
+      "valuesTotal": 156,
+      "valuesValid": 136,
+      "valuesNeedsReview": 20,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "OTHER_RECEIVABLES",
+      "labelEn": "Other Receivables",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "PPE",
+      "labelEn": "Property, Plant & Equipment",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 88,
+      "companiesWithLatestAnnual": 85,
+      "anyCoverage": {
+        "numerator": 88,
+        "denominator": 276,
+        "pct": 31.88
+      },
+      "latestAnnualCoverage": {
+        "numerator": 85,
+        "denominator": 276,
+        "pct": 30.8
+      },
+      "valuesTotal": 636,
+      "valuesValid": 454,
+      "valuesNeedsReview": 182,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "PROVISIONS",
+      "labelEn": "Provisions",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "RAW_MATERIALS",
+      "labelEn": "Raw Materials (Inventory)",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "REALESTATE_CONTRACT_ASSETS",
+      "labelEn": "Contract Assets",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "REALESTATE_CONTRACT_LIABILITIES",
+      "labelEn": "Contract Liabilities (Deferred Revenue)",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "RESERVES",
+      "labelEn": "Statutory & Other Reserves",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "RESTRICTED_CASH",
+      "labelEn": "Restricted Cash",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "RETAINED_EARNINGS",
+      "labelEn": "Retained Earnings",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 101,
+      "companiesWithLatestAnnual": 96,
+      "anyCoverage": {
+        "numerator": 101,
+        "denominator": 276,
+        "pct": 36.59
+      },
+      "latestAnnualCoverage": {
+        "numerator": 96,
+        "denominator": 276,
+        "pct": 34.78
+      },
+      "valuesTotal": 677,
+      "valuesValid": 490,
+      "valuesNeedsReview": 187,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "ROU_ASSETS",
+      "labelEn": "Right-of-Use Assets",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "SHARES_OUTSTANDING",
+      "labelEn": "Number of Shares Outstanding",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 47,
+      "companiesWithLatestAnnual": 45,
+      "anyCoverage": {
+        "numerator": 47,
+        "denominator": 276,
+        "pct": 17.03
+      },
+      "latestAnnualCoverage": {
+        "numerator": 45,
+        "denominator": 276,
+        "pct": 16.3
+      },
+      "valuesTotal": 142,
+      "valuesValid": 142,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "SHARE_CAPITAL",
+      "labelEn": "Share Capital",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 42,
+      "companiesWithLatestAnnual": 42,
+      "anyCoverage": {
+        "numerator": 42,
+        "denominator": 276,
+        "pct": 15.22
+      },
+      "latestAnnualCoverage": {
+        "numerator": 42,
+        "denominator": 276,
+        "pct": 15.22
+      },
+      "valuesTotal": 369,
+      "valuesValid": 311,
+      "valuesNeedsReview": 58,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "SHARE_PREMIUM",
+      "labelEn": "Share Premium",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 16,
+      "companiesWithLatestAnnual": 15,
+      "anyCoverage": {
+        "numerator": 16,
+        "denominator": 276,
+        "pct": 5.8
+      },
+      "latestAnnualCoverage": {
+        "numerator": 15,
+        "denominator": 276,
+        "pct": 5.43
+      },
+      "valuesTotal": 104,
+      "valuesValid": 86,
+      "valuesNeedsReview": 18,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "SHORT_TERM_DEBT",
+      "labelEn": "Short-Term Borrowings",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 106,
+      "companiesWithLatestAnnual": 106,
+      "anyCoverage": {
+        "numerator": 106,
+        "denominator": 276,
+        "pct": 38.41
+      },
+      "latestAnnualCoverage": {
+        "numerator": 106,
+        "denominator": 276,
+        "pct": 38.41
+      },
+      "valuesTotal": 1148,
+      "valuesValid": 636,
+      "valuesNeedsReview": 512,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TAX_PAYABLE",
+      "labelEn": "Tax Payable",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TOTAL_ASSETS",
+      "labelEn": "Total Assets",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 271,
+      "companiesWithLatestAnnual": 269,
+      "anyCoverage": {
+        "numerator": 271,
+        "denominator": 276,
+        "pct": 98.19
+      },
+      "latestAnnualCoverage": {
+        "numerator": 269,
+        "denominator": 276,
+        "pct": 97.46
+      },
+      "valuesTotal": 7423,
+      "valuesValid": 5664,
+      "valuesNeedsReview": 1759,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TOTAL_CAPITALIZATION",
+      "labelEn": "Total Capitalization",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 4,
+      "companiesWithLatestAnnual": 4,
+      "anyCoverage": {
+        "numerator": 4,
+        "denominator": 276,
+        "pct": 1.45
+      },
+      "latestAnnualCoverage": {
+        "numerator": 4,
+        "denominator": 276,
+        "pct": 1.45
+      },
+      "valuesTotal": 14,
+      "valuesValid": 14,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TOTAL_DEBT",
+      "labelEn": "Total Debt",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 103,
+      "companiesWithLatestAnnual": 101,
+      "anyCoverage": {
+        "numerator": 103,
+        "denominator": 276,
+        "pct": 37.32
+      },
+      "latestAnnualCoverage": {
+        "numerator": 101,
+        "denominator": 276,
+        "pct": 36.59
+      },
+      "valuesTotal": 674,
+      "valuesValid": 500,
+      "valuesNeedsReview": 174,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TOTAL_EQUITY",
+      "labelEn": "Total Shareholders' Equity",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 269,
+      "companiesWithLatestAnnual": 267,
+      "anyCoverage": {
+        "numerator": 269,
+        "denominator": 276,
+        "pct": 97.46
+      },
+      "latestAnnualCoverage": {
+        "numerator": 267,
+        "denominator": 276,
+        "pct": 96.74
+      },
+      "valuesTotal": 7514,
+      "valuesValid": 5645,
+      "valuesNeedsReview": 1869,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TOTAL_EQUITY_AND_LIABILITIES",
+      "labelEn": "Total Equity and Liabilities",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 261,
+      "companiesWithLatestAnnual": 258,
+      "anyCoverage": {
+        "numerator": 261,
+        "denominator": 276,
+        "pct": 94.57
+      },
+      "latestAnnualCoverage": {
+        "numerator": 258,
+        "denominator": 276,
+        "pct": 93.48
+      },
+      "valuesTotal": 6373,
+      "valuesValid": 5254,
+      "valuesNeedsReview": 1119,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TOTAL_LIABILITIES",
+      "labelEn": "Total Liabilities",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 272,
+      "companiesWithLatestAnnual": 270,
+      "anyCoverage": {
+        "numerator": 272,
+        "denominator": 276,
+        "pct": 98.55
+      },
+      "latestAnnualCoverage": {
+        "numerator": 270,
+        "denominator": 276,
+        "pct": 97.83
+      },
+      "valuesTotal": 7232,
+      "valuesValid": 5579,
+      "valuesNeedsReview": 1653,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TRADE_PAYABLES",
+      "labelEn": "Trade Payables",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 38,
+      "companiesWithLatestAnnual": 38,
+      "anyCoverage": {
+        "numerator": 38,
+        "denominator": 276,
+        "pct": 13.77
+      },
+      "latestAnnualCoverage": {
+        "numerator": 38,
+        "denominator": 276,
+        "pct": 13.77
+      },
+      "valuesTotal": 354,
+      "valuesValid": 270,
+      "valuesNeedsReview": 84,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TRADE_RECEIVABLES",
+      "labelEn": "Trade Receivables",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TREASURY_SHARES",
+      "labelEn": "Treasury Shares",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 14,
+      "companiesWithLatestAnnual": 14,
+      "anyCoverage": {
+        "numerator": 14,
+        "denominator": 276,
+        "pct": 5.07
+      },
+      "latestAnnualCoverage": {
+        "numerator": 14,
+        "denominator": 276,
+        "pct": 5.07
+      },
+      "valuesTotal": 85,
+      "valuesValid": 75,
+      "valuesNeedsReview": 10,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "WORK_IN_PROGRESS",
+      "labelEn": "Work in Progress (Inventory)",
+      "statementType": "BALANCE_SHEET",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "ACQUISITIONS_CASH",
+      "labelEn": "Cash Paid for Acquisitions",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "ASSET_SALE_PROCEEDS",
+      "labelEn": "Asset Sale Proceeds",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 34,
+      "companiesWithLatestAnnual": 34,
+      "anyCoverage": {
+        "numerator": 34,
+        "denominator": 276,
+        "pct": 12.32
+      },
+      "latestAnnualCoverage": {
+        "numerator": 34,
+        "denominator": 276,
+        "pct": 12.32
+      },
+      "valuesTotal": 287,
+      "valuesValid": 244,
+      "valuesNeedsReview": 43,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "CAPEX",
+      "labelEn": "Capital Expenditure",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 97,
+      "companiesWithLatestAnnual": 92,
+      "anyCoverage": {
+        "numerator": 97,
+        "denominator": 276,
+        "pct": 35.14
+      },
+      "latestAnnualCoverage": {
+        "numerator": 92,
+        "denominator": 276,
+        "pct": 33.33
+      },
+      "valuesTotal": 628,
+      "valuesValid": 544,
+      "valuesNeedsReview": 84,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "CAPITAL_INCREASES_CASH",
+      "labelEn": "Proceeds from Capital Increases",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 20,
+      "companiesWithLatestAnnual": 20,
+      "anyCoverage": {
+        "numerator": 20,
+        "denominator": 276,
+        "pct": 7.25
+      },
+      "latestAnnualCoverage": {
+        "numerator": 20,
+        "denominator": 276,
+        "pct": 7.25
+      },
+      "valuesTotal": 100,
+      "valuesValid": 92,
+      "valuesNeedsReview": 8,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "CASH_GENERATED_OPERATIONS",
+      "labelEn": "Cash Generated from Operations",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "CLOSING_CASH",
+      "labelEn": "Closing Cash Balance",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 93,
+      "companiesWithLatestAnnual": 93,
+      "anyCoverage": {
+        "numerator": 93,
+        "denominator": 276,
+        "pct": 33.7
+      },
+      "latestAnnualCoverage": {
+        "numerator": 93,
+        "denominator": 276,
+        "pct": 33.7
+      },
+      "valuesTotal": 683,
+      "valuesValid": 492,
+      "valuesNeedsReview": 191,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "DEBT_PROCEEDS",
+      "labelEn": "Proceeds from Borrowings",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "DEBT_REPAYMENTS",
+      "labelEn": "Repayments of Borrowings",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "DIVIDENDS_PAID",
+      "labelEn": "Dividends Paid",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 69,
+      "companiesWithLatestAnnual": 66,
+      "anyCoverage": {
+        "numerator": 69,
+        "denominator": 276,
+        "pct": 25
+      },
+      "latestAnnualCoverage": {
+        "numerator": 66,
+        "denominator": 276,
+        "pct": 23.91
+      },
+      "valuesTotal": 422,
+      "valuesValid": 358,
+      "valuesNeedsReview": 64,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "DIVIDENDS_RECEIVED_CF",
+      "labelEn": "Dividends Received (CF)",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FINANCING_CASH_FLOW",
+      "labelEn": "Financing Cash Flow",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 257,
+      "companiesWithLatestAnnual": 251,
+      "anyCoverage": {
+        "numerator": 257,
+        "denominator": 276,
+        "pct": 93.12
+      },
+      "latestAnnualCoverage": {
+        "numerator": 251,
+        "denominator": 276,
+        "pct": 90.94
+      },
+      "valuesTotal": 4919,
+      "valuesValid": 4398,
+      "valuesNeedsReview": 521,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INTANGIBLE_PURCHASES",
+      "labelEn": "Intangible Asset Purchases",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INTEREST_PAID_CF",
+      "labelEn": "Interest Paid (CF)",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 26,
+      "companiesWithLatestAnnual": 23,
+      "anyCoverage": {
+        "numerator": 26,
+        "denominator": 276,
+        "pct": 9.42
+      },
+      "latestAnnualCoverage": {
+        "numerator": 23,
+        "denominator": 276,
+        "pct": 8.33
+      },
+      "valuesTotal": 68,
+      "valuesValid": 68,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INTEREST_RECEIVED_CF",
+      "labelEn": "Interest Received (CF)",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INVESTING_CASH_FLOW",
+      "labelEn": "Investing Cash Flow",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 263,
+      "companiesWithLatestAnnual": 262,
+      "anyCoverage": {
+        "numerator": 263,
+        "denominator": 276,
+        "pct": 95.29
+      },
+      "latestAnnualCoverage": {
+        "numerator": 262,
+        "denominator": 276,
+        "pct": 94.93
+      },
+      "valuesTotal": 5407,
+      "valuesValid": 4955,
+      "valuesNeedsReview": 452,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INVESTMENTS_PURCHASED",
+      "labelEn": "Investments Purchased",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INVESTMENTS_SOLD",
+      "labelEn": "Investments Sold",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "LEASE_PAYMENTS",
+      "labelEn": "Lease Payments",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "NET_CHANGE_IN_CASH",
+      "labelEn": "Net Change in Cash",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 259,
+      "companiesWithLatestAnnual": 256,
+      "anyCoverage": {
+        "numerator": 259,
+        "denominator": 276,
+        "pct": 93.84
+      },
+      "latestAnnualCoverage": {
+        "numerator": 256,
+        "denominator": 276,
+        "pct": 92.75
+      },
+      "valuesTotal": 4915,
+      "valuesValid": 4822,
+      "valuesNeedsReview": 93,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "OPENING_CASH",
+      "labelEn": "Opening Cash Balance",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 92,
+      "companiesWithLatestAnnual": 92,
+      "anyCoverage": {
+        "numerator": 92,
+        "denominator": 276,
+        "pct": 33.33
+      },
+      "latestAnnualCoverage": {
+        "numerator": 92,
+        "denominator": 276,
+        "pct": 33.33
+      },
+      "valuesTotal": 659,
+      "valuesValid": 558,
+      "valuesNeedsReview": 101,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "OPERATING_CASH_FLOW",
+      "labelEn": "Operating Cash Flow",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 268,
+      "companiesWithLatestAnnual": 266,
+      "anyCoverage": {
+        "numerator": 268,
+        "denominator": 276,
+        "pct": 97.1
+      },
+      "latestAnnualCoverage": {
+        "numerator": 266,
+        "denominator": 276,
+        "pct": 96.38
+      },
+      "valuesTotal": 5721,
+      "valuesValid": 5188,
+      "valuesNeedsReview": 533,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "PPE_PURCHASES",
+      "labelEn": "PPE Purchases",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "REALESTATE_CASH_COLLECTIONS",
+      "labelEn": "Cash Collections from Customers",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TAXES_PAID",
+      "labelEn": "Income Taxes Paid",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TELECOM_NETWORK_CAPEX",
+      "labelEn": "Network Capex",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TREASURY_TRANSACTIONS_CASH",
+      "labelEn": "Treasury Share Transactions (Cash)",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 14,
+      "companiesWithLatestAnnual": 14,
+      "anyCoverage": {
+        "numerator": 14,
+        "denominator": 276,
+        "pct": 5.07
+      },
+      "latestAnnualCoverage": {
+        "numerator": 14,
+        "denominator": 276,
+        "pct": 5.07
+      },
+      "valuesTotal": 55,
+      "valuesValid": 51,
+      "valuesNeedsReview": 4,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "WC_MOVEMENTS",
+      "labelEn": "Changes in Working Capital",
+      "statementType": "CASH_FLOW",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "ADMIN_EXPENSES",
+      "labelEn": "General & Administrative Expenses",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 42,
+      "companiesWithLatestAnnual": 41,
+      "anyCoverage": {
+        "numerator": 42,
+        "denominator": 276,
+        "pct": 15.22
+      },
+      "latestAnnualCoverage": {
+        "numerator": 41,
+        "denominator": 276,
+        "pct": 14.86
+      },
+      "valuesTotal": 363,
+      "valuesValid": 307,
+      "valuesNeedsReview": 56,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "ASSOCIATES_JV_INCOME",
+      "labelEn": "Share of Profit from Associates / JVs",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "BASIC_EPS",
+      "labelEn": "Basic Earnings Per Share",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 97,
+      "companiesWithLatestAnnual": 97,
+      "anyCoverage": {
+        "numerator": 97,
+        "denominator": 276,
+        "pct": 35.14
+      },
+      "latestAnnualCoverage": {
+        "numerator": 97,
+        "denominator": 276,
+        "pct": 35.14
+      },
+      "valuesTotal": 753,
+      "valuesValid": 659,
+      "valuesNeedsReview": 94,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "COGS",
+      "labelEn": "Cost of Sales",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 185,
+      "companiesWithLatestAnnual": 162,
+      "anyCoverage": {
+        "numerator": 185,
+        "denominator": 276,
+        "pct": 67.03
+      },
+      "latestAnnualCoverage": {
+        "numerator": 162,
+        "denominator": 276,
+        "pct": 58.7
+      },
+      "valuesTotal": 2596,
+      "valuesValid": 1827,
+      "valuesNeedsReview": 769,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "CURRENT_TAX",
+      "labelEn": "Current Tax Expense",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "DEFERRED_TAX",
+      "labelEn": "Deferred Tax Expense",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "DILUTED_EPS",
+      "labelEn": "Diluted Earnings Per Share",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 111,
+      "companiesWithLatestAnnual": 109,
+      "anyCoverage": {
+        "numerator": 111,
+        "denominator": 276,
+        "pct": 40.22
+      },
+      "latestAnnualCoverage": {
+        "numerator": 109,
+        "denominator": 276,
+        "pct": 39.49
+      },
+      "valuesTotal": 801,
+      "valuesValid": 704,
+      "valuesNeedsReview": 97,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "ENERGY_FUEL_COST",
+      "labelEn": "Fuel Cost",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "EPS",
+      "labelEn": "Earnings Per Share",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FAIR_VALUE_GAIN_LOSS",
+      "labelEn": "Fair Value Gain / (Loss)",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FINANCE_COST",
+      "labelEn": "Finance Cost",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FINANCE_INCOME",
+      "labelEn": "Finance Income",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FINANCIAL_SERVICES_BROKERAGE_REVENUE",
+      "labelEn": "Brokerage Revenue",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FINANCIAL_SERVICES_FEE_INCOME",
+      "labelEn": "Fee and Commission Income",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FOOD_DISTRIBUTION_EXPENSES",
+      "labelEn": "Distribution Expenses",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FOOD_EXPORT_REVENUE",
+      "labelEn": "Export Revenue",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FOOD_RAW_MATERIAL_COST",
+      "labelEn": "Raw Material Cost",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FX_GAIN_LOSS",
+      "labelEn": "Foreign Exchange Gain / (Loss)",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "GROSS_PROFIT",
+      "labelEn": "Gross Profit",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 249,
+      "companiesWithLatestAnnual": 242,
+      "anyCoverage": {
+        "numerator": 249,
+        "denominator": 276,
+        "pct": 90.22
+      },
+      "latestAnnualCoverage": {
+        "numerator": 242,
+        "denominator": 276,
+        "pct": 87.68
+      },
+      "valuesTotal": 5251,
+      "valuesValid": 4426,
+      "valuesNeedsReview": 825,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "HEALTH_PATIENT_REVENUE",
+      "labelEn": "Patient Service Revenue",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "HEALTH_PHARMACY_REVENUE",
+      "labelEn": "Pharmacy Revenue",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INCOME_TAX",
+      "labelEn": "Income Tax Expense",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 175,
+      "companiesWithLatestAnnual": 123,
+      "anyCoverage": {
+        "numerator": 175,
+        "denominator": 276,
+        "pct": 63.41
+      },
+      "latestAnnualCoverage": {
+        "numerator": 123,
+        "denominator": 276,
+        "pct": 44.57
+      },
+      "valuesTotal": 1658,
+      "valuesValid": 1470,
+      "valuesNeedsReview": 188,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INDUSTRIAL_EXPORT_REVENUE",
+      "labelEn": "Export Revenue",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INTEREST_EXPENSE",
+      "labelEn": "Interest Expense",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 85,
+      "companiesWithLatestAnnual": 84,
+      "anyCoverage": {
+        "numerator": 85,
+        "denominator": 276,
+        "pct": 30.8
+      },
+      "latestAnnualCoverage": {
+        "numerator": 84,
+        "denominator": 276,
+        "pct": 30.43
+      },
+      "valuesTotal": 600,
+      "valuesValid": 514,
+      "valuesNeedsReview": 86,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INTEREST_INCOME",
+      "labelEn": "Interest Income",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 79,
+      "companiesWithLatestAnnual": 74,
+      "anyCoverage": {
+        "numerator": 79,
+        "denominator": 276,
+        "pct": 28.62
+      },
+      "latestAnnualCoverage": {
+        "numerator": 74,
+        "denominator": 276,
+        "pct": 26.81
+      },
+      "valuesTotal": 523,
+      "valuesValid": 447,
+      "valuesNeedsReview": 76,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INVESTMENT_INCOME",
+      "labelEn": "Investment Income",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "NET_INTEREST_INCOME",
+      "labelEn": "Net Interest Income",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": [
+        "Banks",
+        "Financial Services"
+      ],
+      "applicableCompanies": 51,
+      "companiesWithAny": 19,
+      "companiesWithLatestAnnual": 19,
+      "anyCoverage": {
+        "numerator": 19,
+        "denominator": 51,
+        "pct": 37.25
+      },
+      "latestAnnualCoverage": {
+        "numerator": 19,
+        "denominator": 51,
+        "pct": 37.25
+      },
+      "valuesTotal": 608,
+      "valuesValid": 521,
+      "valuesNeedsReview": 87,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "NET_PROFIT",
+      "labelEn": "Net Profit",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 269,
+      "companiesWithLatestAnnual": 264,
+      "anyCoverage": {
+        "numerator": 269,
+        "denominator": 276,
+        "pct": 97.46
+      },
+      "latestAnnualCoverage": {
+        "numerator": 264,
+        "denominator": 276,
+        "pct": 95.65
+      },
+      "valuesTotal": 5909,
+      "valuesValid": 5370,
+      "valuesNeedsReview": 539,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "NET_PROFIT_PARENT",
+      "labelEn": "Net Profit Attributable to Parent",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 96,
+      "companiesWithLatestAnnual": 96,
+      "anyCoverage": {
+        "numerator": 96,
+        "denominator": 276,
+        "pct": 34.78
+      },
+      "latestAnnualCoverage": {
+        "numerator": 96,
+        "denominator": 276,
+        "pct": 34.78
+      },
+      "valuesTotal": 722,
+      "valuesValid": 625,
+      "valuesNeedsReview": 97,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "NET_SALES",
+      "labelEn": "Net Sales",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "OCI_ACTUARIAL",
+      "labelEn": "OCI — Actuarial Gains/Losses",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "OCI_FVOCI_MOVEMENTS",
+      "labelEn": "OCI — FVOCI Movements",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "OCI_FX_TRANSLATION",
+      "labelEn": "OCI — FX Translation",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "OCI_REVALUATION",
+      "labelEn": "OCI — Revaluation Surplus",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "OCI_TOTAL",
+      "labelEn": "Total Other Comprehensive Income",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "OPERATING_EXPENSES_TOTAL",
+      "labelEn": "Total Operating Expenses",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 176,
+      "companiesWithLatestAnnual": 124,
+      "anyCoverage": {
+        "numerator": 176,
+        "denominator": 276,
+        "pct": 63.77
+      },
+      "latestAnnualCoverage": {
+        "numerator": 124,
+        "denominator": 276,
+        "pct": 44.93
+      },
+      "valuesTotal": 1628,
+      "valuesValid": 1392,
+      "valuesNeedsReview": 236,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "OPERATING_INCOME",
+      "labelEn": "Operating Profit",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 149,
+      "companiesWithLatestAnnual": 113,
+      "anyCoverage": {
+        "numerator": 149,
+        "denominator": 276,
+        "pct": 53.99
+      },
+      "latestAnnualCoverage": {
+        "numerator": 113,
+        "denominator": 276,
+        "pct": 40.94
+      },
+      "valuesTotal": 1311,
+      "valuesValid": 1208,
+      "valuesNeedsReview": 103,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "OTHER_EXPENSES",
+      "labelEn": "Other Expenses",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 30,
+      "companiesWithLatestAnnual": 28,
+      "anyCoverage": {
+        "numerator": 30,
+        "denominator": 276,
+        "pct": 10.87
+      },
+      "latestAnnualCoverage": {
+        "numerator": 28,
+        "denominator": 276,
+        "pct": 10.14
+      },
+      "valuesTotal": 82,
+      "valuesValid": 82,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "OTHER_INCOME",
+      "labelEn": "Other Income",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 35,
+      "companiesWithLatestAnnual": 34,
+      "anyCoverage": {
+        "numerator": 35,
+        "denominator": 276,
+        "pct": 12.68
+      },
+      "latestAnnualCoverage": {
+        "numerator": 34,
+        "denominator": 276,
+        "pct": 12.32
+      },
+      "valuesTotal": 124,
+      "valuesValid": 113,
+      "valuesNeedsReview": 11,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "PROFIT_BEFORE_TAX",
+      "labelEn": "Profit Before Tax",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 162,
+      "companiesWithLatestAnnual": 128,
+      "anyCoverage": {
+        "numerator": 162,
+        "denominator": 276,
+        "pct": 58.7
+      },
+      "latestAnnualCoverage": {
+        "numerator": 128,
+        "denominator": 276,
+        "pct": 46.38
+      },
+      "valuesTotal": 1422,
+      "valuesValid": 1286,
+      "valuesNeedsReview": 136,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "RD_EXPENSES",
+      "labelEn": "Research & Development Expenses",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 2,
+      "companiesWithLatestAnnual": 2,
+      "anyCoverage": {
+        "numerator": 2,
+        "denominator": 276,
+        "pct": 0.72
+      },
+      "latestAnnualCoverage": {
+        "numerator": 2,
+        "denominator": 276,
+        "pct": 0.72
+      },
+      "valuesTotal": 13,
+      "valuesValid": 11,
+      "valuesNeedsReview": 2,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "REVENUE",
+      "labelEn": "Revenue",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 235,
+      "companiesWithLatestAnnual": 185,
+      "anyCoverage": {
+        "numerator": 235,
+        "denominator": 276,
+        "pct": 85.14
+      },
+      "latestAnnualCoverage": {
+        "numerator": 185,
+        "denominator": 276,
+        "pct": 67.03
+      },
+      "valuesTotal": 3486,
+      "valuesValid": 2615,
+      "valuesNeedsReview": 871,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "SALES",
+      "labelEn": "Sales",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "SELLING_EXPENSES",
+      "labelEn": "Selling & Distribution Expenses",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TELECOM_DATA_REVENUE",
+      "labelEn": "Data Revenue",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TELECOM_EBITDA",
+      "labelEn": "EBITDA (Telecom-reported)",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TELECOM_SERVICE_REVENUE",
+      "labelEn": "Service Revenue",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TOTAL_COMPREHENSIVE_INCOME",
+      "labelEn": "Total Comprehensive Income",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "WEIGHTED_AVG_SHARES",
+      "labelEn": "Weighted Average Shares Outstanding",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "WEIGHTED_AVG_SHARES_DILUTED",
+      "labelEn": "Weighted Average Shares Outstanding (Diluted)",
+      "statementType": "INCOME_STATEMENT",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 43,
+      "companiesWithLatestAnnual": 41,
+      "anyCoverage": {
+        "numerator": 43,
+        "denominator": 276,
+        "pct": 15.58
+      },
+      "latestAnnualCoverage": {
+        "numerator": 41,
+        "denominator": 276,
+        "pct": 14.86
+      },
+      "valuesTotal": 127,
+      "valuesValid": 127,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "AMORTIZATION_EXPENSE",
+      "labelEn": "Amortization Expense",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 7,
+      "companiesWithLatestAnnual": 7,
+      "anyCoverage": {
+        "numerator": 7,
+        "denominator": 276,
+        "pct": 2.54
+      },
+      "latestAnnualCoverage": {
+        "numerator": 7,
+        "denominator": 276,
+        "pct": 2.54
+      },
+      "valuesTotal": 20,
+      "valuesValid": 20,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "BANK_CAR",
+      "labelEn": "Capital Adequacy Ratio (%)",
+      "statementType": "OTHER",
+      "appliesToSectors": [
+        "Banks"
+      ],
+      "applicableCompanies": 14,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "BANK_CET1",
+      "labelEn": "CET1 Capital Ratio (%)",
+      "statementType": "OTHER",
+      "appliesToSectors": [
+        "Banks"
+      ],
+      "applicableCompanies": 14,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "BANK_CIR",
+      "labelEn": "Cost-to-Income Ratio (%)",
+      "statementType": "OTHER",
+      "appliesToSectors": [
+        "Banks"
+      ],
+      "applicableCompanies": 14,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "BANK_COVERAGE_RATIO",
+      "labelEn": "NPL Coverage Ratio (%)",
+      "statementType": "OTHER",
+      "appliesToSectors": [
+        "Banks"
+      ],
+      "applicableCompanies": 14,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "BANK_ECL",
+      "labelEn": "Expected Credit Losses",
+      "statementType": "OTHER",
+      "appliesToSectors": [
+        "Banks"
+      ],
+      "applicableCompanies": 14,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "BANK_LDR",
+      "labelEn": "Loan-to-Deposit Ratio (%)",
+      "statementType": "OTHER",
+      "appliesToSectors": [
+        "Banks"
+      ],
+      "applicableCompanies": 14,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "BANK_NIM",
+      "labelEn": "Net Interest Margin (%)",
+      "statementType": "OTHER",
+      "appliesToSectors": [
+        "Banks"
+      ],
+      "applicableCompanies": 14,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "BANK_NPL",
+      "labelEn": "Non-Performing Loans",
+      "statementType": "OTHER",
+      "appliesToSectors": [
+        "Banks"
+      ],
+      "applicableCompanies": 14,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 14,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "BOOK_VALUE_PER_SHARE",
+      "labelEn": "Book Value Per Share",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 42,
+      "companiesWithLatestAnnual": 40,
+      "anyCoverage": {
+        "numerator": 42,
+        "denominator": 276,
+        "pct": 15.22
+      },
+      "latestAnnualCoverage": {
+        "numerator": 40,
+        "denominator": 276,
+        "pct": 14.49
+      },
+      "valuesTotal": 129,
+      "valuesValid": 126,
+      "valuesNeedsReview": 3,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "CONSTRUCTION_IN_PROGRESS",
+      "labelEn": "Construction in Progress",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "DEPRECIATION_EXPENSE",
+      "labelEn": "Depreciation Expense",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 40,
+      "companiesWithLatestAnnual": 39,
+      "anyCoverage": {
+        "numerator": 40,
+        "denominator": 276,
+        "pct": 14.49
+      },
+      "latestAnnualCoverage": {
+        "numerator": 39,
+        "denominator": 276,
+        "pct": 14.13
+      },
+      "valuesTotal": 359,
+      "valuesValid": 305,
+      "valuesNeedsReview": 54,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "DIVIDEND_PER_SHARE",
+      "labelEn": "Dividend Per Share",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 36,
+      "companiesWithLatestAnnual": 29,
+      "anyCoverage": {
+        "numerator": 36,
+        "denominator": 276,
+        "pct": 13.04
+      },
+      "latestAnnualCoverage": {
+        "numerator": 29,
+        "denominator": 276,
+        "pct": 10.51
+      },
+      "valuesTotal": 93,
+      "valuesValid": 93,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "DPS_DECLARED",
+      "labelEn": "Dividend Per Share Declared",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "EBIT",
+      "labelEn": "EBIT",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 84,
+      "companiesWithLatestAnnual": 83,
+      "anyCoverage": {
+        "numerator": 84,
+        "denominator": 276,
+        "pct": 30.43
+      },
+      "latestAnnualCoverage": {
+        "numerator": 83,
+        "denominator": 276,
+        "pct": 30.07
+      },
+      "valuesTotal": 610,
+      "valuesValid": 522,
+      "valuesNeedsReview": 88,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "EBITDA",
+      "labelEn": "Normalized EBITDA",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 140,
+      "companiesWithLatestAnnual": 103,
+      "anyCoverage": {
+        "numerator": 140,
+        "denominator": 276,
+        "pct": 50.72
+      },
+      "latestAnnualCoverage": {
+        "numerator": 103,
+        "denominator": 276,
+        "pct": 37.32
+      },
+      "valuesTotal": 1277,
+      "valuesValid": 1113,
+      "valuesNeedsReview": 164,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "EFFECTIVE_TAX_RATE",
+      "labelEn": "Effective Tax Rate",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "ENERGY_CO2_EMISSIONS",
+      "labelEn": "CO₂ Emissions (tCO₂e)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "ENERGY_GENERATION_VOLUME",
+      "labelEn": "Generation Volume (MWh)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "ENERGY_INSTALLED_CAPACITY",
+      "labelEn": "Installed Capacity (MW)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "ENERGY_TARIFF",
+      "labelEn": "Average Tariff (per MWh)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "ENERGY_UTILIZATION",
+      "labelEn": "Capacity Utilization (%)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "EQ_MOVEMENT_DIVIDENDS",
+      "labelEn": "Equity Movement — Dividends",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "EQ_MOVEMENT_NCI",
+      "labelEn": "Equity Movement — Non-Controlling Interests",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "EQ_MOVEMENT_OCI",
+      "labelEn": "Equity Movement — OCI",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "EQ_MOVEMENT_PROFIT",
+      "labelEn": "Equity Movement — Profit for the Period",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "EQ_MOVEMENT_SHARE_ISSUES",
+      "labelEn": "Equity Movement — Share Issues",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "EQ_MOVEMENT_TRANSFERS",
+      "labelEn": "Equity Movement — Transfers",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "EQ_MOVEMENT_TREASURY",
+      "labelEn": "Equity Movement — Treasury Shares",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "EXTRAORDINARY_ITEMS",
+      "labelEn": "Total Unusual Items",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 41,
+      "companiesWithLatestAnnual": 40,
+      "anyCoverage": {
+        "numerator": 41,
+        "denominator": 276,
+        "pct": 14.86
+      },
+      "latestAnnualCoverage": {
+        "numerator": 40,
+        "denominator": 276,
+        "pct": 14.49
+      },
+      "valuesTotal": 323,
+      "valuesValid": 278,
+      "valuesNeedsReview": 45,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FINANCIAL_SERVICES_AUM",
+      "labelEn": "Assets Under Management (FS)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FOOD_BRANDS_COUNT",
+      "labelEn": "Number of Brands",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FOOD_SKU_COUNT",
+      "labelEn": "Number of SKUs",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FOOD_VOLUME_SOLD",
+      "labelEn": "Volume Sold",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FREE_CASH_FLOW",
+      "labelEn": "Free Cash Flow",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 97,
+      "companiesWithLatestAnnual": 97,
+      "anyCoverage": {
+        "numerator": 97,
+        "denominator": 276,
+        "pct": 35.14
+      },
+      "latestAnnualCoverage": {
+        "numerator": 97,
+        "denominator": 276,
+        "pct": 35.14
+      },
+      "valuesTotal": 693,
+      "valuesValid": 594,
+      "valuesNeedsReview": 99,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "FX_EFFECT_CASH",
+      "labelEn": "Effect Of Exchange Rate Changes",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 27,
+      "companiesWithLatestAnnual": 27,
+      "anyCoverage": {
+        "numerator": 27,
+        "denominator": 276,
+        "pct": 9.78
+      },
+      "latestAnnualCoverage": {
+        "numerator": 27,
+        "denominator": 276,
+        "pct": 9.78
+      },
+      "valuesTotal": 230,
+      "valuesValid": 220,
+      "valuesNeedsReview": 10,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "GOODWILL_IMPAIRMENT",
+      "labelEn": "Goodwill Impairment",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "HEALTH_ADMISSIONS",
+      "labelEn": "Total Admissions",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "HEALTH_BED_CAPACITY",
+      "labelEn": "Licensed Bed Capacity",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "HEALTH_DOCTORS_COUNT",
+      "labelEn": "Number of Physicians",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "HEALTH_OCCUPANCY",
+      "labelEn": "Bed Occupancy Rate (%)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "IMPAIRMENT_CHARGES",
+      "labelEn": "Impairment Charges",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "IMPAIRMENT_REVERSALS",
+      "labelEn": "Impairment Reversals",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INDUSTRIAL_CAPACITY",
+      "labelEn": "Production Capacity",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INDUSTRIAL_UTILIZATION",
+      "labelEn": "Capacity Utilization (%)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INVENTORY_IMPAIRMENT",
+      "labelEn": "Inventory Impairment",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INVESTMENT_HOLDING_AUM",
+      "labelEn": "Assets Under Management",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "INVESTMENT_HOLDING_NAV",
+      "labelEn": "Net Asset Value",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "LEASE_EXPENSE",
+      "labelEn": "Lease Expense (Short-term & Low-value)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "PAYOUT_RATIO",
+      "labelEn": "Dividend Payout Ratio",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "PPE_ADDITIONS",
+      "labelEn": "PPE Additions",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "PPE_DISPOSALS",
+      "labelEn": "PPE Disposals",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "REAL_ESTATE_BACKLOG",
+      "labelEn": "Project Backlog",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "REAL_ESTATE_PRESALES",
+      "labelEn": "Pre-sales / Off-plan Sales",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "RECEIVABLE_IMPAIRMENT",
+      "labelEn": "Receivables Impairment",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "SEGMENT_ASSETS",
+      "labelEn": "Segment Assets",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "SEGMENT_CAPEX",
+      "labelEn": "Segment Capex",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "SEGMENT_LIABILITIES",
+      "labelEn": "Segment Liabilities",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "SEGMENT_PROFIT",
+      "labelEn": "Segment Profit",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "SEGMENT_REVENUE",
+      "labelEn": "Segment Revenue",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "STOCK_COMPENSATION",
+      "labelEn": "Stock Based Compensation",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 8,
+      "companiesWithLatestAnnual": 8,
+      "anyCoverage": {
+        "numerator": 8,
+        "denominator": 276,
+        "pct": 2.9
+      },
+      "latestAnnualCoverage": {
+        "numerator": 8,
+        "denominator": 276,
+        "pct": 2.9
+      },
+      "valuesTotal": 56,
+      "valuesValid": 49,
+      "valuesNeedsReview": 7,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TAX_LOSSES_UNRECOGNIZED",
+      "labelEn": "Unrecognized Tax Losses",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TELECOM_ARPU",
+      "labelEn": "ARPU (Average Revenue Per User)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TELECOM_CHURN",
+      "labelEn": "Churn Rate (%)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TELECOM_SUBSCRIBERS",
+      "labelEn": "Total Subscribers (millions)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "TOTAL_DIVIDENDS_DECLARED",
+      "labelEn": "Total Dividends Declared",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "WORKING_CAPITAL",
+      "labelEn": "Working Capital",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 38,
+      "companiesWithLatestAnnual": 38,
+      "anyCoverage": {
+        "numerator": 38,
+        "denominator": 276,
+        "pct": 13.77
+      },
+      "latestAnnualCoverage": {
+        "numerator": 38,
+        "denominator": 276,
+        "pct": 13.77
+      },
+      "valuesTotal": 324,
+      "valuesValid": 273,
+      "valuesNeedsReview": 51,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "asset_growth",
+      "labelEn": "Asset Growth",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "book_value_per_share",
+      "labelEn": "Book Value Per Share",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "current_ratio",
+      "labelEn": "Current Ratio",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "debt_growth",
+      "labelEn": "Debt Growth",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "debt_to_equity",
+      "labelEn": "Debt / Equity",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "dividend_yield",
+      "labelEn": "Dividend Yield",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "eps",
+      "labelEn": "EPS",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "eps_growth",
+      "labelEn": "EPS Growth (YoY)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "equity_growth",
+      "labelEn": "Equity Growth",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "gross_margin",
+      "labelEn": "Gross Margin",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "market_cap",
+      "labelEn": "Market Capitalization",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "net_margin",
+      "labelEn": "Net Margin",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "net_profit",
+      "labelEn": "Net Profit",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "ocf_growth",
+      "labelEn": "Operating Cash Flow Growth",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "operating_cash_flow",
+      "labelEn": "Operating Cash Flow",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "operating_margin",
+      "labelEn": "Operating Margin",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "p_b",
+      "labelEn": "Price / Book (P/B)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "p_e",
+      "labelEn": "Price / Earnings (P/E)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "profit_growth",
+      "labelEn": "Profit Growth (YoY)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "revenue",
+      "labelEn": "Revenue",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "revenue_growth",
+      "labelEn": "Revenue Growth (YoY)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "roa",
+      "labelEn": "Return on Assets (ROA)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "roe",
+      "labelEn": "Return on Equity (ROE)",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "total_assets",
+      "labelEn": "Total Assets",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "total_debt",
+      "labelEn": "Total Debt",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    },
+    {
+      "code": "total_equity",
+      "labelEn": "Shareholders' Equity",
+      "statementType": "OTHER",
+      "appliesToSectors": null,
+      "applicableCompanies": 276,
+      "companiesWithAny": 0,
+      "companiesWithLatestAnnual": 0,
+      "anyCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "latestAnnualCoverage": {
+        "numerator": 0,
+        "denominator": 276,
+        "pct": 0
+      },
+      "valuesTotal": 0,
+      "valuesValid": 0,
+      "valuesNeedsReview": 0,
+      "valuesFailed": 0,
+      "valuesPending": 0
+    }
+  ],
+  "freshness": {
+    "marketFreshestPeriodEnd": "2026-09-30",
+    "companiesWithLatestPeriod": 275,
+    "companiesStaleOver365Days": 55,
+    "staleCompanies": [
+      {
+        "ticker": "SIMO",
+        "nameEn": "Middle East Paper Company Egypt SAE",
+        "sector": "Paper",
+        "latestPeriod": "FY 2013",
+        "latestPeriodEnd": "2013-06-30",
+        "latestAnnualPeriod": "FY 2013",
+        "latestAnnualEnd": "2013-06-30",
+        "ageDays": 4874,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME",
+          "NET_PROFIT",
+          "TOTAL_EQUITY",
+          "OPERATING_CASH_FLOW"
+        ],
+        "hasPrice": false,
+        "latestPriceDate": null,
+        "priceAgeDays": null
+      },
+      {
+        "ticker": "APPC",
+        "nameEn": "Advanced Pharmaceutical Packaging Company SAE",
+        "sector": "Healthcare",
+        "latestPeriod": "FY 2015",
+        "latestPeriodEnd": "2015-12-31",
+        "latestAnnualPeriod": "FY 2015",
+        "latestAnnualEnd": "2015-12-31",
+        "ageDays": 3960,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME",
+          "NET_PROFIT"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "NOAF",
+        "nameEn": "North Africa Company for Real Estate Investment SAE",
+        "sector": "Real Estate",
+        "latestPeriod": "FY 2015",
+        "latestPeriodEnd": "2015-12-31",
+        "latestAnnualPeriod": "FY 2015",
+        "latestAnnualEnd": "2015-12-31",
+        "ageDays": 3960,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "GROSS_PROFIT",
+          "OPERATING_INCOME",
+          "NET_PROFIT",
+          "TOTAL_EQUITY",
+          "OPERATING_CASH_FLOW"
+        ],
+        "hasPrice": false,
+        "latestPriceDate": null,
+        "priceAgeDays": null
+      },
+      {
+        "ticker": "NCEM",
+        "nameEn": "National Cement Co SAE",
+        "sector": "Basic Materials",
+        "latestPeriod": "FY 2017",
+        "latestPeriodEnd": "2017-06-30",
+        "latestAnnualPeriod": "FY 2017",
+        "latestAnnualEnd": "2017-06-30",
+        "ageDays": 3413,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": false,
+        "latestPriceDate": null,
+        "priceAgeDays": null
+      },
+      {
+        "ticker": "DCCC",
+        "nameEn": "Damietta Container and Cargo Handling",
+        "sector": "Transport",
+        "latestPeriod": "FY 2018",
+        "latestPeriodEnd": "2018-06-30",
+        "latestAnnualPeriod": "FY 2018",
+        "latestAnnualEnd": "2018-06-30",
+        "ageDays": 3048,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "POCO",
+        "nameEn": "PSCCHC",
+        "sector": "Transport",
+        "latestPeriod": "FY 2018",
+        "latestPeriodEnd": "2018-06-30",
+        "latestAnnualPeriod": "FY 2018",
+        "latestAnnualEnd": "2018-06-30",
+        "ageDays": 3048,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "WATP",
+        "nameEn": "Modern Co. for Water Proofing",
+        "sector": "Building Materials",
+        "latestPeriod": "FY 2018",
+        "latestPeriodEnd": "2018-12-31",
+        "latestAnnualPeriod": "FY 2018",
+        "latestAnnualEnd": "2018-12-31",
+        "ageDays": 2864,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "DIFC",
+        "nameEn": "DIFCO2",
+        "sector": "Basic Materials",
+        "latestPeriod": "FY 2019",
+        "latestPeriodEnd": "2019-12-31",
+        "latestAnnualPeriod": "FY 2019",
+        "latestAnnualEnd": "2019-12-31",
+        "ageDays": 2499,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": false,
+        "latestPriceDate": null,
+        "priceAgeDays": null
+      },
+      {
+        "ticker": "EITP",
+        "nameEn": "Egyptian Co for International Touristic Projects SAE",
+        "sector": "Travel & Leisure",
+        "latestPeriod": "FY 2019",
+        "latestPeriodEnd": "2019-12-31",
+        "latestAnnualPeriod": "FY 2019",
+        "latestAnnualEnd": "2019-12-31",
+        "ageDays": 2499,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "SUCE",
+        "nameEn": "Suez Cement Co.",
+        "sector": "Building Materials",
+        "latestPeriod": "FY 2019",
+        "latestPeriodEnd": "2019-12-31",
+        "latestAnnualPeriod": "FY 2019",
+        "latestAnnualEnd": "2019-12-31",
+        "ageDays": 2499,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "TORA",
+        "nameEn": "Egyptian Tourah Portland Cement Co SAE",
+        "sector": "Building Materials",
+        "latestPeriod": "FY 2019",
+        "latestPeriodEnd": "2019-12-31",
+        "latestAnnualPeriod": "FY 2019",
+        "latestAnnualEnd": "2019-12-31",
+        "ageDays": 2499,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "ALEX",
+        "nameEn": "Alexandria Cement Co.",
+        "sector": "Building Materials",
+        "latestPeriod": "Q2 2020",
+        "latestPeriodEnd": "2020-06-30",
+        "latestAnnualPeriod": "FY 2019",
+        "latestAnnualEnd": "2019-12-31",
+        "ageDays": 2317,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "NCGC",
+        "nameEn": "Nile Cotton Ginning SAE",
+        "sector": "Textiles",
+        "latestPeriod": "FY 2020",
+        "latestPeriodEnd": "2020-06-30",
+        "latestAnnualPeriod": "FY 2020",
+        "latestAnnualEnd": "2020-06-30",
+        "ageDays": 2317,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "RMTV",
+        "nameEn": "Rowad Misr for Tourism Investment Co SAE",
+        "sector": "Travel & Leisure",
+        "latestPeriod": "FY 2020",
+        "latestPeriodEnd": "2020-12-31",
+        "latestAnnualPeriod": "FY 2020",
+        "latestAnnualEnd": "2020-12-31",
+        "ageDays": 2133,
+        "missingApplicableMetrics": [
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "SMPP",
+        "nameEn": "Shorouk for Modern Printing and Packaging SAE",
+        "sector": "Industrial",
+        "latestPeriod": "FY 2020",
+        "latestPeriodEnd": "2020-12-31",
+        "latestAnnualPeriod": "FY 2020",
+        "latestAnnualEnd": "2020-12-31",
+        "ageDays": 2133,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "GETO",
+        "nameEn": "Genial Tours",
+        "sector": "Travel & Leisure",
+        "latestPeriod": "FY 2021",
+        "latestPeriodEnd": "2021-12-31",
+        "latestAnnualPeriod": "FY 2021",
+        "latestAnnualEnd": "2021-12-31",
+        "ageDays": 1768,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": false,
+        "latestPriceDate": null,
+        "priceAgeDays": null
+      },
+      {
+        "ticker": "GTHE",
+        "nameEn": "Global Telecom Holding SAE",
+        "sector": "Telecom",
+        "latestPeriod": "FY 2021",
+        "latestPeriodEnd": "2021-12-31",
+        "latestAnnualPeriod": "FY 2021",
+        "latestAnnualEnd": "2021-12-31",
+        "ageDays": 1768,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "GOCO",
+        "nameEn": "Golden Coast El Sokhna Company for Touristic Investment SAE",
+        "sector": "Travel & Leisure",
+        "latestPeriod": "FY 2022",
+        "latestPeriodEnd": "2022-12-31",
+        "latestAnnualPeriod": "FY 2022",
+        "latestAnnualEnd": "2022-12-31",
+        "ageDays": 1403,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME",
+          "TOTAL_ASSETS"
+        ],
+        "hasPrice": false,
+        "latestPriceDate": null,
+        "priceAgeDays": null
+      },
+      {
+        "ticker": "PTCC",
+        "nameEn": "Pharaoh Tech",
+        "sector": "Construction",
+        "latestPeriod": "FY 2022",
+        "latestPeriodEnd": "2022-12-31",
+        "latestAnnualPeriod": "FY 2022",
+        "latestAnnualEnd": "2022-12-31",
+        "ageDays": 1403,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": false,
+        "latestPriceDate": null,
+        "priceAgeDays": null
+      },
+      {
+        "ticker": "TRST",
+        "nameEn": "Thiqah for Business Administration and Development",
+        "sector": "Food",
+        "latestPeriod": "FY 2022",
+        "latestPeriodEnd": "2022-12-31",
+        "latestAnnualPeriod": "FY 2022",
+        "latestAnnualEnd": "2022-12-31",
+        "ageDays": 1403,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": false,
+        "latestPriceDate": null,
+        "priceAgeDays": null
+      },
+      {
+        "ticker": "DCRC",
+        "nameEn": "Delta Construction & Reinforcement",
+        "sector": "Real Estate",
+        "latestPeriod": "9M 2023",
+        "latestPeriodEnd": "2023-09-30",
+        "latestAnnualPeriod": "FY 2022",
+        "latestAnnualEnd": "2022-12-31",
+        "ageDays": 1130,
+        "missingApplicableMetrics": [],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "ARPI",
+        "nameEn": "Arabian Rocks Plastic Industries",
+        "sector": "Building Materials",
+        "latestPeriod": "FY 2023",
+        "latestPeriodEnd": "2023-12-31",
+        "latestAnnualPeriod": "FY 2023",
+        "latestAnnualEnd": "2023-12-31",
+        "ageDays": 1038,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": false,
+        "latestPriceDate": null,
+        "priceAgeDays": null
+      },
+      {
+        "ticker": "ESRS",
+        "nameEn": "Ezz Steel Co SAE",
+        "sector": "Basic Materials",
+        "latestPeriod": "FY 2023",
+        "latestPeriodEnd": "2023-12-31",
+        "latestAnnualPeriod": "FY 2023",
+        "latestAnnualEnd": "2023-12-31",
+        "ageDays": 1038,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": false,
+        "latestPriceDate": null,
+        "priceAgeDays": null
+      },
+      {
+        "ticker": "IRAX",
+        "nameEn": "Ezz Dekheila Steel (Alexandria National Iron & Steel)",
+        "sector": "Basic Materials",
+        "latestPeriod": "Q2 2024",
+        "latestPeriodEnd": "2024-06-30",
+        "latestAnnualPeriod": "FY 2022",
+        "latestAnnualEnd": "2022-12-31",
+        "ageDays": 856,
+        "missingApplicableMetrics": [],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "UASG",
+        "nameEn": "United Arab Stevedoring Co SAE",
+        "sector": "Transport",
+        "latestPeriod": "FY 2024",
+        "latestPeriodEnd": "2024-06-30",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-06-30",
+        "ageDays": 856,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": false,
+        "latestPriceDate": null,
+        "priceAgeDays": null
+      },
+      {
+        "ticker": "ACRO",
+        "nameEn": "Acrowmisr for Metallic Scaffoldings and Frameworks SAE",
+        "sector": "Construction",
+        "latestPeriod": "FY 2024",
+        "latestPeriodEnd": "2024-12-31",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 672,
+        "missingApplicableMetrics": [
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": false,
+        "latestPriceDate": null,
+        "priceAgeDays": null
+      },
+      {
+        "ticker": "AIHC",
+        "nameEn": "Arabia Investments Holding SAE",
+        "sector": "Financial Services",
+        "latestPeriod": "FY 2024",
+        "latestPeriodEnd": "2024-12-31",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 672,
+        "missingApplicableMetrics": [],
+        "hasPrice": false,
+        "latestPriceDate": null,
+        "priceAgeDays": null
+      },
+      {
+        "ticker": "ELNA",
+        "nameEn": "El Nasr For Manufacturing Agricultural Crops",
+        "sector": "Food",
+        "latestPeriod": "Q3 2025",
+        "latestPeriodEnd": "2024-12-31",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-03-31",
+        "ageDays": 672,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "GROSS_PROFIT",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "EPPK",
+        "nameEn": "El Ahram Co for Printing and Packaging SAE",
+        "sector": "Paper",
+        "latestPeriod": "FY 2024",
+        "latestPeriodEnd": "2024-12-31",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 672,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "GPPL",
+        "nameEn": "Golden Pyramids Plaza",
+        "sector": "Travel & Leisure",
+        "latestPeriod": "FY 2024",
+        "latestPeriodEnd": "2024-12-31",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 672,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "MEGM",
+        "nameEn": "Middle East Glass Manufacturing Co SAE",
+        "sector": "Paper",
+        "latestPeriod": "FY 2024",
+        "latestPeriodEnd": "2024-12-31",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 672,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "MISR",
+        "nameEn": "MISR Intercontinental for Granite & Marble",
+        "sector": "Building Materials",
+        "latestPeriod": "FY 2024",
+        "latestPeriodEnd": "2024-12-31",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 672,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "MKIT",
+        "nameEn": "Meatello",
+        "sector": "Food",
+        "latestPeriod": "FY 2024",
+        "latestPeriodEnd": "2024-12-31",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 672,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": false,
+        "latestPriceDate": null,
+        "priceAgeDays": null
+      },
+      {
+        "ticker": "OIH",
+        "nameEn": "Orascom Investment Holding SAE",
+        "sector": "Telecom",
+        "latestPeriod": "FY 2024",
+        "latestPeriodEnd": "2024-12-31",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 672,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "RTVC",
+        "nameEn": "Remco for Touristic Villages Construction",
+        "sector": "Travel & Leisure",
+        "latestPeriod": "FY 2024",
+        "latestPeriodEnd": "2024-12-31",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 672,
+        "missingApplicableMetrics": [],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "CFGH",
+        "nameEn": "Concrete Fashion Group for Commercial and Industrial Investments S.A.E",
+        "sector": "Textiles",
+        "latestPeriod": "FY 2025",
+        "latestPeriodEnd": "2025-01-31",
+        "latestAnnualPeriod": "FY 2025",
+        "latestAnnualEnd": "2025-01-31",
+        "ageDays": 641,
+        "missingApplicableMetrics": [],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "GTEX",
+        "nameEn": "GTEX for Commercial and Industrial Investments",
+        "sector": "Textiles",
+        "latestPeriod": "FY 2025",
+        "latestPeriodEnd": "2025-01-31",
+        "latestAnnualPeriod": "FY 2025",
+        "latestAnnualEnd": "2025-01-31",
+        "ageDays": 641,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME",
+          "NET_PROFIT"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "BIDI",
+        "nameEn": "El Badr Investment and Development - BID",
+        "sector": "Basic Materials",
+        "latestPeriod": "Q2 2025",
+        "latestPeriodEnd": "2025-06-30",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 491,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "ELKA",
+        "nameEn": "El Kahera Housing",
+        "sector": "Real Estate",
+        "latestPeriod": "Q2 2025",
+        "latestPeriodEnd": "2025-06-30",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 491,
+        "missingApplicableMetrics": [
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "ICLE",
+        "nameEn": "International Company For Leasing (IncoLEASE)",
+        "sector": "Financial Services",
+        "latestPeriod": "Q2 2025",
+        "latestPeriodEnd": "2025-06-30",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 491,
+        "missingApplicableMetrics": [],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "MOSC",
+        "nameEn": "Misr Oils & Soap",
+        "sector": "Food",
+        "latestPeriod": "Q4 2025",
+        "latestPeriodEnd": "2025-06-30",
+        "latestAnnualPeriod": "FY 2025",
+        "latestAnnualEnd": "2025-06-30",
+        "ageDays": 491,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "ODIN",
+        "nameEn": "ODIN Investments",
+        "sector": "Financial Services",
+        "latestPeriod": "Q2 2025",
+        "latestPeriodEnd": "2025-06-30",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 491,
+        "missingApplicableMetrics": [],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "PHGC",
+        "nameEn": "Premium Healthcare Group",
+        "sector": "Healthcare",
+        "latestPeriod": "Q2 2025",
+        "latestPeriodEnd": "2025-06-30",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 491,
+        "missingApplicableMetrics": [],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "RAKT",
+        "nameEn": "Rakta Paper Manufacturing",
+        "sector": "Paper",
+        "latestPeriod": "FY 2025",
+        "latestPeriodEnd": "2025-06-30",
+        "latestAnnualPeriod": "FY 2025",
+        "latestAnnualEnd": "2025-06-30",
+        "ageDays": 491,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "ABUK",
+        "nameEn": "Abu Qir Fertilizers & Chemical Industries",
+        "sector": "Basic Materials",
+        "latestPeriod": "Q1 2026",
+        "latestPeriodEnd": "2025-09-30",
+        "latestAnnualPeriod": "FY 2025",
+        "latestAnnualEnd": "2025-06-30",
+        "ageDays": 399,
+        "missingApplicableMetrics": [],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "ACGC",
+        "nameEn": "Arab Cotton Ginning Co.",
+        "sector": "Textiles",
+        "latestPeriod": "Q1 2026",
+        "latestPeriodEnd": "2025-09-30",
+        "latestAnnualPeriod": "FY 2025",
+        "latestAnnualEnd": "2025-06-30",
+        "ageDays": 399,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "AJWA",
+        "nameEn": "Ajwa for Food Industries Co. Egypt",
+        "sector": "Food",
+        "latestPeriod": "Q3 2025",
+        "latestPeriodEnd": "2025-09-30",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 399,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "DGTZ",
+        "nameEn": "Digitize for Investment And Technology",
+        "sector": "Telecom",
+        "latestPeriod": "Q3 2025",
+        "latestPeriodEnd": "2025-09-30",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 399,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "GEOS",
+        "nameEn": "GEOS",
+        "sector": "Construction",
+        "latestPeriod": "FY 2025",
+        "latestPeriodEnd": "2025-09-30",
+        "latestAnnualPeriod": "FY 2025",
+        "latestAnnualEnd": "2025-09-30",
+        "ageDays": 399,
+        "missingApplicableMetrics": [],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "GMCI",
+        "nameEn": "GMC GROUP FOR INDUSTRIAL COMMERCIAL & FINANCIAL INVESTMENTS",
+        "sector": "Trade",
+        "latestPeriod": "Q3 2025",
+        "latestPeriodEnd": "2025-09-30",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 399,
+        "missingApplicableMetrics": [
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "GPIM",
+        "nameEn": "GPI For Urban Growth",
+        "sector": "Construction",
+        "latestPeriod": "Q3 2025",
+        "latestPeriodEnd": "2025-09-30",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 399,
+        "missingApplicableMetrics": [
+          "COGS",
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "KABO",
+        "nameEn": "El Nasr Clothes & Textiles (Kabo)",
+        "sector": "Textiles",
+        "latestPeriod": "Q1 2026",
+        "latestPeriodEnd": "2025-09-30",
+        "latestAnnualPeriod": "FY 2025",
+        "latestAnnualEnd": "2025-06-30",
+        "ageDays": 399,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "PHTV",
+        "nameEn": "Pyramisa Hotels",
+        "sector": "Travel & Leisure",
+        "latestPeriod": "Q3 2025",
+        "latestPeriodEnd": "2025-09-30",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 399,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "PRDC",
+        "nameEn": "Pioneers Properties For Urban Development - PRE Group",
+        "sector": "Real Estate",
+        "latestPeriod": "Q3 2025",
+        "latestPeriodEnd": "2025-09-30",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 399,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "TYCN",
+        "nameEn": "Tycoon Holding Company For Financial Investments",
+        "sector": "Financial Services",
+        "latestPeriod": "Q3 2025",
+        "latestPeriodEnd": "2025-09-30",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 399,
+        "missingApplicableMetrics": [],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      }
+    ],
+    "companiesWithNoAnnual": [
+      "AIDC",
+      "AMII",
+      "CPME",
+      "EGREF",
+      "KORA"
+    ]
+  },
+  "marketData": {
+    "totalObservations": 12343,
+    "companiesWithPrice": 260,
+    "companiesWithoutPrice": 16,
+    "freshWithin7Days": 259,
+    "staleOver7Days": 1,
+    "demoObservations": 0,
+    "sources": {
+      "TRADINGVIEW_SCANNER": 270,
+      "THNDR_MARKETWATCH": 229,
+      "YAHOO_FINANCE_API": 11844
+    },
+    "missingPriceTickers": [
+      "ACRO",
+      "AIHC",
+      "ARPI",
+      "ARVA",
+      "DIFC",
+      "ESRS",
+      "GETO",
+      "GOCO",
+      "MKIT",
+      "NAPR",
+      "NCEM",
+      "NOAF",
+      "PTCC",
+      "SIMO",
+      "TRST",
+      "UASG"
+    ],
+    "stalePriceTickers": [
+      "ECSC"
+    ]
+  },
+  "calculations": {
+    "totalRows": 270783,
+    "okRows": 98145,
+    "unavailableRows": 166605,
+    "notApplicableRows": 6033,
+    "notComputableRows": 0,
+    "topCodes": [
+      {
+        "code": "book_value_per_share",
+        "companies": 275,
+        "okRows": 5732,
+        "rows": 10029
+      },
+      {
+        "code": "debt_to_equity",
+        "companies": 275,
+        "okRows": 523,
+        "rows": 10029
+      },
+      {
+        "code": "dividend_yield",
+        "companies": 275,
+        "okRows": 0,
+        "rows": 10029
+      },
+      {
+        "code": "ebitda",
+        "companies": 275,
+        "okRows": 1669,
+        "rows": 10029
+      },
+      {
+        "code": "eps",
+        "companies": 275,
+        "okRows": 6422,
+        "rows": 10029
+      },
+      {
+        "code": "financing_cash_flow",
+        "companies": 275,
+        "okRows": 5441,
+        "rows": 10029
+      },
+      {
+        "code": "gross_margin",
+        "companies": 275,
+        "okRows": 2027,
+        "rows": 10029
+      },
+      {
+        "code": "inventory",
+        "companies": 275,
+        "okRows": 706,
+        "rows": 10029
+      },
+      {
+        "code": "investing_cash_flow",
+        "companies": 275,
+        "okRows": 6263,
+        "rows": 10029
+      },
+      {
+        "code": "liabilities_to_equity",
+        "companies": 275,
+        "okRows": 5629,
+        "rows": 10029
+      },
+      {
+        "code": "long_term_debt",
+        "companies": 275,
+        "okRows": 767,
+        "rows": 10029
+      },
+      {
+        "code": "market_cap",
+        "companies": 275,
+        "okRows": 9675,
+        "rows": 10029
+      },
+      {
+        "code": "net_margin",
+        "companies": 275,
+        "okRows": 2112,
+        "rows": 10029
+      },
+      {
+        "code": "net_profit",
+        "companies": 275,
+        "okRows": 6585,
+        "rows": 10029
+      },
+      {
+        "code": "non_current_assets",
+        "companies": 275,
+        "okRows": 1039,
+        "rows": 10029
+      },
+      {
+        "code": "operating_cash_flow",
+        "companies": 275,
+        "okRows": 6038,
+        "rows": 10029
+      },
+      {
+        "code": "operating_margin",
+        "companies": 275,
+        "okRows": 1268,
+        "rows": 10029
+      },
+      {
+        "code": "p_b",
+        "companies": 275,
+        "okRows": 5528,
+        "rows": 10029
+      },
+      {
+        "code": "p_e",
+        "companies": 275,
+        "okRows": 4770,
+        "rows": 10029
+      },
+      {
+        "code": "retained_earnings",
+        "companies": 275,
+        "okRows": 553,
+        "rows": 10029
+      },
+      {
+        "code": "revenue",
+        "companies": 275,
+        "okRows": 2900,
+        "rows": 10029
+      },
+      {
+        "code": "roa",
+        "companies": 275,
+        "okRows": 4637,
+        "rows": 10029
+      },
+      {
+        "code": "roe",
+        "companies": 275,
+        "okRows": 4514,
+        "rows": 10029
+      },
+      {
+        "code": "short_term_debt",
+        "companies": 275,
+        "okRows": 728,
+        "rows": 10029
+      },
+      {
+        "code": "total_assets",
+        "companies": 275,
+        "okRows": 6077,
+        "rows": 10029
+      },
+      {
+        "code": "total_debt",
+        "companies": 275,
+        "okRows": 561,
+        "rows": 10029
+      },
+      {
+        "code": "total_equity",
+        "companies": 275,
+        "okRows": 5981,
+        "rows": 10029
+      }
+    ]
+  },
+  "conflicts": {
+    "needsReviewValues": 18986,
+    "failedValues": 0,
+    "auditRunId": "cmw0ynprx0000bxs4jc3tp4im",
+    "auditStartedAt": "2026-11-03T17:27:38.282Z",
+    "auditSeverity": {
+      "critical": 42,
+      "high": 292,
+      "low": 949,
+      "medium": 691
+    },
+    "auditCategories": {
+      "accounting": 839,
+      "logical": 137,
+      "missing": 457,
+      "outlier": 3,
+      "provenance": 19,
+      "sector": 26,
+      "temporal": 493
+    }
+  },
+  "gaps": {
+    "companiesWithNoTrusted": [
+      "KORA"
+    ],
+    "companiesWithNoAnnual": [
+      "AIDC",
+      "AMII",
+      "CPME",
+      "EGREF",
+      "KORA"
+    ],
+    "companiesMissingAnyApplicableMetric": 113,
+    "companiesMissingCoreMetrics": [
+      {
+        "ticker": "KORA",
+        "nameEn": "Korra for Energy and Investment Projects",
+        "sector": "Construction",
+        "latestPeriod": null,
+        "latestPeriodEnd": null,
+        "latestAnnualPeriod": null,
+        "latestAnnualEnd": null,
+        "ageDays": null,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "GROSS_PROFIT",
+          "OPERATING_INCOME",
+          "NET_PROFIT",
+          "TOTAL_ASSETS",
+          "TOTAL_LIABILITIES",
+          "TOTAL_EQUITY",
+          "OPERATING_CASH_FLOW"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "NOAF",
+        "nameEn": "North Africa Company for Real Estate Investment SAE",
+        "sector": "Real Estate",
+        "latestPeriod": "FY 2015",
+        "latestPeriodEnd": "2015-12-31",
+        "latestAnnualPeriod": "FY 2015",
+        "latestAnnualEnd": "2015-12-31",
+        "ageDays": 3960,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "GROSS_PROFIT",
+          "OPERATING_INCOME",
+          "NET_PROFIT",
+          "TOTAL_EQUITY",
+          "OPERATING_CASH_FLOW"
+        ],
+        "hasPrice": false,
+        "latestPriceDate": null,
+        "priceAgeDays": null
+      },
+      {
+        "ticker": "AMII",
+        "nameEn": "Arabian Metal Industries and Industrial Investments",
+        "sector": "Industrial",
+        "latestPeriod": "Q1 2026",
+        "latestPeriodEnd": "2026-03-31",
+        "latestAnnualPeriod": null,
+        "latestAnnualEnd": null,
+        "ageDays": 217,
+        "missingApplicableMetrics": [
+          "NET_PROFIT",
+          "TOTAL_ASSETS",
+          "TOTAL_LIABILITIES",
+          "TOTAL_EQUITY",
+          "OPERATING_CASH_FLOW"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "EGREF",
+        "nameEn": "Egyptians Real Estate Fund",
+        "sector": "Financial Services",
+        "latestPeriod": "Q2 2026",
+        "latestPeriodEnd": "2026-06-30",
+        "latestAnnualPeriod": null,
+        "latestAnnualEnd": null,
+        "ageDays": 126,
+        "missingApplicableMetrics": [
+          "NET_PROFIT",
+          "TOTAL_ASSETS",
+          "TOTAL_LIABILITIES",
+          "TOTAL_EQUITY",
+          "OPERATING_CASH_FLOW"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "APPC",
+        "nameEn": "Advanced Pharmaceutical Packaging Company SAE",
+        "sector": "Healthcare",
+        "latestPeriod": "FY 2015",
+        "latestPeriodEnd": "2015-12-31",
+        "latestAnnualPeriod": "FY 2015",
+        "latestAnnualEnd": "2015-12-31",
+        "ageDays": 3960,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME",
+          "NET_PROFIT"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "GOCO",
+        "nameEn": "Golden Coast El Sokhna Company for Touristic Investment SAE",
+        "sector": "Travel & Leisure",
+        "latestPeriod": "FY 2022",
+        "latestPeriodEnd": "2022-12-31",
+        "latestAnnualPeriod": "FY 2022",
+        "latestAnnualEnd": "2022-12-31",
+        "ageDays": 1403,
+        "missingApplicableMetrics": [
+          "REVENUE",
+          "COGS",
+          "OPERATING_INCOME",
+          "TOTAL_ASSETS"
+        ],
+        "hasPrice": false,
+        "latestPriceDate": null,
+        "priceAgeDays": null
+      },
+      {
+        "ticker": "GOUR",
+        "nameEn": "Gourmet Egypt (Online Food Retail)",
+        "sector": "Consumer",
+        "latestPeriod": "Q2 2026",
+        "latestPeriodEnd": "2026-06-30",
+        "latestAnnualPeriod": "FY 2024",
+        "latestAnnualEnd": "2024-12-31",
+        "ageDays": 126,
+        "missingApplicableMetrics": [
+          "COGS",
+          "OPERATING_INCOME",
+          "TOTAL_EQUITY",
+          "OPERATING_CASH_FLOW"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "SIMO",
+        "nameEn": "Middle East Paper Company Egypt SAE",
+        "sector": "Paper",
+        "latestPeriod": "FY 2013",
+        "latestPeriodEnd": "2013-06-30",
+        "latestAnnualPeriod": "FY 2013",
+        "latestAnnualEnd": "2013-06-30",
+        "ageDays": 4874,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME",
+          "NET_PROFIT",
+          "TOTAL_EQUITY",
+          "OPERATING_CASH_FLOW"
+        ],
+        "hasPrice": false,
+        "latestPriceDate": null,
+        "priceAgeDays": null
+      },
+      {
+        "ticker": "CPME",
+        "nameEn": "Catalyst Partners Middle East",
+        "sector": "Financial Services",
+        "latestPeriod": "Q1 2026",
+        "latestPeriodEnd": "2026-03-31",
+        "latestAnnualPeriod": null,
+        "latestAnnualEnd": null,
+        "ageDays": 217,
+        "missingApplicableMetrics": [
+          "TOTAL_ASSETS",
+          "TOTAL_LIABILITIES",
+          "TOTAL_EQUITY"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      },
+      {
+        "ticker": "GTEX",
+        "nameEn": "GTEX for Commercial and Industrial Investments",
+        "sector": "Textiles",
+        "latestPeriod": "FY 2025",
+        "latestPeriodEnd": "2025-01-31",
+        "latestAnnualPeriod": "FY 2025",
+        "latestAnnualEnd": "2025-01-31",
+        "ageDays": 641,
+        "missingApplicableMetrics": [
+          "OPERATING_INCOME",
+          "NET_PROFIT"
+        ],
+        "hasPrice": true,
+        "latestPriceDate": "2026-11-03",
+        "priceAgeDays": 0
+      }
+    ],
+    "missingIsinCount": 18,
+    "missingPriceCount": 16,
+    "stalePriceCount": 1,
+    "stalePeriodCount": 55
+  }
+}

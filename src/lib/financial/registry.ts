@@ -314,6 +314,22 @@ export const RAW_METRICS: RawMetricDef[] = [
     ],
   },
   {
+    code: "INVESTED_CAPITAL",
+    labelEn: "Invested Capital",
+    labelAr: "رأس المال المستثمر",
+    statementType: "BALANCE_SHEET",
+    description: "Debt + equity invested in the business — NOT the investments balance",
+    aliases: ["invested capital", "رأس المال المستثمر"],
+  },
+  {
+    code: "TOTAL_CAPITALIZATION",
+    labelEn: "Total Capitalization",
+    labelAr: "إجمالي الرسملة",
+    statementType: "BALANCE_SHEET",
+    description: "Debt + equity — NOT share capital",
+    aliases: ["total capitalization", "إجمالي الرسملة"],
+  },
+  {
     code: "SHORT_TERM_DEBT",
     labelEn: "Short-Term Borrowings",
     labelAr: "الاقتراضات قصيرة الأجل",
@@ -384,10 +400,18 @@ export const RAW_METRICS: RawMetricDef[] = [
     statementType: "BALANCE_SHEET",
     description: "Interest-bearing borrowings (loans + bonds)",
     aliases: [
-      "total debt", "borrowings", "loans and borrowings", "interest bearing loans",
-      "total borrowings", "debt",
+      "total debt", "gross debt", "borrowings", "loans and borrowings", "interest bearing loans",
+      "total borrowings",
       "إجمالي الدين", "إجمالي الاقتراضات", "القروض", "الاقتراضات",
     ],
+  },
+  {
+    code: "NET_DEBT",
+    labelEn: "Net Debt",
+    labelAr: "صافي الدين",
+    statementType: "BALANCE_SHEET",
+    description: "Interest-bearing debt minus cash — NOT gross total debt",
+    aliases: ["net debt", "صافي الدين"],
   },
   {
     code: "DEPOSITS",
@@ -531,7 +555,7 @@ export interface CalculatedMetricDef {
   labelEn: string
   labelAr: string
   formulaVersion: string
-  kind: "growth" | "margin" | "ratio" | "passthrough" | "market"
+  kind: "margin" | "ratio" | "passthrough" | "market"
   unit: "PERCENT" | "EGP" | "EGP_PER_SHARE" | "RATIO"
   requires?: string[] // raw metric inputs
   sectorSpecific?: boolean
@@ -539,11 +563,8 @@ export interface CalculatedMetricDef {
 }
 
 export const CALC_METRICS: CalculatedMetricDef[] = [
-  { code: "revenue_growth", labelEn: "Revenue Growth (YoY)", labelAr: "نمو الإيرادات", formulaVersion: "revenue_growth@1", kind: "growth", unit: "PERCENT", requires: ["REVENUE"], description: "(current - previous) / |previous| x 100, same-period basis" },
-  { code: "profit_growth", labelEn: "Profit Growth (YoY)", labelAr: "نمو صافي الربح", formulaVersion: "profit_growth@1", kind: "growth", unit: "PERCENT", requires: ["NET_PROFIT"], description: "Not computed across sign transitions — see loss/profit transition events" },
-  { code: "ocf_growth", labelEn: "Operating Cash Flow Growth", labelAr: "نمو التدفق النقدي التشغيلي", formulaVersion: "ocf_growth@1", kind: "growth", unit: "PERCENT", requires: ["OPERATING_CASH_FLOW"] },
-  { code: "debt_growth", labelEn: "Debt Growth", labelAr: "نمو الدين", formulaVersion: "debt_growth@1", kind: "growth", unit: "PERCENT", requires: ["TOTAL_DEBT"] },
-  { code: "equity_growth", labelEn: "Equity Growth", labelAr: "نمو حقوق الملكية", formulaVersion: "equity_growth@1", kind: "growth", unit: "PERCENT", requires: ["TOTAL_EQUITY"] },
+  // Growth metrics were removed from the product (user decision) — YoY comparisons
+  // survive only inside event detection (computed inline from raw values).
   { code: "gross_margin", labelEn: "Gross Margin", labelAr: "هامش الربح الإجمالي", formulaVersion: "gross_margin@1", kind: "margin", unit: "PERCENT", requires: ["GROSS_PROFIT", "REVENUE"] },
   { code: "operating_margin", labelEn: "Operating Margin", labelAr: "هامش التشغيل", formulaVersion: "operating_margin@1", kind: "margin", unit: "PERCENT", requires: ["OPERATING_INCOME", "REVENUE"] },
   { code: "net_margin", labelEn: "Net Margin", labelAr: "هامش صافي الربح", formulaVersion: "net_margin@1", kind: "margin", unit: "PERCENT", requires: ["NET_PROFIT", "REVENUE"] },
@@ -552,9 +573,6 @@ export const CALC_METRICS: CalculatedMetricDef[] = [
   { code: "debt_to_equity", labelEn: "Debt / Equity", labelAr: "الدين إلى حقوق الملكية", formulaVersion: "debt_to_equity@1", kind: "ratio", unit: "RATIO", requires: ["TOTAL_DEBT", "TOTAL_EQUITY"] },
   { code: "liabilities_to_equity", labelEn: "Liabilities / Equity", labelAr: "المطلوبات إلى حقوق الملكية", formulaVersion: "liabilities_to_equity@1", kind: "ratio", unit: "RATIO", requires: ["TOTAL_LIABILITIES", "TOTAL_EQUITY"], description: "Total liabilities / shareholders' equity — leverage computed from the balance sheet's liabilities total" },
   { code: "eps", labelEn: "EPS", labelAr: "ربحية السهم", formulaVersion: "eps@1", kind: "ratio", unit: "EGP_PER_SHARE", requires: ["NET_PROFIT"] },
-  { code: "current_ratio", labelEn: "Current Ratio", labelAr: "نسبة التداول", formulaVersion: "current_ratio@1", kind: "ratio", unit: "RATIO", requires: ["CURRENT_ASSETS", "CURRENT_LIABILITIES"], description: "Current assets / current liabilities — liquidity" },
-  { code: "eps_growth", labelEn: "EPS Growth (YoY)", labelAr: "نمو ربحية السهم", formulaVersion: "eps_growth@1", kind: "growth", unit: "PERCENT", requires: ["EPS"] },
-  { code: "asset_growth", labelEn: "Asset Growth", labelAr: "نمو الأصول", formulaVersion: "asset_growth@1", kind: "growth", unit: "PERCENT", requires: ["TOTAL_ASSETS"] },
   { code: "book_value_per_share", labelEn: "Book Value Per Share", labelAr: "القيمة الدفترية للسهم", formulaVersion: "book_value_per_share@1", kind: "ratio", unit: "EGP_PER_SHARE", requires: ["TOTAL_EQUITY"], description: "Total equity / shares outstanding (report-level share count preferred, else company-level)" },
   // passthroughs (make scanner conditions possible on absolute values)
   { code: "revenue", labelEn: "Revenue", labelAr: "الإيرادات", formulaVersion: "revenue@1", kind: "passthrough", unit: "EGP", requires: ["REVENUE"] },
@@ -597,10 +615,7 @@ export interface EventTypeDef {
 export const EVENT_TYPES: EventTypeDef[] = [
   { type: "LOSS_TO_PROFIT", labelEn: "Loss → Profit (Turnaround)", labelAr: "تحول من خسارة إلى ربح", tone: "positive", description: "Company moved from net loss to net profit" },
   { type: "PROFIT_TO_LOSS", labelEn: "Profit → Loss (Deterioration)", labelAr: "تحول من ربح إلى خسارة", tone: "negative", description: "Company moved from net profit to net loss" },
-  { type: "PROFIT_ACCELERATION", labelEn: "Accelerating Profit Growth", labelAr: "تسارع نمو الأرباح", tone: "positive", description: "Profit growth is positive and increasing for two consecutive periods" },
-  { type: "REVENUE_GROWTH", labelEn: "Strong Revenue Growth", labelAr: "نمو قوي للإيرادات", tone: "positive", description: "Revenue growth ≥ 15% (same-period basis)" },
   { type: "DEBT_REDUCTION", labelEn: "Debt Reduction", labelAr: "خفض الدين", tone: "positive", description: "Total debt decreased ≥ 5%" },
-  { type: "EQUITY_GROWTH", labelEn: "Equity Growth", labelAr: "نمو حقوق الملكية", tone: "positive", description: "Shareholders' equity increased ≥ 10%" },
   { type: "CASH_FLOW_IMPROVEMENT", labelEn: "Cash Flow Improvement", labelAr: "تحسن التدفق النقدي", tone: "positive", description: "Operating cash flow turned positive or improved ≥ 20%" },
   { type: "FINANCIAL_RECOVERY", labelEn: "Financial Recovery Pattern", labelAr: "نمط تعافي مالي", tone: "positive", description: "Loss→Profit AND revenue growth ≥ 10% AND positive operating cash flow AND debt not increasing" },
   { type: "FINANCIAL_DETERIORATION", labelEn: "Financial Deterioration Pattern", labelAr: "نمط تدهور مالي", tone: "negative", description: "Profit→Loss combined with revenue decline and/or negative operating cash flow" },

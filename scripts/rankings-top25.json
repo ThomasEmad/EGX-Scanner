@@ -1,0 +1,177 @@
+﻿[
+    {
+        "ticker":  "ARCC",
+        "sector":  "Building Materials",
+        "value":  77.12772442075986,
+        "periodLabel":  "FY 2025",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "MBSC",
+        "sector":  "Building Materials",
+        "value":  76.94970873786407,
+        "periodLabel":  "TTM ending Q1 2026",
+        "periodType":  "TTM"
+    },
+    {
+        "ticker":  "CSAG",
+        "sector":  "Transport",
+        "value":  61.00476416666667,
+        "periodLabel":  "FY 2025",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "EAST",
+        "sector":  "Food",
+        "value":  58.13439767591717,
+        "periodLabel":  "FY 2025",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "MPCI",
+        "sector":  "Healthcare",
+        "value":  56.93950177935944,
+        "periodLabel":  "FY 2026",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "AXPH",
+        "sector":  "Healthcare",
+        "value":  55.93220338983051,
+        "periodLabel":  "FY 2026",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "ALCN",
+        "sector":  "Transport",
+        "value":  54.78554802194226,
+        "periodLabel":  "FY 2025",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "MFSC",
+        "sector":  "Trade",
+        "value":  53.72881355932203,
+        "periodLabel":  "FY 2026",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "ABUK",
+        "sector":  "Basic Materials",
+        "value":  53.72873199230996,
+        "periodLabel":  "TTM ending Q1 2026",
+        "periodType":  "TTM"
+    },
+    {
+        "ticker":  "OLFI",
+        "sector":  "Food",
+        "value":  52.78724036135867,
+        "periodLabel":  "FY 2025",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "SCTS",
+        "sector":  "Education",
+        "value":  48.1836191594405,
+        "periodLabel":  "FY 2025",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "ADCI",
+        "sector":  "Healthcare",
+        "value":  45.93478260869565,
+        "periodLabel":  "TTM ending Q1 2026",
+        "periodType":  "TTM"
+    },
+    {
+        "ticker":  "ISMQ",
+        "sector":  "Basic Materials",
+        "value":  45.81901489117984,
+        "periodLabel":  "FY 2026",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "EGAL",
+        "sector":  "Basic Materials",
+        "value":  45.70695149297769,
+        "periodLabel":  "FY 2026",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "FERC",
+        "sector":  "Basic Materials",
+        "value":  45.10486398922033,
+        "periodLabel":  "TTM ending Q1 2026",
+        "periodType":  "TTM"
+    },
+    {
+        "ticker":  "MCQE",
+        "sector":  "Building Materials",
+        "value":  44.4254575188889,
+        "periodLabel":  "FY 2025",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "EFID",
+        "sector":  "Food",
+        "value":  44.03710006541076,
+        "periodLabel":  "FY 2025",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "HDBK",
+        "sector":  "Banks",
+        "value":  43.87828642344659,
+        "periodLabel":  "FY 2025",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "ADRI",
+        "sector":  "Financial Services",
+        "value":  42.80905630134242,
+        "periodLabel":  "TTM ending Q4 2025",
+        "periodType":  "TTM"
+    },
+    {
+        "ticker":  "CPCI",
+        "sector":  "Healthcare",
+        "value":  42.2591680952381,
+        "periodLabel":  "FY 2025",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "MHOT",
+        "sector":  "Travel \u0026 Leisure",
+        "value":  41.26121728122748,
+        "periodLabel":  "FY 2025",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "MAAL",
+        "sector":  "Real Estate",
+        "value":  41.07601171875,
+        "periodLabel":  "FY 2025",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "POUL",
+        "sector":  "Food",
+        "value":  39.41262003340174,
+        "periodLabel":  "FY 2025",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "WCDF",
+        "sector":  "Food",
+        "value":  39.35185185185185,
+        "periodLabel":  "FY 2025",
+        "periodType":  "ANNUAL"
+    },
+    {
+        "ticker":  "EDFM",
+        "sector":  "Food",
+        "value":  38.38951310861423,
+        "periodLabel":  "FY 2026",
+        "periodType":  "ANNUAL"
+    }
+]

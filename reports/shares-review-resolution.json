@@ -1,0 +1,88 @@
+{
+  "generatedAt": "2026-11-03T17:15:22.756Z",
+  "sources": {
+    "mubasher": "https://english.mubasher.info/markets/EGX/stocks/<ticker> (Current Total Shares)",
+    "tradingview": "TradingView public EGX scanner (shares_outstanding)"
+  },
+  "decisions": [
+    {
+      "ticker": "DTPP",
+      "current": 5600000,
+      "scanner": 22400000,
+      "mubasher": 5600000,
+      "action": "keep",
+      "reason": "Mubasher and the current value agree; the scanner row is 4x too high.",
+      "companyId": "cmui725nb001jbx90u24hixiz",
+      "actualCurrent": 5600000,
+      "status": "kept"
+    },
+    {
+      "ticker": "EXPA",
+      "current": 1360000000,
+      "scanner": 1800000000,
+      "mubasher": 1360000000,
+      "action": "keep",
+      "reason": "Mubasher and the current value agree; the scanner row is 32% too high.",
+      "companyId": "cmui725wa002hbx90vgb8rttc",
+      "actualCurrent": 1360000000,
+      "status": "kept"
+    },
+    {
+      "ticker": "FAIT",
+      "current": 637845023,
+      "scanner": 225911000,
+      "mubasher": 225910908,
+      "action": "correct",
+      "newValue": 225910908,
+      "reason": "Mubasher (225,910,908) and the scanner (225,911,000, rounded) agree; the current value is wrong.",
+      "companyId": "cmugriqiy0012bx50sox6s3cz",
+      "actualCurrent": 637845023,
+      "status": "corrected"
+    },
+    {
+      "ticker": "ORHD",
+      "current": 1130473523,
+      "scanner": 3650130000,
+      "mubasher": 1130473523,
+      "action": "keep",
+      "reason": "Mubasher and the current value agree; the scanner row is 3.2x too high.",
+      "companyId": "cmuexbjx60021bxn8q8ukw2kv",
+      "actualCurrent": 1130473523,
+      "status": "kept"
+    },
+    {
+      "ticker": "SEIG",
+      "current": 5000000,
+      "scanner": 2500000,
+      "mubasher": 2500000,
+      "action": "correct",
+      "newValue": 2500000,
+      "reason": "Mubasher (2,500,000) and the scanner (2,500,000) agree; the current value is 2x too high.",
+      "companyId": "cmui726mx005abx9054iq80tw",
+      "actualCurrent": 5000000,
+      "status": "corrected"
+    },
+    {
+      "ticker": "VLMRA",
+      "current": 1183229551,
+      "scanner": 830840000,
+      "mubasher": 352389240,
+      "action": "unresolved",
+      "reason": "Three different values. The scanner value equals VLMR (the USD line), not VLMRA (EGP line). No safe correction without a second source.",
+      "companyId": "cmui726uc0062bx90njurrofx",
+      "actualCurrent": 1183229551,
+      "status": "unresolved"
+    },
+    {
+      "ticker": "BQDC",
+      "current": null,
+      "scanner": null,
+      "mubasher": 10250000000,
+      "action": "unresolved",
+      "reason": "Mubasher reports 10,250,000,000 shares / EGP 20.5B capital, but there is no second source and no usable price/market-cap corroboration (Thndr marks it NOPL; Mubasher shows 0.00).",
+      "companyId": "cmupv8vs30008bxn0fdpsrofm",
+      "actualCurrent": null,
+      "status": "unresolved"
+    }
+  ]
+}

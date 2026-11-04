@@ -10,12 +10,16 @@ import type { MetricResult } from "./calc"
 export type { PeriodBasis } from "./periods"
 import type { PeriodBasis } from "./periods"
 
+/** Numeric range used by the "between" operator (e.g. ROE between 15 and 30). */
+export type MetricRange = { min: number; max: number }
+
 export type ScanCondition =
-  | { kind: "metric"; code: string; operator: Operator; value: number }
+  | { kind: "metric"; code: string; operator: Operator; value: number | MetricRange }
   | { kind: "event"; eventType: string }
   | { kind: "dividend"; statuses: string[] }
+  | { kind: "sector"; sector: string; operator: "==" | "!=" }
 
-export type Operator = ">" | ">=" | "<" | "<=" | "==" | "!="
+export type Operator = ">" | ">=" | "<" | "<=" | "==" | "!=" | "between"
 
 export interface ScanContext {
   /** calculated metrics for the evaluated period, keyed by code */
@@ -24,15 +28,19 @@ export interface ScanContext {
   events: Set<string>
   /** dividend statuses present for the company (e.g. ANNOUNCED, UPCOMING, PAID...) */
   dividendStatuses: string[]
+  /** company sector (for sector-scoped scans) */
+  sector?: string
 }
 
 export interface ConditionEval {
-  kind: "metric" | "event" | "dividend"
+  kind: "metric" | "event" | "dividend" | "sector"
   code?: string
   eventType?: string
   statuses?: string[]
+  sector?: string
   operator?: Operator
   threshold?: number
+  range?: MetricRange
   labelEn: string
   labelAr: string
   /** actual value / finding, formatted for display */
@@ -49,7 +57,7 @@ export interface RuleEval {
   conditions: ConditionEval[]
 }
 
-const OPERATORS: Record<Operator, (a: number, b: number) => boolean> = {
+const NUMERIC_OPERATORS: Record<Exclude<Operator, "between">, (a: number, b: number) => boolean> = {
   ">": (a, b) => a > b,
   ">=": (a, b) => a >= b,
   "<": (a, b) => a < b,
@@ -59,10 +67,11 @@ const OPERATORS: Record<Operator, (a: number, b: number) => boolean> = {
 }
 
 export function isOperator(op: string): op is Operator {
-  return [">", ">=", "<", "<=", "==", "!="].includes(op)
+  return [">", ">=", "<", "<=", "==", "!=", "between"].includes(op)
 }
 
-function opSymbol(op: Operator): string {
+function opSymbol(op: Operator, lang: "en" | "ar"): string {
+  if (op === "between") return lang === "ar" ? "بين" : "between"
   return op === ">=" ? "≥" : op === "<=" ? "≤" : op
 }
 
@@ -94,7 +103,8 @@ export function evaluateCondition(condition: ScanCondition, ctx: ScanContext): C
         kind: "metric",
         code: condition.code,
         operator: condition.operator,
-        threshold: condition.value,
+        threshold: typeof condition.value === "number" ? condition.value : undefined,
+        range: typeof condition.value !== "number" ? condition.value : undefined,
         labelEn,
         labelAr,
         actualDisplay: "—",
@@ -103,16 +113,38 @@ export function evaluateCondition(condition: ScanCondition, ctx: ScanContext): C
         matched: false,
       }
     }
-    const matched = OPERATORS[condition.operator](result.value, condition.value)
+    const value = condition.value
+    const range = typeof value !== "number" ? value : undefined
+    const matched =
+      range !== undefined && condition.operator === "between"
+        ? result.value >= range.min && result.value <= range.max
+        : typeof value === "number" && condition.operator in NUMERIC_OPERATORS
+          ? NUMERIC_OPERATORS[condition.operator](result.value, value)
+          : false
     return {
       kind: "metric",
       code: condition.code,
       operator: condition.operator,
-      threshold: condition.value,
+      threshold: typeof value === "number" ? value : undefined,
+      range: range ?? undefined,
       labelEn,
       labelAr,
       actualDisplay: formatMetricValue(condition.code, result.value),
       actualRaw: result.value,
+      status: "OK",
+      matched,
+    }
+  }
+
+  if (condition.kind === "sector") {
+    const matched = condition.operator === "==" ? ctx.sector === condition.sector : ctx.sector !== condition.sector
+    return {
+      kind: "sector",
+      sector: condition.sector,
+      operator: condition.operator,
+      labelEn: `Sector ${condition.operator === "==" ? "is" : "is not"} ${condition.sector}`,
+      labelAr: `القطاع ${condition.operator === "==" ? "هو" : "ليس"} ${condition.sector}`,
+      actualDisplay: ctx.sector ?? "—",
       status: "OK",
       matched,
     }
@@ -163,9 +195,19 @@ export function validateRuleConditions(conditions: ScanCondition[]): { valid: bo
       const def = CALC_METRIC_MAP[c.code]
       if (!def) errors.push(`Unknown metric code "${c.code}"`)
       if (!isOperator(c.operator)) errors.push(`Invalid operator "${c.operator}"`)
-      if (typeof c.value !== "number" || Number.isNaN(c.value)) errors.push(`Invalid threshold for metric "${c.code}"`)
+      if (c.operator === "between") {
+        const r = c.value as MetricRange | undefined
+        if (!r || typeof r.min !== "number" || typeof r.max !== "number" || Number.isNaN(r.min) || Number.isNaN(r.max) || r.min > r.max) {
+          errors.push(`Invalid range for metric "${c.code}" — provide min ≤ max`)
+        }
+      } else if (typeof c.value !== "number" || Number.isNaN(c.value)) {
+        errors.push(`Invalid threshold for metric "${c.code}"`)
+      }
       // Market metrics (p_b, p_e, ...) are allowed: they are computed when a market
       // price exists and stay DATA_UNAVAILABLE otherwise — never silently zero.
+    } else if (c.kind === "sector") {
+      if (typeof c.sector !== "string" || !c.sector.trim()) errors.push(`Sector condition needs a non-empty sector name`)
+      if (c.operator !== "==" && c.operator !== "!=") errors.push(`Invalid sector operator "${c.operator}"`)
     } else if (c.kind === "event") {
       if (!EVENT_TYPE_MAP[c.eventType]) errors.push(`Unknown event type "${c.eventType}"`)
     } else if (c.kind === "dividend") {

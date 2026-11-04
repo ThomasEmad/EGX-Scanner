@@ -1,0 +1,11 @@
+﻿COGS                             2.079e+8 UNIT orig - false -  VALID CURRENT
+CURRENT_ASSETS                   3.785e+8 UNIT orig - false -  VALID CURRENT
+CURRENT_LIABILITIES              3.785e+8 UNIT orig - false -  VALID CURRENT
+GROSS_PROFIT                     1.039e+8 UNIT orig - false -  VALID CURRENT
+INVESTING_CASH_FLOW              -1.039e+8 UNIT orig - false -  VALID CURRENT
+NON_CURRENT_ASSETS               1.892e+8 UNIT orig - false -  VALID CURRENT
+OPERATING_CASH_FLOW              1.039e+8 UNIT orig 1.039e+11 true audit-scale-fix-v1 AUDIT_SCALE_FIX: source values were 1000× too larg VALID CURRENT
+REVENUE                          3.118e+8 UNIT orig 3.118e+11 true audit-scale-fix-v1 AUDIT_SCALE_FIX: source values were 1000× too larg VALID CURRENT
+TOTAL_ASSETS                     5.677e+11 UNIT orig - false -  VALID CURRENT
+TOTAL_EQUITY                     1.892e+11 UNIT orig - false -  VALID CURRENT
+TOTAL_LIABILITIES                3.785e+11 UNIT orig - false -  VALID CURRENT

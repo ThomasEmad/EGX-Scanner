@@ -39,6 +39,7 @@ export function WebSiteSchema() {
         name: siteConfig.name,
         description: siteConfig.description,
         url: siteConfig.url,
+        inLanguage: ["en", "ar"],
         potentialAction: {
           "@type": "SearchAction",
           target: {
@@ -47,6 +48,28 @@ export function WebSiteSchema() {
           },
           queryInput: "required name=search_term_string",
         },
+      }}
+    />
+  )
+}
+
+/** Breadcrumb trail for deep pages (company, sector, rankings). */
+export function BreadcrumbSchema({
+  items,
+}: {
+  items: Array<{ name: string; url: string }>
+}) {
+  return (
+    <StructuredData
+      data={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: items.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: item.name,
+          item: item.url,
+        })),
       }}
     />
   )

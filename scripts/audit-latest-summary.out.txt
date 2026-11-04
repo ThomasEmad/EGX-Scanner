@@ -1,0 +1,17 @@
+﻿run id: cmvtq7psa0000bxw0f86sh0tg | started: 2026-10-29T15:56:51.639Z | ended: 2026-10-29T15:57:00.973Z
+status: completed | companies checked: 264 | issues found: 2220 | auto-fixed: 0 | duration: 9s
+severity distribution:
+   low: 1129
+   medium: 750
+   high: 253
+   critical: 88
+category distribution:
+   accounting: 894
+   temporal: 462
+   missing: 454
+   provenance: 231
+   logical: 126
+   sector: 50
+   outlier: 3
+issues referencing removed growth/current_ratio metrics: 0
+confidence scores computed: 264

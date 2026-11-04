@@ -1,0 +1,75 @@
+﻿
+Q1 2025 end=2025-03-31 TRADINGVIEW_FINANCIALS
+  NET_PROFIT 574000000 VALID AskBorsa quarterly summary (display-rounded 0.01M) 
+  REVENUE 1580000000 VALID TradingView quarterly income statement (discrete quarter, display-scaled) 
+  TOTAL_ASSETS 2750000000 VALID AskBorsa quarterly summary (display-rounded 0.01M) 
+  TOTAL_EQUITY 1960000000 VALID AskBorsa quarterly summary (display-rounded 0.01M) 
+
+Q2 2025 end=2025-06-30 TRADINGVIEW_FINANCIALS
+  NET_PROFIT 379000000 VALID  
+  REVENUE 1090000000 VALID TradingView quarterly income statement (discrete quarter, display-scaled) 
+  TOTAL_EQUITY 2230000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing 
+
+Q3 2025 end=2025-09-30 TRADINGVIEW_FINANCIALS
+  NET_PROFIT 1112910000 VALID  
+  REVENUE 1400000000 VALID TradingView quarterly income statement (discrete quarter, display-scaled) 
+  TOTAL_EQUITY 3100000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing 
+
+Q4 2025 end=2025-12-31 ASKBORA_SUMMARY
+  NET_PROFIT 1880000000 VALID AskBorsa quarterly summary (display-rounded 0.01M) 
+
+Q1 2026 end=2026-03-31 TRADINGVIEW_FINANCIALS
+  NET_PROFIT 591000000 VALID AskBorsa quarterly summary (display-rounded 0.01M) 
+  REVENUE 1350000000 VALID TradingView quarterly income statement (discrete quarter, display-scaled) 
+  TOTAL_ASSETS 6800000000 VALID AskBorsa quarterly summary (display-rounded 0.01M) 
+  TOTAL_EQUITY 5150000000 VALID AskBorsa quarterly summary (display-rounded 0.01M) 
+
+Q2 2026 end=2026-06-30 TRADINGVIEW_FINANCIALS
+  REVENUE 1640000000 VALID TradingView quarterly income statement (discrete quarter, display-scaled) 
+
+TTM CALC
+net_profit TTM ending Q4 2025 3945910000 OK  src=["TTM:2025:Q4"]
+roa TTM ending Q4 2025 null DATA_UNAVAILABLE Required inputs not available for this period src=["TTM:2025:Q4"]
+roe TTM ending Q4 2025 null DATA_UNAVAILABLE Required inputs not available for this period src=["TTM:2025:Q4"]
+net_profit TTM ending Q4 2024 832520000 OK  src=["TTM:2024:Q4"]
+roa TTM ending Q4 2024 39.26981132075472 OK  src=["TTM:2024:Q4"]
+roe TTM ending Q4 2024 59.89352517985611 OK  src=["TTM:2024:Q4"]
+net_profit TTM ending Q4 2023 368850000 OK  src=["TTM:2023:Q4"]
+roa TTM ending Q4 2023 25.16829756040754 OK  src=["TTM:2023:Q4"]
+roe TTM ending Q4 2023 43.80628068621203 OK  src=["TTM:2023:Q4"]
+net_profit TTM ending Q4 2022 -146360000 OK  src=["TTM:2022:Q4"]
+roa TTM ending Q4 2022 -6.275455305988853 OK  src=["TTM:2022:Q4"]
+roe TTM ending Q4 2022 -14.79842089726955 OK  src=["TTM:2022:Q4"]
+net_profit TTM ending Q3 2025 2511910000 OK  src=["TTM:2025:Q3"]
+roa TTM ending Q3 2025 null DATA_UNAVAILABLE Required inputs not available for this period src=["TTM:2025:Q3"]
+roe TTM ending Q3 2025 null DATA_UNAVAILABLE Required inputs not available for this period src=["TTM:2025:Q3"]
+net_profit TTM ending Q3 2024 511520000 OK  src=["TTM:2024:Q3"]
+roa TTM ending Q3 2024 null DATA_UNAVAILABLE Required inputs not available for this period src=["TTM:2024:Q3"]
+roe TTM ending Q3 2024 null DATA_UNAVAILABLE Required inputs not available for this period src=["TTM:2024:Q3"]
+net_profit TTM ending Q3 2023 485850000 OK  src=["TTM:2023:Q3"]
+roa TTM ending Q3 2023 null DATA_UNAVAILABLE Required inputs not available for this period src=["TTM:2023:Q3"]
+roe TTM ending Q3 2023 null DATA_UNAVAILABLE Required inputs not available for this period src=["TTM:2023:Q3"]
+net_profit TTM ending Q2 2026 null DATA_UNAVAILABLE NET_PROFIT not available for this period src=["TTM:2026:Q2"]
+roa TTM ending Q2 2026 null DATA_UNAVAILABLE Required inputs not available for this period src=["TTM:2026:Q2"]
+roe TTM ending Q2 2026 null DATA_UNAVAILABLE Required inputs not available for this period src=["TTM:2026:Q2"]
+net_profit TTM ending Q2 2025 1564000000 OK  src=["TTM:2025:Q2"]
+roa TTM ending Q2 2025 null DATA_UNAVAILABLE Required inputs not available for this period src=["TTM:2025:Q2"]
+roe TTM ending Q2 2025 null DATA_UNAVAILABLE Required inputs not available for this period src=["TTM:2025:Q2"]
+net_profit TTM ending Q2 2024 485520000 OK  src=["TTM:2024:Q2"]
+roa TTM ending Q2 2024 null DATA_UNAVAILABLE Required inputs not available for this period src=["TTM:2024:Q2"]
+roe TTM ending Q2 2024 null DATA_UNAVAILABLE Required inputs not available for this period src=["TTM:2024:Q2"]
+net_profit TTM ending Q2 2023 -86150000 OK  src=["TTM:2023:Q2"]
+roa TTM ending Q2 2023 null DATA_UNAVAILABLE Required inputs not available for this period src=["TTM:2023:Q2"]
+roe TTM ending Q2 2023 null DATA_UNAVAILABLE Required inputs not available for this period src=["TTM:2023:Q2"]
+net_profit TTM ending Q1 2026 3962910000 OK  src=["TTM:2026:Q1"]
+roa TTM ending Q1 2026 58.27808823529412 OK  src=["TTM:2026:Q1"]
+roe TTM ending Q1 2026 76.94970873786407 OK  src=["TTM:2026:Q1"]
+net_profit TTM ending Q1 2025 1365000000 OK  src=["TTM:2025:Q1"]
+roa TTM ending Q1 2025 49.63636363636363 OK  src=["TTM:2025:Q1"]
+roe TTM ending Q1 2025 69.64285714285714 OK  src=["TTM:2025:Q1"]
+net_profit TTM ending Q1 2024 349010000 OK  src=["TTM:2024:Q1"]
+roa TTM ending Q1 2024 20.17398843930636 OK  src=["TTM:2024:Q1"]
+roe TTM ending Q1 2024 39.48076923076923 OK  src=["TTM:2024:Q1"]
+net_profit TTM ending Q1 2023 -132660000 OK  src=["TTM:2023:Q1"]
+roa TTM ending Q1 2023 -8.188888888888888 OK  src=["TTM:2023:Q1"]
+roe TTM ending Q1 2023 -15.62544169611307 OK  src=["TTM:2023:Q1"]

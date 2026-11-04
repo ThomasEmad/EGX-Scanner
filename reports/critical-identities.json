@@ -1,0 +1,259 @@
+{
+  "applied": true,
+  "scaleUps": 2,
+  "signFixes": 1,
+  "quarantines": 14,
+  "rows": [
+    {
+      "ticker": "EGAS",
+      "periodLabel": "FY 2024",
+      "metricCode": "CURRENT_ASSETS",
+      "multiplier": 1000000,
+      "reason": "CURRENT_ASSETS 11,404.34 is 1e6 too small: 11.404B + NON_CURRENT_ASSETS 4.732B = 16.136B, within 0.83% of TOTAL_ASSETS 16.271B.",
+      "action": "scaled_up",
+      "reportId": "cmuiomvmi03mbbxq0yk2ezwcj",
+      "valueId": "cmvu2l6rz01u9bxfce6jyl1hc",
+      "oldNormalizedValue": 11404.33527,
+      "newNormalizedValue": 11404335270
+    },
+    {
+      "ticker": "EGAS",
+      "periodLabel": "FY 2024",
+      "metricCode": "CASH_AND_EQUIVALENTS",
+      "multiplier": 1000000,
+      "reason": "CASH_AND_EQUIVALENTS 130.59 is 1e6 too small; 130.59M is consistent with the scaled current-assets total.",
+      "action": "scaled_up",
+      "reportId": "cmuiomvmi03mbbxq0yk2ezwcj",
+      "valueId": "cmuiomvmo03msbxq07qln14a4",
+      "oldNormalizedValue": 130.59184,
+      "newNormalizedValue": 130591839.99999999
+    },
+    {
+      "ticker": "NCEM",
+      "periodLabel": "FY 2014",
+      "metricCode": "GROSS_PROFIT",
+      "reason": "REVENUE 1,040,498,407.24 - COGS 1,135,089,171.54 = -94,590,764.29, exactly the absolute stored gross profit; the sign is flipped.",
+      "action": "sign_fixed",
+      "reportId": "cmupv90hs01kxbxn03kjmj8ip",
+      "valueId": "cmupv90i301l3bxn03aiu1nuv",
+      "oldNormalizedValue": 94590764.29,
+      "newNormalizedValue": -94590764.29
+    },
+    {
+      "ticker": "SIPC",
+      "periodLabel": "FY 2022",
+      "metricCodes": [
+        "TOTAL_ASSETS",
+        "TOTAL_EQUITY_AND_LIABILITIES"
+      ],
+      "reason": "Stored total 156.0M contradicts CURRENT_ASSETS 1.699B + NON_CURRENT_ASSETS 1.199B = 2.898B; the components are credible, the total is the outlier.",
+      "code": "TOTAL_ASSETS",
+      "action": "quarantined",
+      "reportId": "cmuiw4uu8014rbxxs8yaecme0",
+      "valueId": "cmujo5dm609o1bx3werge3xe5",
+      "oldStatus": "VALID",
+      "normalizedValue": 156000000
+    },
+    {
+      "ticker": "SIPC",
+      "periodLabel": "FY 2022",
+      "metricCodes": [
+        "TOTAL_ASSETS",
+        "TOTAL_EQUITY_AND_LIABILITIES"
+      ],
+      "reason": "Stored total 156.0M contradicts CURRENT_ASSETS 1.699B + NON_CURRENT_ASSETS 1.199B = 2.898B; the components are credible, the total is the outlier.",
+      "code": "TOTAL_EQUITY_AND_LIABILITIES",
+      "action": "quarantined",
+      "reportId": "cmuiw4uu8014rbxxs8yaecme0",
+      "valueId": "cmujo5dn209o7bx3wp5pxnlk3",
+      "oldStatus": "VALID",
+      "normalizedValue": 156000000
+    },
+    {
+      "ticker": "FWRY",
+      "periodLabel": "FY 2019",
+      "metricCodes": [
+        "GROSS_PROFIT"
+      ],
+      "reason": "GROSS_PROFIT equals COGS exactly (374,889,868.42); revenue - COGS = 562,334,802.62, so the gross-profit line is a duplicate mapping of COGS.",
+      "code": "GROSS_PROFIT",
+      "action": "quarantined",
+      "reportId": "cmuprfa9b06apbxg0bbexfwx0",
+      "valueId": "cmuprfa9p06avbxg0zdwk2g4d",
+      "oldStatus": "VALID",
+      "normalizedValue": 374889868.42
+    },
+    {
+      "ticker": "IRON",
+      "periodLabel": "FY 2011",
+      "metricCodes": [
+        "GROSS_PROFIT"
+      ],
+      "reason": "GROSS_PROFIT 316,656,170.81 is exactly COGS/10 and contradicts REVENUE 2.770B - COGS 3.167B = -395.8M.",
+      "code": "GROSS_PROFIT",
+      "action": "quarantined",
+      "reportId": "cmuprf7fd0511bxg0v8ec7b50",
+      "valueId": "cmuprf7fp0517bxg0qqe722vc",
+      "oldStatus": "VALID",
+      "normalizedValue": 316656170.81
+    },
+    {
+      "ticker": "IRON",
+      "periodLabel": "FY 2018",
+      "metricCodes": [
+        "GROSS_PROFIT"
+      ],
+      "reason": "GROSS_PROFIT 1.13B contradicts REVENUE 1.688B - COGS 2.743B = -1.055B; the line is not a gross-profit figure.",
+      "code": "GROSS_PROFIT",
+      "action": "quarantined",
+      "reportId": "cmujo515n07pbbx3wbl3z4pga",
+      "valueId": "cmujo515x07pdbx3w0crt9vi4",
+      "oldStatus": "VALID",
+      "normalizedValue": 1130000000
+    },
+    {
+      "ticker": "MPCO",
+      "periodLabel": "FY 2022",
+      "metricCodes": [
+        "COGS"
+      ],
+      "reason": "COGS 168.7M exceeds REVENUE 143.36M while GROSS_PROFIT is +22.75M; the implied COGS is 120.61M, so the stored COGS is the outlier.",
+      "code": "COGS",
+      "action": "quarantined",
+      "reportId": "cmuiw4u8s00y1bxxshxan0byg",
+      "valueId": "cmuiw4u9400y5bxxsvtgbl6bj",
+      "oldStatus": "VALID",
+      "normalizedValue": 168700000
+    },
+    {
+      "ticker": "ARAB",
+      "periodLabel": "FY 2023",
+      "metricCodes": [
+        "OPERATING_CASH_FLOW",
+        "INVESTING_CASH_FLOW",
+        "FINANCING_CASH_FLOW"
+      ],
+      "reason": "Legs sum to 302.8M while NET_CHANGE_IN_CASH is 0.491M and is corroborated by opening/closing cash (157.170M -> 157.661M); the legs are unusable.",
+      "code": "OPERATING_CASH_FLOW",
+      "action": "quarantined",
+      "reportId": "cmuiomztv0dasbxq09x0wvt9n",
+      "valueId": "cmuiomzu10dbqbxq03cpb2hjj",
+      "oldStatus": "VALID",
+      "normalizedValue": 215374748
+    },
+    {
+      "ticker": "ARAB",
+      "periodLabel": "FY 2023",
+      "metricCodes": [
+        "OPERATING_CASH_FLOW",
+        "INVESTING_CASH_FLOW",
+        "FINANCING_CASH_FLOW"
+      ],
+      "reason": "Legs sum to 302.8M while NET_CHANGE_IN_CASH is 0.491M and is corroborated by opening/closing cash (157.170M -> 157.661M); the legs are unusable.",
+      "code": "INVESTING_CASH_FLOW",
+      "action": "quarantined",
+      "reportId": "cmuiomztv0dasbxq09x0wvt9n",
+      "valueId": "cmuiomzu10dbpbxq0hzy7wex5",
+      "oldStatus": "VALID",
+      "normalizedValue": -4587010
+    },
+    {
+      "ticker": "ARAB",
+      "periodLabel": "FY 2023",
+      "metricCodes": [
+        "OPERATING_CASH_FLOW",
+        "INVESTING_CASH_FLOW",
+        "FINANCING_CASH_FLOW"
+      ],
+      "reason": "Legs sum to 302.8M while NET_CHANGE_IN_CASH is 0.491M and is corroborated by opening/closing cash (157.170M -> 157.661M); the legs are unusable.",
+      "code": "FINANCING_CASH_FLOW",
+      "action": "quarantined",
+      "reportId": "cmuiomztv0dasbxq09x0wvt9n",
+      "valueId": "cmuiomzu10dbobxq0dxghifqr",
+      "oldStatus": "VALID",
+      "normalizedValue": 92006830
+    },
+    {
+      "ticker": "MFPC",
+      "periodLabel": "FY 2023",
+      "metricCodes": [
+        "OPERATING_CASH_FLOW",
+        "INVESTING_CASH_FLOW",
+        "FINANCING_CASH_FLOW",
+        "FX_EFFECT_CASH"
+      ],
+      "reason": "Legs + FX sum to -1.619B while NET_CHANGE_IN_CASH is 3.430B and is corroborated by opening/closing cash (4.384B -> 7.815B); the legs are unusable.",
+      "code": "OPERATING_CASH_FLOW",
+      "action": "quarantined",
+      "reportId": "cmuiomx2z0779bxq00wfvpqea",
+      "valueId": "cmuiomx3d078jbxq078jyxyzd",
+      "oldStatus": "VALID",
+      "normalizedValue": 2020445060
+    },
+    {
+      "ticker": "MFPC",
+      "periodLabel": "FY 2023",
+      "metricCodes": [
+        "OPERATING_CASH_FLOW",
+        "INVESTING_CASH_FLOW",
+        "FINANCING_CASH_FLOW",
+        "FX_EFFECT_CASH"
+      ],
+      "reason": "Legs + FX sum to -1.619B while NET_CHANGE_IN_CASH is 3.430B and is corroborated by opening/closing cash (4.384B -> 7.815B); the legs are unusable.",
+      "code": "INVESTING_CASH_FLOW",
+      "action": "quarantined",
+      "reportId": "cmuiomx2z0779bxq00wfvpqea",
+      "valueId": "cmuiomx3d078hbxq08ac2i28s",
+      "oldStatus": "VALID",
+      "normalizedValue": -1532305754
+    },
+    {
+      "ticker": "MFPC",
+      "periodLabel": "FY 2023",
+      "metricCodes": [
+        "OPERATING_CASH_FLOW",
+        "INVESTING_CASH_FLOW",
+        "FINANCING_CASH_FLOW",
+        "FX_EFFECT_CASH"
+      ],
+      "reason": "Legs + FX sum to -1.619B while NET_CHANGE_IN_CASH is 3.430B and is corroborated by opening/closing cash (4.384B -> 7.815B); the legs are unusable.",
+      "code": "FINANCING_CASH_FLOW",
+      "action": "quarantined",
+      "reportId": "cmuiomx2z0779bxq00wfvpqea",
+      "valueId": "cmuiomx3d078fbxq0qhvskoan",
+      "oldStatus": "VALID",
+      "normalizedValue": -3446060313
+    },
+    {
+      "ticker": "MFPC",
+      "periodLabel": "FY 2023",
+      "metricCodes": [
+        "OPERATING_CASH_FLOW",
+        "INVESTING_CASH_FLOW",
+        "FINANCING_CASH_FLOW",
+        "FX_EFFECT_CASH"
+      ],
+      "reason": "Legs + FX sum to -1.619B while NET_CHANGE_IN_CASH is 3.430B and is corroborated by opening/closing cash (4.384B -> 7.815B); the legs are unusable.",
+      "code": "FX_EFFECT_CASH",
+      "action": "quarantined",
+      "reportId": "cmuiomx2z0779bxq00wfvpqea",
+      "valueId": "cmuiomx3d078ebxq0tdxa436f",
+      "oldStatus": "VALID",
+      "normalizedValue": 1339478811
+    },
+    {
+      "ticker": "MAAL",
+      "periodLabel": "FY 2022",
+      "metricCodes": [
+        "NET_CHANGE_IN_CASH"
+      ],
+      "reason": "NET_CHANGE_IN_CASH 99.21M contradicts OPENING_CASH 5.998M -> CLOSING_CASH 29.827M = 23.828M; the opening/closing cash values are the simpler, corroborated pair.",
+      "code": "NET_CHANGE_IN_CASH",
+      "action": "quarantined",
+      "reportId": "cmuiomwvg06osbxq0smltgsd2",
+      "valueId": "cmujondgr024pbxgcuc6sdqhe",
+      "oldStatus": "VALID",
+      "normalizedValue": 99210000
+    }
+  ]
+}

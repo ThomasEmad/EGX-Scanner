@@ -1,0 +1,609 @@
+﻿ticker,period,metric,rootCause,severity,description,recommendedAction
+AALR,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+AALR,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+AALR,2018→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2018 and 2020.,Backfill historical annual filings
+ACAMD,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+ACAMD,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+ACAP,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+ACAP,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+ACAP,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+ACGC,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+ACGC,Q1 2026,,FRESHNESS,medium,[STALE_DATA] Latest data is 13 months old (period Q1 2026) — refresh recommended.,Harvest the latest published filing
+ACRO,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+ACRO,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2025.",Backfill historical annual filings
+ACRO,2015→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2015 and 2020.,Backfill historical annual filings
+ACRO,FY 2024,,FRESHNESS,high,[STALE_DATA] Latest data is 22 months old (period FY 2024) — urgent refresh needed.,Harvest the latest published filing
+ACTF,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2022.",Backfill historical annual filings
+ACTF,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+ADCI,2016→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2020.,Backfill historical annual filings
+ADIB,,LOANS_TO_CUSTOMERS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] LOANS_TO_CUSTOMERS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+ADIB,,CUSTOMER_DEPOSITS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] CUSTOMER_DEPOSITS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+ADPC,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+ADPC,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Food expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+ADPC,2016→2019,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2019.,Backfill historical annual filings
+ADRI,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+ADRI,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+ADRI,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+AFDI,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+AFDI,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+AFDI,2015→2019,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2015 and 2019.,Backfill historical annual filings
+AFMC,2017→2021,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2017 and 2021.,Backfill historical annual filings
+AIDC,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+AIDC,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+AIDC,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+AIFI,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2022.",Backfill historical annual filings
+AIHC,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 1 of the last 5 years have annual revenue data (2021) — trend analysis impossible.,Backfill historical annual filings
+AIHC,FY 2024,,FRESHNESS,high,[STALE_DATA] Latest data is 22 months old (period FY 2024) — urgent refresh needed.,Harvest the latest published filing
+AJWA,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2024, 2025.",Backfill historical annual filings
+AJWA,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Food expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+AJWA,Q3 2025,,FRESHNESS,medium,[STALE_DATA] Latest data is 13 months old (period Q3 2025) — refresh recommended.,Harvest the latest published filing
+ALEX,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+ALEX,Q2 2020,,FRESHNESS,high,[STALE_DATA] Latest data is 76 months old (period Q2 2020) — urgent refresh needed.,Harvest the latest published filing
+ALUM,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 1 of the last 5 years have annual revenue data (2021) — trend analysis impossible.,Backfill historical annual filings
+ALUM,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 6 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+ALUM,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+AMER,,,TREND_COVERAGE,high,"[INSUFFICIENT_TREND_DATA] Only 2 of the last 5 years have annual revenue data (2021, 2022) — trend analysis impossible.",Backfill historical annual filings
+AMES,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2022.",Backfill historical annual filings
+AMIA,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 1 of the last 5 years have annual revenue data (2025) — trend analysis impossible.,Backfill historical annual filings
+AMIA,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+AMIA,2016→2018,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2018.,Backfill historical annual filings
+AMII,,NET_PROFIT,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+AMII,,TOTAL_ASSETS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] TOTAL_ASSETS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+AMII,,TOTAL_EQUITY,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] TOTAL_EQUITY has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+AMII,,OPERATING_CASH_FLOW,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] OPERATING_CASH_FLOW has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+AMII,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+AMII,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 4 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+AMII,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+AMPI,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+APPC,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+APPC,,NET_PROFIT,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] NET_PROFIT exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+APPC,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+APPC,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+APPC,FY 2014,,FRESHNESS,high,[STALE_DATA] Latest data is 142 months old (period FY 2014) — urgent refresh needed.,Harvest the latest published filing
+APSW,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+APSW,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 8 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+APSW,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+APSW,2016→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2020.,Backfill historical annual filings
+ARAB,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+ARAB,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+AREH,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+AREH,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+AREH,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 7 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+AREH,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+AREH,2015→2021,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2015 and 2021.,Backfill historical annual filings
+ARVA,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+ARVA,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+ARVA,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+ARVA,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 5 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+ARVA,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+ASCM,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+ASCM,2017→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2017 and 2020.,Backfill historical annual filings
+ASPI,,,TREND_COVERAGE,high,"[INSUFFICIENT_TREND_DATA] Only 2 of the last 5 years have annual revenue data (2023, 2024) — trend analysis impossible.",Backfill historical annual filings
+ASPI,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+ATLC,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+ATLC,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+ATLC,2016→2018,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2018.,Backfill historical annual filings
+AXPH,,,TREND_COVERAGE,high,"[INSUFFICIENT_TREND_DATA] Only 2 of the last 5 years have annual revenue data (2022, 2024) — trend analysis impossible.",Backfill historical annual filings
+AXPH,2017→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2017 and 2020.,Backfill historical annual filings
+BIDI,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+BIDI,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+BIDI,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+BIDI,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 6 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+BIDI,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+BIDI,Q2 2025,,FRESHNESS,medium,[STALE_DATA] Latest data is 16 months old (period Q2 2025) — refresh recommended.,Harvest the latest published filing
+BIGP,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+BIGP,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 6 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+BIGP,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+BINV,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2025.",Backfill historical annual filings
+BINV,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+BIOC,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2024, 2025.",Backfill historical annual filings
+BIOC,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 11 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+BIOC,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+BIOC,2017→2019,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2017 and 2019.,Backfill historical annual filings
+BONY,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+BONY,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+BONY,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+BQDC,,NET_INTEREST_INCOME,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] NET_INTEREST_INCOME has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+BQDC,,LOANS_TO_CUSTOMERS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] LOANS_TO_CUSTOMERS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+BQDC,,CUSTOMER_DEPOSITS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] CUSTOMER_DEPOSITS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+BTFH,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+BTFH,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+BTFH,2017→2019,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2017 and 2019.,Backfill historical annual filings
+CAED,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+CAED,2016→2018,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2018.,Backfill historical annual filings
+CANA,,NET_INTEREST_INCOME,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] NET_INTEREST_INCOME has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+CANA,,LOANS_TO_CUSTOMERS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] LOANS_TO_CUSTOMERS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+CANA,,CUSTOMER_DEPOSITS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] CUSTOMER_DEPOSITS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+CANA,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+CCAP,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+CCRS,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+CCRS,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+CCRS,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+CEFM,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+CEFM,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 11 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+CEFM,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+CERA,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 1 of the last 5 years have annual revenue data (2022) — trend analysis impossible.,Backfill historical annual filings
+CERA,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 8 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+CERA,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+CERA,2015→2017,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2015 and 2017.,Backfill historical annual filings
+CERA,2017→2021,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2017 and 2021.,Backfill historical annual filings
+CFGH,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+CICH,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+CICH,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+CIEB,,LOANS_TO_CUSTOMERS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] LOANS_TO_CUSTOMERS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+CIEB,,CUSTOMER_DEPOSITS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] CUSTOMER_DEPOSITS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+CLHO,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+CLHO,2015→2019,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2015 and 2019.,Backfill historical annual filings
+CNFN,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2025.",Backfill historical annual filings
+CNFN,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+CNFN,2016→2018,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2018.,Backfill historical annual filings
+COMI,,LOANS_TO_CUSTOMERS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] LOANS_TO_CUSTOMERS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+COMI,,CUSTOMER_DEPOSITS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] CUSTOMER_DEPOSITS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+COPR,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+COPR,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+COSG,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+COSG,2016→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2020.,Backfill historical annual filings
+CPCI,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2023.",Backfill historical annual filings
+CPCI,2017→2019,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2017 and 2019.,Backfill historical annual filings
+CPME,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+CPME,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+CPME,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+CRST,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+CRST,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+CRST,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+CSAG,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2025.",Backfill historical annual filings
+CSAG,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 10 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+CSAG,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+CSAG,2016→2018,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2018.,Backfill historical annual filings
+DAPH,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2022.",Backfill historical annual filings
+DAPH,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+DAPH,2018→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2018 and 2020.,Backfill historical annual filings
+DCRC,,,TREND_COVERAGE,high,"[INSUFFICIENT_TREND_DATA] Only 2 of the last 5 years have annual revenue data (2021, 2022) — trend analysis impossible.",Backfill historical annual filings
+DCRC,2014→2016,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2014 and 2016.,Backfill historical annual filings
+DCRC,2016→2018,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2018.,Backfill historical annual filings
+DCRC,Q2 2023,,FRESHNESS,high,[STALE_DATA] Latest data is 40 months old (period Q2 2023) — urgent refresh needed.,Harvest the latest published filing
+DEIN,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 1 of the last 5 years have annual revenue data (2022) — trend analysis impossible.,Backfill historical annual filings
+DEIN,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+DEIN,2017→2019,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2017 and 2019.,Backfill historical annual filings
+DGTZ,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+DGTZ,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+DGTZ,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+DGTZ,2021→2023,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2021 and 2023.,Backfill historical annual filings
+DGTZ,Q2 2025,,FRESHNESS,medium,[STALE_DATA] Latest data is 16 months old (period Q2 2025) — refresh recommended.,Harvest the latest published filing
+DOMT,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+DSCW,2015→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2015 and 2020.,Backfill historical annual filings
+DTPP,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+DTPP,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 7 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+DTPP,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+EALR,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+EASB,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+EASB,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+EBSC,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+EBSC,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+ECAP,,,TREND_COVERAGE,high,"[INSUFFICIENT_TREND_DATA] Only 2 of the last 5 years have annual revenue data (2022, 2023) — trend analysis impossible.",Backfill historical annual filings
+ECAP,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 9 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+ECAP,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+ECAP,2015→2018,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2015 and 2018.,Backfill historical annual filings
+ECAP,2018→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2018 and 2020.,Backfill historical annual filings
+ECCW,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+ECCW,,NET_PROFIT,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+ECCW,,TOTAL_ASSETS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] TOTAL_ASSETS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+ECCW,,TOTAL_EQUITY,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] TOTAL_EQUITY has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+ECCW,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+ECCW,,OPERATING_CASH_FLOW,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] OPERATING_CASH_FLOW has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+ECCW,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+ECCW,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+EDFM,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+EDFM,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Food expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+EEII,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+EFIC,2016→2018,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2018.,Backfill historical annual filings
+EFIH,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+EFIH,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+EGBE,,LOANS_TO_CUSTOMERS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] LOANS_TO_CUSTOMERS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+EGBE,,CUSTOMER_DEPOSITS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] CUSTOMER_DEPOSITS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+EGCH,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+EGREF,,NET_PROFIT,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+EGREF,,TOTAL_ASSETS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] TOTAL_ASSETS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+EGREF,,TOTAL_EQUITY,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] TOTAL_EQUITY has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+EGREF,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+EGREF,,OPERATING_CASH_FLOW,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] OPERATING_CASH_FLOW has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+EGREF,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+EGTS,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2025.",Backfill historical annual filings
+EGTS,2017→2019,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2017 and 2019.,Backfill historical annual filings
+EHDR,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+EHDR,,NET_PROFIT,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+EHDR,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+EHDR,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Real Estate requires Inventory (land + WIP) — absent across all 6 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+EHDR,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Real Estate expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+EHDR,2019→2021,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2019 and 2021.,Backfill historical annual filings
+EITP,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+EITP,FY 2019,,FRESHNESS,high,[STALE_DATA] Latest data is 82 months old (period FY 2019) — urgent refresh needed.,Harvest the latest published filing
+ELEC,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+ELEC,2016→2018,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2018.,Backfill historical annual filings
+ELKA,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+ELKA,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+ELKA,Q2 2025,,FRESHNESS,medium,[STALE_DATA] Latest data is 16 months old (period Q2 2025) — refresh recommended.,Harvest the latest published filing
+ELNA,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+ELNA,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+ELNA,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+ELNA,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 7 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+ELNA,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+ELNA,2016→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2020.,Backfill historical annual filings
+ELNA,Q2 2025,,FRESHNESS,medium,[STALE_DATA] Latest data is 16 months old (period Q2 2025) — refresh recommended.,Harvest the latest published filing
+ELSH,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 1 of the last 5 years have annual revenue data (2021) — trend analysis impossible.,Backfill historical annual filings
+ELSH,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+ELSH,2017→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2017 and 2020.,Backfill historical annual filings
+ELWA,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+ELWA,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+EMFD,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+ENGC,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+ENGC,2015→2017,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2015 and 2017.,Backfill historical annual filings
+EOSB,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+EOSB,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+EPCO,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+EPCO,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+EPCO,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 9 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+EPCO,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+EPCO,2016→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2020.,Backfill historical annual filings
+EPPK,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+EPPK,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+EPPK,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+EPPK,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 3 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+EPPK,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+EPPK,FY 2024,,FRESHNESS,high,[STALE_DATA] Latest data is 22 months old (period FY 2024) — urgent refresh needed.,Harvest the latest published filing
+ESRS,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2024, 2025.",Backfill historical annual filings
+ESRS,FY 2023,,FRESHNESS,high,[STALE_DATA] Latest data is 34 months old (period FY 2023) — urgent refresh needed.,Harvest the latest published filing
+ETRS,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2024.,Backfill historical annual filings
+ETRS,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 7 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+ETRS,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+EXPA,,LOANS_TO_CUSTOMERS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] LOANS_TO_CUSTOMERS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+EXPA,,CUSTOMER_DEPOSITS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] CUSTOMER_DEPOSITS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+FAIT,,NET_INTEREST_INCOME,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] NET_INTEREST_INCOME has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+FAIT,,LOANS_TO_CUSTOMERS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] LOANS_TO_CUSTOMERS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+FAIT,,CUSTOMER_DEPOSITS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] CUSTOMER_DEPOSITS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+FAIT,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+FERC,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2022.",Backfill historical annual filings
+FIRE,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2024, 2025.",Backfill historical annual filings
+FIRE,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+FNAR,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+FTNS,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+FTNS,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+FTNS,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+FWRY,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+GBCO,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+GDWA,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2025.",Backfill historical annual filings
+GEOS,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+GEOS,FY 2025,,FRESHNESS,medium,[STALE_DATA] Latest data is 13 months old (period FY 2025) — refresh recommended.,Harvest the latest published filing
+GGCC,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 8 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+GGCC,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+GGCC,2018→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2018 and 2020.,Backfill historical annual filings
+GGRN,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+GGRN,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+GIHD,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2022.",Backfill historical annual filings
+GMCI,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+GMCI,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+GMCI,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 6 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+GMCI,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+GMCI,Q2 2025,,FRESHNESS,medium,[STALE_DATA] Latest data is 16 months old (period Q2 2025) — refresh recommended.,Harvest the latest published filing
+GOCO,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+GOCO,,NET_PROFIT,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+GOCO,,TOTAL_EQUITY,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] TOTAL_EQUITY exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+GOCO,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+GOCO,,OPERATING_CASH_FLOW,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] OPERATING_CASH_FLOW has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+GOCO,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+GOCO,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 2 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+GOCO,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+GOCO,FY 2022,,FRESHNESS,high,[STALE_DATA] Latest data is 46 months old (period FY 2022) — urgent refresh needed.,Harvest the latest published filing
+GOUR,,TOTAL_EQUITY,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] TOTAL_EQUITY has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+GOUR,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+GOUR,,OPERATING_CASH_FLOW,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] OPERATING_CASH_FLOW has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+GOUR,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+GPIM,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+GPIM,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+GPIM,Q2 2025,,FRESHNESS,medium,[STALE_DATA] Latest data is 16 months old (period Q2 2025) — refresh recommended.,Harvest the latest published filing
+GPPL,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+GPPL,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+GPPL,FY 2024,,FRESHNESS,high,[STALE_DATA] Latest data is 22 months old (period FY 2024) — urgent refresh needed.,Harvest the latest published filing
+GRCA,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+GRCA,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+GRCA,2023→2025,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2023 and 2025.,Backfill historical annual filings
+GROV,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+GSSC,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2023.,Backfill historical annual filings
+GTEX,,NET_PROFIT,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+GTEX,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 1 of the last 5 years have annual revenue data (2025) — trend analysis impossible.,Backfill historical annual filings
+GTEX,FY 2025,,FRESHNESS,high,[STALE_DATA] Latest data is 21 months old (period FY 2025) — urgent refresh needed.,Harvest the latest published filing
+GTHE,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+GTHE,FY 2021,,FRESHNESS,high,[STALE_DATA] Latest data is 58 months old (period FY 2021) — urgent refresh needed.,Harvest the latest published filing
+GTWL,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+GTWL,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 7 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+GTWL,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+GTWL,2015→2021,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2015 and 2021.,Backfill historical annual filings
+HBCO,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2022.",Backfill historical annual filings
+HDBK,,LOANS_TO_CUSTOMERS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] LOANS_TO_CUSTOMERS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+HDBK,,CUSTOMER_DEPOSITS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] CUSTOMER_DEPOSITS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+HELI,,,TREND_COVERAGE,high,"[INSUFFICIENT_TREND_DATA] Only 2 of the last 5 years have annual revenue data (2022, 2023) — trend analysis impossible.",Backfill historical annual filings
+HRHO,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+IBCT,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2024.,Backfill historical annual filings
+IBCT,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 7 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+IBCT,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+ICFC,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+ICFC,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 6 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+ICFC,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+ICID,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+ICLE,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2024, 2025.",Backfill historical annual filings
+ICLE,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+ICLE,2015→2017,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2015 and 2017.,Backfill historical annual filings
+ICLE,Q2 2025,,FRESHNESS,medium,[STALE_DATA] Latest data is 16 months old (period Q2 2025) — refresh recommended.,Harvest the latest published filing
+IDRE,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+IDRE,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+IEEC,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2022, 2025.",Backfill historical annual filings
+IEEC,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 7 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+IEEC,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+IFAP,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 8 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+IFAP,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+IFAP,2016→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2020.,Backfill historical annual filings
+INEG,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+INEG,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+INEG,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+INEG,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 7 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+INEG,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+INFI,,,TREND_COVERAGE,high,"[INSUFFICIENT_TREND_DATA] Only 2 of the last 5 years have annual revenue data (2024, 2025) — trend analysis impossible.",Backfill historical annual filings
+INFI,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Food expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+IRAX,,,TREND_COVERAGE,high,"[INSUFFICIENT_TREND_DATA] Only 2 of the last 5 years have annual revenue data (2021, 2022) — trend analysis impossible.",Backfill historical annual filings
+IRAX,Q2 2024,,FRESHNESS,high,[STALE_DATA] Latest data is 28 months old (period Q2 2024) — urgent refresh needed.,Harvest the latest published filing
+IRON,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+ISMA,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+ISMA,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+ISMA,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 6 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+ISMA,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+ISMQ,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+ISMQ,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 1 of the last 5 years have annual revenue data (2025) — trend analysis impossible.,Backfill historical annual filings
+ISMQ,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 6 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+ISMQ,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+KABO,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 1 of the last 5 years have annual revenue data (2022) — trend analysis impossible.,Backfill historical annual filings
+KABO,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Food expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+KORA,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+KORA,,NET_PROFIT,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+KORA,,TOTAL_ASSETS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] TOTAL_ASSETS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+KORA,,TOTAL_EQUITY,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] TOTAL_EQUITY has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+KORA,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+KORA,,OPERATING_CASH_FLOW,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] OPERATING_CASH_FLOW has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+KORA,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+KORA,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+KRDI,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+KRDI,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+KWIN,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+KWIN,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+KZPC,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2025.",Backfill historical annual filings
+KZPC,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 6 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+KZPC,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+LCSW,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2025.",Backfill historical annual filings
+LUTS,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2022.",Backfill historical annual filings
+MASR,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 1 of the last 5 years have annual revenue data (2022) — trend analysis impossible.,Backfill historical annual filings
+MBEG,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2024, 2025.",Backfill historical annual filings
+MBEG,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 7 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+MBEG,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+MBSC,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+MCQE,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+MCRO,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2023, 2024.",Backfill historical annual filings
+MEGM,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+MEGM,FY 2024,,FRESHNESS,high,[STALE_DATA] Latest data is 22 months old (period FY 2024) — urgent refresh needed.,Harvest the latest published filing
+MENA,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+MENA,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+MEPA,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+MEPA,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 7 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+MEPA,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+MFSC,,,TREND_COVERAGE,high,"[INSUFFICIENT_TREND_DATA] Only 2 of the last 5 years have annual revenue data (2021, 2025) — trend analysis impossible.",Backfill historical annual filings
+MHOT,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+MICH,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2022.",Backfill historical annual filings
+MICH,2018→2021,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2018 and 2021.,Backfill historical annual filings
+MILS,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 1 of the last 5 years have annual revenue data (2021) — trend analysis impossible.,Backfill historical annual filings
+MILS,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 8 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+MILS,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+MILS,2017→2021,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2017 and 2021.,Backfill historical annual filings
+MIPH,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+MMAT,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+MMAT,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+MOED,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+MOIL,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+MOIN,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+MOIN,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+MOSC,FY 2025,,FRESHNESS,medium,[STALE_DATA] Latest data is 16 months old (period FY 2025) — refresh recommended.,Harvest the latest published filing
+MPCO,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 7 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+MPCO,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+MPRC,,,TREND_COVERAGE,high,"[INSUFFICIENT_TREND_DATA] Only 2 of the last 5 years have annual revenue data (2023, 2024) — trend analysis impossible.",Backfill historical annual filings
+MTIE,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+NAHO,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+NAHO,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+NAMI,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+NAPR,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2025.",Backfill historical annual filings
+NARE,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+NARE,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+NBKE,,NET_INTEREST_INCOME,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] NET_INTEREST_INCOME has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+NBKE,,LOANS_TO_CUSTOMERS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] LOANS_TO_CUSTOMERS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+NBKE,,CUSTOMER_DEPOSITS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] CUSTOMER_DEPOSITS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+NBKE,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+NCCW,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+NCCW,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 8 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+NCCW,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+NCCW,2018→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2018 and 2020.,Backfill historical annual filings
+NCEM,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+NCEM,FY 2017,,FRESHNESS,high,[STALE_DATA] Latest data is 112 months old (period FY 2017) — urgent refresh needed.,Harvest the latest published filing
+NCGC,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+NCGC,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+NCGC,,OPERATING_CASH_FLOW,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] OPERATING_CASH_FLOW has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+NCGC,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+NCGC,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Food expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+NCGC,FY 2020,,FRESHNESS,high,[STALE_DATA] Latest data is 76 months old (period FY 2020) — urgent refresh needed.,Harvest the latest published filing
+NDRL,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2025.",Backfill historical annual filings
+NEDA,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2023, 2025.",Backfill historical annual filings
+NEDA,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 7 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+NEDA,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+NHPS,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+NHPS,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+NHPS,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+NIPH,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2022, 2023.",Backfill historical annual filings
+NIPH,2017→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2017 and 2020.,Backfill historical annual filings
+NOAF,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+NOAF,,NET_PROFIT,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+NOAF,,TOTAL_EQUITY,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] TOTAL_EQUITY exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+NOAF,,OPERATING_CASH_FLOW,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] OPERATING_CASH_FLOW has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+NOAF,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+NOAF,FY 2015,,FRESHNESS,high,[STALE_DATA] Latest data is 130 months old (period FY 2015) — urgent refresh needed.,Harvest the latest published filing
+OBRI,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+OBRI,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+OCPH,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+OCPH,2016→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2020.,Backfill historical annual filings
+ODIN,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+ODIN,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+ODIN,Q2 2025,,FRESHNESS,medium,[STALE_DATA] Latest data is 16 months old (period Q2 2025) — refresh recommended.,Harvest the latest published filing
+OFH,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2025.",Backfill historical annual filings
+OFH,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+OIH,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+OIH,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+OIH,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+OIH,FY 2024,,FRESHNESS,high,[STALE_DATA] Latest data is 22 months old (period FY 2024) — urgent refresh needed.,Harvest the latest published filing
+ORAS,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+PACH,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 1 of the last 5 years have annual revenue data (2021) — trend analysis impossible.,Backfill historical annual filings
+PACH,2022→2024,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2022 and 2024.,Backfill historical annual filings
+PHAR,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+PHGC,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2025.",Backfill historical annual filings
+PHGC,Q2 2025,,FRESHNESS,medium,[STALE_DATA] Latest data is 16 months old (period Q2 2025) — refresh recommended.,Harvest the latest published filing
+PHTV,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+PHTV,2017→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2017 and 2020.,Backfill historical annual filings
+PHTV,Q3 2025,,FRESHNESS,medium,[STALE_DATA] Latest data is 13 months old (period Q3 2025) — refresh recommended.,Harvest the latest published filing
+POUL,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+PRCL,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+PRDC,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2025.",Backfill historical annual filings
+PRDC,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+PRDC,Q2 2025,,FRESHNESS,medium,[STALE_DATA] Latest data is 16 months old (period Q2 2025) — refresh recommended.,Harvest the latest published filing
+PRMH,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+PRMH,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+QNBE,,NET_INTEREST_INCOME,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] NET_INTEREST_INCOME has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+QNBE,,LOANS_TO_CUSTOMERS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] LOANS_TO_CUSTOMERS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+QNBE,,CUSTOMER_DEPOSITS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] CUSTOMER_DEPOSITS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+RACC,,,TREND_COVERAGE,high,"[INSUFFICIENT_TREND_DATA] Only 2 of the last 5 years have annual revenue data (2023, 2024) — trend analysis impossible.",Backfill historical annual filings
+RAKT,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+RAKT,2023→2025,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2023 and 2025.,Backfill historical annual filings
+RKAZ,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+RKAZ,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+RMDA,2015→2017,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2015 and 2017.,Backfill historical annual filings
+RMDA,2018→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2018 and 2020.,Backfill historical annual filings
+RMTV,,NET_PROFIT,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+RMTV,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+RMTV,,OPERATING_CASH_FLOW,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] OPERATING_CASH_FLOW has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+RMTV,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+RMTV,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 5 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+RMTV,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+RMTV,FY 2015,,FRESHNESS,high,[STALE_DATA] Latest data is 130 months old (period FY 2015) — urgent refresh needed.,Harvest the latest published filing
+ROTO,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+RREI,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+RREI,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Real Estate requires Inventory (land + WIP) — absent across all 7 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+RREI,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Real Estate expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+RREI,2017→2021,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2017 and 2021.,Backfill historical annual filings
+RTVC,,,TREND_COVERAGE,high,"[INSUFFICIENT_TREND_DATA] Only 2 of the last 5 years have annual revenue data (2021, 2024) — trend analysis impossible.",Backfill historical annual filings
+RTVC,FY 2024,,FRESHNESS,high,[STALE_DATA] Latest data is 22 months old (period FY 2024) — urgent refresh needed.,Harvest the latest published filing
+RUBX,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2022.",Backfill historical annual filings
+SAIB,,LOANS_TO_CUSTOMERS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] LOANS_TO_CUSTOMERS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+SAIB,,CUSTOMER_DEPOSITS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] CUSTOMER_DEPOSITS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+SAIB,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+SAUD,,NET_INTEREST_INCOME,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] NET_INTEREST_INCOME has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+SAUD,,LOANS_TO_CUSTOMERS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] LOANS_TO_CUSTOMERS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+SAUD,,CUSTOMER_DEPOSITS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] CUSTOMER_DEPOSITS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+SCEM,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+SCEM,2018→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2018 and 2020.,Backfill historical annual filings
+SCFM,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+SCFM,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 8 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+SCFM,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+SCFM,2017→2021,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2017 and 2021.,Backfill historical annual filings
+SDTI,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+SDTI,2016→2018,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2018.,Backfill historical annual filings
+SEIG,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+SEIG,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+SIMO,,NET_PROFIT,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+SIMO,,TOTAL_EQUITY,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] TOTAL_EQUITY has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+SIMO,,OPERATING_CASH_FLOW,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] OPERATING_CASH_FLOW has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+SIMO,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+SIMO,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 4 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+SIMO,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+SIMO,FY 2013,,FRESHNESS,high,[STALE_DATA] Latest data is 160 months old (period FY 2013) — urgent refresh needed.,Harvest the latest published filing
+SIPC,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+SMFR,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+SMFR,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 6 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+SMFR,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+SMPP,,NET_PROFIT,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] NET_PROFIT exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+SMPP,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+SMPP,FY 2015,,FRESHNESS,high,[STALE_DATA] Latest data is 130 months old (period FY 2015) — urgent refresh needed.,Harvest the latest published filing
+SNFC,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 1 of the last 5 years have annual revenue data (2021) — trend analysis impossible.,Backfill historical annual filings
+SNFC,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 7 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+SNFC,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+SNFI,,,TREND_COVERAGE,high,"[INSUFFICIENT_TREND_DATA] Only 2 of the last 5 years have annual revenue data (2022, 2023) — trend analysis impossible.",Backfill historical annual filings
+SNFI,2016→2021,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2021.,Backfill historical annual filings
+SPHT,,,TREND_COVERAGE,high,"[INSUFFICIENT_TREND_DATA] Only 2 of the last 5 years have annual revenue data (2021, 2022) — trend analysis impossible.",Backfill historical annual filings
+SPIN,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2023, 2024.",Backfill historical annual filings
+SPIN,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 11 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+SPIN,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+SPMD,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+SUGR,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+SUGR,2016→2018,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2018.,Backfill historical annual filings
+SVCE,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2025.",Backfill historical annual filings
+SVCE,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 12 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+SVCE,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+TANM,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+TANM,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+TAQA,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+TORA,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+TORA,2017→2019,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2017 and 2019.,Backfill historical annual filings
+TORA,FY 2019,,FRESHNESS,high,[STALE_DATA] Latest data is 82 months old (period FY 2019) — urgent refresh needed.,Harvest the latest published filing
+TRTO,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+TRTO,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+TWSA,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+TWSA,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+TWSA,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+TYCN,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+TYCN,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+TYCN,Q3 2025,,FRESHNESS,medium,[STALE_DATA] Latest data is 13 months old (period Q3 2025) — refresh recommended.,Harvest the latest published filing
+UASG,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+UASG,,NET_PROFIT,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+UASG,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+UASG,,OPERATING_CASH_FLOW,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] OPERATING_CASH_FLOW has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+UASG,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+UASG,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 7 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+UASG,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+UASG,2015→2019,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2015 and 2019.,Backfill historical annual filings
+UASG,FY 2024,,FRESHNESS,high,[STALE_DATA] Latest data is 28 months old (period FY 2024) — urgent refresh needed.,Harvest the latest published filing
+UBEE,,NET_INTEREST_INCOME,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] NET_INTEREST_INCOME has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+UBEE,,LOANS_TO_CUSTOMERS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] LOANS_TO_CUSTOMERS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+UBEE,,CUSTOMER_DEPOSITS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] CUSTOMER_DEPOSITS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+UBEE,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2025.",Backfill historical annual filings
+UEFM,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2025.",Backfill historical annual filings
+UEFM,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 11 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+UEFM,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+UEGC,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2025.,Backfill historical annual filings
+UEGC,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 11 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+UEGC,2016→2018,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2018.,Backfill historical annual filings
+UNIP,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+UNIP,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 8 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+UNIP,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+UNIP,2017→2020,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2017 and 2020.,Backfill historical annual filings
+UNIT,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+UNIT,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+UPMS,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+UPMS,,COGS,MISSING_METRIC,high,[MISSING_CRITICAL_METRIC] COGS has no data recorded — cannot compute essential ratios.,Deep-fetch the metric from the original filing
+UPMS,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+UTOP,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+VALU,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+VALU,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+VERT,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2024.,Backfill historical annual filings
+VLMRA,,REVENUE,MISSING_METRIC,critical,[MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.,Deep-fetch the metric from the original filing
+VLMRA,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.,Backfill historical annual filings
+VLMRA,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+WCDF,,,TREND_COVERAGE,low,"[PERIOD_GAP] Missing annual revenue data for years: 2021, 2025.",Backfill historical annual filings
+WCDF,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 11 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+WCDF,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — present only as quarantined values; re-extract.,Deep-fetch the metric from the original filing
+WKOL,,,TREND_COVERAGE,high,[INSUFFICIENT_TREND_DATA] Only 1 of the last 5 years have annual revenue data (2025) — trend analysis impossible.,Backfill historical annual filings
+WKOL,,INVENTORY,SECTOR_RULE,medium,"[SECTOR_REQUIRED_METRIC_MISSING] Sector Industrial requires Inventory — absent across all 6 periods (data gap, deep-fetch needed).",Verify sector classification and sector-specific lines
+WKOL,,INVENTORY,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Industrial expects INVENTORY — absent in database.,Deep-fetch the metric from the original filing
+ZMID,,,TREND_COVERAGE,low,[PERIOD_GAP] Missing annual revenue data for years: 2021.,Backfill historical annual filings
+ZMID,,INVESTMENTS,MISSING_METRIC,medium,[MISSING_SECTOR_METRIC] Sector Financial Services expects INVESTMENTS — absent in database.,Deep-fetch the metric from the original filing
+ZMID,2016→2018,,TREND_COVERAGE,medium,[ANNUAL_SEQUENCE_GAP] Missing annual filings between 2016 and 2018.,Backfill historical annual filings

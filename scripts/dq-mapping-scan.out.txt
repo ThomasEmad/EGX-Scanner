@@ -1,0 +1,172 @@
+﻿=== Suspicious metric/label mappings (DB-wide) ===
+
+TOTAL_DEBT ← suspicious labels (14 values) — net debt = debt − cash, not gross total debt
+       14 "Net Debt"
+
+INVESTMENTS ← suspicious labels (14 values) — invested capital = debt + equity, not investments
+       14 "Invested Capital"
+
+SHARE_CAPITAL ← suspicious labels (14 values) — total capitalization ≠ share capital
+       14 "Total Capitalization"
+
+CASH_AND_EQUIVALENTS ← suspicious labels (178 values) — cash + short-term investments ≠ cash
+      178 "Cash Cash Equivalents And Short Term Investments"
+
+COGS ← suspicious labels (1473 values) — revenue line mapped to COGS
+     1020 "Cost of Revenues - Total (Refinitiv CF-Export, USD→EGP)"
+      453 "Cost Of Revenue"
+
+
+=== All labels for key metrics (top 12 each) ===
+
+TOTAL_EQUITY (5251 valid)
+     2452 "حقوق المساهمين"
+      499 "Total Shareholders' Equity - including Minority Interest & Hybrid Debt (Refinitiv CF-Export, USD→EGP)"
+      416 "Stockholders Equity"
+      278 "حقوق المساهمين (AskBorsa quarterly Q3)"
+      276 "حقوق المساهمين (AskBorsa quarterly Q2)"
+      208 "COPIED from 9M 2024 balance sheet (source: ASKBORA_SUMMARY)"
+      207 "COPIED from H1 2024 balance sheet (source: ASKBORA_SUMMARY)"
+      204 "COPIED from 9M 2023 balance sheet (source: ASKBORA_SUMMARY)"
+      196 "COPIED from H1 2023 balance sheet (source: ASKBORA_SUMMARY)"
+      112 "COPIED from H1 2025 balance sheet (source: ASKBORA_SUMMARY)"
+       81 "COPIED from 9M 2025 balance sheet (source: ASKBORA_SUMMARY)"
+       50 "TOTAL_EQUITY"
+
+TOTAL_LIABILITIES (4974 valid)
+     2383 "إجمالي المطلوبات"
+      465 "Total Liabilities (Refinitiv CF-Export, USD→EGP)"
+      416 "Total Liabilities Net Minority Interest"
+      283 "إجمالي المطلوبات (AskBorsa quarterly Q2)"
+      280 "إجمالي المطلوبات (AskBorsa quarterly Q3)"
+      205 "COPIED from 9M 2023 balance sheet (source: ASKBORA_SUMMARY)"
+      204 "COPIED from 9M 2024 balance sheet (source: ASKBORA_SUMMARY)"
+      203 "COPIED from H1 2024 balance sheet (source: ASKBORA_SUMMARY)"
+      196 "COPIED from H1 2023 balance sheet (source: ASKBORA_SUMMARY)"
+       51 "COPIED from H1 2025 balance sheet (source: ASKBORA_SUMMARY)"
+       50 "TOTAL_LIABILITIES"
+       48 "COPIED from H1 2026 balance sheet (source: YAHOO_FINANCE_API)"
+
+TOTAL_ASSETS (5094 valid)
+     2408 "إجمالي الأصول"
+      544 "Total Assets (Refinitiv CF-Export, USD→EGP)"
+      415 "Total Assets"
+      281 "إجمالي الأصول (AskBorsa quarterly Q2)"
+      277 "إجمالي الأصول (AskBorsa quarterly Q3)"
+      203 "COPIED from 9M 2023 balance sheet (source: ASKBORA_SUMMARY)"
+      203 "COPIED from 9M 2024 balance sheet (source: ASKBORA_SUMMARY)"
+      203 "COPIED from H1 2024 balance sheet (source: ASKBORA_SUMMARY)"
+      193 "COPIED from H1 2023 balance sheet (source: ASKBORA_SUMMARY)"
+       65 "COPIED from H1 2025 balance sheet (source: ASKBORA_SUMMARY)"
+       50 "TOTAL_ASSETS"
+       48 "COPIED from H1 2026 balance sheet (source: YAHOO_FINANCE_API)"
+
+TOTAL_DEBT (507 valid)
+      341 "Total Debt"
+       46 "TOTAL_DEBT"
+       44 "COPIED from H1 2026 balance sheet (source: YAHOO_FINANCE_API)"
+       19 "COPIED from 9M 2025 balance sheet (source: YAHOO_FINANCE_API)"
+       17 "COPIED from H1 2025 balance sheet (source: YAHOO_FINANCE_API)"
+       16 "COPIED from FY 2025 balance sheet (source: YAHOO_FINANCE_API)"
+       14 "Net Debt"
+        3 "TOTAL_DEBT (S&P Global via stockanalysis.com annual)"
+        1 "COPIED from 9M 2023 balance sheet (source: ASKBORA_SUMMARY)"
+        1 "COPIED from H1 2023 balance sheet (source: ASKBORA_SUMMARY)"
+        1 "COPIED from H1 2023 balance sheet (source: REUTERS_FINANCIALS_PAGE)"
+        1 "COPIED from H1 2024 balance sheet (source: ASKBORA_SUMMARY)"
+
+REVENUE (2547 valid)
+     1368 "Total revenue"
+      566 "Revenue from Business Activities - Total (Refinitiv CF-Export, USD→EGP)"
+      513 "Total Revenue"
+       43 "REVENUE"
+       18 "Revenue (S&P Global via stockanalysis.com quarterly, name-verified)"
+       11 "Revenue (S&P Global via stockanalysis.com)"
+       10 "Revenue (S&P Global via stockanalysis.com, name-verified)"
+        6 "DERIVED Q3 2025 = 9M 2025 − H1 2025 (source: YAHOO_FINANCE_API)"
+        4 "DERIVED Q2 2026 = H1 2026 − Q1 2026 (source: YAHOO_FINANCE_API)"
+        4 "DERIVED Q4 2025 = FY 2025 − 9M 2025 (source: YAHOO_FINANCE_API)"
+        1 "Revenue (S&P Global via stockanalysis.com — replaced TradingView -2446M)"
+        1 "Revenue (S&P Global via stockanalysis.com — replaced TradingView 4050M)"
+
+COGS (1747 valid)
+      881 "Cost of goods sold"
+      429 "Cost of Revenues - Total (Refinitiv CF-Export, USD→EGP)"
+      389 "Cost Of Revenue"
+       37 "COGS"
+        8 "DERIVED Q2 2026 = H1 2026 − Q1 2026 (source: YAHOO_FINANCE_API)"
+        2 "DERIVED Q3 2025 = 9M 2025 − H1 2025 (source: YAHOO_FINANCE_API)"
+        1 "DERIVED Q2 2025 = H1 2025 − Q1 2025 (source: YAHOO_FINANCE_API)"
+
+GROSS_PROFIT (4214 valid)
+     1606 "مجمل الربح"
+      727 "Gross profit"
+      430 "Gross Profit"
+      355 "مجمل الربح (AskBorsa quarterly Q2)"
+      307 "مجمل الربح (AskBorsa quarterly Q3)"
+      246 "Gross Profit - Industrials/Property - Total (Refinitiv CF-Export, USD→EGP)"
+       80 "DERIVED Q3 2024 = 9M 2024 − H1 2024 (source: ASKBORA_SUMMARY)"
+       69 "DERIVED Q3 2023 = 9M 2023 − H1 2023 (source: ASKBORA_SUMMARY)"
+       60 "DERIVED Q2 2023 = H1 2023 − Q1 2023 (source: ASKBORA_SUMMARY)"
+       51 "DERIVED Q4 2023 = FY 2023 − 9M 2023 (source: ASKBORA_SUMMARY)"
+       49 "DERIVED Q4 2024 = FY 2024 − 9M 2024 (source: ASKBORA_SUMMARY)"
+       46 "GROSS_PROFIT"
+
+NET_PROFIT (5105 valid)
+     2372 "صافي الربح"
+      583 "صافي الربح (AskBorsa quarterly Q2)"
+      479 "صافي الربح (AskBorsa quarterly Q3)"
+      259 "Net Income"
+      257 "Net Income after Tax (Refinitiv CF-Export, USD→EGP)"
+      222 "Net Income From Continuing Operation Net Minority Interest"
+      116 "DERIVED Q3 2023 = 9M 2023 − H1 2023 (source: ASKBORA_SUMMARY)"
+      113 "DERIVED Q3 2024 = 9M 2024 − H1 2024 (source: ASKBORA_SUMMARY)"
+      107 "DERIVED Q2 2023 = H1 2023 − Q1 2023 (source: ASKBORA_SUMMARY)"
+       81 "DERIVED Q2 2024 = H1 2024 − Q1 2024 (source: ASKBORA_SUMMARY)"
+       74 "الربح المُعلن"
+       63 "DERIVED Q4 2024 = FY 2024 − 9M 2024 (source: ASKBORA_SUMMARY)"
+
+OPERATING_CASH_FLOW (5003 valid)
+     2428 "التدفق النقدي التشغيلي"
+      523 "التدفق النقدي التشغيلي (AskBorsa quarterly Q2)"
+      435 "Operating Cash Flow"
+      417 "التدفق النقدي التشغيلي (AskBorsa quarterly Q3)"
+      294 "Net Cash Flow from Operating Activities (Refinitiv CF-Export, USD→EGP)"
+      141 "DERIVED Q3 2024 = 9M 2024 − H1 2024 (source: ASKBORA_SUMMARY)"
+      130 "DERIVED Q3 2023 = 9M 2023 − H1 2023 (source: ASKBORA_SUMMARY)"
+      117 "DERIVED Q2 2023 = H1 2023 − Q1 2023 (source: ASKBORA_SUMMARY)"
+      104 "DERIVED Q2 2024 = H1 2024 − Q1 2024 (source: ASKBORA_SUMMARY)"
+       60 "DERIVED Q4 2023 = FY 2023 − 9M 2023 (source: ASKBORA_SUMMARY)"
+       55 "OPERATING_CASH_FLOW"
+       52 "DERIVED Q3 2025 = 9M 2025 − H1 2025 (source: ASKBORA_SUMMARY)"
+
+INVESTMENTS (54 valid)
+       31 "Investments And Advances"
+       14 "Invested Capital"
+        5 "COPIED from H1 2026 balance sheet (source: YAHOO_FINANCE_API)"
+        2 "COPIED from FY 2025 balance sheet (source: YAHOO_FINANCE_API)"
+        1 "COPIED from 9M 2025 balance sheet (source: YAHOO_FINANCE_API)"
+        1 "COPIED from H1 2025 balance sheet (source: YAHOO_FINANCE_API)"
+
+SHARE_CAPITAL (233 valid)
+      182 "Capital Stock"
+       24 "COPIED from H1 2026 balance sheet (source: YAHOO_FINANCE_API)"
+       14 "Total Capitalization"
+        7 "COPIED from FY 2025 balance sheet (source: YAHOO_FINANCE_API)"
+        3 "COPIED from 9M 2025 balance sheet (source: YAHOO_FINANCE_API)"
+        2 "COPIED from H1 2025 balance sheet (source: YAHOO_FINANCE_API)"
+        1 "COPIED from H1 2025 balance sheet (source: ASKBORA_SUMMARY)"
+
+CASH_AND_EQUIVALENTS (557 valid)
+      214 "Cash And Cash Equivalents"
+      176 "Cash Cash Equivalents And Short Term Investments"
+       48 "COPIED from H1 2026 balance sheet (source: YAHOO_FINANCE_API)"
+       44 "CASH_AND_EQUIVALENTS"
+       25 "COPIED from 9M 2025 balance sheet (source: YAHOO_FINANCE_API)"
+       20 "COPIED from FY 2025 balance sheet (source: YAHOO_FINANCE_API)"
+       19 "COPIED from H1 2025 balance sheet (source: YAHOO_FINANCE_API)"
+        4 "Cash Equivalents"
+        1 "COPIED from 9M 2023 balance sheet (source: ASKBORA_SUMMARY)"
+        1 "COPIED from H1 2023 balance sheet (source: ASKBORA_SUMMARY)"
+        1 "COPIED from H1 2023 balance sheet (source: REUTERS_FINANCIALS_PAGE)"
+        1 "COPIED from H1 2024 balance sheet (source: ASKBORA_SUMMARY)"

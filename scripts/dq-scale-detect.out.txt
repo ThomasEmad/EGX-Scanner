@@ -1,0 +1,16 @@
+﻿flagged annual TOTAL_ASSETS periods: 6
+MHOT   2022 2.03e+12 median 1.88e+9 ratio 1077.729  Consumer
+FWRY   2024 1.33e+10 median 8.14e+11 ratio 0.016 FIN Financial Services
+FWRY   2023 8.97e+9 median 8.14e+11 ratio 0.011 FIN Financial Services
+FWRY   2022 6.42e+9 median 8.14e+11 ratio 0.008 FIN Financial Services
+ASPI   2022 1.25e+7 median 1.75e+10 ratio 0.001 FIN Financial Services
+COPR   2024 1.52e+5 median 2.61e+7 ratio 0.006 FIN Financial Services
+
+flagged annual REVENUE periods (ratio>50 or <0.02): 7
+MHOT   2022 5.26e+11 median 1.67e+9 ratio 314.431
+FWRY   2024 5.51e+9 median 3.56e+11 ratio 0.015
+FWRY   2023 3.27e+9 median 3.56e+11 ratio 0.009
+FWRY   2022 2.28e+9 median 3.56e+11 ratio 0.006
+OFH    2022 4.00e+4 median 1.76e+7 ratio 0.002
+ASPI   2024 4.14e+6 median 6.86e+9 ratio 0.001
+ASPI   2023 4.33e+5 median 6.86e+9 ratio 0

@@ -33,11 +33,18 @@ import {
 
 export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const company = await db.company.findUnique({ where: { id }, select: { id: true } })
+  const raw = decodeURIComponent(id)
+  // CUIDs are lower-case and case-sensitive; only upper-case ticker/ISIN keys.
+  const upper = raw.toUpperCase()
+  const company = await db.company.findFirst({
+    where: { OR: [{ id: raw }, { ticker: upper }, { isin: upper }] },
+    select: { id: true },
+  })
   if (!company) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
+  const companyId = company.id
 
   const url = new URL(req.url)
-  const availableStatementTypes = await availableReportStatementTypes(id)
+  const availableStatementTypes = await availableReportStatementTypes(companyId)
   const requestedBasis = url.searchParams.get("statementType")
   if (requestedBasis && !(CALC_STATEMENT_TYPES as readonly string[]).includes(requestedBasis)) {
     return Response.json(
@@ -47,7 +54,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
   }
   const statementType = requestedBasis ?? defaultStatementType(availableStatementTypes)
 
-  const availablePeriodViews = await availableReportPeriodViews(id, statementType ?? undefined)
+  const availablePeriodViews = await availableReportPeriodViews(companyId, statementType ?? undefined)
   const requestedView = validatePeriodView(url.searchParams.get("period_view"))
   if (requestedView === null) {
     return Response.json(
@@ -58,7 +65,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
     const latestEnds = await db.financialReport.groupBy({
     by: ["periodType"],
     where: {
-      companyId: id,
+      companyId,
       processingStatus: { in: [...TRUSTED_REPORT_STATUSES] },
       periodType: { in: ["ANNUAL", "QUARTERLY", "SEMIANNUAL", "NINE_MONTH"] },
     },
@@ -76,7 +83,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
   const values = statementType && periodView
     ? await db.financialValue.findMany({
         where: {
-          companyId: id,
+          companyId,
           validationStatus: "VALID",
           report: {
             processingStatus: { in: [...TRUSTED_REPORT_STATUSES] },

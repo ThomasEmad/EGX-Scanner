@@ -1,0 +1,55 @@
+﻿progress 25/264
+progress 50/264
+progress 75/264
+progress 100/264
+progress 125/264
+progress 150/264
+progress 175/264
+progress 200/264
+progress 225/264
+progress 250/264
+
+=== AskBorsa annual comparison ===
+{
+  "companies": 264,
+  "fetched": 259,
+  "failed": 5,
+  "nameMismatches": 36,
+  "byStatus": {
+    "MATCH": 580,
+    "APP_MISSING": 42,
+    "MISMATCH": 55,
+    "CLOSE": 16,
+    "PARENT_MATCH": 6,
+    "ASK_SCALE_SUSPECT": 6,
+    "CURRENCY_MISMATCH": 26
+  },
+  "byMetric": {
+    "net_profit": {
+      "MATCH": 169,
+      "APP_MISSING": 16,
+      "MISMATCH": 38,
+      "CLOSE": 6,
+      "PARENT_MATCH": 6,
+      "ASK_SCALE_SUSPECT": 2,
+      "CURRENCY_MISMATCH": 8
+    },
+    "total_assets": {
+      "MATCH": 212,
+      "APP_MISSING": 12,
+      "CLOSE": 5,
+      "ASK_SCALE_SUSPECT": 2,
+      "CURRENCY_MISMATCH": 9,
+      "MISMATCH": 2
+    },
+    "total_equity": {
+      "MATCH": 199,
+      "APP_MISSING": 14,
+      "MISMATCH": 15,
+      "ASK_SCALE_SUSPECT": 2,
+      "CLOSE": 5,
+      "CURRENCY_MISMATCH": 9
+    }
+  }
+}
+Wrote reports/askborsa-annual-comparison.csv

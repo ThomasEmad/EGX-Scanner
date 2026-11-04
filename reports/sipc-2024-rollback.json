@@ -1,0 +1,32 @@
+{
+  "corrections": [
+    {
+      "id": "cmujo5drs09oxbx3wccmyvrve",
+      "oldValue": 1959808478,
+      "oldOriginalValue": 71850000,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)",
+      "oldIsManuallyCorrected": true
+    }
+  ],
+  "quarantines": [
+    {
+      "id": "cmujo5dsu09p3bx3whh2f2f2n",
+      "metric": "OPERATING_CASH_FLOW",
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)"
+    },
+    {
+      "id": "cmujo5dta09p5bx3wyyzegapp",
+      "metric": "INVESTING_CASH_FLOW",
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)"
+    },
+    {
+      "id": "cmujo5dtn09p7bx3wj9smeirf",
+      "metric": "FINANCING_CASH_FLOW",
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)"
+    }
+  ]
+}

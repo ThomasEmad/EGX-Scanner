@@ -1,0 +1,208 @@
+{
+  "ticker": "SIPC",
+  "year": 2025,
+  "companyId": "cmugriqou0024bx50y6oj3tkw",
+  "reason": "QUARANTINED: report mixes two companies (ASSET_COMPONENTS failure; components exceed the corrected total). Kept summary totals and NET_PROFIT; quarantined the remaining values pending a second source.",
+  "appliedAt": "2026-11-03T15:13:10.472Z",
+  "keptMetrics": [
+    "TOTAL_ASSETS",
+    "TOTAL_EQUITY",
+    "TOTAL_LIABILITIES",
+    "TOTAL_EQUITY_AND_LIABILITIES",
+    "NET_PROFIT"
+  ],
+  "quarantined": [
+    {
+      "id": "cmvu2rdj200q5bx5k3ie0j3ak",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "CAPEX",
+      "normalizedValue": -339330933,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj200q3bx5kjcea5cdn",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "CASH_AND_EQUIVALENTS",
+      "normalizedValue": 4762348666,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj200q6bx5k8kj3f74d",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "CLOSING_CASH",
+      "normalizedValue": 4762348666,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj100pubx5ku6vhmsvp",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "COGS",
+      "normalizedValue": 4632038855,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj200q1bx5kq4x5151i",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "CURRENT_ASSETS",
+      "normalizedValue": 6597147828,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj100plbx5k54eqse2u",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "EBIT",
+      "normalizedValue": 3387382329,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj100pkbx5kakk6t47e",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "EBITDA",
+      "normalizedValue": 3509941225,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj200q4bx5kcezb28nq",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "FREE_CASH_FLOW",
+      "normalizedValue": 3048713704,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj100ptbx5kqjiesr82",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "GROSS_PROFIT",
+      "normalizedValue": 4457110833,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj100ppbx5ku8nniitq",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "INCOME_TAX",
+      "normalizedValue": 1074326268,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj100pmbx5kuoc1skaj",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "INTEREST_EXPENSE",
+      "normalizedValue": 28517057,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj100pnbx5kum90w01c",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "INTEREST_INCOME",
+      "normalizedValue": 171609009,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj200q2bx5krof9u0hc",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "INVENTORY",
+      "normalizedValue": 876191093,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj100pobx5kg30rvfu2",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "NET_PROFIT_PARENT",
+      "normalizedValue": 2284539004,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj100pzbx5kbl184ezk",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "NON_CURRENT_ASSETS",
+      "normalizedValue": 1697569844,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj200q7bx5k4poqoimj",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "OPENING_CASH",
+      "normalizedValue": 1890505077,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj100psbx5kua4v24wa",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "OPERATING_EXPENSES_TOTAL",
+      "normalizedValue": 1124464585,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj100prbx5k85krmljw",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "OPERATING_INCOME",
+      "normalizedValue": 3332646248,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj200q0bx5k73eirurl",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "PPE",
+      "normalizedValue": 1672465334,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj100pqbx5k8mzafoud",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "PROFIT_BEFORE_TAX",
+      "normalizedValue": 3358865272,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj100pxbx5k5ecv72g5",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "RETAINED_EARNINGS",
+      "normalizedValue": 3155690952,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj100pvbx5kjp2qsp2l",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "REVENUE",
+      "normalizedValue": 9089149688,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj100pybx5kp5cb5wr9",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "SHORT_TERM_DEBT",
+      "normalizedValue": 45295418,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmvu2rdj100pwbx5ki3ja1eai",
+      "reportId": "cmujo5du809pbbx3whyrnzb8h",
+      "metricCode": "TOTAL_DEBT",
+      "normalizedValue": 182861306,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    }
+  ]
+}

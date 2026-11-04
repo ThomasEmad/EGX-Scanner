@@ -121,7 +121,13 @@ export function WhyMatchedPanel({ conditions, matched }: { conditions: Condition
               <span className="leading-snug">
                 <span className="font-medium">{label}</span>
                 {c.kind === "metric" && c.operator ? (
-                  <span className="text-muted-foreground"> {c.operator.replace(">=", "≥").replace("<=", "≤")} {formatThreshold(c.threshold)}</span>
+                  <span className="text-muted-foreground">
+                    {c.operator === "between"
+                      ? `بين ${formatThreshold(c.range?.min)} و ${formatThreshold(c.range?.max)}`
+                      : `${c.operator.replace(">=", "≥").replace("<=", "≤")} ${formatThreshold(c.threshold)}`}
+                  </span>
+                ) : c.kind === "sector" && c.operator ? (
+                  <span className="text-muted-foreground">{c.operator === "==" ? "هو" : "ليس"} {c.sector}</span>
                 ) : null}
                 {": "}
                 <span className={c.matched ? "text-emerald-700 dark:text-emerald-400 font-medium" : c.status !== "OK" ? "text-slate-500" : "text-red-600 dark:text-red-400"}>

@@ -1,0 +1,80 @@
+{
+  "applied": true,
+  "deactivated": [
+    "ECCW",
+    "EFOOD",
+    "MESF",
+    "PSFL",
+    "RPCO",
+    "VODE"
+  ],
+  "keptActive": [
+    "KORA"
+  ],
+  "skipped": [],
+  "rows": [
+    {
+      "ticker": "ECCW",
+      "status": "deactivate",
+      "validValues": 0,
+      "reports": 2,
+      "prices": 1,
+      "oldIsActive": true,
+      "newIsActive": false
+    },
+    {
+      "ticker": "EFOOD",
+      "status": "deactivate",
+      "validValues": 0,
+      "reports": 0,
+      "prices": 0,
+      "oldIsActive": true,
+      "newIsActive": false
+    },
+    {
+      "ticker": "MESF",
+      "status": "deactivate",
+      "validValues": 0,
+      "reports": 0,
+      "prices": 0,
+      "oldIsActive": true,
+      "newIsActive": false
+    },
+    {
+      "ticker": "PSFL",
+      "status": "deactivate",
+      "validValues": 0,
+      "reports": 0,
+      "prices": 1,
+      "oldIsActive": true,
+      "newIsActive": false
+    },
+    {
+      "ticker": "RPCO",
+      "status": "deactivate",
+      "validValues": 0,
+      "reports": 0,
+      "prices": 0,
+      "oldIsActive": true,
+      "newIsActive": false
+    },
+    {
+      "ticker": "VODE",
+      "status": "deactivate",
+      "validValues": 0,
+      "reports": 0,
+      "prices": 0,
+      "oldIsActive": true,
+      "newIsActive": false
+    },
+    {
+      "ticker": "KORA",
+      "status": "keep_active_with_note",
+      "validValues": 0,
+      "reports": 0,
+      "prices": 2,
+      "oldIsActive": true,
+      "newIsActive": true
+    }
+  ]
+}

@@ -1,15 +1,15 @@
 // Investor Signal Engine — produces structured, actionable investor signals
 // from validated financial facts.
 //
-// Spec section 20 (Investor-relevant signals):
-//   - Growth Quality
+// Spec section 20 (Investor-relevant signals) — growth signals removed from
+// the product; remaining dimensions:
 //   - Profitability Quality
 //   - Balance Sheet Risk
 //   - Cash Quality
 //   - Earnings Quality
 //
 // Each signal carries:
-//   - dimension (GROWTH / PROFITABILITY / BALANCE_SHEET / CASH / EARNINGS)
+//   - dimension (PROFITABILITY / BALANCE_SHEET / CASH / EARNINGS)
 //   - direction (IMPROVEMENT / DETERIORATION / STABLE / MIXED / FLAG)
 //   - magnitude (numeric change)
 //   - tone (positive / negative / warning / neutral)
@@ -27,7 +27,6 @@ import type { AnalysisContext, SourceValueRef } from "./types"
 import { formatValue, formatPercent } from "./types"
 
 export type SignalDimension =
-  | "GROWTH"
   | "PROFITABILITY"
   | "BALANCE_SHEET"
   | "CASH"
@@ -45,7 +44,7 @@ export type SignalTone = "positive" | "negative" | "warning" | "neutral"
 export interface InvestorSignal {
   id: string
   dimension: SignalDimension
-  /** A short stable code, e.g. "revenue_growth_strong" — useful for grouping */
+  /** A short stable code, e.g. "net_margin_expansion" — useful for grouping */
   code: string
   label: string
   labelAr?: string
@@ -95,130 +94,6 @@ function getValue(ctx: AnalysisContext, metricCode: string, periodKey?: string):
   }
   if (ctx.periods.length === 0) return undefined
   return ctx.periods[ctx.periods.length - 1].values[metricCode]
-}
-
-// ---------------------------------------------------------------------------
-// GROWTH QUALITY SIGNALS (spec 20.1)
-// ---------------------------------------------------------------------------
-
-function growthQualitySignals(ctx: AnalysisContext): InvestorSignal[] {
-  const out: InvestorSignal[] = []
-  if (ctx.periods.length < 2) return out
-  const latest = ctx.periods[ctx.periods.length - 1]
-  const priorKey = findPriorYear(ctx, latest.periodKey)
-  if (!priorKey) return out
-  const prior = ctx.periods.find((p) => p.periodKey === priorKey)!
-
-  const growthMetrics: Array<{ code: string; label: string; minStrong: number; minHealthy: number }> = [
-    { code: "REVENUE", label: "Revenue growth YoY", minStrong: 15, minHealthy: 5 },
-    { code: "NET_PROFIT", label: "Net profit growth YoY", minStrong: 20, minHealthy: 8 },
-    { code: "OPERATING_INCOME", label: "Operating profit growth YoY", minStrong: 18, minHealthy: 7 },
-    { code: "EPS", label: "EPS growth YoY", minStrong: 15, minHealthy: 5 },
-    { code: "OPERATING_CASH_FLOW", label: "OCF growth YoY", minStrong: 15, minHealthy: 5 },
-  ]
-
-  for (const g of growthMetrics) {
-    const current = latest.values[g.code]
-    const previous = prior.values[g.code]
-    if (current === undefined || previous === undefined) continue
-    const growth = growthPct(current, previous)
-    if (growth === null) {
-      // Sign transition — flag for investigation
-      out.push({
-        id: nextId("growth"),
-        dimension: "GROWTH",
-        code: `${g.code.toLowerCase()}_sign_transition`,
-        label: `${g.label} — sign transition`,
-        direction: "FLAG",
-        tone: "warning",
-        interpretation: `${g.label} moved from ${formatValue(previous)} to ${formatValue(current)} — sign transition, growth not meaningful as %.`,
-        evidence: [
-          { metricCode: g.code, periodKey: latest.periodKey, value: current },
-          { metricCode: g.code, periodKey: prior.periodKey, value: previous },
-        ],
-        confidence: 0.95,
-        severity: "info",
-      })
-      continue
-    }
-    const direction = growth > g.minHealthy ? "IMPROVEMENT" : growth < 0 ? "DETERIORATION" : "STABLE"
-    const tone = growth > g.minStrong ? "positive" : growth < 0 ? "negative" : "neutral"
-    const interpretation = growth > g.minStrong
-      ? `Strong ${g.label} (${formatPercent(growth, { sign: true })})`
-      : growth < 0
-        ? `${g.label} declined (${formatPercent(growth, { sign: true })})`
-        : `${g.label} stable (${formatPercent(growth, { sign: true })})`
-    out.push({
-      id: nextId("growth"),
-      dimension: "GROWTH",
-      code: `${g.code.toLowerCase()}_growth_yoy`,
-      label: g.label,
-      direction,
-      tone,
-      magnitude: growth,
-      interpretation,
-      evidence: [
-        { metricCode: g.code, periodKey: latest.periodKey, value: current },
-        { metricCode: g.code, periodKey: prior.periodKey, value: previous },
-      ],
-      confidence: 0.9,
-      severity: growth < 0 ? "warning" : "info",
-    })
-  }
-
-  // Growth acceleration / deceleration (3+ periods needed)
-  if (ctx.periods.length >= 3) {
-    const latest2 = ctx.periods[ctx.periods.length - 1]
-    const prior2 = ctx.periods[ctx.periods.length - 2]
-    const prior3 = ctx.periods[ctx.periods.length - 3]
-    const revLatest = latest2.values.REVENUE
-    const revPrior1 = prior2.values.REVENUE
-    const revPrior2 = prior3.values.REVENUE
-    if (revLatest && revPrior1 && revPrior2) {
-      const g1 = growthPct(revLatest, revPrior1)
-      const g2 = growthPct(revPrior1, revPrior2)
-      if (g1 !== null && g2 !== null) {
-        if (g1 > g2 + 3) {
-          out.push({
-            id: nextId("growth"),
-            dimension: "GROWTH",
-            code: "revenue_growth_acceleration",
-            label: "Revenue growth accelerating",
-            direction: "IMPROVEMENT",
-            tone: "positive",
-            magnitude: g1 - g2,
-            interpretation: `Revenue growth accelerated from ${formatPercent(g2)} to ${formatPercent(g1)} — momentum building.`,
-            evidence: [
-              { metricCode: "REVENUE", periodKey: latest2.periodKey, value: revLatest },
-              { metricCode: "REVENUE", periodKey: prior2.periodKey, value: revPrior1 },
-              { metricCode: "REVENUE", periodKey: prior3.periodKey, value: revPrior2 },
-            ],
-            confidence: 0.8,
-          })
-        } else if (g1 < g2 - 3) {
-          out.push({
-            id: nextId("growth"),
-            dimension: "GROWTH",
-            code: "revenue_growth_deceleration",
-            label: "Revenue growth decelerating",
-            direction: "DETERIORATION",
-            tone: "warning",
-            magnitude: g1 - g2,
-            interpretation: `Revenue growth decelerated from ${formatPercent(g2)} to ${formatPercent(g1)} — momentum slowing.`,
-            evidence: [
-              { metricCode: "REVENUE", periodKey: latest2.periodKey, value: revLatest },
-              { metricCode: "REVENUE", periodKey: prior2.periodKey, value: revPrior1 },
-              { metricCode: "REVENUE", periodKey: prior3.periodKey, value: revPrior2 },
-            ],
-            confidence: 0.8,
-            severity: "warning",
-          })
-        }
-      }
-    }
-  }
-
-  return out
 }
 
 // ---------------------------------------------------------------------------
@@ -348,27 +223,27 @@ function balanceSheetRiskSignals(ctx: AnalysisContext): InvestorSignal[] {
   if (!priorKey) return out
   const prior = ctx.periods.find((p) => p.periodKey === priorKey)!
 
-  // Debt growth
+  // Debt trend (leverage risk signal)
   const debt = latest.values.TOTAL_DEBT
   const debtPrior = prior.values.TOTAL_DEBT
   if (debt !== undefined && debtPrior !== undefined) {
-    const debtGrowth = growthPct(debt, debtPrior)
-    if (debtGrowth !== null && Math.abs(debtGrowth) > 5) {
+    const debtChange = growthPct(debt, debtPrior)
+    if (debtChange !== null && Math.abs(debtChange) > 5) {
       out.push({
         id: nextId("bs"),
         dimension: "BALANCE_SHEET",
-        code: "debt_growth",
-        label: debtGrowth > 0 ? "Debt increasing" : "Debt decreasing",
-        direction: debtGrowth > 0 ? "DETERIORATION" : "IMPROVEMENT",
-        tone: debtGrowth > 0 ? "warning" : "positive",
-        magnitude: debtGrowth,
-        interpretation: `Total debt ${debtGrowth > 0 ? "increased" : "decreased"} by ${formatPercent(Math.abs(debtGrowth))} (${formatValue(debtPrior)} → ${formatValue(debt)}).`,
+        code: "debt_trend",
+        label: debtChange > 0 ? "Debt increasing" : "Debt decreasing",
+        direction: debtChange > 0 ? "DETERIORATION" : "IMPROVEMENT",
+        tone: debtChange > 0 ? "warning" : "positive",
+        magnitude: debtChange,
+        interpretation: `Total debt ${debtChange > 0 ? "increased" : "decreased"} by ${formatPercent(Math.abs(debtChange))} (${formatValue(debtPrior)} → ${formatValue(debt)}).`,
         evidence: [
           { metricCode: "TOTAL_DEBT", periodKey: latest.periodKey, value: debt },
           { metricCode: "TOTAL_DEBT", periodKey: prior.periodKey, value: debtPrior },
         ],
         confidence: 0.9,
-        severity: debtGrowth > 30 ? "warning" : "info",
+        severity: debtChange > 30 ? "warning" : "info",
       })
     }
   }
@@ -406,38 +281,6 @@ function balanceSheetRiskSignals(ctx: AnalysisContext): InvestorSignal[] {
       ],
       confidence: 0.9,
       severity,
-    })
-  }
-
-  // Liquidity (current ratio)
-  const currentAssets = latest.values.CURRENT_ASSETS
-  const currentLiab = latest.values.CURRENT_LIABILITIES
-  if (currentAssets !== undefined && currentLiab !== undefined && currentLiab > 0) {
-    const cr = currentAssets / currentLiab
-    let tone: SignalTone = "neutral"
-    let direction: SignalDirection = "STABLE"
-    let interpretation = `Current ratio: ${cr.toFixed(2)}x.`
-    if (cr < 1) {
-      tone = "warning"; direction = "DETERIORATION"
-      interpretation = `Liquidity pressure — current ratio ${cr.toFixed(2)}x below 1.0.`
-    } else if (cr > 2) {
-      tone = "positive"; direction = "IMPROVEMENT"
-      interpretation = `Strong liquidity — current ratio ${cr.toFixed(2)}x.`
-    }
-    out.push({
-      id: nextId("bs"),
-      dimension: "BALANCE_SHEET",
-      code: "current_ratio",
-      label: "Current ratio",
-      direction,
-      tone,
-      magnitude: cr,
-      interpretation,
-      evidence: [
-        { metricCode: "CURRENT_ASSETS", periodKey: latest.periodKey, value: currentAssets },
-        { metricCode: "CURRENT_LIABILITIES", periodKey: latest.periodKey, value: currentLiab },
-      ],
-      confidence: 0.9,
     })
   }
 
@@ -777,7 +620,6 @@ export interface InvestorSignalResult {
   signals: InvestorSignal[]
   byDimension: Record<SignalDimension, InvestorSignal[]>
   summary: {
-    growth: number
     profitability: number
     balanceSheet: number
     cash: number
@@ -792,14 +634,12 @@ export interface InvestorSignalResult {
 
 export function buildInvestorSignals(ctx: AnalysisContext): InvestorSignalResult {
   const signals: InvestorSignal[] = [
-    ...growthQualitySignals(ctx),
     ...profitabilityQualitySignals(ctx),
     ...balanceSheetRiskSignals(ctx),
     ...cashQualitySignals(ctx),
     ...earningsQualitySignals(ctx),
   ]
   const byDimension: Record<SignalDimension, InvestorSignal[]> = {
-    GROWTH: [],
     PROFITABILITY: [],
     BALANCE_SHEET: [],
     CASH: [],
@@ -815,7 +655,6 @@ export function buildInvestorSignals(ctx: AnalysisContext): InvestorSignalResult
     signals,
     byDimension,
     summary: {
-      growth: byDimension.GROWTH.length,
       profitability: byDimension.PROFITABILITY.length,
       balanceSheet: byDimension.BALANCE_SHEET.length,
       cash: byDimension.CASH.length,

@@ -1,0 +1,4 @@
+﻿SKIP BQDC: app FY2020 assets 205418661455.79 are continuous with 2019:183306055646.48, 2021:255107427869.86; AskBorsa scale suspect — do not divide
+SKIP IRON: app FY2020 assets 2830000000 are continuous with 2019:3630000000; AskBorsa scale suspect — do not divide
+
+Dry run — re-run with --apply to write.

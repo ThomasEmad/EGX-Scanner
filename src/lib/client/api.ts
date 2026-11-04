@@ -5,12 +5,14 @@
 export type MetricResultStatus = "OK" | "DATA_UNAVAILABLE" | "NOT_APPLICABLE" | "NOT_COMPUTABLE"
 
 export interface ConditionEval {
-  kind: "metric" | "event" | "dividend"
+  kind: "metric" | "event" | "dividend" | "sector"
   code?: string
   eventType?: string
   statuses?: string[]
+  sector?: string
   operator?: string
   threshold?: number
+  range?: MetricRange
   labelEn: string
   labelAr: string
   actualDisplay: string
@@ -53,22 +55,46 @@ export interface ScannerRule {
   createdBy: string
 }
 
+export type MetricRange = { min: number; max: number }
+
 export type ScanCondition =
-  | { kind: "metric"; code: string; operator: string; value: number }
+  | { kind: "metric"; code: string; operator: string; value: number | MetricRange }
   | { kind: "event"; eventType: string }
   | { kind: "dividend"; statuses: string[] }
+  | { kind: "sector"; sector: string; operator: "==" | "!=" }
 
 export interface CompanyListItem {
   id: string
   ticker: string
+  isin?: string | null
   nameEn: string
   nameAr: string | null
   sector: string
   industry: string | null
   listingStatus: string
+  egxCategory?: string | null
+  irUrl?: string | null
   isDemoData: boolean
-  counts: { events: number; dividends: number }
-  snapshot: Record<string, { value: number | null; status: string; periodLabel: string }>
+  counts: { reports: number; events: number; dividends: number }
+  snapshot: Record<string, { value: number | null; status: string; periodLabel: string; fiscalYear?: number }>
+  marketPrice?: {
+    price: number
+    asOf: string | null
+    currency: string
+    changePct: number | null
+  } | null
+  marketCap?: number | null
+}
+
+export interface CompaniesResponse {
+  page: number
+  pageSize: number
+  total: number
+  totalPages: number
+  sort: "ticker" | "marketCap"
+  marketAsOf: string | null
+  delayMinutes: number | null
+  companies: CompanyListItem[]
 }
 
 export interface CompanyDetail {
@@ -267,7 +293,8 @@ export interface PeerData {
   /** true when the sector has fewer than 3 listed companies — peers/medians are empty then */
   insufficient?: boolean
   sectorCount?: number
-  period: { key: string; label: string } | null
+  /** the self company's freshest period; each peer carries its own `period` */
+  period: { key: string; label: string; type: string; fiscalYear: number } | null
   medians: Record<string, number | null>
   peers: {
     id: string
@@ -278,6 +305,13 @@ export interface PeerData {
     isDemoData: boolean
     isSelf: boolean
     values: Record<string, number | null>
+    /** period that supplied each metric value — may differ per metric */
+    periods: Record<string, { key: string; label: string; type: string; fiscalYear: number } | null>
+    /** freshest period among this peer's values */
+    period: { key: string; label: string; type: string; fiscalYear: number } | null
+    stale: boolean
+    /** metric codes whose own period is more than four quarters behind the sector */
+    staleCodes?: string[]
   }[]
 }
 
@@ -364,15 +398,26 @@ export const api = {
       }>(r)
     ),
 
-  companies: (params: { search?: string; sector?: string; page?: number; pageSize?: number }) => {
+  companies: (params: {
+    search?: string
+    sector?: string
+    page?: number
+    pageSize?: number
+    ids?: string[]
+    tickers?: string[]
+    sort?: "ticker" | "marketCap"
+    status?: string
+  }) => {
     const q = new URLSearchParams()
     if (params.search) q.set("search", params.search)
     if (params.sector) q.set("sector", params.sector)
+    if (params.ids) q.set("ids", params.ids.join(","))
+    if (params.tickers) q.set("tickers", params.tickers.join(","))
+    if (params.sort) q.set("sort", params.sort)
+    if (params.status) q.set("status", params.status)
     q.set("page", String(params.page ?? 1))
     q.set("pageSize", String(params.pageSize ?? 9))
-    return fetch(`/api/v1/companies?${q}`).then((r) =>
-      handle<{ page: number; pageSize: number; total: number; totalPages: number; companies: CompanyListItem[] }>(r)
-    )
+    return fetch(`/api/v1/companies?${q}`).then((r) => handle<CompaniesResponse>(r))
   },
 
   company: (id: string) => fetch(`/api/v1/companies/${id}`).then((r) => handle<CompanyDetail>(r)),
@@ -404,7 +449,7 @@ export const api = {
   companyDividends: (id: string) =>
     fetch(`/api/v1/companies/${id}/dividends`).then((r) => handle<{ dividends: DividendItem[] }>(r)),
 
-  peers: (id: string) => fetch(`/api/v1/companies/${id}/peers`).then((r) => handle<PeerData>(r)),
+  peers: (id: string, basis?: "latest" | "annual" | "ttm") => fetch(`/api/v1/companies/${id}/peers${basis ? `?basis=${basis}` : ""}`).then((r) => handle<PeerData>(r)),
 
   eventsFeed: (companyIds?: string[], limit = 15) => {
     const q = new URLSearchParams()
@@ -447,7 +492,22 @@ export const api = {
       body: JSON.stringify({ passcode }),
     }).then((r) => handle<{ token: string }>(r)),
 
-  subscription: () => fetch("/api/v1/subscription/me", { headers: authHeaders() }).then((r) => handle<{ isPremium: boolean; subscription: { id: string; status: string; planName: string; startDate: string | null; endDate: string | null; activatedAt: string | null; activatedBy: string | null; cancelledAt: string | null; notes: string | null } | null; smartAnalysisUsage: { year: number; month: number; usageCount: number; remaining: number; limit: number; resetAt: string | null } }>(r)),
+  subscription: () => {
+    if (!getUserToken()) {
+      return Promise.resolve({
+        isPremium: false,
+        subscription: null,
+        smartAnalysisUsage: null,
+      })
+    }
+    return fetch("/api/v1/subscription/me", { headers: authHeaders() }).then((r) => {
+      if (r.status === 401) {
+        clearUserToken()
+        return { isPremium: false, subscription: null, smartAnalysisUsage: null }
+      }
+      return handle<{ isPremium: boolean; subscription: { id: string; status: string; planName: string; startDate: string | null; endDate: string | null; activatedAt: string | null; activatedBy: string | null; cancelledAt: string | null; notes: string | null } | null; smartAnalysisUsage: { year: number; month: number; usageCount: number; remaining: number; limit: number; resetAt: string | null } | null }>(r)
+    })
+  },
 
   requestSubscription: (notes?: string) =>
     fetch("/api/v1/subscription/request", {

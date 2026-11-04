@@ -8,8 +8,8 @@ import { CALC_METRIC_MAP } from "@/lib/financial/registry"
 
 const COMPARE_METRICS = [
   "revenue", "net_profit", "net_margin", "roe", "roa",
-  "revenue_growth", "profit_growth", "total_assets", "total_equity",
-  "debt_to_equity", "current_ratio", "eps", "p_e", "p_b", "market_cap",
+  "total_assets", "total_equity",
+  "debt_to_equity", "eps", "p_e", "p_b", "market_cap",
 ] as const
 
 export async function GET(req: NextRequest) {
@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
   const ids = (url.searchParams.get("ids") ?? "")
     .split(",")
     .map((s) => s.trim())
-    .filter((s) => s.length > 10)
+    .filter((s) => s.length > 0)
     .slice(0, 4)
   if (ids.length < 2) {
     return Response.json({ error: "INVALID_PAYLOAD", message: "Provide 2-4 company ids." }, { status: 400 })

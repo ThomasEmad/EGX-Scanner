@@ -1,0 +1,151 @@
+﻿
+=== AUDIT v2 DRY RUN — 264 companies in 4.9s ===
+total=2246 critical=127 high=323 medium=682 low=1114
+by class: { blocker: 186, coverage: 608, advisory: 1221, metadata: 231 }
+certification: { certified: 79, provisional: 105, review_required: 80 }
+accuracy bands (100 / 95-99 / 80-94 / <80): { perfect: 43, near: 137, fair: 21, poor: 63 }
+
+--- root causes (all findings) ---
+  336 YOY_MOVE           Large year-over-year move
+  308 CASH_QUALITY       Operating cash vs profit
+  272 TREND_COVERAGE     Trend history gap
+  246 MISSING_METRIC     Missing critical metric
+  231 ISIN               ISIN metadata
+  216 CF_IDENTITY        Cash-flow identity
+   97 IS_TAX_BASIS       Tax / net-profit basis
+   88 DEBT_DEFINITION    Debt components definition
+   78 BS_COMPONENTS      Balance sheet components mismatch
+   66 RATIO_OUTLIER      Ratio outside normal band
+   65 IS_GROSS_PROFIT    Gross profit identity
+   61 BS_MAPPING         Balance-sheet line mis-mapped
+   50 SECTOR_RULE        Sector rule violation / gap
+   40 FRESHNESS          Stale data
+   36 BS_IDENTITY        Balance sheet does not balance
+   29 DUPLICATE_PERIOD   Duplicate period data
+   22 IS_OPERATING       Operating vs net profit gap
+    5 IS_MARGIN          Impossible margin
+
+--- blocker findings by root cause ---
+   61 BS_MAPPING
+   29 BS_COMPONENTS
+   22 IS_TAX_BASIS
+   16 BS_IDENTITY
+   16 CF_IDENTITY
+   14 IS_GROSS_PROFIT
+   13 DUPLICATE_PERIOD
+   10 DEBT_DEFINITION
+    5 IS_MARGIN
+
+--- companies with blockers (top 25 by blocker count) ---
+companies with ≥1 blocker: 80 of 264
+IRON   blockers=  9 accuracy=7 completeness=75 conf=45 [IS_GROSS_PROFIT,BS_IDENTITY,BS_MAPPING,DUPLICATE_PERIOD]
+FWRY   blockers=  8 accuracy=0 completeness=100 conf=50 [BS_IDENTITY,BS_COMPONENTS,IS_GROSS_PROFIT,IS_TAX_BASIS]
+SPHT   blockers=  7 accuracy=3 completeness=75 conf=41 [IS_GROSS_PROFIT,BS_COMPONENTS,IS_MARGIN]
+LCSW   blockers=  6 accuracy=12 completeness=37 conf=38 [BS_IDENTITY,BS_MAPPING,IS_TAX_BASIS,DUPLICATE_PERIOD]
+AMOC   blockers=  5 accuracy=45 completeness=100 conf=72 [BS_IDENTITY,IS_GROSS_PROFIT,BS_COMPONENTS,DEBT_DEFINITION]
+CNFN   blockers=  5 accuracy=25 completeness=43 conf=46 [BS_MAPPING,IS_TAX_BASIS,DUPLICATE_PERIOD]
+NCEM   blockers=  5 accuracy=33 completeness=62 conf=40 [BS_COMPONENTS,IS_GROSS_PROFIT,BS_IDENTITY]
+POUL   blockers=  5 accuracy=57 completeness=75 conf=70 [BS_MAPPING,DEBT_DEFINITION,DUPLICATE_PERIOD]
+ASCM   blockers=  4 accuracy=1 completeness=87 conf=45 [BS_MAPPING,CF_IDENTITY,IS_MARGIN,DUPLICATE_PERIOD]
+BINV   blockers=  4 accuracy=27 completeness=43 conf=47 [BS_MAPPING,IS_TAX_BASIS,DUPLICATE_PERIOD]
+CFGH   blockers=  4 accuracy=61 completeness=37 conf=60 [BS_IDENTITY,BS_MAPPING]
+CICH   blockers=  4 accuracy=44 completeness=43 conf=56 [BS_MAPPING,IS_TAX_BASIS]
+COSG   blockers=  4 accuracy=18 completeness=99 conf=57 [BS_MAPPING,CF_IDENTITY,IS_TAX_BASIS]
+FAIT   blockers=  4 accuracy=72 completeness=61 conf=74 [BS_MAPPING]
+MFPC   blockers=  4 accuracy=6 completeness=100 conf=53 [BS_COMPONENTS,CF_IDENTITY,IS_MARGIN]
+MHOT   blockers=  4 accuracy=34 completeness=37 conf=49 [BS_MAPPING,BS_IDENTITY,BS_COMPONENTS,IS_MARGIN]
+MIPH   blockers=  4 accuracy=43 completeness=37 conf=51 [BS_MAPPING,CF_IDENTITY]
+RAKT   blockers=  4 accuracy=77 completeness=62 conf=74 [BS_MAPPING]
+UEGC   blockers=  4 accuracy=33 completeness=99 conf=64 [BS_MAPPING,CF_IDENTITY,BS_COMPONENTS]
+ACTF   blockers=  3 accuracy=76 completeness=62 conf=74 [BS_MAPPING]
+ASPI   blockers=  3 accuracy=43 completeness=43 conf=55 [BS_COMPONENTS,DUPLICATE_PERIOD]
+COPR   blockers=  3 accuracy=64 completeness=43 conf=63 [BS_MAPPING,BS_COMPONENTS]
+EFIH   blockers=  3 accuracy=96 completeness=99 conf=96 [DEBT_DEFINITION]
+MAAL   blockers=  3 accuracy=64 completeness=100 conf=80 [CF_IDENTITY,DEBT_DEFINITION]
+NAHO   blockers=  3 accuracy=17 completeness=99 conf=56 [BS_IDENTITY,IS_TAX_BASIS,DUPLICATE_PERIOD]
+
+--- blocker samples (first 40) ---
+[ABUK] BALANCE_SHEET_EQUATION FY 2017 :: BALANCE_SHEET_EQUATION FAILED: gap 3.03% (206.4M EGP; materiality threshold 34.1M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilitie
+[ABUK] BALANCE_SHEET_EQUATION FY 2019 :: BALANCE_SHEET_EQUATION FAILED: gap 2.08% (189.3M EGP; materiality threshold 45.4M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilitie
+[ACAP] ASSET_COMPONENTS FY 2023 :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 5.45B vs TOTAL_ASSETS = 5.11B (6.67%) — missing/extra component or mapping gap.
+[ACTF] BALANCE_SHEET_EQUATION FY 2021 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (451.0M) but the L/E split leaves a 21.4M gap — an equity or liability line is mis-mapped.
+[ACTF] BALANCE_SHEET_EQUATION FY 2022 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (488.0M) but the L/E split leaves a 12.8M gap — an equity or liability line is mis-mapped.
+[ACTF] BALANCE_SHEET_EQUATION FY 2023 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (1.20B) but the L/E split leaves a 12.5M gap — an equity or liability line is mis-mapped.
+[AMER] GROSS_PROFIT_IDENTITY Q2 2026 :: GROSS_PROFIT_IDENTITY FAILED: gap 127.04% (-344.4M EGP; materiality threshold 5.4M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after ot
+[AMOC] BALANCE_SHEET_EQUATION FY 2017 :: BALANCE_SHEET_EQUATION FAILED: gap 4.76% (-206.4M EGP; materiality threshold 21.7M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabiliti
+[AMOC] GROSS_PROFIT_IDENTITY FY 2020 :: GROSS_PROFIT_IDENTITY FAILED: gap 7.20% (676.5M EGP; materiality threshold 187.9M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after oth
+[AMOC] ASSET_COMPONENTS FY 2022 :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 4.65B vs TOTAL_ASSETS = 4.92B (5.56%) — missing/extra component or mapping gap.
+[AMOC] DEBT_COMPONENTS FY 2023 :: DEBT_COMPONENTS FAILED: ST+LT = 0.00 vs TOTAL_DEBT = 10.1M (100.0%). Total debt may include leases/other debt; confirm the definition.
+[AMOC] DEBT_COMPONENTS FY 2025 :: DEBT_COMPONENTS FAILED: ST+LT = 26.5M vs TOTAL_DEBT = 158.7M (83.3%). Total debt may include leases/other debt; confirm the definition.
+[ARAB] BALANCE_SHEET_EQUATION FY 2025 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (11.85B) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ 9.38B). Re-extract the liabilities 
+[ARCC] BALANCE_SHEET_EQUATION FY 2022 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (3.81B) but the L/E split leaves a 38.7M gap — an equity or liability line is mis-mapped.
+[ASCM] BALANCE_SHEET_EQUATION FY 2021 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (1.36B) but the L/E split leaves a -234.2M gap — an equity or liability line is mis-mapped.
+[ASCM] CASH_FLOW_SUM FY 2023 :: CASH_FLOW_SUM FAILED: gap 147.13% (239.8M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[ASCM] NET_MARGIN_IMPOSSIBLE FY 2023 :: Net margin 102% > 100% (non-financial) — impossible.
+[ASCM] CROSS_QUARTER_DUPLICATE Q3 2025 :: Q3 2025 repeats 9/9 values of the previous quarter Q2 2025 (±0.05%) — a tab-switch harvest copy; quarantine the later record and re-extract.
+[ASPI] ASSET_COMPONENTS FY 2023 :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 27.5M vs TOTAL_ASSETS = 1.44B (98.09%) — missing/extra component or mapping gap.
+[ASPI] ASSET_COMPONENTS FY 2024 :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 94.3M vs TOTAL_ASSETS = 2.56B (96.31%) — missing/extra component or mapping gap.
+[ASPI] CROSS_QUARTER_DUPLICATE Q3 2025 :: Q3 2025 repeats 15/15 values of the previous quarter Q2 2025 (±0.05%) — a tab-switch harvest copy; quarantine the later record and re-extract.
+[ATQA] CASH_FLOW_SUM FY 2024 :: CASH_FLOW_SUM FAILED: gap 200.00% (4.32B EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[BINV] BALANCE_SHEET_EQUATION FY 2022 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (4.31B) but the L/E split leaves a 43.6M gap — an equity or liability line is mis-mapped.
+[BINV] BALANCE_SHEET_EQUATION FY 2023 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (3.63B) but the L/E split leaves a 68.2M gap — an equity or liability line is mis-mapped.
+[BINV] PBT_TAX_NET_PROFIT Q2 2026 :: PBT_TAX_NET_PROFIT FAILED: gap 76.93% (79.7M EGP; materiality threshold 1.6M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 5% are usually minority interest or attributab
+[BINV] CROSS_QUARTER_DUPLICATE Q3 2025 :: Q3 2025 repeats 15/15 values of the previous quarter Q2 2025 (±0.05%) — a tab-switch harvest copy; quarantine the later record and re-extract.
+[BONY] BALANCE_SHEET_EQUATION FY 2023 :: BALANCE_SHEET_EQUATION FAILED: gap 3.23% (340.5M EGP; materiality threshold 52.8M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilitie
+[BTFH] PBT_TAX_NET_PROFIT Q2 2026 :: PBT_TAX_NET_PROFIT FAILED: gap 9.78% (21.3M EGP; materiality threshold 3.3M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 5% are usually minority interest or attributabl
+[CFGH] BALANCE_SHEET_EQUATION FY 2017 :: BALANCE_SHEET_EQUATION FAILED: gap 2.70% (10.8M EGP; materiality threshold 2.0M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilities 
+[CFGH] BALANCE_SHEET_EQUATION FY 2018 :: BALANCE_SHEET_EQUATION FAILED: gap 2.86% (-12.4M EGP; materiality threshold 2.2M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilities
+[CFGH] BALANCE_SHEET_EQUATION FY 2023 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (350.8M) but the L/E split leaves a 2.9M gap — an equity or liability line is mis-mapped.
+[CFGH] BALANCE_SHEET_EQUATION FY 2024 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (203.1M) but the L/E split leaves a 1.7M gap — an equity or liability line is mis-mapped.
+[CICH] BALANCE_SHEET_EQUATION FY 2022 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (23.85B) but the L/E split leaves a 490.3M gap — an equity or liability line is mis-mapped.
+[CICH] BALANCE_SHEET_EQUATION FY 2023 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (25.40B) but the L/E split leaves a 431.0M gap — an equity or liability line is mis-mapped.
+[CICH] BALANCE_SHEET_EQUATION FY 2024 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (32.95B) but the L/E split leaves a 425.8M gap — an equity or liability line is mis-mapped.
+[CICH] PBT_TAX_NET_PROFIT Q2 2026 :: PBT_TAX_NET_PROFIT FAILED: gap 7.49% (40.9M EGP; materiality threshold 8.2M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 5% are usually minority interest or attributabl
+[CNFN] BALANCE_SHEET_EQUATION FY 2022 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (9.31B) but the L/E split leaves a 75.3M gap — an equity or liability line is mis-mapped.
+[CNFN] BALANCE_SHEET_EQUATION FY 2023 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (12.50B) but the L/E split leaves a 106.2M gap — an equity or liability line is mis-mapped.
+[CNFN] BALANCE_SHEET_EQUATION FY 2024 :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (14.74B) but the L/E split leaves a 403.7M gap — an equity or liability line is mis-mapped.
+[CNFN] PBT_TAX_NET_PROFIT Q2 2026 :: PBT_TAX_NET_PROFIT FAILED: gap 24.62% (-33.4M EGP; materiality threshold 2.0M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 5% are usually minority interest or attributa
+
+--- lowest overall quality (top 20) ---
+LCSW   score= 38 acc= 12 comp= 37 fresh=100 prov= 80 review_required
+NCEM   score= 40 acc= 33 comp= 62 fresh= 15 prov= 65 review_required
+SPHT   score= 41 acc=  3 comp= 75 fresh= 85 prov= 80 review_required
+ASCM   score= 45 acc=  1 comp= 87 fresh=100 prov= 80 review_required
+IRON   score= 45 acc=  7 comp= 75 fresh=100 prov= 80 review_required
+CNFN   score= 46 acc= 25 comp= 43 fresh=100 prov= 80 review_required
+BINV   score= 47 acc= 27 comp= 43 fresh=100 prov= 80 review_required
+MHOT   score= 49 acc= 34 comp= 37 fresh=100 prov= 80 review_required
+RMTV   score= 49 acc= 70 comp= 22 fresh= 15 prov= 65 review_required
+FWRY   score= 50 acc=  0 comp=100 fresh=100 prov=100 review_required
+MIPH   score= 51 acc= 43 comp= 37 fresh= 85 prov= 80 review_required
+MFPC   score= 53 acc=  6 comp=100 fresh=100 prov=100 review_required
+SMPP   score= 53 acc= 70 comp= 37 fresh= 15 prov= 65 review_required
+ASPI   score= 55 acc= 43 comp= 43 fresh=100 prov= 80 review_required
+CICH   score= 56 acc= 44 comp= 43 fresh=100 prov= 80 review_required
+NAHO   score= 56 acc= 17 comp= 99 fresh=100 prov= 80 review_required
+COSG   score= 57 acc= 18 comp= 99 fresh=100 prov= 80 review_required
+CFGH   score= 60 acc= 61 comp= 37 fresh= 85 prov= 80 review_required
+KORA   score= 62 acc=100 comp= 22 fresh= 15 prov= 40 provisional
+COPR   score= 63 acc= 64 comp= 43 fresh= 85 prov= 80 review_required
+
+--- quarantine load (top 20) ---
+ENGC   usable= 462 quarantined= 223
+UNIT   usable= 373 quarantined= 201
+CCAP   usable= 350 quarantined= 197
+MCQE   usable= 517 quarantined= 195
+DSCW   usable= 533 quarantined= 188
+ARCC   usable= 508 quarantined= 187
+RMDA   usable= 370 quarantined= 186
+JUFO   usable= 547 quarantined= 181
+MTIE   usable= 498 quarantined= 181
+BTFH   usable= 445 quarantined= 177
+SKPC   usable= 569 quarantined= 174
+EFID   usable= 549 quarantined= 173
+ATLC   usable= 324 quarantined= 168
+TMGH   usable= 580 quarantined= 167
+SWDY   usable= 528 quarantined= 165
+EFIC   usable= 402 quarantined= 159
+EFIH   usable= 491 quarantined= 159
+ORWE   usable= 558 quarantined= 159
+RAYA   usable= 592 quarantined= 154
+ZMID   usable= 330 quarantined= 154

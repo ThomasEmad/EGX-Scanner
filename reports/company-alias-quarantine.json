@@ -1,0 +1,130 @@
+{
+  "generatedAt": "2026-10-30T01:30:22.669Z",
+  "deactivated": [
+    {
+      "ticker": "CNFG",
+      "canonical": "CNFN",
+      "companyId": "cmvu2gllt0009bxg4wawb9rvq"
+    },
+    {
+      "ticker": "CPC",
+      "canonical": "POUL",
+      "companyId": "cmvu2glm2000abxg4khloxje9"
+    },
+    {
+      "ticker": "DOMTY",
+      "canonical": "DOMT",
+      "companyId": "cmvu2glkq0005bxg49kkbkpyx"
+    },
+    {
+      "ticker": "EDBE",
+      "canonical": "EXPA",
+      "companyId": "cmvu2glma000bbxg4nj4n4nil"
+    },
+    {
+      "ticker": "IBPH",
+      "canonical": "ISPH",
+      "companyId": "cmvu2glmx000ebxg44nuy46xm"
+    },
+    {
+      "ticker": "MNHD",
+      "canonical": "MASR",
+      "companyId": "cmvu2glik0002bxg4toxlgudv"
+    },
+    {
+      "ticker": "OPHC",
+      "canonical": "EMFD",
+      "companyId": "cmvu2glnc000gbxg4s1soxlyq"
+    },
+    {
+      "ticker": "PHAE",
+      "canonical": "PHAR",
+      "companyId": "cmvu2glnj000hbxg4qv6s2rxe"
+    },
+    {
+      "ticker": "RMDT",
+      "canonical": "RMDA",
+      "companyId": "cmvu2gll90007bxg43wez9c7m"
+    },
+    {
+      "ticker": "SBAG",
+      "canonical": "CANA",
+      "companyId": "cmvu2glo3000jbxg4vyipjlym"
+    },
+    {
+      "ticker": "EZDK",
+      "canonical": "ESRS",
+      "companyId": "cmvu2glmq000dbxg441msbdf0"
+    },
+    {
+      "ticker": "EIPC",
+      "canonical": "IRON",
+      "companyId": "cmvu2glmj000cbxg4l8euq6qc"
+    },
+    {
+      "ticker": "QNBA",
+      "canonical": "QNBE",
+      "companyId": "cmvu2glhe0000bxg4q3xkef1m"
+    },
+    {
+      "ticker": "MOPCO",
+      "canonical": "MFPC",
+      "companyId": "cmvu2gljb0004bxg4sgcqw0pv",
+      "forced": true
+    }
+  ],
+  "skipped": [
+    {
+      "ticker": "CNFG",
+      "reason": "ALREADY_INACTIVE"
+    },
+    {
+      "ticker": "CPC",
+      "reason": "ALREADY_INACTIVE"
+    },
+    {
+      "ticker": "DOMTY",
+      "reason": "ALREADY_INACTIVE"
+    },
+    {
+      "ticker": "EDBE",
+      "reason": "ALREADY_INACTIVE"
+    },
+    {
+      "ticker": "IBPH",
+      "reason": "ALREADY_INACTIVE"
+    },
+    {
+      "ticker": "MNHD",
+      "reason": "ALREADY_INACTIVE"
+    },
+    {
+      "ticker": "OPHC",
+      "reason": "ALREADY_INACTIVE"
+    },
+    {
+      "ticker": "PHAE",
+      "reason": "ALREADY_INACTIVE"
+    },
+    {
+      "ticker": "RMDT",
+      "reason": "ALREADY_INACTIVE"
+    },
+    {
+      "ticker": "SBAG",
+      "reason": "ALREADY_INACTIVE"
+    },
+    {
+      "ticker": "EZDK",
+      "reason": "ALREADY_INACTIVE"
+    },
+    {
+      "ticker": "EIPC",
+      "reason": "ALREADY_INACTIVE"
+    },
+    {
+      "ticker": "QNBA",
+      "reason": "ALREADY_INACTIVE"
+    }
+  ]
+}

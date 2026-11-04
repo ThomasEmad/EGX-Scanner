@@ -32,7 +32,10 @@ export async function POST(req: NextRequest) {
     await audit("ADMIN_LOGIN", { actor: "admin", details: "Admin session started" })
 
     const cookieResponse = setAdminCookie(token, session?.expiresAt || new Date(Date.now() + 24 * 60 * 60 * 1000))
-    return cookieResponse
+    const headers = new Headers()
+    const setCookie = cookieResponse.headers.get("Set-Cookie")
+    if (setCookie) headers.set("Set-Cookie", setCookie)
+    return Response.json({ success: true }, { headers })
   } catch (e) {
     console.error("admin login error", e)
     return Response.json({ error: "INTERNAL_ERROR" }, { status: 500 })

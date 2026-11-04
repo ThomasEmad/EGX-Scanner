@@ -31,8 +31,6 @@ const scoreBg = (v: number | null) =>
 
 const LABELS: Record<string, { en: string; ar: string }> = {
   profitability: { en: "Profitability", ar: "الربحية" },
-  growth: { en: "Growth", ar: "النمو" },
-  liquidity: { en: "Liquidity", ar: "السيولة" },
   leverage: { en: "Leverage", ar: "الرفع المالي" },
   cash: { en: "Cash quality", ar: "جودة النقد" },
 }
@@ -84,8 +82,8 @@ export function HealthTab({ companyId }: { companyId: string }) {
             </p>
             <p className="mt-1 max-w-md text-xs leading-relaxed text-muted-foreground">
               {lang === "ar"
-                ? "درجة من 100 محسوبة من المقاييس المالية الموثقة (الربحية، النمو، السيولة، الرفع، جودة النقد). المكوّنات غير المتاحة لا تُقدَّر."
-                : "A 0-100 score from verified financial metrics (profitability, growth, liquidity, leverage, cash quality). Unavailable components are never estimated."}
+                ? "درجة من 100 محسوبة من المقاييس المالية الموثقة (الربحية، الرفع المالي، جودة النقد). المكوّنات غير المتاحة لا تُقدَّر."
+                : "A 0-100 score from verified financial metrics (profitability, leverage, cash quality). Unavailable components are never estimated."}
             </p>
             {verdictLabel ? (
               <Badge variant="outline" className={`mt-2 text-[10px] ${data.valuation?.verdict === "undervalued" ? "border-emerald-500/40 text-emerald-600 dark:text-emerald-400" : data.valuation?.verdict === "expensive" ? "border-red-500/40 text-red-600 dark:text-red-400" : ""}`}>

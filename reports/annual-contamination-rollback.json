@@ -1,0 +1,434 @@
+{
+  "corrections": [
+    {
+      "id": "cmuprf5il0471bxg0tq1diej2",
+      "ticker": "EAST",
+      "year": 2025,
+      "metric": "NET_PROFIT",
+      "oldValue": 5382337000,
+      "oldOriginalValue": 9718093999.64,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuprf5i7046vbxg05js8pqvy",
+      "ticker": "EAST",
+      "year": 2025,
+      "metric": "REVENUE",
+      "oldValue": 18455275000,
+      "oldOriginalValue": 37252693665.3,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuprf5ig046zbxg02eimwl0z",
+      "ticker": "EAST",
+      "year": 2025,
+      "metric": "GROSS_PROFIT",
+      "oldValue": 5701123000,
+      "oldOriginalValue": 11877670444.01,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuprf5ic046xbxg0fshzad2m",
+      "ticker": "EAST",
+      "year": 2025,
+      "metric": "COGS",
+      "oldValue": 12754152000,
+      "oldOriginalValue": 25375023221.29,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmur7h0310269bx5k3zfb3zau",
+      "ticker": "EAST",
+      "year": 2025,
+      "metric": "OPERATING_CASH_FLOW",
+      "oldValue": 23755340888.01,
+      "oldOriginalValue": -23755340888.01,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmur7h036026bbx5k4ogjf5f1",
+      "ticker": "EAST",
+      "year": 2025,
+      "metric": "INVESTING_CASH_FLOW",
+      "oldValue": 12683320000,
+      "oldOriginalValue": 16736717443.83,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmur7h03b026dbx5k7ryj0c2u",
+      "ticker": "EAST",
+      "year": 2025,
+      "metric": "FINANCING_CASH_FLOW",
+      "oldValue": -8853192000,
+      "oldOriginalValue": -9178199888.55,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo4ucu06n1bx3wsj0mp3mx",
+      "ticker": "EGAL",
+      "year": 2025,
+      "metric": "NET_PROFIT",
+      "oldValue": 3122747462,
+      "oldOriginalValue": 10190000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuprf5yd04dtbxg008m4m2mw",
+      "ticker": "EGAL",
+      "year": 2025,
+      "metric": "REVENUE",
+      "oldValue": 12882013627,
+      "oldOriginalValue": 43191528887.3,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuprf5yj04dvbxg0304muboc",
+      "ticker": "EGAL",
+      "year": 2025,
+      "metric": "COGS",
+      "oldValue": 8700680293,
+      "oldOriginalValue": 28074493776.74,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo4ud406n3bx3w81gszh4k",
+      "ticker": "EGAL",
+      "year": 2025,
+      "metric": "GROSS_PROFIT",
+      "oldValue": 4181333334,
+      "oldOriginalValue": 15310000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo4ude06n5bx3weflqutsr",
+      "ticker": "EGAL",
+      "year": 2025,
+      "metric": "TOTAL_ASSETS",
+      "oldValue": 31974431671,
+      "oldOriginalValue": 29340000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo4udo06n7bx3wu01uzl1n",
+      "ticker": "EGAL",
+      "year": 2025,
+      "metric": "TOTAL_LIABILITIES",
+      "oldValue": 8034732648,
+      "oldOriginalValue": 6960000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo4udy06n9bx3w7ydb0z93",
+      "ticker": "EGAL",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY",
+      "oldValue": 23939699023,
+      "oldOriginalValue": 22370000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo4ue806nbbx3w1chp2x25",
+      "ticker": "EGAL",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "oldValue": 29340000000,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher",
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmuprf5yo04dxbxg0oeqz4byb",
+      "ticker": "EGAL",
+      "year": 2025,
+      "metric": "CURRENT_ASSETS",
+      "oldValue": 26678784947,
+      "oldOriginalValue": 24527968319.07,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmur7h0bs02a9bx5kk5a4qfcl",
+      "ticker": "EGAL",
+      "year": 2025,
+      "metric": "NON_CURRENT_ASSETS",
+      "oldValue": 5295646724,
+      "oldOriginalValue": 4671993965.54,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuprf5yu04dzbxg0k0pyaaoj",
+      "ticker": "EGAL",
+      "year": 2025,
+      "metric": "CURRENT_LIABILITIES",
+      "oldValue": 7007990948.31,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmur7h0bw02abbx5kgr5yzgus",
+      "ticker": "EGAL",
+      "year": 2025,
+      "metric": "INVENTORY",
+      "oldValue": 9695811117,
+      "oldOriginalValue": 13431982650.92,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo4uet06nfbx3wnxacit72",
+      "ticker": "EGAL",
+      "year": 2025,
+      "metric": "INVESTING_CASH_FLOW",
+      "oldValue": -124719104,
+      "oldOriginalValue": 1660000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo4uf206nhbx3w1prpqwoy",
+      "ticker": "EGAL",
+      "year": 2025,
+      "metric": "FINANCING_CASH_FLOW",
+      "oldValue": -775382448,
+      "oldOriginalValue": -3350000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujon0kc0107bxgczrnpcddn",
+      "ticker": "CANA",
+      "year": 2025,
+      "metric": "NET_PROFIT",
+      "oldValue": 5652258000,
+      "oldOriginalValue": 6420000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded 0.01M)",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo48wo0311bx3wtdwd9tt9",
+      "ticker": "CANA",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "oldValue": 269000000000,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)",
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmujon0jn0105bxgcvw0hp51a",
+      "ticker": "CANA",
+      "year": 2024,
+      "metric": "NET_PROFIT",
+      "oldValue": 5003440000,
+      "oldOriginalValue": 5680000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded 0.01M)",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo48tq030jbx3whse8tyr6",
+      "ticker": "CANA",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "oldValue": 180000000000,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)",
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmuib6kyc00dpbx6wfim7rpvm",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "NET_PROFIT",
+      "oldValue": 4908833719,
+      "oldOriginalValue": 5538472678,
+      "oldStatus": "VALID",
+      "oldNotes": "Mubasher earnings announcements table (public, logged-in session)",
+      "oldIsManuallyCorrected": true
+    }
+  ],
+  "created": [
+    {
+      "id": "cmvttxlan0001bx6kup0fqovc",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "NET_PROFIT_PARENT"
+    },
+    {
+      "id": "cmvttxlay0003bx6k86l8i3mm",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "REVENUE"
+    },
+    {
+      "id": "cmvttxlb50005bx6kf6orp8iq",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "COGS"
+    },
+    {
+      "id": "cmvttxlbd0007bx6k2bj8ikaz",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "GROSS_PROFIT"
+    },
+    {
+      "id": "cmvttxlbl0009bx6k3538f6ka",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "TOTAL_ASSETS"
+    },
+    {
+      "id": "cmvttxlbt000bbx6kcbxgu4lw",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "TOTAL_LIABILITIES"
+    },
+    {
+      "id": "cmvttxlc2000dbx6kzl34e8y6",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "TOTAL_EQUITY"
+    },
+    {
+      "id": "cmvttxlca000fbx6kce0rzg9v",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES"
+    },
+    {
+      "id": "cmvttxlci000hbx6k71hmhz19",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "CURRENT_ASSETS"
+    },
+    {
+      "id": "cmvttxlcs000jbx6ka9st5ncq",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "NON_CURRENT_ASSETS"
+    },
+    {
+      "id": "cmvttxld0000lbx6kkdzqusl3",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "CURRENT_LIABILITIES"
+    },
+    {
+      "id": "cmvttxldb000nbx6k9kh21xa9",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "NON_CURRENT_LIABILITIES"
+    },
+    {
+      "id": "cmvttxldj000pbx6kfru2nnb7",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "INVENTORY"
+    },
+    {
+      "id": "cmvttxldv000rbx6kcv3o4y7d",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "CASH_AND_EQUIVALENTS"
+    },
+    {
+      "id": "cmvttxle4000tbx6kquqx5xl7",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "SHORT_TERM_DEBT"
+    },
+    {
+      "id": "cmvttxleb000vbx6kvjd8k9fw",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "TOTAL_DEBT"
+    },
+    {
+      "id": "cmvttxlek000xbx6kf517emj0",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "BASIC_EPS"
+    },
+    {
+      "id": "cmvttxles000zbx6kvzvwokon",
+      "ticker": "EGAL",
+      "year": 2026,
+      "metric": "DILUTED_EPS"
+    }
+  ],
+  "quarantines": [
+    {
+      "id": "cmuib6jvq000fbx6w0dh2hlvu",
+      "ticker": "EAST",
+      "year": 2026,
+      "metric": "NET_PROFIT",
+      "oldStatus": "VALID",
+      "oldNotes": "Mubasher earnings announcements table (public, logged-in session)"
+    }
+  ],
+  "reports": [
+    {
+      "id": "cmuib6ky700dnbx6w9dlpys3p",
+      "oldPeriodType": "ANNUAL",
+      "oldPeriodLabel": "FY 2026",
+      "oldReportType": "ANNUAL",
+      "oldPeriodStart": null,
+      "oldPeriodEnd": "2026-12-31T00:00:00.000Z",
+      "oldSourceName": "MUBASHER_EARNINGS",
+      "oldSourceUrl": "https://www.mubasher.info/countries/eg/earnings",
+      "oldNotes": "Net profit from Mubasher public earnings announcements (logged-in session)."
+    },
+    {
+      "id": "cmuib6jvl000dbx6wti0io7in",
+      "oldPeriodType": "ANNUAL",
+      "oldPeriodLabel": "FY 2026",
+      "oldReportType": "ANNUAL",
+      "oldPeriodStart": null,
+      "oldPeriodEnd": "2026-12-31T00:00:00.000Z",
+      "oldSourceName": "MUBASHER_EARNINGS",
+      "oldSourceUrl": "https://www.mubasher.info/countries/eg/earnings",
+      "oldNotes": "Net profit from Mubasher public earnings announcements (logged-in session)."
+    }
+  ]
+}

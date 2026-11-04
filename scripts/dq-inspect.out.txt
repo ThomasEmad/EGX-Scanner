@@ -1,0 +1,162 @@
+﻿
+===== AALR =====
+-- Q3 2026 QUARTERLY/CONSOLIDATED/ASKBORA_SUMMARY (DERIVED)
+   FINANCING_CASH_FLOW                       2020000 VALID 
+   INVESTING_CASH_FLOW                         25730 VALID 
+   OPERATING_CASH_FLOW                       1800000 VALID 
+   TOTAL_ASSETS                            622000000 VALID 
+   TOTAL_EQUITY                            492000000 VALID 
+   TOTAL_EQUITY_AND_LIABILITIES            622000000 VALID 
+-- Q2 2026 QUARTERLY/CONSOLIDATED/ASKBORA_SUMMARY
+   FINANCING_CASH_FLOW                      -6150000 VALID 
+   GROSS_PROFIT                               633000 VALID 
+   INVESTING_CASH_FLOW                        -25730 VALID 
+   NET_PROFIT                              -19990000 VALID 
+   OPERATING_CASH_FLOW                       6670000 VALID 
+   TOTAL_ASSETS                            600000000 VALID 
+   TOTAL_EQUITY                            523000000 VALID 
+   TOTAL_EQUITY_AND_LIABILITIES            600000000 VALID 
+-- Q4 2025 QUARTERLY/CONSOLIDATED/TRADINGVIEW_FINANCIALS
+   CURRENT_ASSETS                          583999246 VALID 
+   CURRENT_LIABILITIES                    1167998491 VALID 
+-- Q3 2025 QUARTERLY/CONSOLIDATED/ASKBORA_SUMMARY (DERIVED)
+   FINANCING_CASH_FLOW                        860000 VALID 
+   NET_PROFIT                               14602000 VALID 
+   TOTAL_ASSETS                            603000000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   TOTAL_EQUITY                           -503000000 VALID 
+   TOTAL_EQUITY_AND_LIABILITIES            603000000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   TOTAL_LIABILITIES                      1110000000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+
+===== ABUK =====
+-- Q1 2026 QUARTERLY/CONSOLIDATED/ASKBORA_SUMMARY
+   REVENUE                                9533426763 VALID 
+-- Q4 2025 QUARTERLY/CONSOLIDATED/ASKBORA_SUMMARY
+-- Q3 2025 QUARTERLY/CONSOLIDATED/ASKBORA_SUMMARY (DERIVED)
+   FINANCING_CASH_FLOW                   -3150000000 VALID 
+   GROSS_PROFIT                           3400000000 VALID 
+   INVESTING_CASH_FLOW                    2270000000 VALID 
+   NET_CHANGE_IN_CASH                     7334000000 VALID 
+   NET_PROFIT                             3330000000 VALID 
+   OPERATING_CASH_FLOW                    2613994033 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   TOTAL_ASSETS                          41070000000 VALID 
+   TOTAL_EQUITY                          30890000000 VALID 
+   TOTAL_EQUITY_AND_LIABILITIES          41070000000 VALID 
+-- Q2 2025 QUARTERLY/CONSOLIDATED/ASKBORA_SUMMARY (DERIVED)
+   FINANCING_CASH_FLOW                   -6310000000 VALID 
+   GROSS_PROFIT                           3150000000 VALID 
+   INVESTING_CASH_FLOW                     -42270000 VALID 
+   NET_CHANGE_IN_CASH                    -6340000000 VALID 
+   NET_PROFIT                             3160000000 VALID 
+   OPERATING_CASH_FLOW                    2613994033 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   TOTAL_ASSETS                          40130000000 VALID 
+   TOTAL_EQUITY                          27610000000 VALID 
+   TOTAL_EQUITY_AND_LIABILITIES          40130000000 VALID 
+
+===== ACGC =====
+-- Q1 2026 QUARTERLY/CONSOLIDATED/TRADINGVIEW_FINANCIALS
+-- Q4 2025 QUARTERLY/CONSOLIDATED/TRADINGVIEW_FINANCIALS
+-- Q3 2025 QUARTERLY/CONSOLIDATED/TRADINGVIEW_FINANCIALS
+   FINANCING_CASH_FLOW                     676000000 VALID 
+   GROSS_PROFIT                            143000000 VALID 
+   INVESTING_CASH_FLOW                     -79860000 VALID 
+   NET_PROFIT                              512852930 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   OPERATING_CASH_FLOW                    -706000000 VALID 
+-- Q2 2025 QUARTERLY/CONSOLIDATED/TRADINGVIEW_FINANCIALS
+   FINANCING_CASH_FLOW                     284000000 VALID 
+   GROSS_PROFIT                             58490000 VALID 
+   INVESTING_CASH_FLOW                      23790000 VALID 
+   NET_PROFIT                              512852930 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   OPERATING_CASH_FLOW                    -331000000 VALID 
+   TOTAL_ASSETS                           4600000000 VALID 
+   TOTAL_EQUITY                           2334179604 VALID 
+   TOTAL_EQUITY_AND_LIABILITIES           4600000000 VALID 
+   TOTAL_LIABILITIES                      1840000000 VALID 
+
+===== IRON =====
+-- Q2 2026 QUARTERLY/CONSOLIDATED/YAHOO_FINANCE_API (DERIVED)
+   CLOSING_CASH                             98918000 VALID 
+   CURRENT_ASSETS                          732761000 VALID 
+   FINANCING_CASH_FLOW                      32335000 VALID API import — YAHOO_FINANCE_API
+   INCOME_TAX                                  69000 VALID 
+   INVESTING_CASH_FLOW                      21629000 VALID 
+   NET_PROFIT                              -59532000 VALID API import — YAHOO_FINANCE_API
+   NON_CURRENT_ASSETS                        2310000 VALID API import — YAHOO_FINANCE_API
+   OPENING_CASH                             89155000 VALID API import — YAHOO_FINANCE_API
+   OPERATING_CASH_FLOW                     -44201000 VALID 
+   PROFIT_BEFORE_TAX                       -59463000 VALID API import — YAHOO_FINANCE_API
+   REVENUE                                         0 VALID API import — YAHOO_FINANCE_API
+   TOTAL_ASSETS                            735071000 VALID 
+   TOTAL_EQUITY                            644164000 VALID 
+   TOTAL_LIABILITIES                        90907000 VALID 
+-- Q1 2026 QUARTERLY/CONSOLIDATED/YAHOO_FINANCE_API
+   CLOSING_CASH                             89155000 VALID API import — YAHOO_FINANCE_API
+   CURRENT_ASSETS                          747455000 VALID API import — YAHOO_FINANCE_API
+   FINANCING_CASH_FLOW                       1697000 VALID API import — YAHOO_FINANCE_API
+   INCOME_TAX                                  51000 VALID API import — YAHOO_FINANCE_API
+   INVESTING_CASH_FLOW                      58307000 VALID API import — YAHOO_FINANCE_API
+   NET_PROFIT                              -63504000 VALID API import — YAHOO_FINANCE_API
+   NON_CURRENT_ASSETS                        2758000 VALID API import — YAHOO_FINANCE_API
+   OPENING_CASH                             91387000 VALID API import — YAHOO_FINANCE_API
+   OPERATING_CASH_FLOW                     -62236000 VALID API import — YAHOO_FINANCE_API
+   PROFIT_BEFORE_TAX                       -63453000 VALID API import — YAHOO_FINANCE_API
+   REVENUE                                         0 VALID API import — YAHOO_FINANCE_API
+   TOTAL_ASSETS                            750213000 VALID API import — YAHOO_FINANCE_API
+   TOTAL_EQUITY                            688429000 VALID API import — YAHOO_FINANCE_API
+   TOTAL_LIABILITIES                        61784000 VALID API import — YAHOO_FINANCE_API
+-- Q4 2025 QUARTERLY/CONSOLIDATED/YAHOO_FINANCE_API (DERIVED)
+   CLOSING_CASH                             91387000 VALID 
+   CURRENT_ASSETS                          803898000 VALID 
+   INCOME_TAX                                 361000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   NET_PROFIT                             -212184000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   OPERATING_CASH_FLOW                    -180393000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   PROFIT_BEFORE_TAX                      -211823000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   TOTAL_ASSETS                            806879000 VALID 
+   TOTAL_EQUITY                            739826000 VALID 
+   TOTAL_LIABILITIES                        67053000 VALID 
+-- Q2 2025 QUARTERLY/CONSOLIDATED/YAHOO_FINANCE_API (DERIVED)
+   CLOSING_CASH                             91387000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   CURRENT_ASSETS                          803898000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   FINANCING_CASH_FLOW                     473407000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   INCOME_TAX                                 361000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   INVESTING_CASH_FLOW                    -394299000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   NET_PROFIT                             -212184000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   NON_CURRENT_ASSETS                        2981000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   OPENING_CASH                            192672000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   OPERATING_CASH_FLOW                    -180393000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   PROFIT_BEFORE_TAX                      -211823000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   REVENUE                                         0 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contaminat
+   TOTAL_ASSETS                              3360000 VALID 
+   TOTAL_EQUITY                             -4990000 VALID 
+   TOTAL_LIABILITIES                         8350000 VALID 
+
+===== SPHT =====
+-- Q2 2025 QUARTERLY/CONSOLIDATED/ASKBORA_SUMMARY (DERIVED)
+   NET_PROFIT                                9110000 VALID 
+-- Q1 2025 QUARTERLY/CONSOLIDATED/ASKBORA_SUMMARY
+-- FY 2025 ANNUAL/CONSOLIDATED/MUBASHER_EARNINGS
+   FINANCING_CASH_FLOW                      21900000 VALID AskBorsa annual summary (display-rounded
+   INVESTING_CASH_FLOW                      -4710000 VALID AskBorsa annual summary (display-rounded
+   NET_CHANGE_IN_CASH                       17240000 VALID AskBorsa annual summary (display-rounded
+   NET_PROFIT                              -10058762 VALID Mubasher earnings announcements table (p
+   OPERATING_CASH_FLOW                         50600 VALID AskBorsa annual summary (display-rounded
+   TOTAL_ASSETS                             54130000 VALID AskBorsa annual summary (display-rounded
+   TOTAL_EQUITY                             47850000 VALID AskBorsa annual summary (display-rounded
+   TOTAL_EQUITY_AND_LIABILITIES             54130000 VALID AskBorsa annual summary (display-rounded
+   TOTAL_LIABILITIES                         6280000 VALID AskBorsa annual summary (display-rounded
+-- Q4 2024 QUARTERLY/CONSOLIDATED/ASKBORA_SUMMARY
+   CURRENT_LIABILITIES                      20706077 VALID 
+   INVESTING_CASH_FLOW                       -454000 VALID 
+
+===== AMOC =====
+-- Q3 2026 QUARTERLY/CONSOLIDATED/TRADINGVIEW_FINANCIALS
+-- Q2 2026 QUARTERLY/CONSOLIDATED/ASKBORA_SUMMARY
+   NET_PROFIT                             1269458407 VALID 
+   REVENUE                               15712253294 VALID 
+   TOTAL_ASSETS                          11405065699 VALID 
+   TOTAL_EQUITY                           6070338949 VALID 
+   TOTAL_EQUITY_AND_LIABILITIES           8140000000 VALID 
+   TOTAL_LIABILITIES                      5261891473 VALID 
+-- Q1 2026 QUARTERLY/CONSOLIDATED/S&P_GLOBAL_STOCKANALYSIS
+   NET_PROFIT                              612491859 VALID 
+   REVENUE                               10510779160 VALID 
+-- Q4 2025 QUARTERLY/CONSOLIDATED/TRADINGVIEW_FINANCIALS

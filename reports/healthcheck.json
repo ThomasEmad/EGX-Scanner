@@ -1,0 +1,35 @@
+{
+  "startedAt": "2026-11-03T17:02:45.833Z",
+  "base": "http://localhost:3100",
+  "ok": true,
+  "results": [
+    {
+      "name": "health",
+      "path": "/api/v1/health",
+      "status": 200,
+      "ok": true,
+      "ms": 67
+    },
+    {
+      "name": "market-ticker",
+      "path": "/api/v1/market/ticker",
+      "status": 200,
+      "ok": true,
+      "ms": 8
+    },
+    {
+      "name": "company",
+      "path": "/api/v1/companies/COMI",
+      "status": 200,
+      "ok": true,
+      "ms": 33
+    },
+    {
+      "name": "home",
+      "path": "/",
+      "status": 200,
+      "ok": true,
+      "ms": 10
+    }
+  ]
+}

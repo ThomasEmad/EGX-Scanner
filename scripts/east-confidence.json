@@ -1,0 +1,24 @@
+﻿{
+    "ticker":  "EAST",
+    "nameEn":  "Eastern Company",
+    "nameAr":  "Ø§ÙØ´Ø±ÙÙØ© Ø§ÙØ³ØªØ±Ù ÙÙÙ\u0085Ø¨Ø§ÙÙ",
+    "auditedAt":  "2026-10-29T17:50:40.375Z",
+    "confidence":  {
+                       "score":  100,
+                       "rating":  "high",
+                       "breakdownJson":  "{\"coverage\":0,\"violations\":0,\"conflicts\":0,\"anomalies\":0,\"stale\":0,\"sourceDiversity\":0,\"isin\":0,\"accuracy\":100,\"completeness\":100,\"freshness\":100,\"provenance\":100,\"certification\":\"certified\",\"blockerCount\":0,\"coverageGapCount\":0,\"advisoryCount\":1,\"metadataCount\":0}",
+                       "computedAt":  "2026-10-29T17:50:50.666Z"
+                   },
+    "dimensions":  {
+                       "accuracy":  100,
+                       "completeness":  100,
+                       "freshness":  100,
+                       "provenance":  100,
+                       "certification":  "certified",
+                       "blockerCount":  0,
+                       "coverageGapCount":  0
+                   },
+    "topIssues":  [
+
+                  ]
+}

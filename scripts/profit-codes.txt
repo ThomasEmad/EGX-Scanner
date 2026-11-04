@@ -1,0 +1,223 @@
+﻿net_profit
+node : C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\node_modules\@prisma\client\runtime\library.js:29
+At line:10 char:63
++ ... k-profit-codes.mjs ; node scripts\check-profit-codes.mjs 2>&1 | Out-F ...
++                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\tomas\...e\library.js:29:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+`)}};function _r(e){return new Zi(ga(e))}function ga(e){let r=new Dr;for(let[t,n]of Object.entries(e)){let i=new 
+kn(t,ha(n));r.addField(i)}return r}function ha(e){if(typeof e=="string")return new Q(JSON.stringify(e));if(typeof 
+e=="number"||typeof e=="boolean")return new Q(String(e));if(typeof e=="bigint")return new 
+Q(`${e}n`);if(e===null)return new Q("null");if(e===void 0)return new Q("undefined");if(Sr(e))return new Q(`new 
+Prisma.Decimal("${e.toFixed()}")`);if(e instanceof Uint8Array)return Buffer.isBuffer(e)?new 
+Q(`Buffer.alloc(${e.byteLength})`):new Q(`new Uint8Array(${e.byteLength})`);if(e instanceof Date){let 
+r=mn(e)?e.toISOString():"Invalid Date";return new Q(`new Date("${r}")`)}return e instanceof Me?new 
+Q(`Prisma.${e._getName()}`):kr(e)?new Q(`prisma.${We(e.modelName)}.$fields.${e.name}`):Array.isArray(e)?Kd(e):typeof 
+e=="object"?ga(e):new Q(Object.prototype.toString.call(e))}function Kd(e){let r=new Ir;for(let t of 
+e)r.addItem(ha(t));return r}function _n(e,r){let t=r==="pretty"?aa:Cn,n=e.renderAllMessages(t),i=new 
+Ar(0,{colors:t}).write(e).toString();return{message:n,args:i}}function 
+Nn({args:e,errors:r,errorFormat:t,callsite:n,originalMethod:i,clientVersion:o,globalOmit:s}){let a=_r(e);for(let p of r
+)Sn(p,a,s);let{message:l,args:u}=_n(a,t),c=Tn({message:l,callsite:n,originalMethod:i,showColors:t==="pretty",callArgume
+nts:u});throw new Z(c,{clientVersion:o})}function Te(e){return e.replace(/^./,r=>r.toLowerCase())}function 
+ba(e,r,t){let n=Te(t);return!r.result||!(r.result.$allModels||r.result[n])?e:Hd({...e,...ya(r.name,e,r.result.$allModel
+s),...ya(r.name,e,r.result[n])})}function Hd(e){let r=new 
+we,t=(n,i)=>r.getOrCreate(n,()=>i.has(n)?[n]:(i.add(n),e[n]?e[n].needs.flatMap(o=>t(o,i)):[n]));return 
+pn(e,n=>({...n,needs:t(n.name,new Set)}))}function ya(e,r,t){return 
+t?pn(t,({needs:n,compute:i},o)=>({name:o,needs:n?Object.keys(n).filter(s=>n[s]):[],compute:Yd(r,o,i)})):{}}function 
+Yd(e,r,t){let n=e?.[r]?.compute;return n?i=>t({...i,[r]:n(i)}):t}function Ea(e,r){if(!r)return e;let t={...e};for(let 
+n of Object.values(r))if(e[n.name])for(let i of n.needs)t[i]=!0;return t}function wa(e,r){if(!r)return e;let 
+t={...e};for(let n of Object.values(r))if(!e[n.name])for(let i of n.needs)delete t[i];return t}var 
+Ln=class{constructor(r,t){this.extension=r;this.previous=t}computedFieldsCache=new we;modelExtensionsCache=new 
+we;queryCallbacksCache=new we;clientExtensions=lt(()=>this.extension.client?{...this.previous?.getAllClientExtensions()
+,...this.extension.client}:this.previous?.getAllClientExtensions());batchCallbacks=lt(()=>{let 
+r=this.previous?.getAllBatchQueryCallbacks()??[],t=this.extension.query?.$__internalBatch;return 
+t?r.concat(t):r});getAllComputedFields(r){return this.computedFieldsCache.getOrCreate(r,()=>ba(this.previous?.getAllCom
+putedFields(r),this.extension,r))}getAllClientExtensions(){return 
+this.clientExtensions.get()}getAllModelExtensions(r){return this.modelExtensionsCache.getOrCreate(r,()=>{let t=Te(r);re
+turn!this.extension.model||!(this.extension.model[t]||this.extension.model.$allModels)?this.previous?.getAllModelExtens
+ions(r):{...this.previous?.getAllModelExtensions(r),...this.extension.model.$allModels,...this.extension.model[t]}})}ge
+tAllQueryCallbacks(r,t){return this.queryCallbacksCache.getOrCreate(`${r}:${t}`,()=>{let n=this.previous?.getAllQueryCa
+llbacks(r,t)??[],i=[],o=this.extension.query;return!o||!(o[r]||o.$allModels||o[t]||o.$allOperations)?n:(o[r]!==void 
+0&&(o[r][t]!==void 0&&i.push(o[r][t]),o[r].$allOperations!==void 
+0&&i.push(o[r].$allOperations)),r!=="$none"&&o.$allModels!==void 0&&(o.$allModels[t]!==void 
+0&&i.push(o.$allModels[t]),o.$allModels.$allOperations!==void 0&&i.push(o.$allModels.$allOperations)),o[t]!==void 
+0&&i.push(o[t]),o.$allOperations!==void 0&&i.push(o.$allOperations),n.concat(i))})}getAllBatchQueryCallbacks(){return 
+this.batchCallbacks.get()}},Nr=class e{constructor(r){this.head=r}static empty(){return new e}static single(r){return 
+new e(new Ln(r))}isEmpty(){return this.head===void 0}append(r){return new e(new 
+Ln(r,this.head))}getAllComputedFields(r){return this.head?.getAllComputedFields(r)}getAllClientExtensions(){return 
+this.head?.getAllClientExtensions()}getAllModelExtensions(r){return 
+this.head?.getAllModelExtensions(r)}getAllQueryCallbacks(r,t){return 
+this.head?.getAllQueryCallbacks(r,t)??[]}getAllBatchQueryCallbacks(){return 
+this.head?.getAllBatchQueryCallbacks()??[]}};var Fn=class{constructor(r){this.name=r}};function xa(e){return e 
+instanceof Fn}function va(e){return new Fn(e)}var Pa=Symbol(),bt=class{constructor(r){if(r!==Pa)throw new Error("Skip 
+instance can not be constructed directly")}ifUndefined(r){return r===void 0?Mn:r}},Mn=new bt(Pa);function Se(e){return 
+e instanceof bt}var zd={findUnique:"findUnique",findUniqueOrThrow:"findUniqueOrThrow",findFirst:"findFirst",findFirstOr
+Throw:"findFirstOrThrow",findMany:"findMany",count:"aggregate",create:"createOne",createMany:"createMany",createManyAnd
+Return:"createManyAndReturn",update:"updateOne",updateMany:"updateMany",updateManyAndReturn:"updateManyAndReturn",upser
+t:"upsertOne",delete:"deleteOne",deleteMany:"deleteMany",executeRaw:"executeRaw",queryRaw:"queryRaw",aggregate:"aggrega
+te",groupBy:"groupBy",runCommandRaw:"runCommandRaw",findRaw:"findRaw",aggregateRaw:"aggregateRaw"},Ta="explicitly 
+`undefined` values are not allowed";function $n({modelName:e,action:r,args:t,runtimeDataModel:n,extensions:i=Nr.empty()
+,callsite:o,clientMethod:s,errorFormat:a,clientVersion:l,previewFeatures:u,globalOmit:c}){let p=new Xi({runtimeDataMode
+l:n,modelName:e,action:r,rootArgs:t,callsite:o,extensions:i,selectionPath:[],argumentPath:[],originalMethod:s,errorForm
+at:a,clientVersion:l,previewFeatures:u,globalOmit:c});return{modelName:e,action:zd[r],query:Et(t,p)}}function 
+Et({select:e,include:r,...t}={},n){let i=t.omit;return delete 
+t.omit,{arguments:Ra(t,n),selection:Zd(e,r,i,n)}}function Zd(e,r,t,n){return e?(r?n.throwValidationError({kind:"Mutuall
+yExclusiveFields",firstField:"include",secondField:"select",selectionPath:n.getSelectionPath()}):t&&n.throwValidationEr
+ror({kind:"MutuallyExclusiveFields",firstField:"omit",secondField:"select",selectionPath:n.getSelectionPath()}),tm(e,n)
+):Xd(n,r,t)}function Xd(e,r,t){let n={};return 
+e.modelOrType&&!e.isRawAction()&&(n.$composites=!0,n.$scalars=!0),r&&em(n,r,e),rm(n,t,e),n}function 
+em(e,r,t){for(let[n,i]of Object.entries(r)){if(Se(i))continue;let o=t.nestSelection(n);if(eo(i,o),i===!1||i===void 
+0){e[n]=!1;continue}let s=t.findField(n);if(s&&s.kind!=="object"&&t.throwValidationError({kind:"IncludeOnScalar",select
+ionPath:t.getSelectionPath().concat(n),outputType:t.getOutputTypeDescription()}),s){e[n]=Et(i===!0?{}:i,o);continue}if(
+i===!0){e[n]=!0;continue}e[n]=Et(i,o)}}function rm(e,r,t){let 
+n=t.getComputedFields(),i={...t.getGlobalOmit(),...r},o=wa(i,n);for(let[s,a]of 
+Object.entries(o)){if(Se(a))continue;eo(a,t.nestSelection(s));let l=t.findField(s);n?.[s]&&!l||(e[s]=!a)}}function 
+tm(e,r){let t={},n=r.getComputedFields(),i=Ea(e,n);for(let[o,s]of Object.entries(i)){if(Se(s))continue;let 
+a=r.nestSelection(o);eo(s,a);let l=r.findField(o);if(!(n?.[o]&&!l)){if(s===!1||s===void 
+0||Se(s)){t[o]=!1;continue}if(s===!0){l?.kind==="object"?t[o]=Et({},a):t[o]=!0;continue}t[o]=Et(s,a)}}return 
+t}function Sa(e,r){if(e===null)return null;if(typeof e=="string"||typeof e=="number"||typeof e=="boolean")return 
+e;if(typeof e=="bigint")return{$type:"BigInt",value:String(e)};if(vr(e)){if(mn(e))return{$type:"DateTime",value:e.toISO
+String()};r.throwValidationError({kind:"InvalidArgumentValue",selectionPath:r.getSelectionPath(),argumentPath:r.getArgu
+mentPath(),argument:{name:r.getArgumentName(),typeNames:["Date"]},underlyingError:"Provided Date object is invalid"})}i
+f(xa(e))return{$type:"Param",value:e.name};if(kr(e))return{$type:"FieldRef",value:{_ref:e.name,_container:e.modelName}}
+;if(Array.isArray(e))return nm(e,r);if(ArrayBuffer.isView(e)){let{buffer:t,byteOffset:n,byteLength:i}=e;return{$type:"B
+ytes",value:Buffer.from(t,n,i).toString("base64")}}if(im(e))return 
+e.values;if(Sr(e))return{$type:"Decimal",value:e.toFixed()};if(e instanceof 
+Me){if(e!==On.instances[e._getName()])throw new Error("Invalid 
+ObjectEnumValue");return{$type:"Enum",value:e._getName()}}if(om(e))return e.toJSON();if(typeof e=="object")return Ra(e,
+r);r.throwValidationError({kind:"InvalidArgumentValue",selectionPath:r.getSelectionPath(),argumentPath:r.getArgumentPat
+h(),argument:{name:r.getArgumentName(),typeNames:[]},underlyingError:`We could not serialize 
+${Object.prototype.toString.call(e)} value. Serialize the object to JSON or implement a ".toJSON()" method on 
+it`})}function Ra(e,r){if(e.$type)return{$type:"Raw",value:e};let t={};for(let n in e){let 
+i=e[n],o=r.nestArgument(n);Se(i)||(i!==void 0?t[n]=Sa(i,o):r.isPreviewFeatureOn("strictUndefinedChecks")&&r.throwValida
+tionError({kind:"InvalidArgumentValue",argumentPath:o.getArgumentPath(),selectionPath:r.getSelectionPath(),argument:{na
+me:r.getArgumentName(),typeNames:[]},underlyingError:Ta}))}return t}function nm(e,r){let t=[];for(let 
+n=0;n<e.length;n++){let i=r.nestArgument(String(n)),o=e[n];if(o===void 0||Se(o)){let s=o===void 0?"undefined":"Prisma.s
+kip";r.throwValidationError({kind:"InvalidArgumentValue",selectionPath:i.getSelectionPath(),argumentPath:i.getArgumentP
+ath(),argument:{name:`${r.getArgumentName()}[${n}]`,typeNames:[]},underlyingError:`Can not use \`${s}\` value within 
+array. Use \`null\` or filter out \`${s}\` values`})}t.push(Sa(o,i))}return t}function im(e){return typeof 
+e=="object"&&e!==null&&e.__prismaRawParameters__===!0}function om(e){return typeof e=="object"&&e!==null&&typeof 
+e.toJSON=="function"}function eo(e,r){e===void 0&&r.isPreviewFeatureOn("strictUndefinedChecks")&&r.throwValidationError
+({kind:"InvalidSelectionValue",selectionPath:r.getSelectionPath(),underlyingError:Ta})}var Xi=class e{constructor(r){th
+is.params=r;this.params.modelName&&(this.modelOrType=this.params.runtimeDataModel.models[this.params.modelName]??this.p
+arams.runtimeDataModel.types[this.params.modelName])}modelOrType;throwValidationError(r){Nn({errors:[r],originalMethod:
+this.params.originalMethod,args:this.params.rootArgs??{},callsite:this.params.callsite,errorFormat:this.params.errorFor
+mat,clientVersion:this.params.clientVersion,globalOmit:this.params.globalOmit})}getSelectionPath(){return 
+this.params.selectionPath}getArgumentPath(){return this.params.argumentPath}getArgumentName(){return this.params.argume
+ntPath[this.params.argumentPath.length-1]}getOutputTypeDescription(){if(!(!this.params.modelName||!this.modelOrType))re
+turn{name:this.params.modelName,fields:this.modelOrType.fields.map(r=>({name:r.name,typeName:"boolean",isRelation:r.kin
+d==="object"}))}}isRawAction(){return["executeRaw","queryRaw","runCommandRaw","findRaw","aggregateRaw"].includes(this.p
+arams.action)}isPreviewFeatureOn(r){return 
+this.params.previewFeatures.includes(r)}getComputedFields(){if(this.params.modelName)return 
+this.params.extensions.getAllComputedFields(this.params.modelName)}findField(r){return 
+this.modelOrType?.fields.find(t=>t.name===r)}nestSelection(r){let t=this.findField(r),n=t?.kind==="object"?t.type:void 
+0;return new e({...this.params,modelName:n,selectionPath:this.params.selectionPath.concat(r)})}getGlobalOmit(){return t
+his.params.modelName&&this.shouldApplyGlobalOmit()?this.params.globalOmit?.[We(this.params.modelName)]??{}:{}}shouldApp
+lyGlobalOmit(){switch(this.params.action){case"findFirst":case"findFirstOrThrow":case"findUniqueOrThrow":case"findMany"
+:case"upsert":case"findUnique":case"createManyAndReturn":case"create":case"update":case"updateManyAndReturn":case"delet
+e":return!0;case"executeRaw":case"aggregateRaw":case"runCommandRaw":case"findRaw":case"createMany":case"deleteMany":cas
+e"groupBy":case"updateMany":case"count":case"aggregate":case"queryRaw":return!1;default:ar(this.params.action,"Unknown 
+action")}}nestArgument(r){return new e({...this.params,argumentPath:this.params.argumentPath.concat(r)})}};function 
+Aa(e){if(!e._hasPreviewFlag("metrics"))throw new Z("`metrics` preview feature must be enabled in order to access 
+metrics API",{clientVersion:e._clientVersion})}var Lr=class{_client;constructor(r){this._client=r}prometheus(r){return 
+Aa(this._client),this._client._engine.metrics({format:"prometheus",...r})}json(r){return 
+Aa(this._client),this._client._engine.metrics({format:"json",...r})}};function Ca(e,r){let 
+t=lt(()=>sm(r));Object.defineProperty(e,"dmmf",{get:()=>t.get()})}function 
+sm(e){return{datamodel:{models:ro(e.models),enums:ro(e.enums),types:ro(e.types)}}}function ro(e){return 
+Object.entries(e).map(([r,t])=>({name:r,...t}))}var to=new WeakMap,qn="$$PrismaTypedSql",wt=class{constructor(r,t){to.s
+et(this,{sql:r,values:t}),Object.defineProperty(this,qn,{value:qn})}get sql(){return to.get(this).sql}get 
+values(){return to.get(this).values}};function Ia(e){return(...r)=>new wt(e,r)}function Vn(e){return 
+e!=null&&e[qn]===qn}var cu=O(Ti());var 
+pu=require("node:async_hooks"),du=require("node:events"),mu=O(require("node:fs")),ri=O(require("node:path"));var 
+ie=class e{constructor(r,t){if(r.length-1!==t.length)throw r.length===0?new TypeError("Expected at least 1 
+string"):new TypeError(`Expected ${r.length} strings to have ${r.length-1} values`);let n=t.reduce((s,a)=>s+(a 
+instanceof e?a.values.length:1),0);this.values=new Array(n),this.strings=new Array(n+1),this.strings[0]=r[0];let 
+i=0,o=0;for(;i<t.length;){let s=t[i++],a=r[i];if(s instanceof e){this.strings[o]+=s.strings[0];let 
+l=0;for(;l<s.values.length;)this.values[o++]=s.values[l++],this.strings[o]=s.strings[l];this.strings[o]+=a}else 
+this.values[o++]=s,this.strings[o]=a}}get sql(){let 
+r=this.strings.length,t=1,n=this.strings[0];for(;t<r;)n+=`?${this.strings[t++]}`;return n}get statement(){let 
+r=this.strings.length,t=1,n=this.strings[0];for(;t<r;)n+=`:${t}${this.strings[t++]}`;return n}get text(){let 
+r=this.strings.length,t=1,n=this.strings[0];for(;t<r;)n+=`$${t}${this.strings[t++]}`;return 
+n}inspect(){return{sql:this.sql,statement:this.statement,text:this.text,values:this.values}}};function 
+Da(e,r=",",t="",n=""){if(e.length===0)throw new TypeError("Expected `join([])` to be called with an array of multiple 
+elements, but got an empty array");return new ie([t,...Array(e.length-1).fill(r),n],e)}function no(e){return new 
+ie([e],[])}var Oa=no("");function io(e,...r){return new ie(e,r)}function xt(e){return{getKeys(){return 
+Object.keys(e)},getPropertyValue(r){return e[r]}}}function 
+re(e,r){return{getKeys(){return[e]},getPropertyValue(){return r()}}}function lr(e){let r=new 
+we;return{getKeys(){return e.getKeys()},getPropertyValue(t){return 
+r.getOrCreate(t,()=>e.getPropertyValue(t))},getPropertyDescriptor(t){return e.getPropertyDescriptor?.(t)}}}var 
+jn={enumerable:!0,configurable:!0,writable:!0};function Bn(e){let r=new Set(e);return{getPrototypeOf:()=>Object.prototy
+pe,getOwnPropertyDescriptor:()=>jn,has:(t,n)=>r.has(n),set:(t,n,i)=>r.add(n)&&Reflect.set(t,n,i),ownKeys:()=>[...r]}}va
+r ka=Symbol.for("nodejs.util.inspect.custom");function he(e,r){let t=am(r),n=new Set,i=new 
+Proxy(e,{get(o,s){if(n.has(s))return o[s];let a=t.get(s);return 
+a?a.getPropertyValue(s):o[s]},has(o,s){if(n.has(s))return!0;let a=t.get(s);return 
+a?a.has?.(s)??!0:Reflect.has(o,s)},ownKeys(o){let 
+s=_a(Reflect.ownKeys(o),t),a=_a(Array.from(t.keys()),t);return[...new Set([...s,...a,...n])]},set(o,s,a){return t.get(s
+)?.getPropertyDescriptor?.(s)?.writable===!1?!1:(n.add(s),Reflect.set(o,s,a))},getOwnPropertyDescriptor(o,s){let 
+a=Reflect.getOwnPropertyDescriptor(o,s);if(a&&!a.configurable)return a;let l=t.get(s);return 
+l?l.getPropertyDescriptor?{...jn,...l?.getPropertyDescriptor(s)}:jn:a},defineProperty(o,s,a){return 
+n.add(s),Reflect.defineProperty(o,s,a)},getPrototypeOf:()=>Object.prototype});return i[ka]=function(){let 
+o={...this};return delete o[ka],o},i}function am(e){let r=new Map;for(let t of e){let n=t.getKeys();for(let i of 
+n)r.set(i,t)}return r}function _a(e,r){return e.filter(t=>r.get(t)?.has?.(t)??!0)}function 
+Fr(e){return{getKeys(){return e},has(){return!1},getPropertyValue(){}}}function 
+Mr(e,r){return{batch:e,transaction:r?.kind==="batch"?{isolationLevel:r.options.isolationLevel}:void 0}}function 
+Na(e){if(e===void 0)return"";let r=_r(e);return new Ar(0,{colors:Cn}).write(r).toString()}var lm="P2037";function 
+$r({error:e,user_facing_error:r},t,n){return r.error_code?new 
+z(um(r,n),{code:r.error_code,clientVersion:t,meta:r.meta,batchRequestIdx:r.batch_request_idx}):new 
+V(e,{clientVersion:t,batchRequestIdx:r.batch_request_idx})}function um(e,r){let 
+t=e.message;return(r==="postgresql"||r==="postgres"||r==="mysql")&&e.error_code===lm&&(t+=`
+                                                                                                                       
+                                                                                                                       
+                                                                                                                       
+                                                                                                                       
+                                                                                                                       
+                                                                                                                       
+                                                                                                                       
+                                                                                                                       
+                                                                    
+
+PrismaClientValidationError: 
+Invalid `prisma.metricDefinition.findMany()` invocation:
+
+{
+  where: {
+    code: {
+      contains: "PROFIT"
+    }
+  },
+  select: {
+    code: true,
+    nameEn: true,
+    ~~~~~~
+?   id?: true,
+?   labelEn?: true,
+?   labelAr?: true,
+?   statementType?: true,
+?   description?: true,
+?   aliases?: true,
+?   appliesToSectors?: true,
+?   calcRole?: true,
+?   isActive?: true,
+?   group?: true,
+?   displayOrder?: true,
+?   createdAt?: true
+  }
+}
+
+Unknown field `nameEn` for select statement on model `MetricDefinition`. Available options are marked with ?.
+    at Nn 
+(C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\node_modules\@prisma\client\runtime\library.js:29:1363)
+    at ei.handleRequestError 
+(C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\node_modules\@prisma\client\runtime\library.js:121:6911)
+    at ei.handleAndLogRequestError 
+(C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\node_modules\@prisma\client\runtime\library.js:121:6593)
+    at ei.request 
+(C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\node_modules\@prisma\client\runtime\library.js:121:6300)
+    at async a 
+(C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\node_modules\@prisma\client\runtime\library.js:130:9551)
+    at async file:///C:/Users/tomas/Downloads/EGX-Scanner-backup/EGX-Scanner/scripts/check-profit-codes.mjs:6:16 {
+  clientVersion: '6.19.3'
+}
+
+Node.js v22.18.0

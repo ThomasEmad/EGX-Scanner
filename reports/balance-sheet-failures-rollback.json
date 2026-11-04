@@ -1,0 +1,105 @@
+{
+  "generatedAt": "2026-11-03T16:31:28.931Z",
+  "values": [
+    {
+      "valueId": "cmupv8wq5008tbxn0xe09ldl5",
+      "ticker": "ARVA",
+      "periodLabel": "FY 2022",
+      "metricCode": "TOTAL_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "AUDIT_QUARANTINE: TOTAL_ASSETS 264,768,835.62 is identical to GOCO FY2022 and is 44.22% above the internally consistent L+E total; asset line is the outlier."
+    },
+    {
+      "valueId": "cmupv8wpq008lbxn0zv7lbo6q",
+      "ticker": "ARVA",
+      "periodLabel": "FY 2023",
+      "metricCode": "TOTAL_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "AUDIT_QUARANTINE: TOTAL_ASSETS 340,458,874.55 is 44.69% above the internally consistent L+E total; asset line is the outlier."
+    },
+    {
+      "valueId": "cmupv8zpb01c7bxn0kcx4ey9r",
+      "ticker": "GOCO",
+      "periodLabel": "FY 2022",
+      "metricCode": "TOTAL_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "AUDIT_QUARANTINE: TOTAL_ASSETS 264,768,835.62 is identical to ARVA FY2022 and is 23.09% above the internally consistent L+E total; asset line is the outlier."
+    },
+    {
+      "valueId": "cmupv8yrj00ztbxn0ow3bj246",
+      "ticker": "EHDR",
+      "periodLabel": "FY 2024",
+      "metricCode": "TOTAL_EQUITY",
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "AUDIT_QUARANTINE: Parent TOTAL_EQUITY excludes a 333.6M gap that is consistent with non-controlling interest; total equity including NCI is not available."
+    },
+    {
+      "valueId": "cmuprf7e7050fbxg0zo1er09l",
+      "ticker": "IRON",
+      "periodLabel": "FY 2013",
+      "metricCode": "TOTAL_EQUITY",
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "AUDIT_QUARANTINE: Assets are 273.9M below liabilities + parent equity; a negative/non-controlling interest balance is not captured, so the parent equity base is incomplete."
+    },
+    {
+      "valueId": "cmuprfikj09udbxg0o0rvcvuh",
+      "ticker": "NAHO",
+      "periodLabel": "FY 2023",
+      "metricCode": "TOTAL_EQUITY",
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "AUDIT_QUARANTINE: Assets exceed liabilities + parent equity by 35.9M (15.38%); the gap is consistent with missing non-controlling interest."
+    },
+    {
+      "valueId": "cmvu2lric03rlbxfc2y6ew0b1",
+      "ticker": "MAAL",
+      "periodLabel": "FY 2021",
+      "metricCode": "TOTAL_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "AUDIT_QUARANTINE: TOTAL_ASSETS (2.56T) and TOTAL_LIABILITIES (2.43T) are 1000x the internally consistent TOTAL_EQUITY_AND_LIABILITIES (2.56B); downward scale correction is not auto-applied."
+    },
+    {
+      "valueId": "cmvu2lrhm03rjbxfc5o2jz3ih",
+      "ticker": "MAAL",
+      "periodLabel": "FY 2021",
+      "metricCode": "TOTAL_LIABILITIES",
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "AUDIT_QUARANTINE: TOTAL_ASSETS (2.56T) and TOTAL_LIABILITIES (2.43T) are 1000x the internally consistent TOTAL_EQUITY_AND_LIABILITIES (2.56B); downward scale correction is not auto-applied."
+    },
+    {
+      "valueId": "cmvu2lrgc03rfbxfc6uutzdzd",
+      "ticker": "MAAL",
+      "periodLabel": "FY 2022",
+      "metricCode": "TOTAL_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "AUDIT_QUARANTINE: TOTAL_ASSETS (2.53T) and TOTAL_LIABILITIES (2.40T) are 1000x the internally consistent TOTAL_EQUITY_AND_LIABILITIES (2.57B); downward scale correction is not auto-applied."
+    },
+    {
+      "valueId": "cmvu2lrfs03rdbxfcob7fsmxg",
+      "ticker": "MAAL",
+      "periodLabel": "FY 2022",
+      "metricCode": "TOTAL_LIABILITIES",
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "AUDIT_QUARANTINE: TOTAL_ASSETS (2.53T) and TOTAL_LIABILITIES (2.40T) are 1000x the internally consistent TOTAL_EQUITY_AND_LIABILITIES (2.57B); downward scale correction is not auto-applied."
+    }
+  ]
+}

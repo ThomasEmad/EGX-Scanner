@@ -36,12 +36,10 @@ const INTENT_WORDS = {
   roa: ["roa", "عائد على الأصول", "عائد على اصول", "عائد الأصول"],
   valuation: ["مكرر", "p/e", "p e", "pe ", "تقييم", "عادله", "عادل", "fair", "valuation", "undervalu", "مقيمه", "p/b", "دفتريه", "دفترية"],
   health: ["صح", "قوه", "قوة مالية", "health", "score", "درجه ماليه", "درجة مالية"],
-  growth: ["نمو", "ينمو", "growth", "تطور"],
   dividend: ["توزيع", "توزيعات", "توزيحات", "dividend", "yield"],
   events: ["حدث", "أحداث", "احداث", "event", "what happened", "ماذا حدث", "جديد"],
   price: ["سعر", "السعر", "price", "سهم بيتباع", "كم بسعر"],
   debt: ["دين", "ديون", "مديونيه", "مديونية", "debt", "استدان", "التزامات"],
-  liquidity: ["سيوله", "سيولة", "liquidity", "current ratio", "نسبة التداول"],
   shares: ["عدد الاسهم", "عدد الأسهم", "shares outstanding", "اسهم قائمه", "أسهم قائمة"],
   peers: ["مقارن", "منافس", "peers", "compare", "مقابل", "نفس القطاع", "أقران"],
   sectorBest: ["افضل", "أفضل", "احسن", "أحسن", "best", "top", "أعلى", "اعلى", "ترتيب", "ranking", "rank"],
@@ -55,7 +53,6 @@ const METRIC_BY_HINT: { hint: keyof typeof INTENT_WORDS; code: string }[] = [
   { hint: "roe", code: "roe" },
   { hint: "roa", code: "roa" },
   { hint: "debt", code: "debt_to_equity" },
-  { hint: "liquidity", code: "current_ratio" },
 ]
 
 function detectLang(q: string): Lang {
@@ -87,7 +84,6 @@ function detectIntent(rawQ: string): { intent: string; metricCode?: string } {
   for (const m of METRIC_BY_HINT) {
     if (has(q, INTENT_WORDS[m.hint])) return { intent: "metric", metricCode: m.code }
   }
-  if (has(q, INTENT_WORDS.growth)) return { intent: "growth" }
   if (has(q, INTENT_WORDS.summary)) return { intent: "summary" }
   return { intent: "summary" }
 }
@@ -96,8 +92,6 @@ function detectIntent(rawQ: string): { intent: string; metricCode?: string } {
 const RANK_METRICS = [
   { code: "roe", words: ["roe", "عائد على حقوق", "عائد حقوق", "العائد على"] },
   { code: "net_margin", words: ["هامش", "margin"] },
-  { code: "revenue_growth", words: ["نمو الايراد", "نمو الإيراد", "نمو الإيرادات", "نمو المبيعات", "revenue growth"] },
-  { code: "profit_growth", words: ["نمو الربح", "نمو صافي", "profit growth"] },
   { code: "p_e", words: ["p/e", "مكرر", "المكرر"] },
   { code: "p_b", words: ["p/b", "دفتريه", "دفترية"] },
   { code: "dividend_yield", words: ["توزيع", "عائد التوزيع", "yield"] },
@@ -259,7 +253,7 @@ async function sectorBest(code: string, sector: string | null, lang: Lang): Prom
       ? `أعلى 10 شركات في ${sectorLabel} حسب **${def?.labelAr ?? code}** (أحدث سنة مالية متاحة لكل شركة، بيانات متحقق منها):\n\n${lines.join("\n")}`
       : `Top 10 ${sectorLabel} companies by **${def?.labelEn ?? code}** (each company's latest available fiscal year, verified data):\n\n${lines.join("\n")}`,
     figures: ranked.slice(0, 10).map((r) => ({ label: r.ticker, value: fmtMetric(code, r.value, lang), detail: r.periodLabel })),
-    followUps: lang === "ar" ? ["إيه تقييم هذه الشركات؟", "أفضل شركات حسب نمو الأرباح؟"] : ["How are these valued?", "Best by profit growth?"],
+    followUps: lang === "ar" ? ["إيه تقييم هذه الشركات؟", "أفضل شركات حسب العائد على حقوق الملكية؟"] : ["How are these valued?", "Best by ROE?"],
   }
 }
 
@@ -372,8 +366,6 @@ async function companyAnswer(
       if (!s || s.overall === null) return notAvailable(lang === "ar" ? "كفاية لتقييم الصحة المالية" : "data sufficient for a health score")
       const compLabel: Record<string, { ar: string; en: string }> = {
         profitability: { ar: "الربحية", en: "Profitability" },
-        growth: { ar: "النمو", en: "Growth" },
-        liquidity: { ar: "السيولة", en: "Liquidity" },
         leverage: { ar: "الرفع المالي", en: "Leverage" },
         cash: { ar: "التدفق النقدي", en: "Cash" },
         efficiency: { ar: "الكفاءة", en: "Efficiency" },
@@ -383,7 +375,7 @@ async function companyAnswer(
       return {
         intent, ...base,
         answer: lang === "ar"
-          ? `درجة الصحة المالية لشركة **${name}**: **${Math.round(s.overall)}/100**${strongest ? ` — أقوى جانب: ${compLabel[strongest.key]?.ar ?? strongest.key}` : ""}. الدرجة حسابية من مؤشرات متحقق منها (ربحية/نمو/سيولة/رفع مالي/نقدية) على أحدث قوائم متاحة، مش رأي استثماري.`
+          ? `درجة الصحة المالية لشركة **${name}**: **${Math.round(s.overall)}/100**${strongest ? ` — أقوى جانب: ${compLabel[strongest.key]?.ar ?? strongest.key}` : ""}. الدرجة حسابية من مؤشرات متحقق منها (الربحية/الرفع المالي/جودة النقد) على أحدث قوائم متاحة، مش رأي استثماري.`
           : `**${name}** financial health: **${Math.round(s.overall)}/100**${strongest ? ` — strongest pillar: ${compLabel[strongest.key]?.en ?? strongest.key}` : ""}. Computed from verified metrics, not investment advice.`,
         figures: s.components.map((c) => ({ label: lang === "ar" ? compLabel[c.key]?.ar ?? c.key : compLabel[c.key]?.en ?? c.key, value: c.score === null ? "—" : `${Math.round(c.score)}/100` })),
         followUps,
@@ -468,20 +460,6 @@ async function companyAnswer(
           ? `مقارنة **${name}** بأقرانها في قطاع ${sectorName} (أحدث سنة متاحة لكل شركة):\n\n${rows.map((r, i) => `${i + 1}. ${r.label} — ROE ${r.value} — ${r.detail}`).join("\n")}`
           : `**${name}** vs ${sectorName} peers:\n\n${rows.map((r, i) => `${i + 1}. ${r.label} — ROE ${r.value} — ${r.detail}`).join("\n")}`,
         figures: rows,
-        followUps,
-      }
-    }
-    case "growth": {
-      const items = ["revenue_growth", "profit_growth", "equity_growth", "asset_growth", "eps_growth"]
-        .map((code) => ({ code, v: latest[code.toUpperCase()] }))
-        .filter((x) => x.v !== null && x.v !== undefined) as { code: string; v: number }[]
-      if (items.length === 0) return notAvailable(lang === "ar" ? "نمو كافٍ للمقارنة السنوية" : "growth (needs two consecutive years)")
-      return {
-        intent, ...base,
-        answer: lang === "ar"
-          ? `نمو **${name}** في FY${g.latestYear} (مقارنة بالسنة السابقة):\n\n${items.map((x) => `- ${CALC_METRIC_MAP[x.code]?.labelAr ?? x.code}: **${x.v >= 0 ? "+" : ""}${x.v.toFixed(1)}%**`).join("\n")}`
-          : `**${name}** FY${g.latestYear} growth (vs prior year):\n\n${items.map((x) => `- ${CALC_METRIC_MAP[x.code]?.labelEn ?? x.code}: **${x.v >= 0 ? "+" : ""}${x.v.toFixed(1)}%**`).join("\n")}`,
-        figures: items.map((x) => ({ label: CALC_METRIC_MAP[x.code]?.labelAr ?? x.code, value: `${x.v >= 0 ? "+" : ""}${x.v.toFixed(1)}%` })),
         followUps,
       }
     }

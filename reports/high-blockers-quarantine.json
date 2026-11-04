@@ -1,0 +1,181 @@
+{
+  "applied": true,
+  "cases": 4,
+  "values": 10,
+  "rows": [
+    {
+      "ticker": "ASCM",
+      "periodLabel": "FY 2021",
+      "metricCodes": [
+        "TOTAL_LIABILITIES"
+      ],
+      "reason": "TOTAL_LIABILITIES 1.509B makes liabilities + equity 1.594B against TOTAL_ASSETS 1.36B; assets, equity and the L+E total agree, so the liabilities line is the outlier.",
+      "code": "TOTAL_LIABILITIES",
+      "status": "quarantined",
+      "reportId": "cmuiomzwx0dgwbxq09h8bq7p7",
+      "sourceName": "YAHOO_FINANCE_API",
+      "valueId": "cmuiomzx30dhgbxq0g6qs1d4d",
+      "oldStatus": "VALID",
+      "normalizedValue": 1509256320
+    },
+    {
+      "ticker": "UEGC",
+      "periodLabel": "FY 2021",
+      "metricCodes": [
+        "TOTAL_ASSETS",
+        "TOTAL_LIABILITIES",
+        "TOTAL_EQUITY",
+        "TOTAL_EQUITY_AND_LIABILITIES"
+      ],
+      "reason": "Assets 832M, equity 1.036B, liabilities 831M and L+E 2.02B cannot belong to one balance sheet; the block is mixed and cannot be repaired from stored fields.",
+      "code": "TOTAL_ASSETS",
+      "status": "quarantined",
+      "reportId": "cmuion2wc0khebxq0z3lhxb6h",
+      "sourceName": "YAHOO_FINANCE_API",
+      "valueId": "cmuion2wh0khubxq075ttt8x5",
+      "oldStatus": "VALID",
+      "normalizedValue": 832210171.891
+    },
+    {
+      "ticker": "UEGC",
+      "periodLabel": "FY 2021",
+      "metricCodes": [
+        "TOTAL_ASSETS",
+        "TOTAL_LIABILITIES",
+        "TOTAL_EQUITY",
+        "TOTAL_EQUITY_AND_LIABILITIES"
+      ],
+      "reason": "Assets 832M, equity 1.036B, liabilities 831M and L+E 2.02B cannot belong to one balance sheet; the block is mixed and cannot be repaired from stored fields.",
+      "code": "TOTAL_LIABILITIES",
+      "status": "quarantined",
+      "reportId": "cmuion2wc0khebxq0z3lhxb6h",
+      "sourceName": "YAHOO_FINANCE_API",
+      "valueId": "cmuion2wh0khtbxq0ftmzi7xj",
+      "oldStatus": "VALID",
+      "normalizedValue": 831174400.508
+    },
+    {
+      "ticker": "UEGC",
+      "periodLabel": "FY 2021",
+      "metricCodes": [
+        "TOTAL_ASSETS",
+        "TOTAL_LIABILITIES",
+        "TOTAL_EQUITY",
+        "TOTAL_EQUITY_AND_LIABILITIES"
+      ],
+      "reason": "Assets 832M, equity 1.036B, liabilities 831M and L+E 2.02B cannot belong to one balance sheet; the block is mixed and cannot be repaired from stored fields.",
+      "code": "TOTAL_EQUITY",
+      "status": "quarantined",
+      "reportId": "cmuion2wc0khebxq0z3lhxb6h",
+      "sourceName": "YAHOO_FINANCE_API",
+      "valueId": "cmuion2wh0khsbxq0acp9zwao",
+      "oldStatus": "VALID",
+      "normalizedValue": 1035771364
+    },
+    {
+      "ticker": "UEGC",
+      "periodLabel": "FY 2021",
+      "metricCodes": [
+        "TOTAL_ASSETS",
+        "TOTAL_LIABILITIES",
+        "TOTAL_EQUITY",
+        "TOTAL_EQUITY_AND_LIABILITIES"
+      ],
+      "reason": "Assets 832M, equity 1.036B, liabilities 831M and L+E 2.02B cannot belong to one balance sheet; the block is mixed and cannot be repaired from stored fields.",
+      "code": "TOTAL_EQUITY_AND_LIABILITIES",
+      "status": "quarantined",
+      "reportId": "cmuion2wc0khebxq0z3lhxb6h",
+      "sourceName": "YAHOO_FINANCE_API",
+      "valueId": "cmujo5ha90a9xbx3wu31169z6",
+      "oldStatus": "VALID",
+      "normalizedValue": 2020000000
+    },
+    {
+      "ticker": "VALU",
+      "periodLabel": "Q4 2024",
+      "metricCodes": [
+        "TOTAL_ASSETS",
+        "TOTAL_EQUITY",
+        "TOTAL_LIABILITIES",
+        "TOTAL_EQUITY_AND_LIABILITIES"
+      ],
+      "reason": "CURRENT Q4-derived copies mix the annual asset total (10.85B) with the Q4 equity/liability block (136M); the Q4 balance sheet is not usable and the FY2024 annual report remains the trusted source.",
+      "code": "TOTAL_ASSETS",
+      "status": "quarantined",
+      "reportId": "cmun5getr1h6hbx9k4mn3prun",
+      "sourceName": "ASKBORA_SUMMARY",
+      "valueId": "cmvua71sv029xbx7kb1z23yfh",
+      "oldStatus": "VALID",
+      "normalizedValue": 10850000000
+    },
+    {
+      "ticker": "VALU",
+      "periodLabel": "Q4 2024",
+      "metricCodes": [
+        "TOTAL_ASSETS",
+        "TOTAL_EQUITY",
+        "TOTAL_LIABILITIES",
+        "TOTAL_EQUITY_AND_LIABILITIES"
+      ],
+      "reason": "CURRENT Q4-derived copies mix the annual asset total (10.85B) with the Q4 equity/liability block (136M); the Q4 balance sheet is not usable and the FY2024 annual report remains the trusted source.",
+      "code": "TOTAL_EQUITY",
+      "status": "quarantined",
+      "reportId": "cmun5getr1h6hbx9k4mn3prun",
+      "sourceName": "ASKBORA_SUMMARY",
+      "valueId": "cmvua71t902a1bx7k58643pq9",
+      "oldStatus": "VALID",
+      "normalizedValue": 90793000
+    },
+    {
+      "ticker": "VALU",
+      "periodLabel": "Q4 2024",
+      "metricCodes": [
+        "TOTAL_ASSETS",
+        "TOTAL_EQUITY",
+        "TOTAL_LIABILITIES",
+        "TOTAL_EQUITY_AND_LIABILITIES"
+      ],
+      "reason": "CURRENT Q4-derived copies mix the annual asset total (10.85B) with the Q4 equity/liability block (136M); the Q4 balance sheet is not usable and the FY2024 annual report remains the trusted source.",
+      "code": "TOTAL_LIABILITIES",
+      "status": "quarantined",
+      "reportId": "cmun5getr1h6hbx9k4mn3prun",
+      "sourceName": "ASKBORA_SUMMARY",
+      "valueId": "cmvua71t2029zbx7kfb22b1ou",
+      "oldStatus": "VALID",
+      "normalizedValue": 45242000
+    },
+    {
+      "ticker": "VALU",
+      "periodLabel": "Q4 2024",
+      "metricCodes": [
+        "TOTAL_ASSETS",
+        "TOTAL_EQUITY",
+        "TOTAL_LIABILITIES",
+        "TOTAL_EQUITY_AND_LIABILITIES"
+      ],
+      "reason": "CURRENT Q4-derived copies mix the annual asset total (10.85B) with the Q4 equity/liability block (136M); the Q4 balance sheet is not usable and the FY2024 annual report remains the trusted source.",
+      "code": "TOTAL_EQUITY_AND_LIABILITIES",
+      "status": "quarantined",
+      "reportId": "cmun5getr1h6hbx9k4mn3prun",
+      "sourceName": "ASKBORA_SUMMARY",
+      "valueId": "cmvua71tf02a3bx7ktceo5t5j",
+      "oldStatus": "VALID",
+      "normalizedValue": 10850000000
+    },
+    {
+      "ticker": "AXPH",
+      "periodLabel": "FY 2025",
+      "sourceName": "EXCEL_STATEMENTS",
+      "metricCodes": [
+        "OPERATING_CASH_FLOW"
+      ],
+      "reason": "Contaminated EXCEL_STATEMENTS duplicate of the ASKBORA_SUMMARY FY2025 report; its only VALID value is quarantined so the duplicate no longer enters canonical periods.",
+      "code": "OPERATING_CASH_FLOW",
+      "status": "quarantined",
+      "reportId": "cmupremeb00qzbxg02yavo5ph",
+      "valueId": "cmur7gw6z00jfbx5kt5kin598",
+      "oldStatus": "VALID",
+      "normalizedValue": 539894111.09
+    }
+  ]
+}

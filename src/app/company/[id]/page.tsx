@@ -1,55 +1,94 @@
 import { Metadata } from "next"
 import { db } from "@/lib/db"
+import { siteConfig } from "@/lib/seo-config"
+import { BreadcrumbSchema } from "@/components/seo/structured-data"
 import CompanyPageClient from "./client"
+
+async function findCompany(key: string) {
+  return db.company.findFirst({
+    where: { OR: [{ id: key }, { ticker: key.toUpperCase() }, { isin: key.toUpperCase() }] },
+    select: {
+      id: true,
+      ticker: true,
+      nameEn: true,
+      nameAr: true,
+      sector: true,
+      isin: true,
+      industry: true,
+      isActive: true,
+    },
+  })
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params
-  const company = await db.company.findUnique({
-    where: { id },
-    select: { ticker: true, nameEn: true, nameAr: true, sector: true },
-  })
+  const key = decodeURIComponent(id)
+  const company = await findCompany(key)
 
   if (!company) {
     return {
-      title: "Company Not Found — EGX Financial Scanner",
+      title: "Company not found",
       description: "The requested company profile could not be found.",
       robots: { index: false, follow: false },
     }
   }
 
-  const title = `${company.ticker} — ${company.nameEn} · EGX Financial Scanner`
-  const description = `${company.sector || "Egyptian Exchange"} company profile for ${company.ticker} (${company.nameEn}). Financial statements, metrics, events, dividends, and comprehensive financial data.`
+  const name = company.nameAr ? `${company.nameEn} (${company.nameAr})` : company.nameEn
+  const title = `${company.ticker} — ${company.nameEn}`
+  const description = `${company.ticker} ${name} — ${company.sector} company on the Egyptian Exchange. Audited financial statements, ratios, rankings, dividends and data-quality indicators.`
+  const canonical = `/company/${company.ticker}`
+  // A profile with no trusted financial value is a thin page: keep it
+  // crawlable for discovery but do not ask Google to index it yet.
+  const validValues = await db.financialValue.count({
+    where: {
+      companyId: company.id,
+      validationStatus: "VALID",
+      report: { deletedAt: null, processingStatus: { in: ["VALIDATED", "APPROVED", "EXTRACTED"] } },
+    },
+  })
+  const hasData = validValues > 0
 
   return {
     title,
     description,
+    keywords: [
+      company.ticker,
+      company.nameEn,
+      ...(company.nameAr ? [company.nameAr] : []),
+      company.sector,
+      "EGX",
+      "Egyptian Exchange",
+      "البورصة المصرية",
+    ],
+    alternates: {
+      canonical,
+      languages: { en: canonical, "ar-EG": canonical },
+    },
     openGraph: {
-      title,
+      title: `${company.ticker} — ${company.nameEn} | EGX Financial Scanner`,
       description,
       type: "website",
       locale: "en_US",
       alternateLocale: "ar_EG",
-      siteName: "EGX Financial Scanner",
+      siteName: siteConfig.name,
+      url: canonical,
+      images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: `${company.ticker} — ${company.nameEn}` }],
     },
     twitter: {
-      card: "summary",
-      title,
+      card: "summary_large_image",
+      title: `${company.ticker} — ${company.nameEn}`,
       description,
+      images: [siteConfig.ogImage],
     },
-    robots: { index: true, follow: true },
-    alternates: {
-      canonical: `/company/${id}`,
-    },
+    robots: company.isActive && hasData ? { index: true, follow: true } : { index: false, follow: true },
   }
 }
 
 export default async function CompanyPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  // JSON-LD Corporation schema — organic search grounding for every company page
-  const company = await db.company.findUnique({
-    where: { id },
-    select: { ticker: true, nameEn: true, nameAr: true, sector: true, isin: true },
-  })
+  const key = decodeURIComponent(id)
+  const company = await findCompany(key)
+  const canonical = company ? `${siteConfig.url}/company/${company.ticker}` : null
   const jsonLd = company
     ? {
         "@context": "https://schema.org",
@@ -57,9 +96,12 @@ export default async function CompanyPage({ params }: { params: Promise<{ id: st
         name: company.nameEn,
         alternateName: company.nameAr ?? undefined,
         tickerSymbol: company.ticker,
-        identifier: company.isin ?? undefined,
+        identifier: company.isin
+          ? { "@type": "PropertyValue", propertyID: "ISIN", value: company.isin }
+          : undefined,
         description: `${company.ticker} — ${company.nameEn}, Egyptian Exchange (${company.sector}). Source-traceable financials, metrics and events on EGX Financial Scanner.`,
-        url: `https://egx-scanner.com/company/${id}`,
+        url: canonical,
+        mainEntityOfPage: canonical,
       }
     : null
   return (
@@ -67,7 +109,49 @@ export default async function CompanyPage({ params }: { params: Promise<{ id: st
       {jsonLd ? (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       ) : null}
-      <CompanyPageClient companyId={id} />
+      {company ? (
+        <>
+          <BreadcrumbSchema
+            items={[
+              { name: "Home", url: siteConfig.url },
+              { name: "Companies", url: `${siteConfig.url}/rankings` },
+              { name: `${company.ticker} — ${company.nameEn}`, url: canonical! },
+            ]}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FinancialProduct",
+                name: `${company.ticker} — ${company.nameEn}`,
+                tickerSymbol: company.ticker,
+                isin: company.isin,
+                description: `${company.ticker} — ${company.nameEn}, Egyptian Exchange (${company.sector}). Source-traceable financials, metrics and events on EGX Financial Scanner.`,
+                url: canonical,
+                potentialAction: {
+                  "@type": "SearchAction",
+                  target: {
+                    "@type": "EntryPoint",
+                    urlTemplate: `${siteConfig.url}/company/${company.ticker}`,
+                  },
+                  queryInput: "required name=ticker_symbol",
+                },
+                audience: {
+                  "@type": "Audience",
+                  audienceType: "investor",
+                },
+                provider: {
+                  "@type": "Organization",
+                  name: siteConfig.name,
+                  url: siteConfig.url,
+                },
+              } as Record<string, unknown>),
+            }}
+          />
+        </>
+      ) : null}
+      <CompanyPageClient companyId={company?.id ?? key} />
     </>
   )
 }

@@ -11,6 +11,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const { t, lang } = useI18n()
 
   const links = [
+    { href: "/admin/data-quality", label: lang === "ar" ? "جودة البيانات" : "Data Quality" },
     { href: "/admin/subscriptions", label: lang === "ar" ? "الاشتراكات" : "Subscriptions" },
     { href: "/admin/payments", label: lang === "ar" ? "طلبات الدفع" : "Payment Requests" },
   ]

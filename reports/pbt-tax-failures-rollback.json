@@ -1,0 +1,149 @@
+{
+  "generatedAt": "2026-11-03T16:32:29.819Z",
+  "values": [
+    {
+      "valueId": "cmuion0rd0fi2bxq0abrmd2oe",
+      "ticker": "EGTS",
+      "periodLabel": "FY 2024",
+      "metricCode": "INCOME_TAX",
+      "oldValue": -61013777,
+      "oldNormalizedValue": -61013777,
+      "newValue": 61013777,
+      "newNormalizedValue": 61013777,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "valueId": "cmuiomz4t0bz7bxq0lswnttlp",
+      "ticker": "MMAT",
+      "periodLabel": "FY 2025",
+      "metricCode": "INCOME_TAX",
+      "oldValue": -379260,
+      "oldNormalizedValue": -379260,
+      "newValue": 379260,
+      "newNormalizedValue": 379260,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)"
+    },
+    {
+      "valueId": "cmvu2rdj400r8bx5ku51w84ub",
+      "ticker": "AMER",
+      "periodLabel": "9M 2025",
+      "metricCode": "PROFIT_BEFORE_TAX",
+      "oldValue": 188756233,
+      "oldNormalizedValue": 188756233,
+      "newValue": 188756233,
+      "newNormalizedValue": 188756233,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "valueId": "cmvu2rdj400r7bx5karxjiedt",
+      "ticker": "AMER",
+      "periodLabel": "9M 2025",
+      "metricCode": "INCOME_TAX",
+      "oldValue": 41052685,
+      "oldNormalizedValue": 41052685,
+      "newValue": 41052685,
+      "newNormalizedValue": 41052685,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "valueId": "cmupwlm0g07etbxssycfn3w6t",
+      "ticker": "BINV",
+      "periodLabel": "Q2 2026",
+      "metricCode": "PROFIT_BEFORE_TAX",
+      "oldValue": 90378075,
+      "oldNormalizedValue": 90378075,
+      "newValue": 90378075,
+      "newNormalizedValue": 90378075,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "valueId": "cmupwllyx07ebbxsspu0kmtkl",
+      "ticker": "BINV",
+      "periodLabel": "Q2 2026",
+      "metricCode": "INCOME_TAX",
+      "oldValue": -66468568,
+      "oldNormalizedValue": -66468568,
+      "newValue": -66468568,
+      "newNormalizedValue": -66468568,
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "valueId": "cmuiw4sqe00hnbxxswjlu4e6y",
+      "ticker": "FIRE",
+      "periodLabel": "FY 2024",
+      "metricCode": "PROFIT_BEFORE_TAX",
+      "oldValue": -2660000,
+      "oldNormalizedValue": -2660000,
+      "newValue": -2660000,
+      "newNormalizedValue": -2660000,
+      "oldStatus": "VALID",
+      "oldNotes": "TradingView income statement, company-level verification unavailable"
+    },
+    {
+      "valueId": "cmuiw4sqm00hpbxxsz99wblbu",
+      "ticker": "FIRE",
+      "periodLabel": "FY 2024",
+      "metricCode": "INCOME_TAX",
+      "oldValue": 3470,
+      "oldNormalizedValue": 3470,
+      "newValue": 3470,
+      "newNormalizedValue": 3470,
+      "oldStatus": "VALID",
+      "oldNotes": "TradingView income statement, company-level verification unavailable"
+    },
+    {
+      "valueId": "cmuiomyza0bn5bxq0j92y33sf",
+      "ticker": "GIHD",
+      "periodLabel": "FY 2024",
+      "metricCode": "PROFIT_BEFORE_TAX",
+      "oldValue": 1991700,
+      "oldNormalizedValue": 1991700,
+      "newValue": 1991700,
+      "newNormalizedValue": 1991700,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)"
+    },
+    {
+      "valueId": "cmuiomyza0bn6bxq0y9jw56jb",
+      "ticker": "GIHD",
+      "periodLabel": "FY 2024",
+      "metricCode": "INCOME_TAX",
+      "oldValue": -1720,
+      "oldNormalizedValue": -1720,
+      "newValue": -1720,
+      "newNormalizedValue": -1720,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)"
+    },
+    {
+      "valueId": "cmuiomz7m0c43bxq0rrb36ty7",
+      "ticker": "OFH",
+      "periodLabel": "FY 2024",
+      "metricCode": "PROFIT_BEFORE_TAX",
+      "oldValue": 255977000,
+      "oldNormalizedValue": 255977000,
+      "newValue": 255977000,
+      "newNormalizedValue": 255977000,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)"
+    },
+    {
+      "valueId": "cmuiomz7m0c44bxq0zsgfzgt3",
+      "ticker": "OFH",
+      "periodLabel": "FY 2024",
+      "metricCode": "INCOME_TAX",
+      "oldValue": 34530000,
+      "oldNormalizedValue": 34530000,
+      "newValue": 34530000,
+      "newNormalizedValue": 34530000,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)"
+    }
+  ]
+}

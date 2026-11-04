@@ -1,21 +1,81 @@
 "use client"
 
-import { useState } from "react"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useQuery } from "@tanstack/react-query"
-import { ArrowRight, BellRing, Building2, CalendarDays, FileWarning, Lock, Percent, Scale, ScanSearch, Sparkles, Star, TrendingDown, TrendingUp, FileCheck2, Gauge } from "lucide-react"
+import {
+  ArrowRight,
+  BellRing,
+  Building2,
+  CalendarDays,
+  FileCheck2,
+  Gauge,
+  Lock,
+  Percent,
+  Scale,
+  ScanSearch,
+  Sparkles,
+  Star,
+  TrendingDown,
+  TrendingUp,
+  Activity,
+} from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { api, getUserToken, type DashboardData } from "@/lib/client/api"
 import { useWatchlist } from "@/lib/client/watchlist"
-import { useI18n } from "@/lib/i18n"
+import { useI18n, type DictKey } from "@/lib/i18n"
 import { formatEgp } from "@/lib/financial/units"
 import { DemoBadge, EventBadge } from "./shared"
 import { QaBox } from "./qa-box"
 import { EVENT_TYPE_MAP } from "@/lib/financial/registry"
 import type { ViewKey } from "@/lib/view-keys"
+import { sectorLabel } from "@/lib/sectors"
+
+interface SectorAgg {
+  sector: string
+  companyCount: number
+  avgRoe: number | null
+  avgRoa: number | null
+  avgNetMargin: number | null
+  avgPe: number | null
+  avgPb: number | null
+  totalMarketCap: number | null
+  totalRevenue: number | null
+  totalNetProfit: number | null
+  medianRoe: number | null
+  medianPe: number | null
+  medianPb: number | null
+  periodLabel: string | null
+  periodType: string | null
+  fiscalYear: number | null
+  dayChangePct: number | null
+  advancing: number
+  declining: number
+  unchanged: number
+  pricedCompanyCount: number
+}
+
+interface BreadthData {
+  advancing: number
+  declining: number
+  unchanged: number
+  tradedValue: number | null
+  asOf: string | null
+  pricedCount?: number
+  tradedValueCoverage?: number | null
+}
+
+interface WatchlistItemWithPrice {
+  id: string
+  ticker: string
+  price?: number
+  changePct?: number
+  asOf?: string
+}
 
 export function DashboardView({
   onOpenScanner,
@@ -28,7 +88,8 @@ export function DashboardView({
 }) {
   const router = useRouter()
   const { t, lang, pick } = useI18n()
-  const [scannerCategory, setScannerCategory] = useState<string>("ALL")
+  const ar = lang === "ar"
+
   const { data, isLoading, error } = useQuery({ queryKey: ["dashboard"], queryFn: api.dashboard })
   const { data: subData } = useQuery({ queryKey: ["my-subscription"], queryFn: () => api.subscription() })
   const { data: latest } = useQuery({ queryKey: ["latest-results"], queryFn: () => api.latestResults(), staleTime: 60_000 })
@@ -37,18 +98,32 @@ export function DashboardView({
     queryFn: () => fetch("/api/v1/dashboard/valuation").then((r) => (r.ok ? ((r.json() as unknown) as { results: { companyId: string; ticker: string; name: string; sector: string; pe: number | null; discountPct: number | null }[] }) : null)),
     staleTime: 300_000,
   })
-  const isPremium = !!subData?.isPremium
-  const { data: adminStats } = useQuery({
-    queryKey: ["admin-dashboard"],
-    queryFn: () => fetch("/api/v1/admin/dashboard", { credentials: "include" }).then((r) => (r.ok ? r.json() : null)),
-    enabled: !!getUserToken(),
-    staleTime: 60_000,
+
+  const { data: sectorAggs } = useQuery({
+    queryKey: ["sector-aggs"],
+    queryFn: () => fetch("/api/v1/sectors").then((r) => (r.ok ? (r.json() as Promise<{ sectors: SectorAgg[] }>) : { sectors: [] })),
+    staleTime: 120_000,
   })
+
+  const { data: breadth } = useQuery({
+    queryKey: ["market-breadth"],
+    queryFn: () => fetch("/api/v1/market/breadth").then((r) => (r.ok ? (r.json() as Promise<BreadthData>) : null)),
+    staleTime: 60_000,
+    refetchInterval: 300_000,
+  })
+
+  const isPremium = !!subData?.isPremium
   const watchItems = useWatchlist((s) => s.items)
   const watchIds = watchItems.map((w) => w.id)
 
-  // Watchlist alerts digest — latest events among watched companies (client-side
-  // preference; the filter itself runs server-side via /api/v1/events?companyIds=)
+  const { data: watchPrices } = useQuery({
+    queryKey: ["watch-prices", watchIds.join(",")],
+    queryFn: () => fetch(`/api/v1/market/ticker?fresh=true`).then((r) => (r.ok ? (r.json() as Promise<{ movers?: { ticker: string; price: number; changePct: number }[] }>) : { movers: [] })),
+    enabled: watchIds.length > 0,
+    staleTime: 30_000,
+    refetchInterval: 60_000,
+  })
+
   const alertsQuery = useQuery({
     queryKey: ["watch-alerts", watchIds.join(",")],
     queryFn: () => api.eventsFeed(watchIds, 8),
@@ -56,19 +131,29 @@ export function DashboardView({
     refetchInterval: 60_000,
   })
 
+  // Sector cards show the day's equal-weighted price move, not average ROE.
+  // The two are different facts; labelling ROE as "performance" made a
+  // profitability ratio look like a price return.
+  const topSectors = [...(sectorAggs?.sectors ?? [])]
+    .filter((s) => s.dayChangePct !== null)
+    .sort((a, b) => (b.dayChangePct ?? -Infinity) - (a.dayChangePct ?? -Infinity))
+    .slice(0, 4)
+
   if (isLoading) {
     return (
       <div className="space-y-6">
-        <Skeleton className="h-28 w-full rounded-xl" />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <Skeleton key={i} className="h-24 rounded-xl" />
-          ))}
+        <section className="relative overflow-hidden rounded-[20px] border border-primary/20 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent p-6 sm:p-8 h-[240px]">
+          <Skeleton className="h-full w-full rounded-[20px]" />
+        </section>
+        <div className="grid gap-6 lg:grid-cols-12">
+          <div className="lg:col-span-4"><Skeleton className="h-[240px] rounded-[20px]" /></div>
+          <div className="lg:col-span-4"><Skeleton className="h-[240px] rounded-[20px]" /></div>
+          <div className="lg:col-span-4"><Skeleton className="h-[240px] rounded-[20px]" /></div>
         </div>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <Skeleton key={i} className="h-44 rounded-xl" />
-          ))}
+        <div className="grid gap-6 lg:grid-cols-12">
+          <div className="lg:col-span-4"><Skeleton className="h-[200px] rounded-[20px]" /></div>
+          <div className="lg:col-span-4"><Skeleton className="h-[200px] rounded-[20px]" /></div>
+          <div className="lg:col-span-4"><Skeleton className="h-[200px] rounded-[20px]" /></div>
         </div>
       </div>
     )
@@ -76,425 +161,659 @@ export function DashboardView({
 
   if (error || !data) {
     return (
-      <Card className="border-red-200 dark:border-red-900">
+      <Card className="border-destructive/20 bg-destructive/5">
         <CardHeader>
-          <CardTitle className="text-red-600">{t("common.noData")}</CardTitle>
+          <CardTitle className="text-destructive">{t("common.noData")}</CardTitle>
           <CardDescription>{error instanceof Error ? error.message : String(error)}</CardDescription>
         </CardHeader>
       </Card>
     )
   }
 
-
   return (
-    <div className="space-y-8">
-      {/* Market overview hero — gradient + live KPI row */}
-      <section className="page-glow relative overflow-hidden rounded-2xl border border-border/60 bg-gradient-to-br from-primary/8 via-primary/4 to-transparent p-6 sm:p-8">
-        <div className="relative flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-8">
-          <div className="flex-1">
-            <div className="flex items-center gap-2 mb-2">
-              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-balance">{t("dash.title")}</h1>
+      <div className="space-y-8">
+      {/* ===== HERO BANNER ===== */}
+      <section
+        className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/15 via-primary/5 to-transparent p-8 sm:p-10 min-h-[280px] flex items-center"
+      >
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/40 to-background/80" />
+          <div className="absolute inset-0 [background-image:radial-gradient(circle_at_30%_20%,rgba(163,230,53,0.15)_0%,transparent_50%),radial-gradient(circle_at_70%_80%,rgba(163,230,53,0.1)_0%,transparent_50%)]" />
+          <div className="absolute inset-0 [background-image:linear-gradient(to_right,rgba(163,230,53,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(163,230,53,0.08)_1px,transparent_1px)] [background-size:60px_60px] opacity-20" />
+        </div>
+        <div className="absolute z-0 -top-20 -right-20 w-80 h-80 rounded-full bg-primary/10 blur-[100px]" />
+        <div className="absolute z-0 -bottom-32 -left-32 w-96 h-96 rounded-full bg-emerald-500/10 blur-[120px]" />
+
+        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8 w-full">
+          <div className="flex-1 lg:max-w-[60%]">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                <span className="flex h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+                {ar ? "بيانات محدثة مباشرة" : "Live Market Data"}
+              </span>
             </div>
-            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl leading-relaxed">{t("dash.subtitle")}</p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              <Button onClick={() => onViewChange("scanners")} className="btn-primary shadow-sm shadow-primary/15">
-                <ScanSearch className="h-4 w-4" />
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-balance text-foreground mb-4 leading-tight">
+              {ar ? "مستقبل الاستثمار" : "The Future of"}
+              <br />
+              <span className="gradient-text">{ar ? "الذكي يبدأ هنا" : "Smart Investing"}</span>
+            </h1>
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-[48rem] leading-relaxed mb-8">
+              {ar ? "أقوى أدوات تحليل السوق المصري مع بيانات دقيقة ورؤى ذكية لاتخاذ قرارات استثمارية أفضل" : "Powerful Egyptian market analysis tools with accurate data and smart insights for better investment decisions"}
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Button onClick={() => onViewChange("scanners")} size="lg" className="gap-2 shadow-lg shadow-primary/30">
+                <ScanSearch className="h-5 w-5" />
                 {t("nav.scanners")}
               </Button>
-              <Button variant="outline" onClick={() => onViewChange("custom")} className="border-border/70 hover:border-primary/30">
+              <Button variant="outline" size="lg" onClick={() => onViewChange("custom")} className="gap-2">
+                <Sparkles className="h-5 w-5" />
                 {t("nav.customScanner")}
               </Button>
             </div>
           </div>
-          {/* live KPI chips */}
-          <div className="grid grid-cols-2 lg:grid-cols-2 gap-2.5 lg:w-90">
-            <div className="rounded-xl border border-border/50 bg-card/70 px-4 py-3">
-              <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{lang === "ar" ? "الشركات المدرجة" : "Listed companies"}</p>
-              <p className="text-xl font-bold tabular text-primary">{data.stats.companies}</p>
-            </div>
-            <div className="rounded-xl border border-border/50 bg-card/70 px-4 py-3">
-              <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{lang === "ar" ? "إفصاح" : "Filings"}</p>
-              <p className="text-xl font-bold tabular text-primary">{data.stats.reports?.toLocaleString?.() ?? data.stats.reports}</p>
-            </div>
-            <div className="rounded-xl border border-border/50 bg-card/70 px-4 py-3">
-              <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{lang === "ar" ? "قيمة متحقق منها" : "Verified values"}</p>
-              <p className="text-xl font-bold tabular text-primary">{data.stats.validValues?.toLocaleString?.() ?? data.stats.validValues}</p>
-            </div>
-            <div className="rounded-xl border border-border/50 bg-card/70 px-4 py-3">
-              <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{lang === "ar" ? "حدث مكتشف" : "Detected events"}</p>
-              <p className="text-xl font-bold tabular text-primary">{data.stats.events?.toLocaleString?.() ?? data.stats.events}</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Ask-the-market Q&A */}
-      <QaBox compact />
-
-      {/* Watchlist strip */}
-      {watchItems.length > 0 ? (
-        <section aria-label={t("watchlist.title")} className="rounded-2xl border border-amber-400/25 bg-amber-400/5 p-4">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="flex items-center gap-1.5 text-xs font-semibold text-amber-600 dark:text-amber-400">
-              <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-              {t("watchlist.title")}
-              <span className="tabular">({watchItems.length})</span>
-            </span>
-            <div className="flex flex-wrap gap-1.5">
-              {watchItems.map((w) => (
-                <button
-                  key={w.id}
-                  onClick={() => onOpenCompany(w.id)}
-                  className="inline-flex items-center gap-1 rounded-full border border-amber-400/40 bg-card px-2.5 py-1 text-[11px] font-semibold transition-all duration-150 hover:bg-amber-400/10 hover:border-amber-400/60"
-                >
-                  {w.ticker}
-                </button>
-              ))}
-            </div>
-            <button onClick={() => router.push("/watchlist")} className="ms-auto text-[11px] text-muted-foreground hover:text-foreground transition-colors">
-              {lang === "ar" ? "القائمة كاملة ←" : "Full watchlist →"}
-            </button>
-          </div>
-        </section>
-      ) : null}
-
-      {/* Watchlist alerts digest */}
-      {watchItems.length > 0 ? (
-        <section aria-label={t("dash.watchAlerts")} className="rounded-2xl border border-sky-500/20 bg-sky-500/5 p-5">
-          <div className="flex items-center gap-2.5">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-500/15 text-sky-600 dark:text-sky-400">
-              {isPremium ? <BellRing className="h-4 w-4" /> : <Lock className="h-4 w-4 text-amber-500" />}
-            </span>
-            <div className="min-w-0 flex-1">
-              <h2 className="text-sm font-semibold leading-tight">{t("dash.watchAlerts")}</h2>
-              <p className="text-[11px] text-muted-foreground">{t("dash.watchAlertsSub")}</p>
-            </div>
-          </div>
-          {!isPremium ? (
-            <div className="mt-3 flex flex-col items-center gap-2 py-4 text-center text-xs text-muted-foreground">
-              <p>{lang === "ar" ? "الأحداث متاحة لمشتركي Premium فقط" : "Company Events are available for Premium subscribers only"}</p>
-              <Button size="sm" variant="link" className="h-auto gap-1 text-xs" onClick={() => router.push("/premium")}>
-                {lang === "ar" ? "ترقية" : "Upgrade"}
-              </Button>
-            </div>
-          ) : alertsQuery.isLoading ? (
-            <div className="mt-3 space-y-2">
-              {Array.from({ length: 2 }).map((_, i) => (
-                <Skeleton key={i} className="h-12 rounded-lg" />
-              ))}
-            </div>
-          ) : !alertsQuery.data || alertsQuery.data.events.length === 0 ? (
-            <p className="mt-3 text-xs italic text-muted-foreground">{t("dash.watchNoEvents")}</p>
-          ) : (
-            <div className="mt-3 grid gap-2 sm:grid-cols-2">
-              {alertsQuery.data.events.map((e) => {
-                const meta = EVENT_TYPE_MAP[e.eventType]
-                const toneDot = meta?.tone === "positive" ? "bg-emerald-500" : meta?.tone === "negative" ? "bg-red-500" : "bg-slate-400"
-                return (
-                  <button
-                    key={e.id}
-                    onClick={() => onOpenCompany(e.company.id)}
-                    className="flex items-center gap-2.5 rounded-lg border border-border/60 bg-card px-3 py-2.5 text-start transition-all duration-150 hover:bg-muted/50 hover:border-primary/20"
-                  >
-                    <span className={`h-2 w-2 shrink-0 rounded-full ${toneDot}`} aria-hidden />
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-1.5 text-xs">
-                        <span className="font-bold">{e.company.ticker}</span>
-                        <span className="truncate font-medium">{pick(e.labelEn, e.labelAr)}</span>
-                      </div>
-                      <p className="truncate text-[10px] text-muted-foreground">{e.periodLabel} · {pick(e.explanationEn, e.explanationAr)}</p>
-                    </div>
-                  </button>
-                )
-              })}
-            </div>
-          )}
-        </section>
-      ) : null}
-
-
-      {/* Latest announced results */}
-      {latest && latest.results.length > 0 ? (
-        <section aria-label={lang === "ar" ? "أحدث النتائج المعلنة" : "Latest announced results"} className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-4">
-          <div className="mb-3 flex items-center gap-2">
-            <span className="flex h-6 w-6 items-center justify-center rounded-md bg-emerald-500/10 text-emerald-600">
-              <FileCheck2 className="h-3.5 w-3.5" />
-            </span>
-            <h2 className="text-sm font-semibold">{lang === "ar" ? "أحدث النتائج المعلنة" : "Latest announced results"}</h2>
-            <span className="text-[11px] text-muted-foreground">{lang === "ar" ? "أحدث صافي ربح معلن لكل شركة — الأحدث أولاً" : "most recent announced net profit per company — newest first"}</span>
-          </div>
-          <div className="grid gap-2 sm:grid-cols-2">
-            {latest.results.map((r) => (
-              <button key={r.companyId} onClick={() => onOpenCompany(r.companyId)} className="flex items-center justify-between gap-3 rounded-xl border border-border/60 bg-card p-3 text-start transition-all duration-150 hover:border-primary/40 hover:shadow-sm">
-                <div className="min-w-0">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-bold">{r.ticker}</span>
-                    <span className="truncate text-[11px] text-muted-foreground">{r.name}</span>
-                  </div>
-                  <div className="mt-0.5 flex items-center gap-2 text-[11px] text-muted-foreground">
-                    <Badge variant="outline" className="h-4 px-1 text-[9px]">{r.periodLabel}</Badge>
-                    <span>{r.asOf ? new Date(r.asOf).toISOString().slice(0, 10) : ""}</span>
-                  </div>
+          <div className="relative z-10 hidden lg:block lg:w-[38%]">
+            <div className="rounded-2xl border border-border/60 bg-card/80 backdrop-blur-xl p-6 shadow-xl shadow-black/[0.02] dark:shadow-black/[0.3]">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <TrendingUp className="h-4 w-4" />
                 </div>
-                <span className={`shrink-0 text-sm font-semibold tabular ${r.netProfit < 0 ? "text-red-600 dark:text-red-400" : "text-emerald-600 dark:text-emerald-400"}`}>
-                  {formatEgp(r.netProfit)}
-                </span>
-              </button>
-            ))}
-          </div>
-        </section>
-      ) : null}
-
-      {/* Valuation opportunities (sector-relative screen) */}
-      {valuation && valuation.results.length > 0 ? (
-        <section aria-label={lang === "ar" ? "فرص التقييم" : "Valuation opportunities"} className="rounded-2xl border border-violet-500/20 bg-violet-500/5 p-4">
-          <div className="mb-3 flex items-center justify-between gap-2">
-            <div className="flex items-center gap-2">
-              <span className="flex h-6 w-6 items-center justify-center rounded-md bg-violet-500/10 text-violet-600">
-                <Gauge className="h-3.5 w-3.5" />
-              </span>
-              <div>
-                <h2 className="text-sm font-semibold leading-tight">{lang === "ar" ? "فرص التقييم — أقل من متوسط القطاع" : "Valuation opportunities — below sector"}</h2>
-                <p className="text-[10px] text-muted-foreground">{lang === "ar" ? "مقارنة المكررات بوسيط القطاع — تحقق قبل القرار" : "Multiples vs sector median — verify before deciding"}</p>
+                <h2 className="text-lg font-semibold text-foreground">{ar ? "أداء القطاعات (يوم)" : "Top Sectors (1D)"}</h2>
               </div>
-            </div>
-            {!isPremium ? (
-              <Badge variant="outline" className="gap-1 text-[10px]"><Lock className="h-3 w-3" />{lang === "ar" ? "بريميوم" : "Premium"}</Badge>
-            ) : null}
-          </div>
-          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            {(isPremium ? valuation.results.slice(0, 12) : valuation.results.slice(0, 3)).map((r) => (
-              <button key={r.companyId} onClick={() => onOpenCompany(r.companyId)} className="rounded-xl border border-border/60 bg-card p-3 text-start transition-all duration-150 hover:border-violet-500/40 hover:shadow-sm">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-sm font-bold">{r.ticker}</span>
-                  <span className={`text-xs font-semibold tabular ${r.discountPct && r.discountPct > 0 ? "text-emerald-600 dark:text-emerald-400" : "text-muted-foreground"}`}>
-                    {r.discountPct !== null ? `${r.discountPct > 0 ? "-" : "+"}${Math.abs(r.discountPct).toFixed(0)}% ${lang === "ar" ? "من القطاع" : "vs sector"}` : "—"}
-                  </span>
-                </div>
-                <p className="truncate text-[10px] text-muted-foreground">{r.name}</p>
-                <p className="mt-1 text-[10px] text-muted-foreground">
-                  P/E: <span className="tabular">{r.pe ? r.pe.toFixed(1) : "—"}x</span>
-                  {isPremium ? null : <span className="ms-2">🔒</span>}
-                </p>
-              </button>
-            ))}
-          </div>
-        </section>
-      ) : null}
-
-      {/* Scanner discovery grid */}
-      <section aria-label={t("dash.scannerDiscovery")}>
-        <div className="mb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
-          <div>
-            <h2 className="text-lg font-semibold tracking-tight">{t("dash.scannerDiscovery")}</h2>
-            <p className="text-sm text-muted-foreground">{t("dash.scannerDiscoverySub")}</p>
-          </div>
-          <div className="flex flex-wrap gap-1">
-            {[
-              { key: "ALL", label: t("dash.allPresets") },
-              { key: "TURNAROUND", label: t("dash.catTurnaround") },
-              { key: "GROWTH", label: t("dash.catGrowth") },
-              { key: "QUALITY", label: lang === "ar" ? "جودة وملاءة" : "Quality & Cash" },
-              { key: "DIVIDENDS", label: t("dash.catDividends") },
-            ].map((cat) => (
-              <button
-                key={cat.key}
-                type="button"
-                onClick={() => setScannerCategory(cat.key)}
-                className={`rounded-lg px-2.5 py-1 text-xs font-medium transition-colors ${
-                  scannerCategory === cat.key
-                    ? "bg-primary text-primary-foreground font-semibold shadow-xs"
-                    : "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-        </div>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {data.scannerCards
-            .filter((card) => {
-              if (scannerCategory === "ALL") return true
-              const pk = card.presetKey ?? ""
-              if (scannerCategory === "TURNAROUND") return pk.includes("TURNAROUND") || pk.includes("RECOVERY")
-              if (scannerCategory === "GROWTH") return pk.includes("GROWTH") || pk.includes("ACCELERATION")
-              if (scannerCategory === "QUALITY") return pk.includes("ROE") || pk.includes("CASH_FLOW") || pk.includes("DEBT") || pk.includes("ASSETS")
-              if (scannerCategory === "DIVIDENDS") return pk.includes("DIVIDEND") || pk.includes("VALUE")
-              return true
-            })
-            .map((card) => {
-            const meta = card.presetKey ? presetIcons[card.presetKey] : undefined
-            return (
-              <button
-                key={card.id}
-                onClick={() => onOpenScanner(card.id)}
-                className="group text-start rounded-xl border border-border/60 bg-card p-5 shadow-sm shadow-black/[0.02] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5 hover:border-primary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <div className="flex items-center gap-2.5">
-                    <span className={`flex h-10 w-10 items-center justify-center rounded-xl ${meta?.bg ?? "bg-primary/10 text-primary"}`}>
-                      {meta?.icon ?? <ScanSearch className="h-4.5 w-4.5" />}
-                    </span>
-                    <div>
-                      <h3 className="text-sm font-semibold leading-tight">{pick(card.name, card.nameAr)}</h3>
-                      <p className="text-[11px] text-muted-foreground">{card.count} {lang === "ar" ? "مطابقة" : "matches"}</p>
-                    </div>
-                  </div>
-                  <span className="flex h-8 min-w-8 items-center justify-center rounded-xl bg-primary/10 px-2.5 text-sm font-bold tabular num text-primary">
-                    {card.count}
-                  </span>
-                </div>
-                <p className="mt-2.5 text-xs text-muted-foreground leading-relaxed line-clamp-2">{card.description}</p>
-                {card.topMatches.length > 0 ? (
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {card.topMatches.map((m) => (
-                      <span
-                        key={m.companyId}
-                        className="inline-flex items-center gap-1 rounded-full bg-muted/70 px-2 py-0.5 text-[11px] font-medium border border-border/50"
-                      >
-                        {m.ticker}
-                        <span className="text-muted-foreground">{m.period}</span>
+              <div className="grid gap-3">
+                {topSectors.length ? (
+                  topSectors.map((s, i) => (
+                    <div key={s.sector} className="flex items-center gap-3 p-3 rounded-xl hover:bg-muted/50 transition-colors cursor-pointer">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary text-xs font-bold">
+                        {i + 1}
                       </span>
-                    ))}
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium truncate">{sectorLabel(s.sector, lang)}</p>
+                        <p className="text-xs text-muted-foreground">{s.companyCount} {ar ? "شركات" : "companies"}</p>
+                      </div>
+                      <span className={`text-sm font-bold tabular ${(s.dayChangePct ?? 0) >= 0 ? "text-positive" : "text-negative"}`}>
+                        {(s.dayChangePct ?? 0) >= 0 ? "+" : ""}{(s.dayChangePct ?? 0).toFixed(1)}%
+                      </span>
+                    </div>
+                  ))
+                ) : sectorAggs ? (
+                  <div className="text-center text-sm text-muted-foreground py-4">
+                    {ar ? "لا توجد أسعار قطاعية متاحة" : "No sector price data available"}
                   </div>
                 ) : (
-                  <p className="mt-3 text-[11px] text-muted-foreground/70 italic">{lang === "ar" ? "لا مطابقات في أحدث سنة" : "No matches in the latest annual period"}</p>
+                  <div className="text-center text-sm text-muted-foreground py-4">
+                    {ar ? "جاري التحميل..." : "Loading..."}
+                  </div>
                 )}
-                <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-primary transition-opacity duration-150 opacity-0 group-hover:opacity-100">
-                  {t("common.viewWhy")} <ArrowRight className="h-3 w-3 rtl-flip" />
-                </span>
-              </button>
-            )
-          })}
+              </div>
+              <p className="mt-3 text-[10px] text-muted-foreground">
+                {ar ? "تغير السعر المرجّح بالتساوي · متأخر 15 دقيقة" : "Equal-weighted price change · 15-min delayed"}
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Recent events + dividend calendar */}
-      <section className="grid gap-4 lg:grid-cols-5">
-        <Card className="lg:col-span-3 p-0 border-border/60">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-base font-semibold flex items-center gap-2">
-              {t("dash.recentEvents")}
-              {!isPremium ? <Lock className="h-3.5 w-3.5 text-amber-500" aria-hidden /> : null}
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="max-h-96 space-y-2.5 overflow-y-auto scrollbar-thin">
-            {data.recentEvents.length === 0 && !isPremium ? (
-              <div className="flex flex-col items-center justify-center gap-2 py-8 text-center text-xs text-muted-foreground">
-                <Lock className="h-5 w-5 text-amber-500" aria-hidden />
-                <p>{lang === "ar" ? "الأحداث متاحة لمشتركي Premium فقط" : "Company Events are available for Premium subscribers only"}</p>
-                <Button size="sm" variant="link" className="h-auto gap-1 text-xs" onClick={() => router.push("/premium")}>
-                  {lang === "ar" ? "ترقية" : "Upgrade"}
-                </Button>
-              </div>
-            ) : data.recentEvents.length === 0 ? (
-              <p className="text-sm text-muted-foreground">{t("co.noEvents")}</p>
-            ) : (
-              data.recentEvents.map((e) => {
-                const meta = EVENT_TYPE_MAP[e.eventType]
-                const toneBorder = meta?.tone === "positive" ? "border-s-4 border-s-emerald-500/70" : meta?.tone === "negative" ? "border-s-4 border-s-red-500/70" : "border-s-4 border-s-slate-400/50"
-                return (
-                  <button
-                    key={e.id}
-                    onClick={() => onOpenCompany(e.company.id)}
-                    className={`flex w-full items-start gap-3 rounded-lg border border-border/60 bg-card p-3.5 text-start transition-all duration-150 hover:bg-muted/50 hover:border-primary/20 ${toneBorder}`}
-                  >
-                    <EventBadge
-                      small
-                      label={pick(meta?.labelEn ?? e.eventType, meta?.labelAr)}
-                      tone={meta?.tone ?? "neutral"}
-                    />
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-1.5 text-xs">
-                        <span className="font-bold">{e.company.ticker}</span>
-                        <span className="truncate text-muted-foreground">{pick(e.company.nameEn, e.company.nameAr)}</span>
-                        {e.company.isDemoData ? <DemoBadge small /> : null}
-                      </div>
-                      <p className="mt-1 line-clamp-2 text-xs text-muted-foreground leading-relaxed">
-                        {pick(e.explanationEn, e.explanationAr)}
-                      </p>
-                    </div>
-                    <span className="shrink-0 rounded bg-muted px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground">
-                      {e.periodLabel}
-                    </span>
-                  </button>
-                )
-              })
-            )}
-          </CardContent>
-        </Card>
+      {/* ===== ANALYTICS ROW ===== */}
+      <div className="grid gap-6 lg:grid-cols-12">
+        {/* Panel A — Sector Performance (Real Data) */}
+        <SectorPerformancePanel
+          sectorAggs={sectorAggs?.sectors ?? []}
+          onOpenCompany={onOpenCompany}
+          isPremium={isPremium}
+          ar={ar}
+          lang={lang}
+          onViewChange={onViewChange}
+        />
 
-        <Card className="lg:col-span-2 p-0 border-border/60">
-          <CardHeader className="pb-3 flex flex-row items-center justify-between">
-            <CardTitle className="text-base font-semibold">{t("dash.dividendCalendar")}</CardTitle>
-            <Button variant="ghost" size="sm" className="h-7 text-xs" onClick={() => onViewChange("dividends")}>
-              {t("dash.viewAll")}
-            </Button>
-          </CardHeader>
-          <CardContent className="max-h-96 space-y-2.5 overflow-y-auto scrollbar-thin">
-            {data.upcomingDividends.length === 0 ? (
-              <p className="text-sm text-muted-foreground">{t("common.noData")}</p>
-            ) : (
-              data.upcomingDividends.map((d) => (
-                <button
-                  key={d.id}
-                  onClick={() => d.company && onOpenCompany(d.company.id)}
-                  className="flex w-full items-center justify-between gap-3 rounded-lg border border-border/60 bg-card p-3.5 text-start transition-all duration-150 hover:bg-muted/50 hover:border-primary/20"
-                >
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-1.5 text-xs">
-                      <span className="font-bold">{d.company?.ticker}</span>
-                      <span className="truncate text-muted-foreground">{pick(d.company?.nameEn, d.company?.nameAr)}</span>
-                    </div>
-                    <p className="mt-0.5 text-[11px] text-muted-foreground">
-                      {d.dividendPerShare ? `${t("dv.dps")}: ${d.dividendPerShare} EGP · ` : ""}
-                      {d.distributionDate
-                        ? `${t("dv.distribution")}: ${fmtDate(d.distributionDate)}`
-                        : d.notes || t("dv.notAnnounced")}
-                    </p>
-                  </div>
-                  <div className="flex flex-col items-end gap-1">
-                    <StatusChipMini status={d.status} />
-                    {d.announcementDate ? (
-                      <span className="text-[10px] text-muted-foreground">{fmtDate(d.announcementDate)}</span>
-                    ) : null}
-                  </div>
-                </button>
-              ))
-            )}
-          </CardContent>
-        </Card>
+        {/* Panel B — Market Summary (Real Data) */}
+        <MarketSummaryPanel breadth={breadth} ar={ar} />
+
+        {/* Panel C — EGX30 Chart (No Synthetic Data) */}
+        <Egx30ChartPanel isPremium={isPremium} ar={ar} onViewChange={onViewChange} router={router} />
+      </div>
+
+      {/* ===== SECONDARY ROW ===== */}
+      <div className="grid gap-6 lg:grid-cols-12">
+        {/* Panel D — Important Events */}
+        <EventsPanel data={data} isPremium={isPremium} ar={ar} onOpenCompany={onOpenCompany} />
+
+        {/* Panel E — Watchlist (Real Price Changes) */}
+        <WatchlistPanel
+          watchItems={watchItems}
+          watchPrices={watchPrices?.movers ?? []}
+          onOpenCompany={onOpenCompany}
+          ar={ar}
+          router={router}
+        />
+
+        {/* Panel F — Opportunities Under Radar (Real Valuation Data) */}
+        <OpportunitiesPanel
+          valuation={valuation}
+          isPremium={isPremium}
+          ar={ar}
+          onOpenCompany={onOpenCompany}
+          router={router}
+          onViewChange={onViewChange}
+        />
+      </div>
+
+      {/* ===== BOTTOM STRIP ===== */}
+      <section className="rounded-[20px] border border-border/60 bg-card p-5 sm:p-6">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div className="flex w-full flex-1 items-center gap-3 sm:flex-nowrap">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-muted/40 text-muted-foreground">
+              <Activity className="h-4 w-4" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <input
+                type="search"
+                placeholder={ar ? "اسأل عن السوق…" : "Ask about the market…"}
+                className="w-full px-3 py-1.5 text-sm rounded-xl border border-input bg-background/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring transition-colors"
+              />
+              <Button size="sm" className="ml-2 h-9 px-3 text-xs font-semibold">
+                {ar ? "إرسال" : "Send"}
+              </Button>
+            </div>
+          </div>
+          <div className="flex w-full flex-1 justify-end sm:justify-start gap-2 sm:ml-auto">
+            {[
+              { label: ar ? "الشركات" : "Companies", href: "/rankings", icon: <Building2 className="h-4 w-4" /> },
+              { label: ar ? "القطاعات" : "Sectors", href: "/sectors", icon: <ScanSearch className="h-4 w-4" /> },
+              { label: ar ? "ماسح مخصص" : "Custom Scanner", href: "/dashboard#/custom", icon: <Scale className="h-4 w-4" /> },
+              { label: ar ? "مقارنة" : "Compare", href: "/compare", icon: <Sparkles className="h-4 w-4" /> },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={(e) => {
+                  if (item.href.startsWith("/dashboard#")) {
+                    e.preventDefault()
+                    router.push(item.href)
+                  }
+                }}
+                className="flex items-center gap-2 rounded-xl border border-border/60 bg-background px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground"
+              >
+                {item.icon}
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
       </section>
     </div>
   )
 }
 
-function StatusChipMini({ status }: { status: string }) {
-  return <span className="rounded bg-teal-500/10 px-1.5 py-0.5 text-[10px] font-semibold text-teal-700 dark:text-teal-300 border border-teal-500/30">{status}</span>
+/* ===== Index Card ===== */
+function IndexCard({ label, change, value }: { label: string; change: string; value: string }) {
+  const positive = !change.startsWith("-")
+  return (
+    <div className="rounded-xl border border-border/50 bg-card/80 px-3 py-2.5 backdrop-blur-sm">
+      <div className="flex items-center justify-between">
+        <div>
+          <span className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{label}</span>
+          <span className="text-xs font-bold tabular text-foreground">{value}</span>
+        </div>
+        <span className={`text-xs font-bold tabular ${positive ? "text-positive" : "text-negative"}`}>
+          {change}
+        </span>
+      </div>
+    </div>
+  )
 }
 
-function fmtDate(iso: string): string {
-  try {
-    return new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })
-  } catch {
-    return iso
-  }
+/* ===== Panel A — Sector Performance (Real Data) ===== */
+function SectorPerformancePanel({
+  sectorAggs,
+  onOpenCompany,
+  isPremium,
+  ar,
+  lang,
+  onViewChange,
+}: {
+  sectorAggs: SectorAgg[]
+  onOpenCompany: (id: string) => void
+  isPremium: boolean
+  ar: boolean
+  lang: "en" | "ar"
+  onViewChange?: (v: ViewKey) => void
+}) {
+  const router = useRouter()
+
+  const rowsWithData = sectorAggs
+    .filter((s) => s.dayChangePct !== null)
+    .sort((a, b) => (b.dayChangePct ?? -Infinity) - (a.dayChangePct ?? -Infinity))
+
+  return (
+    <div className="lg:col-span-4">
+      <Card className="border-border/60 p-0">
+        <CardHeader className="pb-3 px-5">
+          <div className="flex items-center justify-between gap-2">
+            <CardTitle className="text-sm font-semibold flex items-center gap-2">
+              <Gauge className="h-3.5 w-3.5 text-primary" />
+              {ar ? "أداء القطاعات (يوم)" : "Sector Performance (1D)"}
+            </CardTitle>
+            <Button variant="ghost" size="sm" className="h-6 px-2 text-[10px]" onClick={() => router.push("/sectors")}>
+              {ar ? "عرض الكل" : "Show all"}
+            </Button>
+          </div>
+        </CardHeader>
+        <CardContent className="p-0">
+          <div className="space-y-1.5 p-4">
+            {rowsWithData.length > 0 ? (
+              rowsWithData.slice(0, 5).map((row, i) => {
+                const change = row.dayChangePct
+                const positive = change !== null && change >= 0
+                const widthPct = change !== null ? Math.min(Math.abs(change) * 10, 100) : 0
+                return (
+                  <div
+                    key={row.sector}
+                    onClick={() => router.push("/sectors/" + encodeURIComponent(row.sector))}
+                    className="group flex items-center justify-between gap-2 rounded-xl px-3 py-2.5 text-start transition-all duration-200 hover:bg-primary/5 hover:border-primary/30 border border-transparent cursor-pointer"
+                  >
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary text-xs font-bold">
+                        {i + 1}
+                      </span>
+                      <span className="text-sm font-medium truncate">{sectorLabel(row.sector, lang)}</span>
+                    </div>
+                    <div className="flex-1 h-[8px] mx-3 overflow-hidden rounded-full bg-muted/40">
+                      <div
+                        className="h-full rounded-full transition-all duration-500"
+                        style={{
+                          width: widthPct + "%",
+                          background: positive
+                            ? "linear-gradient(90deg, var(--positive) 0%, #22c55e 100%)"
+                            : "linear-gradient(90deg, var(--negative) 0%, #ef4444 100%)",
+                        }}
+                      />
+                    </div>
+                    <span className={`text-sm font-bold tabular shrink-0 flex items-center gap-1 ${positive ? "text-positive" : change !== null ? "text-negative" : "text-muted-foreground"}`}>
+                      {change !== null ? (
+                        <>
+                          {positive ? <TrendingUp className="h-3.5 w-3.5" /> : <TrendingDown className="h-3.5 w-3.5" />}
+                          {change >= 0 ? "+" : ""}{change.toFixed(1)}%
+                        </>
+                      ) : "—"}
+                    </span>
+                  </div>
+                )
+              })
+            ) : (
+              <div className="text-center text-xs text-muted-foreground py-4">
+                {ar ? "لا توجد أسعار قطاعية متاحة بعد" : "No sector price data available yet"}
+              </div>
+            )}
+          </div>
+          <p className="px-4 pb-3 text-[10px] text-muted-foreground">
+            {ar ? "تغير السعر المرجّح بالتساوي · متأخر 15 دقيقة" : "Equal-weighted price change · 15-min delayed"}
+          </p>
+        </CardContent>
+      </Card>
+    </div>
+  )
 }
 
-const presetIcons: Record<string, { icon: React.ReactNode; bg: string }> = {
-  TURNAROUND: { icon: <TrendingUp className="h-4.5 w-4.5" />, bg: "bg-emerald-500/10 text-emerald-600" },
-  PROFIT_GROWTH: { icon: <TrendingUp className="h-4.5 w-4.5" />, bg: "bg-green-500/10 text-green-600" },
-  DETERIORATION: { icon: <TrendingDown className="h-4.5 w-4.5" />, bg: "bg-red-500/10 text-red-500" },
-  REVENUE_GROWTH: { icon: <TrendingUp className="h-4.5 w-4.5" />, bg: "bg-teal-500/10 text-teal-600" },
-  DEBT_REDUCTION: { icon: <TrendingDown className="h-4.5 w-4.5" />, bg: "bg-sky-500/10 text-sky-600" },
-  EQUITY_GROWTH: { icon: <TrendingUp className="h-4.5 w-4.5" />, bg: "bg-cyan-500/10 text-cyan-600" },
-  STRONG_CASH_FLOW: { icon: <Sparkles className="h-4.5 w-4.5" />, bg: "bg-lime-500/10 text-lime-600" },
-  FINANCIAL_RECOVERY: { icon: <TrendingUp className="h-4.5 w-4.5" />, bg: "bg-emerald-500/10 text-emerald-700" },
-  STRONG_ROE: { icon: <Sparkles className="h-4.5 w-4.5" />, bg: "bg-amber-500/10 text-amber-600" },
-  HIGH_ASSETS: { icon: <Building2 className="h-4.5 w-4.5" />, bg: "bg-slate-500/10 text-slate-600" },
-  PROFIT_ACCELERATION: { icon: <TrendingUp className="h-4.5 w-4.5" />, bg: "bg-green-500/10 text-green-700" },
-  DIVIDEND_CALENDAR: { icon: <CalendarDays className="h-4.5 w-4.5" />, bg: "bg-teal-500/10 text-teal-700" },
-  VALUE_P_B: { icon: <Scale className="h-4.5 w-4.5" />, bg: "bg-violet-500/10 text-violet-600" },
-  DIVIDEND_YIELD: { icon: <Percent className="h-4.5 w-4.5" />, bg: "bg-fuchsia-500/10 text-fuchsia-600" },
+/* ===== Panel B — Market Summary (Real Data) ===== */
+function MarketSummaryPanel({ breadth, ar }: { breadth: BreadthData | null | undefined; ar: boolean }) {
+  const advancing = breadth?.advancing ?? 0
+  const declining = breadth?.declining ?? 0
+  const unchanged = breadth?.unchanged ?? 0
+  const tradedValue = breadth?.tradedValue
+  const asOf = breadth?.asOf
+
+  const cells = [
+    { label: ar ? "منخفضة" : "Declining", value: String(declining), color: "text-negative", dot: "bg-negative" },
+    { label: ar ? "مستقرة" : "Unchanged", value: String(unchanged), color: "text-muted-foreground", dot: "bg-muted-foreground" },
+    { label: ar ? "صاعدة" : "Advancing", value: String(advancing), color: "text-positive", dot: "bg-positive" },
+    {
+      label: ar ? "قيمة التداول" : "Traded Value",
+      value: tradedValue !== null && tradedValue !== undefined ? formatEgp(tradedValue) : (ar ? "غير متاح" : "N/A"),
+      color: "text-gold",
+      dot: "bg-gold/20 text-gold",
+    },
+  ]
+
+  return (
+    <div className="lg:col-span-4">
+      <Card className="border-border/60 p-0">
+        <CardHeader className="pb-3 px-5">
+          <CardTitle className="text-sm font-semibold flex items-center gap-2">
+            <FileCheck2 className="h-3.5 w-3.5 text-primary" />
+            {ar ? "ملخص السوق" : "Market Summary"}
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="p-0">
+          <div className="grid grid-cols-2 gap-2 p-4">
+            {cells.map((cell, i) => (
+              <div key={i} className="rounded-xl border border-border/50 bg-card/80 p-3">
+                <div className="flex items-center justify-between mb-1">
+                  <span className={`text-[10px] font-medium uppercase tracking-wide ${cell.color}`}>{cell.label}</span>
+                  <span className={`flex h-5 w-5 items-center justify-center rounded-full ${cell.dot}`} />
+                </div>
+                <span className="text-xl font-bold tabular text-foreground">{cell.value}</span>
+              </div>
+            ))}
+          </div>
+          {asOf && (
+            <div className="px-4 pb-1 text-[10px] text-muted-foreground text-right">
+              {ar ? "آخر تحديث: " : "Updated: "}{new Date(asOf).toLocaleString(ar ? "ar-EG" : "en-GB")}
+            </div>
+          )}
+          <div className="px-4 pb-3 text-[10px] text-muted-foreground">
+            {ar ? "اتساع السوق حسب تغير السعر · متأخر 15 دقيقة" : "Price breadth · 15-min delayed"}
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
+
+/* ===== Panel C — EGX30 (latest level only; no synthetic history) ===== */
+function Egx30ChartPanel({
+  ar,
+  router,
+}: {
+  isPremium: boolean
+  ar: boolean
+  onViewChange: (v: ViewKey) => void
+  router: ReturnType<typeof useRouter>
+}) {
+  const { data, isLoading } = useQuery({
+    queryKey: ["market-ticker"],
+    queryFn: () =>
+      fetch("/api/v1/market/ticker?fresh=true").then((r) =>
+        r.ok
+          ? (r.json() as Promise<{
+              indices: { name: string; level: number; changePct: number }[]
+              pricesAsOf?: string | null
+              delayMinutes?: number | null
+            }>)
+          : null,
+      ),
+    staleTime: 30_000,
+    refetchInterval: 60_000,
+  })
+
+  const egx30 = data?.indices?.find((i) => i.name === "EGX30")
+  const others = (data?.indices ?? []).filter((i) => i.name !== "EGX30").slice(0, 3)
+  const positive = (egx30?.changePct ?? 0) >= 0
+  const fmt = (value: number) =>
+    value.toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+
+  return (
+    <div className="lg:col-span-4">
+      <Card className="border-border/60 p-0">
+        <CardHeader className="pb-3 px-5">
+          <div className="flex items-center justify-between gap-2">
+            <CardTitle className="text-sm font-semibold flex items-center gap-2">
+              <Activity className="h-3.5 w-3.5 text-primary" />
+              {ar ? "مؤشر EGX30" : "EGX30 Index"}
+            </CardTitle>
+            <span className="rounded-full border border-border/60 bg-muted/30 px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
+              {ar ? "متأخر 15 دقيقة" : "15m delayed"}
+            </span>
+          </div>
+        </CardHeader>
+        <CardContent className="p-0">
+          <div className="space-y-4 p-4">
+            {isLoading ? (
+              <div className="flex h-[120px] items-center justify-center">
+                <div className="flex flex-col items-center gap-2 text-muted-foreground">
+                  <div className="h-6 w-6 animate-spin rounded-full border-2 border-primary/30 border-t-primary" />
+                  <span className="text-xs">{ar ? "جاري تحميل البيانات..." : "Loading market data..."}</span>
+                </div>
+              </div>
+            ) : (
+              <>
+                <div className="flex items-baseline justify-between gap-3">
+                  <span className="text-3xl font-extrabold tabular text-foreground">
+                    {egx30 ? fmt(egx30.level) : "—"}
+                  </span>
+                  <span className={`text-sm font-bold tabular ${positive ? "text-positive" : "text-negative"}`}>
+                    {egx30 ? `${positive ? "+" : ""}${egx30.changePct.toFixed(2)}%` : "—"}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-3 gap-2">
+                  {others.map((index) => {
+                    const up = index.changePct >= 0
+                    return (
+                      <div key={index.name} className="rounded-lg border border-border/50 bg-card/80 p-2">
+                        <p className="truncate text-[10px] font-medium text-muted-foreground">{index.name}</p>
+                        <p className="text-xs font-bold tabular text-foreground">{fmt(index.level)}</p>
+                        <p className={`text-[10px] font-semibold tabular ${up ? "text-positive" : "text-negative"}`}>
+                          {up ? "+" : ""}{index.changePct.toFixed(2)}%
+                        </p>
+                      </div>
+                    )
+                  })}
+                </div>
+              </>
+            )}
+
+            <p className="text-[10px] leading-relaxed text-muted-foreground">
+              {ar
+                ? "المستوى الحالي من مصدر عام متأخر 15 دقيقة. الرسم البياني التاريخي للمؤشر يتطلب تغذية بيانات مرخصة."
+                : "Latest level from a 15-minute-delayed public source. Historical index charts require a licensed data feed."}
+            </p>
+            {data?.pricesAsOf ? (
+              <p className="text-[10px] text-muted-foreground">
+                {ar ? "آخر تحديث: " : "Updated: "}
+                {new Date(data.pricesAsOf).toLocaleString(ar ? "ar-EG" : "en-GB")}
+              </p>
+            ) : null}
+
+            <Button variant="outline" size="sm" className="w-full" onClick={() => router.push("/sectors")}>
+              {ar ? "استعرض أداء القطاعات" : "Explore sector performance"}
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
+
+/* ===== Panel D — Important Events ===== */
+function EventsPanel({
+  data,
+  isPremium,
+  ar,
+  onOpenCompany,
+}: {
+  data: DashboardData
+  isPremium: boolean
+  ar: boolean
+  onOpenCompany: (id: string) => void
+}) {
+  const { pick } = useI18n()
+  return (
+    <div className="lg:col-span-4">
+      <Card className="border-border/60 p-0">
+        <CardHeader className="pb-3 px-5">
+          <CardTitle className="text-sm font-semibold flex items-center gap-2">
+            <CalendarDays className="h-3.5 w-3.5 text-primary" />
+            {ar ? "أحداث هامة" : "Important Events"}
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="p-0">
+          {isPremium ? (
+            <div className="p-4 space-y-2">
+              {data.recentEvents.slice(0, 5).map((e) => {
+                const meta = EVENT_TYPE_MAP[e.eventType]
+                const tone = meta?.tone ?? "neutral"
+                return (
+                  <button
+                    key={e.id}
+                    onClick={() => onOpenCompany(e.company.id)}
+                    className="flex items-center gap-2 rounded-lg border border-border/60 bg-card p-2.5 text-start transition-colors hover:bg-accent/30"
+                  >
+                    <span className={`flex h-6 w-6 items-center justify-center rounded ${tone === "positive" ? "bg-positive/10 text-positive" : tone === "negative" ? "bg-negative/10 text-negative" : "bg-muted/30 text-muted-foreground"}`}>
+                      <BellRing className="h-3 w-3" />
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-xs font-semibold text-foreground leading-tight">
+                        {pick(e.explanationEn, e.explanationAr)}
+                      </p>
+                      <p className="text-[10px] text-muted-foreground">{e.periodLabel}</p>
+                    </div>
+                  </button>
+                )
+              })}
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center gap-2 py-8 text-center text-xs text-muted-foreground">
+              <Lock className="h-5 w-5 text-warning-foreground" aria-hidden />
+              <p>{ar ? "الأحداث متاحة لمشتركي بريميوم فقط" : "Events available for Premium subscribers only"}</p>
+              <Button size="sm" variant="link" className="h-auto gap-1 text-xs" onClick={() => {}}>
+                {ar ? "ترقية" : "Upgrade"}
+              </Button>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
+
+/* ===== Panel E — Watchlist (Real Price Changes) ===== */
+function WatchlistPanel({
+  watchItems,
+  watchPrices,
+  onOpenCompany,
+  ar,
+  router,
+}: {
+  watchItems: { id: string; ticker: string }[]
+  watchPrices: { ticker: string; price: number; changePct: number }[]
+  onOpenCompany: (id: string) => void
+  ar: boolean
+  router: any
+}) {
+  const priceMap = new Map(watchPrices.map((p) => [p.ticker, p]))
+
+  return (
+    <div className="lg:col-span-4">
+      <Card className="border-border/60 p-0">
+        <CardHeader className="pb-3 px-5 flex items-center justify-between">
+          <CardTitle className="text-sm font-semibold flex items-center gap-2">
+            <Star className="h-3.5 w-3.5 text-gold" />
+            {ar ? "قائمة المتابعة" : "Watchlist"}
+          </CardTitle>
+          {watchItems.length > 0 ? (
+            <Button variant="ghost" size="sm" className="h-6 px-2 text-[10px]" onClick={() => router.push("/watchlist")}>
+              {ar ? "الكل" : "All"}
+            </Button>
+          ) : null}
+        </CardHeader>
+        <CardContent className="p-0">
+          {watchItems.length > 0 ? (
+            <div className="space-y-1 p-3">
+              {watchItems.slice(0, 5).map((w) => {
+                const priceInfo = priceMap.get(w.ticker)
+                const change = priceInfo?.changePct ?? 0
+                const positive = change >= 0
+                return (
+                  <button
+                    key={w.id}
+                    onClick={() => onOpenCompany(w.id)}
+                    className="flex items-center justify-between gap-2 rounded-lg border border-border/60 bg-card p-2.5 text-start transition-colors hover:bg-accent/30"
+                  >
+                    <span className="text-sm font-bold">{w.ticker}</span>
+                    <span className={`text-xs font-bold tabular ${positive ? "text-positive" : "text-negative"}`}>
+                      {change >= 0 ? "+" : ""}{change.toFixed(2)}%
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center gap-2 py-8 text-center text-xs text-muted-foreground">
+              <Star className="h-5 w-5 text-muted-foreground/60" aria-hidden />
+              <p>{ar ? "لم تضف أي شركة إلى قائمة المتابعة بعد" : "No companies in your watchlist yet"}</p>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
+
+/* ===== Panel F — Opportunities Under Radar (Real Valuation Data) ===== */
+function OpportunitiesPanel({
+  valuation,
+  isPremium,
+  ar,
+  onOpenCompany,
+  router,
+  onViewChange,
+}: {
+  valuation: { results: Array<{ companyId: string; ticker: string; name: string; sector: string; pe: number | null; discountPct: number | null }> } | null | undefined
+  isPremium: boolean
+  ar: boolean
+  onOpenCompany: (id: string) => void
+  router: any
+  onViewChange: (v: ViewKey) => void
+}) {
+  const results = valuation?.results ?? []
+
+  return (
+    <div className="lg:col-span-4">
+      <Card className="border-border/60 p-0">
+        <CardContent className="p-0">
+          <div className="relative overflow-hidden rounded-[20px] border border-primary/30 bg-gradient-to-br from-primary/10 via-surface to-transparent p-5 sm:p-6 h-[200px] flex flex-col">
+            <div className="absolute top-0 right-0 z-0 w-32 h-32 rounded-full bg-primary/20 blur-[60px] -mt-8 -mr-8" />
+            <div className="relative z-10 flex flex-col h-full">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-primary/20 text-primary">
+                  <Sparkles className="h-3.5 w-3.5" />
+                </div>
+                <h3 className="text-sm font-semibold text-foreground">{ar ? "فرص تحت الرادار" : "Opportunities Under Radar"}</h3>
+              </div>
+              {results.length > 0 ? (
+                <>
+                  <p className="text-xs text-text-secondary leading-relaxed mb-3 flex-1">
+                    {ar ? "شركات تفي بمعايير التقييم — اضغط للتفاصيل" : "Companies meeting valuation criteria — tap for details"}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {results.slice(0, 3).map((r) => (
+                      <button
+                        key={r.companyId}
+                        onClick={() => onOpenCompany(r.companyId)}
+                        className="flex items-center gap-1.5 rounded-lg border border-border/60 bg-card px-2 py-1 text-xs transition-colors hover:bg-accent/30"
+                      >
+                        <span className="font-bold">{r.ticker}</span>
+                        {r.discountPct !== null && (
+                          <span className="text-positive">{r.discountPct >= 0 ? "+" : ""}{r.discountPct.toFixed(1)}%</span>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                  <Button
+                    onClick={() => onViewChange("scanners")}
+                    className="mt-auto w-fit px-4 py-2 text-xs font-bold shadow-sm shadow-primary/20"
+                  >
+                    {ar ? "استكشف الآن" : "Explore Now"}
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <p className="text-xs text-text-secondary leading-relaxed mb-4 flex-1">
+                    {ar ? "اكتشف شركات واعدة من خلال أدوات التحليل المتقدمة والماسحات المخصصة." : "Discover promising companies through advanced analysis tools and custom scanners."}
+                  </p>
+                  <Button
+                    onClick={() => onViewChange("scanners")}
+                    className="mt-auto w-fit px-4 py-2 text-xs font-bold shadow-sm shadow-primary/20"
+                  >
+                    {ar ? "استكشف الآن" : "Explore Now"}
+                  </Button>
+                </>
+              )}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  )
 }

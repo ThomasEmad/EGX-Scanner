@@ -1,0 +1,120 @@
+{
+  "ticker": "VLMR",
+  "source": "https://english.mubasher.info/markets/EGX/stocks/VLMR/financial-statements",
+  "samples": 3,
+  "generatedAt": "2026-11-03T16:17:09.170Z",
+  "reports": [
+    {
+      "id": "cmw0w52k60001bxyk3i01mq0d",
+      "year": 2022
+    },
+    {
+      "id": "cmw0w52m4000fbxykc0f17big",
+      "year": 2024
+    },
+    {
+      "id": "cmw0w52nr000tbxyk2rv6grpl",
+      "year": 2025
+    }
+  ],
+  "values": [
+    {
+      "reportId": "cmw0w52k60001bxyk3i01mq0d",
+      "metricCode": "TOTAL_EQUITY_AND_LIABILITIES",
+      "oldValue": null,
+      "oldStatus": null,
+      "newValue": 1960281.096
+    },
+    {
+      "reportId": "cmw0w52k60001bxyk3i01mq0d",
+      "metricCode": "TOTAL_EQUITY",
+      "oldValue": null,
+      "oldStatus": null,
+      "newValue": 843063.795
+    },
+    {
+      "reportId": "cmw0w52k60001bxyk3i01mq0d",
+      "metricCode": "TOTAL_ASSETS",
+      "oldValue": null,
+      "oldStatus": null,
+      "newValue": 1960281.096
+    },
+    {
+      "reportId": "cmw0w52k60001bxyk3i01mq0d",
+      "metricCode": "TOTAL_LIABILITIES",
+      "oldValue": null,
+      "oldStatus": null,
+      "newValue": 1117217.301
+    },
+    {
+      "reportId": "cmw0w52k60001bxyk3i01mq0d",
+      "metricCode": "NET_PROFIT",
+      "oldValue": null,
+      "oldStatus": null,
+      "newValue": 241062.732
+    },
+    {
+      "reportId": "cmw0w52k60001bxyk3i01mq0d",
+      "metricCode": "GROSS_PROFIT",
+      "oldValue": null,
+      "oldStatus": null,
+      "newValue": 538120.825
+    },
+    {
+      "reportId": "cmw0w52m4000fbxykc0f17big",
+      "metricCode": "TOTAL_EQUITY_AND_LIABILITIES",
+      "oldValue": null,
+      "oldStatus": null,
+      "newValue": 1449224.726
+    },
+    {
+      "reportId": "cmw0w52m4000fbxykc0f17big",
+      "metricCode": "TOTAL_EQUITY",
+      "oldValue": null,
+      "oldStatus": null,
+      "newValue": 493164.177
+    },
+    {
+      "reportId": "cmw0w52m4000fbxykc0f17big",
+      "metricCode": "TOTAL_ASSETS",
+      "oldValue": null,
+      "oldStatus": null,
+      "newValue": 1449224.726
+    },
+    {
+      "reportId": "cmw0w52m4000fbxykc0f17big",
+      "metricCode": "TOTAL_LIABILITIES",
+      "oldValue": null,
+      "oldStatus": null,
+      "newValue": 956060.549
+    },
+    {
+      "reportId": "cmw0w52m4000fbxykc0f17big",
+      "metricCode": "NET_PROFIT",
+      "oldValue": null,
+      "oldStatus": null,
+      "newValue": 163028.53
+    },
+    {
+      "reportId": "cmw0w52m4000fbxykc0f17big",
+      "metricCode": "GROSS_PROFIT",
+      "oldValue": null,
+      "oldStatus": null,
+      "newValue": 266563.202
+    },
+    {
+      "reportId": "cmw0w52nr000tbxyk2rv6grpl",
+      "metricCode": "NET_PROFIT",
+      "oldValue": null,
+      "oldStatus": null,
+      "newValue": 161182.385
+    },
+    {
+      "reportId": "cmw0w52nr000tbxyk2rv6grpl",
+      "metricCode": "GROSS_PROFIT",
+      "oldValue": null,
+      "oldStatus": null,
+      "newValue": 285650.707
+    }
+  ]
+}

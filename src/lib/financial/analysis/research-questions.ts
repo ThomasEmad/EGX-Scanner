@@ -141,7 +141,7 @@ export function answerResearchQuestions(ctx: AnalysisContext): ResearchQuestion[
     out.push({
       id: "q10-current-ratio",
       question: "What is the current ratio?",
-      questionAr: "ما نسبة التداول؟",
+      questionAr: "ما نسبة السيولة المتداولة؟",
       answer: `Current ratio is ${currentRatio.toFixed(2)}x — ${currentRatio < 1 ? "below 1, short-term liquidity stress" : currentRatio < 1.5 ? "adequate but tight" : "comfortable liquidity"}.`,
       metricCodes: ["CURRENT_ASSETS", "CURRENT_LIABILITIES"],
     })

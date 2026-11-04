@@ -1,0 +1,117 @@
+﻿=== FINAL VERIFICATION 2026-11-03T16:57:50.513Z ===
+Base: http://localhost:3100
+--- pages ---
+/                            200
+/sectors                     200
+/sectors/Banks               200
+/company/COMI                200
+/company/SIPC                200
+/company/KORA                200
+/rankings                    200
+/undervalued                 200
+/data-quality                200
+/about                       200
+/premium                     200
+/disclaimer                  200
+/terms                       200
+/privacy                     200
+/dashboard                   200
+/compare                     200
+/watchlist                   200
+/portfolio                   200
+/login                       200
+/register                    200
+/forgot-password             200
+/manifest.webmanifest        200
+/robots.txt                  200
+/sitemap.xml                 200
+/og-image.png                200
+/logo.png                    200
+--- apis ---
+/api/v1/companies/COMI                           200 22 ms
+/api/v1/companies/COMI/financials                200 45 ms
+/api/v1/companies/COMI/peers                     200 105 ms
+/api/v1/companies/SIPC                           200 31 ms
+/api/v1/rankings?metric=roe&basis=latest         200 208 ms
+/api/v1/rankings?metric=roe&basis=annual         200 185 ms
+/api/v1/dashboard                                200 405 ms
+/api/v1/dashboard/latest-results                 200 105 ms
+/api/v1/undervalued                              200 1059 ms
+/api/v1/market/ticker                            200 5 ms
+/api/v1/data-quality?ticker=COMI                 200 46 ms
+/api/v1/health                                   200 6 ms
+--- security headers ---
+content-security-policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+x-frame-options: DENY
+x-content-type-options: nosniff
+referrer-policy: strict-origin-when-cross-origin
+permissions-policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+x-powered-by: (absent)
+cross-origin-opener-policy: same-origin
+--- sitemap ---
+urls=303 companies=275 sectors=18 cuidLike=0 privacy=true compare=false
+--- canonical / robots / jsonld ---
+COMI canonical=https://egx-scanner.com/company/COMI
+COMI robots=index, follow
+KORA robots=noindex, follow
+dashboard robots=noindex, follow
+home canonical=https://egx-scanner.com
+sector canonical=https://egx-scanner.com/sectors/Banks
+home FAQPage=true
+home Organization=true
+home WebSite=true
+COMI Corporation=true
+COMI BreadcrumbList=true
+sector ItemList=true
+--- rankings top ROE ---
+ARCC 77.12772442075986 FY 2025  stale=false
+MBSC 76.94970873786407 TTM ending Q1 2026  stale=false
+CSAG 61.00476416666667 FY 2025  stale=false
+MPCI 56.93950177935944 FY 2026  stale=false
+AXPH 55.93220338983051 FY 2026  stale=false
+ALCN 54.78554802194226 FY 2025  stale=false
+SIPC ROE=-6.273584905660377 period=FY 2025
+--- undervalued review flags ---
+detected=6 lastUpdated=2026-11-03T16:57:54.644Z
+DEIN price=10.35 fair=100.1 upside=867.1 review=true reason=EXTREME_VALUATION_GAP
+GDWA price=0.526 fair=2.73 upside=419 review=true reason=EXTREME_VALUATION_GAP
+ORHD price=10.15 fair=46.87 upside=361.8 review=true reason=EXTREME_VALUATION_GAP
+EXPA price=13.69 fair=59.03 upside=331.2 review=true reason=EXTREME_VALUATION_GAP
+EMFD price=12.21 fair=49.42 upside=304.8 review=true reason=EXTREME_VALUATION_GAP
+--- market ticker ---
+asOf=2026-11-03T15:50:53.361Z indicesAsOf=2026-11-03T15:50:53.361Z pricesAsOf=2026-11-03T15:50:53.361Z delayMinutes=15 indices=4 gainers=8 losers=8 breadth=191/49
+top gainer=KWIN 19.905660377358487 top loser=ALEX -7.834101382488476
+--- latest results future check ---
+today=2026-11-03 results=12 future=0
+--- data-quality fields ---
+fields=id, ticker, metricCode, period, category, severity, description, descriptionAr, currentValue, expectedValue, detectedAt, status, issueClass, rootCause, rootCauseLabel, issueClassLabel
+exposes provider source=false
+--- robots ---
+User-Agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /login
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /dashboard
+Disallow: /watchlist
+Disallow: /portfolio
+Disallow: /company/*/report
+
+Host: https://egx-scanner.com
+Sitemap: https://egx-scanner.com/sitemap.xml
+--- audit / coverage baseline ---
+companies=276/297
+trustedReports=6803 annualCompanies=271
+valid=80215 quarantined=19015 total=99230
+auditRun=cmw0ynprx0000bxs4jc3tp4im severity={"critical":42,"high":292,"low":949,"medium":691}
+auditCategories={"accounting":839,"logical":137,"missing":457,"outlier":3,"provenance":19,"sector":26,"temporal":493}
+isin=93.48% shares=91.67%
+marketWithPrice=260 withoutPrice=16 staleOver7Days=1
+
+--- operations ---
+backup: backups/prisma-2026-11-03T17-02-23-754Z.db (284172288 bytes, integrity=ok)
+healthcheck: /api/v1/health 200, /api/v1/market/ticker 200, /api/v1/companies/COMI 200, / 200
+env keys: ADMIN_PASSCODE, CRON_SECRET, NEXT_PUBLIC_SITE_URL set (values not printed)

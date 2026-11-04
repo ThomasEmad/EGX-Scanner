@@ -1,0 +1,388 @@
+{
+  "summary": {
+    "applied": true,
+    "missingBefore": 34,
+    "fillable": 5,
+    "filledByStatus": {
+      "both_agree": 0,
+      "tradingview_only": 1,
+      "thndr_only": 4
+    },
+    "conflicts": [],
+    "deferred": [
+      "BQDC"
+    ],
+    "noSource": [
+      "ACRO",
+      "ARPI",
+      "ARVA",
+      "DCCC",
+      "DIFC",
+      "ECCW",
+      "EFOOD",
+      "EITP",
+      "ESRS",
+      "GETO",
+      "GOCO",
+      "IRAX",
+      "MESF",
+      "NCEM",
+      "NCGC",
+      "NOAF",
+      "POCO",
+      "PSFL",
+      "PTCC",
+      "RMTV",
+      "RPCO",
+      "SMPP",
+      "SUCE",
+      "TORA",
+      "TRST",
+      "UASG",
+      "VODE",
+      "WATP"
+    ]
+  },
+  "rows": [
+    {
+      "ticker": "ACRO",
+      "nameEn": "Acrowmisr for Metallic Scaffoldings and Frameworks SAE",
+      "isin": null,
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "AIHC",
+      "nameEn": "Arabia Investments Holding SAE",
+      "isin": null,
+      "tvShares": null,
+      "thShares": 1558128698,
+      "status": "thndr_only",
+      "shares": 1558128698,
+      "source": "THNDR_MARKETWATCH"
+    },
+    {
+      "ticker": "ARPI",
+      "nameEn": "Arabian Rocks Plastic Industries",
+      "isin": null,
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "ARVA",
+      "nameEn": "Arab Valves Co SAE",
+      "isin": null,
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "BQDC",
+      "nameEn": "Banque du Caire SAE",
+      "isin": "EGS600K1C019",
+      "tvShares": null,
+      "thShares": 15250000000,
+      "status": "deferred",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "DCCC",
+      "nameEn": "Damietta Container and Cargo Handling",
+      "isin": "EGS42121C011",
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "DIFC",
+      "nameEn": "DIFCO2",
+      "isin": null,
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "ECCW",
+      "nameEn": "Electro Cable Egypt",
+      "isin": null,
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "EFOOD",
+      "nameEn": "Egypt Foods Group",
+      "isin": null,
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "EITP",
+      "nameEn": "Egyptian Co for International Touristic Projects SAE",
+      "isin": "EGS70011C019",
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "ESRS",
+      "nameEn": "Ezz Steel Co SAE",
+      "isin": null,
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "GETO",
+      "nameEn": "Genial Tours",
+      "isin": null,
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "GOCO",
+      "nameEn": "Golden Coast El Sokhna Company for Touristic Investment SAE",
+      "isin": null,
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "GTEX",
+      "nameEn": "GTEX for Commercial and Industrial Investments",
+      "isin": "EGS59U92C011",
+      "tvShares": null,
+      "thShares": 470250000,
+      "status": "thndr_only",
+      "shares": 470250000,
+      "source": "THNDR_MARKETWATCH"
+    },
+    {
+      "ticker": "IRAX",
+      "nameEn": "Ezz Dekheila Steel (Alexandria National Iron & Steel)",
+      "isin": "EGS3D041C017",
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "MESF",
+      "nameEn": "Misr Engineering & Specialized Industries",
+      "isin": null,
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "MKIT",
+      "nameEn": "Meatello",
+      "isin": "EGS659O1C015",
+      "tvShares": 20000000,
+      "thShares": null,
+      "status": "tradingview_only",
+      "shares": 20000000,
+      "source": "TRADINGVIEW_SCANNER"
+    },
+    {
+      "ticker": "NAPR",
+      "nameEn": "National Printing Co",
+      "isin": null,
+      "tvShares": null,
+      "thShares": 215338669,
+      "status": "thndr_only",
+      "shares": 215338669,
+      "source": "THNDR_MARKETWATCH"
+    },
+    {
+      "ticker": "NCEM",
+      "nameEn": "National Cement Co SAE",
+      "isin": null,
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "NCGC",
+      "nameEn": "Nile Cotton Ginning SAE",
+      "isin": "EGS32131C012",
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "NOAF",
+      "nameEn": "North Africa Company for Real Estate Investment SAE",
+      "isin": null,
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "POCO",
+      "nameEn": "PSCCHC",
+      "isin": "EGS42101C013",
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "PSFL",
+      "nameEn": "Pioneers Holding for Financial Investments",
+      "isin": "EGS07051C016",
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "PTCC",
+      "nameEn": "Pharaoh Tech",
+      "isin": null,
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "RMTV",
+      "nameEn": "Rowad Misr for Tourism Investment Co SAE",
+      "isin": "EGS70131C015",
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "RPCO",
+      "nameEn": "Raya Petroleum",
+      "isin": null,
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "SIMO",
+      "nameEn": "Middle East Paper Company Egypt SAE",
+      "isin": null,
+      "tvShares": null,
+      "thShares": 5000000,
+      "status": "thndr_only",
+      "shares": 5000000,
+      "source": "THNDR_MARKETWATCH"
+    },
+    {
+      "ticker": "SMPP",
+      "nameEn": "Shorouk for Modern Printing and Packaging SAE",
+      "isin": "EGS3A0A1C016",
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "SUCE",
+      "nameEn": "Suez Cement Co.",
+      "isin": "EGS3C181C012",
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "TORA",
+      "nameEn": "Egyptian Tourah Portland Cement Co SAE",
+      "isin": "EGS3C311C015",
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "TRST",
+      "nameEn": "Thiqah for Business Administration and Development",
+      "isin": null,
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "UASG",
+      "nameEn": "United Arab Stevedoring Co SAE",
+      "isin": null,
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "VODE",
+      "nameEn": "Vodafone Egypt Telecom",
+      "isin": null,
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    },
+    {
+      "ticker": "WATP",
+      "nameEn": "Modern Co. for Water Proofing",
+      "isin": "EGS3J041C011",
+      "tvShares": null,
+      "thShares": null,
+      "status": "no_source",
+      "shares": null,
+      "source": null
+    }
+  ]
+}

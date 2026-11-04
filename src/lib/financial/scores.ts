@@ -1,5 +1,5 @@
 // Financial Health Scoring — converts verified calculated metrics into 0-100
-// component scores (profitability, growth, liquidity, leverage, cash quality)
+// component scores (profitability, leverage, cash quality)
 // plus a sector-relative valuation read. Every score is derived ONLY from
 // stored CalculatedMetric values; missing inputs yield null ("not available") —
 // nothing is fabricated. Deterministic banding, no ML.
@@ -82,19 +82,6 @@ export async function computeCompanyScores(companyId: string): Promise<CompanySc
   const profVals = profParts.filter((x): x is number => x !== null)
   const profitability = profVals.length ? clamp(profVals.reduce((a, b) => a + b, 0) / profVals.length) : null
 
-  // ---- growth: revenue + profit + equity growth ----
-  const rg = pick(m, "revenue_growth")
-  const pg = pick(m, "profit_growth")
-  const eg = pick(m, "equity_growth")
-  const growthBand = (g: number) => band(g, [[-50, 2], [-10, 15], [0, 40], [10, 65], [30, 90], [100, 100]])
-  const growthParts: (number | null)[] = [rg !== null ? growthBand(rg) : null, pg !== null ? growthBand(pg) : null, eg !== null ? growthBand(eg) : null]
-  const growthVals = growthParts.filter((x): x is number => x !== null)
-  const growth = growthVals.length ? clamp(growthVals.reduce((a, b) => a + b, 0) / growthVals.length) : null
-
-  // ---- liquidity: current ratio ----
-  const cr = pick(m, "current_ratio")
-  const liquidity = cr !== null ? clamp(band(cr, [[0.1, 5], [0.5, 25], [1.0, 55], [1.5, 82], [2.5, 92], [5, 88]])) : null
-
   // ---- leverage: debt/equity (lower is better; banks judged leniently) ----
   const de = pick(m, "debt_to_equity")
   const isBank = company.sector.toLowerCase().includes("bank")
@@ -132,16 +119,6 @@ export async function computeCompanyScores(companyId: string): Promise<CompanySc
         { label: "ROA", value: roa, unit: "PERCENT" },
       ],
     },
-    {
-      key: "growth",
-      score: growth,
-      inputs: [
-        { label: "Revenue growth", value: rg, unit: "PERCENT" },
-        { label: "Profit growth", value: pg, unit: "PERCENT" },
-        { label: "Equity growth", value: eg, unit: "PERCENT" },
-      ],
-    },
-    { key: "liquidity", score: liquidity, inputs: [{ label: "Current ratio", value: cr, unit: "RATIO" }] },
     { key: "leverage", score: leverage, inputs: [{ label: "Debt / Equity", value: de, unit: "RATIO" }] },
     {
       key: "cash",
@@ -155,8 +132,6 @@ export async function computeCompanyScores(companyId: string): Promise<CompanySc
 
   const weighted: [number | null, number][] = [
     [profitability, 0.3],
-    [growth, 0.2],
-    [liquidity, 0.15],
     [leverage, 0.15],
     [cashQuality, 0.2],
   ]

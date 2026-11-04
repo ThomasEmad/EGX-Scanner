@@ -1,0 +1,269 @@
+{
+  "corrections": [
+    {
+      "id": "cmurdf8xl003vbx8cb0ejagm3",
+      "ticker": "ELKA",
+      "year": 2024,
+      "metric": "NET_PROFIT",
+      "oldValue": 11800000,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldOriginalValue": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmuion1pj0hskbxq00qevf7fb",
+      "ticker": "MHOT",
+      "year": 2025,
+      "metric": "NET_PROFIT",
+      "oldValue": 138939316,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldOriginalValue": 1389393160,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmurdf7o6001nbx8crvhvduk6",
+      "ticker": "GRCA",
+      "year": 2026,
+      "metric": "NET_PROFIT",
+      "oldValue": 27400,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldOriginalValue": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmujo42bu01vxbx3wxsvfc4es",
+      "ticker": "SCFM",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY",
+      "oldValue": 7360000,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)",
+      "oldOriginalValue": -7360000,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo40lw01lhbx3wppivh27j",
+      "ticker": "PRCL",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY",
+      "oldValue": 174000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)",
+      "oldOriginalValue": -174000000,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo45ic02fdbx3weygk6udu",
+      "ticker": "AALR",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY",
+      "oldValue": 503000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)",
+      "oldOriginalValue": -503000000,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo46fi02l9bx3wwgtg912y",
+      "ticker": "ALEX",
+      "year": 2019,
+      "metric": "TOTAL_EQUITY",
+      "oldValue": 277000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)",
+      "oldOriginalValue": -277000000,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmupv92a30283bxn0yh7s2iaj",
+      "ticker": "UASG",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY",
+      "oldValue": 514007177.67,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldOriginalValue": -514007177.67,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuion0ft0et2bxq0xefr3yq6",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "TOTAL_ASSETS",
+      "oldValue": 151770,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldOriginalValue": 151770000,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuion0ft0esybxq0ln3n04ye",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY",
+      "oldValue": -6060609,
+      "oldStatus": "VALID",
+      "oldNotes": "AUDIT_CORRECTION: equity sign corrected from 6060609 to -6060609",
+      "oldOriginalValue": -6060609,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuion0ft0esrbxq09sv3o114",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "NET_PROFIT",
+      "oldValue": -3712047,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldOriginalValue": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmuiomvmo03mdbxq0a3gi4pd2",
+      "ticker": "EGAS",
+      "year": 2024,
+      "metric": "NET_PROFIT",
+      "oldValue": -248049.30288,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — REUTERS_FINANCIALS_PAGE (4 sources agree)",
+      "oldOriginalValue": 290960610,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo5dug09pdbx3wesjx5b00",
+      "ticker": "SIPC",
+      "year": 2025,
+      "metric": "TOTAL_ASSETS",
+      "oldValue": 8294717672,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)",
+      "oldOriginalValue": 169000000,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo5duy09phbx3w7112g63o",
+      "ticker": "SIPC",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY",
+      "oldValue": 6020338736,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)",
+      "oldOriginalValue": 106000000,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuion19o0gpubxq0yha98eun",
+      "ticker": "GSSC",
+      "year": 2025,
+      "metric": "NET_PROFIT",
+      "oldValue": 265160968.67,
+      "oldStatus": "VALID",
+      "oldNotes": "AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as absolute EGP) — /1000 restores sane scale vs company balance sheet (265,160,968,670 -> 265,160,968.67).",
+      "oldOriginalValue": 265160968670,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuion19o0gq1bxq060xafkkp",
+      "ticker": "GSSC",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY",
+      "oldValue": 396713586.06,
+      "oldStatus": "VALID",
+      "oldNotes": "AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as absolute EGP) — /1000 restores sane scale vs company balance sheet (396,713,586,060 -> 396,713,586.06).",
+      "oldOriginalValue": 396713586060,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuion2ys0kmjbxq00ayln2uo",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "NET_PROFIT",
+      "oldValue": 58400000,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldOriginalValue": 93400000,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuion2yt0kmxbxq0hlrz48q7",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "TOTAL_ASSETS",
+      "oldValue": 5282100000,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldOriginalValue": 5282100000,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuion2ys0kmtbxq098ex33x1",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "TOTAL_EQUITY",
+      "oldValue": 2452400000,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldOriginalValue": -2452400000,
+      "oldIsManuallyCorrected": true
+    }
+  ],
+  "additions": [
+    {
+      "id": "cmvtslu2v0001bx84d90esi2f",
+      "ticker": "GRCA",
+      "year": 2026,
+      "metric": "TOTAL_EQUITY"
+    },
+    {
+      "id": "cmvtslu4l0003bx8400da3vsk",
+      "ticker": "SIPC",
+      "year": 2025,
+      "metric": "NET_PROFIT"
+    }
+  ],
+  "quarantines": [
+    {
+      "id": "cmuion2yg0klgbxq03r3hb7pn",
+      "ticker": "UNIT",
+      "year": 2025,
+      "metric": "NET_PROFIT",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2yg0klvbxq0vfhp9fir",
+      "ticker": "UNIT",
+      "year": 2025,
+      "metric": "TOTAL_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2yg0klqbxq08541ezjq",
+      "ticker": "UNIT",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmun5ekjg10hdbx9kd5uofoof",
+      "ticker": "GSSC",
+      "year": 2025,
+      "metric": "NET_PROFIT",
+      "oldStatus": "VALID",
+      "oldNotes": null
+    },
+    {
+      "id": "cmuiomz780c3cbxq0tq7xv3n7",
+      "ticker": "OFH",
+      "year": 2025,
+      "metric": "NET_PROFIT",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)"
+    }
+  ]
+}

@@ -25,9 +25,9 @@ interface QaTurn {
 }
 
 const SUGGESTIONS_COMPANY_AR = ["هل الشركة مربحة؟", "إيه تقييم الشركة؟", "أحدث الأحداث؟", "إيه درجة صحتها المالية؟"]
-const SUGGESTIONS_GLOBAL_AR = ["أفضل شركات البنوك حسب ROE؟", "أفضل شركات الأغذية حسب هامش الربح؟", "شركات نمو الإيرادات الأعلى؟", "تحليل ABUK"]
+const SUGGESTIONS_GLOBAL_AR = ["أفضل شركات البنوك حسب ROE؟", "أفضل شركات الأغذية حسب هامش الربح؟", "أفضل شركات حسب العائد على الأصول؟", "تحليل ABUK"]
 const SUGGESTIONS_COMPANY_EN = ["Is the company profitable?", "How is it valued?", "Latest events?", "Health score?"]
-const SUGGESTIONS_GLOBAL_EN = ["Best banks by ROE?", "Top food companies by margin?", "Highest revenue growth?", "Analyze ABUK"]
+const SUGGESTIONS_GLOBAL_EN = ["Best banks by ROE?", "Top food companies by margin?", "Best companies by ROA?", "Analyze ABUK"]
 
 export function QaBox({ companyId, compact = false }: { companyId?: string; compact?: boolean }) {
   const { lang } = useI18n()

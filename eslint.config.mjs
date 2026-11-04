@@ -44,6 +44,13 @@ const eslintConfig = [...nextCoreWebVitals, ...nextTypescript, {
     "no-useless-escape": "off",
   },
 }, {
+  // Node-side maintenance scripts are CommonJS/ESM hybrids run directly with
+  // node/tsx; `require()` is intentional there and never shipped to the app.
+  files: ["scripts/**/*.{js,cjs,mjs,ts}", "prisma/**/*.ts"],
+  rules: {
+    "@typescript-eslint/no-require-imports": "off",
+  },
+}, {
   ignores: ["node_modules/**", ".next/**", "out/**", "build/**", "next-env.d.ts", "examples/**", "skills"]
 }];
 

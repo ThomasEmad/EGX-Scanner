@@ -26,13 +26,18 @@ Admin UI: "Reports & Review" → passcode login. Admin token is held in
 ## Data
 
 The database ships with **real EGX financials** imported from the `egx-data`
-pipeline (Yahoo Finance API + Reuters financials pages — see
-`../egx-data/`):
+pipeline (Yahoo Finance API, AskBorsa, Mubasher, S&P Global and Reuters pages —
+see `../egx-data/`). Current snapshot (2026-10-29):
 
-- 103 companies (96-company universe + 7 app-seeded), 399 report periods,
-  ~15.2k validated values, 3.2k monthly price points, 674 detected events,
-  10.4k calculated metrics across 54 companies with data.
-- 41 of the 103 have no Yahoo/Reuters coverage (empty states are honest).
+- **274 active companies** (289 rows including 15 inactive/alias rows), **6,620
+  trusted non-deleted filings**, **79,330 authoritative values**, **4,197 detected
+  events**, and **265,113 calculated metrics** across 9,818 periods.
+- 18,574 values remain `NEEDS_REVIEW` and are excluded from analytics until a
+  second source or the original filing confirms them.
+- Latest audit: **2,123 issues** (56 critical / 252 high / 695 medium / 1,120
+  low); 38 criticals are missing-metric coverage gaps and 18 are accounting
+  identities. See `reports/data-accuracy-verification.md` for the evidence and
+  remediation queue.
 - Reports uploaded through the admin UI (e.g. the CIB PDFs) always take
   precedence over pipeline imports for the same period.
 
@@ -77,7 +82,7 @@ Known data caveats (handled, documented):
 ## Tests
 
 ```bash
-npx tsc --noEmit     # pre-existing errors live in examples/ + skills/ only
+npx tsc --noEmit     # clean as of 2026-10-29
 npx eslint <file>    # changed files
 node scripts/test-financial-intelligence-engine.ts   # engine regression suite (bun-era script)
 ```

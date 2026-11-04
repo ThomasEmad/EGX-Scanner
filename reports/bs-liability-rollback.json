@@ -1,0 +1,677 @@
+{
+  "corrections": [
+    {
+      "id": "cmujo42bj01vvbx3wtnkfypjz",
+      "ticker": "SCFM",
+      "year": 2025,
+      "metric": "TOTAL_LIABILITIES",
+      "oldValue": 383640000,
+      "oldStatus": "VALID",
+      "oldNotes": "AUDIT_CORRECTION: liabilities corrected from 398000000 to TOTAL_ASSETS − TOTAL_EQUITY = 383640000",
+      "oldOriginalValue": 398000000,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo40lk01lfbx3wvdfb6dyp",
+      "ticker": "PRCL",
+      "year": 2025,
+      "metric": "TOTAL_LIABILITIES",
+      "oldValue": 331000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AUDIT_CORRECTION: liabilities corrected from 678000000 to TOTAL_ASSETS − TOTAL_EQUITY = 331000000",
+      "oldOriginalValue": 678000000,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo45i002fbbx3wij12c8e4",
+      "ticker": "AALR",
+      "year": 2025,
+      "metric": "TOTAL_LIABILITIES",
+      "oldValue": 100000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AUDIT_CORRECTION: liabilities corrected from 1110000000 to TOTAL_ASSETS − TOTAL_EQUITY = 100000000",
+      "oldOriginalValue": 1110000000,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo46f702l7bx3wtczq8m7m",
+      "ticker": "ALEX",
+      "year": 2019,
+      "metric": "TOTAL_LIABILITIES",
+      "oldValue": 3883000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AUDIT_CORRECTION: liabilities corrected from 4430000000 to TOTAL_ASSETS − TOTAL_EQUITY = 3883000000",
+      "oldOriginalValue": 4430000000,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo5duq09pfbx3wltzqnips",
+      "ticker": "SIPC",
+      "year": 2025,
+      "metric": "TOTAL_LIABILITIES",
+      "oldValue": 2274378936,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)",
+      "oldOriginalValue": 63410000,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuion2ys0kmvbxq0gsq05gc8",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "TOTAL_LIABILITIES",
+      "oldValue": 2829700000,
+      "oldStatus": "VALID",
+      "oldNotes": "AUDIT_CORRECTION: liabilities corrected from 7734000000 to TOTAL_ASSETS − TOTAL_EQUITY = 2829700000",
+      "oldOriginalValue": 7734000000,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuion0ft0et0bxq0tyo3w687",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "TOTAL_LIABILITIES",
+      "oldValue": 6212379,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldOriginalValue": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmuion19o0gq2bxq0h2blj7da",
+      "ticker": "GSSC",
+      "year": 2025,
+      "metric": "TOTAL_LIABILITIES",
+      "oldValue": 3662119861.3,
+      "oldStatus": "VALID",
+      "oldNotes": "AUDIT_CORRECTION: liabilities corrected from 4058833447.36 to TOTAL_ASSETS − TOTAL_EQUITY = 3662119861.3",
+      "oldOriginalValue": 4058833447360,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo54hw087vbx3wgnf41c1w",
+      "ticker": "MHOT",
+      "year": 2025,
+      "metric": "TOTAL_LIABILITIES",
+      "oldValue": 1400005529,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher",
+      "oldOriginalValue": 2780000000,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuion1pj0hsjbxq0xksood7m",
+      "ticker": "MHOT",
+      "year": 2025,
+      "metric": "NET_PROFIT_PARENT",
+      "oldValue": 138939316,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldOriginalValue": 1389393160,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuion19o0gptbxq0k4cymgxy",
+      "ticker": "GSSC",
+      "year": 2025,
+      "metric": "NET_PROFIT_PARENT",
+      "oldValue": 265160968.67,
+      "oldStatus": "VALID",
+      "oldNotes": "AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as absolute EGP) — /1000 restores sane scale vs company balance sheet (265,160,968,670 -> 265,160,968.67).",
+      "oldOriginalValue": 265160968670,
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuion0ft0esqbxq0dl85fccc",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "NET_PROFIT_PARENT",
+      "oldValue": -3712047,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldOriginalValue": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmujo54i7087xbx3wfd53g8dh",
+      "ticker": "MHOT",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "oldValue": 6150000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher",
+      "oldOriginalValue": null,
+      "oldIsManuallyCorrected": false
+    }
+  ],
+  "quarantines": [
+    {
+      "id": "cmuion2yt0kn0bxq0sder68ke",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "CURRENT_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2yt0kmybxq0fzba582r",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "NON_CURRENT_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2ys0kmsbxq01yxujb09",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "TOTAL_DEBT",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2ys0kmwbxq0u4kigulq",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "LONG_TERM_DEBT",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2yt0kmzbxq02xskajox",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "PPE",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2ys0kmubxq02g0zs9w2",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "RETAINED_EARNINGS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2ys0kmlbxq0k6mt9hmz",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "PROFIT_BEFORE_TAX",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2ys0kmkbxq0srqotb3b",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "INCOME_TAX",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2yt0kn1bxq0zpng1g97",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "INVENTORY",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2ys0kmhbxq0z86wtrr0",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "BASIC_EPS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2ys0kmgbxq0o7niq5ul",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "DILUTED_EPS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2ys0kmebxq0q86a7h3o",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "NET_INTEREST_INCOME",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2ys0kmfbxq0drfbdaax",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "INTEREST_EXPENSE",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2ys0kmdbxq0kaq0yvbk",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "EBIT",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2ys0kmcbxq0bbvr8q6g",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "EBITDA",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2ys0kmnbxq0hvoqqm6w",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "OPERATING_INCOME",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2ys0kmobxq0ea4av73k",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "OPERATING_EXPENSES_TOTAL",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2ys0kmmbxq0w9eyxiqj",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "OTHER_INCOME",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2yt0kn7bxq03zfnp0v8",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "OPENING_CASH",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2yt0kn6bxq0y96s873n",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "CLOSING_CASH",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmujonish02etbxgclsiexqng",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "NET_CHANGE_IN_CASH",
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded 0.01M)"
+    },
+    {
+      "id": "cmuion2yt0knbbxq0mvoldaax",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "OPERATING_CASH_FLOW",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2yt0knabxq0qd3qaztb",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "INVESTING_CASH_FLOW",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2yt0kn8bxq0ek8pnig0",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "FINANCING_CASH_FLOW",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2yt0kn4bxq0iwwvvs0q",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "FREE_CASH_FLOW",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion2yt0kn5bxq0r4raounm",
+      "ticker": "UNIT",
+      "year": 2024,
+      "metric": "CAPEX",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0et5bxq08qvyst68",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "CURRENT_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0et3bxq0doqnqm1m",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "NON_CURRENT_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0et7bxq0kwv06us9",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "CASH_AND_EQUIVALENTS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0esxbxq0gq1wwgzy",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "TOTAL_DEBT",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0et1bxq0j1qjf4zf",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "LONG_TERM_DEBT",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0et4bxq0h63rjb5q",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "PPE",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0eszbxq08wbsysjr",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "RETAINED_EARNINGS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0essbxq0ku7xh9hs",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "PROFIT_BEFORE_TAX",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0eskbxq05dbznwxb",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "EBIT",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0esjbxq0ahcarl8h",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "EBITDA",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0esubxq0s8qflw0x",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "OPERATING_INCOME",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0esvbxq0yu63pczl",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "OPERATING_EXPENSES_TOTAL",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0esmbxq09jjn661h",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "INTEREST_EXPENSE",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0eslbxq00m7z20uh",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "NET_INTEREST_INCOME",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0estbxq09ntsc098",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "OTHER_INCOME",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0espbxq0chu73k5d",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "BASIC_EPS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0esobxq06e8vq8vv",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "DILUTED_EPS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0et6bxq0vvkanntz",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "ACCOUNTS_RECEIVABLE",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0esnbxq06x2gf9p8",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "INTEREST_INCOME",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0etabxq033pt3otz",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "OPENING_CASH",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0et9bxq0el4inw89",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "CLOSING_CASH",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmujon8bg01pzbxgcla7p8m8f",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "NET_CHANGE_IN_CASH",
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded 0.01M)"
+    },
+    {
+      "id": "cmuion0ft0etcbxq0itnkgrfg",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "OPERATING_CASH_FLOW",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmujon8b601pxbxgcf9brlgte",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "INVESTING_CASH_FLOW",
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded 0.01M)"
+    },
+    {
+      "id": "cmuion0ft0etbbxq0r839r8kp",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "FINANCING_CASH_FLOW",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmuion0ft0et8bxq072cubnvk",
+      "ticker": "COPR",
+      "year": 2024,
+      "metric": "FREE_CASH_FLOW",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API"
+    },
+    {
+      "id": "cmujo5dvi09plbx3w25266wjm",
+      "ticker": "SIPC",
+      "year": 2025,
+      "metric": "OPERATING_CASH_FLOW",
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)"
+    },
+    {
+      "id": "cmujo5dvu09pnbx3ww3d0rxjz",
+      "ticker": "SIPC",
+      "year": 2025,
+      "metric": "INVESTING_CASH_FLOW",
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)"
+    },
+    {
+      "id": "cmujo5dw509ppbx3wltg84h0x",
+      "ticker": "SIPC",
+      "year": 2025,
+      "metric": "FINANCING_CASH_FLOW",
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)"
+    },
+    {
+      "id": "cmujo5dwf09prbx3wweelnraq",
+      "ticker": "SIPC",
+      "year": 2025,
+      "metric": "NET_CHANGE_IN_CASH",
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)"
+    },
+    {
+      "id": "cmun5g0en1de7bx9konlfz5nb",
+      "ticker": "SIPC",
+      "year": 2025,
+      "metric": "NET_PROFIT",
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa quarterly summary (display-rounded 0.01M)"
+    },
+    {
+      "id": "cmun2cq0c0a7hbx808l047zh9",
+      "ticker": "SIPC",
+      "year": 2025,
+      "metric": "REVENUE",
+      "oldStatus": "VALID",
+      "oldNotes": "TradingView quarterly income statement (discrete quarter, display-scaled)"
+    },
+    {
+      "id": "cmun2cq0g0a7jbx80oj06v34y",
+      "ticker": "SIPC",
+      "year": 2025,
+      "metric": "COGS",
+      "oldStatus": "VALID",
+      "oldNotes": "TradingView quarterly income statement (discrete quarter, display-scaled)"
+    },
+    {
+      "id": "cmun5g0et1de9bx9kc9w378c2",
+      "ticker": "SIPC",
+      "year": 2025,
+      "metric": "GROSS_PROFIT",
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa quarterly summary (display-rounded 0.01M)"
+    },
+    {
+      "id": "cmun2cq0q0a7nbx80cohmex0c",
+      "ticker": "SIPC",
+      "year": 2025,
+      "metric": "INCOME_TAX",
+      "oldStatus": "VALID",
+      "oldNotes": "TradingView quarterly income statement (discrete quarter, display-scaled)"
+    },
+    {
+      "id": "cmun2cq0l0a7lbx803h4vhn1j",
+      "ticker": "SIPC",
+      "year": 2025,
+      "metric": "OPERATING_EXPENSES_TOTAL",
+      "oldStatus": "VALID",
+      "oldNotes": "TradingView quarterly income statement (discrete quarter, display-scaled)"
+    },
+    {
+      "id": "cmun5g0fi1dejbx9ktjqw1ryq",
+      "ticker": "SIPC",
+      "year": 2025,
+      "metric": "OPERATING_CASH_FLOW",
+      "oldStatus": "NEEDS_REVIEW",
+      "oldNotes": "AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 OPERATING_CASH_FLOW); no genuine quarterly replacement available in harvest files."
+    },
+    {
+      "id": "cmun5g0fn1delbx9k55g5g9wn",
+      "ticker": "SIPC",
+      "year": 2025,
+      "metric": "FINANCING_CASH_FLOW",
+      "oldStatus": "NEEDS_REVIEW",
+      "oldNotes": "AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 FINANCING_CASH_FLOW); no genuine quarterly replacement available in harvest files."
+    },
+    {
+      "id": "cmun5g0ft1denbx9kfw18a9jy",
+      "ticker": "SIPC",
+      "year": 2025,
+      "metric": "NET_CHANGE_IN_CASH",
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa quarterly summary (display-rounded 0.01M)"
+    },
+    {
+      "id": "cmun5gcro1gntbx9kxlnqqt42",
+      "ticker": "UNIT",
+      "year": 2025,
+      "metric": "NET_PROFIT",
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa quarterly summary (display-rounded 0.01M)"
+    }
+  ]
+}

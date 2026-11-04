@@ -4,4 +4,4 @@
 // APIs stay reachable. Flip to false before production launch to hide every
 // editing affordance in one place; the underlying endpoints remain admin-token
 // gated either way.
-export const TEMP_EDIT_MODE = process.env.NEXT_PUBLIC_TEMP_EDIT_MODE === "true"
+export const TEMP_EDIT_MODE = process.env.NEXT_PUBLIC_TEMP_EDIT_MODE !== "false"

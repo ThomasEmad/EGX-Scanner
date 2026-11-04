@@ -3,7 +3,9 @@ import { db } from "@/lib/db"
 import { getPresetScannerCards } from "@/lib/financial/scan-service"
 import type { ScanCondition } from "@/lib/financial/scanner"
 import { getOptionalUser } from "@/lib/optional-auth"
-import { cached } from "@/lib/server-cache"
+import { latestAnnouncedPeriodEnd } from "@/lib/financial/period-validity"
+
+const TRUSTED = ["VALIDATED", "APPROVED", "EXTRACTED"]
 
 // GET /api/v1/dashboard — discovery-first dashboard (spec #43/#44):
 // preset scanner counts, recent events, dividend calendar, portfolio stats.
@@ -15,10 +17,27 @@ export async function GET(req: NextRequest) {
 
   const scannerCards = await getPresetScannerCards()
 
+  // Dashboard counters must use the same trust boundary as the read paths:
+  // deleted reports and reports outside the trusted processing states are not
+  // "verified" data. Values from future-dated periods are excluded as well —
+  // they cannot be announced actuals.
+  const trustedReportWhere = {
+    processingStatus: { in: TRUSTED },
+    deletedAt: null,
+  }
+
   const [companyCount, reportCount, valueCount, eventCount, upcomingDividends, recentEvents] = await Promise.all([
     db.company.count({ where: { isActive: true } }),
-    db.financialReport.count(),
-    db.financialValue.count({ where: { validationStatus: "VALID" } }),
+    db.financialReport.count({ where: trustedReportWhere }),
+    db.financialValue.count({
+      where: {
+        validationStatus: "VALID",
+        report: {
+          ...trustedReportWhere,
+          periodEnd: { lte: latestAnnouncedPeriodEnd() },
+        },
+      },
+    }),
     db.financialEvent.count(),
     db.dividend.findMany({
       where: { status: { in: ["ANNOUNCED", "UPCOMING", "ELIGIBLE"] } },

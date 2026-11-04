@@ -1,0 +1,172 @@
+{
+  "corrections": [
+    {
+      "id": "cmuiomzus0dddbxq03qgscs23",
+      "ticker": "ARAB",
+      "year": 2021,
+      "metric": "OPERATING_CASH_FLOW",
+      "oldValue": 224160300,
+      "oldOriginalValue": -224160300,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuiomzw80dftbxq049bki9sc",
+      "ticker": "ASCM",
+      "year": 2023,
+      "metric": "OPERATING_CASH_FLOW",
+      "oldValue": 26618411,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmuion0h30ex3bxq0qxyhzpfx",
+      "ticker": "COSG",
+      "year": 2023,
+      "metric": "OPERATING_CASH_FLOW",
+      "oldValue": 24897603,
+      "oldOriginalValue": -24897603,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuion0gs0ew5bxq0n4cssebw",
+      "ticker": "COSG",
+      "year": 2024,
+      "metric": "OPERATING_CASH_FLOW",
+      "oldValue": 130742370,
+      "oldOriginalValue": -130742370,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuiomvnk03pdbxq0y2pjycji",
+      "ticker": "EGAS",
+      "year": 2022,
+      "metric": "OPERATING_CASH_FLOW",
+      "oldValue": 1057566090,
+      "oldOriginalValue": -1057566090,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuiomwva06ohbxq0pslhdq87",
+      "ticker": "MAAL",
+      "year": 2023,
+      "metric": "INVESTING_CASH_FLOW",
+      "oldValue": -5257493000,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmuion1sc0hyxbxq0lvjoi05y",
+      "ticker": "MIPH",
+      "year": 2024,
+      "metric": "OPERATING_CASH_FLOW",
+      "oldValue": -56821609,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmuion23k0irabxq0oyehsmjj",
+      "ticker": "OLFI",
+      "year": 2024,
+      "metric": "OPERATING_CASH_FLOW",
+      "oldValue": 573065312,
+      "oldOriginalValue": -573065312,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuiomxzt09ftbxq0xo7o9ver",
+      "ticker": "PHDC",
+      "year": 2022,
+      "metric": "OPERATING_CASH_FLOW",
+      "oldValue": 898833149,
+      "oldOriginalValue": -898833149,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuion2wi0ki2bxq06rqfqzvw",
+      "ticker": "UEGC",
+      "year": 2021,
+      "metric": "OPERATING_CASH_FLOW",
+      "oldValue": 264144746,
+      "oldOriginalValue": -264144746,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuiomv1r02aubxq0bebw6dnp",
+      "ticker": "DSCW",
+      "year": 2024,
+      "metric": "OPERATING_CASH_FLOW",
+      "oldValue": 598729317,
+      "oldOriginalValue": -598729317,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API (3 sources agree)",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuiomxc507t4bxq0yayrf701",
+      "ticker": "OCDI",
+      "year": 2025,
+      "metric": "OPERATING_CASH_FLOW",
+      "oldValue": 5088542815,
+      "oldOriginalValue": -5088542815,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API (3 sources agree)",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuion32l0kxmbxq0l51053r1",
+      "ticker": "ZMID",
+      "year": 2025,
+      "metric": "OPERATING_CASH_FLOW",
+      "oldValue": 391105554,
+      "oldOriginalValue": -391105554,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmuiomuh8011gbxq0rug52dte",
+      "ticker": "ATQA",
+      "year": 2024,
+      "metric": "OPERATING_CASH_FLOW",
+      "oldValue": 2159542079,
+      "oldOriginalValue": -2159542079,
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API (3 sources agree)",
+      "oldIsManuallyCorrected": true
+    }
+  ],
+  "created": [
+    {
+      "id": "cmvtu8v500001bxogthr8rl25",
+      "ticker": "TALM",
+      "year": 2025,
+      "metric": "NON_CONTROLLING_INTERESTS"
+    },
+    {
+      "id": "cmvtu8v570003bxognuay6wyi",
+      "ticker": "TALM",
+      "year": 2025,
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES"
+    }
+  ]
+}

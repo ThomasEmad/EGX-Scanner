@@ -11,7 +11,7 @@ const globalForPrisma = globalThis as unknown as Record<string, PrismaClient | u
 export const db =
   globalForPrisma[cacheKey] ??
   new PrismaClient({
-    log: ['query'],
+    log: process.env.DB_QUERY_LOG === "1" ? ['query'] : ['error'],
   })
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma[cacheKey] = db

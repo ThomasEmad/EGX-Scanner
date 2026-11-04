@@ -1,0 +1,28 @@
+﻿[
+  {
+    metricCode: 'TOTAL_ASSETS',
+    value: 2030770163,
+    normalizedValue: 2030770163,
+    unit: 'UNIT',
+    originalValue: null,
+    isManuallyCorrected: false,
+    correctedBy: null,
+    correctionReason: null,
+    validationNotes: null,
+    validationStatus: 'VALID',
+    subPeriod: 'CURRENT'
+  },
+  {
+    metricCode: 'TOTAL_EQUITY_AND_LIABILITIES',
+    value: 2030000000,
+    normalizedValue: 2030000000,
+    unit: 'UNIT',
+    originalValue: null,
+    isManuallyCorrected: false,
+    correctedBy: null,
+    correctionReason: null,
+    validationNotes: null,
+    validationStatus: 'VALID',
+    subPeriod: 'CURRENT'
+  }
+]

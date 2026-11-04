@@ -12,12 +12,12 @@ import { StatusChip } from "./shared"
 const STATUSES = ["ANNOUNCED", "UPCOMING", "ELIGIBLE", "PAID", "EXPIRED", "CANCELLED"]
 
 const STATUS_DOT: Record<string, string> = {
-  ANNOUNCED: "bg-teal-500",
-  UPCOMING: "bg-cyan-500",
-  ELIGIBLE: "bg-sky-500",
-  PAID: "bg-emerald-500",
-  EXPIRED: "bg-slate-400",
-  CANCELLED: "bg-red-400",
+  ANNOUNCED: "bg-info",
+  UPCOMING: "bg-info",
+  ELIGIBLE: "bg-info",
+  PAID: "bg-success",
+  EXPIRED: "bg-muted-foreground",
+  CANCELLED: "bg-destructive",
 }
 
 export function DividendsView({ onOpenCompany }: { onOpenCompany: (id: string) => void }) {
@@ -110,7 +110,7 @@ export function DividendsView({ onOpenCompany }: { onOpenCompany: (id: string) =
               key={s}
               onClick={() => setStatus(s)}
               className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-all duration-150 ${
-                status === s ? "bg-primary text-primary-foreground shadow-sm shadow-primary/15" : "bg-muted/60 text-muted-foreground hover:text-foreground"
+                status === s ? "bg-primary text-primary-foreground shadow-sm shadow-primary/15" : "bg-muted/60 text-muted-foreground hover:bg-accent/50 hover:text-foreground"
               }`}
             >
               {s === "active" ? (lang === "ar" ? "قادمة/معلنة" : "Active") : s === "all" ? (lang === "ar" ? "الكل" : "All") : s.replaceAll("_", " ")}
@@ -161,7 +161,7 @@ export function DividendsView({ onOpenCompany }: { onOpenCompany: (id: string) =
                         <button
                           key={item.id}
                           onClick={() => item.companyId && onOpenCompany(item.companyId)}
-                          className="flex w-full items-center gap-1.5 rounded-lg border border-border/60 px-1.5 py-1.5 text-start text-[10px] transition-all duration-150 hover:bg-muted/60 hover:border-primary/20"
+                          className="flex w-full items-center gap-1.5 rounded-lg border border-border/60 px-1.5 py-1.5 text-start text-[10px] transition-all duration-150 hover:bg-accent/30 hover:border-primary/20"
                         >
                           <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${STATUS_DOT[item.status] ?? "bg-slate-400"}`} aria-hidden />
                           <span className="font-bold">{item.ticker}</span>
@@ -196,7 +196,7 @@ export function DividendsView({ onOpenCompany }: { onOpenCompany: (id: string) =
                   <button
                     key={d.id}
                     onClick={() => d.company && onOpenCompany(d.company.id)}
-                    className="flex w-full flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 rounded-xl border border-border/60 bg-card p-4 text-start transition-all duration-150 hover:bg-muted/40 hover:border-primary/20"
+                    className="flex w-full flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 rounded-xl border border-border/60 bg-card p-4 text-start transition-all duration-150 hover:bg-accent/30 hover:border-primary/20"
                   >
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-2">

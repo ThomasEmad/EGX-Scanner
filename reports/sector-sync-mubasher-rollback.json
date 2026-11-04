@@ -1,0 +1,17 @@
+[
+  {
+    "ticker": "DCCC",
+    "from": "Industrial",
+    "to": "Transport"
+  },
+  {
+    "ticker": "MISR",
+    "from": "Industrial",
+    "to": "Building Materials"
+  },
+  {
+    "ticker": "SUCE",
+    "from": "Industrial",
+    "to": "Building Materials"
+  }
+]

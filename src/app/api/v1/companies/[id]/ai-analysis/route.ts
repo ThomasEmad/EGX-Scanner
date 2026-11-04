@@ -37,7 +37,7 @@ const SYSTEM_PROMPT =
   "(3) Always cite the period labels you refer to. " +
   "(4) Distinguish quarterly vs annual vs TTM periods — never compare incompatible periods. " +
   "(5) Note the data quality section if validation warnings exist. " +
-  "(6) Output clean markdown with sections: Overview, Revenue & Growth, Profitability, " +
+  "(6) Output clean markdown with sections: Overview, Revenue, Profitability, " +
   "Balance Sheet & Leverage, Cash Flow, Risks & Unusual Changes, Summary. " +
   "(7) Do not give buy/sell investment advice; this is factual financial analysis."
 
@@ -97,11 +97,16 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
   }
 
   const { id } = await params
-  const company = await db.company.findUnique({ where: { id }, select: { id: true } })
+  const raw = decodeURIComponent(id)
+  const upper = raw.toUpperCase()
+  const company = await db.company.findFirst({
+    where: { OR: [{ id: raw }, { ticker: upper }, { isin: upper }] },
+    select: { id: true },
+  })
   if (!company) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
 
   const latest = await db.aiAnalysis.findFirst({
-    where: { companyId: id },
+    where: { companyId: company.id },
     orderBy: { createdAt: "desc" },
   })
 
@@ -145,6 +150,8 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
   await incrementSmartAnalysisUsage(userId)
 
   const { id } = await params
+  const raw = decodeURIComponent(id)
+  const upper = raw.toUpperCase()
   const ip = getClientIp(req)
   const now = Date.now()
   const hits = (rateBucket.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS)
@@ -157,17 +164,19 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
   hits.push(now)
   rateBucket.set(ip, hits)
 
-  const company = await db.company.findUnique({ where: { id } })
+  const company = await db.company.findFirst({
+    where: { OR: [{ id: raw }, { ticker: upper }, { isin: upper }] },
+  })
   if (!company) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
 
   const body = (await req.json().catch(() => ({}))) as { lang?: string }
   const lang = (body.lang ?? new URL(req.url).searchParams.get("lang") ?? "en").toLowerCase()
 
   // ---------- 1. Verified-data snapshot ----------
-  const { pref: calcPref, filtered: calcRows } = await fetchCalc(id)
+  const { pref: calcPref, filtered: calcRows } = await fetchCalc(company.id)
 
   const trustedReports = await db.financialReport.findMany({
-    where: { companyId: id, processingStatus: { in: [...TRUSTED_REPORT_STATUSES] } },
+    where: { companyId: company.id, processingStatus: { in: [...TRUSTED_REPORT_STATUSES] } },
     select: {
       id: true,
       periodType: true,
@@ -194,7 +203,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
 
   const rawValues = basisReportIds.length
     ? await db.financialValue.findMany({
-        where: { companyId: id, reportId: { in: basisReportIds }, validationStatus: "VALID" },
+        where: { companyId: company.id, reportId: { in: basisReportIds }, validationStatus: "VALID" },
         select: { reportId: true, metricCode: true, normalizedValue: true, unit: true },
       })
     : []
@@ -260,7 +269,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
 
   // Recent detected events (max 8)
   const events = await db.financialEvent.findMany({
-    where: { companyId: id },
+    where: { companyId: company.id },
     orderBy: [{ fiscalYear: "desc" }, { periodLabel: "desc" }],
     take: MAX_PROMPT_EVENTS,
   })
@@ -336,7 +345,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
 
   // ---------- 3. Cache: identical data → identical analysis, no LLM call ----------
   const cached = await db.aiAnalysis.findFirst({
-    where: { companyId: id, dataHash },
+    where: { companyId: company.id, dataHash },
     orderBy: { createdAt: "desc" },
   })
   if (cached) {
@@ -383,7 +392,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     await audit("AI_ANALYSIS", {
       actor: "system",
       entityType: "Company",
-      entityId: id,
+      entityId: company.id,
       details: `LLM unavailable (${message.slice(0, 120)}) — served rule-based analysis`,
     })
   }
@@ -396,7 +405,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
   // ---------- 5. Persist (inputSummary truncated for storage sanity) ----------
   const saved = await db.aiAnalysis.create({
     data: {
-      companyId: id,
+      companyId: company.id,
       periodKey: latestAnnualKey,
       content,
       dataHash,
@@ -408,7 +417,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
   await audit("AI_ANALYSIS", {
     actor: "system",
     entityType: "Company",
-    entityId: id,
+    entityId: company.id,
     details: `Grounded AI analysis generated (${basis} basis, snapshot ${dataHash.slice(0, 12)}…, ${promptPeriods.length} periods, ${events.length} events)`,
   })
 

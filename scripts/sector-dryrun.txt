@@ -1,0 +1,29 @@
+﻿
+=== Mubasher sector sync DRY RUN ===
+
+Mubasher tickers parsed: 288
+App companies: 265 | matched: 250 | unmatched: 15
+Sector changes: 0
+
+
+App tickers not in any Mubasher sector index (15):
+  ADRI      Financial Services     Arab Development & Real Estate Investment
+  AMII      Industrial             Arabian Metal Industries and Industrial Investments
+  AMPH      Healthcare             Amoun Pharmaceutical
+  DAPH      Financial Services     Development & Engineering Consultants
+  ECCW      Industrial             Electro Cable Egypt
+  EGAS      Energy                 Egypt Gas (Natural Gas & Mining Project)
+  GOUR      Consumer               Gourmet Egypt (Online Food Retail)
+  GROV      Other                  GROV
+  IBCT      Industrial             International Business Corporation For Trading and Agencies
+  INEG      Industrial             Integrated Engineering Group S.A.E
+  NCEM      Basic Materials        National Cement Co SAE
+  NOAF      Real Estate            North Africa Company for Real Estate Investment SAE
+  TAQA      Energy                 TAQA Arabia
+  UTOP      Financial Services     UTOPIA
+  VERT      Telecom                Vertika for Industry & Trade
+
+Mubasher tickers not in app (38, informational):
+  ACFR, ALXD, ARPI, CCAPP, DCCC, DIFC, EEPM, EFAC, EGOT, EGWA, ELAB, ENPI, ESAC, FAITA, GETO, HAVC, HCFI, HDST, KASABF, MISR, MKIT, MLIC, NBCC, NIRE, PMSC, POCO, PTCC, SEIGA, SFWA, SIEG, SINA, SLAR, SMCSA, SUCE, TOUR, TRST, VLMR, WATP
+
+Dry run — re-run with --apply to write.

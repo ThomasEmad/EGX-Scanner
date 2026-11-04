@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-11-03T16:22:07.134Z",
+  "changes": [
+    {
+      "companyId": "cmugriqgq000lbx50hsddqyzp",
+      "ticker": "ECCW",
+      "oldIsActive": true,
+      "newIsActive": false,
+      "oldDescriptionEn": null,
+      "newDescriptionEn": "Coverage suspended: no current EGX listing or authoritative financial statements were found as of 3 November 2026. The page is excluded from rankings and the sitemap until verified data is available.",
+      "oldDescriptionAr": null,
+      "newDescriptionAr": "تغطية معلّقة: لم يتم العثور على إدراج حالي في البورصة المصرية أو قوائم مالية موثوقة حتى ٣ نوفمبر ٢٠٢٦. تُستبعد الصفحة من التصنيفات وخريطة الموقع حتى توفر بيانات موثقة."
+    },
+    {
+      "companyId": "cmvu2gll00006bxg4c6tot1po",
+      "ticker": "EFOOD",
+      "oldIsActive": true,
+      "newIsActive": false,
+      "oldDescriptionEn": "Snacks, candy and pasta group (formerly International Company for Food Industries).",
+      "newDescriptionEn": "Snacks, candy and pasta group (formerly International Company for Food Industries).",
+      "oldDescriptionAr": null,
+      "newDescriptionAr": "تغطية معلّقة: لم يتم العثور على إدراج حالي في البورصة المصرية أو قوائم مالية موثوقة حتى ٣ نوفمبر ٢٠٢٦. تُستبعد الصفحة من التصنيفات وخريطة الموقع حتى توفر بيانات موثقة."
+    },
+    {
+      "companyId": "cmvu2gln4000fbxg4wkpkju2x",
+      "ticker": "MESF",
+      "oldIsActive": true,
+      "newIsActive": false,
+      "oldDescriptionEn": null,
+      "newDescriptionEn": "Coverage suspended: no current EGX listing or authoritative financial statements were found as of 3 November 2026. The page is excluded from rankings and the sitemap until verified data is available.",
+      "oldDescriptionAr": null,
+      "newDescriptionAr": "تغطية معلّقة: لم يتم العثور على إدراج حالي في البورصة المصرية أو قوائم مالية موثوقة حتى ٣ نوفمبر ٢٠٢٦. تُستبعد الصفحة من التصنيفات وخريطة الموقع حتى توفر بيانات موثقة."
+    },
+    {
+      "companyId": "cmvu2gllj0008bxg4fwctvfpf",
+      "ticker": "PSFL",
+      "oldIsActive": true,
+      "newIsActive": false,
+      "oldDescriptionEn": "Holding with brokerage, leasing, real-estate and food subsidiaries.",
+      "newDescriptionEn": "Holding with brokerage, leasing, real-estate and food subsidiaries.",
+      "oldDescriptionAr": null,
+      "newDescriptionAr": "تغطية معلّقة: لم يتم العثور على إدراج حالي في البورصة المصرية أو قوائم مالية موثوقة حتى ٣ نوفمبر ٢٠٢٦. تُستبعد الصفحة من التصنيفات وخريطة الموقع حتى توفر بيانات موثقة."
+    },
+    {
+      "companyId": "cmvu2glnu000ibxg44g8ocglr",
+      "ticker": "RPCO",
+      "oldIsActive": true,
+      "newIsActive": false,
+      "oldDescriptionEn": null,
+      "newDescriptionEn": "Coverage suspended: no current EGX listing or authoritative financial statements were found as of 3 November 2026. The page is excluded from rankings and the sitemap until verified data is available.",
+      "oldDescriptionAr": null,
+      "newDescriptionAr": "تغطية معلّقة: لم يتم العثور على إدراج حالي في البورصة المصرية أو قوائم مالية موثوقة حتى ٣ نوفمبر ٢٠٢٦. تُستبعد الصفحة من التصنيفات وخريطة الموقع حتى توفر بيانات موثقة."
+    },
+    {
+      "companyId": "cmvu2glhz0001bxg4fxzsk2bd",
+      "ticker": "VODE",
+      "oldIsActive": true,
+      "newIsActive": false,
+      "oldDescriptionEn": "Egypt's largest mobile network operator, listed on EGX in 2022.",
+      "newDescriptionEn": "Egypt's largest mobile network operator, listed on EGX in 2022.",
+      "oldDescriptionAr": null,
+      "newDescriptionAr": "تغطية معلّقة: لم يتم العثور على إدراج حالي في البورصة المصرية أو قوائم مالية موثوقة حتى ٣ نوفمبر ٢٠٢٦. تُستبعد الصفحة من التصنيفات وخريطة الموقع حتى توفر بيانات موثقة."
+    },
+    {
+      "companyId": "cmugriqkq001fbx50jmosn6zr",
+      "ticker": "KORA",
+      "oldIsActive": true,
+      "newIsActive": true,
+      "oldDescriptionEn": null,
+      "newDescriptionEn": "KORRA is a recent EGX listing. Its shares trade on the exchange, but no annual or interim financial statements have been published through an authoritative source yet. Financial metrics will appear once statements are available.",
+      "oldDescriptionAr": null,
+      "newDescriptionAr": "قرة لمشروعات الطاقة والاستثمار إدراج حديث في البورصة المصرية. يتم تداول أسهمها، لكن لم تُنشر قوائم مالية سنوية أو دورية عبر مصدر موثوق بعد. ستظهر المؤشرات المالية بمجرد توفر القوائم."
+    }
+  ]
+}

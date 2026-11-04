@@ -21,13 +21,23 @@ const db = new PrismaClient({ log: ["error"] })
 const PLACEHOLDER_ISINS = new Set(["EGS02091C019"])
 const NEVER_LISTED = new Set(["EGPC", "NILE", "BTEG"])
 const CANONICAL_SECTORS = {
-  FWRY: "Financial Services",
+  // EGX sector-index mapping (Mubasher/AskBorsa), with manual overrides for
+  // published-index errors. These are the tickers that were historically wrong.
+  FWRY: "Telecom",
   EFID: "Food",
   RREI: "Real Estate",
   NREH: "Banks",
   EGAS: "Energy",
   BTFH: "Financial Services",
-  ORWE: "Consumer",
+  ORWE: "Textiles",
+  UNIT: "Real Estate",
+  MASR: "Real Estate",
+  ELKA: "Real Estate",
+  HBCO: "Real Estate",
+  EGSA: "Telecom",
+  NDRL: "Energy",
+  KORA: "Construction",
+  ICFC: "Basic Materials",
 }
 
 async function main() {

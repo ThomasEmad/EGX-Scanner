@@ -1,0 +1,1455 @@
+{
+  "generatedAt": "2026-10-29T19:20:05.040Z",
+  "note": "Restores ISIN only when the current value still equals appliedIsin.",
+  "applied": [
+    {
+      "ticker": "AALR",
+      "previousIsin": null,
+      "appliedIsin": "EGS01081C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-AALR/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ACAMD",
+      "previousIsin": null,
+      "appliedIsin": "EGS72AQ1C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ACAMD/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ACAP",
+      "previousIsin": null,
+      "appliedIsin": "EGS697S1C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ACAP/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ACGC",
+      "previousIsin": null,
+      "appliedIsin": "EGS32221C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ACGC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ACTF",
+      "previousIsin": null,
+      "appliedIsin": "EGS7D5P1C019",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ACTF/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ADCI",
+      "previousIsin": null,
+      "appliedIsin": "EGS38321C013",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ADCI/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ADPC",
+      "previousIsin": null,
+      "appliedIsin": "EGS30221C013",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ADPC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ADRI",
+      "previousIsin": null,
+      "appliedIsin": "EGS65AN1C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ADRI/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "AFDI",
+      "previousIsin": null,
+      "appliedIsin": "EGS69021C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-AFDI/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "AFMC",
+      "previousIsin": null,
+      "appliedIsin": "EGS30471C014",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-AFMC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "AIDC",
+      "previousIsin": null,
+      "appliedIsin": "EGS65R01C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-AIDC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "AIFI",
+      "previousIsin": null,
+      "appliedIsin": "EGS071L1C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-AIFI/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "AJWA",
+      "previousIsin": null,
+      "appliedIsin": "EGS30211C014",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-AJWA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ALEX",
+      "previousIsin": null,
+      "appliedIsin": "EGS3H051C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ALEX/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ALUM",
+      "previousIsin": null,
+      "appliedIsin": "EGS3D031C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ALUM/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "AMES",
+      "previousIsin": null,
+      "appliedIsin": "EGS72081C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-AMES/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "AMIA",
+      "previousIsin": null,
+      "appliedIsin": "EGS67221C019",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-AMIA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "AMII",
+      "previousIsin": null,
+      "appliedIsin": "EGS3E1E1C013",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-AMII/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "AMPI",
+      "previousIsin": null,
+      "appliedIsin": "EGS745W1C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-AMPI/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "APPC",
+      "previousIsin": null,
+      "appliedIsin": "EGS38461C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-APPC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "APSW",
+      "previousIsin": null,
+      "appliedIsin": "EGS32331C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-APSW/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ARAB",
+      "previousIsin": null,
+      "appliedIsin": "EGS694A1C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ARAB/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ARCC",
+      "previousIsin": null,
+      "appliedIsin": "EGS3C0O1C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ARCC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "AREH",
+      "previousIsin": null,
+      "appliedIsin": "EGS65211C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-AREH/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ASCM",
+      "previousIsin": null,
+      "appliedIsin": "EGS10001C013",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ASCM/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ASPI",
+      "previousIsin": null,
+      "appliedIsin": "EGS691L1C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ASPI/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ATLC",
+      "previousIsin": null,
+      "appliedIsin": "EGS676N1C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ATLC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ATQA",
+      "previousIsin": null,
+      "appliedIsin": "EGS3D0C1C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ATQA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "AXPH",
+      "previousIsin": null,
+      "appliedIsin": "EGS38341C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-AXPH/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "BIDI",
+      "previousIsin": null,
+      "appliedIsin": "EGS3A2Z1C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-BIDI/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "BIGP",
+      "previousIsin": null,
+      "appliedIsin": "EGS551D1C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-BIGP/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "BIOC",
+      "previousIsin": null,
+      "appliedIsin": "EGS38171C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-BIOC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "BONY",
+      "previousIsin": null,
+      "appliedIsin": "EGS656M1C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-BONY/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "BTFH",
+      "previousIsin": null,
+      "appliedIsin": "EGS691G1C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-BTFH/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "CAED",
+      "previousIsin": null,
+      "appliedIsin": "EGS72201C014",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-CAED/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "CANA",
+      "previousIsin": null,
+      "appliedIsin": "EGS60231C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-CANA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "CCRS",
+      "previousIsin": null,
+      "appliedIsin": "EGS651B1C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-CCRS/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "CEFM",
+      "previousIsin": null,
+      "appliedIsin": "EGS30401C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-CEFM/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "CERA",
+      "previousIsin": null,
+      "appliedIsin": "EGS3C151C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-CERA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "CFGH",
+      "previousIsin": null,
+      "appliedIsin": "EGS672I2C014",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-CFGH/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "CICH",
+      "previousIsin": null,
+      "appliedIsin": "EGS691D1C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-CICH/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "CNFN",
+      "previousIsin": null,
+      "appliedIsin": "EGS738I1C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-CNFN/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "COPR",
+      "previousIsin": null,
+      "appliedIsin": "EGS65511C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-COPR/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "COSG",
+      "previousIsin": null,
+      "appliedIsin": "EGS30581C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-COSG/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "CPCI",
+      "previousIsin": null,
+      "appliedIsin": "EGS38391C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-CPCI/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "CPME",
+      "previousIsin": null,
+      "appliedIsin": "EGS698X1C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-CPME/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "CRST",
+      "previousIsin": null,
+      "appliedIsin": "EGS23141C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-CRST/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "CSAG",
+      "previousIsin": null,
+      "appliedIsin": "EGS44031C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-CSAG/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "DAPH",
+      "previousIsin": null,
+      "appliedIsin": "EGS65081C019",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-DAPH/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "DCRC",
+      "previousIsin": null,
+      "appliedIsin": "EGS21451C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-DCRC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "DEIN",
+      "previousIsin": null,
+      "appliedIsin": "EGS63031C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-DEIN/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "DGTZ",
+      "previousIsin": null,
+      "appliedIsin": "EGS74F71C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-DGTZ/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "DOMT",
+      "previousIsin": null,
+      "appliedIsin": "EGS30031C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-DOMT/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "DSCW",
+      "previousIsin": null,
+      "appliedIsin": "EGS33321C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-DSCW/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "DTPP",
+      "previousIsin": null,
+      "appliedIsin": "EGS370W1C013",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-DTPP/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "EALR",
+      "previousIsin": null,
+      "appliedIsin": "EGS65771C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-EALR/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "EASB",
+      "previousIsin": null,
+      "appliedIsin": "EGS681D1C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-EASB/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "EBSC",
+      "previousIsin": null,
+      "appliedIsin": "EGS68181C014",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-EBSC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ECAP",
+      "previousIsin": null,
+      "appliedIsin": "EGS3C071C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ECAP/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "EDFM",
+      "previousIsin": null,
+      "appliedIsin": "EGS30351C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-EDFM/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "EEII",
+      "previousIsin": null,
+      "appliedIsin": "EGS3G111C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-EEII/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "EFIC",
+      "previousIsin": null,
+      "appliedIsin": "EGS38381C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-EFIC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "EFID",
+      "previousIsin": null,
+      "appliedIsin": "EGS305I1C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-EFID/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "EGAS",
+      "previousIsin": null,
+      "appliedIsin": "EGS39011C019",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-EGAS/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "EGCH",
+      "previousIsin": null,
+      "appliedIsin": "EGS38201C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-EGCH/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "EGREF",
+      "previousIsin": null,
+      "appliedIsin": "EGS694B1C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-EGREF/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "EGTS",
+      "previousIsin": null,
+      "appliedIsin": "EGS70431C019",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-EGTS/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "EHDR",
+      "previousIsin": null,
+      "appliedIsin": "EGS65341C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-EHDR/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "EITP",
+      "previousIsin": null,
+      "appliedIsin": "EGS70011C019",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-EITP/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ELEC",
+      "previousIsin": null,
+      "appliedIsin": "EGS3G231C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ELEC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ELKA",
+      "previousIsin": null,
+      "appliedIsin": "EGS65071C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ELKA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ELNA",
+      "previousIsin": null,
+      "appliedIsin": "EGS300L1C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ELNA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ELSH",
+      "previousIsin": null,
+      "appliedIsin": "EGS65091C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ELSH/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ELWA",
+      "previousIsin": null,
+      "appliedIsin": "EGS70R91C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ELWA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "EMFD",
+      "previousIsin": null,
+      "appliedIsin": "EGS673Y1C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-EMFD/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ENGC",
+      "previousIsin": null,
+      "appliedIsin": "EGS3F021C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ENGC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "EOSB",
+      "previousIsin": null,
+      "appliedIsin": "EGS681I1C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-EOSB/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "EPCO",
+      "previousIsin": null,
+      "appliedIsin": "EGS02211C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-EPCO/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "EPPK",
+      "previousIsin": null,
+      "appliedIsin": "EGS360A1C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-EPPK/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ETRS",
+      "previousIsin": null,
+      "appliedIsin": "EGS42051C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ETRS/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "EXPA",
+      "previousIsin": null,
+      "appliedIsin": "EGS60241C014",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-EXPA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "FAIT",
+      "previousIsin": null,
+      "appliedIsin": "EGS60321C014",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-FAIT/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "FERC",
+      "previousIsin": null,
+      "appliedIsin": "EGS385S1C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-FERC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "FIRE",
+      "previousIsin": null,
+      "appliedIsin": "EGS65AL1C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-FIRE/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "FNAR",
+      "previousIsin": null,
+      "appliedIsin": "EGS221U1C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-FNAR/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "FTNS",
+      "previousIsin": null,
+      "appliedIsin": "EGS774M1C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-FTNS/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "GBCO",
+      "previousIsin": null,
+      "appliedIsin": "EGS673T1C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-GBCO/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "GDWA",
+      "previousIsin": null,
+      "appliedIsin": "EGS3JM11C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-GDWA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "GEOS",
+      "previousIsin": null,
+      "appliedIsin": "EGS51LQ1C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-GEOS/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "GGCC",
+      "previousIsin": null,
+      "appliedIsin": "EGS21541C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-GGCC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "GGRN",
+      "previousIsin": null,
+      "appliedIsin": "EGS07DR1C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-GGRN/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "GIHD",
+      "previousIsin": null,
+      "appliedIsin": "EGS65461C013",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-GIHD/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "GMCI",
+      "previousIsin": null,
+      "appliedIsin": "EGS46051C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-GMCI/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "GPIM",
+      "previousIsin": null,
+      "appliedIsin": "EGS213S1C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-GPIM/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "GPPL",
+      "previousIsin": null,
+      "appliedIsin": "EGS70342C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-GPPL/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "GRCA",
+      "previousIsin": null,
+      "appliedIsin": "EGS69261C013",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-GRCA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "GSSC",
+      "previousIsin": null,
+      "appliedIsin": "EGS30441C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-GSSC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "GTEX",
+      "previousIsin": null,
+      "appliedIsin": "EGS59U92C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-GTEX/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "GTHE",
+      "previousIsin": null,
+      "appliedIsin": "EGS74081C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-GTHE/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "GTWL",
+      "previousIsin": null,
+      "appliedIsin": "EGS32161C019",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-GTWL/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "HBCO",
+      "previousIsin": null,
+      "appliedIsin": "EGS23OD1C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-HBCO/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "HELI",
+      "previousIsin": null,
+      "appliedIsin": "EGS65591C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-HELI/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "IBCT",
+      "previousIsin": null,
+      "appliedIsin": "EGS550K1C019",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-IBCT/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ICFC",
+      "previousIsin": null,
+      "appliedIsin": "EGS520D1C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ICFC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ICID",
+      "previousIsin": null,
+      "appliedIsin": "EGS67191C014",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ICID/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ICLE",
+      "previousIsin": null,
+      "appliedIsin": "EGS67001C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ICLE/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "IDRE",
+      "previousIsin": null,
+      "appliedIsin": "EGS214Q1C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-IDRE/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "IEEC",
+      "previousIsin": null,
+      "appliedIsin": "EGS22171C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-IEEC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "IFAP",
+      "previousIsin": null,
+      "appliedIsin": "EGS07061C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-IFAP/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "INEG",
+      "previousIsin": null,
+      "appliedIsin": "EGS3E3B1C014",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-INEG/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "INFI",
+      "previousIsin": null,
+      "appliedIsin": "EGS01041C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-INFI/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "IRAX",
+      "previousIsin": null,
+      "appliedIsin": "EGS3D041C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-IRAX/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "IRON",
+      "previousIsin": null,
+      "appliedIsin": "EGS3D061C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-IRON/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ISMA",
+      "previousIsin": null,
+      "appliedIsin": "EGS02021C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ISMA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ISMQ",
+      "previousIsin": null,
+      "appliedIsin": "EGS102S1C014",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ISMQ/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "KABO",
+      "previousIsin": null,
+      "appliedIsin": "EGS33061C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-KABO/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "KORA",
+      "previousIsin": null,
+      "appliedIsin": "EGS07911C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-KORA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "KRDI",
+      "previousIsin": null,
+      "appliedIsin": "EGS02291C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-KRDI/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "KWIN",
+      "previousIsin": null,
+      "appliedIsin": "EGS69011C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-KWIN/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "KZPC",
+      "previousIsin": null,
+      "appliedIsin": "EGS38411C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-KZPC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "LCSW",
+      "previousIsin": null,
+      "appliedIsin": "EGS3C161C014",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-LCSW/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MAAL",
+      "previousIsin": null,
+      "appliedIsin": "EGS739Z1C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MAAL/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MBEG",
+      "previousIsin": null,
+      "appliedIsin": "EGS221V1C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MBEG/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MBSC",
+      "previousIsin": null,
+      "appliedIsin": "EGS3C371C019",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MBSC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MCQE",
+      "previousIsin": null,
+      "appliedIsin": "EGS3C391C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MCQE/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MCRO",
+      "previousIsin": null,
+      "appliedIsin": "EGS7D971C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MCRO/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MEGM",
+      "previousIsin": null,
+      "appliedIsin": "EGS3C001C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MEGM/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MENA",
+      "previousIsin": null,
+      "appliedIsin": "EGS65441C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MENA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MEPA",
+      "previousIsin": null,
+      "appliedIsin": "EGS3C4L1C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MEPA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MFSC",
+      "previousIsin": null,
+      "appliedIsin": "EGS53051C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MFSC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MHOT",
+      "previousIsin": null,
+      "appliedIsin": "EGS70081C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MHOT/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MICH",
+      "previousIsin": null,
+      "appliedIsin": "EGS38211C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MICH/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MILS",
+      "previousIsin": null,
+      "appliedIsin": "EGS30361C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MILS/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MIPH",
+      "previousIsin": null,
+      "appliedIsin": "EGS380G1C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MIPH/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MOED",
+      "previousIsin": null,
+      "appliedIsin": "EGS729F1C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MOED/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MOIL",
+      "previousIsin": null,
+      "appliedIsin": "EGS44012C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MOIL/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MOSC",
+      "previousIsin": null,
+      "appliedIsin": "EGS38421C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MOSC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MPCI",
+      "previousIsin": null,
+      "appliedIsin": "EGS38351C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MPCI/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MPCO",
+      "previousIsin": null,
+      "appliedIsin": "EGS02091C014",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MPCO/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MPRC",
+      "previousIsin": null,
+      "appliedIsin": "EGS78021C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MPRC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "MTIE",
+      "previousIsin": null,
+      "appliedIsin": "EGS75011C014",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-MTIE/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "NAHO",
+      "previousIsin": null,
+      "appliedIsin": "EGS69182C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-NAHO/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "NARE",
+      "previousIsin": null,
+      "appliedIsin": "EGS69191C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-NARE/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "NBKE",
+      "previousIsin": null,
+      "appliedIsin": "EGS60171C013",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-NBKE/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "NCCW",
+      "previousIsin": null,
+      "appliedIsin": "EGS23111C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-NCCW/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "NCGC",
+      "previousIsin": null,
+      "appliedIsin": "EGS32131C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-NCGC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "NDRL",
+      "previousIsin": null,
+      "appliedIsin": "EGS735N2C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-NDRL/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "NEDA",
+      "previousIsin": null,
+      "appliedIsin": "EGS52041C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-NEDA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "NHPS",
+      "previousIsin": null,
+      "appliedIsin": "EGS65131C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-NHPS/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "NINH",
+      "previousIsin": null,
+      "appliedIsin": "EGS72011C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-NINH/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "NIPH",
+      "previousIsin": null,
+      "appliedIsin": "EGS38331C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-NIPH/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "OBRI",
+      "previousIsin": null,
+      "appliedIsin": "EGS65551C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-OBRI/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "OCPH",
+      "previousIsin": null,
+      "appliedIsin": "EGS380R1C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-OCPH/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ODIN",
+      "previousIsin": null,
+      "appliedIsin": "EGS67181C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ODIN/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "OFH",
+      "previousIsin": null,
+      "appliedIsin": "EGS696S1C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-OFH/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "OIH",
+      "previousIsin": null,
+      "appliedIsin": "EGS693V1C014",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-OIH/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "OLFI",
+      "previousIsin": null,
+      "appliedIsin": "EGS30AL1C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-OLFI/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ORAS",
+      "previousIsin": null,
+      "appliedIsin": "EGS95001C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ORAS/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "PHAR",
+      "previousIsin": null,
+      "appliedIsin": "EGS38081C013",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-PHAR/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "PHGC",
+      "previousIsin": null,
+      "appliedIsin": "EGS72XL1C014",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-PHGC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "PHTV",
+      "previousIsin": null,
+      "appliedIsin": "EGS70331C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-PHTV/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "POUL",
+      "previousIsin": null,
+      "appliedIsin": "EGS02051C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-POUL/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "PRCL",
+      "previousIsin": null,
+      "appliedIsin": "EGS3C111C019",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-PRCL/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "PRDC",
+      "previousIsin": null,
+      "appliedIsin": "EGS21FW1C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-PRDC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "PRMH",
+      "previousIsin": null,
+      "appliedIsin": "EGS691A1C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-PRMH/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "RAKT",
+      "previousIsin": null,
+      "appliedIsin": "EGS36021C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-RAKT/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "RKAZ",
+      "previousIsin": null,
+      "appliedIsin": "EGS521T1C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-RKAZ/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "RMTV",
+      "previousIsin": null,
+      "appliedIsin": "EGS70131C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-RMTV/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ROTO",
+      "previousIsin": null,
+      "appliedIsin": "EGS70281C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ROTO/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "RREI",
+      "previousIsin": null,
+      "appliedIsin": "EGS65011C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-RREI/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "RTVC",
+      "previousIsin": null,
+      "appliedIsin": "EGS70271C019",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-RTVC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "RUBX",
+      "previousIsin": null,
+      "appliedIsin": "EGS3A221C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-RUBX/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "SAUD",
+      "previousIsin": null,
+      "appliedIsin": "EGS60101C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-SAUD/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "SCEM",
+      "previousIsin": null,
+      "appliedIsin": "EGS3C401C014",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-SCEM/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "SCFM",
+      "previousIsin": null,
+      "appliedIsin": "EGS30411C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-SCFM/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "SCTS",
+      "previousIsin": null,
+      "appliedIsin": "EGS740C1C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-SCTS/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "SDTI",
+      "previousIsin": null,
+      "appliedIsin": "EGS70571C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-SDTI/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "SEIG",
+      "previousIsin": null,
+      "appliedIsin": "EGS67031C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-SEIG/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "SMFR",
+      "previousIsin": null,
+      "appliedIsin": "EGS51191C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-SMFR/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "SMPP",
+      "previousIsin": null,
+      "appliedIsin": "EGS3A0A1C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-SMPP/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "SNFC",
+      "previousIsin": null,
+      "appliedIsin": "EGS30291C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-SNFC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "SNFI",
+      "previousIsin": null,
+      "appliedIsin": "EGS30301C013",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-SNFI/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "SPHT",
+      "previousIsin": null,
+      "appliedIsin": "EGS70H02C014",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-SPHT/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "SPIN",
+      "previousIsin": null,
+      "appliedIsin": "EGS32041C013",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-SPIN/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "SPMD",
+      "previousIsin": null,
+      "appliedIsin": "EGS73BR1C013",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-SPMD/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "SVCE",
+      "previousIsin": null,
+      "appliedIsin": "EGS3C351C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-SVCE/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "TALM",
+      "previousIsin": null,
+      "appliedIsin": "EGS597R1C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-TALM/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "TANM",
+      "previousIsin": null,
+      "appliedIsin": "EGS21EB1C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-TANM/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "TAQA",
+      "previousIsin": null,
+      "appliedIsin": "EGS490S1C014",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-TAQA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "TORA",
+      "previousIsin": null,
+      "appliedIsin": "EGS3C311C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-TORA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "TRTO",
+      "previousIsin": null,
+      "appliedIsin": "EGS79072C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-TRTO/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "TWSA",
+      "previousIsin": null,
+      "appliedIsin": "EGS7D231C010",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-TWSA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "TYCN",
+      "previousIsin": null,
+      "appliedIsin": "EGS67331C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-TYCN/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "UBEE",
+      "previousIsin": null,
+      "appliedIsin": "EGS600M1C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-UBEE/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "UEFM",
+      "previousIsin": null,
+      "appliedIsin": "EGS30451C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-UEFM/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "UEGC",
+      "previousIsin": null,
+      "appliedIsin": "EGS21531C016",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-UEGC/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "UNIP",
+      "previousIsin": null,
+      "appliedIsin": "EGS38161C013",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-UNIP/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "UNIT",
+      "previousIsin": null,
+      "appliedIsin": "EGS65061C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-UNIT/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "UPMS",
+      "previousIsin": null,
+      "appliedIsin": "EGS3I1D1C015",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-UPMS/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "UTOP",
+      "previousIsin": null,
+      "appliedIsin": "EGS655Y1C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-UTOP/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "VALU",
+      "previousIsin": null,
+      "appliedIsin": "EGS505Z1C018",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-VALU/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "VERT",
+      "previousIsin": null,
+      "appliedIsin": "EGS74801C019",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-VERT/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "VLMRA",
+      "previousIsin": null,
+      "appliedIsin": "EGS69081C023",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-VLMRA/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "WCDF",
+      "previousIsin": null,
+      "appliedIsin": "EGS30421C019",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-WCDF/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "WKOL",
+      "previousIsin": null,
+      "appliedIsin": "EGS01071C017",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-WKOL/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ZEOT",
+      "previousIsin": null,
+      "appliedIsin": "EGS38251C012",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ZEOT/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    },
+    {
+      "ticker": "ZMID",
+      "previousIsin": null,
+      "appliedIsin": "EGS21171C011",
+      "sourceUrl": "https://www.tradingview.com/symbols/EGX-ZMID/",
+      "retrievedAt": "2026-10-29T19:20:05.040Z"
+    }
+  ]
+}

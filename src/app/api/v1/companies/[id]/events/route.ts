@@ -12,11 +12,16 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   if (!premiumUserId) return forbiddenResponse("Premium subscription required for Company Events.")
 
   const { id } = await params
-  const company = await db.company.findUnique({ where: { id }, select: { id: true } })
+  const raw = decodeURIComponent(id)
+  const upper = raw.toUpperCase()
+  const company = await db.company.findFirst({
+    where: { OR: [{ id: raw }, { ticker: upper }, { isin: upper }] },
+    select: { id: true },
+  })
   if (!company) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
 
   const events = await db.financialEvent.findMany({
-    where: { companyId: id },
+    where: { companyId: company.id },
     orderBy: [{ fiscalYear: "desc" }, { periodLabel: "desc" }],
   })
 

@@ -1,0 +1,105 @@
+{
+  "generatedAt": "2026-11-03T16:38:51.851Z",
+  "values": [
+    {
+      "valueId": "cmuiomzx30dhgbxq0g6qs1d4d",
+      "ticker": "ASCM",
+      "periodLabel": "FY 2021",
+      "metricCode": "TOTAL_LIABILITIES",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "API import — YAHOO_FINANCE_API AUDIT_QUARANTINE: TOTAL_LIABILITIES 1.509B makes liabilities + equity 1.594B against TOTAL_ASSETS 1.36B; assets, equity and the L+E total agree, so the liabilities line is the outlier."
+    },
+    {
+      "valueId": "cmuion2wh0khubxq075ttt8x5",
+      "ticker": "UEGC",
+      "periodLabel": "FY 2021",
+      "metricCode": "TOTAL_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "API import — YAHOO_FINANCE_API AUDIT_QUARANTINE: Assets 832M, equity 1.036B, liabilities 831M and L+E 2.02B cannot belong to one balance sheet; the block is mixed and cannot be repaired from stored fields."
+    },
+    {
+      "valueId": "cmuion2wh0khtbxq0ftmzi7xj",
+      "ticker": "UEGC",
+      "periodLabel": "FY 2021",
+      "metricCode": "TOTAL_LIABILITIES",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "API import — YAHOO_FINANCE_API AUDIT_QUARANTINE: Assets 832M, equity 1.036B, liabilities 831M and L+E 2.02B cannot belong to one balance sheet; the block is mixed and cannot be repaired from stored fields."
+    },
+    {
+      "valueId": "cmuion2wh0khsbxq0acp9zwao",
+      "ticker": "UEGC",
+      "periodLabel": "FY 2021",
+      "metricCode": "TOTAL_EQUITY",
+      "oldStatus": "VALID",
+      "oldNotes": "API import — YAHOO_FINANCE_API",
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "API import — YAHOO_FINANCE_API AUDIT_QUARANTINE: Assets 832M, equity 1.036B, liabilities 831M and L+E 2.02B cannot belong to one balance sheet; the block is mixed and cannot be repaired from stored fields."
+    },
+    {
+      "valueId": "cmujo5ha90a9xbx3wu31169z6",
+      "ticker": "UEGC",
+      "periodLabel": "FY 2021",
+      "metricCode": "TOTAL_EQUITY_AND_LIABILITIES",
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher",
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher AUDIT_QUARANTINE: Assets 832M, equity 1.036B, liabilities 831M and L+E 2.02B cannot belong to one balance sheet; the block is mixed and cannot be repaired from stored fields."
+    },
+    {
+      "valueId": "cmvua71sv029xbx7kb1z23yfh",
+      "ticker": "VALU",
+      "periodLabel": "Q4 2024",
+      "metricCode": "TOTAL_ASSETS",
+      "oldStatus": "VALID",
+      "oldNotes": "Q4_EQUALS_APP_FY: only-missing Q4 balance-sheet line copied from the app's own annual report for FY2024; not an AskBorsa value.",
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "Q4_EQUALS_APP_FY: only-missing Q4 balance-sheet line copied from the app's own annual report for FY2024; not an AskBorsa value. AUDIT_QUARANTINE: CURRENT Q4-derived copies mix the annual asset total (10.85B) with the Q4 equity/liability block (136M); the Q4 balance sheet is not usable and the FY2024 annual report remains the trusted source."
+    },
+    {
+      "valueId": "cmvua71t902a1bx7k58643pq9",
+      "ticker": "VALU",
+      "periodLabel": "Q4 2024",
+      "metricCode": "TOTAL_EQUITY",
+      "oldStatus": "VALID",
+      "oldNotes": "Q4_EQUALS_APP_FY: only-missing Q4 balance-sheet line copied from the app's own annual report for FY2024; not an AskBorsa value.",
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "Q4_EQUALS_APP_FY: only-missing Q4 balance-sheet line copied from the app's own annual report for FY2024; not an AskBorsa value. AUDIT_QUARANTINE: CURRENT Q4-derived copies mix the annual asset total (10.85B) with the Q4 equity/liability block (136M); the Q4 balance sheet is not usable and the FY2024 annual report remains the trusted source."
+    },
+    {
+      "valueId": "cmvua71t2029zbx7kfb22b1ou",
+      "ticker": "VALU",
+      "periodLabel": "Q4 2024",
+      "metricCode": "TOTAL_LIABILITIES",
+      "oldStatus": "VALID",
+      "oldNotes": "Q4_EQUALS_APP_FY: only-missing Q4 balance-sheet line copied from the app's own annual report for FY2024; not an AskBorsa value.",
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "Q4_EQUALS_APP_FY: only-missing Q4 balance-sheet line copied from the app's own annual report for FY2024; not an AskBorsa value. AUDIT_QUARANTINE: CURRENT Q4-derived copies mix the annual asset total (10.85B) with the Q4 equity/liability block (136M); the Q4 balance sheet is not usable and the FY2024 annual report remains the trusted source."
+    },
+    {
+      "valueId": "cmvua71tf02a3bx7ktceo5t5j",
+      "ticker": "VALU",
+      "periodLabel": "Q4 2024",
+      "metricCode": "TOTAL_EQUITY_AND_LIABILITIES",
+      "oldStatus": "VALID",
+      "oldNotes": "Q4_EQUALS_APP_FY: only-missing Q4 balance-sheet line copied from the app's own annual report for FY2024; not an AskBorsa value.",
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "Q4_EQUALS_APP_FY: only-missing Q4 balance-sheet line copied from the app's own annual report for FY2024; not an AskBorsa value. AUDIT_QUARANTINE: CURRENT Q4-derived copies mix the annual asset total (10.85B) with the Q4 equity/liability block (136M); the Q4 balance sheet is not usable and the FY2024 annual report remains the trusted source."
+    },
+    {
+      "valueId": "cmur7gw6z00jfbx5kt5kin598",
+      "ticker": "AXPH",
+      "periodLabel": "FY 2025",
+      "metricCode": "OPERATING_CASH_FLOW",
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "newStatus": "NEEDS_REVIEW",
+      "newNotes": "AUDIT_QUARANTINE: Contaminated EXCEL_STATEMENTS duplicate of the ASKBORA_SUMMARY FY2025 report; its only VALID value is quarantined so the duplicate no longer enters canonical periods."
+    }
+  ]
+}

@@ -133,6 +133,7 @@ async function buildScanContextsUncached(basis: PeriodBasis): Promise<
         metrics: scanMetrics,
         events: eventsByCompany.get(company.id) ?? new Set<string>(),
         dividendStatuses: dividendsByCompany.get(company.id) ?? [],
+        sector: company.sector,
       } satisfies ScanContext,
     }
   })

@@ -151,13 +151,12 @@ async function main() {
   console.log(`  ✓ ${EGX_COMPANIES.length} real EGX companies (metadata only)`)
 
   // 3. Preset scanner rules (recreated fresh — previous runs may reference demo data)
+  // Growth presets (PROFIT_GROWTH / REVENUE_GROWTH / EQUITY_GROWTH / PROFIT_ACCELERATION)
+  // were removed from the product — see the deactivation step after the upsert loop.
   const presets: { presetKey: string; name: string; nameAr: string; description: string; conditions: unknown }[] = [
     { presetKey: "TURNAROUND", name: "Financial Turnaround", nameAr: "تحول مالي (خسارة إلى ربح)", description: "Companies that moved from net loss to net profit (same-period basis).", conditions: [{ kind: "event", eventType: "LOSS_TO_PROFIT" }] },
     { presetKey: "DETERIORATION", name: "Profit → Loss Deterioration", nameAr: "تدهور مالي (ربح إلى خسارة)", description: "Companies that moved from net profit to net loss.", conditions: [{ kind: "event", eventType: "PROFIT_TO_LOSS" }] },
-    { presetKey: "PROFIT_GROWTH", name: "Profit Growth ≥ 30%", nameAr: "نمو أرباح 30% أو أكثر", description: "Net profit growth of 30% or more year-over-year.", conditions: [{ kind: "metric", code: "profit_growth", operator: ">=", value: 30 }] },
-    { presetKey: "REVENUE_GROWTH", name: "Revenue Growth ≥ 15%", nameAr: "نمو إيرادات 15% أو أكثر", description: "Revenue growth of 15% or more year-over-year.", conditions: [{ kind: "metric", code: "revenue_growth", operator: ">=", value: 15 }] },
-    { presetKey: "DEBT_REDUCTION", name: "Debt Reduction ≥ 5%", nameAr: "خفض ديون 5% أو أكثر", description: "Total debt decreased by 5% or more.", conditions: [{ kind: "metric", code: "debt_growth", operator: "<=", value: -5 }] },
-    { presetKey: "EQUITY_GROWTH", name: "Equity Growth ≥ 10%", nameAr: "نمو حقوق ملكية 10% أو أكثر", description: "Shareholders' equity increased by 10% or more.", conditions: [{ kind: "metric", code: "equity_growth", operator: ">=", value: 10 }] },
+    { presetKey: "DEBT_REDUCTION", name: "Debt Reduction ≥ 5%", nameAr: "خفض ديون 5% أو أكثر", description: "Total debt decreased by 5% or more.", conditions: [{ kind: "event", eventType: "DEBT_REDUCTION" }] },
     { presetKey: "STRONG_CASH_FLOW", name: "Positive Operating Cash Flow", nameAr: "تدفق نقدي تشغيلي إيجابي", description: "Operating cash flow is greater than zero.", conditions: [{ kind: "metric", code: "operating_cash_flow", operator: ">", value: 0 }] },
     {
       presetKey: "FINANCIAL_RECOVERY", name: "Financial Recovery Pattern", nameAr: "نمط التعافي المالي",
@@ -166,7 +165,6 @@ async function main() {
     },
     { presetKey: "STRONG_ROE", name: "Strong Profitability (ROE ≥ 15%)", nameAr: "ربحية قوية (عائد 15% أو أكثر)", description: "Return on equity of 15% or more.", conditions: [{ kind: "metric", code: "roe", operator: ">=", value: 15 }] },
     { presetKey: "HIGH_ASSETS", name: "High Total Assets (≥ EGP 10B)", nameAr: "أصول كبيرة (10 مليار جنيه أو أكثر)", description: "Total assets of EGP 10 billion or more.", conditions: [{ kind: "metric", code: "total_assets", operator: ">=", value: 10e9 }] },
-    { presetKey: "PROFIT_ACCELERATION", name: "Accelerating Profit Growth", nameAr: "تسارع نمو الأرباح", description: "Profit growth is positive and increasing for two consecutive periods.", conditions: [{ kind: "event", eventType: "PROFIT_ACCELERATION" }] },
     { presetKey: "DIVIDEND_CALENDAR", name: "Dividend Calendar (Announced / Upcoming)", nameAr: "تقويم التوزيعات (معلنة / قادمة)", description: "Companies with announced, upcoming or eligible dividends.", conditions: [{ kind: "dividend", statuses: ["ANNOUNCED", "UPCOMING", "ELIGIBLE"] }] },
     { presetKey: "VALUE_P_B", name: "Below Book Value (P/B ≤ 0.7)", nameAr: "تداول دون القيمة الدفترية", description: "Market price at or below 70% of book value per share — requires a market price point.", conditions: [{ kind: "metric", code: "p_b", operator: "<=", value: 0.7 }] },
     { presetKey: "DIVIDEND_YIELD", name: "Dividend Yield ≥ 5%", nameAr: "عائد توزيعات 5% أو أكثر", description: "Trailing-12-month dividend yield of 5% or more — requires a market price point.", conditions: [{ kind: "metric", code: "dividend_yield", operator: ">=", value: 5 }] },
@@ -191,7 +189,14 @@ async function main() {
       },
     })
   }
-  console.log(`  ✓ ${presets.length} preset scanner rules`)
+  // Growth presets existed in earlier seeds — deactivate them (history rows keep
+  // their FK; isActive=false removes them from the dashboard/scanner lists).
+  const removedPresets = ["PROFIT_GROWTH", "REVENUE_GROWTH", "EQUITY_GROWTH", "PROFIT_ACCELERATION"]
+  await db.scannerRule.updateMany({
+    where: { presetKey: { in: removedPresets } },
+    data: { isActive: false },
+  })
+  console.log(`  ✓ ${presets.length} preset scanner rules (${removedPresets.length} growth presets deactivated)`)
 
   // 4. Data sources (manual upload is the v1 ingestion source)
   await db.dataSource.upsert({

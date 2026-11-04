@@ -1,0 +1,264 @@
+{
+  "values": [
+    {
+      "id": "cmur7gyfb01glbx5kft0voj9g",
+      "ticker": "BQDC",
+      "metric": "FINANCING_CASH_FLOW",
+      "oldValue": 3235030552.81,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmur7gyf701gjbx5k7aguo24o",
+      "ticker": "BQDC",
+      "metric": "INVESTING_CASH_FLOW",
+      "oldValue": -12221226532.83,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmur7gyf001gfbx5k3bg83oxy",
+      "ticker": "BQDC",
+      "metric": "LONG_TERM_DEBT",
+      "oldValue": 6706765999.02,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmupv8x8x00gnbxn0a96ajjxd",
+      "ticker": "BQDC",
+      "metric": "NET_PROFIT",
+      "oldValue": 3235030552.81,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmur7gyf401ghbx5kc4a9f3ey",
+      "ticker": "BQDC",
+      "metric": "OPERATING_CASH_FLOW",
+      "oldValue": 4313374070.41,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmupv8x8r00glbxn0z6pwd6pl",
+      "ticker": "BQDC",
+      "metric": "REVENUE",
+      "oldValue": 11861778693.63,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmupv8x9100gpbxn0g0lonwja",
+      "ticker": "BQDC",
+      "metric": "TOTAL_ASSETS",
+      "oldValue": 205418661455.79,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmupv8x9a00gtbxn0dg6xfxk0",
+      "ticker": "BQDC",
+      "metric": "TOTAL_EQUITY",
+      "oldValue": 17629213483.15,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmupv8x9500grbxn0b5f7uirq",
+      "ticker": "BQDC",
+      "metric": "TOTAL_LIABILITIES",
+      "oldValue": 187789447972.64,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmuprf77w04xrbxg0w8ukgyrs",
+      "ticker": "IRON",
+      "metric": "COGS",
+      "oldValue": 2304169614.07,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmuprf78004xtbxg0865svq60",
+      "ticker": "IRON",
+      "metric": "CURRENT_ASSETS",
+      "oldValue": 1809319511.67,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmuprf78404xvbxg0dk8f5xoy",
+      "ticker": "IRON",
+      "metric": "CURRENT_LIABILITIES",
+      "oldValue": 8503801704.87,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmujo51eb07qvbx3wnopdm3bw",
+      "ticker": "IRON",
+      "metric": "FINANCING_CASH_FLOW",
+      "oldValue": 297000000,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)",
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmujo51by07qhbx3wty3iumsj",
+      "ticker": "IRON",
+      "metric": "GROSS_PROFIT",
+      "oldValue": -1240706715.27,
+      "oldOriginalValue": -1110000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmur7h1cq02ozbx5kbtiac7kd",
+      "ticker": "IRON",
+      "metric": "INVENTORY",
+      "oldValue": 1266523658.17,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmujo51du07qtbx3wc5vt8u5t",
+      "ticker": "IRON",
+      "metric": "INVESTING_CASH_FLOW",
+      "oldValue": -12780000,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)",
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmujo51em07qxbx3wflxb2j96",
+      "ticker": "IRON",
+      "metric": "NET_CHANGE_IN_CASH",
+      "oldValue": 20460000,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)",
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmujond3v024hbxgcqhe92le7",
+      "ticker": "IRON",
+      "metric": "NET_PROFIT",
+      "oldValue": -983000000,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو",
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmur7h1ck02oxbx5kih7c4ybb",
+      "ticker": "IRON",
+      "metric": "NON_CURRENT_ASSETS",
+      "oldValue": 1085591707,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": null,
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmujo51dj07qrbx3wv26bqqsw",
+      "ticker": "IRON",
+      "metric": "OPERATING_CASH_FLOW",
+      "oldValue": -264000000,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)",
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmuprf77s04xpbxg06dgtb649",
+      "ticker": "IRON",
+      "metric": "REVENUE",
+      "oldValue": 1063462898.8,
+      "oldOriginalValue": null,
+      "oldStatus": "NEEDS_REVIEW",
+      "oldNotes": "AUDIT_QUARANTINE: fabricated template value — identical value 1063462898.8 for REVENUE FY2020 shared across many unrelated companies (ASKBORA_SUMMARY batch). Provably not real; awaiting re-extraction from filings.",
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmur7h1ce02ovbx5krr60vbwx",
+      "ticker": "IRON",
+      "metric": "SHORT_TERM_DEBT",
+      "oldValue": 180931951.17,
+      "oldOriginalValue": null,
+      "oldStatus": "NEEDS_REVIEW",
+      "oldNotes": "AUDIT_QUARANTINE: fabricated template value — identical value 180931951.17 for SHORT_TERM_DEBT FY2020 shared across many unrelated companies (ASKBORA_SUMMARY batch). Provably not real; awaiting re-extraction from filings.",
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmujo51ca07qjbx3wnzazzojr",
+      "ticker": "IRON",
+      "metric": "TOTAL_ASSETS",
+      "oldValue": 2830000000,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)",
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmujo51cu07qnbx3wpjv3vdwb",
+      "ticker": "IRON",
+      "metric": "TOTAL_EQUITY",
+      "oldValue": -5770000000,
+      "oldOriginalValue": -5770000000,
+      "oldStatus": "VALID",
+      "oldNotes": "AUDIT_CORRECTION: equity sign corrected from 5770000000 to -5770000000",
+      "oldIsManuallyCorrected": true
+    },
+    {
+      "id": "cmujo51d707qpbx3wgqwz4tba",
+      "ticker": "IRON",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "oldValue": 2830000000,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)",
+      "oldIsManuallyCorrected": false
+    },
+    {
+      "id": "cmujo51ck07qlbx3wha4uq119",
+      "ticker": "IRON",
+      "metric": "TOTAL_LIABILITIES",
+      "oldValue": 8600000000,
+      "oldOriginalValue": null,
+      "oldStatus": "VALID",
+      "oldNotes": "AskBorsa annual summary (display-rounded)",
+      "oldIsManuallyCorrected": false
+    }
+  ]
+}

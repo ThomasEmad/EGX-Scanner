@@ -1,0 +1,14 @@
+﻿
+=== Integrity policy APPLY ===
+
+carried-forward copies to quarantine: 5524
+zero placeholders to quarantine:        82
+re-map TOTAL_DEBT → NET_DEBT: 14
+re-map INVESTMENTS → INVESTED_CAPITAL: 14
+re-map SHARE_CAPITAL → TOTAL_CAPITALIZATION: 14
+quarantined copies: 5524
+quarantined zeros: 81
+re-mapped TOTAL_DEBT → NET_DEBT: 14
+re-mapped INVESTMENTS → INVESTED_CAPITAL: 14
+re-mapped SHARE_CAPITAL → TOTAL_CAPITALIZATION: 14
+metric definitions ensured: NET_DEBT, INVESTED_CAPITAL, TOTAL_CAPITALIZATION

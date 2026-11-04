@@ -1,0 +1,179 @@
+{
+  "applied": true,
+  "signFixes": 2,
+  "quarantines": 10,
+  "rows": [
+    {
+      "ticker": "EGTS",
+      "periodLabel": "FY 2024",
+      "metricCode": "INCOME_TAX",
+      "reason": "Stored -61,013,777 makes PBT - tax = -351.1M, but reported net profit is -473.1M; PBT + tax = -473.1M exactly. Tax sign is flipped.",
+      "action": "sign_fixed",
+      "reportId": "cmuion0r80fhvbxq09sy2ko40",
+      "valueId": "cmuion0rd0fi2bxq0abrmd2oe",
+      "oldValue": -61013777,
+      "newValue": 61013777
+    },
+    {
+      "ticker": "MMAT",
+      "periodLabel": "FY 2025",
+      "metricCode": "INCOME_TAX",
+      "reason": "Stored -379,260 makes PBT - tax = +303,240, but reported net profit is -455,280; PBT + tax = -455,280 exactly. Tax sign is flipped.",
+      "action": "sign_fixed",
+      "reportId": "cmuiomz4n0byxbxq0l3rr93pg",
+      "valueId": "cmuiomz4t0bz7bxq0lswnttlp",
+      "oldValue": -379260,
+      "newValue": 379260
+    },
+    {
+      "ticker": "AMER",
+      "periodLabel": "9M 2025",
+      "metricCodes": [
+        "PROFIT_BEFORE_TAX",
+        "INCOME_TAX"
+      ],
+      "reason": "PBT - tax = 147.7M vs net profit 99.9M; parent net profit is 85.4M, so the 47.8M gap is not fully explained by NCI. Source period may mix 9M and annual figures.",
+      "code": "PROFIT_BEFORE_TAX",
+      "action": "quarantined",
+      "reportId": "cmvu2gn9q0077bxg479a9lxb6",
+      "valueId": "cmvu2rdj400r8bx5ku51w84ub",
+      "oldStatus": "VALID",
+      "normalizedValue": 188756233
+    },
+    {
+      "ticker": "AMER",
+      "periodLabel": "9M 2025",
+      "metricCodes": [
+        "PROFIT_BEFORE_TAX",
+        "INCOME_TAX"
+      ],
+      "reason": "PBT - tax = 147.7M vs net profit 99.9M; parent net profit is 85.4M, so the 47.8M gap is not fully explained by NCI. Source period may mix 9M and annual figures.",
+      "code": "INCOME_TAX",
+      "action": "quarantined",
+      "reportId": "cmvu2gn9q0077bxg479a9lxb6",
+      "valueId": "cmvu2rdj400r7bx5karxjiedt",
+      "oldStatus": "VALID",
+      "normalizedValue": 41052685
+    },
+    {
+      "ticker": "BINV",
+      "periodLabel": "Q2 2026",
+      "metricCodes": [
+        "PROFIT_BEFORE_TAX",
+        "INCOME_TAX"
+      ],
+      "reason": "Negative tax and a 51.4% gap on a Q2 2026 TradingView report suggest a cumulative/standalone or sign mismatch; the quarter cannot be reconciled from stored fields.",
+      "code": "PROFIT_BEFORE_TAX",
+      "action": "quarantined",
+      "reportId": "cmun2bxl201ttbx80ndz4lw40",
+      "valueId": "cmupwlm0g07etbxssycfn3w6t",
+      "oldStatus": "VALID",
+      "normalizedValue": 90378075
+    },
+    {
+      "ticker": "BINV",
+      "periodLabel": "Q2 2026",
+      "metricCodes": [
+        "PROFIT_BEFORE_TAX",
+        "INCOME_TAX"
+      ],
+      "reason": "Negative tax and a 51.4% gap on a Q2 2026 TradingView report suggest a cumulative/standalone or sign mismatch; the quarter cannot be reconciled from stored fields.",
+      "code": "INCOME_TAX",
+      "action": "quarantined",
+      "reportId": "cmun2bxl201ttbx80ndz4lw40",
+      "valueId": "cmupwllyx07ebbxsspu0kmtkl",
+      "oldStatus": "VALID",
+      "normalizedValue": -66468568
+    },
+    {
+      "ticker": "FIRE",
+      "periodLabel": "FY 2024",
+      "metricCodes": [
+        "PROFIT_BEFORE_TAX",
+        "INCOME_TAX"
+      ],
+      "reason": "PBT is -2.66M while net profit is +1.32M and tax is 3,470; the identity is off by 149.7% and the source does not provide a reconciling item.",
+      "code": "PROFIT_BEFORE_TAX",
+      "action": "quarantined",
+      "reportId": "cmuiw4spb00hbbxxsck541tpw",
+      "valueId": "cmuiw4sqe00hnbxxswjlu4e6y",
+      "oldStatus": "VALID",
+      "normalizedValue": -2660000
+    },
+    {
+      "ticker": "FIRE",
+      "periodLabel": "FY 2024",
+      "metricCodes": [
+        "PROFIT_BEFORE_TAX",
+        "INCOME_TAX"
+      ],
+      "reason": "PBT is -2.66M while net profit is +1.32M and tax is 3,470; the identity is off by 149.7% and the source does not provide a reconciling item.",
+      "code": "INCOME_TAX",
+      "action": "quarantined",
+      "reportId": "cmuiw4spb00hbbxxsck541tpw",
+      "valueId": "cmuiw4sqm00hpbxxsz99wblbu",
+      "oldStatus": "VALID",
+      "normalizedValue": 3470
+    },
+    {
+      "ticker": "GIHD",
+      "periodLabel": "FY 2024",
+      "metricCodes": [
+        "PROFIT_BEFORE_TAX",
+        "INCOME_TAX"
+      ],
+      "reason": "PBT - tax = 1.99M vs net profit 0.95M (52.6% gap); the difference is consistent with non-controlling interest but no NCI line is stored.",
+      "code": "PROFIT_BEFORE_TAX",
+      "action": "quarantined",
+      "reportId": "cmuiomyz60bmwbxq0qbm6frhs",
+      "valueId": "cmuiomyza0bn5bxq0j92y33sf",
+      "oldStatus": "VALID",
+      "normalizedValue": 1991700
+    },
+    {
+      "ticker": "GIHD",
+      "periodLabel": "FY 2024",
+      "metricCodes": [
+        "PROFIT_BEFORE_TAX",
+        "INCOME_TAX"
+      ],
+      "reason": "PBT - tax = 1.99M vs net profit 0.95M (52.6% gap); the difference is consistent with non-controlling interest but no NCI line is stored.",
+      "code": "INCOME_TAX",
+      "action": "quarantined",
+      "reportId": "cmuiomyz60bmwbxq0qbm6frhs",
+      "valueId": "cmuiomyza0bn6bxq0y9jw56jb",
+      "oldStatus": "VALID",
+      "normalizedValue": -1720
+    },
+    {
+      "ticker": "OFH",
+      "periodLabel": "FY 2024",
+      "metricCodes": [
+        "PROFIT_BEFORE_TAX",
+        "INCOME_TAX"
+      ],
+      "reason": "PBT - tax = 221.4M vs net profit 41.0M (70.5% gap); the difference is consistent with non-controlling interest but no NCI line is stored.",
+      "code": "PROFIT_BEFORE_TAX",
+      "action": "quarantined",
+      "reportId": "cmuiomz7g0c3wbxq0lhp6v1s7",
+      "valueId": "cmuiomz7m0c43bxq0rrb36ty7",
+      "oldStatus": "VALID",
+      "normalizedValue": 255977000
+    },
+    {
+      "ticker": "OFH",
+      "periodLabel": "FY 2024",
+      "metricCodes": [
+        "PROFIT_BEFORE_TAX",
+        "INCOME_TAX"
+      ],
+      "reason": "PBT - tax = 221.4M vs net profit 41.0M (70.5% gap); the difference is consistent with non-controlling interest but no NCI line is stored.",
+      "code": "INCOME_TAX",
+      "action": "quarantined",
+      "reportId": "cmuiomz7g0c3wbxq0lhp6v1s7",
+      "valueId": "cmuiomz7m0c44bxq0zsgfzgt3",
+      "oldStatus": "VALID",
+      "normalizedValue": 34530000
+    }
+  ]
+}
