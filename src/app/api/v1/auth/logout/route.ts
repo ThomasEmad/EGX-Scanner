@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server"
-import { getSessionUser, invalidateSession } from "@/lib/auth"
+import { getSessionUser, invalidateSession, clearSessionCookieHeader } from "@/lib/auth"
 import { audit } from "@/lib/audit"
 
 // POST /api/v1/auth/logout
@@ -10,5 +10,5 @@ export async function POST(req: NextRequest) {
     await invalidateSession(token)
     await audit("USER_LOGOUT", { actor: userId, entityType: "User", entityId: userId, details: "Logout" })
   }
-  return Response.json({ ok: true })
+  return Response.json({ ok: true }, { headers: { "Set-Cookie": clearSessionCookieHeader() } })
 }

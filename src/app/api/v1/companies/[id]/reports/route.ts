@@ -1,7 +1,9 @@
 import { db } from "@/lib/db"
 
-// GET /api/v1/companies/[id]/reports — report list for the company (with version
-// and processing status).
+// GET /api/v1/companies/[id]/reports — report list for the company.
+// Investor-facing period metadata only: pipeline internals (source URLs,
+// local file refs, hashes, extraction method, processing/approval workflow)
+// are internal data-engineering documentation and never exposed publicly.
 
 export async function GET(_req: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
@@ -9,7 +11,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   if (!company) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
 
   const reports = await db.financialReport.findMany({
-    where: { companyId: id },
+    where: { companyId: id, deletedAt: null },
     orderBy: [{ periodType: "asc" }, { fiscalYear: "desc" }],
     include: { _count: { select: { values: true } } },
   })
@@ -24,16 +26,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
       periodStart: r.periodStart,
       periodEnd: r.periodEnd,
       publicationDate: r.publicationDate,
-      sourceName: r.sourceName,
-      sourceUrl: r.sourceUrl,
-      localFileRef: r.localFileRef,
-      fileHash: r.fileHash,
-      processingStatus: r.processingStatus,
-      extractionMethod: r.extractionMethod,
-      version: r.version,
-      isRestatement: r.isRestatement,
-      isDemoData: r.isDemoData,
-      notes: r.notes,
+      statementType: r.statementType,
       valueCount: r._count.values,
     })),
   })

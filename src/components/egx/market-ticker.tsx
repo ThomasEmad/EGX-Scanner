@@ -1,10 +1,12 @@
 "use client"
 
 // Live market ticker strip — EGX indices + top movers, rendered as a smooth
-// marquee above the header on every page. The signature trading-platform element.
+// CSS-marquee above the header on every page. The signature trading-platform
+// element. The loop is GPU-composited (transform animation) — no per-frame
+// React state updates, so it costs nothing between data refreshes.
 
-import { useEffect, useRef, useState, useCallback } from "react"
-import { useQuery } from "@tanstack/react-query"
+import { useEffect, useState } from "react"
+import { useQuery, useQueryClient } from "@tanstack/react-query"
 import { useI18n } from "@/lib/i18n"
 import { useRouter } from "next/navigation"
 import { RotateCcw } from "lucide-react"
@@ -59,11 +61,14 @@ function Item({
       }`}
     >
       <span className="font-semibold text-foreground/90">{label}</span>
-      <span className="tabular text-muted-foreground">{value}</span>
+      <span className="tabular text-muted-foreground" dir="ltr">
+        {value}
+      </span>
       <span
         className={`tabular font-bold flex items-center gap-0.5 ${
           up ? "text-positive" : "text-negative"
         }`}
+        dir="ltr"
       >
         <span className="text-[9px]">{up ? "▲" : "▼"}</span>
         <span>{Math.abs(changePct).toFixed(2)}%</span>
@@ -75,16 +80,22 @@ function Item({
 export function MarketTicker() {
   const { lang } = useI18n()
   const router = useRouter()
+  const queryClient = useQueryClient()
   const ar = lang === "ar"
-  const [isVisible, setIsVisible] = useState(true)
-  const [isPaused, setIsPaused] = useState(false)
-  const [scrollPosition, setScrollPosition] = useState(0)
-  const [animationId, setAnimationId] = useState<number | null>(null)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const trackRef = useRef<HTMLDivElement>(null)
-  const itemWidthsRef = useRef<Map<number, number>>(new Map())
-  const [isLive, setIsLive] = useState(false)
-  const [sseConnected, setSseConnected] = useState(false)
+  const [isRefreshing, setIsRefreshing] = useState(false)
+  const [isLive] = useState(false)
+  const [sseConnected] = useState(false)
+  // Manual refresh spawns a server-side snapshot job — the endpoint is
+  // admin-only now, so the button only renders for an authenticated admin.
+  const [isAdminUser, setIsAdminUser] = useState(false)
+  useEffect(() => {
+    let cancelled = false
+    fetch("/api/v1/admin/me", { credentials: "include" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { if (!cancelled) setIsAdminUser(!!d?.isAdmin) })
+      .catch(() => {})
+    return () => { cancelled = true }
+  }, [])
 
   const { data } = useQuery({
     queryKey: ["market-ticker"],
@@ -93,15 +104,13 @@ export function MarketTicker() {
     staleTime: 15_000,
   })
 
-  const [isRefreshing, setIsRefreshing] = useState(false)
-
   const handleRefresh = async () => {
     setIsRefreshing(true)
     try {
       const res = await fetch("/api/v1/market/refresh", { method: "POST" })
       if (res.ok) {
-        // Invalidate and refetch
-        // The query will automatically refetch due to the fresh query
+        // Pull the fresh snapshot into the ticker immediately.
+        await queryClient.invalidateQueries({ queryKey: ["market-ticker"] })
       }
     } catch (e) {
       console.error("Failed to refresh market data:", e)
@@ -109,88 +118,6 @@ export function MarketTicker() {
       setIsRefreshing(false)
     }
   }
-
-  // Calculate item widths for virtualization
-  useEffect(() => {
-    if (!trackRef.current) return
-    const items = trackRef.current.querySelectorAll('[data-ticker-item]')
-    const widths = new Map<number, number>()
-    items.forEach((el, i) => {
-      widths.set(i, (el as HTMLElement).offsetWidth)
-    })
-    itemWidthsRef.current = widths
-  }, [data])
-
-  // IntersectionObserver to pause when off-screen
-  useEffect(() => {
-    const container = containerRef.current
-    if (!container) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting)
-        setIsPaused(!entry.isIntersecting)
-      },
-      { rootMargin: "50px", threshold: 0 }
-    )
-
-    observer.observe(container)
-    return () => observer.disconnect()
-  }, [])
-
-  // requestAnimationFrame-based smooth scrolling
-  useEffect(() => {
-    if (!isVisible || isPaused || !trackRef.current) return
-
-    const track = trackRef.current
-    const container = containerRef.current
-    if (!container) return
-
-    const containerWidth = container.offsetWidth
-    let lastTime = performance.now()
-    let position = scrollPosition
-    const speed = 0.5 // pixels per frame
-
-    const animate = (currentTime: number) => {
-      if (!isVisible || isPaused || !trackRef.current) {
-        setAnimationId(null)
-        return
-      }
-
-      const deltaTime = currentTime - lastTime
-      lastTime = currentTime
-
-      // Move based on time delta for consistent speed
-      position -= speed * (deltaTime / 16.67) // normalize to 60fps
-
-      // Check if we've scrolled past the first set of items
-      const trackWidth = track.scrollWidth / 2 // since we doubled
-      if (Math.abs(position) >= trackWidth) {
-        position = 0 // seamless loop
-      }
-
-      setScrollPosition(position)
-      track.style.transform = `translate3d(${position}px, 0, 0)`
-
-      const id = requestAnimationFrame(animate)
-      setAnimationId(id)
-    }
-
-    const id = requestAnimationFrame(animate)
-    setAnimationId(id)
-
-    return () => {
-      if (id) cancelAnimationFrame(id)
-      setAnimationId(null)
-    }
-  }, [isVisible, isPaused, scrollPosition])
-
-  // Cleanup on unmount
-  useEffect(() => {
-    return () => {
-      if (animationId) cancelAnimationFrame(animationId)
-    }
-  }, [animationId])
 
   if (!data || (data.indices.length === 0 && data.gainers.length === 0)) return null
 
@@ -224,19 +151,20 @@ export function MarketTicker() {
     ? `${new Date(data.asOf).toISOString().slice(0, 10)} ${new Date(data.asOf).toISOString().slice(11, 16)}`
     : null
 
+  // Scroll duration scales with the number of items so the perceived speed
+  // stays constant regardless of how many symbols are listed.
+  const durationSeconds = Math.max(30, Math.min(120, items.length * 3))
+
   const handleNavigate = (ticker: string) => {
     router.push(`/company/${ticker}`)
   }
 
   return (
     <div
-      ref={containerRef}
-      className="relative flex items-center overflow-hidden border-b border-border/50 bg-muted/20 dark:bg-card/50 backdrop-blur-xs select-none"
+      className="group relative flex h-8 items-center overflow-hidden border-border/50 select-none"
       dir="ltr"
       role="region"
       aria-label={ar ? "لقطة السوق" : "Market snapshot"}
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
     >
       <div className="hidden sm:flex shrink-0 items-center gap-1.5 border-e border-border/50 px-2.5 py-1 z-10 bg-background/90 text-[10px] font-bold text-muted-foreground uppercase tracking-wider">
         <span className={`h-1.5 w-1.5 rounded-full animate-pulse ${isLive ? "bg-positive" : sseConnected ? "bg-warning" : "bg-emerald-500"}`} />
@@ -248,18 +176,23 @@ export function MarketTicker() {
             {ar ? `متأخر ${data.delayMinutes} د` : `${data.delayMinutes}m delayed`}
           </span>
         ) : null}
-        <button
-          onClick={handleRefresh}
-          disabled={isRefreshing}
-          className="ml-2 p-1 rounded hover:bg-accent/50 text-muted-foreground hover:text-foreground transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          aria-label={ar ? "تحديث البيانات" : "Refresh data"}
-          title={ar ? "تحديث البيانات" : "Refresh data"}
-        >
-          <RotateCcw className={`h-3.5 w-3.5 ${isRefreshing ? "animate-spin" : ""}`} />
-        </button>
+        {isAdminUser && (
+          <button
+            onClick={handleRefresh}
+            disabled={isRefreshing}
+            className="ml-2 p-1 rounded hover:bg-accent/50 text-muted-foreground hover:text-foreground transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            aria-label={ar ? "تحديث البيانات" : "Refresh data"}
+            title={ar ? "تحديث البيانات" : "Refresh data"}
+          >
+            <RotateCcw className={`h-3.5 w-3.5 ${isRefreshing ? "animate-spin" : ""}`} />
+          </button>
+        )}
       </div>
 
-      <div ref={trackRef} className="ticker-track py-0.5" style={{ willChange: "transform" }}>
+      <div
+        className="ticker-track is-animating group-hover:[animation-play-state:paused] py-0.5"
+        style={{ willChange: "transform", "--ticker-duration": `${durationSeconds}s` } as React.CSSProperties}
+      >
         {doubled.map((it, i) => (
           <Item
             key={`${it.key}-${i}`}

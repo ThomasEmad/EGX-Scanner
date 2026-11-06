@@ -1,0 +1,1 @@
+{"requests":[{"type":"execute","stmt":{"sql":"SELECT createdAt, action, details FROM AuditLog WHERE createdAt > '2026-11-06T15:24:00' ORDER BY createdAt DESC LIMIT 10"}},{"type":"close"}]}

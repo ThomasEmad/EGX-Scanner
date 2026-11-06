@@ -1,4 +1,5 @@
 import { db } from "@/lib/db"
+import { findCompanyByKey } from "@/lib/company-lookup"
 import { buildInvestorSignals } from "@/lib/financial/analysis/investor-signals"
 import type { AnalysisContext, PeriodSnapshot } from "@/lib/financial/analysis/types"
 import { getLatestPrice } from "@/lib/financial/market"
@@ -7,16 +8,19 @@ import { reportPeriodKey } from "@/lib/financial/periods"
 // GET /api/v1/companies/[id]/investor-signals — structured investor signals
 // across 5 dimensions (Growth / Profitability / Balance Sheet / Cash / Earnings).
 //
+// `[id]` accepts company id, ticker or ISIN (see findCompanyByKey).
+//
 // Spec section 20: Each signal is grounded in validated facts + period keys.
 // Signals are FLAGS for investigation — not conclusions.
 export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const company = await db.company.findUnique({ where: { id } })
+  const company = await findCompanyByKey(id)
   if (!company) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
+  const companyId = company.id
 
   const reports = await db.financialReport.findMany({
     where: {
-      companyId: id,
+      companyId,
       processingStatus: { in: ["VALIDATED", "APPROVED", "EXTRACTED"] },
       deletedAt: null,
     },
@@ -25,7 +29,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
   })
   if (reports.length === 0) {
     return Response.json({
-      companyId: id,
+      companyId,
       companyName: company.nameEn,
       ticker: company.ticker,
       sector: company.sector,
@@ -57,9 +61,9 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
   }
   const periods = [...byPeriodKey.values()].sort((a, b) => a.periodKey.localeCompare(b.periodKey))
 
-  const pricePoint = await getLatestPrice(id)
+  const pricePoint = await getLatestPrice(companyId)
   const ctx: AnalysisContext = {
-    companyId: id,
+    companyId,
     companyTicker: company.ticker,
     companyName: company.nameEn,
     sector: company.sector,
@@ -73,7 +77,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
   // Strip duplicates that the API adds at top level (result also contains these)
   const { companyId: _cid, generatedAt: _gat, ...rest } = result
   return Response.json({
-    companyId: id,
+    companyId,
     companyName: company.nameEn,
     ticker: company.ticker,
     sector: company.sector,

@@ -1,0 +1,90 @@
+﻿
+### MISSING_CRITICAL_METRIC (43)
+ACAP  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing. | cur=null exp=null
+ADRI  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+AIDC  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+AMII  NET_PROFIT | [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios. | cur=null exp=null
+APPC  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+APPC  NET_PROFIT | [MISSING_CRITICAL_METRIC] NET_PROFIT exists only as quarantined values — excluded from analytics; re-extract from the original filing. | cur=null exp=null
+ARVA  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing. | cur=null exp=null
+BIDI  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+BONY  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing. | cur=null exp=null
+CCRS  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+CPME  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+CRST  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+DGTZ  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing. | cur=null exp=null
+ECCW  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+ECCW  NET_PROFIT | [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios. | cur=null exp=null
+EGREF  NET_PROFIT | [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios. | cur=null exp=null
+EHDR  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing. | cur=null exp=null
+EHDR  NET_PROFIT | [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios. | cur=null exp=null
+ELNA  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+EPPK  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing. | cur=null exp=null
+FTNS  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+GGRN  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+GOCO  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+GOCO  NET_PROFIT | [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios. | cur=null exp=null
+GTEX  NET_PROFIT | [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios. | cur=null exp=null
+INEG  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+KORA  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+KORA  NET_PROFIT | [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios. | cur=null exp=null
+MMAT  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing. | cur=null exp=null
+NCGC  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+NHPS  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+NOAF  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+NOAF  NET_PROFIT | [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios. | cur=null exp=null
+OIH  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing. | cur=null exp=null
+RMTV  NET_PROFIT | [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios. | cur=null exp=null
+SIMO  NET_PROFIT | [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios. | cur=null exp=null
+SMPP  NET_PROFIT | [MISSING_CRITICAL_METRIC] NET_PROFIT exists only as quarantined values — excluded from analytics; re-extract from the original filing. | cur=null exp=null
+TRTO  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+TWSA  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+UASG  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+UASG  NET_PROFIT | [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios. | cur=null exp=null
+UPMS  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios. | cur=null exp=null
+VLMRA  REVENUE | [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing. | cur=null exp=null
+
+### CASH_FLOW_SUM (16)
+ARAB FY 2021  | [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 191.37% (448.3M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement. | cur=-300000 exp=448020242
+ARAB FY 2023  | [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 140.36% (302.3M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement. | cur=491000 exp=302794568
+ASCM FY 2023  | [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 147.13% (239.8M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement. | cur=163000000 exp=-76823508
+ATQA FY 2024  | [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 200.00% (4.32B EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement. | cur=-397124540 exp=3921959622
+COSG FY 2023  | [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 200.01% (49.8M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement. | cur=8400000 exp=58197629
+COSG FY 2024  | [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 200.00% (261.5M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement. | cur=49320000 exp=310801841
+DSCW FY 2024  | [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 116.36% (1.20B EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement. | cur=75460230 exp=1272918861
+EGAS FY 2022  | [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 176.18% (2.12B EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX effect 3.5M tested; verify the cash-flow statement. | cur=123000000 exp=2241900035
+MAAL FY 2023  | [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 99.96% (5.26B EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement. | cur=-12998740 exp=-5268320855
+MFPC FY 2023  | [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 146.51% (5.05B EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX effect 1.34B tested; verify the cash-flow statement. | cur=3430410310 exp=-1618442196
+MIPH FY 2024  | [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 21.15% (278.4M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement. | cur=964000000 exp=685607286
+OCDI FY 2025  | [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 166.82% (10.18B EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement. | cur=-647603270 exp=9536696351
+OLFI FY 2024  | [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 161.57% (1.15B EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement. | cur=-111000000 exp=1035473838
+PHDC FY 2022  | [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 128.01% (1.80B EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement. | cur=151000000 exp=1948832151
+UEGC FY 2021  | [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 177.81% (528.3M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement. | cur=-44650000 exp=483640848
+ZMID FY 2025  | [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 173.86% (782.4M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow statement. | cur=-450000000 exp=332380886
+
+### PBT_TAX_NET_PROFIT (10)
+AMER FY 2021  | [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 63.35% (-96.8M EGP; materiality threshold 2.3M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority interest, discontinued operations or attributable | cur=104377405 exp=201160917
+AMER Q2 2026  | [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 36.06% (-47.1M EGP; materiality threshold 2.0M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority interest, discontinued operations or attributable | cur=-130518526 exp=-83450458
+BINV Q2 2026  | [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 51.37% (-53.2M EGP; materiality threshold 1.6M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority interest, discontinued operations or attributable | cur=103620879 exp=156846643
+EGAS FY 2024  | [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 70.79% (223.6M EGP; materiality threshold 4.7M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority interest, discontinued operations or attributable | cur=291000000 exp=67432020
+EGTS FY 2024  | [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 25.79% (-122.0M EGP; materiality threshold 7.1M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority interest, discontinued operations or attributabl | cur=-473084858 exp=-351057304
+GIHD FY 2024  | [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 52.61% (-1.0M EGP; materiality threshold 29.9K) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority interest, discontinued operations or attributable | cur=945600 exp=1993420
+HRHO Q2 2026  | [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 34.78% (-600.8M EGP; materiality threshold 25.9M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority interest, discontinued operations or attributab | cur=775587000 exp=1376416000
+MMAT FY 2025  | [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 166.61% (-758.5K EGP; materiality threshold 6.8K) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority interest, discontinued operations or attributab | cur=-455280 exp=303240
+OFH FY 2024  | [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 70.51% (-180.5M EGP; materiality threshold 3.8M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority interest, discontinued operations or attributabl | cur=40965900 exp=221447000
+UNIT FY 2022  | [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 76.80% (-34.7M EGP; materiality threshold 678.3K) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority interest, discontinued operations or attributab | cur=-45223000 exp=-10493000
+
+### GROSS_PROFIT_IDENTITY (5)
+FWRY FY 2019  | [GROSS_PROFIT_IDENTITY] GROSS_PROFIT_IDENTITY FAILED: gap 20.00% (-187.4M EGP; materiality threshold 18.7M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after other operating items. | cur=374889868.42 exp=562334802.6199999
+IRON FY 2011  | [GROSS_PROFIT_IDENTITY] GROSS_PROFIT_IDENTITY FAILED: gap 22.50% (712.5M EGP; materiality threshold 63.3M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after other operating items. | cur=316656170.81 exp=-395820213.52
+IRON FY 2018  | [GROSS_PROFIT_IDENTITY] GROSS_PROFIT_IDENTITY FAILED: gap 79.65% (2.19B EGP; materiality threshold 54.9M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after other operating items. | cur=1130000000 exp=-1055257196.3899999
+MPCO FY 2022  | [GROSS_PROFIT_IDENTITY] GROSS_PROFIT_IDENTITY FAILED: gap 28.51% (48.1M EGP; materiality threshold 3.4M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after other operating items. | cur=22750000 exp=-25340000
+NCEM FY 2014  | [GROSS_PROFIT_IDENTITY] GROSS_PROFIT_IDENTITY FAILED: gap 16.67% (189.2M EGP; materiality threshold 22.7M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after other operating items. | cur=94590764.29 exp=-94590764.29999995
+
+### BALANCE_SHEET_EQUATION (3)
+IRON FY 2013  | [BALANCE_SHEET_EQUATION] BALANCE_SHEET_EQUATION FAILED: gap 7.89% (-273.9M EGP; materiality threshold 17.3M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilities mapping issue. | cur=3378350850.72 exp=3652271189.97
+NAHO FY 2023  | [BALANCE_SHEET_EQUATION] BALANCE_SHEET_EQUATION FAILED: gap 15.38% (35.9M EGP; materiality threshold 1.2M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilities mapping issue. | cur=233407888 exp=197508414
+TALM FY 2025  | [BALANCE_SHEET_EQUATION] BALANCE_SHEET_EQUATION FAILED: gap 18.25% (1.38B EGP; materiality threshold 37.7M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilities mapping issue. | cur=7536199881 exp=6160823016
+
+### CASH_OPENING_CLOSING (1)
+MAAL FY 2022  | [CASH_OPENING_CLOSING] CASH_OPENING_CLOSING FAILED: gap 75.98% (75.4M EGP; materiality threshold 992.1K) on [OPENING_CASH, CLOSING_CASH, NET_CHANGE_IN_CASH]. The difference is often the FX effect on cash. | cur=99210000 exp=23828600

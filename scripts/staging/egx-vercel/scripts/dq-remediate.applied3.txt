@@ -1,0 +1,23 @@
+﻿
+=== Deterministic remediation APPLY ===
+
+BS liabilities corrected: 6 (ambiguous left for review: 425)
+TOTAL_DEBT corrected:     0 (net-debt/ambiguous skipped: 0)
+GROSS_PROFIT corrected:   0
+TEAL cross-check quarantined: 122
+
+examples:
+  [TEAL] MPRC FY 2025 CURRENT: teal 5000000000 vs assets 4593222908
+  [TEAL] ATLC FY 2025 CURRENT: teal 8330000000 vs assets 7623088000
+  [TEAL] ABUK FY 2023 CURRENT: teal 35430000000 vs assets 34715086686
+  [TEAL] ALCN FY 2025 CURRENT: teal 12310000000 vs assets 12613404000
+  [ASSETS] ARCC FY 2022 CURRENT: A 3810000000 → 3771380478
+  [TEAL] EGAL FY 2025 CURRENT: teal 29340000000 vs assets 31974431671
+  [TEAL] GBCO FY 2024 CURRENT: teal 72730000000 vs assets 73651578000
+  [ASSETS] JUFO FY 2022 CURRENT: A 6370000000 → 6243794933
+  [TEAL] DSCW FY 2025 CURRENT: teal 6990000000 vs assets 6703364783
+  [TEAL] MMAT FY 2023 CURRENT: teal 37660000 vs assets 41267320
+  [TEAL] OFH Q1 2026 Q1: teal 3270000000 vs assets 3192747000
+  [TEAL] MASR FY 2022 CURRENT: teal 12786206194 vs assets 13982963695
+
+Changes written.

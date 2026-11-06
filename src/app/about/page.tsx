@@ -5,7 +5,7 @@ import AboutClient from "./client"
 export const metadata: Metadata = {
   title: "About — independent EGX financial data",
   description:
-    "EGX Financial Scanner is an independent platform for Egyptian Exchange financial data: audited statements, calculated ratios, sector rankings and explicit data-quality indicators. Not affiliated with the EGX.",
+    "EGX Financial Scanner is an independent platform for Egyptian Exchange financial data: statements, calculated ratios, sector rankings and valuations. Not affiliated with the EGX.",
   keywords: ["about EGX Financial Scanner", "Egyptian Exchange data", "من نحن", "البورصة المصرية"],
     alternates: {
       canonical: "/about",

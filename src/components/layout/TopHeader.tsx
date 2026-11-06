@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useMemo } from "react"
 import Link from "next/link"
-import { usePathname, useRouter } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { useTheme } from "next-themes"
 import { useQuery, useQueryClient } from "@tanstack/react-query"
 import { useI18n } from "@/lib/i18n"
@@ -10,7 +10,6 @@ import { Button } from "@/components/ui/button"
 import {
   Search,
   User,
-  Menu,
   X,
   Sun,
   Moon,
@@ -21,7 +20,6 @@ import {
   Scale,
   Briefcase,
   CalendarDays,
-  Activity,
   ChevronDown,
   LayoutDashboard,
   LogOut,
@@ -30,10 +28,11 @@ import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
 import { api, authHeaders, clearUserToken, getUserToken } from "@/lib/client/api"
 import { SECTORS, sectorLabel } from "@/lib/sectors"
+import { MarketTicker } from "@/components/egx/market-ticker"
 
 const NAV_TABS = [
   { href: "/dashboard", label: "Dashboard", labelAr: "لوحة القيادة", icon: LayoutDashboard, exact: true },
-  { href: "/rankings", label: "Companies", labelAr: "الشركات", icon: Building2 },
+  { href: "/companies", label: "Companies", labelAr: "الشركات", icon: Building2 },
   { href: "/sectors", label: "Sectors", labelAr: "القطاعات", icon: Shield },
   { href: "/compare", label: "Compare", labelAr: "المقارنة", icon: Scale },
   { href: "/portfolio", label: "Portfolio", labelAr: "المحفظة", icon: Briefcase },
@@ -50,7 +49,6 @@ interface TopHeaderProps {
 export function TopHeader({ className }: TopHeaderProps = {}) {
   const { lang, setLang } = useI18n()
   const { setTheme, theme } = useTheme()
-  const pathname = usePathname()
   const router = useRouter()
   const queryClient = useQueryClient()
   const [searchQuery, setSearchQuery] = useState("")
@@ -63,6 +61,7 @@ export function TopHeader({ className }: TopHeaderProps = {}) {
   const profileRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    // Hydration-safe theme/session gating (same pattern as Sidebar).
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
   }, [])
@@ -144,11 +143,6 @@ export function TopHeader({ className }: TopHeaderProps = {}) {
     setTheme((t) => (t === "dark" ? "light" : "dark"))
   }
 
-  const isActive = useMemo(() => (href: string) => {
-    if (href === "/dashboard") return pathname === "/dashboard" || pathname === "/"
-    return pathname === href || pathname.startsWith(`${href}/`)
-  }, [pathname])
-
   const handleLogout = async () => {
     try {
       await fetch("/api/v1/auth/logout", {
@@ -209,67 +203,22 @@ export function TopHeader({ className }: TopHeaderProps = {}) {
       )}
     >
       <div className="flex h-full items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        {/* Left: Brand */}
-        <div className="flex items-center gap-3 flex-shrink-0">
-          <Link
-            href="/"
-            className="flex items-center gap-2 rounded-lg px-2 py-1.5 transition-colors hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-            aria-label="EGX Financial Scanner — Home"
-          >
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
-              <Activity className="h-4.5 w-4.5" />
-            </div>
-            <span className="hidden sm:inline font-bold tracking-tight text-foreground text-base">EGX Scanner</span>
-          </Link>
+        {/* Market ticker — the signature trading-platform strip. Fixed width
+            so it can never squeeze the search; hidden below lg. */}
+        <div className="hidden lg:block w-[300px] xl:w-[440px] shrink-0 overflow-hidden">
+          <MarketTicker />
         </div>
 
-        {/* Center: Nav tabs + Search (unified bar on desktop) */}
-        <div className="hidden lg:flex lg:items-center lg:gap-4 lg:flex-1 lg:max-w-[900px]">
-          {/* Nav tabs - clean underline style */}
-          <nav className="flex items-center gap-1" aria-label="Main navigation" role="navigation">
-            {NAV_TABS.map((tab) => {
-              const active = isActive(tab.href)
-              const Icon = tab.icon
-              return (
-                <Link
-                  key={tab.href}
-                  href={tab.href}
-                  className={cn(
-                    "relative flex items-center gap-2 px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-lg",
-                    active
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50",
-                  )}
-                  aria-current={active ? "page" : undefined}
-                >
-                  <Icon className={cn("h-4 w-4 shrink-0", active ? "text-primary" : "text-muted-foreground")} aria-hidden="true" />
-                  <span>{ar ? tab.labelAr : tab.label}</span>
-                  {active && (
-                    <motion.div
-                      layout
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full"
-                      initial={false}
-                    />
-                  )}
-                </Link>
-              )
-            })}
-          </nav>
-
-          {/* Divider */}
-          <div className="hidden lg:block w-px h-6 bg-border/40" aria-hidden="true" />
-
+        {/* Center: Global Search (primary navigation lives in the sidebar) */}
+        <div className="flex min-w-0 flex-1 justify-center">
           {/* Global Search - prominent */}
-          <div className="relative flex-1 max-w-xl" ref={resultsRef}>
+          <div className="relative w-full max-w-2xl" ref={resultsRef}>
             <label htmlFor="global-search" className="sr-only">
               {ar ? "البحث في الشركات والقطاعات" : "Search companies and sectors"}
             </label>
             <div className="relative">
               <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center">
                 <Search className="h-4 w-4 text-muted-foreground/60" aria-hidden="true" />
-                <kbd className="ml-2 hidden sm:inline-flex items-center gap-0.5 rounded border border-border/60 bg-muted/80 px-1.5 py-0.5 text-[10px] font-mono text-muted-foreground/70">
-                  ⌘K
-                </kbd>
               </div>
               <input
                 ref={searchInputRef}
@@ -501,14 +450,6 @@ export function TopHeader({ className }: TopHeaderProps = {}) {
                       <Crown className="h-4 w-4 text-muted-foreground" />
                       <span className="font-medium">{ar ? "الاشتراك" : "Subscription"}</span>
                     </button>
-                    <button
-                      onClick={() => { setProfileOpen(false); router.push("/data-quality") }}
-                      className={cn("w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors hover:bg-muted/50", "text-right")}
-                      role="menuitem"
-                    >
-                      <ShieldCheck className="h-4 w-4 text-muted-foreground" />
-                      <span className="font-medium">{ar ? "جودة البيانات" : "Data quality"}</span>
-                    </button>
                     <hr className="border-border/40 my-1" />
                     <button
                       onClick={handleLogout}
@@ -553,63 +494,8 @@ export function TopHeader({ className }: TopHeaderProps = {}) {
           </Button>
         </div>
 
-        {/* Mobile: compact actions */}
-        <div className="lg:hidden flex items-center gap-1">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="h-9 w-9 rounded-xl"
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-          >
-            {isDark ? <Sun className="h-5 w-5 text-amber-400" /> : <Moon className="h-5 w-5" />}
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="h-9 w-9 rounded-xl"
-            onClick={() => setLang(lang === "en" ? "ar" : "en")}
-            aria-label="Change language"
-          >
-            <span className="text-xs font-bold uppercase">{lang === "en" ? "AR" : "EN"}</span>
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="h-9 w-9 rounded-xl"
-            onClick={() => router.push(loggedIn ? "/premium" : "/login")}
-            aria-label={loggedIn ? (ar ? "حسابي" : "My account") : (ar ? "تسجيل الدخول" : "Sign in")}
-          >
-            <User className="h-5 w-5" />
-          </Button>
-        </div>
       </div>
 
-      {/* Mobile Nav Tabs (below header on small screens) */}
-      <div className="lg:hidden border-t border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/100">
-        <nav className="flex overflow-x-auto px-3 py-2 gap-1 scrollbar-hide -mx-3" aria-label="Mobile navigation" role="navigation">
-          {NAV_TABS.map((tab) => {
-            const active = isActive(tab.href)
-            const Icon = tab.icon
-            return (
-              <Link
-                key={tab.href}
-                href={tab.href}
-                className={cn(
-                  "flex shrink-0 items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap",
-                  active
-                    ? "bg-primary text-primary-foreground shadow-sm"
-                    : "text-muted-foreground hover:bg-muted/50 hover:text-foreground",
-                )}
-                aria-current={active ? "page" : undefined}
-              >
-                <Icon className="h-3.5 w-3.5" aria-hidden="true" />
-                <span>{ar ? tab.labelAr : tab.label}</span>
-              </Link>
-            )
-          })}
-        </nav>
-      </div>
     </header>
   )
 }

@@ -1,5 +1,6 @@
 import { db } from "@/lib/db"
 import { readMarketSnapshot } from "@/lib/market/snapshot"
+import { cachedResponse } from "@/lib/public-cache"
 
 // GET /api/v1/market/breadth — today's price breadth, not a fundamental screen.
 //
@@ -24,7 +25,13 @@ interface BreadthData {
   tradedValueCoverage: number | null
 }
 
+// 30s in-process SWR cache — breadth is hit by the dashboard on every visit;
+// at scale the DB-fallback path must not run per request.
 export async function GET() {
+  return cachedResponse("market-breadth", 30 * 1000, buildBreadth)
+}
+
+async function buildBreadth(): Promise<BreadthData> {
   const snapshot = readMarketSnapshot()
 
   if (snapshot && snapshot.movers.length > 0) {
@@ -38,7 +45,7 @@ export async function GET() {
       ? withVolume.reduce((sum, m) => sum + m.price * (m.volume as number), 0)
       : null
 
-    return Response.json({
+    return {
       advancing,
       declining,
       unchanged,
@@ -46,7 +53,7 @@ export async function GET() {
       asOf: snapshot.pricesAsOf ?? snapshot.asOf,
       pricedCount: valid.length,
       tradedValueCoverage: valid.length ? withVolume.length / valid.length : null,
-    } satisfies BreadthData)
+    } satisfies BreadthData
   }
 
   // Fallback: durable price rows. There is no volume column, so traded value
@@ -56,7 +63,7 @@ export async function GET() {
     select: { id: true, ticker: true },
   })
   if (companies.length === 0) {
-    return Response.json({
+    return {
       advancing: 0,
       declining: 0,
       unchanged: 0,
@@ -64,7 +71,7 @@ export async function GET() {
       asOf: null,
       pricedCount: 0,
       tradedValueCoverage: null,
-    } satisfies BreadthData)
+    } satisfies BreadthData
   }
 
   const priceRows = await db.marketPrice.findMany({
@@ -102,7 +109,7 @@ export async function GET() {
     else unchanged++
   }
 
-  return Response.json({
+  return {
     advancing,
     declining,
     unchanged,
@@ -110,5 +117,5 @@ export async function GET() {
     asOf: latestTs ? new Date(latestTs).toISOString() : null,
     pricedCount,
     tradedValueCoverage: null,
-  } satisfies BreadthData)
+  } satisfies BreadthData
 }

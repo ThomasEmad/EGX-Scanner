@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server"
 import { db } from "@/lib/db"
+import { cachedResponse, queryKey } from "@/lib/public-cache"
 
 const STATUSES = ["ANNOUNCED", "UPCOMING", "ELIGIBLE", "PAID", "EXPIRED", "CANCELLED"]
 
@@ -12,13 +13,14 @@ export async function GET(req: NextRequest) {
   const where: Record<string, unknown> = {}
   if (status && STATUSES.includes(status)) where.status = status
 
-  const dividends = await db.dividend.findMany({
-    where,
-    include: {
-      company: { select: { id: true, ticker: true, nameEn: true, nameAr: true, sector: true, isDemoData: true } },
-    },
-    orderBy: [{ announcementDate: "desc" }],
+  return cachedResponse(`dividends:${queryKey(req, ["status"])}`, 3 * 60 * 1000, async () => {
+    const dividends = await db.dividend.findMany({
+      where,
+      include: {
+        company: { select: { id: true, ticker: true, nameEn: true, nameAr: true, sector: true, isDemoData: true } },
+      },
+      orderBy: [{ announcementDate: "desc" }],
+    })
+    return { dividends }
   })
-
-  return Response.json({ dividends })
 }

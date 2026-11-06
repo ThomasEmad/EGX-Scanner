@@ -1,10 +1,13 @@
 import { siteConfig } from "@/lib/seo-config"
+import { safeJsonLd } from "@/lib/safe-json"
 
 export function StructuredData({ data }: { data: Record<string, unknown> }) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      // safeJsonLd escapes </script> breakouts — database-sourced strings in
+      // the payload must never be able to inject HTML here.
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(data) }}
     />
   )
 }

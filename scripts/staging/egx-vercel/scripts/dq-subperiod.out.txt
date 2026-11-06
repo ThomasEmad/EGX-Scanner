@@ -1,0 +1,16 @@
+﻿subPeriod distribution: [
+  { _count: { _all: 77 }, subPeriod: '9M' },
+  { _count: { _all: 64822 }, subPeriod: 'CURRENT' },
+  { _count: { _all: 148 }, subPeriod: 'H1' },
+  { _count: { _all: 10640 }, subPeriod: 'Q1' },
+  { _count: { _all: 1965 }, subPeriod: 'Q2' },
+  { _count: { _all: 1709 }, subPeriod: 'Q3' },
+  { _count: { _all: 8148 }, subPeriod: 'Q4' }
+]
+report cmun5b5l90b6xbx9kmdzoqdn6 CONSOLIDATED/ASKBORA_SUMMARY/v1 Q4 2023
+    GROSS_PROFIT CURRENT CONSOLIDATED 7810000
+    GROSS_PROFIT Q4 INCOME_STATEMENT 2320000
+    NET_PROFIT Q4 INCOME_STATEMENT -38190000
+    OPERATING_CASH_FLOW CURRENT CONSOLIDATED 14330000
+    OPERATING_CASH_FLOW Q4 CASH_FLOW -7740000
+report+metric with multiple subPeriod rows: [ { n: 1173n } ]

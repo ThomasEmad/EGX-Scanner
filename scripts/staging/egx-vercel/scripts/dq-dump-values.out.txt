@@ -1,0 +1,108 @@
+﻿
+===== AALR FY 2025 =====
+-- CONSOLIDATED/ASKBORA_SUMMARY v1 ANNUAL
+   CURRENT_ASSETS                            583999246  UNIT     "Total Current Assets (Refinitiv CF-Export, USD→EGP)" NEEDS_REVIEW AUDIT_QUARANTINE: fabricated t
+   CURRENT_LIABILITIES                      1167998491  UNIT     "Total Current Liabilities (Refinitiv CF-Export, USD→EGP)" NEEDS_REVIEW AUDIT_QUARANTINE: fabricated t
+   TOTAL_ASSETS                              603000000  UNIT     "إجمالي الأصول" VALID AskBorsa annual summary (displ
+   TOTAL_EQUITY                              503000000  UNIT     "حقوق المساهمين" VALID AskBorsa annual summary (displ
+   TOTAL_EQUITY_AND_LIABILITIES              603000000  UNIT     "إجمالي المطلوبات وحقوق المساهمين" VALID AskBorsa annual summary (displ
+   TOTAL_LIABILITIES                        1110000000  UNIT     "إجمالي المطلوبات" VALID AskBorsa annual summary (displ
+
+===== ACGC FY 2023 =====
+-- CONSOLIDATED/YAHOO_FINANCE_API v1 ANNUAL
+   BASIC_EPS                                         1  UNIT     "Basic EPS" VALID API import — YAHOO_FINANCE_API
+   CLOSING_CASH                              472307000  UNIT     "End Cash Position" VALID API import — YAHOO_FINANCE_API
+   COGS                                     2816623381  UNIT     "Cost of Revenues - Total (Refinitiv CF-Export, USD→EGP)" VALID 
+   CURRENT_ASSETS                           2165008000  UNIT     "Current Assets" VALID API import — YAHOO_FINANCE_API
+   CURRENT_LIABILITIES                      1346294417  UNIT     "Total Current Liabilities (Refinitiv CF-Export, USD→EGP)" VALID 
+   DILUTED_EPS                                       1  UNIT     "Diluted EPS" VALID API import — YAHOO_FINANCE_API
+   EBIT                                      647567000  UNIT     "EBIT" VALID API import — YAHOO_FINANCE_API
+   EBITDA                                    647567000  UNIT     "Normalized EBITDA" VALID API import — YAHOO_FINANCE_API
+   FINANCING_CASH_FLOW                       273841000  UNIT     "Financing Cash Flow" VALID API import — YAHOO_FINANCE_API
+   FREE_CASH_FLOW                           -343323000  UNIT     "Free Cash Flow" VALID API import — YAHOO_FINANCE_API
+   GROSS_PROFIT                              511872000  UNIT     "Gross Profit" VALID API import — YAHOO_FINANCE_API
+   INTEREST_EXPENSE                          171027000  UNIT     "Interest Expense" VALID API import — YAHOO_FINANCE_API
+   INVENTORY                                1009720813  UNIT     "Inventories - Total (Refinitiv CF-Export, USD→EGP)" VALID 
+   INVESTING_CASH_FLOW                       152177000  UNIT     "Investing Cash Flow" VALID API import — YAHOO_FINANCE_API
+   LONG_TERM_DEBT                            100409000  UNIT     "Long Term Debt" VALID API import — YAHOO_FINANCE_API
+   NET_CHANGE_IN_CASH                         82700000  UNIT     "صافي التغير في النقد" VALID AskBorsa annual summary (displ
+   NET_PROFIT                                280204000  UNIT     "Net Income" VALID API import — YAHOO_FINANCE_API
+   NET_PROFIT_PARENT                         280204000  UNIT     "Net Income Common Stockholders" VALID API import — YAHOO_FINANCE_API
+   NON_CURRENT_ASSETS                       1735055000  UNIT     "Total Non Current Assets" VALID API import — YAHOO_FINANCE_API
+   OPENING_CASH                              242404000  UNIT     "Beginning Cash Position" VALID API import — YAHOO_FINANCE_API
+   OPERATING_CASH_FLOW                       343323000  UNIT     "Operating Cash Flow" VALID API import — YAHOO_FINANCE_API
+   PROFIT_BEFORE_TAX                         476540000  UNIT     "Pretax Income" VALID API import — YAHOO_FINANCE_API
+   REVENUE                                  3406734000  UNIT     "Total Revenue" VALID API import — YAHOO_FINANCE_API
+   SHORT_TERM_DEBT                           791940000  UNIT     "Current Debt" VALID API import — YAHOO_FINANCE_API
+   TOTAL_ASSETS                             3900063000  UNIT     "Total Assets" VALID API import — YAHOO_FINANCE_API
+   TOTAL_DEBT                                919216000  UNIT     "Total Debt" VALID API import — YAHOO_FINANCE_API
+   TOTAL_EQUITY                                      0  UNIT     "Stockholders Equity" VALID API import — YAHOO_FINANCE_API
+   TOTAL_EQUITY_AND_LIABILITIES             3900000000  UNIT     "إجمالي المطلوبات وحقوق المساهمين" VALID AskBorsa annual summary (displ
+   TOTAL_LIABILITIES                        3900063000  UNIT     "Total Liabilities Net Minority Interest" VALID API import — YAHOO_FINANCE_API
+
+===== ABUK Q1 2026 =====
+-- CONSOLIDATED/ASKBORA_SUMMARY v1 QUARTERLY
+   REVENUE                                  9533426763  UNIT     "Revenue (S&P Global via stockanalysis.com, name-verified)" VALID 
+
+===== AMER FY 2022 =====
+-- CONSOLIDATED/YAHOO_FINANCE_API v1 ANNUAL
+   ACCOUNTS_RECEIVABLE                       482560162  UNIT     "Accounts Receivable" VALID API import — YAHOO_FINANCE_API
+   BASIC_EPS                                         0  UNIT     "Basic EPS" VALID API import — YAHOO_FINANCE_API
+   CASH_AND_EQUIVALENTS                      468410747  UNIT     "Cash Cash Equivalents And Short Term Investments" VALID API import — YAHOO_FINANCE_API
+   COGS                                      546008023  UNIT     "Cost Of Revenue" VALID API import — YAHOO_FINANCE_API
+   CURRENT_ASSETS                           6490201552  UNIT     "Current Assets" VALID API import — YAHOO_FINANCE_API
+   CURRENT_LIABILITIES                      5880083603  UNIT     "Current Liabilities" VALID API import — YAHOO_FINANCE_API
+   DILUTED_EPS                                       0  UNIT     "Diluted EPS" VALID API import — YAHOO_FINANCE_API
+   EBIT                                    -1071791151  UNIT     "EBIT" VALID API import — YAHOO_FINANCE_API
+   EBITDA                                  -1071791151  UNIT     "Normalized EBITDA" VALID API import — YAHOO_FINANCE_API
+   EQUITY_PARENT                            1432024093  UNIT     "Common Stock Equity" VALID API import — YAHOO_FINANCE_API
+   FINANCING_CASH_FLOW                       270140133  UNIT     "Financing Cash Flow" VALID API import — YAHOO_FINANCE_API
+   FREE_CASH_FLOW                           -243376040  UNIT     "Free Cash Flow" VALID API import — YAHOO_FINANCE_API
+   GROSS_PROFIT                              324473881  UNIT     "Gross Profit" VALID API import — YAHOO_FINANCE_API
+   INCOME_TAX                                -15813375  UNIT     "Tax Provision" VALID API import — YAHOO_FINANCE_API
+   INTEREST_EXPENSE                           98899649  UNIT     "Interest Expense" VALID API import — YAHOO_FINANCE_API
+   INTEREST_INCOME                             5649029  UNIT     "Interest Income" VALID API import — YAHOO_FINANCE_API
+   INVENTORY                                5030607877  UNIT     "Inventories - Total (Refinitiv CF-Export, USD→EGP)" VALID 
+   INVESTING_CASH_FLOW                       -46770045  UNIT     "Investing Cash Flow" VALID API import — YAHOO_FINANCE_API
+   INVESTMENTS                              2456260218  UNIT     "Invested Capital" VALID API import — YAHOO_FINANCE_API
+   LONG_TERM_DEBT                            694220884  UNIT     "Long Term Debt" VALID API import — YAHOO_FINANCE_API
+   NET_CHANGE_IN_CASH                        -20005952  UNIT     "Changes In Cash" VALID API import — YAHOO_FINANCE_API
+   NET_PROFIT                              -1186504175  UNIT     "Net Income" VALID API import — YAHOO_FINANCE_API
+   NET_PROFIT_PARENT                        -194338661  UNIT     "Net Income Common Stockholders" VALID API import — YAHOO_FINANCE_API
+   NON_CONTROLLING_INTERESTS                 191442241  UNIT     "Minority Interest" VALID API import — YAHOO_FINANCE_API
+   NON_CURRENT_ASSETS                       3441994863  UNIT     "Total Non-Current Assets (Refinitiv CF-Export, USD→EGP)" VALID 
+   OPERATING_CASH_FLOW                      -243376040  UNIT     "Operating Cash Flow" VALID API import — YAHOO_FINANCE_API
+   OPERATING_INCOME                           18940382  UNIT     "Operating Income" VALID API import — YAHOO_FINANCE_API
+   PROFIT_BEFORE_TAX                       -1170690800  UNIT     "Pretax Income" VALID API import — YAHOO_FINANCE_API
+   RETAINED_EARNINGS                         198480884  UNIT     "Retained Earnings" VALID API import — YAHOO_FINANCE_API
+   REVENUE                                   870481904  UNIT     "Total Revenue" VALID API import — YAHOO_FINANCE_API
+   SHARE_CAPITAL                            2126244977  UNIT     "Total Capitalization" VALID API import — YAHOO_FINANCE_API
+   SHARES_OUTSTANDING                        902789840  UNIT     "Ordinary Shares Number" VALID API import — YAHOO_FINANCE_API
+   SHORT_TERM_DEBT                           330015241  UNIT     "Current Debt" VALID API import — YAHOO_FINANCE_API
+   TOTAL_ASSETS                             9973385625  UNIT     "Total Assets" VALID API import — YAHOO_FINANCE_API
+   TOTAL_DEBT                                555825378  UNIT     "Net Debt" VALID API import — YAHOO_FINANCE_API
+   TOTAL_EQUITY                             1432024093  UNIT     "Stockholders Equity" VALID API import — YAHOO_FINANCE_API
+   TOTAL_EQUITY_AND_LIABILITIES             9970000000  UNIT     "إجمالي المطلوبات وحقوق المساهمين" VALID AskBorsa annual summary (displ
+   TOTAL_LIABILITIES                        8379919291  UNIT     "Total Liabilities Net Minority Interest" VALID API import — YAHOO_FINANCE_API
+   WORKING_CAPITAL                           610117949  UNIT     "Working Capital" VALID API import — YAHOO_FINANCE_API
+
+===== AMOC FY 2020 =====
+-- CONSOLIDATED/ASKBORA_SUMMARY v1 ANNUAL
+   COGS                                     9393922273  UNIT     "Cost of Revenues - Total (Refinitiv CF-Export, USD→EGP)" VALID 
+   CURRENT_ASSETS                           1809319512  UNIT     "Total Current Assets (Refinitiv CF-Export, USD→EGP)" VALID 
+   CURRENT_LIABILITIES                       904659756  UNIT     "Total Current Liabilities (Refinitiv CF-Export, USD→EGP)" NEEDS_REVIEW AUDIT_QUARANTINE: fabricated t
+   FINANCING_CASH_FLOW                      -500000000  UNIT     "التدفق النقدي التمويلي" VALID AskBorsa annual summary (displ
+   GROSS_PROFIT                              322000000  UNIT     "مجمل الربح" VALID AskBorsa annual summary (displ
+   INVENTORY                                 723727805  UNIT     "Inventories - Total (Refinitiv CF-Export, USD→EGP)" VALID 
+   INVESTING_CASH_FLOW                       282000000  UNIT     "التدفق النقدي الاستثماري" VALID AskBorsa annual summary (displ
+   NET_CHANGE_IN_CASH                      -2240000000  UNIT     "صافي التغير في النقد" VALID AskBorsa annual summary (displ
+   NET_PROFIT                               -488000000  UNIT     "صافي الربح" VALID AskBorsa annual summary (displ
+   NON_CURRENT_ASSETS                       1085591707  UNIT     "Total Non-Current Assets (Refinitiv CF-Export, USD→EGP)" VALID 
+   OPERATING_CASH_FLOW                     -2020000000  UNIT     "التدفق النقدي التشغيلي" VALID AskBorsa annual summary (displ
+   REVENUE                                  9039434640  UNIT     "Revenue from Business Activities - Total (Refinitiv CF-Export, USD→EGP)" VALID 
+   TOTAL_ASSETS                             2830000000  UNIT     "إجمالي الأصول" VALID AskBorsa annual summary (displ
+   TOTAL_EQUITY                             1880000000  UNIT     "حقوق المساهمين" VALID AskBorsa annual summary (displ
+   TOTAL_EQUITY_AND_LIABILITIES             2830000000  UNIT     "إجمالي المطلوبات وحقوق المساهمين" VALID AskBorsa annual summary (displ
+   TOTAL_LIABILITIES                         947000000  UNIT     "إجمالي المطلوبات" VALID AskBorsa annual summary (displ
+
+TOTAL_EQUITY_AND_LIABILITIES values: 4653 | NCI: 260 | FX_EFFECT_CASH: 177

@@ -1,0 +1,17 @@
+﻿run id: cmvtsuwud0000bxdkk1nsh8bt | started: 2026-10-29T17:10:53.106Z | ended: 2026-10-29T17:11:06.483Z
+status: completed | companies checked: 264 | issues found: 2196 | auto-fixed: 0 | duration: 13s
+severity distribution:
+   low: 1118
+   medium: 713
+   high: 272
+   critical: 93
+category distribution:
+   accounting: 901
+   missing: 453
+   temporal: 450
+   provenance: 231
+   logical: 132
+   sector: 26
+   outlier: 3
+issues referencing removed growth/current_ratio metrics: 0
+confidence scores computed: 264

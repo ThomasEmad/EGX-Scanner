@@ -1,0 +1,32 @@
+﻿
+FWRY FY 2025
+   INCOME_TAX                   956,587,623 "Tax Provision"
+   NET_PROFIT                   2,889,189,159 "Net Income From Continuing Operation Net Minority Interest"
+   NET_PROFIT_PARENT            2,517,527,995 "Net Income Common Stockholders"
+   NON_CONTROLLING_INTERESTS    341,051,621 "Minority Interest"
+   PROFIT_BEFORE_TAX            4,057,242,038 "Pretax Income"
+   REVENUE                      8,651,478,402 "Total Revenue"
+
+FWRY FY 2023
+   INCOME_TAX                   278,653,009 "Tax Provision"
+   NET_PROFIT                   715,338,691 "Net Income From Continuing Operation Net Minority Interest"
+   NET_PROFIT_PARENT            617,603,699 "Net Income Common Stockholders"
+   NON_CONTROLLING_INTERESTS    153,191,364 "Minority Interest"
+   PROFIT_BEFORE_TAX            1,094,621,946 "Pretax Income"
+   REVENUE                      3,272,016,083 "Total Revenue"
+
+FWRY FY 2022
+   INCOME_TAX                   117,487,788 "Tax Provision"
+   NET_PROFIT                   240,054,320 "Net Income From Continuing Operation Net Minority Interest"
+   NET_PROFIT_PARENT            211,608,664 "Net Income Common Stockholders"
+   NON_CONTROLLING_INTERESTS    117,581,137 "Minority Interest"
+   PROFIT_BEFORE_TAX            444,542,949 "Pretax Income"
+   REVENUE                      2,279,335,174 "Total Revenue"
+
+FWRY Q2 2026
+   INCOME_TAX                   294,649,446 "Tax Provision"
+   NET_PROFIT                   870,519,085 "Net Income From Continuing Operation Net Minority Interest"
+   NET_PROFIT_PARENT            870,519,085 "Net Income Common Stockholders"
+   NON_CONTROLLING_INTERESTS    298,068,892 "COPIED from H1 2026 balance sheet (source: YAHOO_FINANCE_API)"
+   PROFIT_BEFORE_TAX            1,229,452,003 "Pretax Income"
+   REVENUE                      2,811,443,900 "Total Revenue"

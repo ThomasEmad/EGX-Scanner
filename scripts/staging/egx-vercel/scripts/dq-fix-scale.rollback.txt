@@ -1,0 +1,4 @@
+﻿
+=== Unit-scale ROLLBACK — 103 values ===
+
+restored 103 values.

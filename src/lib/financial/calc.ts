@@ -7,7 +7,7 @@
 //   missing inputs => DATA_UNAVAILABLE.
 // Zero denominators => NOT_COMPUTABLE with explicit reason.
 
-export type MetricValueStatus = "OK" | "DATA_UNAVAILABLE" | "NOT_APPLICABLE" | "NOT_COMPUTABLE"
+export type MetricValueStatus = "OK" | "DATA_UNAVAILABLE" | "NOT_APPLICABLE" | "NOT_COMPUTABLE" | "NEEDS_REVIEW"
 
 export interface MetricResult {
   status: MetricValueStatus

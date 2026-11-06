@@ -5,7 +5,7 @@ import PremiumClient from "./client"
 export const metadata: Metadata = {
   title: "Premium — full EGX data, rankings and reports",
   description:
-    "Unlock the full EGX Financial Scanner dataset: complete rankings across every sector, print-ready company reports, portfolio tools and advanced data-quality views. Billing is handled manually after a request — no card is stored.",
+    "Unlock the full EGX Financial Scanner dataset: complete rankings across every sector, print-ready company reports and portfolio tools. Billing is handled manually after a request — no card is stored.",
   keywords: ["EGX premium", "اشتراك البورصة المصرية", "تقارير مالية"],
     alternates: {
       canonical: "/premium",

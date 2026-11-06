@@ -8,10 +8,10 @@
 //   4. The manual-upload data source
 // All financial data must arrive through the admin upload pipeline (real PDFs).
 
-import { PrismaClient } from "@prisma/client"
+import { buildPrismaClient } from "../src/lib/db"
 import { RAW_METRICS, CALC_METRICS } from "../src/lib/financial/registry"
 
-const db = new PrismaClient()
+const db = buildPrismaClient()
 
 // ---------------------------------------------------------------------------
 // Real EGX listed companies (public registry metadata — no financial figures).

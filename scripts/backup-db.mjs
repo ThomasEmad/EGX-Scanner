@@ -24,7 +24,9 @@ if (!dbUrl || !dbUrl.startsWith("file:")) {
   process.exit(1)
 }
 
-const source = dbUrl.replace(/^file:/, "").replace(/^\/+/, "")
+// Resolve without mangling absolute paths (the old leading-slash strip turned
+// `file:/home/z/...` into a broken relative path).
+const source = path.resolve(dbUrl.replace(/^file:/, ""))
 const backupDir = path.join(process.cwd(), "backups")
 const stamp = new Date().toISOString().replace(/[:.]/g, "-")
 const dest = path.join(backupDir, `prisma-${stamp}.db`)

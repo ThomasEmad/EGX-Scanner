@@ -1,0 +1,40 @@
+{
+  "generatedAt": "2026-11-06T02:53:27.672Z",
+  "blocked": [
+    {
+      "ticker": "EGBE",
+      "periodLabel": "Q2 2025",
+      "reason": "SOFT_DELETED"
+    },
+    {
+      "ticker": "EGBE",
+      "periodLabel": "Q3 2025",
+      "reason": "SOFT_DELETED"
+    },
+    {
+      "ticker": "GROV",
+      "periodLabel": "Q2 2025",
+      "reason": "SOFT_DELETED"
+    },
+    {
+      "ticker": "GROV",
+      "periodLabel": "Q3 2025",
+      "reason": "SOFT_DELETED"
+    },
+    {
+      "ticker": "HDBK",
+      "periodLabel": "Q3 2025",
+      "reason": "SOFT_DELETED"
+    },
+    {
+      "ticker": "SNFI",
+      "periodLabel": "Q2 2025",
+      "reason": "SOFT_DELETED"
+    },
+    {
+      "ticker": "SNFI",
+      "periodLabel": "Q3 2025",
+      "reason": "SOFT_DELETED"
+    }
+  ]
+}

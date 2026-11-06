@@ -2,7 +2,6 @@
 
 import { useQuery } from "@tanstack/react-query"
 import { Building2, Sparkles, ScanSearch, FileCheck2, ShieldCheck, Gauge } from "lucide-react"
-import { AppFooter } from "@/components/egx/app-footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { useI18n } from "@/lib/i18n"
 import Link from "next/link"
@@ -25,7 +24,7 @@ export default function AboutPage() {
   const stats = [
     { icon: <Building2 className="h-4 w-4" />, label: ar ? "شركات متتبعة" : "Companies tracked", value: n(data?.stats?.companies) },
     { icon: <FileCheck2 className="h-4 w-4" />, label: ar ? "قوائم مالية" : "Financial reports", value: n(data?.stats?.reports) },
-    { icon: <Sparkles className="h-4 w-4" />, label: ar ? "قيمة صالحة" : "Valid values", value: n(data?.stats?.validValues) },
+    { icon: <Sparkles className="h-4 w-4" />, label: ar ? "نقطة بيانات مالية" : "Financial data points", value: n(data?.stats?.validValues) },
     { icon: <ScanSearch className="h-4 w-4" />, label: ar ? "حدث مالي مكتشف" : "Detected events", value: n(data?.stats?.events) },
   ]
 
@@ -59,17 +58,14 @@ export default function AboutPage() {
           <CardContent className="space-y-4 p-5 text-sm leading-relaxed text-muted-foreground">
             <p className="text-foreground">
               {ar
-                ? "منصة تحليل مالية للمستثمر في البورصة المصرية: ماسحات لأحداث مالية، مقارنة أقران بنفس القطاع، وأسعار ومضاعفات — مع مبدأ ثابت: كل رقم يخضع لتدقيق داخلي قبل العرض، والبيانات الناقصة تعرض كـ«غير متاح» ولا تُقدَّر أبداً."
-                : "A financial analysis platform for Egyptian Exchange investors: financial-event scanners, same-sector peer comparison, and prices and valuation multiples — with one fixed principle: every figure is internally audited before display, and missing data is shown as unavailable, never estimated."}
+                ? "منصة تحليل مالية للمستثمر في البورصة المصرية: ماسحات لأحداث مالية، مقارنة أقران بنفس القطاع، وأسعار ومضاعفات — مع مبدأ ثابت: أرقام فعلية من القوائم المنشورة، والبيانات الناقصة تعرض كـ«غير متاح» ولا تُقدَّر أبداً."
+                : "A financial analysis platform for Egyptian Exchange investors: financial-event scanners, same-sector peer comparison, and prices and valuation multiples — with one fixed principle: real figures from published statements, and missing data is shown as unavailable, never estimated."}
             </p>
             <p>
               {ar
-                ? "تُجمع البيانات من الإفصاحات المنشورة ومن مزوّدي بيانات مرخّصين، ثم تُوحَّد وحداتها وتُدقَّق حسابياً قبل العرض. يمكنك مراجعة حالة كل شركة ودرجة جودة بياناتها من صفحة جودة البيانات."
-                : "Data is collected from published disclosures and authorized data providers, then unit-normalized and arithmetically checked before display. You can review each company's state and data-quality tier on the data-quality page."}
+                ? "تُجمع البيانات من القوائم المالية المنشورة للشركات، ثم تُوحَّد وحداتها وتُفحص حسابياً قبل العرض. البيانات الناقصة تظهر كـ«غير متاح» ولا تُقدَّر أبداً."
+                : "Data is collected from companies' published financial statements, then unit-normalized and arithmetically checked before display. Missing data is shown as unavailable, never estimated."}
             </p>
-            <Link href="/data-quality" className="inline-flex text-xs font-semibold text-primary hover:underline">
-              {ar ? "عرض جودة البيانات والاعتماد ←" : "View data quality and certification →"}
-            </Link>
           </CardContent>
         </Card>
 
@@ -98,7 +94,6 @@ export default function AboutPage() {
         </section>
       </main>
 
-      <AppFooter />
     </div>
   )
 }

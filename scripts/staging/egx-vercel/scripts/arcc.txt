@@ -1,0 +1,94 @@
+﻿
+=== ARCC | Arabian Cement Company ===
+2025 FY 2025 CONSOLIDATED YAHOO_FINANCE_API + REUTERS_FINANCIALS_PAGE
+  GROSS_PROFIT 5058265665 VALID Gross Profit API import — YAHOO_FINANCE_API (3 sources agree)
+  INCOME_TAX 1125467657 VALID Tax Provision API import — YAHOO_FINANCE_API (3 sources agree)
+  NET_PROFIT 3599585937 VALID Net Income From Continuing Operation Net Minority Interest API import — YAHOO_FINANCE_API (8 sources agree)
+  NET_PROFIT_PARENT 3580711862 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API (2 sources agree)
+  NON_CONTROLLING_INTERESTS 158005 VALID Minority Interest API import — YAHOO_FINANCE_API (3 sources agree)
+  PROFIT_BEFORE_TAX 4725157878 VALID Pretax Income API import — YAHOO_FINANCE_API (3 sources agree)
+  REVENUE 12447320081 VALID Total Revenue API import — YAHOO_FINANCE_API (6 sources agree)
+  TOTAL_ASSETS 8783721849 VALID Total Assets API import — YAHOO_FINANCE_API (3 sources agree)
+  TOTAL_EQUITY 4642574235 VALID Stockholders Equity API import — YAHOO_FINANCE_API (3 sources agree)
+2024 FY 2024 CONSOLIDATED YAHOO_FINANCE_API + REUTERS_FINANCIALS_PAGE
+  GROSS_PROFIT 2086810334 VALID Gross Profit API import — YAHOO_FINANCE_API (3 sources agree)
+  INCOME_TAX 345730996 VALID Tax Provision API import — YAHOO_FINANCE_API (3 sources agree)
+  NET_PROFIT 1160129411 VALID Net Income From Continuing Operation Net Minority Interest API import — YAHOO_FINANCE_API (8 sources agree)
+  NET_PROFIT_PARENT 1145083684 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API (2 sources agree)
+  NON_CONTROLLING_INTERESTS 53721 VALID Minority Interest API import — YAHOO_FINANCE_API (3 sources agree)
+  PROFIT_BEFORE_TAX 1505866118 VALID Pretax Income API import — YAHOO_FINANCE_API (3 sources agree)
+  REVENUE 8729782821 VALID Total Revenue API import — YAHOO_FINANCE_API (6 sources agree)
+  TOTAL_ASSETS 5848616103 VALID Total Assets API import — YAHOO_FINANCE_API (3 sources agree)
+  TOTAL_EQUITY 2303472299 VALID Stockholders Equity API import — YAHOO_FINANCE_API (3 sources agree)
+
+=== MCQE | Misr Chemical Industries ===
+2025 FY 2025 CONSOLIDATED YAHOO_FINANCE_API + REUTERS_FINANCIALS_PAGE
+  GROSS_PROFIT 3714818254 VALID Gross Profit API import — YAHOO_FINANCE_API (3 sources agree)
+  INCOME_TAX 821666988 VALID Tax Provision API import — YAHOO_FINANCE_API (3 sources agree)
+  NET_PROFIT 2558385461 VALID Net Income From Continuing Operation Net Minority Interest API import — YAHOO_FINANCE_API (8 sources agree)
+  NET_PROFIT_PARENT 2033242637 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API (2 sources agree)
+  NON_CONTROLLING_INTERESTS 1003979257 VALID Minority Interest API import — YAHOO_FINANCE_API (3 sources agree)
+  PROFIT_BEFORE_TAX 3380052449 VALID Pretax Income API import — YAHOO_FINANCE_API (3 sources agree)
+  REVENUE 9545381277 VALID Total Revenue API import — YAHOO_FINANCE_API (6 sources agree)
+  TOTAL_ASSETS 7713617521 VALID Total Assets API import — YAHOO_FINANCE_API (3 sources agree)
+  TOTAL_EQUITY 4576751148 VALID Stockholders Equity API import — YAHOO_FINANCE_API (3 sources agree)
+2024 FY 2024 CONSOLIDATED YAHOO_FINANCE_API + REUTERS_FINANCIALS_PAGE
+  GROSS_PROFIT 837444115 VALID Gross Profit API import — YAHOO_FINANCE_API (3 sources agree)
+  INCOME_TAX 95586685 VALID Tax Provision API import — YAHOO_FINANCE_API (3 sources agree)
+  NET_PROFIT 271383437 VALID Net Income From Continuing Operation Net Minority Interest API import — YAHOO_FINANCE_API (8 sources agree)
+  NET_PROFIT_PARENT 237678745 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API (2 sources agree)
+  NON_CONTROLLING_INTERESTS 503511771 VALID Minority Interest API import — YAHOO_FINANCE_API (3 sources agree)
+  PROFIT_BEFORE_TAX 366970122 VALID Pretax Income API import — YAHOO_FINANCE_API (3 sources agree)
+  REVENUE 5839432985 VALID Total Revenue API import — YAHOO_FINANCE_API (6 sources agree)
+  TOTAL_ASSETS 5268350761 VALID Total Assets API import — YAHOO_FINANCE_API (3 sources agree)
+  TOTAL_EQUITY 2179136825 VALID Stockholders Equity API import — YAHOO_FINANCE_API (3 sources agree)
+
+=== MPCI | Memphis Pharmaceuticals ===
+2025 FY 2025 CONSOLIDATED TRADINGVIEW_FINANCIALS
+  GROSS_PROFIT 681850000 VALID Gross profit TradingView income statement, company-level verification unavailable
+  INCOME_TAX 147020000 VALID Taxes TradingView income statement, company-level verification unavailable
+  NET_PROFIT 505000000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+  PROFIT_BEFORE_TAX 652300000 VALID Pretax income TradingView income statement, company-level verification unavailable
+  REVENUE 1510000000 VALID Total revenue TradingView income statement, company-level verification unavailable
+  TOTAL_ASSETS 1490000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 771000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+2024 FY 2024 CONSOLIDATED TRADINGVIEW_FINANCIALS
+  GROSS_PROFIT 299590000 VALID Gross profit TradingView income statement, company-level verification unavailable
+  INCOME_TAX 38060000 VALID Taxes TradingView income statement, company-level verification unavailable
+  NET_PROFIT 191000000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+  PROFIT_BEFORE_TAX 229520000 VALID Pretax income TradingView income statement, company-level verification unavailable
+  REVENUE 871910000 VALID Total revenue TradingView income statement, company-level verification unavailable
+  TOTAL_ASSETS 1220000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 149000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+
+=== AXPH | Alexandria Company for Pharmaceuticals and Chemical Industries ===
+2025 FY 2025 CONSOLIDATED EXCEL_STATEMENTS
+  GROSS_PROFIT 539894111.09 NEEDS_REVIEW Gross Profit - Industrials/Property - Total (Refinitiv CF-Export, USD→EGP) AUDIT_QUARANTINE: fabricated template value — identical value 539894111.09 for G
+  NET_PROFIT 539894111.09 VALID Net Income after Tax (Refinitiv CF-Export, USD→EGP) 
+  REVENUE 2699470555.46 NEEDS_REVIEW Revenue from Business Activities - Total (Refinitiv CF-Export, USD→EGP) AUDIT_QUARANTINE: fabricated template value — identical value 2699470555.46 for 
+  TOTAL_ASSETS 1751997737.08 VALID Total Assets (Refinitiv CF-Export, USD→EGP) 
+  TOTAL_EQUITY 1167998491.38 VALID Total Shareholders' Equity - including Minority Interest & Hybrid Debt (Refinitiv CF-Export, USD→EGP) 
+2024 FY 2024 CONSOLIDATED ASKBORA_SUMMARY
+  GROSS_PROFIT 752160240.9200001 VALID مجمل الربح AskBorsa annual summary (display-rounded)
+  NET_PROFIT 217000000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+  REVENUE 2256480722.75 VALID Revenue from Business Activities - Total (Refinitiv CF-Export, USD→EGP) 
+  TOTAL_ASSETS 1240000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 795000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+
+=== HDBK | Housing & Development Bank ===
+2025 FY 2025 CONSOLIDATED YAHOO_FINANCE_API
+  INCOME_TAX 6209924100 VALID Tax Provision API import — YAHOO_FINANCE_API
+  NET_PROFIT 18680766637 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT 18680766637 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  PROFIT_BEFORE_TAX 24924703301 VALID Pretax Income API import — YAHOO_FINANCE_API
+  REVENUE 30606239603 VALID Total Revenue API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 243499648555 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 42574056919 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+2024 FY 2024 CONSOLIDATED YAHOO_FINANCE_API
+  INCOME_TAX 4103845578 VALID Tax Provision API import — YAHOO_FINANCE_API
+  NET_PROFIT 12425820549 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT 12425820549 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  PROFIT_BEFORE_TAX 16557657831 VALID Pretax Income API import — YAHOO_FINANCE_API
+  REVENUE 21096133153 VALID Total Revenue API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 188821492398 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 28003318002 VALID Stockholders Equity API import — YAHOO_FINANCE_API

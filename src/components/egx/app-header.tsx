@@ -88,13 +88,19 @@ function HeaderSearch() {
     return () => document.removeEventListener("mousedown", onDoc)
   }, [])
 
+  // Dedicated tiny search endpoint (indexed ticker/name match, 60s per-query
+  // cache) — the companies list endpoint pulls metrics + prices per row and is
+  // far too heavy for keystroke autocomplete at scale.
   const { data } = useQuery({
     queryKey: ["header-search", debounced],
-    queryFn: () => api.companies({ search: debounced, pageSize: 6 }),
+    queryFn: async () => {
+      const r = await fetch(`/api/v1/search?q=${encodeURIComponent(debounced)}`)
+      return r.ok ? r.json() : { results: [] }
+    },
     enabled: debounced.length >= 2,
     staleTime: 60_000,
   })
-  const results = debounced.length >= 2 ? data?.companies ?? [] : []
+  const results = debounced.length >= 2 ? data?.results ?? [] : []
 
   function go(id: string) {
     setOpen(false)
@@ -262,8 +268,9 @@ export function AppHeader({
             </Link>
           </div>
 
-          {/* Market ticker */}
-          <div className="hidden lg:block">
+          {/* Market ticker — fixed width, never shrinks (a crowded header row
+              would otherwise squeeze the marquee down to nothing) */}
+          <div className="hidden lg:block w-[300px] xl:w-[440px] shrink-0 overflow-hidden">
             <MarketTicker />
           </div>
 

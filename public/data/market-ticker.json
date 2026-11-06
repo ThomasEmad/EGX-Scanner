@@ -1,58 +1,58 @@
 {
-  "asOf": "2026-11-04T12:55:57.891Z",
-  "indicesAsOf": "2026-11-04T12:55:57.891Z",
-  "pricesAsOf": "2026-11-04T12:55:57.891Z",
+  "asOf": "2026-11-06T02:06:41.382Z",
+  "indicesAsOf": "2026-11-06T02:06:41.382Z",
+  "pricesAsOf": "2026-11-06T02:06:41.382Z",
   "delayMinutes": 15,
   "sourceNote": "Public exchange scanner, 15-minute delayed",
   "indices": [
     {
       "name": "EGX30",
-      "level": 50650.2,
-      "changePct": 2.8311444157732
+      "level": 51152.7,
+      "changePct": 0.9920987478825355
     },
     {
       "name": "EGX70 EWI",
-      "level": 17151.5,
-      "changePct": 3.023149649811987
+      "level": 17567.2,
+      "changePct": 2.4236947205783794
     },
     {
       "name": "EGX100 EWI",
-      "level": 23011,
-      "changePct": 2.984680519689768
+      "level": 23461.3,
+      "changePct": 1.9568901829559744
     },
     {
       "name": "EGX30CAPPED",
-      "level": 62624.2,
-      "changePct": 2.9146795594455908
+      "level": 63220,
+      "changePct": 0.951389398986339
     }
   ],
   "movers": [
     {
       "ticker": "AALR",
-      "price": 251.99,
-      "changePct": 16.12977556569427,
-      "volume": 567771,
+      "price": 238.02,
+      "changePct": -5.543870788523353,
+      "volume": 131764,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ABUK",
-      "price": 80,
-      "changePct": 2.946853686784206,
-      "volume": 1088194,
+      "price": 80.98,
+      "changePct": 1.225000000000005,
+      "volume": 942728,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ACAMD",
-      "price": 2.03,
-      "changePct": 4.102564102564095,
-      "volume": 60615841,
+      "price": 2,
+      "changePct": -1.4778325123152616,
+      "volume": 39636639,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ACAP",
-      "price": 6.99,
-      "changePct": 9.218749999999998,
-      "volume": 1244592,
+      "price": 7.33,
+      "changePct": 3.9716312056737624,
+      "volume": 635231,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -64,93 +64,93 @@
     },
     {
       "ticker": "ACGC",
-      "price": 12.95,
-      "changePct": 1.4890282131661403,
-      "volume": 370385,
+      "price": 13.43,
+      "changePct": 3.70656370656371,
+      "volume": 765266,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ACTF",
-      "price": 2.14,
-      "changePct": 1.9047619047619064,
-      "volume": 5193732,
+      "price": 2.2,
+      "changePct": 2.803738317757012,
+      "volume": 5878174,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ADCI",
-      "price": 256.43,
-      "changePct": 0.4819749216301012,
-      "volume": 9071,
+      "price": 260,
+      "changePct": 1.3921928011543083,
+      "volume": 9832,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ADIB",
-      "price": 49.5,
-      "changePct": 3.125,
-      "volume": 2422391,
+      "price": 49.01,
+      "changePct": -0.9898989898989938,
+      "volume": 2759761,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ADPC",
-      "price": 3.06,
-      "changePct": 2.0000000000000018,
-      "volume": 1109786,
+      "price": 3.1,
+      "changePct": 1.3071895424836613,
+      "volume": 1618044,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ADRI",
-      "price": 12.8,
-      "changePct": 5.5234954657873025,
-      "volume": 2835098,
+      "price": 13.08,
+      "changePct": 2.187499999999995,
+      "volume": 3160238,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "AFDI",
-      "price": 44.07,
-      "changePct": 0.7084095063985427,
-      "volume": 57744,
+      "price": 45.43,
+      "changePct": 3.085999546176536,
+      "volume": 78959,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "AFMC",
-      "price": 136.52,
-      "changePct": 3.424242424242432,
-      "volume": 256377,
+      "price": 138,
+      "changePct": 1.084090243187804,
+      "volume": 145353,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "AIDC",
-      "price": 0.508,
-      "changePct": 4.742268041237118,
-      "volume": 22393223,
+      "price": 0.513,
+      "changePct": 0.9842519685039378,
+      "volume": 25726244,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "AIFI",
-      "price": 2.08,
-      "changePct": 2.4630541871921316,
-      "volume": 10322739,
+      "price": 2.06,
+      "changePct": -0.9615384615384623,
+      "volume": 10688583,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "AIH",
-      "price": 0.806,
-      "changePct": 4.6753246753246795,
-      "volume": 39977599,
+      "price": 0.82,
+      "changePct": 1.7369727047146277,
+      "volume": 24288422,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "AJWA",
-      "price": 219.6,
-      "changePct": 2.88123682361209,
-      "volume": 60633,
+      "price": 224.8,
+      "changePct": 2.228285584356528,
+      "volume": 64127,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ALCN",
-      "price": 32.24,
-      "changePct": -0.031007751937978327,
-      "volume": 163969,
+      "price": 33,
+      "changePct": 2.3573200992555767,
+      "volume": 356859,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -162,9 +162,9 @@
     },
     {
       "ticker": "ALUM",
-      "price": 19.38,
-      "changePct": 4.813412655489458,
-      "volume": 222372,
+      "price": 20.33,
+      "changePct": 4.901960784313722,
+      "volume": 273073,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -176,44 +176,44 @@
     },
     {
       "ticker": "AMER",
-      "price": 4.51,
-      "changePct": 5.620608899297429,
-      "volume": 23443003,
+      "price": 4.53,
+      "changePct": 0.44345898004435613,
+      "volume": 21632323,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "AMES",
-      "price": 33.99,
-      "changePct": 0.7409602845287492,
-      "volume": 2634824,
+      "price": 38.15,
+      "changePct": 12.23889379229184,
+      "volume": 9505292,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "AMIA",
-      "price": 17.98,
-      "changePct": 1.9852524106636498,
-      "volume": 980032,
+      "price": 18.11,
+      "changePct": 0.7230255839821969,
+      "volume": 1830035,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "AMII",
-      "price": 7.8,
-      "changePct": 3.9999999999999973,
-      "volume": 3690127,
+      "price": 8.21,
+      "changePct": 5.25641025641027,
+      "volume": 3664259,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "AMOC",
-      "price": 13.33,
-      "changePct": -1.2592592592592589,
-      "volume": 11510197,
+      "price": 13.27,
+      "changePct": -0.4501125281320367,
+      "volume": 11078837,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "AMPI",
-      "price": 2.24,
-      "changePct": 0.9009009009009016,
-      "volume": 356463,
+      "price": 2.35,
+      "changePct": 5.381165919282516,
+      "volume": 149729,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -232,65 +232,65 @@
     },
     {
       "ticker": "APSW",
-      "price": 7.4,
-      "changePct": 0.680272108843547,
-      "volume": 48913,
+      "price": 7.57,
+      "changePct": 1.2032085561497308,
+      "volume": 70353,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ARAB",
-      "price": 0.24,
-      "changePct": 3.0042918454935528,
-      "volume": 306652415,
+      "price": 0.25,
+      "changePct": 4.1666666666666705,
+      "volume": 429253530,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ARCC",
-      "price": 66.5,
-      "changePct": 5.505314929398697,
-      "volume": 669335,
+      "price": 67.57,
+      "changePct": 1.6090225563909673,
+      "volume": 517896,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "AREH",
-      "price": 1.08,
-      "changePct": 2.8571428571428594,
-      "volume": 8574089,
+      "price": 1.12,
+      "changePct": 3.703703703703707,
+      "volume": 12322365,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ASCM",
-      "price": 44.69,
-      "changePct": 5.900473933649277,
-      "volume": 265266,
+      "price": 46.65,
+      "changePct": 4.385768628328488,
+      "volume": 250688,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ASPI",
-      "price": 0.319,
-      "changePct": 6.688963210702347,
-      "volume": 90145758,
+      "price": 0.318,
+      "changePct": -0.3134796238244517,
+      "volume": 90130810,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ATLC",
-      "price": 5,
-      "changePct": 1.4198782961460505,
-      "volume": 3954805,
+      "price": 5.1,
+      "changePct": 1.9999999999999927,
+      "volume": 2306769,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ATQA",
-      "price": 9.28,
-      "changePct": 1.0893246187363796,
-      "volume": 3582836,
+      "price": 9.73,
+      "changePct": 4.849137931034495,
+      "volume": 6686027,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "AXPH",
-      "price": 1319.29,
-      "changePct": 0.2515235793857008,
-      "volume": 4022,
+      "price": 1335.01,
+      "changePct": 0.528618438391854,
+      "volume": 2883,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -302,100 +302,100 @@
     },
     {
       "ticker": "BIGP",
-      "price": 0.218,
-      "changePct": 2.347417840375589,
-      "volume": 4277177,
+      "price": 0.222,
+      "changePct": 0.90909090909091,
+      "volume": 2867403,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "BINV",
-      "price": 52.56,
-      "changePct": 1.0963646855164462,
-      "volume": 238161,
+      "price": 53.01,
+      "changePct": 0.8561643835616356,
+      "volume": 16476,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "BIOC",
-      "price": 310.03,
-      "changePct": 1.6491803278688437,
-      "volume": 680040,
+      "price": 315.93,
+      "changePct": 1.9030416411315147,
+      "volume": 364073,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "BONY",
-      "price": 4.38,
-      "changePct": 2.8169014084507067,
-      "volume": 6018095,
+      "price": 4.36,
+      "changePct": -0.4566210045662003,
+      "volume": 11764831,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "BQDC",
-      "price": 5.5,
-      "changePct": 2.2304832713754665,
-      "volume": 58459400,
+      "price": 5.58,
+      "changePct": 1.4545454545454557,
+      "volume": 65025004,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "BTFH",
-      "price": 2.34,
-      "changePct": 2.18340611353711,
-      "volume": 88557310,
+      "price": 2.38,
+      "changePct": 1.7094017094017109,
+      "volume": 40842130,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "CAED",
-      "price": 102.64,
-      "changePct": 3.426037887948414,
-      "volume": 530731,
+      "price": 99.53,
+      "changePct": -3.030007794232268,
+      "volume": 327322,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "CANA",
-      "price": 45.96,
-      "changePct": 1.4121800529567532,
-      "volume": 304635,
+      "price": 47.3,
+      "changePct": 2.9155787641427247,
+      "volume": 555949,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "CCAP",
-      "price": 5.99,
-      "changePct": 4.537521815008723,
-      "volume": 76419001,
+      "price": 5.88,
+      "changePct": -1.8363939899833106,
+      "volume": 72580597,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "CCRS",
-      "price": 1.91,
-      "changePct": 14.37125748502994,
-      "volume": 15597774,
+      "price": 2.02,
+      "changePct": 5.759162303664927,
+      "volume": 18083725,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "CEFM",
-      "price": 117.95,
-      "changePct": 1.69856871874461,
-      "volume": 18113,
+      "price": 118.66,
+      "changePct": 0.1434720229555251,
+      "volume": 17226,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "CERA",
-      "price": 1.04,
-      "changePct": 0.9708737864077678,
-      "volume": 48405967,
+      "price": 1.07,
+      "changePct": 2.8846153846153872,
+      "volume": 57849321,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "CFGH",
-      "price": 0.1,
-      "changePct": 0,
-      "volume": 10000,
+      "price": 0.105,
+      "changePct": 3.96039603960395,
+      "volume": 15200,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "CICH",
-      "price": 10.57,
-      "changePct": 1.1483253588516842,
-      "volume": 981125,
+      "price": 10.82,
+      "changePct": 2.3651844843897827,
+      "volume": 45269,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -407,86 +407,86 @@
     },
     {
       "ticker": "CIEB",
-      "price": 22.68,
-      "changePct": 1.7496635262449556,
-      "volume": 125831,
+      "price": 22.92,
+      "changePct": 1.3710747456877588,
+      "volume": 365082,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "CIRA",
-      "price": 36.64,
-      "changePct": 1.7212659633536853,
-      "volume": 856444,
+      "price": 37.12,
+      "changePct": 1.3100436681222623,
+      "volume": 405944,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "CLHO",
-      "price": 13.44,
-      "changePct": 1.5873015873015803,
-      "volume": 2159132,
+      "price": 13.6,
+      "changePct": 1.1904761904761916,
+      "volume": 3391317,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "CNFN",
-      "price": 3.84,
-      "changePct": 0.7874015748031444,
-      "volume": 1237772,
+      "price": 4,
+      "changePct": 4.1666666666666705,
+      "volume": 2482191,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "COMI",
-      "price": 126.51,
-      "changePct": 2.4538386783284754,
-      "volume": 3038177,
+      "price": 128,
+      "changePct": 1.1777725081021222,
+      "volume": 4085715,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "COPR",
-      "price": 0.41,
-      "changePct": 3.0150753768844107,
-      "volume": 34073106,
+      "price": 0.413,
+      "changePct": 0.7317073170731715,
+      "volume": 68933678,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "COSG",
-      "price": 1.29,
-      "changePct": 2.3809523809523827,
-      "volume": 7832878,
+      "price": 1.34,
+      "changePct": 3.8759689922480653,
+      "volume": 10174833,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "CPCI",
-      "price": 601.11,
-      "changePct": 1.1969696969696992,
-      "volume": 4460,
+      "price": 601.5,
+      "changePct": 0.06487997205170208,
+      "volume": 5820,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "CPME",
-      "price": 36.2,
-      "changePct": -4.73684210526315,
-      "volume": 24414,
+      "price": 37.06,
+      "changePct": 2.375690607734805,
+      "volume": 37650,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "CRST",
-      "price": 2.71,
-      "changePct": -0.3676470588235379,
-      "volume": 107632942,
+      "price": 2.95,
+      "changePct": 8.856088560885617,
+      "volume": 187902586,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "CSAG",
-      "price": 34.1,
-      "changePct": 0.23515579071134124,
-      "volume": 88515,
+      "price": 35.34,
+      "changePct": 3.6363636363636416,
+      "volume": 238208,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "DAPH",
-      "price": 82.8,
-      "changePct": 2.2222222222222188,
-      "volume": 235601,
+      "price": 86.9,
+      "changePct": 4.951690821256049,
+      "volume": 288470,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -519,72 +519,72 @@
     },
     {
       "ticker": "DOMT",
-      "price": 23.47,
-      "changePct": 2.4890829694323156,
-      "volume": 173606,
+      "price": 23.91,
+      "changePct": 1.874733702599068,
+      "volume": 112051,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "DSCW",
-      "price": 1.45,
-      "changePct": 3.5714285714285747,
-      "volume": 9002726,
+      "price": 1.48,
+      "changePct": 2.0689655172413812,
+      "volume": 10559156,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "DTPP",
-      "price": 47.15,
-      "changePct": 0.855614973262029,
-      "volume": 371555,
+      "price": 49,
+      "changePct": 3.9236479321314985,
+      "volume": 1435299,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "EALR",
-      "price": 303.42,
-      "changePct": 20.00000000000001,
-      "volume": 129193,
+      "price": 294.01,
+      "changePct": -3.101311713136914,
+      "volume": 50236,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "EASB",
-      "price": 6.51,
-      "changePct": -0.1533742331288311,
-      "volume": 2000065,
+      "price": 6.5,
+      "changePct": -0.1536098310291826,
+      "volume": 1008216,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "EAST",
-      "price": 33.19,
-      "changePct": 3.718749999999993,
-      "volume": 1064408,
+      "price": 33.33,
+      "changePct": 0.42181379933715146,
+      "volume": 1112315,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "EBSC",
       "price": 1.53,
-      "changePct": 1.3245033112582794,
-      "volume": 3713040,
+      "changePct": 0,
+      "volume": 1536600,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ECAP",
-      "price": 27.39,
-      "changePct": 3.008649868371571,
-      "volume": 135084,
+      "price": 27.87,
+      "changePct": 1.752464403066814,
+      "volume": 113937,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "EDFM",
-      "price": 353.91,
-      "changePct": 1.2762913149234616,
-      "volume": 4758,
+      "price": 362.8,
+      "changePct": 2.2576735533695964,
+      "volume": 2967,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "EEII",
-      "price": 1.8,
-      "changePct": 5.882352941176476,
-      "volume": 7413169,
+      "price": 1.79,
+      "changePct": -0.555555555555556,
+      "volume": 3128571,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -603,51 +603,51 @@
     },
     {
       "ticker": "EFIC",
-      "price": 140.83,
-      "changePct": 3.2478005865102686,
-      "volume": 100992,
+      "price": 168.65,
+      "changePct": 19.754313711567132,
+      "volume": 966695,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "EFID",
-      "price": 19.4,
-      "changePct": 6.5934065934065895,
-      "volume": 2743818,
+      "price": 18.81,
+      "changePct": -3.0412371134020613,
+      "volume": 3663118,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "EFIH",
-      "price": 23.7,
-      "changePct": 0.8939974457215872,
-      "volume": 1395186,
+      "price": 23.5,
+      "changePct": -0.8438818565400814,
+      "volume": 3453262,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "EGAL",
-      "price": 320,
-      "changePct": 5.6105610561056105,
-      "volume": 686216,
+      "price": 321.08,
+      "changePct": 0.337499999999995,
+      "volume": 289858,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "EGAS",
-      "price": 46.76,
-      "changePct": 2.162988857330118,
-      "volume": 65463,
+      "price": 47.79,
+      "changePct": 2.2245989304812817,
+      "volume": 126199,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "EGBE",
-      "price": 0.486,
-      "changePct": -0.613496932515338,
-      "volume": 114145,
+      "price": 0.49,
+      "changePct": 1.0309278350515474,
+      "volume": 42135,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "EGCH",
-      "price": 10.38,
-      "changePct": 4.426559356136834,
-      "volume": 3079629,
+      "price": 10.5,
+      "changePct": 1.156069364161842,
+      "volume": 3611338,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -659,9 +659,9 @@
     },
     {
       "ticker": "EGREF",
-      "price": 24.04,
-      "changePct": 16.36011616650532,
-      "volume": 2714707,
+      "price": 22.77,
+      "changePct": -5.2828618968386,
+      "volume": 1732041,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -673,9 +673,16 @@
     },
     {
       "ticker": "EGS370O1C013",
-      "price": 46.34,
-      "changePct": 1.9581958195819593,
-      "volume": 38534,
+      "price": 47.75,
+      "changePct": 2.117194183062451,
+      "volume": 506807,
+      "updateMode": "delayed_streaming_900"
+    },
+    {
+      "ticker": "EGS3A0Y1C018",
+      "price": 100,
+      "changePct": 0,
+      "volume": 0,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -687,9 +694,9 @@
     },
     {
       "ticker": "EGS3I0S1C019",
-      "price": 8.04,
-      "changePct": -0.7407407407407469,
-      "volume": 1870280,
+      "price": 8.51,
+      "changePct": 5.845771144278616,
+      "volume": 6757717,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -737,15 +744,15 @@
     {
       "ticker": "EGSA",
       "price": 8.71,
-      "changePct": -2.790178571428571,
-      "volume": 605,
+      "changePct": -1.022727272727271,
+      "volume": 0,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "EGTS",
-      "price": 13.01,
-      "changePct": 9.052808046940488,
-      "volume": 2178673,
+      "price": 13.29,
+      "changePct": 2.1521906225979968,
+      "volume": 1953408,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -757,9 +764,9 @@
     },
     {
       "ticker": "EHDR",
-      "price": 2.05,
-      "changePct": 5.1282051282051215,
-      "volume": 6389733,
+      "price": 2.11,
+      "changePct": 2.926829268292686,
+      "volume": 4698430,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -778,51 +785,51 @@
     },
     {
       "ticker": "ELEC",
-      "price": 1.6,
-      "changePct": 3.8961038961038996,
-      "volume": 22785752,
+      "price": 1.68,
+      "changePct": 4.99999999999999,
+      "volume": 29134945,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ELKA",
-      "price": 1.47,
-      "changePct": 4.255319148936175,
-      "volume": 7033397,
+      "price": 1.51,
+      "changePct": 2.721088435374152,
+      "volume": 9183245,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ELNA",
-      "price": 39.41,
-      "changePct": -0.6804435483871046,
-      "volume": 9673,
+      "price": 41.35,
+      "changePct": 3.1172069825436406,
+      "volume": 22432,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ELSH",
-      "price": 10.32,
-      "changePct": 3.6144578313252955,
-      "volume": 2525136,
+      "price": 10.56,
+      "changePct": 2.325581395348839,
+      "volume": 2405962,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ELWA",
       "price": 1.4,
-      "changePct": 2.9411764705882213,
-      "volume": 7193321,
+      "changePct": 1.449275362318842,
+      "volume": 95540,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "EMFD",
-      "price": 12.27,
-      "changePct": 0.4914004914004809,
-      "volume": 10191131,
+      "price": 12.25,
+      "changePct": -0.1629991850040715,
+      "volume": 3919609,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ENGC",
-      "price": 35.47,
-      "changePct": 4.292855042634522,
-      "volume": 465746,
+      "price": 34.98,
+      "changePct": -1.3814491119255765,
+      "volume": 350543,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -834,16 +841,16 @@
     },
     {
       "ticker": "EOSB",
-      "price": 1.61,
-      "changePct": -0.6172839506172845,
-      "volume": 10031,
+      "price": 1.55,
+      "changePct": -4.320987654320991,
+      "volume": 34382,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "EPCO",
-      "price": 8.44,
-      "changePct": 0.8363201911589043,
-      "volume": 190907,
+      "price": 8.55,
+      "changePct": 1.303317535545038,
+      "volume": 285245,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -855,86 +862,86 @@
     },
     {
       "ticker": "ETEL",
-      "price": 128,
-      "changePct": 4.1666666666666705,
-      "volume": 1344603,
+      "price": 128.55,
+      "changePct": 0.4296875000000089,
+      "volume": 1242141,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ETRS",
-      "price": 10.76,
-      "changePct": 1.3182674199623405,
-      "volume": 2316366,
+      "price": 10.98,
+      "changePct": 2.044609665427515,
+      "volume": 2357232,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "EXPA",
-      "price": 13.81,
-      "changePct": 0.8765522279035866,
-      "volume": 954832,
+      "price": 14.37,
+      "changePct": 4.055032585083264,
+      "volume": 830756,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "FAIT",
-      "price": 43.26,
-      "changePct": 1.9561630921517754,
-      "volume": 23235,
+      "price": 44.19,
+      "changePct": 2.2916666666666545,
+      "volume": 130968,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "FAITA",
-      "price": 0.99,
-      "changePct": -0.40241448692152954,
-      "volume": 26247,
+      "price": 1,
+      "changePct": 1.010101010101011,
+      "volume": 66129,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "FERC",
-      "price": 60.02,
-      "changePct": 3.4114403859407374,
-      "volume": 24683,
+      "price": 72.02,
+      "changePct": 19.993335554815047,
+      "volume": 765408,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "FIRE",
-      "price": 4.19,
-      "changePct": 1.4527845036319733,
-      "volume": 97325,
+      "price": 4.3,
+      "changePct": 0.7025761124121839,
+      "volume": 108776,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "FNAR",
-      "price": 10.9,
-      "changePct": 9.989909182643796,
-      "volume": 300982,
+      "price": 10.79,
+      "changePct": -1.0091743119266166,
+      "volume": 296645,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "FTNS",
-      "price": 1.08,
-      "changePct": 4.854368932038839,
-      "volume": 481623,
+      "price": 1.07,
+      "changePct": 0.9433962264150951,
+      "volume": 173185,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "FWRY",
-      "price": 17.1,
-      "changePct": 6.079404466501243,
-      "volume": 9602183,
+      "price": 17.36,
+      "changePct": 1.520467836257298,
+      "volume": 6216108,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "GBCO",
-      "price": 22.08,
-      "changePct": 2.0804438280166404,
-      "volume": 7084326,
+      "price": 22.46,
+      "changePct": 1.721014492753635,
+      "volume": 10646852,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "GDWA",
-      "price": 0.55,
-      "changePct": 4.562737642585555,
-      "volume": 21785598,
+      "price": 0.576,
+      "changePct": 4.7272727272727115,
+      "volume": 29007099,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -946,44 +953,44 @@
     },
     {
       "ticker": "GGCC",
-      "price": 0.559,
-      "changePct": 6.476190476190482,
-      "volume": 75447029,
+      "price": 0.561,
+      "changePct": 0.35778175313059063,
+      "volume": 40663499,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "GGRN",
-      "price": 1.05,
-      "changePct": 7.1428571428571495,
-      "volume": 15097578,
+      "price": 1.07,
+      "changePct": 1.9047619047619064,
+      "volume": 10960289,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "GIHD",
-      "price": 44,
-      "changePct": 2.7797243634664746,
-      "volume": 237155,
+      "price": 47.01,
+      "changePct": 6.840909090909086,
+      "volume": 881746,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "GMCI",
-      "price": 1.36,
-      "changePct": -3.5460992907801296,
-      "volume": 179673,
+      "price": 1.42,
+      "changePct": 0,
+      "volume": 353576,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "GOUR",
-      "price": 15.13,
-      "changePct": 1.2040133779264315,
-      "volume": 251040,
+      "price": 16,
+      "changePct": 5.750165234633173,
+      "volume": 1235295,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "GPIM",
-      "price": 1.51,
-      "changePct": 1.342281879194632,
-      "volume": 15841242,
+      "price": 1.6,
+      "changePct": 5.960264900662257,
+      "volume": 14378923,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -995,9 +1002,9 @@
     },
     {
       "ticker": "GRCA",
-      "price": 33.25,
-      "changePct": 13.44251108836575,
-      "volume": 1477897,
+      "price": 32.12,
+      "changePct": -3.398496240601512,
+      "volume": 881255,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1009,16 +1016,16 @@
     },
     {
       "ticker": "GSSC",
-      "price": 252.49,
-      "changePct": 2.226810802056763,
-      "volume": 6161,
+      "price": 260,
+      "changePct": 2.4428684003152044,
+      "volume": 4185,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "GTEX",
       "price": 0.039,
       "changePct": 0,
-      "volume": 183840,
+      "volume": 10000,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1030,23 +1037,23 @@
     },
     {
       "ticker": "GTWL",
-      "price": 125.01,
-      "changePct": -1.9529411764705844,
-      "volume": 1208051,
+      "price": 123.5,
+      "changePct": -1.2079033677305857,
+      "volume": 1654099,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "HBCO",
-      "price": 8.5,
-      "changePct": 7.187894073139979,
-      "volume": 2701479,
+      "price": 9,
+      "changePct": 5.88235294117647,
+      "volume": 2547825,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "HDBK",
-      "price": 96.92,
-      "changePct": 2.9421136484333466,
-      "volume": 210948,
+      "price": 99.99,
+      "changePct": 3.167560874948404,
+      "volume": 283308,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1058,37 +1065,37 @@
     },
     {
       "ticker": "HELI",
-      "price": 6.61,
-      "changePct": 4.094488188976389,
-      "volume": 18146891,
+      "price": 6.94,
+      "changePct": 4.992435703479577,
+      "volume": 18438360,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "HRHO",
-      "price": 23.5,
-      "changePct": 4.444444444444445,
-      "volume": 1876819,
+      "price": 23.78,
+      "changePct": 1.1914893617021325,
+      "volume": 2555188,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "IBCT",
-      "price": 10,
-      "changePct": 4.1666666666666705,
-      "volume": 225626,
+      "price": 10.32,
+      "changePct": 3.200000000000003,
+      "volume": 226024,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ICFC",
-      "price": 23.93,
-      "changePct": 3.3246977547495664,
-      "volume": 805119,
+      "price": 26.35,
+      "changePct": 10.112829084830764,
+      "volume": 6038729,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ICID",
-      "price": 17.24,
-      "changePct": 1.1737089201877893,
-      "volume": 80560,
+      "price": 17.98,
+      "changePct": 4.292343387471009,
+      "volume": 626162,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1100,37 +1107,37 @@
     },
     {
       "ticker": "IDRE",
-      "price": 38.67,
-      "changePct": 2.9826897470040072,
-      "volume": 222823,
+      "price": 39.99,
+      "changePct": 3.413498836307215,
+      "volume": 239736,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "IEEC",
-      "price": 0.766,
-      "changePct": 6.3888888888888955,
-      "volume": 67491643,
+      "price": 0.764,
+      "changePct": -0.2610966057441255,
+      "volume": 34679806,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "IFAP",
-      "price": 16.2,
-      "changePct": 3.5143769968051046,
-      "volume": 240615,
+      "price": 18.22,
+      "changePct": 12.469135802469133,
+      "volume": 2285219,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "INEG",
-      "price": 0.529,
-      "changePct": 4.752475247524757,
-      "volume": 33571248,
+      "price": 0.535,
+      "changePct": 1.1342155009451804,
+      "volume": 21435519,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "INFI",
-      "price": 120.25,
-      "changePct": 5.159597726278974,
-      "volume": 171653,
+      "price": 119.55,
+      "changePct": -0.5821205821205845,
+      "volume": 138389,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1142,44 +1149,44 @@
     },
     {
       "ticker": "IRON",
-      "price": 24.08,
-      "changePct": 0.8375209380234475,
-      "volume": 276638,
+      "price": 24.18,
+      "changePct": 0.415282392026584,
+      "volume": 231189,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ISMA",
-      "price": 19.47,
-      "changePct": 2.204724409448809,
-      "volume": 533431,
+      "price": 20.71,
+      "changePct": 6.368772470467396,
+      "volume": 850563,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ISMQ",
-      "price": 7.38,
-      "changePct": 3.797468354430374,
-      "volume": 2457605,
+      "price": 7.4,
+      "changePct": 0.2710027100271065,
+      "volume": 1943594,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ISPH",
-      "price": 10.1,
-      "changePct": 6.878306878306882,
-      "volume": 19071086,
+      "price": 10.27,
+      "changePct": 1.6831683168316827,
+      "volume": 10171360,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "JUFO",
-      "price": 23.95,
-      "changePct": 4.130434782608693,
-      "volume": 977236,
+      "price": 23.83,
+      "changePct": -0.501043841336121,
+      "volume": 889937,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "KABO",
-      "price": 7.17,
-      "changePct": 5.908419497784348,
-      "volume": 3688398,
+      "price": 7.12,
+      "changePct": -0.6973500697350046,
+      "volume": 2419154,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1192,36 +1199,36 @@
     {
       "ticker": "KORA",
       "price": 1.84,
-      "changePct": 5.142857142857148,
-      "volume": 139372749,
+      "changePct": 0,
+      "volume": 102067927,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "KRDI",
-      "price": 0.349,
-      "changePct": 0.8670520231213881,
-      "volume": 77030619,
+      "price": 0.354,
+      "changePct": 1.4326647564469928,
+      "volume": 72485167,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "KWIN",
-      "price": 72.86,
-      "changePct": 14.649881982690799,
-      "volume": 423975,
+      "price": 69.46,
+      "changePct": -4.666483667307173,
+      "volume": 237669,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "KZPC",
-      "price": 12.65,
-      "changePct": -0.7064364207221339,
-      "volume": 295024,
+      "price": 13.56,
+      "changePct": 7.193675889328064,
+      "volume": 2192774,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "LCSW",
-      "price": 35.12,
-      "changePct": -0.5099150141643052,
-      "volume": 326380,
+      "price": 36.39,
+      "changePct": 3.6161731207289383,
+      "volume": 610764,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1233,51 +1240,51 @@
     },
     {
       "ticker": "LUTS",
-      "price": 0.724,
-      "changePct": 1.542776998597477,
-      "volume": 66311032,
+      "price": 0.746,
+      "changePct": 3.038674033149174,
+      "volume": 83490011,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MAAL",
-      "price": 6.96,
-      "changePct": 3.88059701492537,
-      "volume": 1393982,
+      "price": 6.9,
+      "changePct": -0.8620689655172358,
+      "volume": 736185,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MASR",
-      "price": 6.78,
-      "changePct": 1.9548872180451111,
-      "volume": 4315508,
+      "price": 6.81,
+      "changePct": 0.4424778761061852,
+      "volume": 5259506,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MBEG",
-      "price": 5.3,
-      "changePct": 5.9999999999999964,
-      "volume": 6864540,
+      "price": 5.35,
+      "changePct": 0.943396226415091,
+      "volume": 6231267,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MBSC",
-      "price": 315.21,
-      "changePct": 1.3471802456433664,
-      "volume": 174551,
+      "price": 322,
+      "changePct": 2.154119475904959,
+      "volume": 111690,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MCQE",
-      "price": 167.5,
-      "changePct": 4.030805540028576,
-      "volume": 278374,
+      "price": 171.47,
+      "changePct": 2.3701492537313427,
+      "volume": 258402,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MCRO",
-      "price": 1.32,
-      "changePct": 2.325581395348839,
-      "volume": 27802334,
+      "price": 1.34,
+      "changePct": 1.5151515151515165,
+      "volume": 36094840,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1289,58 +1296,58 @@
     },
     {
       "ticker": "MENA",
-      "price": 5.86,
-      "changePct": 1.3840830449827002,
-      "volume": 64890,
+      "price": 5.87,
+      "changePct": 0.6861063464837056,
+      "volume": 366282,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MEPA",
-      "price": 1.29,
-      "changePct": 2.3809523809523827,
-      "volume": 8459894,
+      "price": 1.35,
+      "changePct": 4.651162790697678,
+      "volume": 19694982,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MFPC",
-      "price": 41.37,
-      "changePct": 3.2443224357374527,
-      "volume": 1902851,
+      "price": 41,
+      "changePct": -0.8943678994440355,
+      "volume": 1734513,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MFSC",
-      "price": 35.45,
-      "changePct": 7.7507598784194665,
-      "volume": 158813,
+      "price": 35.27,
+      "changePct": -0.5077574047954858,
+      "volume": 33008,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MHOT",
-      "price": 16.07,
-      "changePct": 6.072607260726072,
-      "volume": 336056,
+      "price": 15.7,
+      "changePct": -2.423865755127412,
+      "volume": 86967,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MICH",
-      "price": 40.11,
-      "changePct": 0.40050062578221923,
-      "volume": 68763,
+      "price": 40.9,
+      "changePct": 1.969583644976313,
+      "volume": 100993,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MILS",
-      "price": 128.51,
-      "changePct": 2.9315178213856603,
-      "volume": 71788,
+      "price": 135.07,
+      "changePct": 5.104661115866472,
+      "volume": 88677,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MIPH",
-      "price": 798.92,
-      "changePct": 5.9575596816976075,
-      "volume": 3072,
+      "price": 793.85,
+      "changePct": -0.6346067190707375,
+      "volume": 452,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1366,9 +1373,9 @@
     },
     {
       "ticker": "MMAT",
-      "price": 5.08,
-      "changePct": 3.6734693877550963,
-      "volume": 53208,
+      "price": 5,
+      "changePct": -1.5748031496063006,
+      "volume": 39316,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1380,65 +1387,65 @@
     },
     {
       "ticker": "MOED",
-      "price": 0.48,
-      "changePct": 5.03282275711159,
-      "volume": 44811874,
+      "price": 0.492,
+      "changePct": 2.500000000000002,
+      "volume": 54559585,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MOIL",
-      "price": 0.633,
-      "changePct": 1.2800000000000011,
-      "volume": 30245,
+      "price": 0.638,
+      "changePct": 0.7898894154818332,
+      "volume": 173522,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MOIN",
-      "price": 28.87,
-      "changePct": 2.448545067423709,
-      "volume": 278603,
+      "price": 29.6,
+      "changePct": 1.9283746556473909,
+      "volume": 104607,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MOSC",
-      "price": 249.2,
-      "changePct": 6.391153993937583,
-      "volume": 36316,
+      "price": 265.84,
+      "changePct": 6.6773675762439755,
+      "volume": 38030,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MPCI",
-      "price": 312.61,
-      "changePct": 0.3080378629873372,
-      "volume": 281879,
+      "price": 317,
+      "changePct": 1.404305684399087,
+      "volume": 429215,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MPCO",
-      "price": 1.84,
-      "changePct": 3.9548022598870096,
-      "volume": 41773674,
+      "price": 1.9,
+      "changePct": 3.2608695652173822,
+      "volume": 55421726,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MPRC",
-      "price": 33.96,
-      "changePct": 2.0739404869251508,
-      "volume": 331347,
+      "price": 34.5,
+      "changePct": 1.5901060070671353,
+      "volume": 486697,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "MTIE",
-      "price": 6.8,
-      "changePct": 2.40963855421687,
-      "volume": 1378091,
+      "price": 7.13,
+      "changePct": 4.85294117647059,
+      "volume": 6142539,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "NAHO",
       "price": 0.125,
-      "changePct": 0.8064516129032264,
-      "volume": 47650,
+      "changePct": 0,
+      "volume": 104177,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1450,9 +1457,9 @@
     },
     {
       "ticker": "NARE",
-      "price": 13.36,
-      "changePct": 2.3754789272030554,
-      "volume": 267889,
+      "price": 13.5,
+      "changePct": 1.0479041916167708,
+      "volume": 1066290,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1471,9 +1478,9 @@
     },
     {
       "ticker": "NCCW",
-      "price": 5.41,
-      "changePct": 1.5009380863039414,
-      "volume": 3138645,
+      "price": 5.46,
+      "changePct": 0.9242144177449136,
+      "volume": 3669379,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1492,9 +1499,9 @@
     },
     {
       "ticker": "NEDA",
-      "price": 2.36,
-      "changePct": -1.6666666666666683,
-      "volume": 96420,
+      "price": 2.47,
+      "changePct": 0.8163265306122455,
+      "volume": 119438,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1506,23 +1513,23 @@
     },
     {
       "ticker": "NHPS",
-      "price": 60.87,
-      "changePct": 5.860869565217387,
-      "volume": 256219,
+      "price": 62.15,
+      "changePct": 2.1028421225562695,
+      "volume": 132046,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "NINH",
-      "price": 15.19,
-      "changePct": 3.5446489434219464,
-      "volume": 370193,
+      "price": 15.87,
+      "changePct": 4.270696452036784,
+      "volume": 1058274,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "NIPH",
-      "price": 278,
-      "changePct": 1.4598540145985401,
-      "volume": 513510,
+      "price": 281,
+      "changePct": 1.079136690647482,
+      "volume": 469435,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1534,9 +1541,9 @@
     },
     {
       "ticker": "OBRI",
-      "price": 23.5,
-      "changePct": 2.709790209790214,
-      "volume": 391057,
+      "price": 24.5,
+      "changePct": 4.25531914893617,
+      "volume": 425367,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1548,65 +1555,65 @@
     },
     {
       "ticker": "OCDI",
-      "price": 24.43,
-      "changePct": 4.179104477611943,
-      "volume": 1694747,
+      "price": 25,
+      "changePct": 2.3331968890708157,
+      "volume": 1434533,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "OCPH",
-      "price": 186.97,
-      "changePct": 4.1615598885793865,
-      "volume": 17959,
+      "price": 187.21,
+      "changePct": 0.12836283895812647,
+      "volume": 53000,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ODIN",
-      "price": 2.05,
-      "changePct": 3.015075376884414,
-      "volume": 4388055,
+      "price": 2.1,
+      "changePct": 2.4390243902439157,
+      "volume": 4220659,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "OFH",
-      "price": 0.71,
-      "changePct": 0.14104372355430195,
-      "volume": 33806041,
+      "price": 0.741,
+      "changePct": 4.3661971830985955,
+      "volume": 46339694,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "OIH",
-      "price": 1.73,
-      "changePct": 5.487804878048785,
-      "volume": 42623864,
+      "price": 1.81,
+      "changePct": 5.8479532163742745,
+      "volume": 51696682,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "OLFI",
-      "price": 19.27,
-      "changePct": 2.499999999999994,
-      "volume": 283640,
+      "price": 19.58,
+      "changePct": 1.6087182148417163,
+      "volume": 225211,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ORAS",
-      "price": 797.02,
-      "changePct": 0.8822226441364507,
-      "volume": 131158,
+      "price": 810.02,
+      "changePct": 1.6310757571955534,
+      "volume": 125550,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ORHD",
-      "price": 10.1,
-      "changePct": -0.4926108374384306,
-      "volume": 22114298,
+      "price": 10.34,
+      "changePct": 2.3762376237623783,
+      "volume": 12915791,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ORWE",
-      "price": 24.99,
-      "changePct": 0.7661290322580553,
-      "volume": 390981,
+      "price": 25.03,
+      "changePct": 0.1600640256102549,
+      "volume": 835626,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1618,30 +1625,30 @@
     },
     {
       "ticker": "PHAR",
-      "price": 101.87,
-      "changePct": 3.526422764227641,
-      "volume": 609328,
+      "price": 102.6,
+      "changePct": 0.7165995877098162,
+      "volume": 588962,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "PHDC",
-      "price": 11.27,
-      "changePct": -0.4416961130742112,
-      "volume": 7607284,
+      "price": 11.91,
+      "changePct": 5.678793256433013,
+      "volume": 22434954,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "PHGC",
-      "price": 0.079,
-      "changePct": 2.5974025974025996,
-      "volume": 49970657,
+      "price": 0.081,
+      "changePct": 2.5316455696202556,
+      "volume": 136370084,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "PHTV",
-      "price": 320.06,
-      "changePct": 1.409967998479132,
-      "volume": 13604,
+      "price": 322,
+      "changePct": 0.625,
+      "volume": 5084,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1660,72 +1667,72 @@
     },
     {
       "ticker": "POUL",
-      "price": 10.1,
-      "changePct": 0.9999999999999963,
-      "volume": 11628560,
+      "price": 10.12,
+      "changePct": 0.1980198019801938,
+      "volume": 13933305,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "PRCL",
-      "price": 21.55,
-      "changePct": 2.1327014218009444,
-      "volume": 572038,
+      "price": 21.95,
+      "changePct": 1.8561484918793436,
+      "volume": 1263363,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "PRDC",
-      "price": 6.34,
-      "changePct": 4.105090311986864,
-      "volume": 2645721,
+      "price": 6.45,
+      "changePct": 1.7350157728706677,
+      "volume": 2619767,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "PRMH",
-      "price": 1.96,
-      "changePct": 1.5544041450777215,
-      "volume": 2996444,
+      "price": 1.94,
+      "changePct": -1.020408163265307,
+      "volume": 2024902,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "QNBE",
-      "price": 53.03,
-      "changePct": 1.0672765389746566,
-      "volume": 195321,
+      "price": 53.23,
+      "changePct": 0.3771450122572048,
+      "volume": 399660,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "RACC",
-      "price": 7.8,
-      "changePct": 3.3112582781456954,
-      "volume": 734558,
+      "price": 8.04,
+      "changePct": 3.076923076923068,
+      "volume": 1055232,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "RAKT",
       "price": 22.35,
-      "changePct": -0.8869179600886887,
-      "volume": 9036,
+      "changePct": -0.1786511835640873,
+      "volume": 5182,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "RAYA",
-      "price": 5.45,
-      "changePct": 4.8076923076923075,
-      "volume": 4651377,
+      "price": 5.6,
+      "changePct": 2.7522935779816415,
+      "volume": 4116752,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "RKAZ",
-      "price": 4.16,
-      "changePct": 1.4634146341463536,
-      "volume": 65637,
+      "price": 4.19,
+      "changePct": 0.23923444976078173,
+      "volume": 19877,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "RMDA",
-      "price": 5.48,
-      "changePct": 7.031250000000005,
-      "volume": 11072365,
+      "price": 5.5,
+      "changePct": 0.3649635036496272,
+      "volume": 8379458,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1737,79 +1744,79 @@
     },
     {
       "ticker": "ROTO",
-      "price": 32.02,
-      "changePct": 5.29431108188097,
-      "volume": 1019852,
+      "price": 32.57,
+      "changePct": 1.717676452217355,
+      "volume": 311775,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "RREI",
-      "price": 2.81,
-      "changePct": 4.850746268656712,
-      "volume": 3031402,
+      "price": 2.85,
+      "changePct": 1.4234875444839872,
+      "volume": 2826787,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "RTVC",
-      "price": 2.8,
-      "changePct": 2.1897810218977956,
-      "volume": 724979,
+      "price": 2.81,
+      "changePct": 0.3571428571428654,
+      "volume": 657083,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "RUBX",
-      "price": 13.38,
-      "changePct": 4.449648711943796,
-      "volume": 4301241,
+      "price": 13.24,
+      "changePct": -1.0463378176382703,
+      "volume": 2320418,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "SAIB",
       "price": 2.53,
-      "changePct": -16.5016501650165,
+      "changePct": 0,
       "volume": 0,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "SAUD",
-      "price": 20.28,
-      "changePct": 1.501501501501505,
-      "volume": 232278,
+      "price": 20.75,
+      "changePct": 2.317554240631158,
+      "volume": 515666,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "SCEM",
-      "price": 92,
-      "changePct": 4.497955474784181,
-      "volume": 563104,
+      "price": 94.5,
+      "changePct": 2.717391304347826,
+      "volume": 461416,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "SCFM",
-      "price": 217.65,
-      "changePct": 2.7620396600566544,
-      "volume": 14701,
+      "price": 218,
+      "changePct": 0.832562442183169,
+      "volume": 12073,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "SCTS",
-      "price": 494.45,
-      "changePct": 1.885431691737065,
-      "volume": 5248,
+      "price": 519.89,
+      "changePct": 5.145110729092931,
+      "volume": 32194,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "SDTI",
-      "price": 88.79,
-      "changePct": 3.1602184268618725,
-      "volume": 147376,
+      "price": 87.67,
+      "changePct": -1.2614033111836969,
+      "volume": 214708,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "SEIG",
-      "price": 254.57,
-      "changePct": -4.3509299267330395,
-      "volume": 69090,
+      "price": 240.49,
+      "changePct": -5.5308952351023235,
+      "volume": 32167,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1835,23 +1842,23 @@
     },
     {
       "ticker": "SIPC",
-      "price": 4.67,
-      "changePct": 1.7429193899782152,
-      "volume": 5114661,
+      "price": 5.08,
+      "changePct": 8.779443254817991,
+      "volume": 19285797,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "SKPC",
-      "price": 14.7,
-      "changePct": 1.800554016620497,
-      "volume": 3710172,
+      "price": 15.01,
+      "changePct": 2.108843537414969,
+      "volume": 3427953,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "SMFR",
-      "price": 189.76,
-      "changePct": 2.0050529484491695,
-      "volume": 15454,
+      "price": 227.71,
+      "changePct": 18.52488028315636,
+      "volume": 76911,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1863,9 +1870,9 @@
     },
     {
       "ticker": "SNFC",
-      "price": 10.65,
-      "changePct": 0.3770028275212151,
-      "volume": 914007,
+      "price": 11.12,
+      "changePct": 4.413145539906092,
+      "volume": 2081462,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1884,16 +1891,16 @@
     },
     {
       "ticker": "SPIN",
-      "price": 14.45,
-      "changePct": -0.8236101578586205,
-      "volume": 265373,
+      "price": 14.5,
+      "changePct": 0.3460207612456797,
+      "volume": 186157,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "SPMD",
-      "price": 0.344,
-      "changePct": 2.3809523809523663,
-      "volume": 42119546,
+      "price": 0.353,
+      "changePct": 2.6162790697674443,
+      "volume": 183989274,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1905,51 +1912,51 @@
     },
     {
       "ticker": "SUGR",
-      "price": 48.2,
-      "changePct": 1.8812090467131695,
-      "volume": 650702,
+      "price": 47.87,
+      "changePct": -0.6846473029045755,
+      "volume": 193711,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "SVCE",
       "price": 8.84,
-      "changePct": 4.615384615384623,
-      "volume": 9374691,
+      "changePct": 0,
+      "volume": 5279217,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "SWDY",
-      "price": 112,
-      "changePct": 3.1307550644567272,
-      "volume": 420071,
+      "price": 116.11,
+      "changePct": 3.6696428571428568,
+      "volume": 1029570,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "TALM",
-      "price": 19.6,
-      "changePct": 2.349869451697143,
-      "volume": 1236886,
+      "price": 20.42,
+      "changePct": 4.183673469387756,
+      "volume": 1279519,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "TANM",
-      "price": 5.79,
-      "changePct": 2.1164021164021185,
-      "volume": 4345328,
+      "price": 5.73,
+      "changePct": -1.0362694300518067,
+      "volume": 1300872,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "TAQA",
-      "price": 14.18,
-      "changePct": 2.4566473988439297,
-      "volume": 794526,
+      "price": 14.3,
+      "changePct": 0.846262341325818,
+      "volume": 1059952,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "TMGH",
-      "price": 81.08,
-      "changePct": 1.604010025062658,
-      "volume": 2646115,
+      "price": 83.25,
+      "changePct": 2.676369018253579,
+      "volume": 4358594,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -1968,100 +1975,100 @@
     },
     {
       "ticker": "TRTO",
-      "price": 0.055,
-      "changePct": -6.779661016949147,
-      "volume": 19232,
+      "price": 0.058,
+      "changePct": -1.694915254237278,
+      "volume": 70961,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "TWSA",
-      "price": 7.03,
-      "changePct": 7.8220858895705625,
-      "volume": 7812733,
+      "price": 6.9,
+      "changePct": -1.8492176386913213,
+      "volume": 3239440,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "TYCN",
-      "price": 13.33,
-      "changePct": 19.98199819981999,
-      "volume": 4719321,
+      "price": 13.7,
+      "changePct": 2.775693923480864,
+      "volume": 7879918,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "UBEE",
-      "price": 14.79,
-      "changePct": -1.0702341137123756,
-      "volume": 12375,
+      "price": 15.19,
+      "changePct": 1.9463087248322088,
+      "volume": 27662,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "UEFM",
-      "price": 464.55,
-      "changePct": 5.1018099547511335,
-      "volume": 8162,
+      "price": 484,
+      "changePct": 4.086021505376344,
+      "volume": 3694,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "UEGC",
-      "price": 1.47,
-      "changePct": 3.521126760563384,
-      "volume": 27580388,
+      "price": 1.49,
+      "changePct": 1.360544217687076,
+      "volume": 17609812,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "UNIP",
-      "price": 0.293,
-      "changePct": 3.9007092198581597,
-      "volume": 19020411,
+      "price": 0.297,
+      "changePct": 1.3651877133105814,
+      "volume": 40692594,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "UNIT",
-      "price": 18.51,
-      "changePct": 2.7762354247640197,
-      "volume": 143419,
+      "price": 18.52,
+      "changePct": 0.054024851431647807,
+      "volume": 41432,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "UPMS",
-      "price": 9.95,
-      "changePct": -0.5000000000000071,
-      "volume": 13399,
+      "price": 9.96,
+      "changePct": 1.632653061224491,
+      "volume": 24342,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "UTOP",
-      "price": 90.53,
-      "changePct": 10.000000000000005,
-      "volume": 14667,
+      "price": 95.9,
+      "changePct": 5.931735336352595,
+      "volume": 12814,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "VALU",
       "price": 9.33,
-      "changePct": 3.207964601769922,
-      "volume": 705542,
+      "changePct": 0,
+      "volume": 1872065,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "VERT",
-      "price": 4.23,
-      "changePct": 7.908163265306135,
-      "volume": 503840,
+      "price": 4.31,
+      "changePct": 1.8912529550827228,
+      "volume": 348103,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "VLMR",
-      "price": 0.633,
-      "changePct": 1.9323671497584558,
-      "volume": 66667,
+      "price": 0.644,
+      "changePct": 1.737756714060033,
+      "volume": 197854,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "VLMRA",
-      "price": 23.89,
-      "changePct": 2.4882024882024965,
-      "volume": 4699316,
+      "price": 24.5,
+      "changePct": 2.553369610715778,
+      "volume": 4304410,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -2073,16 +2080,16 @@
     },
     {
       "ticker": "WCDF",
-      "price": 501.84,
-      "changePct": 1.7931034482758572,
-      "volume": 2338,
+      "price": 512.5,
+      "changePct": 2.495900163993444,
+      "volume": 1728,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "WKOL",
-      "price": 186.21,
-      "changePct": -24.854721549636803,
-      "volume": 332553,
+      "price": 176.37,
+      "changePct": -5.284356371838249,
+      "volume": 117825,
       "updateMode": "delayed_streaming_900"
     },
     {
@@ -2094,16 +2101,16 @@
     },
     {
       "ticker": "ZEOT",
-      "price": 10.9,
-      "changePct": 6.134371957156775,
-      "volume": 1111602,
+      "price": 11.28,
+      "changePct": 3.4862385321100824,
+      "volume": 1323371,
       "updateMode": "delayed_streaming_900"
     },
     {
       "ticker": "ZMID",
-      "price": 6.8,
-      "changePct": 2.255639097744353,
-      "volume": 16365144,
+      "price": 6.88,
+      "changePct": 1.176470588235295,
+      "volume": 11904154,
       "updateMode": "delayed_streaming_900"
     }
   ]

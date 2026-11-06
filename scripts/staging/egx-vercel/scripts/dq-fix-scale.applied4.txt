@@ -1,0 +1,10 @@
+﻿
+=== Unit-scale repair APPLY ===
+
+reports scanned: 57
+reports to repair: 1 | monetary values: 3
+
+examples:
+  FWRY FY 2016 ÷1000 (adjacent-year 5.677e+11 ÷ 1.061e+9; 3/11 values, EXCEL_STATEMENTS)
+
+Changes written.

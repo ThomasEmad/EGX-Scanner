@@ -1,0 +1,205 @@
+[
+  {
+    "id": "purge_plan-2026-11-04T19-45-33",
+    "job": "purge_plan",
+    "script": "scripts/purge-imputed-values.mjs",
+    "args": [],
+    "startedAt": "2026-11-04T19:45:33.728Z",
+    "endedAt": "2026-11-04T19:45:34.358Z",
+    "exitCode": 0,
+    "pid": 28659,
+    "logFile": "/home/z/my-project/reports/admin-ops-logs/purge_plan-2026-11-04T19-45-33.log"
+  },
+  {
+    "id": "askborsa_plan-2026-11-04T19-52-09",
+    "job": "askborsa_plan",
+    "script": "scripts/askborsa-sync.mjs",
+    "args": [],
+    "startedAt": "2026-11-04T19:52:09.101Z",
+    "endedAt": "2026-11-04T19:59:57.116Z",
+    "exitCode": 0,
+    "pid": 29004,
+    "logFile": "/home/z/my-project/reports/admin-ops-logs/askborsa_plan-2026-11-04T19-52-09.log"
+  },
+  {
+    "id": "audit_run-2026-11-04T20-09-38",
+    "job": "audit_run",
+    "script": "scripts/admin-audit-job.mjs",
+    "args": [],
+    "startedAt": "2026-11-04T20:09:38.865Z",
+    "endedAt": "2026-11-04T20:09:43.617Z",
+    "exitCode": 0,
+    "pid": 30805,
+    "logFile": "/home/z/my-project/reports/admin-ops-logs/audit_run-2026-11-04T20-09-38.log"
+  },
+  {
+    "id": "tv_harvest-2026-11-05T02-11-53",
+    "job": "tv_harvest",
+    "script": "scripts/tradingview-financials-import.mjs",
+    "args": [
+      "--harvest-only",
+      "--workers=2",
+      "--delay-ms=3500"
+    ],
+    "startedAt": "2026-11-05T02:11:53.929Z",
+    "endedAt": "2026-11-05T02:12:20.143Z",
+    "exitCode": 0,
+    "pid": 2630,
+    "logFile": "/home/z/my-project/reports/admin-ops-logs/tv_harvest-2026-11-05T02-11-53.log",
+    "stoppedBy": "admin"
+  },
+  {
+    "id": "audit_run-2026-11-05T03-50-09",
+    "job": "audit_run",
+    "script": "scripts/admin-audit-job.mjs",
+    "args": [],
+    "startedAt": "2026-11-05T03:50:09.683Z",
+    "endedAt": "2026-11-05T03:50:24.034Z",
+    "exitCode": 0,
+    "pid": 23684,
+    "logFile": "/home/z/my-project/reports/admin-ops-logs/audit_run-2026-11-05T03-50-09.log"
+  },
+  {
+    "id": "purge_apply-2026-11-06T01-46-47",
+    "job": "purge_apply",
+    "script": "scripts/purge-imputed-values.mjs",
+    "args": [
+      "--apply"
+    ],
+    "startedAt": "2026-11-06T01:46:47.527Z",
+    "endedAt": "2026-11-06T01:46:51.712Z",
+    "exitCode": 0,
+    "pid": 3994,
+    "logFile": "/tmp/my-project/reports/admin-ops-logs/purge_apply-2026-11-06T01-46-47.log"
+  },
+  {
+    "id": "purge_plan-2026-11-06T01-47-35",
+    "job": "purge_plan",
+    "script": "scripts/purge-imputed-values.mjs",
+    "args": [],
+    "startedAt": "2026-11-06T01:47:35.254Z",
+    "endedAt": "2026-11-06T01:47:35.563Z",
+    "exitCode": 0,
+    "pid": 4088,
+    "logFile": "/tmp/my-project/reports/admin-ops-logs/purge_plan-2026-11-06T01-47-35.log"
+  },
+  {
+    "id": "purge_apply-2026-11-06T01-48-08",
+    "job": "purge_apply",
+    "script": "scripts/purge-imputed-values.mjs",
+    "args": [
+      "--apply"
+    ],
+    "startedAt": "2026-11-06T01:48:08.724Z",
+    "endedAt": "2026-11-06T01:48:09.178Z",
+    "exitCode": 0,
+    "pid": 4104,
+    "logFile": "/tmp/my-project/reports/admin-ops-logs/purge_apply-2026-11-06T01-48-08.log"
+  },
+  {
+    "id": "audit_run-2026-11-06T01-48-25",
+    "job": "audit_run",
+    "script": "scripts/admin-audit-job.mjs",
+    "args": [],
+    "startedAt": "2026-11-06T01:48:25.955Z",
+    "endedAt": "2026-11-06T01:48:33.767Z",
+    "exitCode": 0,
+    "pid": 4120,
+    "logFile": "/tmp/my-project/reports/admin-ops-logs/audit_run-2026-11-06T01-48-25.log"
+  },
+  {
+    "id": "recompute_all-2026-11-06T01-49-25",
+    "job": "recompute_all",
+    "script": "scripts/admin-recompute-job.mjs",
+    "args": [],
+    "startedAt": "2026-11-06T01:49:25.929Z",
+    "endedAt": "2026-11-06T01:50:03.183Z",
+    "exitCode": 0,
+    "pid": 4144,
+    "logFile": "/tmp/my-project/reports/admin-ops-logs/recompute_all-2026-11-06T01-49-25.log"
+  },
+  {
+    "id": "tv_harvest-2026-11-06T02-34-30",
+    "job": "tv_harvest",
+    "script": "scripts/tradingview-financials-import.mjs",
+    "args": [
+      "--harvest-only",
+      "--workers=2",
+      "--delay-ms=3500"
+    ],
+    "startedAt": "2026-11-06T02:34:30.883Z",
+    "endedAt": "2026-11-06T02:34:31.747Z",
+    "exitCode": 1,
+    "pid": 6143,
+    "logFile": "/tmp/my-project/reports/admin-ops-logs/tv_harvest-2026-11-06T02-34-30.log"
+  },
+  {
+    "id": "tv_harvest-2026-11-06T02-48-54",
+    "job": "tv_harvest",
+    "script": "scripts/tradingview-financials-import.mjs",
+    "args": [
+      "--harvest-only",
+      "--workers=2",
+      "--delay-ms=3500"
+    ],
+    "startedAt": "2026-11-06T02:48:54.687Z",
+    "endedAt": "2026-11-06T02:48:59.539Z",
+    "exitCode": 0,
+    "pid": 7552,
+    "logFile": "/tmp/my-project/reports/admin-ops-logs/tv_harvest-2026-11-06T02-48-54.log"
+  },
+  {
+    "id": "tv_plan-2026-11-06T02-49-19",
+    "job": "tv_plan",
+    "script": "scripts/tradingview-financials-import.mjs",
+    "args": [
+      "--from-snapshot"
+    ],
+    "startedAt": "2026-11-06T02:49:19.926Z",
+    "endedAt": "2026-11-06T02:49:27.779Z",
+    "exitCode": 0,
+    "pid": 7610,
+    "logFile": "/tmp/my-project/reports/admin-ops-logs/tv_plan-2026-11-06T02-49-19.log"
+  },
+  {
+    "id": "tv_apply-2026-11-06T02-50-21",
+    "job": "tv_apply",
+    "script": "scripts/tradingview-financials-import.mjs",
+    "args": [
+      "--from-snapshot",
+      "--apply",
+      "--recompute"
+    ],
+    "startedAt": "2026-11-06T02:50:21.200Z",
+    "endedAt": null,
+    "exitCode": null,
+    "pid": 7628,
+    "logFile": "/tmp/my-project/reports/admin-ops-logs/tv_apply-2026-11-06T02-50-21.log"
+  },
+  {
+    "id": "tv_plan-2026-11-06T02-59-51",
+    "job": "tv_plan",
+    "script": "scripts/tradingview-financials-import.mjs",
+    "args": [
+      "--from-snapshot"
+    ],
+    "startedAt": "2026-11-06T02:59:51.586Z",
+    "endedAt": null,
+    "exitCode": null,
+    "pid": 8300,
+    "logFile": "/tmp/my-project/reports/admin-ops-logs/tv_plan-2026-11-06T02-59-51.log"
+  },
+  {
+    "id": "tv_plan-2026-11-06T04-02-28",
+    "job": "tv_plan",
+    "script": "scripts/tradingview-financials-import.mjs",
+    "args": [
+      "--from-snapshot"
+    ],
+    "startedAt": "2026-11-06T04:02:28.257Z",
+    "endedAt": "2026-11-06T04:02:37.230Z",
+    "exitCode": 0,
+    "pid": 10869,
+    "logFile": "/tmp/my-project/reports/admin-ops-logs/tv_plan-2026-11-06T04-02-28.log"
+  }
+]

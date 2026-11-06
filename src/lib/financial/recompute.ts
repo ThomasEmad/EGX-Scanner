@@ -235,6 +235,172 @@ function ttmInconsistentKeys(quarterly: PeriodBucket[], annual: PeriodBucket[]):
   return out
 }
 
+/**
+ * CROSS-PERIOD COHERENCE GUARD (valueStatus=NEEDS_REVIEW, never silent).
+ *
+ * Aggregator imports (Yahoo/Reuters/TradingView) mix year-to-date cumulative
+ * figures with discrete quarters and repeat annual figures across quarter
+ * columns. The TTM guard (ttmInconsistentKeys) already refuses to SUM such
+ * years — but the individual buckets still reached rankings/company pages as
+ * valueStatus=OK. Verified market-wide cases this guard now blocks:
+ *   HDBK  Q3 2025 revenue 30.6bn vs its own 9M cumulative 7.68bn (impossible)
+ *   HDBK  FY 2025 revenue == Q3 2025 revenue (annual is a partial-period copy)
+ *   EGBE  Q2 == Q3 == FY 2025 revenue 10.68bn vs 9M 2.81bn
+ *   GROV  Q2 == Q3 == FY 2025 (identical-value annual-copy pattern)
+ *   AMOC  "Q1 2026" and "Q3 2026" reports with the SAME period end (label collision)
+ *   RAYA/HELI  the annual figure stored in every quarter column
+ *
+ * Rules (flow codes only, positive magnitudes, tiny values < 1K EGP ignored):
+ *   R1 a discrete quarter may never exceed a cumulative period that covers it
+ *      (H1 covers Q1-Q2, 9M covers Q1-Q3, annual covers Q1-Q4) by more than 5%.
+ *   R2 an annual figure equal (±0.5%) to a quarter is a partial-period copy when
+ *      a contradicting H1/9M cumulative exists, or when TWO+ quarters match it.
+ *   R3 two or more quarters of the same fiscal year with identical flow values
+ *      (±0.5%) are annual copies, not discrete quarters.
+ *   R4 two quarterly buckets whose period ends are within 45 days but whose
+ *      period keys differ — one of the labels is wrong (TradingView duplicate).
+ *
+ * Flagged (statementType, periodKey, code) pairs downgrade every metric that
+ * depends on them to NEEDS_REVIEW with an explicit reason, and exclude the year
+ * from TTM windows. Raw values are untouched — provenance stays visible.
+ */
+const CROSS_PERIOD_FLOW_CODES = new Set([
+  "REVENUE", "COGS", "GROSS_PROFIT", "OPERATING_INCOME", "NET_INTEREST_INCOME",
+  "NET_PROFIT", "NET_PROFIT_PARENT", "PROFIT_BEFORE_TAX", "INCOME_TAX",
+])
+
+/** Quarter index Q1..Q4, or the number of quarters a cumulative period spans. */
+function subQuarterIndex(sub: string | null): number | null {
+  if (!sub) return null
+  const m = sub.match(/^Q([1-4])$/)
+  if (m) return Number(m[1])
+  if (sub === "H1") return 2
+  if (sub === "9M") return 3
+  return null
+}
+
+function cumulativeCoverage(periodType: string, sub: string | null): number | null {
+  if (periodType === "ANNUAL") return 4
+  if (periodType === "NINE_MONTH") return 3
+  if (periodType === "SEMIANNUAL") return sub === "H1" ? 2 : null
+  return null
+}
+
+function crossPeriodIncoherence(ordered: PeriodBucket[]): Map<string, string> {
+  const flags = new Map<string, string>()
+  const flag = (b: PeriodBucket, code: string, reason: string) => {
+    const key = `${b.statementType}|${b.periodKey}|${code}`
+    if (!flags.has(key)) flags.set(key, reason)
+  }
+  const groups = new Map<string, PeriodBucket[]>()
+  for (const b of ordered) {
+    const k = `${b.statementType}|${b.fiscalYear}`
+    if (!groups.has(k)) groups.set(k, [])
+    groups.get(k)!.push(b)
+  }
+
+  for (const [, gs] of groups) {
+    const quarters = gs.filter((b) => b.periodType === "QUARTERLY")
+    const cumuls = gs.filter((b) => ["SEMIANNUAL", "NINE_MONTH", "ANNUAL"].includes(b.periodType))
+
+    // R4 — period-end collision between two quarterly buckets
+    for (let i = 0; i < quarters.length; i++) {
+      for (let j = i + 1; j < quarters.length; j++) {
+        const a = quarters[i]
+        const b = quarters[j]
+        if (a.periodKey === b.periodKey || !a.periodEnd || !b.periodEnd) continue
+        if (Math.abs(a.periodEnd.getTime() - b.periodEnd.getTime()) > 45 * 86_400_000) continue
+        const codes = new Set([...Object.keys(a.values), ...Object.keys(b.values)])
+        for (const code of codes) {
+          if (!CROSS_PERIOD_FLOW_CODES.has(code)) continue
+          const end = a.periodEnd.toISOString().slice(0, 10)
+          flag(a, code, `period-end collision with ${b.periodLabel} (both end ${end}) — period labels ambiguous`)
+          flag(b, code, `period-end collision with ${a.periodLabel} (both end ${end}) — period labels ambiguous`)
+        }
+      }
+    }
+
+    // R1 — a discrete quarter exceeding a cumulative period that covers it
+    for (const q of quarters) {
+      const qi = subQuarterIndex(parsePeriodKey(q.periodKey).sub)
+      if (qi === null) continue
+      for (const c of cumuls) {
+        const cov = cumulativeCoverage(c.periodType, parsePeriodKey(c.periodKey).sub)
+        if (cov === null || cov < qi) continue
+        for (const code of Object.keys(q.values)) {
+          if (!CROSS_PERIOD_FLOW_CODES.has(code)) continue
+          const qv = q.values[code]
+          const cv = c.values[code]
+          if (qv === undefined || cv === undefined) continue
+          if (Math.max(Math.abs(qv), Math.abs(cv)) < 1_000) continue
+          if (qv > 0 && cv > 0 && qv > cv * 1.05) {
+            flag(q, code, `quarter value ${qv.toExponential(3)} exceeds the ${c.periodLabel} cumulative total ${cv.toExponential(3)} — year-to-date figure stored as a discrete quarter`)
+          }
+        }
+      }
+    }
+
+    // R2 — annual figure equal to a quarter (partial-period copy).
+    // A pure year-to-date filer legitimately satisfies FY == Q4 (the Q4
+    // cumulative IS the annual figure) together with Q3 == 9M / Q2 == H1.
+    // The exemption below only applies when every verifiable pair in that
+    // signature matches — otherwise the equality is a copy, not YTD.
+    const pairEqual = (x: number | undefined, y: number | undefined) => {
+      if (x === undefined || y === undefined || Math.max(Math.abs(x), Math.abs(y)) < 1_000) return true
+      return Math.abs(x - y) / Math.max(Math.abs(x), Math.abs(y)) < 0.005
+    }
+    const bySub = (sub: string) => quarters.find((q) => parsePeriodKey(q.periodKey).sub === sub)
+    const byCumul = (type: string) => cumuls.find((c) => c.periodType === type)
+    for (const a of cumuls.filter((b) => b.periodType === "ANNUAL")) {
+      for (const code of Object.keys(a.values)) {
+        if (!CROSS_PERIOD_FLOW_CODES.has(code)) continue
+        const av = a.values[code]
+        if (av === undefined || Math.abs(av) < 1_000) continue
+        const same = quarters.filter((q) => {
+          const v = q.values[code]
+          if (v === undefined || Math.abs(v) < 1_000) return false
+          return Math.abs(v - av) / Math.max(Math.abs(av), Math.abs(v)) < 0.005
+        })
+        if (same.length === 0) continue
+        const nonQ4 = same.some((q) => parsePeriodKey(q.periodKey).sub !== "Q4")
+        const ytdConsistent = !nonQ4
+          && pairEqual(bySub("Q4")?.values[code], av)
+          && pairEqual(bySub("Q3")?.values[code], byCumul("NINE_MONTH")?.values[code])
+          && pairEqual(bySub("Q2")?.values[code], byCumul("SEMIANNUAL")?.values[code])
+        const contradicting = cumuls.some((c) => {
+          if (c === a || c.periodType === "ANNUAL") return false
+          const cv = c.values[code]
+          if (cv === undefined || Math.abs(cv) < 1_000) return false
+          return Math.abs(cv - av) / Math.max(Math.abs(av), Math.abs(cv)) > 0.10
+        })
+        if (same.length >= 2 || (contradicting && !ytdConsistent)) {
+          flag(a, code, `annual figure equals ${same.map((s) => s.periodLabel).join(" & ")} — partial-period copy, not the audited year`)
+          for (const s of same) flag(s, code, `identical to the ${a.periodLabel} annual figure — not a discrete quarter`)
+        }
+      }
+    }
+
+    // R3 — two+ quarters of the same fiscal year with identical flow values
+    for (let i = 0; i < quarters.length; i++) {
+      for (let j = i + 1; j < quarters.length; j++) {
+        for (const code of Object.keys(quarters[i].values)) {
+          if (!CROSS_PERIOD_FLOW_CODES.has(code)) continue
+          const vi = quarters[i].values[code]
+          const vj = quarters[j].values[code]
+          if (vi === undefined || vj === undefined) continue
+          const denom = Math.max(Math.abs(vi), Math.abs(vj))
+          if (denom < 1_000) continue
+          if (Math.abs(vi - vj) / denom < 0.005) {
+            flag(quarters[i], code, `identical to ${quarters[j].periodLabel} — annual-copy pattern, not a discrete quarter`)
+            flag(quarters[j], code, `identical to ${quarters[i].periodLabel} — annual-copy pattern, not a discrete quarter`)
+          }
+        }
+      }
+    }
+  }
+  return flags
+}
+
 /** Build TTM buckets from consecutive quarterly buckets (sum flows, point balance sheet). */
 function buildTtmBuckets(quarterly: PeriodBucket[], inconsistent: Set<string>): PeriodBucket[] {
   const sorted = [...quarterly].sort((a, b) => {
@@ -353,6 +519,16 @@ export async function recomputeCompany(companyId: string): Promise<RecomputeResu
     (a.statementType + "|" + a.periodKey).localeCompare(b.statementType + "|" + b.periodKey)
   )
 
+  // Cross-period coherence guard: year-to-date/discrete mixups, annual copies
+  // and period-label collisions are downgraded to NEEDS_REVIEW (see function doc).
+  const incoherent = crossPeriodIncoherence(ordered)
+  // Any fiscal year with a flagged flow code must not be summed into TTM windows.
+  const yearIncoherent = new Set<string>()
+  for (const key of incoherent.keys()) {
+    const [st, pk, code] = key.split("|")
+    yearIncoherent.add(`${st}|${parsePeriodKey(pk).fiscalYear}|${code}`)
+  }
+
   // Synthetic TTM windows from consecutive quarters — built PER statement type
   const ttmBuckets: PeriodBucket[] = []
   const byStatement = new Map<string, PeriodBucket[]>()
@@ -364,7 +540,9 @@ export async function recomputeCompany(companyId: string): Promise<RecomputeResu
   const annualBuckets = ordered.filter((b) => b.periodType === "ANNUAL")
   for (const [, quarterlyBuckets] of byStatement) {
     const quarters = quarterlyBuckets.filter((b) => b.periodType === "QUARTERLY")
-    ttmBuckets.push(...buildTtmBuckets(quarters, ttmInconsistentKeys(quarters, annualBuckets)))
+    const inconsistent = ttmInconsistentKeys(quarters, annualBuckets)
+    for (const k of yearIncoherent) inconsistent.add(k)
+    ttmBuckets.push(...buildTtmBuckets(quarters, inconsistent))
   }
   const allBuckets = [...ordered, ...ttmBuckets]
 
@@ -402,8 +580,17 @@ export async function recomputeCompany(companyId: string): Promise<RecomputeResu
     // company-level sharesOutstanding when the filing reports its own figure
     const periodShares = cur["SHARES_OUTSTANDING"] ?? companyShares
 
-    const push = (code: string, result: MetricResult, sources: string[], formulaVersion: string) => {
-      metrics[code] = result
+    const push = (code: string, result: MetricResult, sources: string[], formulaVersion: string, dependsOn: string[] = []) => {
+      // Downgrade an OK metric when a raw value it depends on failed the
+      // cross-period coherence guard (YTD/discrete mixup, annual copy, label
+      // collision). NEEDS_REVIEW carries the explicit reason — never silent.
+      const blocked = result.status === "OK"
+        ? dependsOn
+            .map((d) => incoherent.get(`${bucket.statementType}|${bucket.periodKey}|${d}`))
+            .find(Boolean)
+        : undefined
+      const final = blocked ? ({ status: "NEEDS_REVIEW", detail: blocked } as MetricResult) : result
+      metrics[code] = final
       calcRows.push({
         companyId,
         code,
@@ -411,9 +598,9 @@ export async function recomputeCompany(companyId: string): Promise<RecomputeResu
         periodType: bucket.periodType,
         fiscalYear: bucket.fiscalYear,
         periodLabel: bucket.periodLabel,
-        value: result.status === "OK" ? result.value ?? null : null,
-        valueStatus: result.status,
-        statusDetail: result.detail ?? null,
+        value: final.status === "OK" ? final.value ?? null : null,
+        valueStatus: final.status,
+        statusDetail: final.detail ?? null,
         formulaVersion,
         sourcePeriods: JSON.stringify(sources),
         statementType: bucket.statementType,
@@ -421,25 +608,25 @@ export async function recomputeCompany(companyId: string): Promise<RecomputeResu
     }
 
     // Margins
-    push("gross_margin", margin(cur["GROSS_PROFIT"], cur["REVENUE"]), [bucket.periodKey], "gross_margin@1")
-    push("operating_margin", margin(cur["OPERATING_INCOME"], cur["REVENUE"]), [bucket.periodKey], "operating_margin@1")
-    push("net_margin", margin(niOf(cur), cur["REVENUE"]), [bucket.periodKey], "net_margin@1")
+    push("gross_margin", margin(cur["GROSS_PROFIT"], cur["REVENUE"]), [bucket.periodKey], "gross_margin@1", ["GROSS_PROFIT", "REVENUE"])
+    push("operating_margin", margin(cur["OPERATING_INCOME"], cur["REVENUE"]), [bucket.periodKey], "operating_margin@1", ["OPERATING_INCOME", "REVENUE"])
+    push("net_margin", margin(niOf(cur), cur["REVENUE"]), [bucket.periodKey], "net_margin@1", ["NET_PROFIT", "NET_PROFIT_PARENT", "REVENUE"])
 
     // Ratios
     // ROE/ROA use net income attributable to the parent (see niParentOf).
-    push("roe", roe(niParentOf(cur), cur["TOTAL_EQUITY"]), [bucket.periodKey], "roe@1")
-    push("roa", roa(niParentOf(cur), cur["TOTAL_ASSETS"]), [bucket.periodKey], "roa@1")
+    push("roe", roe(niParentOf(cur), cur["TOTAL_EQUITY"]), [bucket.periodKey], "roe@1", ["NET_PROFIT", "NET_PROFIT_PARENT"])
+    push("roa", roa(niParentOf(cur), cur["TOTAL_ASSETS"]), [bucket.periodKey], "roa@1", ["NET_PROFIT", "NET_PROFIT_PARENT"])
     push("debt_to_equity", debtToEquity(cur["TOTAL_DEBT"], cur["TOTAL_EQUITY"]), [bucket.periodKey], "debt_to_equity@1")
     // liabilities-to-equity — fills the leverage gap: total liabilities coverage
     // is near-universal across sources, unlike the debt-only split
     push("liabilities_to_equity", debtToEquity(cur["TOTAL_LIABILITIES"], cur["TOTAL_EQUITY"]), [bucket.periodKey], "liabilities_to_equity@1")
-    push("eps", eps(niOf(cur), periodShares), [bucket.periodKey], "eps@1")
+    push("eps", eps(niOf(cur), periodShares), [bucket.periodKey], "eps@1", ["NET_PROFIT", "NET_PROFIT_PARENT"])
     push("book_value_per_share", bookValuePerShare(cur["TOTAL_EQUITY"], periodShares), [bucket.periodKey], "book_value_per_share@1")
 
     // Passthroughs (so scanners can threshold absolute values)
     const passthrough = (code: string, rawCode: string, fv: string) => {
       const v = cur[rawCode]
-      push(code, v !== undefined ? { status: "OK", value: v } : { status: "DATA_UNAVAILABLE", detail: `${rawCode} not available for this period` }, [bucket.periodKey], fv)
+      push(code, v !== undefined ? { status: "OK", value: v } : { status: "DATA_UNAVAILABLE", detail: `${rawCode} not available for this period` }, [bucket.periodKey], fv, [rawCode])
     }
     passthrough("revenue", "REVENUE", "revenue@1")
     {
@@ -448,7 +635,7 @@ export async function recomputeCompany(companyId: string): Promise<RecomputeResu
       push("net_profit", ni !== undefined
         ? { status: "OK", value: ni }
         : { status: "DATA_UNAVAILABLE", detail: "NET_PROFIT not available for this period" },
-        [bucket.periodKey], "net_profit@1")
+        [bucket.periodKey], "net_profit@1", ["NET_PROFIT", "NET_PROFIT_PARENT"])
     }
     passthrough("operating_cash_flow", "OPERATING_CASH_FLOW", "operating_cash_flow@1")
     passthrough("total_assets", "TOTAL_ASSETS", "total_assets@1")
@@ -466,7 +653,7 @@ export async function recomputeCompany(companyId: string): Promise<RecomputeResu
     // Market metrics — computed from the latest observed price point (p_b@2 …).
     // No price => DATA_UNAVAILABLE; negative earnings/book => NOT_APPLICABLE with reason.
     push("p_b", priceToBook(priceValue, periodShares, cur["TOTAL_EQUITY"]), [bucket.periodKey], "p_b@2")
-    push("p_e", priceToEarnings(priceValue, periodShares, niOf(cur)), [bucket.periodKey], "p_e@2")
+    push("p_e", priceToEarnings(priceValue, periodShares, niOf(cur)), [bucket.periodKey], "p_e@2", ["NET_PROFIT", "NET_PROFIT_PARENT"])
     push("market_cap", marketCap(priceValue, periodShares), [bucket.periodKey], "market_cap@2")
     push("dividend_yield", dividendYield(priceValue, dpsInfo.dps12m, dpsInfo.hasRecords), [bucket.periodKey], "dividend_yield@2")
 
@@ -536,14 +723,40 @@ export async function recomputeCompany(companyId: string): Promise<RecomputeResu
   }
 }
 
+// Single-flight guard: two concurrent recomputeAll() passes would interleave
+// writes to CalculatedMetric/FinancialEvent for the same companies (the HTTP
+// admin route, the cron endpoint and CLI scripts all funnel here). The flag
+// is set synchronously before the first await, so a second caller in the same
+// process always observes it.
+let recomputeAllBusy = false
+
+/** True while a full recompute is running (poll before starting another). */
+export function isRecomputeAllBusy(): boolean {
+  return recomputeAllBusy
+}
+
+/** Thrown by recomputeAll() when a run is already in progress. */
+export class RecomputeBusyError extends Error {
+  constructor() {
+    super("A full recompute is already running")
+    this.name = "RECOMPUTE_BUSY"
+  }
+}
+
 /** Recompute every active company (used by seed + admin actions) */
 export async function recomputeAll(): Promise<RecomputeResult[]> {
-  const companies = await db.company.findMany({ where: { isActive: true }, select: { id: true } })
-  const results: RecomputeResult[] = []
-  for (const c of companies) {
-    results.push(await recomputeCompany(c.id))
+  if (recomputeAllBusy) throw new RecomputeBusyError()
+  recomputeAllBusy = true
+  try {
+    const companies = await db.company.findMany({ where: { isActive: true }, select: { id: true } })
+    const results: RecomputeResult[] = []
+    for (const c of companies) {
+      results.push(await recomputeCompany(c.id))
+    }
+    return results
+  } finally {
+    recomputeAllBusy = false
   }
-  return results
 }
 
 /**

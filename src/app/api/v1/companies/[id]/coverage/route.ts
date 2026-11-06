@@ -1,8 +1,11 @@
 import { db } from "@/lib/db"
+import { findCompanyByKey } from "@/lib/company-lookup"
 import { buildCoverageReport } from "@/lib/financial/analysis/coverage-report"
 import { reportPeriodKey } from "@/lib/financial/periods"
 
 // GET /api/v1/companies/[id]/coverage — per-statement extraction coverage report.
+//
+// `[id]` accepts company id, ticker or ISIN (see findCompanyByKey).
 //
 // Spec section 27: For every real report, produce an extraction coverage report.
 // Returns:
@@ -19,14 +22,15 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
   const url = new URL(req.url)
   const reportId = url.searchParams.get("reportId")
 
-  const company = await db.company.findUnique({ where: { id } })
+  const company = await findCompanyByKey(id)
   if (!company) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
+  const companyId = company.id
 
   // Choose report(s) to analyze
   let reports
   if (reportId) {
     reports = await db.financialReport.findMany({
-      where: { id: reportId, companyId: id, deletedAt: null },
+      where: { id: reportId, companyId, deletedAt: null },
       include: { values: true },
     })
     if (reports.length === 0) {
@@ -36,7 +40,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
     // Use latest validated/approved report per period
     const allReports = await db.financialReport.findMany({
       where: {
-        companyId: id,
+        companyId,
         processingStatus: { in: ["VALIDATED", "APPROVED", "EXTRACTED"] },
         deletedAt: null,
       },
@@ -45,7 +49,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
     })
     if (allReports.length === 0) {
       return Response.json({
-        companyId: id,
+        companyId,
         companyName: company.nameEn,
         ticker: company.ticker,
         sector: company.sector,
@@ -67,14 +71,14 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
   }
 
   const coverage = buildCoverageReport({
-    companyId: id,
+    companyId,
     sector: company.sector,
     periodKey: reportPeriodKey(report),
     foundCodes,
   })
 
   return Response.json({
-    companyId: id,
+    companyId,
     companyName: company.nameEn,
     ticker: company.ticker,
     sector: company.sector,

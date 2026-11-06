@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ sector: s
 
   const ar = SECTOR_AR[sector] ?? sector
   const title = `${sector} companies — EGX sector`
-  const description = `Egyptian Exchange ${sector} companies (${ar}) with the latest recorded price and verified annual revenue and net profit. Source-traceable data with the period printed for every figure.`
+  const description = `Egyptian Exchange ${sector} companies (${ar}) with the latest recorded price and published annual revenue and net profit figures, labeled with their financial period.`
 
   return {
     title,
@@ -49,10 +49,23 @@ export async function generateMetadata({ params }: { params: Promise<{ sector: s
   }
 }
 
-export default async function SectorPage({ params }: { params: Promise<{ sector: string }> }) {
+export default async function SectorPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ sector: string }>
+  searchParams: Promise<{ year?: string }>
+}) {
   const { sector: raw } = await params
   const sector = decodeURIComponent(raw)
   if (!isSector(sector)) notFound()
+
+  // Optional ?year=YYYY pin — like-for-like historical view of the whole
+  // sector on ONE fiscal year (same behavior as /rankings, /compare and the
+  // sectors overview). An unpinned page uses each company's latest annual.
+  const sp = await searchParams
+  const rawYear = sp?.year
+  const requestedYear = rawYear && /^\d{4}$/.test(rawYear) ? Number(rawYear) : null
 
   const companies = await db.company.findMany({
     where: { isActive: true, sector },
@@ -77,7 +90,14 @@ export default async function SectorPage({ params }: { params: Promise<{ sector:
       ])
     : [{ filtered: [] }, []]
 
-  const latest = selectLatestByCompany(calc.filtered, ["revenue", "net_profit"])
+  const annualRows = calc.filtered
+  // Fiscal years this sector actually covers (descending) — the period
+  // dropdown offers exactly these; a pin for an unknown year degrades to auto.
+  const years = [...new Set(annualRows.map((r) => r.fiscalYear))].sort((a, b) => b - a)
+  const pinnedYear = requestedYear && years.includes(requestedYear) ? requestedYear : null
+  const sourceRows = pinnedYear ? annualRows.filter((r) => r.fiscalYear === pinnedYear) : annualRows
+
+  const latest = selectLatestByCompany(sourceRows, ["revenue", "net_profit"])
   const latestMetric = new Map<string, { value: number; periodLabel: string }>()
   for (const [companyId, selection] of latest) {
     for (const code of ["revenue", "net_profit"]) {
@@ -120,6 +140,8 @@ export default async function SectorPage({ params }: { params: Promise<{ sector:
       latestMetric={latestMetric}
       latestPrice={latestPrice}
       url={url}
+      year={pinnedYear}
+      years={years}
     />
   )
 }

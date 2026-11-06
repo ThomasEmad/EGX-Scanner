@@ -1,0 +1,1 @@
+{"requests":[{"type":"execute","stmt":{"sql":"SELECT createdAt, details FROM AuditLog WHERE action='AI_ANALYSIS' ORDER BY createdAt DESC LIMIT 8"}},{"type":"close"}]}

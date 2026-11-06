@@ -1,0 +1,100 @@
+ 785 b=2 
+ 786 b=2 <div className="flex flex-col sm:flex-row gap
+ 787 b=2 <Button variant="outline" size="sm" onClick={
+ 788 b=2 <Plus className="h-4 w-4" />
+ 789 b=2 {t("sc.addCondition")}
+ 790 b=2 </Button>
+ 791 b=2 <Button size="sm" onClick={() => runMutation.
+ 792 b=2 <Play className="h-4 w-4" />
+ 793 b=2 {t("common.run")}
+ 794 b=2 </Button>
+ 795 b=2 </div>
+ 796 b=2 
+ 797 b=3 {hasErrors ? (
+ 798 b=3 <div className="flex items-start gap-1 rounde
+ 799 b=3 <AlertCircle className="mt-0.5 h-4 w-4 shrink
+ 800 b=3 <span>
+ 801 b=3 {lang === "ar" ? "صحح الأخطاء في الصفوف أعلاه
+ 802 b=3 </span>
+ 803 b=3 </div>
+ 804 b=2 ) : null}
+ 805 b=2 </CardContent>
+ 806 b=2 </Card>
+ 807 b=2 
+ 808 b=2 {/* examples */}
+ 809 b=3 {scanResult === null && !runMutation.isPendin
+ 810 b=3 <Card className="p-3">
+ 811 b=3 <CardHeader className="pb-2">
+ 812 b=3 <CardTitle className="text-sm flex items-cent
+ 813 b=3 <Copy className="h-3.5 w-3.5" />
+ 814 b=3 {t("sc.examples")}
+ 815 b=3 </CardTitle>
+ 816 b=3 </CardHeader>
+ 817 b=3 <CardContent className="space-y-2">
+ 818 b=4 {EXAMPLE_RULES.map((ex) => (
+ 819 b=4 <Button
+ 820 b=4 key={ex.label}
+ 821 b=4 variant="outline"
+ 822 b=4 size="sm"
+ 823 b=4 onClick={() => applyExample(ex)}
+ 824 b=4 className="w-full text-start text-sm border b
+ 825 b=4 >
+ 826 b=4 <div className="font-medium">{ex.label}</div>
+ 827 b=4 <div className="text-[10px] text-muted-foregr
+ 828 b=4 </Button>
+ 829 b=3 ))}
+ 830 b=3 </CardContent>
+ 831 b=3 </Card>
+ 832 b=2 ) : null}
+ 833 b=2 
+ 834 b=2 {/* results */}
+ 835 b=2 <div className="space-y-3">
+ 836 b=3 {runMutation.isPending ? (
+ 837 b=3 <div className="space-y-2">
+ 838 b=4 {Array.from({ length: 4 }).map((_, i) => (
+ 839 b=4 <Skeleton key={i} className="h-16 rounded-lg"
+ 840 b=3 ))}
+ 841 b=3 </div>
+ 842 b=3 ) : scanOutput ? (
+ 843 b=3 <>
+ 844 b=3 <div className="flex flex-wrap items-center g
+ 845 b=3 <span className="text-sm font-semibold text-f
+ 846 b=3 <Badge variant="outline" className="tabular">
+ 847 b=3 <Badge className="tabular">
+ 848 b=3 {scanOutput.matched} / {scanOutput.total} {t(
+ 849 b=3 </Badge>
+ 850 b=3 </div>
+ 851 b=3 
+ 852 b=4 {scanOutput.matched === 0 ? (
+ 853 b=4 <Card className="p-6 text-center text-sm text
+ 854 b=4 {lang === "ar" ? "لا شركات مطابقة في هذه الفت
+ 855 b=4 </Card>
+ 856 b=4 ) : (
+ 857 b=4 <div className="max-h-[560px] space-y-2 overf
+ 858 b=5 {[...scanOutput.results].sort((a, b) => b.eva
+ 859 b=5 <ResultRow
+ 860 b=5 key={r.companyId}
+ 861 b=5 result={r}
+ 862 b=5 expanded={expanded === r.companyId}
+ 863 b=5 onToggle={() => setExpanded(expanded === r.co
+ 864 b=5 onOpenCompany={onOpenCompany}
+ 865 b=5 />
+ 866 b=4 ))}
+ 867 b=4 </div>
+ 868 b=3 )}
+ 869 b=3 </>
+ 870 b=3 ) : (
+ 871 b=3 <Card className="flex h-40 items-center justi
+ 872 b=3 <div className="space-y-2">
+ 873 b=3 <Play className="mx-auto h-8 w-8 opacity-30" 
+ 874 b=3 <p>{t("sc.noResults")}</p>
+ 875 b=3 </div>
+ 876 b=3 </Card>
+ 877 b=2 )}
+ 878 b=2 </div>
+ 879 b=2 </div>
+ 880 b=2 </div>
+ 881 b=2 )
+ 882 b=1 }
+ 883 b=1 
+FINAL b=1

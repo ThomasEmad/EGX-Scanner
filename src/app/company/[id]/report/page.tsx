@@ -231,12 +231,9 @@ export default async function CompanyReportPage({ params }: { params: Promise<{ 
         </>
       )}
 
-      {/* provenance + disclaimer */}
+      {/* disclaimer */}
       <footer className="mt-8 border-t border-slate-300 pt-3 text-[10px] leading-relaxed text-slate-500">
-        <p>
-          مصادر البيانات: Yahoo Finance، Reuters، مباشر (Mubasher)، AskBorsa، TradingView، والإفصاحات الرسمية — كل قيمة تحمل مصدرها في المنصة مع تحقق آلي ومنطق توازن الميزانية.
-        </p>
-        <p className="mt-1 font-semibold">
+        <p className="font-semibold">
           إخلاء مسؤولية: هذا التقرير أداة تعليمية/معلوماتية تعرض أوضاع مالية واقعية بأرقام متحقق منها، وليس توصية شراء أو بيع. اتخذ قراراتك الاستثمارية بمسؤوليتك أو باستشارة مرخص.
         </p>
       </footer>

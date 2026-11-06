@@ -1,0 +1,8 @@
+﻿CURRENT  COGS                             4.193e+8 VALID "Cost of Revenues - Total (Refinitiv CF-Export, US
+CURRENT  CURRENT_ASSETS                   8.193e+8 VALID "Total Current Assets (Refinitiv CF-Export, USD→EG
+CURRENT  GROSS_PROFIT                     2.096e+8 VALID "Gross Profit - Industrials/Property - Total (Refi
+CURRENT  NON_CURRENT_ASSETS               2.048e+8 VALID "Total Non-Current Assets (Refinitiv CF-Export, US
+CURRENT  REVENUE                          6.289e+8 VALID "Revenue from Business Activities - Total (Refinit
+CURRENT  TOTAL_ASSETS                     1.229e+9 VALID "Total Assets (Refinitiv CF-Export, USD→EGP)"
+CURRENT  TOTAL_EQUITY                     4.097e+8 VALID "Total Shareholders' Equity - including Minority I
+CURRENT  TOTAL_LIABILITIES                6.145e+8 VALID "Total Liabilities (Refinitiv CF-Export, USD→EGP)"

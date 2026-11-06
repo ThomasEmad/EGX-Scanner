@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Skeleton } from "@/components/ui/skeleton"
-import { AppFooter } from "@/components/egx/app-footer"
 import { useI18n } from "@/lib/i18n"
 import { useSubscriptionGate } from "@/lib/client/subscription-gate"
 import { useRouter } from "next/navigation"
@@ -80,7 +79,6 @@ export default function UndervaluedPage() {
             </CardContent>
           </Card>
         </main>
-        <AppFooter />
       </div>
     )
   }
@@ -215,7 +213,6 @@ export default function UndervaluedPage() {
           </div>
         )}
       </main>
-      <AppFooter />
     </div>
   )
 }

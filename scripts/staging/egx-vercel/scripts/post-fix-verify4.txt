@@ -1,0 +1,46 @@
+﻿LATEST RUN cmvttb4ka0000bxiccz981x2l 2026-10-29T17:23:29.603Z completed 2172
+CERTIFICATION { certified: 84, provisional: 143, review_required: 37 } TOTAL 264
+AVG SCORE 85.3
+CRITICAL BY CODE [
+  [ 'MISSING_CRITICAL_METRIC', 43 ],
+  [ 'CASH_FLOW_SUM', 16 ],
+  [ 'GROSS_PROFIT_IDENTITY', 9 ],
+  [ 'ASSET_COMPONENTS', 7 ],
+  [ 'PBT_TAX_NET_PROFIT', 6 ],
+  [ 'BALANCE_SHEET_EQUATION', 3 ],
+  [ 'GROSS_PROFIT_EXCEEDS_REVENUE', 2 ],
+  [ 'GROSS_MARGIN_IMPOSSIBLE', 2 ],
+  [ 'CASH_OPENING_CLOSING', 1 ]
+]
+
+CORRECTED TICKERS
+ELKA | score=84 rating=high cert=provisional blockers=0 | critical=0  | high=2 MISSING_CRITICAL_METRIC,INSUFFICIENT_TREND_DATA
+MHOT | score=81 rating=high cert=provisional blockers=0 | critical=0  | high=0 
+GRCA | score=88 rating=high cert=certified blockers=0 | critical=0  | high=1 INSUFFICIENT_TREND_DATA
+SCFM | score=88 rating=high cert=provisional blockers=0 | critical=0  | high=1 INSUFFICIENT_TREND_DATA
+PRCL | score=89 rating=high cert=certified blockers=0 | critical=0  | high=1 INSUFFICIENT_TREND_DATA
+AALR | score=84 rating=high cert=provisional blockers=0 | critical=0  | high=1 INSUFFICIENT_TREND_DATA
+ALEX | score=81 rating=high cert=provisional blockers=0 | critical=0  | high=2 STALE_DATA,INSUFFICIENT_TREND_DATA
+UASG | score=67 rating=medium cert=provisional blockers=0 | critical=2 MISSING_CRITICAL_METRIC | high=4 STALE_DATA,MISSING_CRITICAL_METRIC,INSUFFICIENT_TREND_DATA
+COPR | score=63 rating=medium cert=review_required blockers=1 | critical=1 ASSET_COMPONENTS | high=2 MISSING_CRITICAL_METRIC,INSUFFICIENT_TREND_DATA
+EGAS | score=66 rating=medium cert=review_required blockers=2 | critical=2 CASH_FLOW_SUM,PBT_TAX_NET_PROFIT | high=0 
+SIPC | score=78 rating=medium cert=review_required blockers=1 | critical=0  | high=1 BALANCE_SHEET_EQUATION
+GSSC | score=82 rating=high cert=provisional blockers=0 | critical=0  | high=0 
+UNIT | score=86 rating=high cert=provisional blockers=0 | critical=0  | high=0 
+OFH | score=71 rating=medium cert=review_required blockers=1 | critical=1 PBT_TAX_NET_PROFIT | high=0 
+
+LATEST ROE / ANNUAL ROE
+ELKA Real Estate Q1 2025:0.27 | FY 2024:22.65 | Q1 2024:24.57 | Q4 2024:0.17
+MHOT Travel & Leisure FY 2025:41.26 | Q4 2025:8.32 | FY 2024:57.88 | Q4 2024:13.73
+GRCA Financial Services FY 2026:33.97 | FY 2025:22.20 | Q1 2025:-2.53 | Q1 2024:3.08
+SCFM Food Q1 2025:-6.25 | FY 2024:18.98 | Q1 2024:138.83 | Q4 2024:-27.84
+PRCL Building Materials Q1 2025:-20.53 | Q1 2024:-156.21 | FY 2023:58.57 | Q4 2023:-75.38
+AALR Construction Q1 2025:-1.84 | FY 2024:0.01 | Q1 2024:-0.66 | Q4 2024:-0.99
+ALEX Building Materials Q1 2020:-11.46 | Q2 2020:-36.20 | Q1 2019:-65.58 | Q4 2019:-50.54
+UASG Transport 
+COPR Construction FY 2024:4.94 | FY 2023:-4.84 | Q1 2022:-6.77 | Q2 2022:-12.48
+EGAS Energy Q1 2026:4.40 | TTM ending Q1 2026:6.92 | FY 2025:6.58 | Q1 2025:4.25
+SIPC Healthcare Q1 2026:-5.16 | FY 2025:-6.27 | Q4 2025:37.95 | FY 2024:-19.79
+GSSC Food FY 2025:17.35 | FY 2024:32.75 | Q4 2024:4.63 | FY 2023:13.91
+UNIT Real Estate Q1 2026:-26.84 | FY 2024:11.48 | FY 2023:-3.33 | FY 2022:-0.41
+OFH Financial Services Q1 2026:-2.23 | Q2 2026:-2.23 | Q1 2025:-2.85 | FY 2024:1.72

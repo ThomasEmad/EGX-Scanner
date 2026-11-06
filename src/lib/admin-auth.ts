@@ -2,7 +2,9 @@
 // Sessions are database-backed and stored in HttpOnly Secure SameSite cookies.
 
 import { randomUUID } from "node:crypto"
+import { cookies } from "next/headers"
 import { db } from "@/lib/db"
+import { hashToken, secureCompare } from "@/lib/secure-compare"
 
 const SESSION_TTL_MS = 24 * 60 * 60 * 1000
 const COOKIE_NAME = "egx_admin_session"
@@ -17,11 +19,16 @@ function passcode(): string {
 }
 
 export async function adminLogin(input: string | undefined): Promise<string | null> {
-  if (!input || input !== passcode()) return null
+  // Timing-safe comparison — plain `!==` leaks prefix timing on the passcode.
+  if (!input || !secureCompare(input, passcode())) return null
+  // Housekeeping: drop expired sessions so the table never grows unbounded.
+  await db.adminSession.deleteMany({ where: { expiresAt: { lt: new Date() } } }).catch(() => {})
   const token = randomUUID()
   const expiresAt = new Date(Date.now() + SESSION_TTL_MS)
+  // Store only the SHA-256 hash of the token — a DB leak must not yield
+  // working sessions. The raw token exists once, in the Set-Cookie header.
   await db.adminSession.create({
-    data: { token, expiresAt },
+    data: { token: hashToken(token), expiresAt },
   })
   return token
 }
@@ -30,14 +37,28 @@ export async function isAdmin(req: Request): Promise<boolean> {
   const token = getAdminTokenFromRequest(req)
   if (!token) return false
   const session = await db.adminSession.findUnique({
-    where: { token },
+    where: { token: hashToken(token) },
     select: { expiresAt: true },
   })
   if (!session) return false
   if (session.expiresAt < new Date()) {
-    await db.adminSession.delete({ where: { token } }).catch(() => {})
+    await db.adminSession.delete({ where: { token: hashToken(token) } }).catch(() => {})
     return false
   }
+  return true
+}
+
+/** Server-component variant: reads the session from the Next.js cookie store. */
+export async function isAdminServer(): Promise<boolean> {
+  const store = await cookies()
+  const token = store.get(COOKIE_NAME)?.value
+  if (!token) return false
+  const session = await db.adminSession.findUnique({
+    where: { token: hashToken(token) },
+    select: { expiresAt: true },
+  })
+  if (!session) return false
+  if (session.expiresAt < new Date()) return false
   return true
 }
 

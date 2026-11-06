@@ -9,6 +9,10 @@ import { reportPeriodKey } from "@/lib/financial/periods"
 // relationships (TOTAL_DEBT → ST + LT + LEASES), primary statement → notes,
 // derivation chain (EPS → NET_PROFIT, WEIGHTED_AVG_SHARES).
 //
+// Value provenance (original labels, extraction confidence, source pages,
+// validation status) is internal documentation — only the numeric value and
+// its availability are exposed.
+//
 // Query params:
 //   ?reportId=<id>   — restrict to a single report (otherwise latest)
 //   ?metric=<code>   — drill down on a single metric (returns its tree)
@@ -52,14 +56,10 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
   }
 
   const report = reports[0]
-  const foundValues = new Map<string, { value: number; originalLabel?: string; confidence?: number; sourcePage?: number | null; validationStatus?: string }>()
+  const foundValues = new Map<string, { value: number }>()
   for (const v of report.values) {
     foundValues.set(v.metricCode, {
       value: v.normalizedValue,
-      originalLabel: v.originalLabel ?? undefined,
-      confidence: v.confidence ?? undefined,
-      sourcePage: v.sourcePage,
-      validationStatus: v.validationStatus ?? undefined,
     })
   }
 

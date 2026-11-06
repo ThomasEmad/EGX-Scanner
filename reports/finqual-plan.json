@@ -1,0 +1,2477 @@
+{
+  "generatedAt": "2026-11-05T00:30:22.400Z",
+  "mode": "apply",
+  "deletes": 473,
+  "marks": 50,
+  "derivations": 25,
+  "upgrades": 12,
+  "derivedPlan": [
+    {
+      "ticker": "ACGC",
+      "period": "Q1 2024",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -61221000,
+      "reportId": "cmun5cry00lktbx9kjf4j9xhf",
+      "companyId": "cmui725ab0007bx902rvrm1xe",
+      "fiscalYear": 2024,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "ADPC",
+      "period": "Q1 2024",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 143587434,
+      "reportId": "cmun2bs6g0041bx8030aw2t7q",
+      "companyId": "cmui725aw0009bx90iuwgyzz5",
+      "fiscalYear": 2024,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "AMER",
+      "period": "Q1 2023",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -332223618,
+      "reportId": "cmun2bur600ufbx8052o0nt2t",
+      "companyId": "cmuexbjx30020bxn8p8p2ajqd",
+      "fiscalYear": 2023,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "AMER",
+      "period": "Q1 2024",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -9291612.999999996,
+      "reportId": "cmun5d1s80npzbx9kaqxtp0ks",
+      "companyId": "cmuexbjx30020bxn8p8p2ajqd",
+      "fiscalYear": 2024,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "ATQA",
+      "period": "Q1 2024",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -198417029,
+      "reportId": "cmun2bwua01jvbx80yujm0zwc",
+      "companyId": "cmugriqey0008bx507bhabe1w",
+      "fiscalYear": 2024,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "BIGP",
+      "period": "Q1 2023",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 75651,
+      "reportId": "cmun5bnah0cu7bx9kfv4i93z1",
+      "companyId": "cmui725h4000wbx90kc9d7lu1",
+      "fiscalYear": 2023,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "BINV",
+      "period": "Q1 2023",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": 873909290,
+      "reportId": "cmun5ddjp0qbjbx9kypnkc9jj",
+      "companyId": "cmui725hc000xbx90m7zwtdit",
+      "fiscalYear": 2023,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "COSG",
+      "period": "Q1 2023",
+      "metric": "GROSS_PROFIT",
+      "value": 43716819,
+      "reportId": "cmun5dpcs0swxbx9k81szayim",
+      "companyId": "cmui725kn0019bx906gs1z172",
+      "fiscalYear": 2023,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "DEIN",
+      "period": "Q1 2024",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -718431795,
+      "reportId": "cmun2c09302sdbx8063n604sv",
+      "companyId": "cmui725mk001gbx909h9lgscc",
+      "fiscalYear": 2024,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "DTPP",
+      "period": "Q1 2023",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -15537290,
+      "reportId": "cmun5bt4k0drnbx9ktf3yi2jk",
+      "companyId": "cmui725nb001jbx90u24hixiz",
+      "fiscalYear": 2023,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "FNAR",
+      "period": "Q1 2025",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 132802688,
+      "reportId": "cmuion14j0gcebxq0omyiu6hu",
+      "companyId": "cmui725x8002kbx900bhlrsrb",
+      "fiscalYear": 2025,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "KWIN",
+      "period": "Q1 2023",
+      "metric": "GROSS_PROFIT",
+      "value": 931302,
+      "reportId": "cmun2cazb06crbx80cyhbo4gi",
+      "companyId": "cmui72660003gbx9050qqs6fv",
+      "fiscalYear": 2023,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "KWIN",
+      "period": "Q1 2024",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 14825162,
+      "reportId": "cmun5aauw076nbx9kiefi33u4",
+      "companyId": "cmui72660003gbx9050qqs6fv",
+      "fiscalYear": 2024,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "KWIN",
+      "period": "Q1 2024",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": 15091677,
+      "reportId": "cmun5aauw076nbx9kiefi33u4",
+      "companyId": "cmui72660003gbx9050qqs6fv",
+      "fiscalYear": 2024,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "MBSC",
+      "period": "Q1 2023",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -942514350,
+      "reportId": "cmun5ezhj148tbx9k2yy7q3z0",
+      "companyId": "cmui7267a003mbx90y8or1rmm",
+      "fiscalYear": 2023,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "MBSC",
+      "period": "Q1 2024",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 14683840,
+      "reportId": "cmun2cbwm06p7bx808kzk408u",
+      "companyId": "cmui7267a003mbx90y8or1rmm",
+      "fiscalYear": 2024,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "OFH",
+      "period": "Q1 2024",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -102714000,
+      "reportId": "cmun5fjss199dbx9k90x1po1a",
+      "companyId": "cmuicituk0004bxnkcjdaqfxe",
+      "fiscalYear": 2024,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "POUL",
+      "period": "Q1 2023",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -171580659,
+      "reportId": "cmun5frbj1b4rbx9kbycce3gd",
+      "companyId": "cmui726im004ubx905gerka7d",
+      "fiscalYear": 2023,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "ROTO",
+      "period": "Q1 2023",
+      "metric": "NET_PROFIT",
+      "value": 1212989,
+      "reportId": "cmun5fulw1buhbx9kwc6up2kr",
+      "companyId": "cmui726l10053bx908eq252mn",
+      "fiscalYear": 2023,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "ROTO",
+      "period": "Q1 2023",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": 293141104,
+      "reportId": "cmun5fulw1buhbx9kwc6up2kr",
+      "companyId": "cmui726l10053bx908eq252mn",
+      "fiscalYear": 2023,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "ROTO",
+      "period": "Q1 2023",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -288885774,
+      "reportId": "cmun5fulw1buhbx9kwc6up2kr",
+      "companyId": "cmui726l10053bx908eq252mn",
+      "fiscalYear": 2023,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "SDTI",
+      "period": "Q1 2023",
+      "metric": "INVESTING_CASH_FLOW",
+      "value": -164005000,
+      "reportId": "cmun5cmd40kbjbx9k15n7qqta",
+      "companyId": "cmui726mo0059bx909rckwosi",
+      "fiscalYear": 2023,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "TRTO",
+      "period": "Q1 2024",
+      "metric": "NET_PROFIT",
+      "value": 2487235,
+      "reportId": "cmun5asa709o1bx9kc0wdu3ov",
+      "companyId": "cmui726re005qbx906uyku5k5",
+      "fiscalYear": 2024,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "UPMS",
+      "period": "Q1 2023",
+      "metric": "OPERATING_CASH_FLOW",
+      "value": -47730700,
+      "reportId": "cmun5coly0ktnbx9kcpdje6mb",
+      "companyId": "cmui726tb005ybx90os3wozzd",
+      "fiscalYear": 2023,
+      "anchor": "NO_ANCHOR"
+    },
+    {
+      "ticker": "UPMS",
+      "period": "Q1 2023",
+      "metric": "NET_CHANGE_IN_CASH",
+      "value": -47730700,
+      "reportId": "cmun5coly0ktnbx9kcpdje6mb",
+      "companyId": "cmui726tb005ybx90os3wozzd",
+      "fiscalYear": 2023,
+      "anchor": "NO_ANCHOR"
+    }
+  ],
+  "derivedRejected": [
+    {
+      "ticker": "AALR",
+      "period": "Q1 2022",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (411.4%)",
+      "derived": 6235573,
+      "askQ1": -19414948
+    },
+    {
+      "ticker": "AALR",
+      "period": "Q1 2023",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (113.6%)",
+      "derived": 38002671,
+      "askQ1": -5173401
+    },
+    {
+      "ticker": "ABUK",
+      "period": "Q1 2024",
+      "metric": "GROSS_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (27.5%)",
+      "derived": 2078506501.999999,
+      "askQ1": 1506465458
+    },
+    {
+      "ticker": "ACAMD",
+      "period": "Q1 2025",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (67.0%)",
+      "derived": 50274063,
+      "askQ1": 16605597
+    },
+    {
+      "ticker": "ACGC",
+      "period": "Q1 2023",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (552.8%)",
+      "derived": -99639000,
+      "askQ1": -650417000
+    },
+    {
+      "ticker": "ADCI",
+      "period": "Q1 2022",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (30.5%)",
+      "derived": 36966582,
+      "askQ1": 25694048
+    },
+    {
+      "ticker": "ADCI",
+      "period": "Q1 2022",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (113.7%)",
+      "derived": 46468220,
+      "askQ1": -6364127
+    },
+    {
+      "ticker": "ADIB",
+      "period": "Q1 2024",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (107.7%)",
+      "derived": 7163886000,
+      "askQ1": -550292000
+    },
+    {
+      "ticker": "ADPC",
+      "period": "Q1 2023",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (134.4%)",
+      "derived": 21434464,
+      "askQ1": -7376366
+    },
+    {
+      "ticker": "ADRI",
+      "period": "Q1 2023",
+      "metric": "GROSS_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (137.4%)",
+      "derived": -1915109,
+      "askQ1": 716727
+    },
+    {
+      "ticker": "AIFI",
+      "period": "Q1 2023",
+      "metric": "GROSS_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (131.0%)",
+      "derived": -15118653,
+      "askQ1": 4681089
+    },
+    {
+      "ticker": "AIHC",
+      "period": "Q1 2021",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (67.6%)",
+      "derived": -473722518,
+      "askQ1": -153603623
+    },
+    {
+      "ticker": "ALCN",
+      "period": "Q1 2024",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (346.3%)",
+      "derived": -386504000,
+      "askQ1": 952134000
+    },
+    {
+      "ticker": "ALEX",
+      "period": "Q1 2019",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (34.8%)",
+      "derived": -307440157,
+      "askQ1": -200312705
+    },
+    {
+      "ticker": "ALUM",
+      "period": "Q1 2023",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (198.2%)",
+      "derived": -20217423,
+      "askQ1": -60280022
+    },
+    {
+      "ticker": "AMER",
+      "period": "Q1 2022",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (997.6%)",
+      "derived": 22411616,
+      "askQ1": -201169222
+    },
+    {
+      "ticker": "AMER",
+      "period": "Q1 2022",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (208.3%)",
+      "derived": -5238024,
+      "askQ1": 5673804
+    },
+    {
+      "ticker": "AMER",
+      "period": "Q1 2023",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (322.4%)",
+      "derived": -5663991,
+      "askQ1": -23923044
+    },
+    {
+      "ticker": "AMOC",
+      "period": "Q1 2022",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (552.7%)",
+      "derived": -49685996,
+      "askQ1": 224910955
+    },
+    {
+      "ticker": "AMOC",
+      "period": "Q1 2022",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (86.3%)",
+      "derived": 96267082,
+      "askQ1": 13152884
+    },
+    {
+      "ticker": "AMOC",
+      "period": "Q1 2024",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (99.4%)",
+      "derived": 106575828,
+      "askQ1": 673458
+    },
+    {
+      "ticker": "ARAB",
+      "period": "Q1 2023",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (83.1%)",
+      "derived": -21025038,
+      "askQ1": -38497475
+    },
+    {
+      "ticker": "AREH",
+      "period": "Q1 2022",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "SCALE_SUSPECT (2.9e-4x vs annual)",
+      "derived": -3496
+    },
+    {
+      "ticker": "AREH",
+      "period": "Q1 2024",
+      "metric": "NET_PROFIT",
+      "reason": "SCALE_SUSPECT (1.3e-3x vs annual)",
+      "derived": 16420
+    },
+    {
+      "ticker": "AREH",
+      "period": "Q1 2025",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "SCALE_SUSPECT (2.5e-3x vs annual)",
+      "derived": 9000
+    },
+    {
+      "ticker": "ASCM",
+      "period": "Q1 2022",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (468.5%)",
+      "derived": 7985467,
+      "askQ1": 45393712
+    },
+    {
+      "ticker": "ASCM",
+      "period": "Q1 2023",
+      "metric": "GROSS_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (24.7%)",
+      "derived": 125668076,
+      "askQ1": 156727869
+    },
+    {
+      "ticker": "ATQA",
+      "period": "Q1 2022",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (75.4%)",
+      "derived": 67951376,
+      "askQ1": 119216008
+    },
+    {
+      "ticker": "ATQA",
+      "period": "Q1 2022",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (112.8%)",
+      "derived": -742071970,
+      "askQ1": 94812991
+    },
+    {
+      "ticker": "ATQA",
+      "period": "Q1 2022",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (182.2%)",
+      "derived": 176927716,
+      "askQ1": -145376275
+    },
+    {
+      "ticker": "BIGP",
+      "period": "Q1 2022",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (78.8%)",
+      "derived": 5025191,
+      "askQ1": 1067844
+    },
+    {
+      "ticker": "BINV",
+      "period": "Q1 2022",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (5113.2%)",
+      "derived": -28654878,
+      "askQ1": 1436529985
+    },
+    {
+      "ticker": "BIOC",
+      "period": "Q1 2022",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (17.8%)",
+      "derived": 1057146074,
+      "askQ1": 869164208
+    },
+    {
+      "ticker": "BIOC",
+      "period": "Q1 2022",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (103.4%)",
+      "derived": 215615544,
+      "askQ1": -7323481
+    },
+    {
+      "ticker": "BTFH",
+      "period": "Q1 2023",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "SCALE_SUSPECT (2.2e-3x vs annual)",
+      "derived": -26371003
+    },
+    {
+      "ticker": "CAED",
+      "period": "Q1 2023",
+      "metric": "GROSS_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (61.7%)",
+      "derived": 36671787,
+      "askQ1": 14030371
+    },
+    {
+      "ticker": "CAED",
+      "period": "Q1 2024",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (99.0%)",
+      "derived": -14506426,
+      "askQ1": -147215
+    },
+    {
+      "ticker": "CANA",
+      "period": "Q1 2022",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (82.7%)",
+      "derived": -1208785000,
+      "askQ1": -209050000
+    },
+    {
+      "ticker": "CANA",
+      "period": "Q1 2025",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (87.0%)",
+      "derived": -4814580000,
+      "askQ1": -627581000
+    },
+    {
+      "ticker": "CCAP",
+      "period": "Q1 2024",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (36.4%)",
+      "derived": 6048487000,
+      "askQ1": 3844551000
+    },
+    {
+      "ticker": "CCRS",
+      "period": "Q1 2021",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (149.4%)",
+      "derived": 2661065,
+      "askQ1": -1313739
+    },
+    {
+      "ticker": "CEFM",
+      "period": "Q1 2024",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (162.7%)",
+      "derived": 10963431,
+      "askQ1": 28801039
+    },
+    {
+      "ticker": "CERA",
+      "period": "Q1 2023",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (114.8%)",
+      "derived": -30934813.999999996,
+      "askQ1": 4589438
+    },
+    {
+      "ticker": "CICH",
+      "period": "Q1 2023",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (571.8%)",
+      "derived": 51662254,
+      "askQ1": -243731284
+    },
+    {
+      "ticker": "CICH",
+      "period": "Q1 2023",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (25.5%)",
+      "derived": 658830052,
+      "askQ1": 490958362
+    },
+    {
+      "ticker": "CIEB",
+      "period": "Q1 2024",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (88.6%)",
+      "derived": -13344455000,
+      "askQ1": -1522250000
+    },
+    {
+      "ticker": "CLHO",
+      "period": "Q1 2023",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (782.5%)",
+      "derived": 17303299,
+      "askQ1": 152698937
+    },
+    {
+      "ticker": "COMI",
+      "period": "Q1 2022",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (383.9%)",
+      "derived": -18909169000,
+      "askQ1": 53674529000
+    },
+    {
+      "ticker": "COPR",
+      "period": "Q1 2023",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (99.2%)",
+      "derived": 3737492,
+      "askQ1": 31650
+    },
+    {
+      "ticker": "COPR",
+      "period": "Q1 2023",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (99.8%)",
+      "derived": 77573207,
+      "askQ1": 189526
+    },
+    {
+      "ticker": "CRST",
+      "period": "Q1 2023",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (78.1%)",
+      "derived": -1292669,
+      "askQ1": -282944
+    },
+    {
+      "ticker": "DCRC",
+      "period": "Q1 2022",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (92.5%)",
+      "derived": 50489223,
+      "askQ1": 3808315
+    },
+    {
+      "ticker": "DCRC",
+      "period": "Q1 2022",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (118.3%)",
+      "derived": 2533042,
+      "askQ1": -462459
+    },
+    {
+      "ticker": "DEIN",
+      "period": "Q1 2022",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (41.4%)",
+      "derived": 78751587,
+      "askQ1": 46116046
+    },
+    {
+      "ticker": "DEIN",
+      "period": "Q1 2023",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (93.7%)",
+      "derived": -14390457.999999985,
+      "askQ1": -913052
+    },
+    {
+      "ticker": "DOMT",
+      "period": "Q1 2021",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (131.8%)",
+      "derived": -443572449,
+      "askQ1": 141028261
+    },
+    {
+      "ticker": "DSCW",
+      "period": "Q1 2023",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (98.1%)",
+      "derived": -159276818,
+      "askQ1": -3023145
+    },
+    {
+      "ticker": "DTPP",
+      "period": "Q1 2024",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (146.7%)",
+      "derived": 16151717,
+      "askQ1": -7549935
+    },
+    {
+      "ticker": "EALR",
+      "period": "Q1 2023",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (31.6%)",
+      "derived": -21515253,
+      "askQ1": -14723073
+    },
+    {
+      "ticker": "EASB",
+      "period": "Q1 2024",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (88.0%)",
+      "derived": 4930862,
+      "askQ1": 590680
+    },
+    {
+      "ticker": "EASB",
+      "period": "Q1 2024",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (20.3%)",
+      "derived": 38014552,
+      "askQ1": 45731065
+    },
+    {
+      "ticker": "EDFM",
+      "period": "Q1 2023",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (120.3%)",
+      "derived": -142432209,
+      "askQ1": 28923167
+    },
+    {
+      "ticker": "EDFM",
+      "period": "Q1 2023",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "SCALE_SUSPECT (3.4e+2x vs annual)",
+      "derived": 59056750000
+    },
+    {
+      "ticker": "EDFM",
+      "period": "Q1 2023",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "SCALE_SUSPECT (1.3e+3x vs annual)",
+      "derived": -53560129000
+    },
+    {
+      "ticker": "EEII",
+      "period": "Q1 2023",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (37.4%)",
+      "derived": 21753334,
+      "askQ1": 13608820
+    },
+    {
+      "ticker": "EEII",
+      "period": "Q1 2023",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (105.9%)",
+      "derived": 21819245,
+      "askQ1": -1286154
+    },
+    {
+      "ticker": "EEII",
+      "period": "Q1 2024",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (45.0%)",
+      "derived": 31466610,
+      "askQ1": 17315034
+    },
+    {
+      "ticker": "EFID",
+      "period": "Q1 2024",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (235.0%)",
+      "derived": -85580477,
+      "askQ1": 115567248
+    },
+    {
+      "ticker": "EFIH",
+      "period": "Q1 2022",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (37883.8%)",
+      "derived": 98658,
+      "askQ1": 37474104
+    },
+    {
+      "ticker": "EFIH",
+      "period": "Q1 2024",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (45.5%)",
+      "derived": -168551983,
+      "askQ1": -91922162
+    },
+    {
+      "ticker": "EFIH",
+      "period": "Q1 2024",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (1038.3%)",
+      "derived": 58469711,
+      "askQ1": -548593239
+    },
+    {
+      "ticker": "EGAS",
+      "period": "Q1 2022",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (116.3%)",
+      "derived": 1128216710,
+      "askQ1": -184193850
+    },
+    {
+      "ticker": "EGBE",
+      "period": "Q1 2021",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (17.5%)",
+      "derived": 4038612823,
+      "askQ1": 4745212951
+    },
+    {
+      "ticker": "EGBE",
+      "period": "Q1 2023",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "SCALE_SUSPECT (4.3e-3x vs annual)",
+      "derived": 10003357
+    },
+    {
+      "ticker": "EGTS",
+      "period": "Q1 2021",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (297.9%)",
+      "derived": 3310612,
+      "askQ1": -6551164
+    },
+    {
+      "ticker": "EGTS",
+      "period": "Q1 2021",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (96.1%)",
+      "derived": 5064582,
+      "askQ1": 195326
+    },
+    {
+      "ticker": "EGTS",
+      "period": "Q1 2023",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (107.9%)",
+      "derived": 86253558,
+      "askQ1": -6811794
+    },
+    {
+      "ticker": "EHDR",
+      "period": "Q1 2024",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (112.8%)",
+      "derived": -180281325,
+      "askQ1": 23094889
+    },
+    {
+      "ticker": "EITP",
+      "period": "Q1 2017",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (103.7%)",
+      "derived": 180388339,
+      "askQ1": -6593374
+    },
+    {
+      "ticker": "ELEC",
+      "period": "Q1 2022",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (116.4%)",
+      "derived": -1248669478,
+      "askQ1": 204739590
+    },
+    {
+      "ticker": "ELKA",
+      "period": "Q1 2024",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (117.5%)",
+      "derived": 330004467,
+      "askQ1": -57836235
+    },
+    {
+      "ticker": "ELSH",
+      "period": "Q1 2022",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (8935.9%)",
+      "derived": -420209,
+      "askQ1": 37129100
+    },
+    {
+      "ticker": "ELSH",
+      "period": "Q1 2023",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (3068.0%)",
+      "derived": 1530983,
+      "askQ1": 48502241
+    },
+    {
+      "ticker": "EMFD",
+      "period": "Q1 2022",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (98.3%)",
+      "derived": -3432152835,
+      "askQ1": -59757258
+    },
+    {
+      "ticker": "ENGC",
+      "period": "Q1 2023",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (14.1%)",
+      "derived": -7968152,
+      "askQ1": -9090083
+    },
+    {
+      "ticker": "ENGC",
+      "period": "Q1 2024",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "SCALE_SUSPECT (4.6e-3x vs annual)",
+      "derived": 549054
+    },
+    {
+      "ticker": "EPCO",
+      "period": "Q1 2023",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (99.7%)",
+      "derived": -28485552,
+      "askQ1": -91189
+    },
+    {
+      "ticker": "ESRS",
+      "period": "Q1 2020",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (101.3%)",
+      "derived": -2785776000,
+      "askQ1": 35090000
+    },
+    {
+      "ticker": "EXPA",
+      "period": "Q1 2023",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (55.7%)",
+      "derived": 5974659982,
+      "askQ1": 2644017000
+    },
+    {
+      "ticker": "FAIT",
+      "period": "Q1 2022",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (22.3%)",
+      "derived": 8904581000,
+      "askQ1": 6918625000
+    },
+    {
+      "ticker": "FNAR",
+      "period": "Q1 2023",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (243.9%)",
+      "derived": -6773200,
+      "askQ1": 9746139
+    },
+    {
+      "ticker": "FNAR",
+      "period": "Q1 2024",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "SCALE_SUSPECT (3.5e-6x vs annual)",
+      "derived": 6
+    },
+    {
+      "ticker": "GDWA",
+      "period": "Q1 2024",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (98.5%)",
+      "derived": 632471058,
+      "askQ1": 9789656
+    },
+    {
+      "ticker": "GGCC",
+      "period": "Q1 2022",
+      "metric": "GROSS_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (254.3%)",
+      "derived": 14053260,
+      "askQ1": 49788694
+    },
+    {
+      "ticker": "GIHD",
+      "period": "Q1 2022",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (275.6%)",
+      "derived": 1079598,
+      "askQ1": -1896108
+    },
+    {
+      "ticker": "GSSC",
+      "period": "Q1 2023",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (60.0%)",
+      "derived": -120244705.00000003,
+      "askQ1": -48118373
+    },
+    {
+      "ticker": "GSSC",
+      "period": "Q1 2023",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (54.8%)",
+      "derived": -115489845,
+      "askQ1": -52227854
+    },
+    {
+      "ticker": "GTWL",
+      "period": "Q1 2022",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (114.8%)",
+      "derived": -56798949,
+      "askQ1": 8400095
+    },
+    {
+      "ticker": "GTWL",
+      "period": "Q1 2024",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (193.7%)",
+      "derived": -255795742,
+      "askQ1": 239772392
+    },
+    {
+      "ticker": "HDBK",
+      "period": "Q1 2024",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (173.5%)",
+      "derived": -21464326143,
+      "askQ1": 15772296396
+    },
+    {
+      "ticker": "HELI",
+      "period": "Q1 2024",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (119.7%)",
+      "derived": 5373093098,
+      "askQ1": -1060048378
+    },
+    {
+      "ticker": "IBCT",
+      "period": "Q1 2023",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (56.7%)",
+      "derived": -1905025,
+      "askQ1": -825072
+    },
+    {
+      "ticker": "ICFC",
+      "period": "Q1 2024",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (8.2%)",
+      "derived": -19474806,
+      "askQ1": -21069000
+    },
+    {
+      "ticker": "ICID",
+      "period": "Q1 2024",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (21.4%)",
+      "derived": -8479814,
+      "askQ1": -6663580
+    },
+    {
+      "ticker": "ICLE",
+      "period": "Q1 2024",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (106.0%)",
+      "derived": -119659624,
+      "askQ1": 7129579
+    },
+    {
+      "ticker": "IEEC",
+      "period": "Q1 2022",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (142.5%)",
+      "derived": 18285893,
+      "askQ1": -7777760
+    },
+    {
+      "ticker": "IFAP",
+      "period": "Q1 2022",
+      "metric": "GROSS_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (113.4%)",
+      "derived": -87052850,
+      "askQ1": 11648214
+    },
+    {
+      "ticker": "INEG",
+      "period": "Q1 2022",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "SCALE_SUSPECT (2.7e-4x vs annual)",
+      "derived": 693
+    },
+    {
+      "ticker": "INFI",
+      "period": "Q1 2024",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (97.4%)",
+      "derived": 3611033,
+      "askQ1": 94096
+    },
+    {
+      "ticker": "IRAX",
+      "period": "Q1 2021",
+      "metric": "GROSS_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (31.6%)",
+      "derived": 2950471584,
+      "askQ1": 3882205984
+    },
+    {
+      "ticker": "IRAX",
+      "period": "Q1 2021",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (554.5%)",
+      "derived": -781363409,
+      "askQ1": 3551156202
+    },
+    {
+      "ticker": "IRAX",
+      "period": "Q1 2021",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (101.1%)",
+      "derived": 323330540,
+      "askQ1": -3511041
+    },
+    {
+      "ticker": "ISPH",
+      "period": "Q1 2022",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (136.0%)",
+      "derived": -244263447,
+      "askQ1": -576464897
+    },
+    {
+      "ticker": "ISPH",
+      "period": "Q1 2024",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (134.3%)",
+      "derived": -775102765,
+      "askQ1": 265487596
+    },
+    {
+      "ticker": "KABO",
+      "period": "Q1 2024",
+      "metric": "GROSS_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (35.7%)",
+      "derived": 92246049,
+      "askQ1": 59353362
+    },
+    {
+      "ticker": "KABO",
+      "period": "Q1 2025",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (67.2%)",
+      "derived": -35914439,
+      "askQ1": -11783810
+    },
+    {
+      "ticker": "KRDI",
+      "period": "Q1 2022",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (96.8%)",
+      "derived": 36116553,
+      "askQ1": 1158999
+    },
+    {
+      "ticker": "KWIN",
+      "period": "Q1 2023",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "SCALE_SUSPECT (3.2e-3x vs annual)",
+      "derived": 21608
+    },
+    {
+      "ticker": "KWIN",
+      "period": "Q1 2024",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (339.8%)",
+      "derived": 634249.0000000005,
+      "askQ1": -1520664
+    },
+    {
+      "ticker": "KWIN",
+      "period": "Q1 2024",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (1692.6%)",
+      "derived": 266515,
+      "askQ1": 4777668
+    },
+    {
+      "ticker": "KZPC",
+      "period": "Q1 2024",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (196.9%)",
+      "derived": 117621195,
+      "askQ1": -114012359
+    },
+    {
+      "ticker": "LCSW",
+      "period": "Q1 2023",
+      "metric": "GROSS_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (16.1%)",
+      "derived": 629385781,
+      "askQ1": 528104527
+    },
+    {
+      "ticker": "LCSW",
+      "period": "Q1 2024",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (240.0%)",
+      "derived": 145948360,
+      "askQ1": -204341280
+    },
+    {
+      "ticker": "MAAL",
+      "period": "Q1 2022",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (92.8%)",
+      "derived": -204185278,
+      "askQ1": -14678630
+    },
+    {
+      "ticker": "MASR",
+      "period": "Q1 2022",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (101.9%)",
+      "derived": 100682218,
+      "askQ1": -1960520
+    },
+    {
+      "ticker": "MASR",
+      "period": "Q1 2023",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (16.8%)",
+      "derived": -1087844355,
+      "askQ1": -905297265
+    },
+    {
+      "ticker": "MBEG",
+      "period": "Q1 2022",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (155.6%)",
+      "derived": -959886,
+      "askQ1": 533870
+    },
+    {
+      "ticker": "MEGM",
+      "period": "Q1 2022",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (731.8%)",
+      "derived": -46825432,
+      "askQ1": 295855215
+    },
+    {
+      "ticker": "MEPA",
+      "period": "Q1 2023",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (71.2%)",
+      "derived": -7022690,
+      "askQ1": -2021907
+    },
+    {
+      "ticker": "MEPA",
+      "period": "Q1 2023",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (19411.3%)",
+      "derived": 247475,
+      "askQ1": -47790637
+    },
+    {
+      "ticker": "MEPA",
+      "period": "Q1 2024",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (67.0%)",
+      "derived": 16839572,
+      "askQ1": 5553157
+    },
+    {
+      "ticker": "MFPC",
+      "period": "Q1 2024",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (204.5%)",
+      "derived": 3300758480,
+      "askQ1": -3450251074
+    },
+    {
+      "ticker": "MHOT",
+      "period": "Q1 2022",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (89.4%)",
+      "derived": 47440000,
+      "askQ1": 5034000
+    },
+    {
+      "ticker": "MICH",
+      "period": "Q1 2023",
+      "metric": "GROSS_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (116.6%)",
+      "derived": -829935000,
+      "askQ1": 137945000
+    },
+    {
+      "ticker": "MILS",
+      "period": "Q1 2023",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (98.0%)",
+      "derived": -63740360,
+      "askQ1": -1293702
+    },
+    {
+      "ticker": "MOED",
+      "period": "Q1 2023",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (40.8%)",
+      "derived": 4261143,
+      "askQ1": 5999149
+    },
+    {
+      "ticker": "MOED",
+      "period": "Q1 2023",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (99.0%)",
+      "derived": -63079691,
+      "askQ1": -603381
+    },
+    {
+      "ticker": "MOED",
+      "period": "Q1 2025",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (94.7%)",
+      "derived": -3491185,
+      "askQ1": -185814
+    },
+    {
+      "ticker": "MOIN",
+      "period": "Q1 2023",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (465.0%)",
+      "derived": -19176924,
+      "askQ1": 70003226
+    },
+    {
+      "ticker": "MOIN",
+      "period": "Q1 2024",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (53.8%)",
+      "derived": 30720089,
+      "askQ1": 14192208
+    },
+    {
+      "ticker": "MOSC",
+      "period": "Q1 2022",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (82.7%)",
+      "derived": -34357166,
+      "askQ1": -5950290
+    },
+    {
+      "ticker": "NEDA",
+      "period": "Q1 2022",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (61220.1%)",
+      "derived": -2331,
+      "askQ1": 1424710
+    },
+    {
+      "ticker": "NEDA",
+      "period": "Q1 2022",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "SCALE_SUSPECT (3.2e-3x vs annual)",
+      "derived": -2331
+    },
+    {
+      "ticker": "NHPS",
+      "period": "Q1 2022",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (35.4%)",
+      "derived": 16265737,
+      "askQ1": 10514356
+    },
+    {
+      "ticker": "NIPH",
+      "period": "Q1 2024",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (123.9%)",
+      "derived": -294209600,
+      "askQ1": 70213554
+    },
+    {
+      "ticker": "OBRI",
+      "period": "Q1 2022",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (224.7%)",
+      "derived": 22310953,
+      "askQ1": 72448416
+    },
+    {
+      "ticker": "OCDI",
+      "period": "Q1 2022",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (19.6%)",
+      "derived": 281477671,
+      "askQ1": 226232617
+    },
+    {
+      "ticker": "OCDI",
+      "period": "Q1 2022",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (28.8%)",
+      "derived": -421443590,
+      "askQ1": -542999778
+    },
+    {
+      "ticker": "OCDI",
+      "period": "Q1 2022",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (129.7%)",
+      "derived": 96702585,
+      "askQ1": -28744010
+    },
+    {
+      "ticker": "OCDI",
+      "period": "Q1 2024",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (88.2%)",
+      "derived": 1991351373,
+      "askQ1": 234021935
+    },
+    {
+      "ticker": "ODIN",
+      "period": "Q1 2024",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (160.7%)",
+      "derived": -24070658,
+      "askQ1": 14610243
+    },
+    {
+      "ticker": "ODIN",
+      "period": "Q1 2024",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (38.4%)",
+      "derived": -19951692,
+      "askQ1": -12290739
+    },
+    {
+      "ticker": "OIH",
+      "period": "Q1 2022",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (67.5%)",
+      "derived": -115917000,
+      "askQ1": -37689000
+    },
+    {
+      "ticker": "OLFI",
+      "period": "Q1 2022",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (100.8%)",
+      "derived": 45120140,
+      "askQ1": 90618491
+    },
+    {
+      "ticker": "OLFI",
+      "period": "Q1 2022",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (34.2%)",
+      "derived": 167718583,
+      "askQ1": 110397476
+    },
+    {
+      "ticker": "OLFI",
+      "period": "Q1 2024",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (272.5%)",
+      "derived": 73976118,
+      "askQ1": -127590231
+    },
+    {
+      "ticker": "ORHD",
+      "period": "Q1 2023",
+      "metric": "GROSS_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (2352.3%)",
+      "derived": 40502568,
+      "askQ1": 993233060
+    },
+    {
+      "ticker": "ORHD",
+      "period": "Q1 2024",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (40.0%)",
+      "derived": 1056886909,
+      "askQ1": 633798856
+    },
+    {
+      "ticker": "ORWE",
+      "period": "Q1 2023",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (92.3%)",
+      "derived": 2908329515,
+      "askQ1": 225309618
+    },
+    {
+      "ticker": "PHDC",
+      "period": "Q1 2023",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (50.8%)",
+      "derived": 1848804648,
+      "askQ1": 909771051
+    },
+    {
+      "ticker": "PHTV",
+      "period": "Q1 2024",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (128.4%)",
+      "derived": -214035386,
+      "askQ1": 60776316
+    },
+    {
+      "ticker": "POUL",
+      "period": "Q1 2023",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "SCALE_SUSPECT (3.9e-3x vs annual)",
+      "derived": 5505376
+    },
+    {
+      "ticker": "POUL",
+      "period": "Q1 2023",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (262.2%)",
+      "derived": 209462757,
+      "askQ1": -339649656
+    },
+    {
+      "ticker": "RMDA",
+      "period": "Q1 2024",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "SCALE_SUSPECT (4.4e-3x vs annual)",
+      "derived": -1269766
+    },
+    {
+      "ticker": "SCEM",
+      "period": "Q1 2021",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (68.4%)",
+      "derived": -198921036,
+      "askQ1": -62940402
+    },
+    {
+      "ticker": "SCTS",
+      "period": "Q1 2024",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (49.4%)",
+      "derived": 543556000,
+      "askQ1": 275111000
+    },
+    {
+      "ticker": "SCTS",
+      "period": "Q1 2024",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (35.9%)",
+      "derived": 275188000,
+      "askQ1": 373927000
+    },
+    {
+      "ticker": "SDTI",
+      "period": "Q1 2022",
+      "metric": "GROSS_PROFIT",
+      "reason": "SCALE_SUSPECT (7.5e-4x vs annual)",
+      "derived": -34000
+    },
+    {
+      "ticker": "SIPC",
+      "period": "Q1 2023",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (48.4%)",
+      "derived": 1599361,
+      "askQ1": 825885
+    },
+    {
+      "ticker": "SMFR",
+      "period": "Q1 2023",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (157.4%)",
+      "derived": -29145515,
+      "askQ1": 16722258
+    },
+    {
+      "ticker": "SMPP",
+      "period": "Q1 2018",
+      "metric": "GROSS_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (23.4%)",
+      "derived": 128807019,
+      "askQ1": 98657614
+    },
+    {
+      "ticker": "SPIN",
+      "period": "Q1 2023",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (96.9%)",
+      "derived": 37191942,
+      "askQ1": 1153608
+    },
+    {
+      "ticker": "SPIN",
+      "period": "Q1 2023",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (143.5%)",
+      "derived": -25859728,
+      "askQ1": 11256366
+    },
+    {
+      "ticker": "SPIN",
+      "period": "Q1 2024",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (818.6%)",
+      "derived": -4287414,
+      "askQ1": -39384820
+    },
+    {
+      "ticker": "SUCE",
+      "period": "Q1 2016",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (80.9%)",
+      "derived": 211606891,
+      "askQ1": 382789072
+    },
+    {
+      "ticker": "SUGR",
+      "period": "Q1 2024",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (154.4%)",
+      "derived": -169225531,
+      "askQ1": 92004656
+    },
+    {
+      "ticker": "TALM",
+      "period": "Q1 2024",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (59.4%)",
+      "derived": 538777611,
+      "askQ1": 218726553
+    },
+    {
+      "ticker": "TALM",
+      "period": "Q1 2024",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (289.5%)",
+      "derived": 185809983,
+      "askQ1": -352054248
+    },
+    {
+      "ticker": "TORA",
+      "period": "Q1 2017",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (63.1%)",
+      "derived": -32247097,
+      "askQ1": -52589840
+    },
+    {
+      "ticker": "TRST",
+      "period": "Q1 2021",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (100.6%)",
+      "derived": 2500988,
+      "askQ1": -15225
+    },
+    {
+      "ticker": "TRTO",
+      "period": "Q1 2022",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (1214.7%)",
+      "derived": 711086,
+      "askQ1": -7926452
+    },
+    {
+      "ticker": "UEFM",
+      "period": "Q1 2023",
+      "metric": "GROSS_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (4194.7%)",
+      "derived": -6762489,
+      "askQ1": -290427227
+    },
+    {
+      "ticker": "UEFM",
+      "period": "Q1 2024",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (99.9%)",
+      "derived": -173027000,
+      "askQ1": -196000
+    },
+    {
+      "ticker": "UEGC",
+      "period": "Q1 2022",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (52.2%)",
+      "derived": 75061878,
+      "askQ1": 35871648
+    },
+    {
+      "ticker": "UEGC",
+      "period": "Q1 2022",
+      "metric": "INVESTING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (26.9%)",
+      "derived": -61938846,
+      "askQ1": -45293152
+    },
+    {
+      "ticker": "UEGC",
+      "period": "Q1 2022",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (8.1%)",
+      "derived": 281928261,
+      "askQ1": 258953445
+    },
+    {
+      "ticker": "UNIP",
+      "period": "Q1 2024",
+      "metric": "FINANCING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (11.5%)",
+      "derived": 108726265,
+      "askQ1": 96206187
+    },
+    {
+      "ticker": "UNIT",
+      "period": "Q1 2024",
+      "metric": "GROSS_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (114.8%)",
+      "derived": -366157842,
+      "askQ1": 54298304
+    },
+    {
+      "ticker": "UPMS",
+      "period": "Q1 2024",
+      "metric": "NET_PROFIT",
+      "reason": "SCALE_SUSPECT (2.8e-3x vs annual)",
+      "derived": -72200
+    },
+    {
+      "ticker": "UPMS",
+      "period": "Q1 2024",
+      "metric": "GROSS_PROFIT",
+      "reason": "SCALE_SUSPECT (3.0e-3x vs annual)",
+      "derived": 157962
+    },
+    {
+      "ticker": "WCDF",
+      "period": "Q1 2023",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (114.3%)",
+      "derived": -312259000,
+      "askQ1": 44752000
+    },
+    {
+      "ticker": "WCDF",
+      "period": "Q1 2023",
+      "metric": "NET_CHANGE_IN_CASH",
+      "reason": "ASK_Q1_DIFFERS (104.3%)",
+      "derived": -363697000,
+      "askQ1": 15606000
+    },
+    {
+      "ticker": "ZEOT",
+      "period": "Q1 2022",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (76.2%)",
+      "derived": 11641000,
+      "askQ1": 2775000
+    },
+    {
+      "ticker": "ZEOT",
+      "period": "Q1 2024",
+      "metric": "NET_PROFIT",
+      "reason": "ASK_Q1_DIFFERS (72.1%)",
+      "derived": 13851000,
+      "askQ1": 3868000
+    },
+    {
+      "ticker": "ZMID",
+      "period": "Q1 2022",
+      "metric": "OPERATING_CASH_FLOW",
+      "reason": "ASK_Q1_DIFFERS (232.3%)",
+      "derived": -29839674,
+      "askQ1": 39480982
+    }
+  ],
+  "markedSample": [
+    {
+      "id": "cmw2sz1l500f3pl0jjc4idd1h",
+      "ticker": "ENGC",
+      "reportLabel": "Q1 2022",
+      "metric": "FINANCING_CASH_FLOW",
+      "value": 178794511,
+      "annualMedian": 7036706,
+      "ratio": 25.4,
+      "from": "VALID"
+    },
+    {
+      "id": "cmw2sz1ru00oppl0jbwlagpaf",
+      "ticker": "ROTO",
+      "reportLabel": "Q1 2022",
+      "metric": "GROSS_PROFIT",
+      "value": -23651994,
+      "annualMedian": 670000,
+      "ratio": 35.3,
+      "from": "VALID"
+    },
+    {
+      "id": "cmura61mw05h1bxz0dtmdupzf",
+      "ticker": "ABUK",
+      "reportLabel": "Q2 2024",
+      "metric": "GROSS_PROFIT",
+      "value": -36506729035,
+      "annualMedian": 2782542225,
+      "ratio": 13.1,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmupwl7gi01cfbxsskx75ah52",
+      "ticker": "ABUK",
+      "reportLabel": "Q3 2024",
+      "metric": "GROSS_PROFIT",
+      "value": 41377872865,
+      "annualMedian": 2782542225,
+      "ratio": 14.9,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmura54xv0239bxz0u1x419nw",
+      "ticker": "RKAZ",
+      "reportLabel": "Q2 2023",
+      "metric": "GROSS_PROFIT",
+      "value": 7330000,
+      "annualMedian": 603651,
+      "ratio": 12.1,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmupwli0105u1bxssz2dq6y2k",
+      "ticker": "RKAZ",
+      "reportLabel": "Q3 2023",
+      "metric": "GROSS_PROFIT",
+      "value": 7330000,
+      "annualMedian": 603651,
+      "ratio": 12.1,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmura55a7024vbxz0y0svs6c9",
+      "ticker": "RKAZ",
+      "reportLabel": "Q3 2024",
+      "metric": "GROSS_PROFIT",
+      "value": 5860000,
+      "annualMedian": 603651,
+      "ratio": 9.71,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmura55w5027jbxz068wt8gps",
+      "ticker": "RREI",
+      "reportLabel": "Q3 2025",
+      "metric": "GROSS_PROFIT",
+      "value": 54433635,
+      "annualMedian": 4211269.5,
+      "ratio": 12.9,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmw2sqveb0037plorzs3d5xhe",
+      "ticker": "ACAMD",
+      "reportLabel": "Q4 2023",
+      "metric": "GROSS_PROFIT",
+      "value": 20171606,
+      "annualMedian": 285523,
+      "ratio": 70.6,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmura4qru0027bxz0th6dq5td",
+      "ticker": "ACAMD",
+      "reportLabel": "Q3 2021",
+      "metric": "GROSS_PROFIT",
+      "value": 15149212,
+      "annualMedian": 285523,
+      "ratio": 53.1,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmw2sqvev003xplor6n2ntx37",
+      "ticker": "ACAMD",
+      "reportLabel": "9M 2021",
+      "metric": "GROSS_PROFIT",
+      "value": 15149212,
+      "annualMedian": 285523,
+      "ratio": 53.1,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmura6dx706l5bxz0xn8x4qqj",
+      "ticker": "ASPI",
+      "reportLabel": "Q2 2020",
+      "metric": "GROSS_PROFIT",
+      "value": 661835951,
+      "annualMedian": 25159841,
+      "ratio": 26.3,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmura6dxq06l7bxz0e0hxixzb",
+      "ticker": "ASPI",
+      "reportLabel": "Q2 2021",
+      "metric": "GROSS_PROFIT",
+      "value": 446393779,
+      "annualMedian": 25159841,
+      "ratio": 17.7,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmura6eja06n5bxz0mand0i33",
+      "ticker": "ASPI",
+      "reportLabel": "Q3 2020",
+      "metric": "GROSS_PROFIT",
+      "value": 385160710,
+      "annualMedian": 25159841,
+      "ratio": 15.3,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmw2sqwog01r9plor522x362b",
+      "ticker": "CRST",
+      "reportLabel": "Q1 2025",
+      "metric": "GROSS_PROFIT",
+      "value": 126474129,
+      "annualMedian": 2082365,
+      "ratio": 60.7,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmw2sqwoa01r1plorbuc8qknh",
+      "ticker": "CRST",
+      "reportLabel": "Q1 2026",
+      "metric": "GROSS_PROFIT",
+      "value": 58787989,
+      "annualMedian": 2082365,
+      "ratio": 28.2,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmupwloch08bhbxss3ms1ydp5",
+      "ticker": "CRST",
+      "reportLabel": "Q2 2025",
+      "metric": "GROSS_PROFIT",
+      "value": 111750000,
+      "annualMedian": 2082365,
+      "ratio": 53.7,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmw2sqwpo01svplor5ek23d2e",
+      "ticker": "DAPH",
+      "reportLabel": "Q2 2026",
+      "metric": "GROSS_PROFIT",
+      "value": 163295439,
+      "annualMedian": 16779001,
+      "ratio": 9.73,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmuion0ns0f94bxq0129dbljc",
+      "ticker": "DOMT",
+      "reportLabel": "Q2 2025",
+      "metric": "GROSS_PROFIT",
+      "value": 2273093813,
+      "annualMedian": 244656812,
+      "ratio": 9.29,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmw2ssa8i001bplrunyujba4a",
+      "ticker": "EGTS",
+      "reportLabel": "Q2 2025",
+      "metric": "GROSS_PROFIT",
+      "value": 167824416,
+      "annualMedian": 9125005,
+      "ratio": 18.4,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmupwlqdp095dbxssug2s5qzq",
+      "ticker": "EGTS",
+      "reportLabel": "Q3 2025",
+      "metric": "GROSS_PROFIT",
+      "value": 679797518,
+      "annualMedian": 9125005,
+      "ratio": 74.5,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmura5kv903vdbxz0mnmqdkr2",
+      "ticker": "GMCI",
+      "reportLabel": "Q2 2021",
+      "metric": "GROSS_PROFIT",
+      "value": 1622037,
+      "annualMedian": 69566,
+      "ratio": 23.3,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmura5l5903wnbxz0ktq411pn",
+      "ticker": "GMCI",
+      "reportLabel": "Q3 2021",
+      "metric": "GROSS_PROFIT",
+      "value": 6030000,
+      "annualMedian": 69566,
+      "ratio": 86.7,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmw2ssb5b019bplru32mbboeu",
+      "ticker": "GSSC",
+      "reportLabel": "Q4 2022",
+      "metric": "GROSS_PROFIT",
+      "value": 616402695,
+      "annualMedian": 73000000,
+      "ratio": 8.44,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmw2ssb53018zplrutyzpfz44",
+      "ticker": "GSSC",
+      "reportLabel": "Q4 2023",
+      "metric": "GROSS_PROFIT",
+      "value": 680248832,
+      "annualMedian": 73000000,
+      "ratio": 9.32,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmura775n09jpbxz0nxn549fc",
+      "ticker": "HELI",
+      "reportLabel": "Q4 2023",
+      "metric": "GROSS_PROFIT",
+      "value": 11970000000,
+      "annualMedian": 691749627,
+      "ratio": 17.3,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmw2ssb8b01ddplrulwkaasmc",
+      "ticker": "IBCT",
+      "reportLabel": "Q1 2026",
+      "metric": "GROSS_PROFIT",
+      "value": 18730201,
+      "annualMedian": 1814227.5,
+      "ratio": 10.3,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmura5mhs0427bxz04y4b3an3",
+      "ticker": "INEG",
+      "reportLabel": "Q2 2025",
+      "metric": "GROSS_PROFIT",
+      "value": 10326035,
+      "annualMedian": 830000,
+      "ratio": 12.4,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmw2ssbtv024hplruvpzgtxdi",
+      "ticker": "MBSC",
+      "reportLabel": "Q2 2026",
+      "metric": "GROSS_PROFIT",
+      "value": 1554377999,
+      "annualMedian": 126751247,
+      "ratio": 12.3,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmw2sscbe02qfplrubu0ieqff",
+      "ticker": "MOSC",
+      "reportLabel": "Q4 2025",
+      "metric": "GROSS_PROFIT",
+      "value": 109588342,
+      "annualMedian": 5973011,
+      "ratio": 18.3,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmw2sscp8039jplru5bs4yjya",
+      "ticker": "ODIN",
+      "reportLabel": "Q4 2023",
+      "metric": "GROSS_PROFIT",
+      "value": 34675718,
+      "annualMedian": 4021479.5,
+      "ratio": 8.62,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmuq0cm74031xbxbooex0gcse",
+      "ticker": "ODIN",
+      "reportLabel": "Q4 2024",
+      "metric": "GROSS_PROFIT",
+      "value": 42620000,
+      "annualMedian": 4021479.5,
+      "ratio": 10.6,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmura5sxu04ovbxz0ae1ihox5",
+      "ticker": "ODIN",
+      "reportLabel": "Q2 2025",
+      "metric": "GROSS_PROFIT",
+      "value": 126462161,
+      "annualMedian": 4021479.5,
+      "ratio": 31.4,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmura5sxg04otbxz0bjivp02u",
+      "ticker": "ODIN",
+      "reportLabel": "Q2 2024",
+      "metric": "GROSS_PROFIT",
+      "value": 35110000,
+      "annualMedian": 4021479.5,
+      "ratio": 8.73,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmupwm0do0d9hbxsso3h00ue3",
+      "ticker": "ODIN",
+      "reportLabel": "Q3 2024",
+      "metric": "GROSS_PROFIT",
+      "value": 93890000,
+      "annualMedian": 4021479.5,
+      "ratio": 23.3,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmvua7mi908ffbx7kd1ot2z92",
+      "ticker": "RAKT",
+      "reportLabel": "Q1 2022",
+      "metric": "GROSS_PROFIT",
+      "value": -2585294,
+      "annualMedian": 196491.5,
+      "ratio": 13.2,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmura5x2p052nbxz0x7xaq13t",
+      "ticker": "RAKT",
+      "reportLabel": "Q2 2022",
+      "metric": "GROSS_PROFIT",
+      "value": 2669558,
+      "annualMedian": 196491.5,
+      "ratio": 13.6,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmura5xkh0541bxz0v7g6gcaa",
+      "ticker": "RAKT",
+      "reportLabel": "Q3 2021",
+      "metric": "GROSS_PROFIT",
+      "value": 3958344,
+      "annualMedian": 196491.5,
+      "ratio": 20.1,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmuq0cn7d039dbxboyncspvol",
+      "ticker": "RTVC",
+      "reportLabel": "Q4 2024",
+      "metric": "GROSS_PROFIT",
+      "value": 2200000000,
+      "annualMedian": 259638964.5,
+      "ratio": 8.47,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    },
+    {
+      "id": "cmura56k202adbxz0h89poc6k",
+      "ticker": "SCFM",
+      "reportLabel": "Q3 2022",
+      "metric": "GROSS_PROFIT",
+      "value": 223754000,
+      "annualMedian": 12960000,
+      "ratio": 17.3,
+      "from": "VALID",
+      "rule": "B3_PROFIT_VOLATILITY"
+    }
+  ],
+  "deletedSample": [
+    {
+      "ticker": "AMER",
+      "reportLabel": "Q1 2022",
+      "metric": "FINANCING_CASH_FLOW",
+      "old": 162000000
+    },
+    {
+      "ticker": "AMER",
+      "reportLabel": "Q1 2022",
+      "metric": "GROSS_PROFIT",
+      "old": 272000000
+    },
+    {
+      "ticker": "AMER",
+      "reportLabel": "Q1 2022",
+      "metric": "NET_CHANGE_IN_CASH",
+      "old": 149000000
+    },
+    {
+      "ticker": "AMER",
+      "reportLabel": "Q1 2022",
+      "metric": "OPERATING_CASH_FLOW",
+      "old": -7010000
+    },
+    {
+      "ticker": "AMER",
+      "reportLabel": "Q1 2023",
+      "metric": "FINANCING_CASH_FLOW",
+      "old": 32970000
+    },
+    {
+      "ticker": "AMER",
+      "reportLabel": "Q1 2023",
+      "metric": "INVESTING_CASH_FLOW",
+      "old": 294000000
+    },
+    {
+      "ticker": "AMER",
+      "reportLabel": "Q1 2023",
+      "metric": "NET_PROFIT",
+      "old": 27810000
+    },
+    {
+      "ticker": "AMER",
+      "reportLabel": "Q1 2024",
+      "metric": "FINANCING_CASH_FLOW",
+      "old": -32200000
+    },
+    {
+      "ticker": "AMER",
+      "reportLabel": "Q1 2024",
+      "metric": "GROSS_PROFIT",
+      "old": 153000000
+    },
+    {
+      "ticker": "AMER",
+      "reportLabel": "Q1 2024",
+      "metric": "NET_CHANGE_IN_CASH",
+      "old": 56110000
+    },
+    {
+      "ticker": "AMER",
+      "reportLabel": "Q1 2024",
+      "metric": "NET_PROFIT",
+      "old": 11800000
+    },
+    {
+      "ticker": "ABUK",
+      "reportLabel": "Q1 2022",
+      "metric": "FINANCING_CASH_FLOW",
+      "old": -337000000
+    },
+    {
+      "ticker": "ABUK",
+      "reportLabel": "Q1 2022",
+      "metric": "GROSS_PROFIT",
+      "old": 1570000000
+    },
+    {
+      "ticker": "ABUK",
+      "reportLabel": "Q1 2022",
+      "metric": "INVESTING_CASH_FLOW",
+      "old": -490000000
+    },
+    {
+      "ticker": "ABUK",
+      "reportLabel": "Q1 2022",
+      "metric": "NET_CHANGE_IN_CASH",
+      "old": 669000000
+    },
+    {
+      "ticker": "ABUK",
+      "reportLabel": "Q1 2022",
+      "metric": "NET_PROFIT",
+      "old": 1290000000
+    },
+    {
+      "ticker": "ABUK",
+      "reportLabel": "Q1 2022",
+      "metric": "OPERATING_CASH_FLOW",
+      "old": 1500000000
+    },
+    {
+      "ticker": "ABUK",
+      "reportLabel": "Q1 2023",
+      "metric": "NET_CHANGE_IN_CASH",
+      "old": 2690000000
+    },
+    {
+      "ticker": "ABUK",
+      "reportLabel": "Q1 2023",
+      "metric": "NET_PROFIT",
+      "old": 2780000000
+    },
+    {
+      "ticker": "ABUK",
+      "reportLabel": "Q1 2024",
+      "metric": "INVESTING_CASH_FLOW",
+      "old": -4870000000
+    }
+  ],
+  "upgradeSample": [
+    {
+      "id": "cmw2gk8ki03trpl5rass0fwni",
+      "ticker": "ORWE",
+      "reportLabel": "Q2 2025",
+      "metric": "TOTAL_EQUITY_AND_LIABILITIES",
+      "from": 33756763208,
+      "to": 33756763207.999996,
+      "gapPct": 0
+    },
+    {
+      "id": "cmupwldhh03z7bxssci3zyf9j",
+      "ticker": "EGSA",
+      "reportLabel": "Q2 2025",
+      "metric": "GROSS_PROFIT",
+      "from": 16691380,
+      "to": 16691380.000000002,
+      "gapPct": 0
+    },
+    {
+      "id": "cmura7acp0a6zbxz028nzk8y2",
+      "ticker": "LUTS",
+      "reportLabel": "Q2 2026",
+      "metric": "NET_CHANGE_IN_CASH",
+      "from": -1045523,
+      "to": -1045522.9999999999,
+      "gapPct": 0
+    },
+    {
+      "id": "cmw2ssddw0469plruw9muit37",
+      "ticker": "SIPC",
+      "reportLabel": "Q1 2022",
+      "metric": "GROSS_PROFIT",
+      "from": 2085548,
+      "to": 2085547.9999999998,
+      "gapPct": 0
+    },
+    {
+      "id": "cmura516501rbbxz0qnnifpo7",
+      "ticker": "KRDI",
+      "reportLabel": "Q2 2025",
+      "metric": "OPERATING_CASH_FLOW",
+      "from": 33399289,
+      "to": 33399288.999999996,
+      "gapPct": 0
+    },
+    {
+      "id": "cmw2hnkx703pbplowkei6ezs7",
+      "ticker": "PACH",
+      "reportLabel": "Q3 2023",
+      "metric": "TOTAL_EQUITY",
+      "from": 524330839.9999999,
+      "to": 524330839.99999994,
+      "gapPct": 0
+    },
+    {
+      "id": "cmw2ssd9h0403plrug4jxc2gv",
+      "ticker": "ROTO",
+      "reportLabel": "Q1 2025",
+      "metric": "FINANCING_CASH_FLOW",
+      "from": -258205,
+      "to": -258204.99999999997,
+      "gapPct": 0
+    },
+    {
+      "id": "cmvua7hsu06uvbx7k3mosdpi1",
+      "ticker": "WKOL",
+      "reportLabel": "Q4 2022",
+      "metric": "TOTAL_LIABILITIES",
+      "from": 267116487,
+      "to": 267116487.00000003,
+      "gapPct": 0
+    },
+    {
+      "id": "cmw2sschz02zfplru3o72rrol",
+      "ticker": "NCGC",
+      "reportLabel": "Q1 2021",
+      "metric": "INVESTING_CASH_FLOW",
+      "from": 2061148,
+      "to": 2061148.0000000002,
+      "gapPct": 0
+    },
+    {
+      "id": "cmw2gk99604ozpl5rqnxl6dds",
+      "ticker": "TRST",
+      "reportLabel": "Q3 2023",
+      "metric": "TOTAL_LIABILITIES",
+      "from": 2064180,
+      "to": 2064179.9999999998,
+      "gapPct": 0
+    },
+    {
+      "id": "cmw2sse6m0591plruu8xd58aw",
+      "ticker": "WATP",
+      "reportLabel": "Q3 2019",
+      "metric": "GROSS_PROFIT",
+      "from": 16558209,
+      "to": 16558208.999999998,
+      "gapPct": 0
+    },
+    {
+      "id": "cmw2gk9i2050npl5rywjgdlmj",
+      "ticker": "WATP",
+      "reportLabel": "Q3 2019",
+      "metric": "TOTAL_LIABILITIES",
+      "from": 132997999,
+      "to": 132997999.00000001,
+      "gapPct": 0
+    }
+  ]
+}

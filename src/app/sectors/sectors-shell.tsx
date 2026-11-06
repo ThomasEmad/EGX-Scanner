@@ -2,9 +2,11 @@
 
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { useCallback, useEffect, useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { ArrowRight, Building2, TrendingUp, TrendingDown, Activity } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { LayoutShell } from "@/components/layout/LayoutShell"
 import { useI18n } from "@/lib/i18n"
 import { SECTOR_AR, sectorLabel } from "@/lib/sectors"
@@ -37,19 +39,49 @@ export function SectorsPageShell({ sectors, counts }: SectorsPageShellProps) {
   const { lang } = useI18n()
   const ar = lang === "ar"
   const router = useRouter()
+  // "all" = each sector on its own latest data — or ONE pinned fiscal year
+  // for every sector (like-for-like historical comparison). The pin is synced
+  // with the ?year= URL param (same behavior as /compare) so a pinned view is
+  // shareable/bookmarkable.
+  const [year, setYear] = useState<string>(() => {
+    if (typeof window === "undefined") return "all"
+    const y = new URLSearchParams(window.location.search).get("year")
+    return y && /^\d{4}$/.test(y) ? y : "all"
+  })
+
+  const pickYear = useCallback((next: string) => {
+    setYear(next)
+    const u = new URL(window.location.href)
+    if (next !== "all") u.searchParams.set("year", next)
+    else u.searchParams.delete("year")
+    window.history.replaceState(null, "", u.toString())
+  }, [])
 
   const { data: sectorAggs } = useQuery({
-    queryKey: ["sector-aggs"],
-    queryFn: () => fetch("/api/v1/sectors").then((r) => (r.ok ? (r.json() as Promise<{ sectors: SectorAgg[] }>) : { sectors: [] })),
+    queryKey: ["sector-aggs", year],
+    queryFn: () =>
+      fetch(`/api/v1/sectors${year !== "all" ? `?year=${year}` : ""}`).then((r) =>
+        r.ok ? (r.json() as Promise<{ sectors: SectorAgg[]; year?: number | null; years?: number[] }>) : { sectors: [] },
+      ),
     staleTime: 120_000,
   })
+
+  // A pin the current basis can't satisfy resets to auto instead of showing
+  // a table of dashes forever.
+  useEffect(() => {
+    const years = (sectorAggs as { years?: number[] } | undefined)?.years
+    if (years && year !== "all" && !years.includes(Number(year))) pickYear("all")
+  }, [sectorAggs, year, pickYear])
 
   const aggMap = new Map((sectorAggs?.sectors ?? []).map((s) => [s.sector, s]))
 
   const sectorData = sectors.map((s) => {
     const count = counts.get(s) ?? 0
     const agg = aggMap.get(s)
-    const roe = agg?.avgRoe ?? null
+    // Median, not mean: one company with near-zero equity (ROE > 1000%) must
+    // not set the sector's headline number. The API ships both; the card uses
+    // the robust one.
+    const roe = agg?.medianRoe ?? null
     return {
       sector: s,
       label: sectorLabel(s, lang),
@@ -85,10 +117,31 @@ export function SectorsPageShell({ sectors, counts }: SectorsPageShellProps) {
             {ar ? "قطاعات البورصة المصرية" : "EGX Sectors"}
           </h1>
           <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
-            {ar
-              ? "استعرض قطاعات البورصة المصرية مع مؤشرات مالية حقيقية من القوائم المتحققة. كل قطاع يمثل مجموعة من الشركات المدرجة، مع متوسط العائد على حقوق الملكية (ROE) والقيمة السوقية الإجمالية."
-              : "Browse EGX sectors with real financial metrics from verified filings. Each sector represents listed companies, with average ROE and total market cap."}
+            {year !== "all"
+              ? ar
+                ? `مؤشرات القطاعات محسوبة على السنة المالية ${year} — نفس الفترة لكل القطاعات، مقارنة تاريخية عادلة. القطاعات بدون قوائم منشورة لهذه السنة تظهر بدون بيانات.`
+                : `Sector metrics computed on fiscal year ${year} — the same period for every sector, a like-for-like historical comparison. Sectors without filings for that year show no data.`
+              : ar
+                ? "استعرض قطاعات البورصة المصرية مع مؤشرات مالية حقيقية من القوائم المتحققة. كل قطاع يمثل مجموعة من الشركات المدرجة، مع وسيط العائد على حقوق الملكية (ROE) والقيمة السوقية الإجمالية."
+                : "Browse EGX sectors with real financial metrics from verified filings. Each sector represents listed companies, with median ROE and total market cap."}
           </p>
+          <div className="mt-3">
+            <Select value={year} onValueChange={pickYear}>
+              <SelectTrigger className="h-8 w-56 text-xs" aria-label={ar ? "الفترة" : "Period"}>
+                <SelectValue placeholder={ar ? "الفترة" : "Period"} />
+              </SelectTrigger>
+              <SelectContent className="max-h-72">
+                <SelectItem value="all" className="text-xs">
+                  {ar ? "تلقائي — أحدث فترة لكل قطاع" : "Auto — each sector's latest"}
+                </SelectItem>
+                {((sectorAggs as { years?: number[] } | undefined)?.years ?? []).map((y) => (
+                  <SelectItem key={y} value={String(y)} className="text-xs">
+                    {ar ? `سنة مالية ${y}` : `Fiscal year ${y}`}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
         </header>
 
         {/* Sector Heatmap / Treemap */}
@@ -97,7 +150,7 @@ export function SectorsPageShell({ sectors, counts }: SectorsPageShellProps) {
             <CardHeader className="pb-4 px-5">
               <CardTitle className="text-sm font-semibold flex items-center gap-2 text-foreground">
                 <Activity className="h-3.5 w-3.5 text-primary" />
-                {ar ? "خريطة القطاعات حسب الحجم ومتوسط ROE" : "Sector map by size and average ROE"}
+                {ar ? "خريطة القطاعات حسب الحجم ووسيط ROE" : "Sector map by size and median ROE"}
               </CardTitle>
             </CardHeader>
             <CardContent className="p-0">
@@ -193,7 +246,7 @@ export function SectorsPageShell({ sectors, counts }: SectorsPageShellProps) {
                       <tr className="border-b border-border/40 text-[10px] uppercase tracking-wider text-muted-foreground">
                         <th className="p-3 text-start font-medium">{ar ? "القطاع" : "Sector"}</th>
                         <th className="p-3 text-end font-medium">{ar ? "الشركات" : "Companies"}</th>
-                        <th className="p-3 text-end font-medium">{ar ? "متوسط ROE" : "Avg ROE"}</th>
+                        <th className="p-3 text-end font-medium">{ar ? "وسيط ROE" : "Median ROE"}</th>
                         <th className="p-3 text-end font-medium">{ar ? "القيمة السوقية" : "Market Cap"}</th>
                         <th className="p-3 text-end font-medium">{ar ? "إجمالي الإيرادات" : "Total Revenue"}</th>
                         <th className="p-3 text-end font-medium">{ar ? "إجمالي صافي الربح" : "Total Net Profit"}</th>
@@ -242,7 +295,7 @@ export function SectorsPageShell({ sectors, counts }: SectorsPageShellProps) {
               <CardHeader className="pb-4 px-5">
                 <CardTitle className="text-sm font-semibold flex items-center gap-2 text-foreground">
                   <TrendingUp className="h-3.5 w-3.5 text-positive" />
-                  {ar ? "أعلى ROE قطاعي" : "Top sector ROE"}
+                  {ar ? "أعلى وسيط ROE قطاعي" : "Top sector median ROE"}
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-4">

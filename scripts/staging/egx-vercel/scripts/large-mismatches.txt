@@ -1,0 +1,66 @@
+﻿
+=== EFIC Egyptian Financial & Industrial Co. Basic Materials YAHOO_FINANCE_API v1 2025-12-31 ===
+  INCOME_TAX 365152909 VALID API import — YAHOO_FINANCE_API
+  NET_PROFIT 818961801 VALID API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT 661658123 VALID API import — YAHOO_FINANCE_API
+  PROFIT_BEFORE_TAX 1184904909 VALID API import — YAHOO_FINANCE_API
+  REVENUE 11091585639 VALID API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 11770000000 VALID API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 6221175217 VALID API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY_AND_LIABILITIES 11770000000 VALID AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+  TOTAL_LIABILITIES 5548824783 VALID API import — YAHOO_FINANCE_API
+
+=== CANA Suez Canal Bank Banks ASKBORA_SUMMARY v1 2025-12-31 ===
+  NET_PROFIT 5652258000 VALID AskBorsa annual summary (display-rounded 0.01M)
+  REVENUE 13355746000 VALID 
+  TOTAL_ASSETS 270122160000 VALID AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 20267115000 VALID AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY_AND_LIABILITIES 269000000000 VALID AskBorsa annual summary (display-rounded)
+  TOTAL_LIABILITIES 249855045000 VALID AskBorsa annual summary (display-rounded)
+
+=== EAST Eastern Company Food EXCEL_STATEMENTS v1 2025-06-30 ===
+  NET_PROFIT 5382337000 VALID 
+  REVENUE 18455275000 VALID 
+  TOTAL_ASSETS 43595915000 VALID 
+  TOTAL_EQUITY 16704396000 VALID 
+  TOTAL_LIABILITIES 26891519000 VALID 
+
+=== HELI Heliopolis Housing Real Estate undefined vundefined undefined ===
+
+=== TAQA TAQA Arabia Energy undefined vundefined undefined ===
+
+=== EGAL Egypt Aluminum (Egyptalum) Basic Materials YAHOO_FINANCE_API v1 2025-06-30 ===
+  NET_PROFIT 3122747462 VALID AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+  REVENUE 12882013627 VALID 
+  TOTAL_ASSETS 31974431671 VALID AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+  TOTAL_EQUITY 23939699023 VALID AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+  TOTAL_EQUITY_AND_LIABILITIES 29340000000 VALID AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+  TOTAL_LIABILITIES 8034732648 VALID AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+
+=== MPRC Egyptian Media Production City Telecom MUBASHER_EARNINGS v1 2025-12-31 ===
+  NET_PROFIT 171832130 VALID Mubasher earnings announcements table (public, logged-in session)
+  TOTAL_ASSETS 4593222908 VALID AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_EQUITY 3715754454 VALID AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_EQUITY_AND_LIABILITIES 5000000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_LIABILITIES 877468454 VALID AUDIT_CORRECTION: liabilities corrected from 4593222908 to TOTAL_ASSETS − TOTAL_EQUITY = 877468454
+
+=== DAPH Development & Engineering Consultants Financial Services MUBASHER_EARNINGS v1 2025-12-31 ===
+  INCOME_TAX 5280000 VALID TradingView income statement, company-level verification unavailable
+  NET_PROFIT -138400000 VALID Mubasher earnings announcements table (public, logged-in session)
+  PROFIT_BEFORE_TAX -133120000 VALID TradingView income statement, company-level verification unavailable
+  REVENUE 542910000 VALID TradingView income statement, company-level verification unavailable
+  TOTAL_ASSETS 1130000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_EQUITY 497000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_EQUITY_AND_LIABILITIES 1130000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_LIABILITIES 630000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+
+=== ATLC Al Tawfeek Leasing Company-A.T.LEASE Financial Services MUBASHER_EARNINGS v1 2025-12-31 ===
+  NET_PROFIT 122204000 VALID Mubasher earnings announcements table (public, logged-in session)
+  REVENUE 402595000 VALID 
+  TOTAL_ASSETS 7623088000 VALID AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_EQUITY 608700000 VALID AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_EQUITY_AND_LIABILITIES 8330000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_LIABILITIES 7019258000 VALID AskBorsa annual summary (display-rounded 0.01M)
+
+=== ASPI Aspire Capital Holding for Financial Investments Financial Services MUBASHER_EARNINGS v1 2025-12-31 ===
+  NET_PROFIT -175092000 VALID Mubasher earnings announcements table (public, logged-in session)

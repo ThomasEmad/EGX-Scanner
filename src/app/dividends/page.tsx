@@ -5,7 +5,7 @@ import DividendsPageClient from "./page-client"
 export const metadata: Metadata = {
   title: "EGX Dividend Calendar — Upcoming Dividend Dates",
   description:
-    "Egyptian Exchange dividend calendar: announcement, eligibility, ex-dividend and distribution dates for EGX companies. Source-traceable data with every date printed.",
+    "Egyptian Exchange dividend calendar: announcement, eligibility, ex-dividend and distribution dates for EGX companies. Every date printed exactly as disclosed.",
   keywords: ["EGX dividends", "Egyptian Exchange dividends", "توزيعات أرباح البورصة", "توزيعات الأسهم المصرية"],
   alternates: {
     canonical: "/dividends",

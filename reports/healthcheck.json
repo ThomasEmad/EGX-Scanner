@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-11-03T17:02:45.833Z",
-  "base": "http://localhost:3100",
+  "startedAt": "2026-11-04T16:00:06.664Z",
+  "base": "http://localhost:3000",
   "ok": true,
   "results": [
     {
@@ -8,28 +8,28 @@
       "path": "/api/v1/health",
       "status": 200,
       "ok": true,
-      "ms": 67
+      "ms": 54
     },
     {
       "name": "market-ticker",
       "path": "/api/v1/market/ticker",
       "status": 200,
       "ok": true,
-      "ms": 8
+      "ms": 7
     },
     {
       "name": "company",
       "path": "/api/v1/companies/COMI",
       "status": 200,
       "ok": true,
-      "ms": 33
+      "ms": 20
     },
     {
       "name": "home",
       "path": "/",
       "status": 200,
       "ok": true,
-      "ms": 10
+      "ms": 6
     }
   ]
 }

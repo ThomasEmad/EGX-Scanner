@@ -1,0 +1,19 @@
+﻿
+=== Cross-quarter duplicate quarantine APPLY ===
+
+duplicate pairs: 11 | values to quarantine: 107
+
+examples:
+  SWDY Q4 2025 repeats Q3 2025 (37/39 = 94.9%; 15 valid values)
+  SKPC Q4 2025 repeats Q3 2025 (30/32 = 93.8%; 25 valid values)
+  HRHO Q3 2025 repeats Q2 2025 (46/47 = 97.9%; 4 valid values)
+  BTFH Q3 2025 repeats Q2 2025 (47/50 = 94.0%; 6 valid values)
+  CCAP Q3 2025 repeats Q2 2025 (50/52 = 96.2%; 5 valid values)
+  EGSA Q4 2025 repeats Q3 2025 (33/35 = 94.3%; 13 valid values)
+  ENGC Q4 2025 repeats Q3 2025 (26/28 = 92.9%; 13 valid values)
+  PHAR Q3 2025 repeats Q2 2025 (34/34 = 100.0%; 7 valid values)
+  DOMT Q3 2025 repeats Q2 2025 (35/36 = 97.2%; 7 valid values)
+  PACH Q4 2025 repeats Q2 2025 (20/20 = 100.0%; 8 valid values)
+  UEGC Q3 2025 repeats Q2 2025 (6/6 = 100.0%; 4 valid values)
+
+Changes written.

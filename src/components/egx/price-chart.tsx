@@ -15,7 +15,6 @@ interface PricePoint {
   asOf: string
   price: number
   currency: string
-  sourceName: string
 }
 
 const RANGES = [

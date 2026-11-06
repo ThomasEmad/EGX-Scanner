@@ -2,6 +2,7 @@ import { NextRequest } from "next/server"
 import { db } from "@/lib/db"
 import { requireAuth, unauthorizedResponse } from "@/lib/access"
 import { isPremiumUser } from "@/lib/subscription"
+import { withKeyLock } from "@/lib/key-lock"
 
 // GET /api/v1/portfolio — the caller's holdings valued at latest recorded prices.
 // POST — add or update a holding (upsert by company). Free: 2 companies, Premium: unlimited.
@@ -129,16 +130,23 @@ export async function POST(req: NextRequest) {
   const company = await db.company.findUnique({ where: { id: companyId }, select: { id: true } })
   if (!company) return Response.json({ error: "NOT_FOUND", message: "Company not found." }, { status: 404 })
 
-  const existing = await db.portfolioHolding.findUnique({ where: { userId_companyId: { userId, companyId } } })
-  if (!existing) {
-    const count = await db.portfolioHolding.count({ where: { userId } })
-    if (count >= FREE_LIMIT && !(await isPremiumUser(userId))) {
-      return Response.json(
-        { error: "PORTFOLIO_LIMIT", message: "الخطة المجانية تشمل شركتين فقط — بريميوم بلا حدود.", limit: FREE_LIMIT },
-        { status: 403 }
-      )
+  // Race safety: limit-check and upsert run under the same per-user lock, so
+  // two parallel adds cannot both observe count < FREE_LIMIT and slip a third
+  // holding in (the old check-then-act window did exactly that).
+  const limitResponse = await withKeyLock(`portfolio:${userId}`, async () => {
+    const existing = await db.portfolioHolding.findUnique({ where: { userId_companyId: { userId, companyId } } })
+    if (!existing) {
+      const count = await db.portfolioHolding.count({ where: { userId } })
+      if (count >= FREE_LIMIT && !(await isPremiumUser(userId))) {
+        return Response.json(
+          { error: "PORTFOLIO_LIMIT", message: "الخطة المجانية تشمل شركتين فقط — بريميوم بلا حدود.", limit: FREE_LIMIT },
+          { status: 403 }
+        )
+      }
     }
-  }
+    return null
+  })
+  if (limitResponse) return limitResponse
 
   const holding = await db.portfolioHolding.upsert({
     where: { userId_companyId: { userId, companyId } },

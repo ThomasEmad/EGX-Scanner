@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server"
 import { db } from "@/lib/db"
+import { RAW_METRIC_MAP } from "@/lib/financial/registry"
 import {
   CALC_STATEMENT_TYPES,
   TRUSTED_REPORT_STATUSES,
@@ -15,8 +16,8 @@ import {
 } from "@/lib/financial/statement-pref"
 
 // GET /api/v1/companies/[id]/financials — source financial values grouped by
-// statement kind and period. Values keep their original label + unit + source
-// traceability (spec #25).
+// statement kind and period. Values keep a bilingual display label + unit
+// (spec #25) — the source-document traceability itself stays internal.
 //
 // Statement-type aware (spec #23): consolidated vs standalone filings are kept
 // separate and NEVER mixed. `?statementType=CONSOLIDATED|STANDALONE` selects one
@@ -30,6 +31,18 @@ import {
 // NEVER mixed in one response (mixing FY columns with 9M/H1/Q columns makes the
 // statements unreadable for investors). Default: annual when available, else
 // interim. `availablePeriodViews` tells the UI which toggles to offer.
+
+// Internal maintenance markers must never reach the public UI (product rule:
+// no data provenance / tooling notes for end users). If a source label carries
+// one — derivation formulas, copy notes, source refs — fall back to the
+// canonical registry label for the metric. Admin-only views keep the raw
+// labels; this guard is for this public endpoint only.
+const INTERNAL_MARKER = /^(COPIED from|DERIVED )|\(source:|AUDIT_QUARANTINE|ASKBORA|MEDIAN|IMPUTED|CARRY[- ]?FORWARD/i
+
+function userFacingLabel(code: string, label: string): string {
+  if (!label || !INTERNAL_MARKER.test(label)) return label
+  return RAW_METRIC_MAP[code]?.labelEn ?? code.replaceAll("_", " ")
+}
 
 export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
@@ -122,8 +135,8 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
     code: string
     statementType: string
     cells: Record<string, {
-      value: number; unit: string; normalizedValue: number; label: string; reportId: string
-      flags?: { yoyPct?: number; badSign?: boolean; zero?: boolean; identityFailed?: boolean }
+      value: number; unit: string; normalizedValue: number; label: string
+      flags?: { yoyPct?: number; badSign?: boolean; zero?: boolean }
     }>
   }>()
   for (const v of values) {
@@ -135,8 +148,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       value: v.value,
       unit: v.unit,
       normalizedValue: v.normalizedValue,
-      label: v.originalLabel,
-      reportId: v.reportId,
+      label: userFacingLabel(v.metricCode, v.originalLabel),
     }
   }
 
@@ -145,19 +157,8 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
   //    fiscal year earlier (never cross-period: Q1 vs Q1, FY vs FY).
   // 2. badSign: total assets / revenue must never be negative.
   // 3. zero: revenue of exactly zero means missing data wearing a zero mask.
-  // 4. identityFailed: the cell's source report failed the balance-sheet
-  //    identity check (stored BALANCE_SHEET_IDENTITY rows from the pipeline).
-  const reportIds = [...new Set(values.map((v) => v.reportId))]
-  const failedIdentityReports = new Set(
-    reportIds.length
-      ? (
-          await db.financialValidationResult.findMany({
-            where: { reportId: { in: reportIds }, checkName: "BALANCE_SHEET_IDENTITY", status: "FAILED" },
-            select: { reportId: true },
-          })
-        ).map((r) => r.reportId)
-      : []
-  )
+  // Pipeline validation state (e.g. which source report failed which internal
+  // check) is deliberately NOT exposed here — it is internal operations data.
   let flaggedCells = 0
   for (const row of rowsMap.values()) {
     for (const [key, cell] of Object.entries(row.cells)) {
@@ -171,7 +172,6 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       }
       if (cell.normalizedValue < 0 && (row.code === "TOTAL_ASSETS" || row.code === "REVENUE")) flags.badSign = true
       if (cell.normalizedValue === 0 && row.code === "REVENUE") flags.zero = true
-      if (failedIdentityReports.has(cell.reportId)) flags.identityFailed = true
       if (Object.keys(flags).length > 0) {
         cell.flags = flags
         flaggedCells++

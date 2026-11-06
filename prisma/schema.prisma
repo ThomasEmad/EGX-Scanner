@@ -7,7 +7,11 @@
 //  - Demo/synthetic data is always explicitly flagged (isDemoData)
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  // driverAdapters enables the Turso/libSQL runtime adapter (see src/lib/db.ts):
+  // local SQLite (file:) keeps working unchanged; when TURSO_DATABASE_URL is
+  // set the client connects to the Turso cloud database instead.
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
@@ -55,9 +59,13 @@ model Company {
   dataQualityScores     DataQualityScore[]
   portfolioHoldings     PortfolioHolding[]
   confidenceScore       CompanyConfidenceScore?
+  watchlistItems        WatchlistItem[]
+  priceAlerts           PriceAlert[]
 
   @@index([sector])
   @@index([isActive])
+  @@index([nameEn])
+  @@index([nameAr])
 }
 
 // Market data (price feed). Kept separate from filings: a price point is a
@@ -249,6 +257,7 @@ model AiAnalysis {
   dataHash    String   // SHA-256 of the verified-data snapshot used
   inputSummary String? // JSON snapshot of the exact data given to the model (for verification)
   model       String?
+  lang        String   @default("en") // language the analysis was generated in — cache is keyed per language
   createdAt   DateTime @default(now())
 
   @@index([companyId, createdAt])
@@ -655,7 +664,9 @@ model IngestionError {
 model User {
   id            String   @id @default(cuid())
   email         String   @unique
-  passwordHash  String
+  // Nullable since OAuth sign-ups (Google/Facebook) have no local password —
+  // they can only sign in via the provider (or set a password later).
+  passwordHash  String?
   name          String?
   role          String   @default("user") // user | admin
   emailVerified Boolean  @default(false)
@@ -668,9 +679,76 @@ model User {
   paymentRequests PaymentRequest[]
   smartAnalysisUsages SmartAnalysisUsage[]
   portfolioHoldings PortfolioHolding[]
+  oauthAccounts OAuthAccount[]
+  resetTokens   PasswordResetToken[]
+  watchlistItems WatchlistItem[]
+  priceAlerts   PriceAlert[]
 
   @@index([email])
   @@index([role])
+}
+
+// One row per (provider, external id). Email linking happens in application
+// code: a verified provider email may be attached to an existing local
+// account, otherwise a new passwordless User is created.
+model OAuthAccount {
+  id                String   @id @default(cuid())
+  userId            String
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  provider          String   // google | facebook
+  providerAccountId String
+  createdAt         DateTime @default(now())
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+// Single-use, time-boxed password reset tokens. Only the SHA-256 hash is
+// stored; the raw token is shown once to the ADMIN (no mail service in this
+// environment) who hands it to the user over a trusted channel.
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String   @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([tokenHash])
+}
+
+// Device-synced watchlist for signed-in users (guests keep the localStorage
+// watchlist). Unique per (user, company) — toggling upserts/deletes.
+model WatchlistItem {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  companyId String
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, companyId])
+  @@index([userId])
+}
+
+// Simple price alert: fires when the recorded market price crosses the
+// target in the chosen direction. Evaluated server-side on price reads.
+model PriceAlert {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  companyId   String
+  company     Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  direction   String    // ABOVE | BELOW
+  targetPrice Float
+  active      Boolean   @default(true)
+  triggeredAt DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@index([userId])
+  @@index([companyId, active])
 }
 
 // Investor portfolio — manual positions valued against recorded MarketPrice

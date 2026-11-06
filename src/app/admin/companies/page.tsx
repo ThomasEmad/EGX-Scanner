@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback, useRef } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -40,7 +40,6 @@ export default function CompanyManagePage() {
   const [msg, setMsg] = useState("")
   const [loading, setLoading] = useState(true)
   const [adminOk, setAdminOk] = useState<boolean | null>(null)
-  const initialized = useRef(false)
 
   useEffect(() => {
     let cancelled = false
@@ -65,10 +64,19 @@ export default function CompanyManagePage() {
   }, [adminOk])
 
   useEffect(() => {
-    if (initialized.current) return
-    initialized.current = true
-    load()
-  }, [load])
+    if (adminOk !== true) return
+    let cancelled = false
+    // Initial fetch — setState happens in async callbacks (never synchronously
+    // inside the effect body), so renders stay cascade-free.
+    ;(async () => {
+      try {
+        const r = await fetch("/api/v1/admin/company-ops")
+        if (r.ok && !cancelled) { const j = await r.json(); setCompanies(j.companies) }
+      } catch {}
+      if (!cancelled) setLoading(false)
+    })()
+    return () => { cancelled = true }
+  }, [adminOk, load])
 
   const saveEdit = async () => {
     if (!editing) return

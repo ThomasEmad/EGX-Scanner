@@ -1,0 +1,331 @@
+﻿
+=== ELKA | El Kahera Housing ===
+2024 FY 2024 CONSOLIDATED ASKBORA_SUMMARY
+  NET_PROFIT 11800000 VALID صافي الربح (AskBorsa annual) 
+  TOTAL_ASSETS 8250000000 VALID إجمالي الأصول (AskBorsa annual) 
+  TOTAL_EQUITY 5210000000 VALID حقوق المساهمين (AskBorsa annual) 
+2023 FY 2023 CONSOLIDATED ASKBORA_SUMMARY
+  NET_PROFIT 184000000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_ASSETS 3190000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 1090000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+
+=== MHOT | Misr Hotels ===
+2026 FY 2026 CONSOLIDATED MUBASHER_EARNINGS
+  NET_PROFIT 462943798 VALID الربح المُعلن Mubasher earnings announcements table (public, logged-in session)
+2025 FY 2025 CONSOLIDATED YAHOO_FINANCE_API
+  NET_PROFIT 138939316 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT 138939316 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 4654246877 VALID إجمالي الأصول AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+  TOTAL_EQUITY 3367310156 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+2024 FY 2024 CONSOLIDATED YAHOO_FINANCE_API
+  NET_PROFIT 1454240169 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT 1454240169 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 3270000000 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 2512316775 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+2023 FY 2023 CONSOLIDATED YAHOO_FINANCE_API
+  NET_PROFIT 819760090 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT 819760090 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 2818377546 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 1058076606 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+
+=== GRCA | Grand Investment Capital ===
+2026 FY 2026 CONSOLIDATED ASKBORA_SUMMARY
+  NET_PROFIT 27400 VALID صافي الربح (AskBorsa annual) 
+2025 FY 2025 CONSOLIDATED ASKBORA_SUMMARY
+  NET_PROFIT 11370000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts ابريل
+  TOTAL_ASSETS 62180000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M), fiscal year starts ابريل
+  TOTAL_EQUITY 51210000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M), fiscal year starts ابريل
+2023 FY 2023 CONSOLIDATED ASKBORA_SUMMARY
+  NET_PROFIT -4990000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts ابريل
+  TOTAL_ASSETS 56440000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M), fiscal year starts ابريل
+  TOTAL_EQUITY 39340000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M), fiscal year starts ابريل
+
+=== GSSC | General Silos & Storage ===
+2026 FY 2026 CONSOLIDATED MUBASHER_EARNINGS
+  NET_PROFIT 61660823 VALID الربح المُعلن Mubasher earnings announcements table (public, logged-in session)
+2025 FY 2025 CONSOLIDATED YAHOO_FINANCE_API
+  NET_PROFIT 265160968.67 VALID Net Income AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as absolute EGP) — /1000 restores sane scale vs company balance
+  NET_PROFIT_PARENT 265160968.67 VALID Net Income Common Stockholders AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as absolute EGP) — /1000 restores sane scale vs company balance
+  TOTAL_ASSETS 4058833447.36 VALID Total Assets AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as absolute EGP) — /1000 restores sane scale vs company balance
+  TOTAL_EQUITY 396713586.06 VALID Stockholders Equity AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as absolute EGP) — /1000 restores sane scale vs company balance
+2024 FY 2024 CONSOLIDATED YAHOO_FINANCE_API
+  NET_PROFIT 206020690 VALID Net Income AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as absolute EGP) — /1000 restores sane scale vs company balance
+  NET_PROFIT_PARENT 206020690 VALID Net Income Common Stockholders AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as absolute EGP) — /1000 restores sane scale vs company balance
+  TOTAL_ASSETS 3620000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+  TOTAL_EQUITY 629000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+2023 FY 2023 CONSOLIDATED ASKBORA_SUMMARY
+  NET_PROFIT 72190000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+  TOTAL_ASSETS 2900000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+  TOTAL_EQUITY 519000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+
+=== UNIT | United Housing & Development ===
+2025 FY 2025 CONSOLIDATED YAHOO_FINANCE_API
+  NET_PROFIT 1031700000 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT 1248700000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 12036700000 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 380300000 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+2024 FY 2024 CONSOLIDATED YAHOO_FINANCE_API
+  NET_PROFIT 58400000 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT 91300000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 5282100000 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 2452400000 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+2023 FY 2023 CONSOLIDATED YAHOO_FINANCE_API
+  NET_PROFIT -221400000 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT -82900000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 5025129000 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 2486392000 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+
+=== SIPC | Saba for Pharmaceuticals (SIPC) ===
+2025 FY 2025 CONSOLIDATED ASKBORA_SUMMARY
+  TOTAL_ASSETS 8294717672 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 6020338736 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+2024 FY 2024 CONSOLIDATED TRADINGVIEW_FINANCIALS
+  NET_PROFIT -19177020 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_ASSETS 169000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 96910000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+2023 FY 2023 CONSOLIDATED TRADINGVIEW_FINANCIALS
+  NET_PROFIT 1160000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_ASSETS 169000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 115000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+
+=== EAST | Eastern Company ===
+2026 FY 2026 CONSOLIDATED MUBASHER_EARNINGS
+  NET_PROFIT 4154625000 VALID الربح المُعلن Mubasher earnings announcements table (public, logged-in session)
+2025 FY 2025 CONSOLIDATED EXCEL_STATEMENTS
+  NET_PROFIT 5382337000 VALID Net Income after Tax (Refinitiv CF-Export, USD→EGP) 
+  TOTAL_ASSETS 43595915000 VALID Total Assets (Refinitiv CF-Export, USD→EGP) 
+  TOTAL_EQUITY 16704396000 VALID Total Shareholders' Equity - including Minority Interest & Hybrid Debt (Refinitiv CF-Export, USD→EGP) 
+2024 FY 2024 CONSOLIDATED YAHOO_FINANCE_API + REUTERS_FINANCIALS_PAGE
+  EQUITY_PARENT 16169116000 VALID Common Stock Equity API import — YAHOO_FINANCE_API
+  NET_PROFIT 9181481000 VALID Net Income From Continuing Operation Net Minority Interest API import — YAHOO_FINANCE_API (4 sources agree)
+  NET_PROFIT_PARENT 8203629000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 32864916000 VALID Total Assets API import — YAHOO_FINANCE_API (2 sources agree)
+  TOTAL_EQUITY 16169116000 VALID Stockholders Equity API import — YAHOO_FINANCE_API (2 sources agree)
+2023 FY 2023 CONSOLIDATED YAHOO_FINANCE_API + REUTERS_FINANCIALS_PAGE
+  EQUITY_PARENT 16116399000 VALID Common Stock Equity API import — YAHOO_FINANCE_API
+  NET_PROFIT 7656987000 VALID Net Income From Continuing Operation Net Minority Interest API import — YAHOO_FINANCE_API (4 sources agree)
+  NET_PROFIT_PARENT 6667313000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 26300761000 VALID Total Assets API import — YAHOO_FINANCE_API (2 sources agree)
+  TOTAL_EQUITY 16116399000 VALID Stockholders Equity API import — YAHOO_FINANCE_API (2 sources agree)
+
+=== HELI | Heliopolis Housing ===
+2024 FY 2024 CONSOLIDATED ASKBORA_SUMMARY
+  NET_PROFIT 761250717.792 VALID صافي الربح AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+  TOTAL_ASSETS 14380000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+  TOTAL_EQUITY 9400000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+2023 FY 2023 CONSOLIDATED YAHOO_FINANCE_API
+  NET_PROFIT 7808811008 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT 7808811008 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 15814549378 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 8762097994 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+
+=== CANA | Suez Canal Bank ===
+2025 FY 2025 CONSOLIDATED ASKBORA_SUMMARY
+  NET_PROFIT 5652258000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_ASSETS 270122160000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 20267115000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+2024 FY 2024 CONSOLIDATED ASKBORA_SUMMARY
+  NET_PROFIT 5003440000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_ASSETS 180190231000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 13873001000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+2023 FY 2023 CONSOLIDATED ASKBORA_SUMMARY
+  NET_PROFIT 2019734000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_ASSETS 102938506000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 7813143000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+
+=== COPR | Cooper for Commercial Investment & Real Estate Development ===
+2025 FY 2025 CONSOLIDATED MUBASHER_EARNINGS
+  NET_PROFIT -5137332 VALID الربح المُعلن Mubasher earnings announcements table (public, logged-in session)
+2024 FY 2024 CONSOLIDATED YAHOO_FINANCE_API
+  NET_PROFIT -3712047 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT -3712047 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 151770 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY -6060609 VALID Stockholders Equity AUDIT_CORRECTION: equity sign corrected from 6060609 to -6060609
+2023 FY 2023 CONSOLIDATED YAHOO_FINANCE_API
+  NET_PROFIT -4299470 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT -4299470 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 93900000 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 88748049 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+
+=== EGAS | Egypt Gas (Natural Gas & Mining Project) ===
+2025 FY 2025 CONSOLIDATED YAHOO_FINANCE_API + REUTERS_FINANCIALS_PAGE
+  EQUITY_PARENT 4747451217 VALID Common Stock Equity API import — YAHOO_FINANCE_API (2 sources agree)
+  NET_PROFIT 321852599 VALID Net Income From Continuing Operation Net Minority Interest API import — YAHOO_FINANCE_API (6 sources agree)
+  NET_PROFIT_PARENT 312255371 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API (2 sources agree)
+  TOTAL_ASSETS 19466561430 VALID Total Assets API import — YAHOO_FINANCE_API (3 sources agree)
+  TOTAL_EQUITY 4747451217 VALID Stockholders Equity API import — YAHOO_FINANCE_API (3 sources agree)
+2024 FY 2024 CONSOLIDATED YAHOO_FINANCE_API + REUTERS_FINANCIALS_PAGE
+  EQUITY_PARENT 4488293979 VALID Common Stock Equity API import — YAHOO_FINANCE_API (2 sources agree)
+  NET_PROFIT -248049.30288 VALID NET_PROFIT API import — REUTERS_FINANCIALS_PAGE (4 sources agree)
+  TOTAL_ASSETS 16271356750 VALID Total Assets API import — YAHOO_FINANCE_API (3 sources agree)
+  TOTAL_EQUITY 4488293979 VALID Stockholders Equity API import — YAHOO_FINANCE_API (3 sources agree)
+2023 FY 2023 CONSOLIDATED REUTERS_FINANCIALS_PAGE + YAHOO_FINANCE_API
+  EQUITY_PARENT 4094826170 VALID Common Stock Equity API import — YAHOO_FINANCE_API
+  NET_PROFIT 170597583 VALID Net Income From Continuing Operation Net Minority Interest API import — YAHOO_FINANCE_API (4 sources agree)
+  NET_PROFIT_PARENT 170597583 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 14348374285 VALID Total Assets API import — YAHOO_FINANCE_API (2 sources agree)
+  TOTAL_EQUITY 4094826170 VALID Stockholders Equity API import — YAHOO_FINANCE_API (2 sources agree)
+
+=== DAPH | Development & Engineering Consultants ===
+2025 FY 2025 CONSOLIDATED MUBASHER_EARNINGS
+  NET_PROFIT -138400000 VALID الربح المُعلن Mubasher earnings announcements table (public, logged-in session)
+  TOTAL_ASSETS 1130000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_EQUITY 497000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M)
+2024 FY 2024 CONSOLIDATED TRADINGVIEW_FINANCIALS
+  NET_PROFIT 53120000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_ASSETS 3970000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_EQUITY 922000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M)
+2023 FY 2023 CONSOLIDATED TRADINGVIEW_FINANCIALS
+  NET_PROFIT 39760000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_ASSETS 2340000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_EQUITY 870000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M)
+
+=== OFH | O B Financial Holding ===
+2025 FY 2025 CONSOLIDATED REUTERS_FINANCIALS_PAGE
+  NET_PROFIT 153000 VALID NET_PROFIT API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  TOTAL_ASSETS 3186777000 VALID TOTAL_ASSETS API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  TOTAL_EQUITY 3099207000 VALID TOTAL_EQUITY API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+2024 FY 2024 CONSOLIDATED REUTERS_FINANCIALS_PAGE
+  NET_PROFIT 40965900 VALID NET_PROFIT API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  TOTAL_ASSETS 2569304000 VALID TOTAL_ASSETS API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  TOTAL_EQUITY 2386738000 VALID TOTAL_EQUITY API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+2023 FY 2023 CONSOLIDATED YAHOO_FINANCE_API + REUTERS_FINANCIALS_PAGE
+  EQUITY_PARENT 2495412000 VALID Common Stock Equity API import — YAHOO_FINANCE_API
+  NET_PROFIT 20457000 VALID Net Income From Continuing Operation Net Minority Interest API import — YAHOO_FINANCE_API (5 sources agree)
+  NET_PROFIT_PARENT 56837000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 2622365000 VALID Total Assets API import — YAHOO_FINANCE_API (2 sources agree)
+  TOTAL_EQUITY 2495412000 VALID Stockholders Equity API import — YAHOO_FINANCE_API (2 sources agree)
+
+=== ASPI | Aspire Capital Holding for Financial Investments ===
+2025 FY 2025 CONSOLIDATED MUBASHER_EARNINGS
+  NET_PROFIT -175092000 VALID الربح المُعلن Mubasher earnings announcements table (public, logged-in session)
+2024 FY 2024 CONSOLIDATED YAHOO_FINANCE_API
+  NET_PROFIT -32334000 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT -35114000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 2560000000 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 2516819000 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+2023 FY 2023 CONSOLIDATED YAHOO_FINANCE_API
+  NET_PROFIT -16286234 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT -16286234 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 1440000000 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 1431288718 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+
+=== ATLC | Al Tawfeek Leasing Company-A.T.LEASE ===
+2025 FY 2025 CONSOLIDATED MUBASHER_EARNINGS
+  NET_PROFIT 122204000 VALID الربح المُعلن Mubasher earnings announcements table (public, logged-in session)
+  TOTAL_ASSETS 7623088000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M)
+  TOTAL_EQUITY 608700000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M)
+2024 FY 2024 CONSOLIDATED YAHOO_FINANCE_API
+  NET_PROFIT 111296000 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT 87368000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 6280000000 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 3498656000 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+2023 FY 2023 CONSOLIDATED YAHOO_FINANCE_API
+  NET_PROFIT 102845000 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT 77647000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 5260000000 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 2945972000 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+
+=== ACRO | Acrowmisr for Metallic Scaffoldings and Frameworks SAE ===
+2024 FY 2024 CONSOLIDATED EXCEL_STATEMENTS
+  NET_PROFIT 951563397.24 VALID Net Income after Tax (Refinitiv CF-Export, USD→EGP) 
+  TOTAL_ASSETS 5258308313.49 VALID Total Assets (Refinitiv CF-Export, USD→EGP) 
+  TOTAL_EQUITY 2103323325.4 VALID Total Shareholders' Equity - including Minority Interest & Hybrid Debt (Refinitiv CF-Export, USD→EGP) 
+2023 FY 2023 CONSOLIDATED EXCEL_STATEMENTS
+  NET_PROFIT 330963491.51 VALID Net Income after Tax (Refinitiv CF-Export, USD→EGP) 
+  TOTAL_ASSETS 3404588745.54 VALID Total Assets (Refinitiv CF-Export, USD→EGP) 
+  TOTAL_EQUITY 1361835498.22 NEEDS_REVIEW Total Shareholders' Equity - including Minority Interest & Hybrid Debt (Refinitiv CF-Export, USD→EGP) AUDIT_QUARANTINE: fabricated template value — identical value 1361835498.22 for TOTAL_EQUITY FY2023 shared across many unrelated companies (
+
+=== AIFI | Atlas for Investment and Food Industries ===
+2025 FY 2025 CONSOLIDATED REUTERS_FINANCIALS_PAGE
+  NET_PROFIT -7323120 VALID NET_PROFIT API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  TOTAL_ASSETS 314830930 VALID TOTAL_ASSETS API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  TOTAL_EQUITY 44420620 VALID TOTAL_EQUITY API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+2024 FY 2024 CONSOLIDATED REUTERS_FINANCIALS_PAGE
+  NET_PROFIT -6089670 VALID NET_PROFIT API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  TOTAL_ASSETS 300798970 VALID TOTAL_ASSETS API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  TOTAL_EQUITY 52271710 VALID TOTAL_EQUITY API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+2023 FY 2023 CONSOLIDATED REUTERS_FINANCIALS_PAGE
+  NET_PROFIT 387860 VALID NET_PROFIT API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  TOTAL_ASSETS 122674570 VALID TOTAL_ASSETS API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  TOTAL_EQUITY 58448860 VALID TOTAL_EQUITY API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+
+=== AALR | General Co. for Land Reclamation Development & Reconstruction ===
+2025 FY 2025 CONSOLIDATED ASKBORA_SUMMARY
+  TOTAL_ASSETS 603000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 503000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+2024 FY 2024 CONSOLIDATED ASKBORA_SUMMARY
+  NET_PROFIT 56350 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+  TOTAL_ASSETS 586000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 474000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+2023 FY 2023 CONSOLIDATED ASKBORA_SUMMARY
+  NET_PROFIT -30180000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+  TOTAL_ASSETS 565000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 472000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+
+=== ALEX | Alexandria Cement Co. ===
+
+=== SCFM | South Cairo & Giza Mills & Bakeries ===
+2025 FY 2025 CONSOLIDATED ASKBORA_SUMMARY
+  NET_PROFIT 6070000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+  TOTAL_ASSETS 391000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 7360000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+2024 FY 2024 CONSOLIDATED ASKBORA_SUMMARY
+  NET_PROFIT 3640000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+  TOTAL_ASSETS 423000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 19180000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+2023 FY 2023 CONSOLIDATED ASKBORA_SUMMARY
+  NET_PROFIT 42000000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+  TOTAL_ASSETS 387000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 21080000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+
+=== PRCL | Ceramic & Porcelain ===
+2025 FY 2025 CONSOLIDATED ASKBORA_SUMMARY
+  NET_PROFIT -99220000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+  TOTAL_ASSETS 505000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 174000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+2024 FY 2024 CONSOLIDATED EXCEL_STATEMENTS
+  TOTAL_ASSETS 514007177.67 VALID Total Assets (Refinitiv CF-Export, USD→EGP) 
+2023 FY 2023 CONSOLIDATED ASKBORA_SUMMARY
+  NET_PROFIT 19650000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+  TOTAL_ASSETS 333000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+  TOTAL_EQUITY 33550000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+
+=== UASG | United Arab Stevedoring Co SAE ===
+2024 FY 2024 CONSOLIDATED EXCEL_STATEMENTS
+  TOTAL_EQUITY 514007177.67 VALID Total Shareholders' Equity - including Minority Interest & Hybrid Debt (Refinitiv CF-Export, USD→EGP) 
+2023 FY 2023 CONSOLIDATED EXCEL_STATEMENTS
+  TOTAL_EQUITY 336573604.34 VALID Total Shareholders' Equity - including Minority Interest & Hybrid Debt (Refinitiv CF-Export, USD→EGP) 
+
+=== GTHE | Global Telecom Holding SAE ===
+
+=== BQDC | Banque du Caire SAE ===
+2025 FY 2025 CONSOLIDATED EXCEL_STATEMENTS
+  NET_PROFIT 16101634271.07 VALID Net Income after Tax (Refinitiv CF-Export, USD→EGP) 
+  TOTAL_ASSETS 540618723794.07 VALID Total Assets (Refinitiv CF-Export, USD→EGP) 
+  TOTAL_EQUITY 62680431744.24 VALID Total Shareholders' Equity - including Minority Interest & Hybrid Debt (Refinitiv CF-Export, USD→EGP) 
+2024 FY 2024 CONSOLIDATED EXCEL_STATEMENTS
+  NET_PROFIT 12370324164.1 VALID Net Income after Tax (Refinitiv CF-Export, USD→EGP) 
+  TOTAL_ASSETS 483238534009.74 VALID Total Assets (Refinitiv CF-Export, USD→EGP) 
+  TOTAL_EQUITY 44169789833.32 VALID Total Shareholders' Equity - including Minority Interest & Hybrid Debt (Refinitiv CF-Export, USD→EGP) 
+2023 FY 2023 CONSOLIDATED EXCEL_STATEMENTS
+  NET_PROFIT 6619269830.25 VALID Net Income after Tax (Refinitiv CF-Export, USD→EGP) 
+  TOTAL_ASSETS 401741471974.22 VALID Total Assets (Refinitiv CF-Export, USD→EGP) 
+  TOTAL_EQUITY 32684051957.22 VALID Total Shareholders' Equity - including Minority Interest & Hybrid Debt (Refinitiv CF-Export, USD→EGP) 
+
+=== IRON | Egyptian Iron & Steel ===
+2025 FY 2025 CONSOLIDATED YAHOO_FINANCE_API
+  NET_PROFIT -212184000 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT -212184000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 806879000 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 739826000 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+2024 FY 2024 CONSOLIDATED YAHOO_FINANCE_API
+  NET_PROFIT -109357000 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT -109357000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 496773000 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 443587000 VALID Stockholders Equity API import — YAHOO_FINANCE_API
+2023 FY 2023 CONSOLIDATED YAHOO_FINANCE_API
+  NET_PROFIT -76429000 VALID Net Income API import — YAHOO_FINANCE_API
+  NET_PROFIT_PARENT -76429000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API
+  TOTAL_ASSETS 367996000 VALID Total Assets API import — YAHOO_FINANCE_API
+  TOTAL_EQUITY 345121000 VALID Stockholders Equity API import — YAHOO_FINANCE_API

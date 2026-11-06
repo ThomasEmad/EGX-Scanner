@@ -1,0 +1,454 @@
+﻿AALR | net_profit | APP_MISSING | 2025 | 0 |  | 
+AALR | total_equity | MISMATCH | 2025 | -503000000 | 503000000 | -1
+AALR | revenue | ASK_MISSING |  |  |  | 
+ABUK | revenue | ASK_MISSING |  |  |  | 
+ACAP | revenue | ASK_MISSING |  |  |  | 
+ACAMD | revenue | ASK_MISSING |  |  |  | 
+ACGC | total_equity | APP_MISSING | 2024 | 2650000000 |  | 
+ACGC | revenue | ASK_MISSING |  |  |  | 
+ACTF | revenue | ASK_MISSING |  |  |  | 
+ACRO | net_profit | MISMATCH | 2024 | 1140000000 | 951563397.24 | 0.834705
+ACRO | revenue | ASK_MISSING |  |  |  | 
+ADCI | revenue | ASK_MISSING |  |  |  | 
+ADIB | revenue | ASK_MISSING |  |  |  | 
+ADPC | revenue | ASK_MISSING |  |  |  | 
+ADRI | revenue | ASK_MISSING |  |  |  | 
+AFMC | net_profit | APP_MISSING | 2026 | 44410000 |  | 
+AFMC | total_assets | APP_MISSING | 2026 | 469000000 |  | 
+AFMC | total_equity | APP_MISSING | 2026 | 283000000 |  | 
+AFMC | revenue | ASK_MISSING |  |  |  | 
+AIFI | net_profit | MISMATCH | 2023 | -277000 | 387860 | -1.400217
+AIFI | total_equity | MISMATCH | 2023 | 80390000 | 58448860 | 0.727066
+AIFI | revenue | ASK_MISSING |  |  |  | 
+AIHC | net_profit | APP_MISSING | 2024 | -23590000 |  | 
+AIHC | total_equity | MISMATCH | 2024 | 1170000000 | 1051661662.7 | 0.898856
+AIHC | revenue | ASK_MISSING |  |  |  | 
+AFDI | net_profit | MISMATCH | 2025 | 4210000 | 5261095 | 1.249666
+AFDI | revenue | ASK_MISSING |  |  |  | 
+ALCN | revenue | ASK_MISSING |  |  |  | 
+AIDC | net_profit | ASK_MISSING |  |  |  | 
+AIDC | total_assets | ASK_MISSING |  |  |  | 
+AIDC | total_equity | ASK_MISSING |  |  |  | 
+AIDC | revenue | ASK_MISSING |  |  |  | 
+AJWA | revenue | ASK_MISSING |  |  |  | 
+ALUM | net_profit | MISMATCH | 2025 | 2009999.9999999998 | -6600014 | -3.283589
+ALUM | revenue | ASK_MISSING |  |  |  | 
+AMER | revenue | ASK_MISSING |  |  |  | 
+ALEX | total_equity | MISMATCH | 2019 | -277000000 | 277000000 | -1
+ALEX | revenue | ASK_MISSING |  |  |  | 
+AMES | revenue | ASK_MISSING |  |  |  | 
+AMIA | revenue | ASK_MISSING |  |  |  | 
+AMII | net_profit | ASK_MISSING |  |  |  | 
+AMII | total_assets | ASK_MISSING |  |  |  | 
+AMII | total_equity | ASK_MISSING |  |  |  | 
+AMII | revenue | ASK_MISSING |  |  |  | 
+AMOC | net_profit | MISMATCH | 2024 | 1700000000 | 1506006588 | 0.885886
+AMOC | revenue | ASK_MISSING |  |  |  | 
+AMPI | net_profit | MISMATCH | 2025 | -10940000 | -2796430 | 0.255615
+AMPI | revenue | ASK_MISSING |  |  |  | 
+APPC | net_profit | APP_MISSING | 2015 | -57460000 |  | 
+APPC | total_assets | APP_MISSING | 2015 | 74150000 |  | 
+APPC | total_equity | APP_MISSING | 2015 | 46770000 |  | 
+APPC | revenue | ASK_MISSING |  |  |  | 
+ARAB | revenue | ASK_MISSING |  |  |  | 
+APSW | revenue | ASK_MISSING |  |  |  | 
+ARCC | net_profit | MISMATCH | 2024 | 495000000 | 1160129411 | 2.343696
+ARCC | revenue | ASK_MISSING |  |  |  | 
+AREH | revenue | ASK_MISSING |  |  |  | 
+ARVA | total_assets | ASK_MISSING |  |  |  | 
+ARVA | total_equity | ASK_MISSING |  |  |  | 
+ARVA | revenue | ASK_MISSING |  |  |  | 
+ASCM | revenue | ASK_MISSING |  |  |  | 
+ATLC | net_profit | MISMATCH | 2025 | 271000000 | 122204000 | 0.450937
+ATLC | total_equity | MISMATCH | 2025 | 1430000000 | 608700000 | 0.425664
+ATLC | revenue | ASK_MISSING |  |  |  | 
+ASPI | net_profit | MISMATCH | 2024 | 67930000 | -32334000 | -0.47599
+ASPI | total_equity | MISMATCH | 2024 | 566000000 | 2516819000 | 4.446677
+ASPI | revenue | ASK_MISSING |  |  |  | 
+ATQA | revenue | ASK_MISSING |  |  |  | 
+AXPH | net_profit | APP_MISSING | 2026 | 660000000 |  | 
+AXPH | total_assets | APP_MISSING | 2026 | 1780000000 |  | 
+AXPH | total_equity | APP_MISSING | 2026 | 1180000000 |  | 
+AXPH | revenue | ASK_MISSING |  |  |  | 
+BIGP | revenue | ASK_MISSING |  |  |  | 
+BIDI | revenue | ASK_MISSING |  |  |  | 
+BINV | net_profit | MISMATCH | 2024 | 1490000000 | 1655571043 | 1.111122
+BINV | revenue | ASK_MISSING |  |  |  | 
+BIOC | revenue | ASK_MISSING |  |  |  | 
+BONY | revenue | ASK_MISSING |  |  |  | 
+BQDC | net_profit | SCALE_X1000 | 2020 | 3160000 | 3235030552.81 | 1023.743846
+BQDC | total_assets | SCALE_X1000 | 2020 | 205000000 | 205418661455.79 | 1002.042251
+BQDC | total_equity | SCALE_X1000 | 2020 | 17580000 | 17629213483.15 | 1002.799402
+BQDC | revenue | ASK_MISSING |  |  |  | 
+BTFH | revenue | ASK_MISSING |  |  |  | 
+CAED | revenue | ASK_MISSING |  |  |  | 
+CANA | net_profit | MISMATCH | 2025 | 1370000000 | 5652258000 | 4.125736
+CANA | revenue | ASK_MISSING |  |  |  | 
+CCRS | revenue | ASK_MISSING |  |  |  | 
+CEFM | net_profit | APP_MISSING | 2025 | 52850000 |  | 
+CEFM | revenue | ASK_MISSING |  |  |  | 
+CCAP | revenue | ASK_MISSING |  |  |  | 
+CICH | revenue | ASK_MISSING |  |  |  | 
+CIEB | revenue | ASK_MISSING |  |  |  | 
+CERA | net_profit | ASK_MISSING |  |  |  | 
+CERA | revenue | ASK_MISSING |  |  |  | 
+CFGH | net_profit | MISMATCH | 2024 | 8480000 | 12778502 | 1.506899
+CFGH | revenue | ASK_MISSING |  |  |  | 
+CIRA | net_profit | MISMATCH | 2024 | 70150000 | 35609296 | 0.507616
+CIRA | total_equity | MISMATCH | 2024 | 1680000000 | 1285245466 | 0.765027
+CIRA | revenue | ASK_MISSING |  |  |  | 
+CNFN | net_profit | MISMATCH | 2024 | 658000000 | 771637193 | 1.172701
+CNFN | revenue | ASK_MISSING |  |  |  | 
+CLHO | net_profit | MISMATCH | 2025 | 824000000 | 967866317 | 1.174595
+CLHO | total_assets | ASK_MISSING |  |  |  | 
+CLHO | total_equity | ASK_MISSING |  |  |  | 
+CLHO | revenue | ASK_MISSING |  |  |  | 
+COMI | total_assets | MISMATCH | 2024 | 1.21 | 1214973261000 | 1004110133057.8513
+COMI | revenue | ASK_MISSING |  |  |  | 
+CPME | net_profit | ASK_MISSING |  |  |  | 
+CPME | total_assets | ASK_MISSING |  |  |  | 
+CPME | total_equity | ASK_MISSING |  |  |  | 
+CPME | revenue | ASK_MISSING |  |  |  | 
+COPR | net_profit | MISMATCH | 2024 | 4010000 | -3712047 | -0.925698
+COPR | total_assets | MISMATCH | 2024 | 95050000 | 151770 | 0.001597
+COPR | total_equity | MISMATCH | 2024 | 81230000 | -6060609 | -0.07461
+COPR | revenue | ASK_MISSING |  |  |  | 
+COSG | revenue | ASK_MISSING |  |  |  | 
+CSAG | revenue | ASK_MISSING |  |  |  | 
+CPCI | revenue | ASK_MISSING |  |  |  | 
+CRST | net_profit | MISMATCH | 2025 | 77700000 | 103629124 | 1.333708
+CRST | total_assets | APP_MISSING | 2025 | 3430000000 |  | 
+CRST | total_equity | APP_MISSING | 2025 | 245000000 |  | 
+CRST | revenue | ASK_MISSING |  |  |  | 
+DAPH | net_profit | MISMATCH | 2025 | 17950000 | -138400000 | -7.710306
+DAPH | revenue | ASK_MISSING |  |  |  | 
+DGTZ | revenue | ASK_MISSING |  |  |  | 
+DCRC | revenue | ASK_MISSING |  |  |  | 
+DEIN | revenue | ASK_MISSING |  |  |  | 
+DOMT | revenue | ASK_MISSING |  |  |  | 
+EALR | revenue | ASK_MISSING |  |  |  | 
+DTPP | revenue | ASK_MISSING |  |  |  | 
+DSCW | net_profit | MISMATCH | 2025 | 367000000 | 109586217 | 0.2986
+DSCW | revenue | ASK_MISSING |  |  |  | 
+EASB | revenue | ASK_MISSING |  |  |  | 
+EAST | net_profit | MISMATCH | 2025 | 9710000000 | 5382337000 | 0.554309
+EAST | revenue | ASK_MISSING |  |  |  | 
+ECAP | revenue | ASK_MISSING |  |  |  | 
+EBSC | net_profit | MISMATCH | 2025 | 16770000 | 9263060 | 0.552359
+EBSC | revenue | ASK_MISSING |  |  |  | 
+EDFM | revenue | ASK_MISSING |  |  |  | 
+EEII | revenue | ASK_MISSING |  |  |  | 
+EFIC | total_equity | MISMATCH | 2025 | 3040000000 | 6221175217 | 2.046439
+EFIC | revenue | ASK_MISSING |  |  |  | 
+EFID | revenue | ASK_MISSING |  |  |  | 
+EGAL | net_profit | MISMATCH | 2025 | 10190000000 | 3122747462 | 0.306452
+EGAL | revenue | ASK_MISSING |  |  |  | 
+EFIH | revenue | ASK_MISSING |  |  |  | 
+EGBE | revenue | ASK_MISSING |  |  |  | 
+EGAS | net_profit | MISMATCH | 2024 | 291000000 | -248049.30288 | -0.000852
+EGAS | revenue | ASK_MISSING |  |  |  | 
+EGCH | net_profit | APP_MISSING | 2026 | 1790000000 |  | 
+EGCH | total_assets | APP_MISSING | 2026 | 59390000000 |  | 
+EGCH | total_equity | APP_MISSING | 2026 | 42990000000 |  | 
+EGCH | revenue | ASK_MISSING |  |  |  | 
+EGSA | net_profit | ASK_MISSING |  |  |  | 
+EGSA | revenue | ASK_MISSING |  |  |  | 
+EGTS | net_profit | MISMATCH | 2024 | 205000000 | -473084858 | -2.307731
+EGTS | total_equity | MISMATCH | 2024 | 680000000 | 215868788 | 0.317454
+EGTS | revenue | ASK_MISSING |  |  |  | 
+EGREF | net_profit | ASK_MISSING |  |  |  | 
+EGREF | total_assets | ASK_MISSING |  |  |  | 
+EGREF | total_equity | ASK_MISSING |  |  |  | 
+EGREF | revenue | ASK_MISSING |  |  |  | 
+EHDR | net_profit | ASK_MISSING |  |  |  | 
+EHDR | revenue | ASK_MISSING |  |  |  | 
+ECCW | FETCH | FETCH_FAILED |  |  |  | 
+EITP | net_profit | APP_MISSING | 2019 | 13320000 |  | 
+EITP | total_equity | APP_MISSING | 2019 | 894000000 |  | 
+EITP | revenue | ASK_MISSING |  |  |  | 
+ELKA | net_profit | MISMATCH | 2024 | 1180000000 | 11800000 | 0.01
+ELKA | revenue | ASK_MISSING |  |  |  | 
+ELEC | revenue | ASK_MISSING |  |  |  | 
+ELNA | revenue | ASK_MISSING |  |  |  | 
+ELSH | revenue | ASK_MISSING |  |  |  | 
+ELWA | revenue | ASK_MISSING |  |  |  | 
+EMFD | revenue | ASK_MISSING |  |  |  | 
+EOSB | revenue | ASK_MISSING |  |  |  | 
+ENGC | net_profit | MISMATCH | 2024 | 1020000000 | 1268633709 | 1.243759
+ENGC | revenue | ASK_MISSING |  |  |  | 
+EPPK | revenue | ASK_MISSING |  |  |  | 
+ESRS | net_profit | MISMATCH | 2023 | -113000000 | -661926983.02 | 5.857761
+ESRS | total_equity | APP_MISSING | 2023 | 1300000000 |  | 
+ESRS | revenue | ASK_MISSING |  |  |  | 
+EPCO | revenue | ASK_MISSING |  |  |  | 
+ETRS | revenue | ASK_MISSING |  |  |  | 
+EXPA | revenue | ASK_MISSING |  |  |  | 
+ETEL | revenue | ASK_MISSING |  |  |  | 
+FAIT | revenue | ASK_MISSING |  |  |  | 
+FIRE | net_profit | APP_MISSING | 2024 | 1320000 |  | 
+FIRE | revenue | ASK_MISSING |  |  |  | 
+FTNS | revenue | ASK_MISSING |  |  |  | 
+FNAR | revenue | ASK_MISSING |  |  |  | 
+FERC | revenue | ASK_MISSING |  |  |  | 
+FWRY | revenue | ASK_MISSING |  |  |  | 
+GDWA | revenue | ASK_MISSING |  |  |  | 
+GGCC | revenue | ASK_MISSING |  |  |  | 
+GBCO | revenue | ASK_MISSING |  |  |  | 
+GEOS | net_profit | ASK_MISSING |  |  |  | 
+GEOS | total_assets | ASK_MISSING |  |  |  | 
+GEOS | total_equity | ASK_MISSING |  |  |  | 
+GEOS | revenue | ASK_MISSING |  |  |  | 
+GGRN | revenue | ASK_MISSING |  |  |  | 
+GIHD | net_profit | MISMATCH | 2024 | 1990000 | 945600 | 0.475176
+GIHD | revenue | ASK_MISSING |  |  |  | 
+GMCI | revenue | ASK_MISSING |  |  |  | 
+GOCO | net_profit | APP_MISSING | 2022 | -2190000 |  | 
+GOCO | total_assets | MISMATCH | 2022 | 204000000 | 264768835.62 | 1.297886
+GOCO | total_equity | APP_MISSING | 2022 | 120000000 |  | 
+GOCO | revenue | ASK_MISSING |  |  |  | 
+GPIM | revenue | ASK_MISSING |  |  |  | 
+GOUR | net_profit | ASK_MISSING |  |  |  | 
+GOUR | total_assets | ASK_MISSING |  |  |  | 
+GOUR | total_equity | ASK_MISSING |  |  |  | 
+GOUR | revenue | ASK_MISSING |  |  |  | 
+GPPL | net_profit | ASK_MISSING |  |  |  | 
+GPPL | total_assets | ASK_MISSING |  |  |  | 
+GPPL | total_equity | ASK_MISSING |  |  |  | 
+GPPL | revenue | ASK_MISSING |  |  |  | 
+GRCA | net_profit | SCALE_DIV1000 | 2026 | 27400000 | 27400 | 0.001
+GRCA | total_assets | ASK_MISSING |  |  |  | 
+GRCA | total_equity | APP_MISSING | 2026 | 80660000 |  | 
+GRCA | revenue | ASK_MISSING |  |  |  | 
+GSSC | net_profit | MISMATCH | 2025 | 135000000 | 265160968.67 | 1.964155
+GSSC | total_equity | MISMATCH | 2025 | 778000000 | 396713586.06 | 0.509915
+GSSC | revenue | ASK_MISSING |  |  |  | 
+GTEX | net_profit | APP_MISSING | 2025 | -4320000 |  | 
+GTEX | revenue | ASK_MISSING |  |  |  | 
+GTHE | net_profit | MISMATCH | 2018 | -342000000 | -141536212.07 | 0.413849
+GTHE | total_equity | MISMATCH | 2018 | -439000000 | 481695568.4 | -1.097256
+GTHE | revenue | ASK_MISSING |  |  |  | 
+GTWL | total_assets | ASK_MISSING |  |  |  | 
+GTWL | total_equity | APP_MISSING | 2025 | 969000000 |  | 
+GTWL | revenue | ASK_MISSING |  |  |  | 
+HBCO | revenue | ASK_MISSING |  |  |  | 
+HELI | net_profit | MISMATCH | 2024 | 2560000000 | 761250717.792 | 0.297364
+HELI | revenue | ASK_MISSING |  |  |  | 
+HDBK | net_profit | MISMATCH | 2024 | 27990000 | 12425820549 | 443.937855
+HDBK | revenue | ASK_MISSING |  |  |  | 
+HRHO | net_profit | MISMATCH | 2024 | 945000000 | 5331086000 | 5.641361
+HRHO | total_equity | MISMATCH | 2024 | 39370000000 | 34058826000 | 0.865096
+HRHO | revenue | ASK_MISSING |  |  |  | 
+ICFC | total_assets | ASK_MISSING |  |  |  | 
+ICFC | total_equity | ASK_MISSING |  |  |  | 
+ICFC | revenue | ASK_MISSING |  |  |  | 
+IBCT | revenue | ASK_MISSING |  |  |  | 
+IDRE | revenue | ASK_MISSING |  |  |  | 
+ICID | net_profit | MISMATCH | 2025 | 5530000 | 13263231 | 2.398414
+ICID | revenue | ASK_MISSING |  |  |  | 
+ICLE | revenue | ASK_MISSING |  |  |  | 
+IEEC | revenue | ASK_MISSING |  |  |  | 
+GROV | FETCH | FETCH_FAILED |  |  |  | 
+IFAP | net_profit | MISMATCH | 2025 | 91300000 | 111275045 | 1.218785
+IFAP | revenue | ASK_MISSING |  |  |  | 
+INEG | revenue | ASK_MISSING |  |  |  | 
+IRON | net_profit | SCALE_X1000 | 2020 | -983000 | -983000000 | 1000
+IRON | total_assets | SCALE_X1000 | 2020 | 2830000 | 2830000000 | 1000
+IRON | total_equity | SCALE_X1000 | 2020 | -5770000 | -5770000000 | 1000
+IRON | revenue | ASK_MISSING |  |  |  | 
+INFI | revenue | ASK_MISSING |  |  |  | 
+ISMA | revenue | ASK_MISSING |  |  |  | 
+IRAX | revenue | ASK_MISSING |  |  |  | 
+ISMQ | revenue | ASK_MISSING |  |  |  | 
+JUFO | revenue | ASK_MISSING |  |  |  | 
+KABO | revenue | ASK_MISSING |  |  |  | 
+KORA | net_profit | ASK_MISSING |  |  |  | 
+KORA | total_assets | ASK_MISSING |  |  |  | 
+KORA | total_equity | ASK_MISSING |  |  |  | 
+KORA | revenue | ASK_MISSING |  |  |  | 
+KRDI | revenue | ASK_MISSING |  |  |  | 
+ISPH | revenue | ASK_MISSING |  |  |  | 
+KWIN | revenue | ASK_MISSING |  |  |  | 
+LCSW | revenue | ASK_MISSING |  |  |  | 
+LUTS | revenue | ASK_MISSING |  |  |  | 
+MAAL | revenue | ASK_MISSING |  |  |  | 
+KZPC | revenue | ASK_MISSING |  |  |  | 
+MASR | revenue | ASK_MISSING |  |  |  | 
+MBSC | revenue | ASK_MISSING |  |  |  | 
+MBEG | revenue | ASK_MISSING |  |  |  | 
+MCQE | net_profit | MISMATCH | 2024 | 238000000 | 271383437 | 1.140267
+MCQE | revenue | ASK_MISSING |  |  |  | 
+MCRO | net_profit | MISMATCH | 2025 | 116000000 | 34977131 | 0.301527
+MCRO | revenue | ASK_MISSING |  |  |  | 
+MEGM | net_profit | MISMATCH | 2024 | 1070000000.0000001 | 951563397.24 | 0.889312
+MEGM | total_assets | APP_MISSING | 2024 | 7020000000 |  | 
+MEGM | total_equity | MISMATCH | 2024 | 1850000000 | 1577492494.05 | 0.852699
+MEGM | revenue | ASK_MISSING |  |  |  | 
+MENA | revenue | ASK_MISSING |  |  |  | 
+MEPA | revenue | ASK_MISSING |  |  |  | 
+MFPC | revenue | ASK_MISSING |  |  |  | 
+MFSC | revenue | ASK_MISSING |  |  |  | 
+MHOT | net_profit | MISMATCH | 2025 | 1390000000 | 138939316 | 0.099956
+MHOT | total_assets | MISMATCH | 2025 | 6150000000 | 4654246877 | 0.756788
+MHOT | revenue | ASK_MISSING |  |  |  | 
+MICH | revenue | ASK_MISSING |  |  |  | 
+MILS | revenue | ASK_MISSING |  |  |  | 
+MMAT | net_profit | MISMATCH | 2025 | 303000 | -455280 | -1.502574
+MMAT | revenue | ASK_MISSING |  |  |  | 
+MIPH | revenue | ASK_MISSING |  |  |  | 
+MOIL | revenue | ASK_MISSING |  |  |  | 
+MOED | revenue | ASK_MISSING |  |  |  | 
+MOSC | revenue | ASK_MISSING |  |  |  | 
+MOIN | revenue | ASK_MISSING |  |  |  | 
+MPCI | net_profit | APP_MISSING | 2026 | 480000000 |  | 
+MPCI | total_assets | APP_MISSING | 2026 | 1490000000 |  | 
+MPCI | total_equity | APP_MISSING | 2026 | 843000000 |  | 
+MPCI | revenue | ASK_MISSING |  |  |  | 
+MPRC | net_profit | MISMATCH | 2025 | 776000000 | 171832130 | 0.221433
+MPRC | total_equity | MISMATCH | 2025 | 4280000000.0000005 | 3715754454 | 0.868167
+MPRC | revenue | ASK_MISSING |  |  |  | 
+MPCO | revenue | ASK_MISSING |  |  |  | 
+MTIE | revenue | ASK_MISSING |  |  |  | 
+NAHO | net_profit | MISMATCH | 2024 | 822000 | 3396541 | 4.132045
+NAHO | revenue | ASK_MISSING |  |  |  | 
+NAPR | revenue | ASK_MISSING |  |  |  | 
+NARE | revenue | ASK_MISSING |  |  |  | 
+NBKE | revenue | ASK_MISSING |  |  |  | 
+NCCW | revenue | ASK_MISSING |  |  |  | 
+NCGC | net_profit | APP_MISSING | 2020 | 54490000 |  | 
+NCGC | total_assets | APP_MISSING | 2020 | 493000000 |  | 
+NCGC | total_equity | APP_MISSING | 2020 | 444000000 |  | 
+NCGC | revenue | ASK_MISSING |  |  |  | 
+NDRL | revenue | ASK_MISSING |  |  |  | 
+NEDA | revenue | ASK_MISSING |  |  |  | 
+NHPS | revenue | ASK_MISSING |  |  |  | 
+NIPH | revenue | ASK_MISSING |  |  |  | 
+NAMI | FETCH | FETCH_FAILED |  |  |  | 
+NINH | revenue | ASK_MISSING |  |  |  | 
+OBRI | revenue | ASK_MISSING |  |  |  | 
+NCEM | FETCH | FETCH_FAILED |  |  |  | 
+OCDI | revenue | ASK_MISSING |  |  |  | 
+OCPH | revenue | ASK_MISSING |  |  |  | 
+OFH | net_profit | MISMATCH | 2024 | -2980000 | 40965900 | -13.746946
+OFH | revenue | ASK_MISSING |  |  |  | 
+ODIN | revenue | ASK_MISSING |  |  |  | 
+OIH | revenue | ASK_MISSING |  |  |  | 
+OLFI | revenue | ASK_MISSING |  |  |  | 
+ORAS | net_profit | MISMATCH | 2024 | 118000000 | 6797040000 | 57.602034
+ORAS | total_assets | MISMATCH | 2024 | 3970000000 | 201742040000 | 50.816635
+ORAS | total_equity | MISMATCH | 2024 | 648000000 | 31572200000 | 48.722531
+ORAS | revenue | ASK_MISSING |  |  |  | 
+ORHD | net_profit | MISMATCH | 2024 | 3110000000 | 3445320163 | 1.10782
+ORHD | total_equity | MISMATCH | 2024 | 13140000000 | 11577518840 | 0.88109
+ORHD | revenue | ASK_MISSING |  |  |  | 
+ORWE | total_assets | ASK_MISSING |  |  |  | 
+ORWE | total_equity | ASK_MISSING |  |  |  | 
+ORWE | revenue | ASK_MISSING |  |  |  | 
+NOAF | FETCH | FETCH_FAILED |  |  |  | 
+PACH | revenue | ASK_MISSING |  |  |  | 
+PHAR | revenue | ASK_MISSING |  |  |  | 
+PHDC | revenue | ASK_MISSING |  |  |  | 
+PHTV | revenue | ASK_MISSING |  |  |  | 
+POUL | revenue | ASK_MISSING |  |  |  | 
+PHGC | total_equity | MISMATCH | 2024 | 483000000 | 145801520 | 0.301867
+PHGC | revenue | ASK_MISSING |  |  |  | 
+PRCL | total_equity | MISMATCH | 2025 | -174000000 | 174000000 | -1
+PRCL | revenue | ASK_MISSING |  |  |  | 
+PRDC | net_profit | MISMATCH | 2024 | 1100000000 | 1427345095.86 | 1.297586
+PRDC | revenue | ASK_MISSING |  |  |  | 
+PRMH | revenue | ASK_MISSING |  |  |  | 
+RACC | revenue | ASK_MISSING |  |  |  | 
+QNBE | revenue | ASK_MISSING |  |  |  | 
+RAKT | net_profit | ASK_MISSING |  |  |  | 
+RAKT | revenue | ASK_MISSING |  |  |  | 
+RKAZ | revenue | ASK_MISSING |  |  |  | 
+RAYA | net_profit | MISMATCH | 2024 | 1690000000 | 1899212284 | 1.123794
+RAYA | total_equity | MISMATCH | 2024 | 4750000000 | 3733435792 | 0.785986
+RAYA | revenue | ASK_MISSING |  |  |  | 
+ROTO | revenue | ASK_MISSING |  |  |  | 
+RMDA | revenue | ASK_MISSING |  |  |  | 
+RTVC | revenue | ASK_MISSING |  |  |  | 
+RREI | revenue | ASK_MISSING |  |  |  | 
+RMTV | net_profit | APP_MISSING | 2020 | -56460000 |  | 
+RMTV | total_assets | APP_MISSING | 2020 | 686000000 |  | 
+RMTV | total_equity | APP_MISSING | 2020 | 311000000 |  | 
+RMTV | revenue | ASK_MISSING |  |  |  | 
+RUBX | revenue | ASK_MISSING |  |  |  | 
+SAIB | revenue | ASK_MISSING |  |  |  | 
+SCEM | revenue | ASK_MISSING |  |  |  | 
+SAUD | revenue | ASK_MISSING |  |  |  | 
+SCFM | total_equity | MISMATCH | 2025 | -7360000 | 7360000 | -1
+SCFM | revenue | ASK_MISSING |  |  |  | 
+SCTS | revenue | ASK_MISSING |  |  |  | 
+SDTI | revenue | ASK_MISSING |  |  |  | 
+SEIG | revenue | ASK_MISSING |  |  |  | 
+SKPC | revenue | ASK_MISSING |  |  |  | 
+SIMO | net_profit | ASK_MISSING |  |  |  | 
+SIMO | total_assets | ASK_MISSING |  |  |  | 
+SIMO | total_equity | ASK_MISSING |  |  |  | 
+SIMO | revenue | ASK_MISSING |  |  |  | 
+SIPC | net_profit | APP_MISSING | 2025 | -6650000 |  | 
+SIPC | total_assets | MISMATCH | 2025 | 169000000 | 8294717672 | 49.08117
+SIPC | total_equity | MISMATCH | 2025 | 106000000 | 6020338736 | 56.795648
+SIPC | revenue | ASK_MISSING |  |  |  | 
+SMFR | revenue | ASK_MISSING |  |  |  | 
+SMPP | net_profit | APP_MISSING | 2020 | 163000000 |  | 
+SMPP | total_assets | APP_MISSING | 2020 | 1840000000 |  | 
+SMPP | total_equity | APP_MISSING | 2020 | 458000000 |  | 
+SMPP | revenue | ASK_MISSING |  |  |  | 
+SNFC | revenue | ASK_MISSING |  |  |  | 
+SPHT | net_profit | MISMATCH | 2025 | -8950000 | -10058762 | 1.123884
+SPHT | revenue | ASK_MISSING |  |  |  | 
+SNFI | net_profit | ASK_MISSING |  |  |  | 
+SNFI | total_assets | ASK_MISSING |  |  |  | 
+SNFI | total_equity | ASK_MISSING |  |  |  | 
+SNFI | revenue | ASK_MISSING |  |  |  | 
+SPIN | revenue | ASK_MISSING |  |  |  | 
+SPMD | revenue | ASK_MISSING |  |  |  | 
+SVCE | revenue | ASK_MISSING |  |  |  | 
+TALM | revenue | ASK_MISSING |  |  |  | 
+SWDY | revenue | ASK_MISSING |  |  |  | 
+TAQA | net_profit | MISMATCH | 2024 | 277000000 | 794740000 | 2.869097
+TAQA | revenue | ASK_MISSING |  |  |  | 
+TANM | net_profit | MISMATCH | 2025 | 34820000 | 30205843 | 0.867485
+TANM | revenue | ASK_MISSING |  |  |  | 
+SUGR | revenue | ASK_MISSING |  |  |  | 
+TMGH | net_profit | MISMATCH | 2024 | 10720000000 | 12769517325 | 1.191186
+TMGH | revenue | ASK_MISSING |  |  |  | 
+TORA | net_profit | MISMATCH | 2019 | -101000000 | -562334802.62 | 5.567671
+TORA | total_assets | APP_MISSING | 2019 | 654000000 |  | 
+TORA | total_equity | MISMATCH | 2019 | -817000000 | -717440530.9 | 0.87814
+TORA | revenue | ASK_MISSING |  |  |  | 
+TRTO | revenue | ASK_MISSING |  |  |  | 
+TYCN | net_profit | MISMATCH | 2024 | 1570000 | 939000 | 0.598089
+TYCN | revenue | ASK_MISSING |  |  |  | 
+TWSA | revenue | ASK_MISSING |  |  |  | 
+UASG | net_profit | APP_MISSING | 2024 | -20490000 |  | 
+UASG | total_assets | APP_MISSING | 2024 | 22160000 |  | 
+UASG | total_equity | MISMATCH | 2024 | -258000000 | 514007177.67 | -1.992276
+UASG | revenue | ASK_MISSING |  |  |  | 
+UBEE | revenue | ASK_MISSING |  |  |  | 
+UEGC | revenue | ASK_MISSING |  |  |  | 
+UEFM | revenue | ASK_MISSING |  |  |  | 
+UNIP | revenue | ASK_MISSING |  |  |  | 
+UNIT | net_profit | MISMATCH | 2024 | 130000000 | 58400000 | 0.449231
+UNIT | total_assets | MISMATCH | 2024 | 1920000000 | 5282100000 | 2.751094
+UNIT | total_equity | MISMATCH | 2024 | 795000000 | 2452400000 | 3.08478
+UNIT | revenue | ASK_MISSING |  |  |  | 
+UPMS | revenue | ASK_MISSING |  |  |  | 
+UTOP | revenue | ASK_MISSING |  |  |  | 
+VALU | net_profit | APP_MISSING | 2025 | 764000000 |  | 
+VALU | total_assets | APP_MISSING | 2025 | 14240000000 |  | 
+VALU | total_equity | APP_MISSING | 2025 | 2260000000 |  | 
+VALU | revenue | ASK_MISSING |  |  |  | 
+WKOL | net_profit | APP_MISSING | 2026 | 148000000 |  | 
+WKOL | total_assets | APP_MISSING | 2026 | 1130000000 |  | 
+WKOL | total_equity | APP_MISSING | 2026 | 669000000 |  | 
+WKOL | revenue | ASK_MISSING |  |  |  | 
+WCDF | revenue | ASK_MISSING |  |  |  | 
+VLMRA | total_assets | ASK_MISSING |  |  |  | 
+VLMRA | total_equity | ASK_MISSING |  |  |  | 
+VLMRA | revenue | ASK_MISSING |  |  |  | 
+ZEOT | revenue | ASK_MISSING |  |  |  | 
+VERT | net_profit | MISMATCH | 2025 | 1470000 | 993560 | 0.675891
+VERT | revenue | ASK_MISSING |  |  |  | 
+ZMID | revenue | ASK_MISSING |  |  |  | 

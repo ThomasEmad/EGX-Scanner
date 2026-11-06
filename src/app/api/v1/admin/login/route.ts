@@ -1,6 +1,7 @@
 import { NextRequest } from "next/server"
 import { db } from "@/lib/db"
 import { adminLogin, setAdminCookie, clearAdminCookie, getAdminTokenFromRequest } from "@/lib/admin-auth"
+import { hashToken } from "@/lib/secure-compare"
 import { audit } from "@/lib/audit"
 import { checkEndpointRateLimit, getClientIp } from "@/lib/rate-limit"
 
@@ -25,7 +26,7 @@ export async function POST(req: NextRequest) {
     }
 
     const session = await db.adminSession.findUnique({
-      where: { token },
+      where: { token: hashToken(token) },
       select: { expiresAt: true },
     })
 
@@ -47,7 +48,7 @@ export async function DELETE(req: NextRequest) {
   try {
     const token = getAdminTokenFromRequest(req)
     if (token) {
-      await db.adminSession.delete({ where: { token } }).catch(() => {})
+      await db.adminSession.delete({ where: { token: hashToken(token) } }).catch(() => {})
       await audit("ADMIN_LOGOUT", { actor: "admin", details: "Admin session ended" })
     }
     return clearAdminCookie()

@@ -7,7 +7,7 @@ import { useI18n } from "@/lib/i18n"
 
 const MOBILE_NAV: { href: string; label: string; labelAr: string; icon: React.ReactNode }[] = [
   { href: "/", label: "Home", labelAr: "الرئيسية", icon: <Activity className="h-5 w-5" /> },
-  { href: "/rankings", label: "Companies", labelAr: "الشركات", icon: <Building2 className="h-5 w-5" /> },
+  { href: "/companies", label: "Companies", labelAr: "الشركات", icon: <Building2 className="h-5 w-5" /> },
   { href: "/sectors", label: "Sectors", labelAr: "القطاعات", icon: <ScanSearch className="h-5 w-5" /> },
   { href: "/dividends", label: "Dividends", labelAr: "التوزيعات", icon: <CalendarDays className="h-5 w-5" /> },
   { href: "/watchlist", label: "Watchlist", labelAr: "قائمة المتابعة", icon: <ShieldCheck className="h-5 w-5" /> },

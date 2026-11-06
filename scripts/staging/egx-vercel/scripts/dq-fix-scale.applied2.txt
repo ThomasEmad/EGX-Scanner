@@ -1,0 +1,15 @@
+﻿
+=== Unit-scale repair APPLY ===
+
+reports scanned: 28
+reports to repair: 6 | monetary values: 30
+
+examples:
+  FWRY FY 2016 ÷1000 (previous-year chain 5.677e+11 ÷ 1.061e+9; 2/11 values, EXCEL_STATEMENTS)
+  FWRY FY 2017 ÷1000 (previous-year chain 1.061e+12 ÷ 1.229e+9; 5/11 values, EXCEL_STATEMENTS)
+  FWRY FY 2018 ÷1000 (previous-year chain 1.229e+12 ÷ 1.435e+9; 5/12 values, EXCEL_STATEMENTS)
+  FWRY FY 2019 ÷1000 (previous-year chain 1.435e+12 ÷ 2.430e+9; 6/13 values, EXCEL_STATEMENTS)
+  FWRY FY 2020 ÷1000 (previous-year chain 2.430e+12 ÷ 4.120e+9; 6/16 values, ASKBORA_SUMMARY)
+  FWRY FY 2021 ÷1000 (TOTAL_ASSETS 4.120e+12 vs anchor 1.326e+10; 6/15 values, YAHOO_FINANCE_API)
+
+Changes written.

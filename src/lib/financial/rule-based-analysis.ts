@@ -1,17 +1,18 @@
 // Rule-based analysis builder — a deterministic, grounded narrative generated
 // exclusively from the verified-data snapshot (same input the LLM receives).
-// Used as the fallback when no LLM is configured/reachable, so investors always
-// get a real, data-grounded reading instead of an error. Every figure comes
-// from the snapshot; anything missing is reported as not available — never
-// estimated. Output is clearly labeled rule-based (model "rule-based@1").
+// Used as the CLEARLY-LABELED degraded fallback when the LLM is unreachable
+// after retries, so investors always get a real, data-grounded reading instead
+// of an error. Every figure comes from the snapshot; anything missing is
+// reported as not available — never estimated (model "rule-based@1").
 
 export interface AnalysisPeriod {
   periodKey: string
   periodLabel: string
   periodType: string
   fiscalYear: number
-  calculatedMetrics: Record<string, { value: number | null; status: string; detail?: string }>
-  rawValues?: Record<string, { value: number; unit: string }>
+  /** number = verified value; "unavailable" = could not be computed */
+  calculatedMetrics: Record<string, number | "unavailable">
+  rawValues?: Record<string, number>
 }
 
 export interface AnalysisEvent {
@@ -25,12 +26,6 @@ export interface AnalysisSnapshot {
   statementBasis: string
   periods: AnalysisPeriod[]
   events: AnalysisEvent[]
-  dataQuality: {
-    reportsConsidered: number
-    validationChecks: { failed: number; warning: number }
-    manuallyCorrectedValues: number
-    avgExtractionConfidence: number | null
-  }
 }
 
 type Lang = "en" | "ar"
@@ -75,11 +70,15 @@ function fmt(code: string, value: number | null | undefined, lang: Lang): string
   return fn(value)
 }
 
-/** Latest-OK value of a metric code in a period bucket */
-function pick(period: AnalysisPeriod | undefined, code: string): { value: number | null; status: string } | null {
+/** Latest-OK value of a metric code in a period bucket (compact encoding) */
+function pick(
+  period: AnalysisPeriod | undefined,
+  code: string
+): { value: number | null; status: "OK" | "UNAVAILABLE" } | null {
   const m = period?.calculatedMetrics?.[code]
-  if (!m) return null
-  return m
+  if (m === undefined) return null
+  if (m === "unavailable") return { value: null, status: "UNAVAILABLE" }
+  return { value: m, status: "OK" }
 }
 
 export function buildRuleBasedAnalysis(snapshot: AnalysisSnapshot, lang: Lang): string {
@@ -148,15 +147,6 @@ export function buildRuleBasedAnalysis(snapshot: AnalysisSnapshot, lang: Lang): 
       out.push(`- ${e.label} — ${e.periodLabel}`)
     }
   }
-
-  const dq = snapshot.dataQuality
-  out.push("")
-  out.push(`## ${L("Data quality", "جودة البيانات")}`)
-  out.push(
-    ar
-      ? `- تقارير موثقة مدروسة: ${dq.reportsConsidered} · فحوصات فاشلة: ${dq.validationChecks.failed} · تحذيرات: ${dq.validationChecks.warning}`
-      : `- Trusted reports considered: ${dq.reportsConsidered} · failed checks: ${dq.validationChecks.failed} · warnings: ${dq.validationChecks.warning}`
-  )
 
   return out.join("\n")
 }

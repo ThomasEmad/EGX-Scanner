@@ -2,7 +2,8 @@
 
 import { useState } from "react"
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
-import { Crown, Loader2, LogOut, User } from "lucide-react"
+import { Bell, Crown, Loader2, LogOut, User } from "lucide-react"
+import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -61,6 +62,13 @@ export function UserMenu() {
             <span className="tabular">{new Date(subData.subscription.endDate).toLocaleDateString()}</span>
           </div>
         ) : null}
+        <Link
+          href="/alerts"
+          className="flex w-full items-center justify-center gap-2 rounded-md border border-border px-3 py-2 text-xs font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+        >
+          <Bell className="h-3.5 w-3.5" aria-hidden />
+          {lang === "ar" ? "تنبيهات الأسعار" : "Price alerts"}
+        </Link>
         <Button variant="outline" size="sm" className="w-full" onClick={() => logout.mutate()}>
           <LogOut className="me-1 h-3.5 w-3.5" />
           {lang === "ar" ? "خروج" : "Logout"}

@@ -11,6 +11,13 @@ import { getUserToken } from "@/lib/client/api"
 
 export default function PremiumPage() {
   const { t, lang } = useI18n()
+  // Hydration-safety gate: React Query reports isLoading=false on the server
+  // (fetchStatus "idle") but true on the client's first fetch — rendering the
+  // spinner on the client while the server rendered a card caused React #418.
+  // Both server and first client render now agree (nothing / cards), and the
+  // spinner appears only after mount.
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
 
   const { data: settingsData } = useQuery({
     queryKey: ["public-settings"],
@@ -69,7 +76,9 @@ export default function PremiumPage() {
   }
 
   let statusBlock: React.ReactNode = null
-  if (subLoading) {
+  if (!mounted) {
+    statusBlock = null
+  } else if (subLoading) {
     statusBlock = <div className="flex items-center justify-center py-4"><Loader2 className="h-5 w-5 animate-spin" /></div>
   } else if (isPremium && status === "ACTIVE") {
     statusBlock = (

@@ -1,8 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { AppHeader } from "@/components/egx/app-header"
-import { AppFooter } from "@/components/egx/app-footer"
+import { LayoutShell } from "@/components/layout/LayoutShell"
 import { useI18n } from "@/lib/i18n"
 
 export default function PrivacyClient() {
@@ -112,9 +111,8 @@ export default function PrivacyClient() {
       ]
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <AppHeader />
-      <main id="main-content" className="mx-auto w-full max-w-3xl flex-1 space-y-6 px-4 py-10">
+    <LayoutShell>
+      <div className="mx-auto w-full max-w-3xl space-y-6">
         <div>
           <h1 className="text-2xl font-bold">{ar ? "سياسة الخصوصية" : "Privacy Policy"}</h1>
           <p className="mt-1 text-xs text-muted-foreground">
@@ -134,8 +132,7 @@ export default function PrivacyClient() {
             {ar ? "العودة إلى الرئيسية" : "Back to home"}
           </Link>
         </div>
-      </main>
-      <AppFooter />
-    </div>
+      </div>
+    </LayoutShell>
   )
 }

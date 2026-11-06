@@ -43,6 +43,7 @@ import { useI18n } from "@/lib/i18n"
 import { useTheme } from "next-themes"
 import { cn } from "@/lib/utils"
 import { useWatchlist } from "@/lib/client/watchlist"
+import { authHeaders, getUserToken } from "@/lib/client/api"
 import { AnimatePresence } from "framer-motion"
 import { useSubscriptionGate } from "@/lib/client/subscription-gate"
 
@@ -72,8 +73,8 @@ const NAV_GROUPS: NavGroup[] = [
     items: [
       { href: "/", label: "الرئيسية", labelAr: "الرئيسية", icon: <Home className="h-4 w-4" /> },
       { href: "/dashboard", label: "لوحة القيادة", labelAr: "لوحة القيادة", icon: <LayoutDashboard className="h-4 w-4" /> },
-      { href: "/rankings", label: "استكشاف السوق", labelAr: "استكشاف السوق", icon: <TrendingUp className="h-4 w-4" /> },
-      { href: "/rankings", label: "الشركات", labelAr: "الشركات", icon: <Building2 className="h-4 w-4" /> },
+      { href: "/undervalued", label: "استكشاف السوق", labelAr: "استكشاف السوق", icon: <TrendingUp className="h-4 w-4" /> },
+      { href: "/companies", label: "الشركات", labelAr: "الشركات", icon: <Building2 className="h-4 w-4" /> },
       { href: "/sectors", label: "القطاعات", labelAr: "القطاعات", icon: <Shield className="h-4 w-4" /> },
       { href: "/rankings", label: "الترتيب", labelAr: "الترتيب", icon: <Sparkles className="h-4 w-4" /> },
     ],
@@ -96,8 +97,8 @@ const NAV_GROUPS: NavGroup[] = [
     collapsible: true,
     items: [
       { href: "/watchlist", label: "قائمة المتابعة", labelAr: "قائمة المتابعة", icon: <ShieldCheck className="h-4 w-4" />, badge: 0 },
-      { href: "/notifications", label: "التنبيهات", labelAr: "التنبيهات", icon: <BellIcon className="h-4 w-4" />, badge: 3 },
-      { href: "/saved-filters", label: "الفلاتر المحفوظة", labelAr: "الفلاتر المحفوظة", icon: <Filter className="h-4 w-4" /> },
+      { href: "/alerts", label: "التنبيهات", labelAr: "التنبيهات", icon: <BellIcon className="h-4 w-4" />, badge: 0 },
+      { href: "/dashboard#/scanners", label: "الفلاتر المحفوظة", labelAr: "الفلاتر المحفوظة", icon: <Filter className="h-4 w-4" /> },
     ],
   },
 ]
@@ -218,9 +219,41 @@ export function Sidebar({ collapsed = false, onCollapseChange }: { collapsed?: b
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [showSearch, pathname, router, getVisibleItems])
 
-  // Update watchlist badge count
-  const watchlistCount = watchlist.length
-  const notificationCount = 3 // TODO: fetch from API
+  // Live nav badges: watchlist size comes from the local store; the price-alerts
+  // count is fetched from the API for signed-in users (badge stays hidden when
+  // signed out — the /alerts page itself handles the login prompt). Refreshed on
+  // route change and when the tab regains focus so it never shows stale data.
+  const [alertsActiveCount, setAlertsActiveCount] = useState(0)
+
+  useEffect(() => {
+    const fetchAlertsCount = () => {
+      const token = getUserToken()
+      if (!token) {
+        setAlertsActiveCount(0)
+        return
+      }
+      fetch("/api/v1/alerts", { headers: authHeaders(token) })
+        .then((r) => (r.ok ? r.json() : { alerts: [] }))
+        .then((d: { alerts?: { active?: boolean }[] }) => {
+          setAlertsActiveCount((d?.alerts ?? []).filter((a) => a.active).length)
+        })
+        .catch(() => {})
+    }
+    fetchAlertsCount()
+    window.addEventListener("focus", fetchAlertsCount)
+    return () => window.removeEventListener("focus", fetchAlertsCount)
+  }, [pathname])
+
+  const renderBadge = (item: NavItem) => {
+    const live: Record<string, number> = { "/watchlist": watchlist.length, "/alerts": alertsActiveCount }
+    const b = live[item.href] ?? item.badge
+    if (b === undefined || b <= 0) return null
+    return (
+      <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-primary/10 text-primary text-[10px] font-bold">
+        {b}
+      </span>
+    )
+  }
 
   const isActive = useCallback((href: string) => {
     if (href === "/") return pathname === "/" || pathname === "/dashboard"
@@ -406,11 +439,7 @@ export function Sidebar({ collapsed = false, onCollapseChange }: { collapsed?: b
                           >
                             {item.icon}
                             <span className="flex-1 truncate">{item.labelAr}</span>
-                            {item.badge !== undefined && item.badge > 0 && (
-                              <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-primary/10 text-primary text-[10px] font-bold">
-                                {item.badge}
-                              </span>
-                            )}
+                            {renderBadge(item)}
                           </Link>
                         ))}
                       </div>

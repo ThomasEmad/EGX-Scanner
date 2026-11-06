@@ -12,27 +12,21 @@
     "diffPct": 32.4
   },
   {
-    "ticker": "FAIT",
-    "current": 637845023,
-    "scanner": 225911000,
-    "diffPct": 64.6
-  },
-  {
     "ticker": "ORHD",
     "current": 1130473523,
     "scanner": 3650130000,
     "diffPct": 222.9
   },
   {
-    "ticker": "SEIG",
-    "current": 5000000,
-    "scanner": 2500000,
-    "diffPct": 50
-  },
-  {
     "ticker": "VLMRA",
     "current": 1183229551,
     "scanner": 830840000,
     "diffPct": 29.8
+  },
+  {
+    "ticker": "WKOL",
+    "current": 5600000,
+    "scanner": 8400000,
+    "diffPct": 50
   }
 ]

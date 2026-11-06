@@ -1,9 +1,10 @@
 import { NextRequest } from "next/server"
 import { db } from "@/lib/db"
+import { isAdmin, unauthorizedResponse } from "@/lib/admin-auth"
 import { classifyStoredIssue, ROOT_CAUSE_LABELS, ISSUE_CLASS_LABELS, type RootCause, type IssueClass } from "@/lib/audit/issue-class"
 
 // GET /api/v1/data-quality
-// Public, read-only view of the latest full audit. Every issue is classified
+// ADMIN-ONLY view of the latest full audit. Every issue is classified
 // deterministically from its stored description, so the API and the audit
 // runner always agree on blocker / coverage / advisory / metadata.
 //
@@ -38,6 +39,8 @@ function csvEscape(v: unknown): string {
 }
 
 export async function GET(req: NextRequest) {
+  // Internal audit data — never exposed to end users.
+  if (!(await isAdmin(req))) return await unauthorizedResponse()
   const url = new URL(req.url)
   const p = url.searchParams
   const run = await db.auditRun.findFirst({

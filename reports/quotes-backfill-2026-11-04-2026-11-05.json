@@ -1,0 +1,2862 @@
+{
+ "from": "2026-11-04",
+ "to": "2026-11-05",
+ "apply": false,
+ "startedAt": "2026-11-06T01:47:34.758Z",
+ "companies": 276,
+ "written": 0,
+ "wouldWrite": 209,
+ "pendingNull": [
+  {
+   "ticker": "AALR",
+   "symbol": "AALR.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ABUK",
+   "symbol": "ABUK.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ACAMD",
+   "symbol": "ACAMD.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ACGC",
+   "symbol": "ACGC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ADCI",
+   "symbol": "ADCI.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ADIB",
+   "symbol": "ADIB.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ADPC",
+   "symbol": "ADPC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "AFDI",
+   "symbol": "AFDI.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "AFMC",
+   "symbol": "AFMC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "AIFI",
+   "symbol": "AIFI.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "AJWA",
+   "symbol": "AJWA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ALCN",
+   "symbol": "ALCN.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ALUM",
+   "symbol": "ALUM.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "AMER",
+   "symbol": "AMER.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "AMES",
+   "symbol": "AMES.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "AMIA",
+   "symbol": "AMIA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "AMOC",
+   "symbol": "AMOC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "AMPI",
+   "symbol": "AMPI.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "APSW",
+   "symbol": "APSW.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ARAB",
+   "symbol": "ARAB.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ARCC",
+   "symbol": "ARCC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "AREH",
+   "symbol": "AREH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ASCM",
+   "symbol": "ASCM.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ASPI",
+   "symbol": "ASPI.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ATLC",
+   "symbol": "ATLC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ATQA",
+   "symbol": "ATQA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "AXPH",
+   "symbol": "AXPH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "BIDI",
+   "symbol": "BIDI.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "BIGP",
+   "symbol": "BIGP.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "BINV",
+   "symbol": "BINV.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "BIOC",
+   "symbol": "BIOC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "BTFH",
+   "symbol": "BTFH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "CAED",
+   "symbol": "CAED.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "CANA",
+   "symbol": "CANA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "CCAP",
+   "symbol": "CCAP.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "CCRS",
+   "symbol": "CCRS.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "CEFM",
+   "symbol": "CEFM.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "CERA",
+   "symbol": "CERA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "CFGH",
+   "symbol": "CFGH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "CICH",
+   "symbol": "CICH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "CIEB",
+   "symbol": "CIEB.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "CIRA",
+   "symbol": "CIRA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "CLHO",
+   "symbol": "CLHO.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "CNFN",
+   "symbol": "CNFN.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "COMI",
+   "symbol": "COMI.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "COPR",
+   "symbol": "COPR.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "COSG",
+   "symbol": "COSG.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "CPCI",
+   "symbol": "CPCI.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "CSAG",
+   "symbol": "CSAG.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "DAPH",
+   "symbol": "DAPH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "DCCC",
+   "symbol": "DCCC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "DEIN",
+   "symbol": "DEIN.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "DOMT",
+   "symbol": "DOMT.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "DSCW",
+   "symbol": "DSCW.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "DTPP",
+   "symbol": "DTPP.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EALR",
+   "symbol": "EALR.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EASB",
+   "symbol": "EASB.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EAST",
+   "symbol": "EAST.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EBSC",
+   "symbol": "EBSC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ECAP",
+   "symbol": "ECAP.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EDFM",
+   "symbol": "EDFM.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EEII",
+   "symbol": "EEII.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EFIC",
+   "symbol": "EFIC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EFID",
+   "symbol": "EFID.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EFIH",
+   "symbol": "EFIH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EGAL",
+   "symbol": "EGAL.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EGAS",
+   "symbol": "EGAS.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EGBE",
+   "symbol": "EGBE.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EGCH",
+   "symbol": "EGCH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EGREF",
+   "symbol": "EGREF.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EGSA",
+   "symbol": "EGSA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EGTS",
+   "symbol": "EGTS.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EHDR",
+   "symbol": "EHDR.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ELEC",
+   "symbol": "ELEC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ELKA",
+   "symbol": "ELKA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ELNA",
+   "symbol": "ELNA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ELSH",
+   "symbol": "ELSH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ELWA",
+   "symbol": "ELWA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EMFD",
+   "symbol": "EMFD.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ENGC",
+   "symbol": "ENGC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EOSB",
+   "symbol": "EOSB.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EPCO",
+   "symbol": "EPCO.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EPPK",
+   "symbol": "EPPK.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ETEL",
+   "symbol": "ETEL.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ETRS",
+   "symbol": "ETRS.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "EXPA",
+   "symbol": "EXPA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "FAIT",
+   "symbol": "FAIT.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "FERC",
+   "symbol": "FERC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "FIRE",
+   "symbol": "FIRE.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "FNAR",
+   "symbol": "FNAR.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "FTNS",
+   "symbol": "FTNS.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "FWRY",
+   "symbol": "FWRY.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "GBCO",
+   "symbol": "GBCO.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "GDWA",
+   "symbol": "GDWA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "GGCC",
+   "symbol": "GGCC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "GIHD",
+   "symbol": "GIHD.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "GMCI",
+   "symbol": "GMCI.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "GPPL",
+   "symbol": "GPPL.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "GRCA",
+   "symbol": "GRCA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "GSSC",
+   "symbol": "GSSC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "GTWL",
+   "symbol": "GTWL.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "HDBK",
+   "symbol": "HDBK.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "HELI",
+   "symbol": "HELI.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "HRHO",
+   "symbol": "HRHO.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "IBCT",
+   "symbol": "IBCT.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ICFC",
+   "symbol": "ICFC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ICID",
+   "symbol": "ICID.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ICLE",
+   "symbol": "ICLE.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "IDRE",
+   "symbol": "IDRE.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "IEEC",
+   "symbol": "IEEC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "IFAP",
+   "symbol": "IFAP.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "INEG",
+   "symbol": "INEG.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "INFI",
+   "symbol": "INFI.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "IRON",
+   "symbol": "IRON.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ISMA",
+   "symbol": "ISMA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ISMQ",
+   "symbol": "ISMQ.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ISPH",
+   "symbol": "ISPH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "JUFO",
+   "symbol": "JUFO.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "KABO",
+   "symbol": "KABO.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "KWIN",
+   "symbol": "KWIN.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "KZPC",
+   "symbol": "KZPC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "LCSW",
+   "symbol": "LCSW.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "LUTS",
+   "symbol": "LUTS.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MAAL",
+   "symbol": "MAAL.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MASR",
+   "symbol": "MASR.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MBEG",
+   "symbol": "MBEG.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MBSC",
+   "symbol": "MBSC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MCQE",
+   "symbol": "MCQE.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MCRO",
+   "symbol": "MCRO.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MEGM",
+   "symbol": "MEGM.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MENA",
+   "symbol": "MENA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MEPA",
+   "symbol": "MEPA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MFPC",
+   "symbol": "MFPC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MFSC",
+   "symbol": "MFSC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MHOT",
+   "symbol": "MHOT.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MICH",
+   "symbol": "MICH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MILS",
+   "symbol": "MILS.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MIPH",
+   "symbol": "MIPH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MISR",
+   "symbol": "MISR.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MKIT",
+   "symbol": "MKIT.CA",
+   "days": [
+    "2026-11-04",
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MMAT",
+   "symbol": "MMAT.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MOED",
+   "symbol": "MOED.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MOIL",
+   "symbol": "MOIL.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MOIN",
+   "symbol": "MOIN.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MOSC",
+   "symbol": "MOSC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MPCI",
+   "symbol": "MPCI.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MPCO",
+   "symbol": "MPCO.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MPRC",
+   "symbol": "MPRC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "MTIE",
+   "symbol": "MTIE.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "NAHO",
+   "symbol": "NAHO.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "NCCW",
+   "symbol": "NCCW.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "NDRL",
+   "symbol": "NDRL.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "NEDA",
+   "symbol": "NEDA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "NHPS",
+   "symbol": "NHPS.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "NINH",
+   "symbol": "NINH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "NIPH",
+   "symbol": "NIPH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "OBRI",
+   "symbol": "OBRI.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "OCDI",
+   "symbol": "OCDI.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "OCPH",
+   "symbol": "OCPH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ODIN",
+   "symbol": "ODIN.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "OFH",
+   "symbol": "OFH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "OIH",
+   "symbol": "OIH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "OLFI",
+   "symbol": "OLFI.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ORAS",
+   "symbol": "ORAS.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ORHD",
+   "symbol": "ORHD.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ORWE",
+   "symbol": "ORWE.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "PHAR",
+   "symbol": "PHAR.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "PHDC",
+   "symbol": "PHDC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "PHTV",
+   "symbol": "PHTV.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "POUL",
+   "symbol": "POUL.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "PRCL",
+   "symbol": "PRCL.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "PRDC",
+   "symbol": "PRDC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "PRMH",
+   "symbol": "PRMH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "RACC",
+   "symbol": "RACC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "RAKT",
+   "symbol": "RAKT.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "RAYA",
+   "symbol": "RAYA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "RKAZ",
+   "symbol": "RKAZ.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "RMDA",
+   "symbol": "RMDA.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ROTO",
+   "symbol": "ROTO.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "RREI",
+   "symbol": "RREI.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "RTVC",
+   "symbol": "RTVC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "RUBX",
+   "symbol": "RUBX.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "SAIB",
+   "symbol": "SAIB.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "SAUD",
+   "symbol": "SAUD.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "SCEM",
+   "symbol": "SCEM.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "SCFM",
+   "symbol": "SCFM.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "SCTS",
+   "symbol": "SCTS.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "SDTI",
+   "symbol": "SDTI.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "SEIG",
+   "symbol": "SEIG.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "SIPC",
+   "symbol": "SIPC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "SKPC",
+   "symbol": "SKPC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "SMFR",
+   "symbol": "SMFR.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "SNFC",
+   "symbol": "SNFC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "SPHT",
+   "symbol": "SPHT.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "SPIN",
+   "symbol": "SPIN.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "SPMD",
+   "symbol": "SPMD.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "SUGR",
+   "symbol": "SUGR.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "SVCE",
+   "symbol": "SVCE.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "SWDY",
+   "symbol": "SWDY.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "TALM",
+   "symbol": "TALM.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "TMGH",
+   "symbol": "TMGH.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "TRTO",
+   "symbol": "TRTO.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "UEFM",
+   "symbol": "UEFM.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "UEGC",
+   "symbol": "UEGC.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "UNIP",
+   "symbol": "UNIP.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "UNIT",
+   "symbol": "UNIT.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "WCDF",
+   "symbol": "WCDF.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "WKOL",
+   "symbol": "WKOL.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ZEOT",
+   "symbol": "ZEOT.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  },
+  {
+   "ticker": "ZMID",
+   "symbol": "ZMID.CA",
+   "days": [
+    "2026-11-05"
+   ]
+  }
+ ],
+ "failed": [
+  {
+   "ticker": "ACAP",
+   "symbol": "ACAP.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "ACRO",
+   "symbol": "ACRO.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "ACTF",
+   "symbol": "ACTF.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "ADRI",
+   "symbol": "ADRI.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "AIDC",
+   "symbol": "AIDC.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "AIHC",
+   "symbol": "AIHC.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "ALEX",
+   "symbol": "ALEX.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "AMII",
+   "symbol": "AMII.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "APPC",
+   "symbol": "APPC.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "ARPI",
+   "symbol": "ARPI.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "ARVA",
+   "symbol": "ARVA.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "BONY",
+   "symbol": "BONY.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "BQDC",
+   "symbol": "BQDC.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "CPME",
+   "symbol": "CPME.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "CRST",
+   "symbol": "CRST.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "DCRC",
+   "symbol": "DCRC.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "DGTZ",
+   "symbol": "DGTZ.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "DIFC",
+   "symbol": "DIFC.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "ECSC",
+   "symbol": "ECSC.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "EITP",
+   "symbol": "EITP.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "ESRS",
+   "symbol": "ESRS.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "GEOS",
+   "symbol": "GEOS.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "GETO",
+   "symbol": "GETO.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "GGRN",
+   "symbol": "GGRN.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "GOCO",
+   "symbol": "GOCO.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "GOUR",
+   "symbol": "GOUR.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "GPIM",
+   "symbol": "GPIM.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "GROV",
+   "symbol": "GROV.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "GTEX",
+   "symbol": "GTEX.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "GTHE",
+   "symbol": "GTHE.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "HBCO",
+   "symbol": "HBCO.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "IRAX",
+   "symbol": "IRAX.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "KORA",
+   "symbol": "KORA.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "KRDI",
+   "symbol": "KRDI.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "NAMI",
+   "symbol": "NAMI.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "NAPR",
+   "symbol": "NAPR.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "NARE",
+   "symbol": "NARE.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "NBKE",
+   "symbol": "NBKE.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "NCEM",
+   "symbol": "NCEM.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "NCGC",
+   "symbol": "NCGC.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "NOAF",
+   "symbol": "NOAF.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "PACH",
+   "symbol": "PACH.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "PHGC",
+   "symbol": "PHGC.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "POCO",
+   "symbol": "POCO.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "PTCC",
+   "symbol": "PTCC.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "QNBE",
+   "symbol": "QNBE.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "RMTV",
+   "symbol": "RMTV.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "SIMO",
+   "symbol": "SIMO.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "SMPP",
+   "symbol": "SMPP.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "SNFI",
+   "symbol": "SNFI.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "SUCE",
+   "symbol": "SUCE.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "TANM",
+   "symbol": "TANM.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "TAQA",
+   "symbol": "TAQA.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "TORA",
+   "symbol": "TORA.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "TRST",
+   "symbol": "TRST.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "TWSA",
+   "symbol": "TWSA.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "TYCN",
+   "symbol": "TYCN.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "UASG",
+   "symbol": "UASG.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "UBEE",
+   "symbol": "UBEE.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "UPMS",
+   "symbol": "UPMS.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "UTOP",
+   "symbol": "UTOP.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "VALU",
+   "symbol": "VALU.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "VERT",
+   "symbol": "VERT.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "VLMR",
+   "symbol": "VLMR.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "VLMRA",
+   "symbol": "VLMRA.CA",
+   "error": "HTTP 404"
+  },
+  {
+   "ticker": "WATP",
+   "symbol": "WATP.CA",
+   "error": "HTTP 404"
+  }
+ ],
+ "ok": [
+  {
+   "ticker": "AALR",
+   "symbol": "AALR.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ABUK",
+   "symbol": "ABUK.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ACAMD",
+   "symbol": "ACAMD.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ACGC",
+   "symbol": "ACGC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ADCI",
+   "symbol": "ADCI.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ADIB",
+   "symbol": "ADIB.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ADPC",
+   "symbol": "ADPC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "AFDI",
+   "symbol": "AFDI.CA",
+   "days": 1
+  },
+  {
+   "ticker": "AFMC",
+   "symbol": "AFMC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "AIFI",
+   "symbol": "AIFI.CA",
+   "days": 1
+  },
+  {
+   "ticker": "AJWA",
+   "symbol": "AJWA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ALCN",
+   "symbol": "ALCN.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ALUM",
+   "symbol": "ALUM.CA",
+   "days": 1
+  },
+  {
+   "ticker": "AMER",
+   "symbol": "AMER.CA",
+   "days": 1
+  },
+  {
+   "ticker": "AMES",
+   "symbol": "AMES.CA",
+   "days": 1
+  },
+  {
+   "ticker": "AMIA",
+   "symbol": "AMIA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "AMOC",
+   "symbol": "AMOC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "AMPI",
+   "symbol": "AMPI.CA",
+   "days": 1
+  },
+  {
+   "ticker": "APSW",
+   "symbol": "APSW.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ARAB",
+   "symbol": "ARAB.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ARCC",
+   "symbol": "ARCC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "AREH",
+   "symbol": "AREH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ASCM",
+   "symbol": "ASCM.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ASPI",
+   "symbol": "ASPI.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ATLC",
+   "symbol": "ATLC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ATQA",
+   "symbol": "ATQA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "AXPH",
+   "symbol": "AXPH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "BIDI",
+   "symbol": "BIDI.CA",
+   "days": 1
+  },
+  {
+   "ticker": "BIGP",
+   "symbol": "BIGP.CA",
+   "days": 1
+  },
+  {
+   "ticker": "BINV",
+   "symbol": "BINV.CA",
+   "days": 1
+  },
+  {
+   "ticker": "BIOC",
+   "symbol": "BIOC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "BTFH",
+   "symbol": "BTFH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "CAED",
+   "symbol": "CAED.CA",
+   "days": 1
+  },
+  {
+   "ticker": "CANA",
+   "symbol": "CANA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "CCAP",
+   "symbol": "CCAP.CA",
+   "days": 1
+  },
+  {
+   "ticker": "CCRS",
+   "symbol": "CCRS.CA",
+   "days": 1
+  },
+  {
+   "ticker": "CEFM",
+   "symbol": "CEFM.CA",
+   "days": 1
+  },
+  {
+   "ticker": "CERA",
+   "symbol": "CERA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "CFGH",
+   "symbol": "CFGH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "CICH",
+   "symbol": "CICH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "CIEB",
+   "symbol": "CIEB.CA",
+   "days": 1
+  },
+  {
+   "ticker": "CIRA",
+   "symbol": "CIRA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "CLHO",
+   "symbol": "CLHO.CA",
+   "days": 1
+  },
+  {
+   "ticker": "CNFN",
+   "symbol": "CNFN.CA",
+   "days": 1
+  },
+  {
+   "ticker": "COMI",
+   "symbol": "COMI.CA",
+   "days": 1
+  },
+  {
+   "ticker": "COPR",
+   "symbol": "COPR.CA",
+   "days": 1
+  },
+  {
+   "ticker": "COSG",
+   "symbol": "COSG.CA",
+   "days": 1
+  },
+  {
+   "ticker": "CPCI",
+   "symbol": "CPCI.CA",
+   "days": 1
+  },
+  {
+   "ticker": "CSAG",
+   "symbol": "CSAG.CA",
+   "days": 1
+  },
+  {
+   "ticker": "DAPH",
+   "symbol": "DAPH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "DCCC",
+   "symbol": "DCCC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "DEIN",
+   "symbol": "DEIN.CA",
+   "days": 1
+  },
+  {
+   "ticker": "DOMT",
+   "symbol": "DOMT.CA",
+   "days": 1
+  },
+  {
+   "ticker": "DSCW",
+   "symbol": "DSCW.CA",
+   "days": 1
+  },
+  {
+   "ticker": "DTPP",
+   "symbol": "DTPP.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EALR",
+   "symbol": "EALR.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EASB",
+   "symbol": "EASB.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EAST",
+   "symbol": "EAST.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EBSC",
+   "symbol": "EBSC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ECAP",
+   "symbol": "ECAP.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EDFM",
+   "symbol": "EDFM.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EEII",
+   "symbol": "EEII.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EFIC",
+   "symbol": "EFIC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EFID",
+   "symbol": "EFID.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EFIH",
+   "symbol": "EFIH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EGAL",
+   "symbol": "EGAL.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EGAS",
+   "symbol": "EGAS.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EGBE",
+   "symbol": "EGBE.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EGCH",
+   "symbol": "EGCH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EGREF",
+   "symbol": "EGREF.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EGSA",
+   "symbol": "EGSA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EGTS",
+   "symbol": "EGTS.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EHDR",
+   "symbol": "EHDR.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ELEC",
+   "symbol": "ELEC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ELKA",
+   "symbol": "ELKA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ELNA",
+   "symbol": "ELNA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ELSH",
+   "symbol": "ELSH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ELWA",
+   "symbol": "ELWA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EMFD",
+   "symbol": "EMFD.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ENGC",
+   "symbol": "ENGC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EOSB",
+   "symbol": "EOSB.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EPCO",
+   "symbol": "EPCO.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EPPK",
+   "symbol": "EPPK.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ETEL",
+   "symbol": "ETEL.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ETRS",
+   "symbol": "ETRS.CA",
+   "days": 1
+  },
+  {
+   "ticker": "EXPA",
+   "symbol": "EXPA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "FAIT",
+   "symbol": "FAIT.CA",
+   "days": 1
+  },
+  {
+   "ticker": "FERC",
+   "symbol": "FERC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "FIRE",
+   "symbol": "FIRE.CA",
+   "days": 1
+  },
+  {
+   "ticker": "FNAR",
+   "symbol": "FNAR.CA",
+   "days": 1
+  },
+  {
+   "ticker": "FTNS",
+   "symbol": "FTNS.CA",
+   "days": 1
+  },
+  {
+   "ticker": "FWRY",
+   "symbol": "FWRY.CA",
+   "days": 1
+  },
+  {
+   "ticker": "GBCO",
+   "symbol": "GBCO.CA",
+   "days": 1
+  },
+  {
+   "ticker": "GDWA",
+   "symbol": "GDWA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "GGCC",
+   "symbol": "GGCC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "GIHD",
+   "symbol": "GIHD.CA",
+   "days": 1
+  },
+  {
+   "ticker": "GMCI",
+   "symbol": "GMCI.CA",
+   "days": 1
+  },
+  {
+   "ticker": "GPPL",
+   "symbol": "GPPL.CA",
+   "days": 1
+  },
+  {
+   "ticker": "GRCA",
+   "symbol": "GRCA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "GSSC",
+   "symbol": "GSSC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "GTWL",
+   "symbol": "GTWL.CA",
+   "days": 1
+  },
+  {
+   "ticker": "HDBK",
+   "symbol": "HDBK.CA",
+   "days": 1
+  },
+  {
+   "ticker": "HELI",
+   "symbol": "HELI.CA",
+   "days": 1
+  },
+  {
+   "ticker": "HRHO",
+   "symbol": "HRHO.CA",
+   "days": 1
+  },
+  {
+   "ticker": "IBCT",
+   "symbol": "IBCT.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ICFC",
+   "symbol": "ICFC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ICID",
+   "symbol": "ICID.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ICLE",
+   "symbol": "ICLE.CA",
+   "days": 1
+  },
+  {
+   "ticker": "IDRE",
+   "symbol": "IDRE.CA",
+   "days": 1
+  },
+  {
+   "ticker": "IEEC",
+   "symbol": "IEEC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "IFAP",
+   "symbol": "IFAP.CA",
+   "days": 1
+  },
+  {
+   "ticker": "INEG",
+   "symbol": "INEG.CA",
+   "days": 1
+  },
+  {
+   "ticker": "INFI",
+   "symbol": "INFI.CA",
+   "days": 1
+  },
+  {
+   "ticker": "IRON",
+   "symbol": "IRON.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ISMA",
+   "symbol": "ISMA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ISMQ",
+   "symbol": "ISMQ.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ISPH",
+   "symbol": "ISPH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "JUFO",
+   "symbol": "JUFO.CA",
+   "days": 1
+  },
+  {
+   "ticker": "KABO",
+   "symbol": "KABO.CA",
+   "days": 1
+  },
+  {
+   "ticker": "KWIN",
+   "symbol": "KWIN.CA",
+   "days": 1
+  },
+  {
+   "ticker": "KZPC",
+   "symbol": "KZPC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "LCSW",
+   "symbol": "LCSW.CA",
+   "days": 1
+  },
+  {
+   "ticker": "LUTS",
+   "symbol": "LUTS.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MAAL",
+   "symbol": "MAAL.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MASR",
+   "symbol": "MASR.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MBEG",
+   "symbol": "MBEG.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MBSC",
+   "symbol": "MBSC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MCQE",
+   "symbol": "MCQE.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MCRO",
+   "symbol": "MCRO.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MEGM",
+   "symbol": "MEGM.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MENA",
+   "symbol": "MENA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MEPA",
+   "symbol": "MEPA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MFPC",
+   "symbol": "MFPC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MFSC",
+   "symbol": "MFSC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MHOT",
+   "symbol": "MHOT.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MICH",
+   "symbol": "MICH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MILS",
+   "symbol": "MILS.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MIPH",
+   "symbol": "MIPH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MISR",
+   "symbol": "MISR.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MMAT",
+   "symbol": "MMAT.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MOED",
+   "symbol": "MOED.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MOIL",
+   "symbol": "MOIL.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MOIN",
+   "symbol": "MOIN.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MOSC",
+   "symbol": "MOSC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MPCI",
+   "symbol": "MPCI.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MPCO",
+   "symbol": "MPCO.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MPRC",
+   "symbol": "MPRC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "MTIE",
+   "symbol": "MTIE.CA",
+   "days": 1
+  },
+  {
+   "ticker": "NAHO",
+   "symbol": "NAHO.CA",
+   "days": 1
+  },
+  {
+   "ticker": "NCCW",
+   "symbol": "NCCW.CA",
+   "days": 1
+  },
+  {
+   "ticker": "NDRL",
+   "symbol": "NDRL.CA",
+   "days": 1
+  },
+  {
+   "ticker": "NEDA",
+   "symbol": "NEDA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "NHPS",
+   "symbol": "NHPS.CA",
+   "days": 1
+  },
+  {
+   "ticker": "NINH",
+   "symbol": "NINH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "NIPH",
+   "symbol": "NIPH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "OBRI",
+   "symbol": "OBRI.CA",
+   "days": 1
+  },
+  {
+   "ticker": "OCDI",
+   "symbol": "OCDI.CA",
+   "days": 1
+  },
+  {
+   "ticker": "OCPH",
+   "symbol": "OCPH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ODIN",
+   "symbol": "ODIN.CA",
+   "days": 1
+  },
+  {
+   "ticker": "OFH",
+   "symbol": "OFH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "OIH",
+   "symbol": "OIH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "OLFI",
+   "symbol": "OLFI.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ORAS",
+   "symbol": "ORAS.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ORHD",
+   "symbol": "ORHD.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ORWE",
+   "symbol": "ORWE.CA",
+   "days": 1
+  },
+  {
+   "ticker": "PHAR",
+   "symbol": "PHAR.CA",
+   "days": 1
+  },
+  {
+   "ticker": "PHDC",
+   "symbol": "PHDC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "PHTV",
+   "symbol": "PHTV.CA",
+   "days": 1
+  },
+  {
+   "ticker": "POUL",
+   "symbol": "POUL.CA",
+   "days": 1
+  },
+  {
+   "ticker": "PRCL",
+   "symbol": "PRCL.CA",
+   "days": 1
+  },
+  {
+   "ticker": "PRDC",
+   "symbol": "PRDC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "PRMH",
+   "symbol": "PRMH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "RACC",
+   "symbol": "RACC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "RAKT",
+   "symbol": "RAKT.CA",
+   "days": 1
+  },
+  {
+   "ticker": "RAYA",
+   "symbol": "RAYA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "RKAZ",
+   "symbol": "RKAZ.CA",
+   "days": 1
+  },
+  {
+   "ticker": "RMDA",
+   "symbol": "RMDA.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ROTO",
+   "symbol": "ROTO.CA",
+   "days": 1
+  },
+  {
+   "ticker": "RREI",
+   "symbol": "RREI.CA",
+   "days": 1
+  },
+  {
+   "ticker": "RTVC",
+   "symbol": "RTVC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "RUBX",
+   "symbol": "RUBX.CA",
+   "days": 1
+  },
+  {
+   "ticker": "SAIB",
+   "symbol": "SAIB.CA",
+   "days": 1
+  },
+  {
+   "ticker": "SAUD",
+   "symbol": "SAUD.CA",
+   "days": 1
+  },
+  {
+   "ticker": "SCEM",
+   "symbol": "SCEM.CA",
+   "days": 1
+  },
+  {
+   "ticker": "SCFM",
+   "symbol": "SCFM.CA",
+   "days": 1
+  },
+  {
+   "ticker": "SCTS",
+   "symbol": "SCTS.CA",
+   "days": 1
+  },
+  {
+   "ticker": "SDTI",
+   "symbol": "SDTI.CA",
+   "days": 1
+  },
+  {
+   "ticker": "SEIG",
+   "symbol": "SEIG.CA",
+   "days": 1
+  },
+  {
+   "ticker": "SIPC",
+   "symbol": "SIPC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "SKPC",
+   "symbol": "SKPC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "SMFR",
+   "symbol": "SMFR.CA",
+   "days": 1
+  },
+  {
+   "ticker": "SNFC",
+   "symbol": "SNFC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "SPHT",
+   "symbol": "SPHT.CA",
+   "days": 1
+  },
+  {
+   "ticker": "SPIN",
+   "symbol": "SPIN.CA",
+   "days": 1
+  },
+  {
+   "ticker": "SPMD",
+   "symbol": "SPMD.CA",
+   "days": 1
+  },
+  {
+   "ticker": "SUGR",
+   "symbol": "SUGR.CA",
+   "days": 1
+  },
+  {
+   "ticker": "SVCE",
+   "symbol": "SVCE.CA",
+   "days": 1
+  },
+  {
+   "ticker": "SWDY",
+   "symbol": "SWDY.CA",
+   "days": 1
+  },
+  {
+   "ticker": "TALM",
+   "symbol": "TALM.CA",
+   "days": 1
+  },
+  {
+   "ticker": "TMGH",
+   "symbol": "TMGH.CA",
+   "days": 1
+  },
+  {
+   "ticker": "TRTO",
+   "symbol": "TRTO.CA",
+   "days": 1
+  },
+  {
+   "ticker": "UEFM",
+   "symbol": "UEFM.CA",
+   "days": 1
+  },
+  {
+   "ticker": "UEGC",
+   "symbol": "UEGC.CA",
+   "days": 1
+  },
+  {
+   "ticker": "UNIP",
+   "symbol": "UNIP.CA",
+   "days": 1
+  },
+  {
+   "ticker": "UNIT",
+   "symbol": "UNIT.CA",
+   "days": 1
+  },
+  {
+   "ticker": "WCDF",
+   "symbol": "WCDF.CA",
+   "days": 1
+  },
+  {
+   "ticker": "WKOL",
+   "symbol": "WKOL.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ZEOT",
+   "symbol": "ZEOT.CA",
+   "days": 1
+  },
+  {
+   "ticker": "ZMID",
+   "symbol": "ZMID.CA",
+   "days": 1
+  }
+ ],
+ "finishedAt": "2026-11-06T01:51:14.581Z"
+}

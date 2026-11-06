@@ -1,0 +1,24 @@
+﻿
+=== Unit-scale repair DRY RUN ===
+
+reports scanned: 6451
+reports to repair: 15 | monetary values: 223
+
+examples:
+  FWRY FY 2016 ÷1000 (previous-year chain 5.677e+11 ÷ 1.061e+9; 11 values, EXCEL_STATEMENTS)
+  FWRY FY 2017 ÷1000 (previous-year chain 1.061e+12 ÷ 1.229e+9; 11 values, EXCEL_STATEMENTS)
+  FWRY FY 2018 ÷1000 (previous-year chain 1.229e+12 ÷ 1.435e+9; 12 values, EXCEL_STATEMENTS)
+  FWRY FY 2019 ÷1000 (previous-year chain 1.435e+12 ÷ 2.430e+9; 13 values, EXCEL_STATEMENTS)
+  FWRY FY 2020 ÷1000 (previous-year chain 2.430e+12 ÷ 4.120e+9; 16 values, ASKBORA_SUMMARY)
+  FWRY FY 2021 ÷1000 (TOTAL_ASSETS 4.120e+12 vs anchor 8.972e+9; 15 values, YAHOO_FINANCE_API)
+  ASPI FY 2015 ÷1000 (TOTAL_ASSETS 2.109e+10 vs anchor 1.250e+7; 13 values, EXCEL_STATEMENTS)
+  ASPI FY 2016 ÷1000 (TOTAL_ASSETS 2.025e+10 vs anchor 1.250e+7; 14 values, EXCEL_STATEMENTS)
+  ASPI FY 2017 ÷1000 (TOTAL_ASSETS 2.165e+10 vs anchor 1.250e+7; 14 values, EXCEL_STATEMENTS)
+  ASPI FY 2018 ÷1000 (TOTAL_ASSETS 2.479e+10 vs anchor 1.250e+7; 14 values, EXCEL_STATEMENTS)
+  ASPI FY 2019 ÷1000 (TOTAL_ASSETS 1.614e+10 vs anchor 1.250e+7; 13 values, EXCEL_STATEMENTS)
+  ASPI FY 2020 ÷1000 (TOTAL_ASSETS 1.884e+10 vs anchor 1.250e+7; 17 values, ASKBORA_SUMMARY)
+  COPR FY 2020 ÷1000 (TOTAL_ASSETS 5.332e+7 vs anchor 1.518e+5; 7 values, ASKBORA_SUMMARY)
+  COPR FY 2023 ÷1000 (TOTAL_ASSETS 9.390e+7 vs anchor 1.518e+5; 28 values, YAHOO_FINANCE_API)
+  MHOT FY 2022 ÷1000 (TOTAL_ASSETS 2.031e+12 vs anchor 2.818e+9; 25 values, YAHOO_FINANCE_API)
+
+Dry run — re-run with --apply.

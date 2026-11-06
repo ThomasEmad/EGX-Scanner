@@ -5,6 +5,11 @@ import { CALC_METRIC_MAP } from "@/lib/financial/registry"
 // GET /api/v1/compare?ids=a,b,c(,d) — side-by-side comparison of up to 4
 // companies on their LATEST VERIFIED ANNUAL statements (each company's own
 // latest fiscal year). One batched query; best value per row is marked client-side.
+// year=YYYY → optional pin: compare on THAT fiscal year for every selected
+// company — a like-for-like historical comparison. Companies without annual
+// filings for the pinned year show dashes. The response carries `years`: every
+// fiscal year where at least TWO of the selected companies have data, so the
+// UI only offers comparisons that make sense.
 
 const COMPARE_METRICS = [
   "revenue", "net_profit", "net_margin", "roe", "roa",
@@ -22,6 +27,8 @@ export async function GET(req: NextRequest) {
   if (ids.length < 2) {
     return Response.json({ error: "INVALID_PAYLOAD", message: "Provide 2-4 company ids." }, { status: 400 })
   }
+  const rawYear = url.searchParams.get("year")
+  const year = rawYear && /^\d{4}$/.test(rawYear) ? Number(rawYear) : null
 
   const companies = await db.company.findMany({
     where: { id: { in: ids }, isActive: true },
@@ -42,8 +49,22 @@ export async function GET(req: NextRequest) {
     ...ids, ...COMPARE_METRICS
   )) as { companyId: string; code: string; value: number; fiscalYear: number; periodLabel: string }[]
 
-  const byCompany = new Map<string, { fiscalYear: number; periodLabel: string; metrics: Record<string, number> }>()
+  const scopedRows = year ? rows.filter((r) => r.fiscalYear === year) : rows
+
+  // Years where ≥2 of the selected companies have annual data — the only pins
+  // that produce a meaningful side-by-side.
+  const yearCounts = new Map<number, Set<string>>()
   for (const r of rows) {
+    if (!yearCounts.has(r.fiscalYear)) yearCounts.set(r.fiscalYear, new Set())
+    yearCounts.get(r.fiscalYear)!.add(r.companyId)
+  }
+  const years = [...yearCounts.entries()]
+    .filter(([, cos]) => cos.size >= 2)
+    .map(([y]) => y)
+    .sort((a, b) => b - a)
+
+  const byCompany = new Map<string, { fiscalYear: number; periodLabel: string; metrics: Record<string, number> }>()
+  for (const r of scopedRows) {
     let entry = byCompany.get(r.companyId)
     if (!entry || r.fiscalYear > entry.fiscalYear) {
       entry = { fiscalYear: r.fiscalYear, periodLabel: r.periodLabel, metrics: {} }
@@ -69,5 +90,5 @@ export async function GET(req: NextRequest) {
     unit: CALC_METRIC_MAP[code]?.unit ?? "RATIO",
   }))
 
-  return Response.json({ companies: result, metricDefs })
+  return Response.json({ companies: result, metricDefs, year, years })
 }

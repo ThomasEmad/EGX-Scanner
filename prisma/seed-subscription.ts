@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client"
+import { buildPrismaClient } from "../src/lib/db"
 
-const db = new PrismaClient()
+const db = buildPrismaClient()
 
 async function main() {
   // Seed default plans

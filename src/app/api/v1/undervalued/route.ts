@@ -1,4 +1,5 @@
 import { db } from "@/lib/db"
+import { cachedResponse } from "@/lib/public-cache"
 import { evaluateUndervaluation, type MetricMap } from "@/lib/analytics/engine"
 import { latestPriceByCompany } from "@/lib/financial/latest-price"
 
@@ -53,7 +54,12 @@ function buildMaps(
   return { buildLatest, buildPrior, priceOf, priceAsOfOf, cmYear }
 }
 
+// 2min SWR cache — the screen batches 4 heavy queries over every company.
 export async function GET() {
+  return cachedResponse("undervalued", 2 * 60 * 1000, buildUndervalued)
+}
+
+async function buildUndervalued(): Promise<unknown> {
   const companies = await db.company.findMany({ where: { isActive: true }, select: { id: true, ticker: true, nameAr: true, nameEn: true, sector: true } })
   const ids = companies.map((c) => c.id)
 
@@ -162,5 +168,5 @@ export async function GET() {
     }
   }
   out.sort((a, b) => ((b as { upside: number | null }).upside ?? -999) - ((a as { upside: number | null }).upside ?? -999))
-  return Response.json({ engine: "undervalued-v2-batched", detected: out.length, results: out.slice(0, 30), lastUpdated: new Date().toISOString() })
+  return { engine: "undervalued-v2-batched", detected: out.length, results: out.slice(0, 30), lastUpdated: new Date().toISOString() }
 }

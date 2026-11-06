@@ -1,10 +1,12 @@
 import { NextRequest } from "next/server"
 import { db } from "@/lib/db"
+import { isAdmin, unauthorizedResponse } from "@/lib/admin-auth"
 import { classifyStoredIssue, ROOT_CAUSE_LABELS, type RootCause } from "@/lib/audit/issue-class"
 
-// GET /api/v1/companies/[id]/confidence — public data-confidence badge data.
-// `[id]` accepts ticker, ISIN or company id. Returns the latest audit run's
-// score for the company plus its top open blockers (bounded, no internals).
+// GET /api/v1/companies/[id]/confidence — ADMIN-ONLY data-confidence badge data.
+// Data-quality scores, provenance dimensions and audit blockers are internal
+// operations data — never shown to end users (the public badge was removed).
+// `[id]` accepts ticker, ISIN or company id.
 
 interface Breakdown {
   accuracy?: number
@@ -21,7 +23,9 @@ function parseBreakdown(json: string | null | undefined): Breakdown {
   try { return JSON.parse(json) as Breakdown } catch { return {} }
 }
 
-export async function GET(_req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  // Internal audit data — never exposed to end users.
+  if (!(await isAdmin(req))) return await unauthorizedResponse()
   const { id } = await params
   const raw = decodeURIComponent(id)
   // CUIDs are lower-case and case-sensitive; only upper-case the ticker/ISIN

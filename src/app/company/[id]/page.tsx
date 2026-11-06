@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import { db } from "@/lib/db"
 import { siteConfig } from "@/lib/seo-config"
+import { safeJsonLd } from "@/lib/safe-json"
 import { BreadcrumbSchema } from "@/components/seo/structured-data"
 import CompanyPageClient from "./client"
 
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
   const name = company.nameAr ? `${company.nameEn} (${company.nameAr})` : company.nameEn
   const title = `${company.ticker} — ${company.nameEn}`
-  const description = `${company.ticker} ${name} — ${company.sector} company on the Egyptian Exchange. Audited financial statements, ratios, rankings, dividends and data-quality indicators.`
+  const description = `${company.ticker} ${name} — ${company.sector} company on the Egyptian Exchange. Financial statements, ratios, rankings, dividends and valuations.`
   const canonical = `/company/${company.ticker}`
   // A profile with no trusted financial value is a thin page: keep it
   // crawlable for discovery but do not ask Google to index it yet.
@@ -99,7 +100,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ id: st
         identifier: company.isin
           ? { "@type": "PropertyValue", propertyID: "ISIN", value: company.isin }
           : undefined,
-        description: `${company.ticker} — ${company.nameEn}, Egyptian Exchange (${company.sector}). Source-traceable financials, metrics and events on EGX Financial Scanner.`,
+        description: `${company.ticker} — ${company.nameEn}, Egyptian Exchange (${company.sector}). Published quarterly and annual financials, metrics and events on EGX Financial Scanner.`,
         url: canonical,
         mainEntityOfPage: canonical,
       }
@@ -107,27 +108,29 @@ export default async function CompanyPage({ params }: { params: Promise<{ id: st
   return (
     <>
       {jsonLd ? (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
       ) : null}
       {company ? (
         <>
           <BreadcrumbSchema
             items={[
               { name: "Home", url: siteConfig.url },
-              { name: "Companies", url: `${siteConfig.url}/rankings` },
+              { name: "Companies", url: `${siteConfig.url}/companies` },
               { name: `${company.ticker} — ${company.nameEn}`, url: canonical! },
             ]}
           />
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
+              // safeJsonLd: company name/ticker come from the DB — a crafted
+              // "</script><script>…" value must not be able to break out here.
+              __html: safeJsonLd({
                 "@context": "https://schema.org",
                 "@type": "FinancialProduct",
                 name: `${company.ticker} — ${company.nameEn}`,
                 tickerSymbol: company.ticker,
                 isin: company.isin,
-                description: `${company.ticker} — ${company.nameEn}, Egyptian Exchange (${company.sector}). Source-traceable financials, metrics and events on EGX Financial Scanner.`,
+                description: `${company.ticker} — ${company.nameEn}, Egyptian Exchange (${company.sector}). Published quarterly and annual financials, metrics and events on EGX Financial Scanner.`,
                 url: canonical,
                 potentialAction: {
                   "@type": "SearchAction",

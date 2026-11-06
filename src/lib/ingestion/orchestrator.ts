@@ -394,7 +394,36 @@ export async function ingestCompanyPeriod(req: IngestionRequest, ingestionRunId:
   }
 }
 
+// Single-flight guard: concurrent ingestion runs would process the same
+// company+period twice in parallel (duplicate document downloads, racing
+// report/FinancialValue writes into SQLite). The flag is set synchronously
+// before the first await, so a second caller in the same process always sees it.
+let ingestionBusy = false
+
+/** True while an ingestion run is active (poll before starting another). */
+export function isIngestionBusy(): boolean {
+  return ingestionBusy
+}
+
+/** Thrown by runIngestion() when another run is already in progress. */
+export class IngestionBusyError extends Error {
+  constructor() {
+    super("An ingestion run is already in progress")
+    this.name = "INGESTION_BUSY"
+  }
+}
+
 export async function runIngestion(reqs: IngestionRequest[], opts?: { sourceAdapter?: string }): Promise<{ runId: string; outcomes: IngestionOutcome[] }> {
+  if (ingestionBusy) throw new IngestionBusyError()
+  ingestionBusy = true
+  try {
+    return await runIngestionLocked(reqs, opts)
+  } finally {
+    ingestionBusy = false
+  }
+}
+
+async function runIngestionLocked(reqs: IngestionRequest[], opts?: { sourceAdapter?: string }): Promise<{ runId: string; outcomes: IngestionOutcome[] }> {
   const run = await db.ingestionRun.create({
     data: {
       runType: "PERIODIC",

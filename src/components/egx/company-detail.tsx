@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import ReactMarkdown, { type Components } from "react-markdown"
 import {
@@ -19,7 +19,9 @@ import {
   Flame,
   HeartPulse,
   Info,
+  Languages,
   Lock,
+  Minus,
   Pencil,
   Plus,
   RefreshCw,
@@ -28,6 +30,7 @@ import {
   ShieldCheck,
   Sparkles,
   Table2,
+  TrendingDown,
   TrendingUp,
   Users,
   X,
@@ -38,14 +41,13 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { PremiumGate } from "@/components/egx/premium-gate"
-import { ConfidenceBadge } from "@/components/egx/confidence-badge"
 import { HealthTab } from "@/components/egx/health-tab"
 import { PriceChart } from "@/components/egx/price-chart"
 import { QaBox } from "@/components/egx/qa-box"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { api, type EventItem, type MetricsData } from "@/lib/client/api"
+import { api, type AiChatMessage, type EventItem, type MetricsData } from "@/lib/client/api"
 import { useI18n, type DictKey } from "@/lib/i18n"
 import { formatEgp, formatPercent, formatRatio } from "@/lib/financial/units"
 import { RAW_METRIC_MAP } from "@/lib/financial/registry"
@@ -103,6 +105,68 @@ const mdComponents: Components = {
   thead: ({ children }) => <thead className="bg-muted/50">{children}</thead>,
   th: ({ children }) => <th className="border-b p-2 text-start font-medium">{children}</th>,
   td: ({ children }) => <td className="border-b p-2 align-top">{children}</td>,
+}
+
+// AI-analysis markdown styling — same base as the chat but with section
+// headings that carry a colored marker bar and a divider, and tighter tables
+// (the Key Numbers table is the visual centerpiece of the analysis).
+const aiMdComponents: Components = {
+  ...mdComponents,
+  h2: ({ children }) => (
+    <h3 className="mt-6 flex items-center gap-2 border-b border-border/70 pb-1.5 text-sm font-bold first:mt-0">
+      <span aria-hidden className="inline-block h-3.5 w-1 shrink-0 rounded-full bg-primary/70" />
+      {children}
+    </h3>
+  ),
+  table: ({ children }) => (
+    <div className="my-3 overflow-x-auto rounded-lg border shadow-sm">
+      <table className="w-full text-xs">{children}</table>
+    </div>
+  ),
+  thead: ({ children }) => <thead className="bg-primary/10">{children}</thead>,
+  th: ({ children }) => <th className="border-b p-2 text-start font-semibold">{children}</th>,
+  td: ({ children }) => <td className="border-b p-2 align-top tabular-nums">{children}</td>,
+}
+
+// Extract the closing stance from the analysis markdown so the UI can surface
+// it as a colored badge without re-reading the text. Matched against the
+// Overall Stance section (English keywords + common Arabic phrasings).
+function extractStance(content: string): { labelEn: string; labelAr: string; tone: "bullish" | "cautious" | "neutral" | "bearish" } | null {
+  if (!content) return null
+  const m = content.match(/^##\s*(?:Overall Stance|الموقف العام)\s*([\s\S]*)$/im)
+  const tail = (m?.[1] ?? content).slice(0, 400).toLowerCase()
+  const pick = (rules: Array<[RegExp, { labelEn: string; labelAr: string; tone: "bullish" | "cautious" | "neutral" | "bearish" }]>): { labelEn: string; labelAr: string; tone: "bullish" | "cautious" | "neutral" | "bearish" } | null => {
+    for (const [re, v] of rules) if (re.test(tail)) return v
+    return null
+  }
+  return pick([
+    [/bearish|هابط|سلبي|سلبية/, { labelEn: "Bearish", labelAr: "هابط", tone: "bearish" }],
+    [/cautiously\s*positive|cautious|صعود بحذر|إيجابي بحذر|بحذر/, { labelEn: "Cautiously Positive", labelAr: "إيجابي بحذر", tone: "cautious" }],
+    [/bullish|صاعد|إيجابي(?!\s*بحذر)/, { labelEn: "Bullish", labelAr: "صاعد", tone: "bullish" }],
+    [/neutral|محايد/, { labelEn: "Neutral", labelAr: "محايد", tone: "neutral" }],
+  ])
+}
+
+const STANCE_STYLE = {
+  bullish: "border-success/40 bg-success/10 text-success",
+  cautious: "border-warning/40 bg-warning/10 text-warning",
+  neutral: "border-border bg-muted/60 text-muted-foreground",
+  bearish: "border-destructive/40 bg-destructive/10 text-destructive",
+} as const
+
+function StanceBadge({ stance }: { stance: NonNullable<ReturnType<typeof extractStance>> }) {
+  const { lang } = useI18n()
+  const Icon = stance.tone === "bullish" ? TrendingUp : stance.tone === "bearish" ? TrendingDown : stance.tone === "cautious" ? TrendingUp : Minus
+  const cls = STANCE_STYLE[stance.tone]
+  const title = lang === "ar"
+    ? { bullish: "الموقف العام: صاعد", cautious: "الموقف العام: إيجابي بحذر", neutral: "الموقف العام: محايد", bearish: "الموقف العام: هابط" }[stance.tone]
+    : { bullish: "Overall stance: Bullish", cautious: "Overall stance: Cautiously positive", neutral: "Overall stance: Neutral", bearish: "Overall stance: Bearish" }[stance.tone]
+  return (
+    <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold ${cls}`} title={title}>
+      <Icon className="h-3 w-3" aria-hidden />
+      {lang === "ar" ? stance.labelAr : stance.labelEn}
+    </span>
+  )
 }
 
 export function CompanyDetail({
@@ -164,7 +228,6 @@ export function CompanyDetail({
                 {c.ticker.slice(0, 4)}
               </span>
               <h1 className="text-2xl font-bold tracking-tight">{c.ticker}</h1>
-              <ConfidenceBadge ticker={c.ticker} />
               {c.isDemoData ? <DemoBadge /> : null}
               <StatusChip status={c.listingStatus} />
               {c.counts.values > 0 ? (
@@ -649,7 +712,6 @@ function MarketSnapshot({ metrics, companyId }: { metrics: MetricsData; companyI
                 ) : (
                   <p className="mt-1 text-sm font-bold tabular num">{card.fmt(cell.value as number)}</p>
                 )}
-                <p className="mt-0.5 text-[9px] text-muted-foreground/70">{cell?.formulaVersion ?? ""}</p>
               </div>
             )
           })}
@@ -1176,9 +1238,6 @@ function StatementsTab({ companyId, ticker, basis, periodView }: { companyId: st
                             {cell ? (
                               <span className="inline-flex flex-col items-end leading-tight">
                                 <span className="flex items-center gap-1 justify-end">
-                                  {cell.flags?.identityFailed ? (
-                                    <span className="text-[10px] text-amber-500 font-bold" title={t("co.flagIdentity")}>⚠</span>
-                                  ) : null}
                                   <span>{formatEgp(cell.normalizedValue, { withCurrency: false })}</span>
                                 </span>
                                 {chg !== null && Number.isFinite(chg) ? (
@@ -1474,7 +1533,14 @@ function EventsTab({ companyId }: { companyId: string }) {
   const { data: subData } = useQuery({ queryKey: ["my-subscription"], queryFn: () => api.subscription() })
   const isPremium = !!subData?.isPremium
 
-  const { data, isLoading, isError, refetch } = useQuery({ queryKey: ["events", companyId], queryFn: () => api.events(companyId) })
+  // Premium-only endpoint: only fetch once we know the user is premium —
+  // anonymous visitors otherwise get a guaranteed 403 in the console and the
+  // tab shows the gate anyway.
+  const { data, isLoading, isError, refetch } = useQuery({
+    queryKey: ["events", companyId, isPremium],
+    queryFn: () => api.events(companyId),
+    enabled: isPremium,
+  })
 
   if (!isPremium) {
     return <PremiumGate />
@@ -1546,52 +1612,6 @@ function fmt(iso: string | null): string | null {
 
 /* ---------------- Documents + Reports tab ---------------- */
 
-async function copyText(text: string): Promise<boolean> {
-  try {
-    if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
-      await navigator.clipboard.writeText(text)
-      return true
-    }
-  } catch {
-    // fall through to the legacy path below
-  }
-  try {
-    const ta = document.createElement("textarea")
-    ta.value = text
-    ta.style.position = "fixed"
-    ta.style.opacity = "0"
-    document.body.appendChild(ta)
-    ta.select()
-    const ok = document.execCommand("copy")
-    document.body.removeChild(ta)
-    return ok
-  } catch {
-    return false
-  }
-}
-
-function CopyHashButton({ hash }: { hash: string }) {
-  const { t } = useI18n()
-  const [copied, setCopied] = useState(false)
-  return (
-    <button
-      type="button"
-      onClick={async () => {
-        const ok = await copyText(hash)
-        if (ok) {
-          setCopied(true)
-          setTimeout(() => setCopied(false), 1500)
-        }
-      }}
-      title={t("co.fileHash")}
-      aria-label={t("co.fileHash")}
-      className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-    >
-      {copied ? <Check className="h-3 w-3 text-emerald-600" aria-hidden /> : <Copy className="h-3 w-3" aria-hidden />}
-    </button>
-  )
-}
-
 function DocumentsTable({ companyId }: { companyId: string }) {
   const { t, lang } = useI18n()
   const { data, isLoading, isError, refetch } = useQuery({ queryKey: ["company-documents", companyId], queryFn: () => api.companyDocuments(companyId) })
@@ -1611,18 +1631,13 @@ function DocumentsTable({ companyId }: { companyId: string }) {
     lang === "ar" ? "الملف" : "File",
     lang === "ar" ? "الفترة" : "Period",
     lang === "ar" ? "الأساس" : "Basis",
-    t("common.status"),
-    t("co.confidence"),
     lang === "ar" ? "القيم" : "Values",
-    t("co.version"),
-    lang === "ar" ? "الاعتماد" : "Approved",
-    "SHA-256",
     "",
   ]
 
   return (
     <div className="overflow-x-auto scrollbar-thin rounded-lg border">
-      <table className="w-full min-w-[1040px] text-xs">
+      <table className="w-full min-w-[560px] text-xs">
         <thead className="bg-muted/40">
           <tr className="border-b">
             {headers.map((h, i) => (
@@ -1646,30 +1661,8 @@ function DocumentsTable({ companyId }: { companyId: string }) {
                   <Badge variant="secondary" className="text-[10px]">{doc.language}</Badge>
                 </div>
               </td>
-              <td className="p-2.5"><StatusChip status={doc.processingStatus} /></td>
               <td className="p-2.5 text-end tabular">
                 {doc.valueCount} <span className="text-[9px] text-muted-foreground">{t("co.values")}</span>
-              </td>
-              <td className="p-2.5">
-                <div className="flex items-center gap-1.5 whitespace-nowrap">
-                  <span className="tabular">v{doc.version}</span>
-                  {doc.isRestatement ? (
-                    <Badge variant="outline" className="border-violet-400/50 text-[9px] text-violet-600 dark:text-violet-300">RESTATED</Badge>
-                  ) : null}
-                </div>
-              </td>
-              <td className="p-2.5 whitespace-nowrap tabular">
-                {fmt(doc.approvedAt) ?? <span className="text-slate-400">—</span>}
-              </td>
-              <td className="p-2.5">
-                {doc.fileHash ? (
-                  <span className="inline-flex items-center gap-0.5">
-                    <span className="font-mono text-[10px]">{doc.fileHash.slice(0, 12)}</span>
-                    <CopyHashButton hash={doc.fileHash} />
-                  </span>
-                ) : (
-                  <span className="text-slate-400">—</span>
-                )}
               </td>
               <td className="p-2.5">
               <div className="flex items-center justify-end gap-1.5">
@@ -1732,12 +1725,17 @@ function AiAnalysisTab({ companyId }: { companyId: string }) {
   const usage = subData?.smartAnalysisUsage
   const usageLabel = usage ? `${usage.usageCount}/${usage.limit} ${lang === "ar" ? "مستخدم" : "used"}` : ""
 
-  const { data, isLoading, isError, refetch } = useQuery({ queryKey: ["ai-analysis", companyId], queryFn: () => api.aiAnalysis(companyId) })
+  // Language is part of the key: toggling the UI language refetches and shows
+  // the analysis generated in that language when one exists.
+  const { data, isLoading, isError, refetch } = useQuery({
+    queryKey: ["ai-analysis", companyId, lang],
+    queryFn: () => api.aiAnalysis(companyId, lang),
+  })
 
   const generate = useMutation({
     mutationFn: () => api.generateAiAnalysis(companyId, lang),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["ai-analysis", companyId] })
+      queryClient.invalidateQueries({ queryKey: ["ai-analysis", companyId, lang] })
       queryClient.invalidateQueries({ queryKey: ["my-subscription"] })
     },
   })
@@ -1746,7 +1744,7 @@ function AiAnalysisTab({ companyId }: { companyId: string }) {
   const noData = !!err && (err.status === 400 || /NO_DATA/i.test(err.message))
   const usageLimited = !!err && (err.status === 429 || /USAGE_LIMIT_EXCEEDED/i.test(err.message))
   const analysis = data?.analysis ?? null
-
+  const stance = extractStance(analysis?.content ?? "")
   if (isLoading) return <Skeleton className="h-72 rounded-xl" />
   if (generate.isPending) return <AiLoadingPanel />
 
@@ -1789,34 +1787,56 @@ function AiAnalysisTab({ companyId }: { companyId: string }) {
       </div>
 
       {analysis ? (
-        <Card className="p-0">
-          <CardHeader className="flex flex-row flex-wrap items-center justify-between gap-2 pb-3">
-            <CardTitle className="flex flex-wrap items-center gap-2 text-sm">
-              <Sparkles className="h-4 w-4 text-primary" aria-hidden />
-              {t("co.aiAnalysis")}
-              {analysis.model ? <Badge variant="secondary" className="font-mono text-[10px]">{analysis.model}</Badge> : null}
-              <span className="text-[11px] font-normal text-muted-foreground">{fmt(analysis.createdAt)}</span>
-              <Badge variant="outline" className="font-mono text-[9px]" title={analysis.dataHash}>
-                {analysis.dataHash.slice(0, 10)}
-              </Badge>
-            </CardTitle>
-            <Button variant="outline" size="sm" className="h-7 gap-1.5 text-xs" onClick={() => generate.mutate()}>
-              <RefreshCw className="h-3.5 w-3.5" aria-hidden />
-              {t("co.aiRegenerate")}
-            </Button>
-          </CardHeader>
-          <CardContent>
-            <div dir={lang === "ar" ? "rtl" : "ltr"}>
-              <ReactMarkdown components={mdComponents}>{analysis.content}</ReactMarkdown>
+        <>
+          <Card className="p-0">
+            <CardHeader className="flex flex-row flex-wrap items-center justify-between gap-2 pb-3">
+              <CardTitle className="flex flex-wrap items-center gap-2 text-sm">
+                <Sparkles className="h-4 w-4 text-primary" aria-hidden />
+                {t("co.aiAnalysis")}
+                {analysis.model ? <Badge variant="secondary" className="font-mono text-[10px]">{analysis.model}</Badge> : null}
+                <span className="text-[11px] font-normal text-muted-foreground">{fmt(analysis.createdAt)}</span>
+                <Badge variant="outline" className="font-mono text-[9px]" title={analysis.dataHash}>
+                  {analysis.dataHash.slice(0, 10)}
+                </Badge>
+              </CardTitle>
+              <div className="flex items-center gap-2">
+                {stance ? <StanceBadge stance={stance} /> : null}
+                <Button variant="outline" size="sm" className="h-7 gap-1.5 text-xs" onClick={() => generate.mutate()}>
+                  <RefreshCw className="h-3.5 w-3.5" aria-hidden />
+                  {t("co.aiRegenerate")}
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent>
+              {analysis.degraded ? (
+                <Alert className="mb-4 border-warning/40 bg-warning/5">
+                  <AlertTriangle className="h-4 w-4 text-warning" aria-hidden />
+                  <AlertDescription className="text-xs">{t("co.aiDegraded")}</AlertDescription>
+                </Alert>
+              ) : null}
+              {analysis.lang && analysis.lang !== lang ? (
+                <Alert className="mb-4">
+                  <Languages className="h-4 w-4" aria-hidden />
+                  <AlertDescription className="text-xs">
+                    {lang === "ar"
+                      ? "التحليل المخزّن مكتوب بلغة تانية — اضغط «إعادة التوليد» عشان يُكتب بالعربي من نفس البيانات."
+                      : "The stored analysis was generated in another language — press Regenerate to rewrite it in your language from the same data."}
+                  </AlertDescription>
+                </Alert>
+              ) : null}
+              <div dir={lang === "ar" ? "rtl" : "ltr"}>
+                <ReactMarkdown components={aiMdComponents}>{analysis.content}</ReactMarkdown>
+              </div>
+            </CardContent>
+            <div className="border-t px-6 py-3">
+              <p className="flex items-start gap-1.5 text-[11px] leading-relaxed text-muted-foreground">
+                <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-success" aria-hidden />
+                {t("co.aiGrounded")}
+              </p>
             </div>
-          </CardContent>
-          <div className="border-t px-6 py-3">
-            <p className="flex items-start gap-1.5 text-[11px] leading-relaxed text-muted-foreground">
-              <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-success" aria-hidden />
-              {t("co.aiGrounded")}
-            </p>
-          </div>
-        </Card>
+          </Card>
+          <AiAnalystChat companyId={companyId} />
+        </>
       ) : (
         <Card className="p-0">
           <CardContent className="flex flex-col items-center justify-center gap-4 p-10 text-center">
@@ -1832,5 +1852,133 @@ function AiAnalysisTab({ companyId }: { companyId: string }) {
         </Card>
       )}
     </div>
+  )
+}
+
+/* ---------------- Ask-the-analyst chat (grounded follow-up Q&A) ---------------- */
+
+function AiAnalystChat({ companyId }: { companyId: string }) {
+  const { t, lang } = useI18n()
+  const [messages, setMessages] = useState<AiChatMessage[]>([])
+  const [input, setInput] = useState("")
+  const [chatUsed, setChatUsed] = useState<{ used: number; limit: number } | null>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  const send = useMutation({
+    mutationFn: (history: AiChatMessage[]) => api.aiAnalysisChat(companyId, history, lang),
+    onSuccess: (data) => {
+      setMessages((prev) => [...prev, { role: "assistant", content: data.reply }])
+      if (data.usage) setChatUsed(data.usage)
+    },
+  })
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" })
+  }, [messages.length, send.isPending])
+
+  const submit = () => {
+    const text = input.trim()
+    if (!text || send.isPending) return
+    const next: AiChatMessage[] = [...messages, { role: "user", content: text }]
+    setMessages(next)
+    setInput("")
+    send.mutate(next)
+  }
+
+  const chatErr = send.error as (Error & { status?: number; body?: { message?: string } }) | null
+  const quotaHit = !!chatErr && (chatErr.status === 429 || /QUOTA_EXCEEDED|RATE_LIMITED/i.test(chatErr.message))
+
+  return (
+    <Card className="p-0">
+      <CardHeader className="flex flex-row flex-wrap items-center justify-between gap-2 pb-3">
+        <CardTitle className="flex items-center gap-2 text-sm">
+          <Sparkles className="h-4 w-4 text-primary" aria-hidden />
+          {t("co.aiAskTitle")}
+          <span className="text-[11px] font-normal text-muted-foreground">{t("co.aiAskSub")}</span>
+        </CardTitle>
+        {chatUsed ? (
+          <Badge variant="outline" className="text-[10px]">
+            {t("co.aiAskChatLimit")}: {chatUsed.used}/{chatUsed.limit}
+          </Badge>
+        ) : null}
+      </CardHeader>
+      <CardContent className="space-y-3">
+        {messages.length === 0 ? (
+          <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
+            <Info className="h-3.5 w-3.5 shrink-0" aria-hidden />
+            {t("co.aiAskEmpty")}
+          </p>
+        ) : (
+          <div ref={scrollRef} className="max-h-96 space-y-3 overflow-y-auto pe-1">
+            {messages.map((m, i) => (
+              <div key={i} className={m.role === "user" ? "flex justify-end" : "flex justify-start"}>
+                <div
+                  dir="auto"
+                  className={
+                    m.role === "user"
+                      ? "max-w-[85%] rounded-xl bg-primary px-3.5 py-2 text-xs leading-relaxed text-primary-foreground"
+                      : "max-w-[92%] rounded-xl bg-muted px-3.5 py-2"
+                  }
+                >
+                  {m.role === "assistant" ? (
+                    <div dir={lang === "ar" ? "rtl" : "ltr"} className="text-xs leading-relaxed [&_ul]:list-disc [&_ul]:ps-4 [&_ol]:list-decimal [&_ol]:ps-4 [&_code]:rounded [&_code]:bg-background [&_code]:px-1 [&_code]:text-[11px] [&_strong]:font-semibold">
+                      <ReactMarkdown components={mdComponents}>{m.content}</ReactMarkdown>
+                    </div>
+                  ) : (
+                    <p className="whitespace-pre-wrap">{m.content}</p>
+                  )}
+                </div>
+              </div>
+            ))}
+            {send.isPending ? (
+              <div className="flex justify-start">
+                <div className="flex items-center gap-1.5 rounded-xl bg-muted px-3.5 py-2.5" aria-hidden>
+                  {[0, 1, 2].map((i) => (
+                    <span key={i} className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground/60" style={{ animationDelay: `${i * 150}ms` }} />
+                  ))}
+                </div>
+              </div>
+            ) : null}
+          </div>
+        )}
+
+        {chatErr ? (
+          <Alert variant={quotaHit ? "default" : "destructive"}>
+            <AlertTriangle className="h-4 w-4" aria-hidden />
+            <AlertDescription className="text-xs">
+              {chatErr.body?.message || chatErr.message}
+            </AlertDescription>
+          </Alert>
+        ) : null}
+
+        <form
+          className="flex items-center gap-2"
+          onSubmit={(e) => {
+            e.preventDefault()
+            submit()
+          }}
+        >
+          <Input
+            dir="auto"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder={t("co.aiAskPlaceholder")}
+            className="h-9 flex-1 text-xs"
+            maxLength={1500}
+            disabled={send.isPending}
+          />
+          <Button type="submit" size="sm" className="h-9 gap-1.5 px-3" disabled={send.isPending || !input.trim()}>
+            <Sparkles className="h-3.5 w-3.5" aria-hidden />
+            {t("co.aiAskSend")}
+          </Button>
+        </form>
+      </CardContent>
+      <div className="border-t px-6 py-3">
+        <p className="flex items-start gap-1.5 text-[11px] leading-relaxed text-muted-foreground">
+          <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-success" aria-hidden />
+          {t("co.aiGrounded")}
+        </p>
+      </div>
+    </Card>
   )
 }

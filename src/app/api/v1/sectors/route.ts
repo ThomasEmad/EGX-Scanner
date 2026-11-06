@@ -2,6 +2,7 @@ import { NextRequest } from "next/server"
 import { db } from "@/lib/db"
 import { periodOrder, selectLatestByCompany, type PeriodRef } from "@/lib/financial/latest-period"
 import { moverMap, readMarketSnapshot } from "@/lib/market/snapshot"
+import { cached } from "@/lib/server-cache"
 
 interface SectorAgg {
   sector: string
@@ -64,6 +65,18 @@ function emptySector(sector: string): SectorAgg {
 export async function GET(req: NextRequest) {
   const url = new URL(req.url)
   const basis = (url.searchParams.get("basis") ?? "latest") as "latest" | "annual" | "ttm"
+  const rawYear = url.searchParams.get("year")
+  const year = rawYear && /^\d{4}$/.test(rawYear) ? Number(rawYear) : null
+
+  // Aggregating every active company's latest metrics is a heavy full-table
+  // computation (~6s cold). Sector aggregates move only when the pipeline
+  // recomputes or a market snapshot refreshes — serve from the stale-while-
+  // revalidate cache and refresh in the background.
+  const payload = await cached(`sectors:${basis}:${year ?? "auto"}`, 5 * 60_000, () => computeSectorAggregates(basis, year))
+  return Response.json(payload)
+}
+
+async function computeSectorAggregates(basis: "latest" | "annual" | "ttm", year: number | null = null) {
 
   const companies = await db.company.findMany({
     where: { isActive: true },
@@ -87,16 +100,24 @@ export async function GET(req: NextRequest) {
 
   // Flow totals (revenue / net profit) must never mix a quarter with a full
   // year. `latest` therefore means the latest FULL YEAR for totals, while
-  // `ttm` uses the trailing-twelve-month window.
-  const flowRows = rows.filter((r) => r.periodType === (basis === "ttm" ? "TTM" : "ANNUAL"))
+  // `ttm` uses the trailing-twelve-month window. A pinned `year` scopes both
+  // flows and ratios to ONE fiscal year — the like-for-like historical view.
+  const flowRowsAll = rows.filter((r) => r.periodType === (basis === "ttm" ? "TTM" : "ANNUAL"))
+  const flowRows = year ? flowRowsAll.filter((r) => r.fiscalYear === year) : flowRowsAll
   const latestFlows = selectLatestByCompany(flowRows, ["revenue", "net_profit", "market_cap"])
 
   // Ratios use the requested basis. ROE/ROA/margin compare a flow with a
   // balance-sheet base, so a Q1 ratio is not annualised and must not be mixed
   // with TTM/annual values; only full periods are eligible for those three.
-  const ratioRows = basis === "latest"
+  const ratioRowsAll = basis === "latest"
     ? rows
     : rows.filter((r) => r.periodType === (basis === "annual" ? "ANNUAL" : "TTM"))
+  const ratioRows = year ? ratioRowsAll.filter((r) => r.fiscalYear === year) : ratioRowsAll
+
+  // Fiscal years this basis actually covers (sector-independent, pin-free) —
+  // the UI period dropdown renders exactly this list.
+  const years = [...new Set([...flowRowsAll, ...ratioRowsAll].map((r) => r.fiscalYear))].sort((a, b) => b - a)
+
   const latestRatios = selectLatestByCompany(
     ratioRows,
     ["roe", "roa", "net_margin", "p_e", "p_b"],
@@ -211,5 +232,5 @@ export async function GET(req: NextRequest) {
 
   results.sort((a, b) => b.companyCount - a.companyCount)
 
-  return Response.json({ sectors: results, basis })
+  return { sectors: results, basis, year, years }
 }

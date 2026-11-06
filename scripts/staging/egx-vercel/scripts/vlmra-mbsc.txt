@@ -1,0 +1,121 @@
+﻿
+=== VLMRA | Valmore Holding-EGP ===
+2026 Q1 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 392990000 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+  REVENUE 625630000 NEEDS_REVIEW Total revenue AUDIT_QUARANTINE: x1000 scale family — TradingView P&L rows belong to no sane scale for this holding (quarterly revenue 
+  TOTAL_EQUITY 593000000 VALID حقوق المساهمين AskBorsa quarterly summary (display-rounded 0.01M)
+2025 Q4 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  REVENUE 8090000000 NEEDS_REVIEW Total revenue AUDIT_QUARANTINE: x1000 scale family — TradingView P&L rows belong to no sane scale for this holding (quarterly revenue 
+2025 Q3 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  REVENUE 8350000000 NEEDS_REVIEW Total revenue AUDIT_QUARANTINE: x1000 scale family — TradingView P&L rows belong to no sane scale for this holding (quarterly revenue 
+  TOTAL_EQUITY 558000000 NEEDS_REVIEW COPIED from 9M 2025 balance sheet (source: ASKBORA_SUMMARY) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+2025 Q2 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 3005040000 VALID صافي الربح (AskBorsa quarterly Q2) 
+  REVENUE 9120000000 NEEDS_REVIEW Total revenue AUDIT_QUARANTINE: x1000 scale family — TradingView P&L rows belong to no sane scale for this holding (quarterly revenue 
+  TOTAL_EQUITY 526000000 NEEDS_REVIEW COPIED from H1 2025 balance sheet (source: ASKBORA_SUMMARY) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+2025 Q1 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 174480000 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+  REVENUE 862880000 NEEDS_REVIEW Total revenue AUDIT_QUARANTINE: x1000 scale family — TradingView P&L rows belong to no sane scale for this holding (quarterly revenue 
+  TOTAL_EQUITY 504000000 VALID حقوق المساهمين AskBorsa quarterly summary (display-rounded 0.01M)
+2025 FY 2025 ANNUAL ASKBORA_SUMMARY
+  NET_PROFIT 161000000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+
+=== MBSC | Misr Beni Suef Cement ===
+2026 Q2 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  REVENUE 1640000000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+2026 Q1 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 591000000 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+  REVENUE 1350000000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+  TOTAL_EQUITY 5150000000 VALID حقوق المساهمين AskBorsa quarterly summary (display-rounded 0.01M)
+2025 Q4 2025 QUARTERLY ASKBORA_SUMMARY
+  NET_PROFIT 1880000000 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+2025 Q3 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 1112910000 VALID DERIVED Q3 2025 = 9M 2025 − H1 2025 (source: ASKBORA_SUMMARY) 
+  REVENUE 1400000000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+  TOTAL_EQUITY 3100000000 NEEDS_REVIEW COPIED from 9M 2025 balance sheet (source: ASKBORA_SUMMARY) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+2025 Q2 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 379000000 VALID صافي الربح (AskBorsa quarterly Q2) 
+  REVENUE 1090000000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+  TOTAL_EQUITY 2230000000 NEEDS_REVIEW COPIED from H1 2025 balance sheet (source: ASKBORA_SUMMARY) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+2025 Q1 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 574000000 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+  REVENUE 1580000000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+  TOTAL_EQUITY 1960000000 VALID حقوق المساهمين AskBorsa quarterly summary (display-rounded 0.01M)
+
+=== MPCI | Memphis Pharmaceuticals ===
+2026 Q3 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  REVENUE 437380000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+2026 Q2 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 129000000 VALID صافي الربح (AskBorsa quarterly Q2) 
+  REVENUE 457630000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+2026 Q1 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  REVENUE 497890000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+2025 Q4 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 130000000 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+  REVENUE 410530000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+  TOTAL_EQUITY 771000000 VALID حقوق المساهمين AskBorsa quarterly summary (display-rounded 0.01M)
+2025 Q3 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 108000000 VALID صافي الربح (AskBorsa quarterly Q3) 
+  REVENUE 309360000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+  TOTAL_EQUITY 661000000 NEEDS_REVIEW COPIED from 9M 2025 balance sheet (source: ASKBORA_SUMMARY) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+2025 Q2 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 127000000 VALID صافي الربح (AskBorsa quarterly Q2) 
+  REVENUE 388260000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+  TOTAL_EQUITY 382000000 NEEDS_REVIEW COPIED from H1 2025 balance sheet (source: ASKBORA_SUMMARY) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+2025 Q1 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 141000000 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+  REVENUE 399660000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+  TOTAL_EQUITY 289000000 VALID حقوق المساهمين AskBorsa quarterly summary (display-rounded 0.01M)
+2025 FY 2025 ANNUAL TRADINGVIEW_FINANCIALS
+  NET_PROFIT 505000000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+  REVENUE 1510000000 VALID Total revenue TradingView income statement, company-level verification unavailable
+  TOTAL_EQUITY 771000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+
+=== ALCN | Alexandria Container & Cargo Handling ===
+2026 Q3 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  REVENUE 2428996000 NEEDS_REVIEW Total revenue AUDIT_QUARANTINE: cross-quarter duplicate — REVENUE identical (±0.05%) to the previous quarter's report (harvest tab-swi
+2026 Q2 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  REVENUE 2428996000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+2026 Q1 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  REVENUE 2146947000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+2025 Q4 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 6620000000 VALID صافي الربح (AskBorsa quarterly Q4) 
+  REVENUE 2360000000 VALID Total revenue 
+  TOTAL_EQUITY 10807268000 VALID حقوق المساهمين (AskBorsa quarterly Q4) 
+2025 Q3 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT -3410000000 VALID DERIVED Q3 2025 = 9M 2025 − H1 2025 (source: ASKBORA_SUMMARY) 
+  REVENUE 2080000000 VALID Total revenue 
+  TOTAL_EQUITY 9460000000 NEEDS_REVIEW COPIED from 9M 2025 balance sheet (source: ASKBORA_SUMMARY) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+2025 Q2 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 1500000000 VALID صافي الربح (AskBorsa quarterly Q2) 
+  REVENUE 1920000000 VALID Total revenue 
+  TOTAL_EQUITY 7680000000 NEEDS_REVIEW COPIED from H1 2025 balance sheet (source: ASKBORA_SUMMARY) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+2025 Q1 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 1910000000 VALID صافي الربح 
+  REVENUE 2010000000 VALID Total revenue 
+  TOTAL_EQUITY 14040000000 VALID حقوق المساهمين 
+2025 FY 2025 ANNUAL YAHOO_FINANCE_API + REUTERS_FINANCIALS_PAGE
+  NET_PROFIT 6627568000 VALID Net Income From Continuing Operation Net Minority Interest API import — YAHOO_FINANCE_API (6 sources agree)
+  NET_PROFIT_PARENT 5920821000 VALID Net Income Common Stockholders API import — YAHOO_FINANCE_API (2 sources agree)
+  REVENUE 8369305000 VALID Total Revenue API import — YAHOO_FINANCE_API (6 sources agree)
+  TOTAL_EQUITY 10807268000 VALID Stockholders Equity API import — YAHOO_FINANCE_API (3 sources agree)
+
+=== CSAG | Canal Shipping Agencies Co. ===
+2026 Q2 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 27544000 VALID صافي الربح (AskBorsa quarterly Q2) 
+  REVENUE 34430000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+2026 Q1 2026 QUARTERLY TRADINGVIEW_FINANCIALS
+  REVENUE 46790000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+2025 Q3 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  REVENUE 31490000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+2025 Q2 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 25752000 VALID صافي الربح (AskBorsa quarterly Q2) 
+  REVENUE 32190000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+  TOTAL_EQUITY 1550000000 NEEDS_REVIEW COPIED from H1 2025 balance sheet (source: ASKBORA_SUMMARY) AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+2025 Q1 2025 QUARTERLY TRADINGVIEW_FINANCIALS
+  NET_PROFIT 33330000 VALID صافي الربح AskBorsa quarterly summary (display-rounded 0.01M)
+  REVENUE 29820000 VALID Total revenue TradingView quarterly income statement (discrete quarter, display-scaled)
+  TOTAL_EQUITY 1380000000 VALID حقوق المساهمين AskBorsa quarterly summary (display-rounded 0.01M)
+2025 FY 2025 ANNUAL MUBASHER_EARNINGS
+  NET_PROFIT 1024880038 VALID الربح المُعلن Mubasher earnings announcements table (public, logged-in session)
+  TOTAL_EQUITY 1680000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher

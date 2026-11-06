@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server"
+import { cachedResponse } from "@/lib/public-cache"
 import type { Prisma } from "@prisma/client"
 import { db } from "@/lib/db"
 import { fetchCalcMany } from "@/lib/financial/statement-pref"
@@ -25,8 +26,16 @@ type CompanyWithCounts = Prisma.CompanyGetPayload<{
 // the durable MarketPrice table. Missing price/shares stays null; it is never
 // replaced with zero.
 
+// 30s in-process SWR cache keyed by the normalized query — the companies
+// list is the busiest endpoint on the site (search + pagination + the
+// snapshot merge). Stale-while-revalidate keeps it O(1) at scale.
 export async function GET(req: NextRequest) {
   const url = new URL(req.url)
+  const key = `companies:${url.searchParams.toString()}`
+  return cachedResponse(key, 30 * 1000, () => listCompanies(url))
+}
+
+async function listCompanies(url: URL): Promise<unknown> {
   const search = url.searchParams.get("search")?.trim() || ""
   const sector = url.searchParams.get("sector")?.trim() || ""
   const page = Math.max(1, Number(url.searchParams.get("page") ?? 1) || 1)
@@ -158,7 +167,7 @@ export async function GET(req: NextRequest) {
     }
   }
 
-  return Response.json({
+  return {
     page,
     pageSize,
     total,
@@ -199,5 +208,5 @@ export async function GET(req: NextRequest) {
         marketCap,
       }
     }),
-  })
+  }
 }

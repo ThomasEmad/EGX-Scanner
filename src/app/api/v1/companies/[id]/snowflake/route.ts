@@ -1,13 +1,16 @@
 import { NextRequest } from "next/server"
 import { gatherCompanyAnalytics } from "@/lib/analytics/gather"
 import { computeSnowflake, dimensionAnalysis } from "@/lib/analytics/engine"
-import { db } from "@/lib/db"
+import { findCompanyByKey } from "@/lib/company-lookup"
 
 // GET /api/v1/companies/[id]/snowflake — 10-axis sector-percentile snowflake
 // + per-dimension framed analysis (spec §2.3-2.6). Direction table per §2.3.
+// `[id]` accepts company id, ticker or ISIN (see findCompanyByKey).
 export async function GET(_req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const g = await gatherCompanyAnalytics(id)
+  const company = await findCompanyByKey(id)
+  if (!company) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
+  const g = await gatherCompanyAnalytics(company.id)
   if (!g) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
 
   const latestWithMarket: Record<string, number | null> = { ...g.latest, PRICE_RETURN_1Y: g.priceReturn1Y }

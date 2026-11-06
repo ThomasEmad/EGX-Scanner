@@ -1,0 +1,305 @@
+{
+  "generatedAt": "2026-11-05T01:25:23.886Z",
+  "apply": false,
+  "ops": [
+    {
+      "ticker": "ABUK",
+      "reportId": "cmun5cqnw0l9hbx9keyc7bq6x",
+      "from": "Q1 2022",
+      "to": "Q3 2021",
+      "fromFiscalYear": 2022,
+      "toFiscalYear": 2021,
+      "periodEnd": "2021-09-30",
+      "values": 10,
+      "twin": {
+        "id": "cmw2uvxnc011npldlo2k65coj",
+        "values": 25,
+        "periodEnd": "2021-09-30",
+        "processingStatus": "EXTRACTED"
+      }
+    },
+    {
+      "ticker": "ABUK",
+      "reportId": "cmura61kk05gtbxz0jh9fvue6",
+      "from": "Q2 2022",
+      "to": "Q4 2021",
+      "fromFiscalYear": 2022,
+      "toFiscalYear": 2021,
+      "periodEnd": "2021-12-31",
+      "values": 10,
+      "twin": {
+        "id": "cmw2uvxnw0133pldll7ade7tv",
+        "values": 25,
+        "periodEnd": "2021-12-31",
+        "processingStatus": "EXTRACTED"
+      }
+    },
+    {
+      "ticker": "ABUK",
+      "reportId": "cmura61v605htbxz01tatr8r0",
+      "from": "Q3 2022",
+      "to": "Q1 2022",
+      "fromFiscalYear": 2022,
+      "toFiscalYear": 2022,
+      "periodEnd": "2022-03-31",
+      "values": 10,
+      "twin": {
+        "id": "cmun5cqnw0l9hbx9keyc7bq6x",
+        "values": 10,
+        "periodEnd": "2021-09-30",
+        "processingStatus": "APPROVED"
+      }
+    },
+    {
+      "ticker": "ABUK",
+      "reportId": "cmun5cray0lh7bx9kuh2e1a7k",
+      "from": "Q4 2022",
+      "to": "Q2 2022",
+      "fromFiscalYear": 2022,
+      "toFiscalYear": 2022,
+      "periodEnd": "2022-06-30",
+      "values": 10,
+      "twin": {
+        "id": "cmura61kk05gtbxz0jh9fvue6",
+        "values": 10,
+        "periodEnd": "2021-12-31",
+        "processingStatus": "APPROVED"
+      }
+    },
+    {
+      "ticker": "ABUK",
+      "reportId": "cmun5cqq20la3bx9k5uxddrop",
+      "from": "Q1 2023",
+      "to": "Q3 2022",
+      "fromFiscalYear": 2023,
+      "toFiscalYear": 2022,
+      "periodEnd": "2022-09-30",
+      "values": 9,
+      "twin": {
+        "id": "cmura61v605htbxz01tatr8r0",
+        "values": 10,
+        "periodEnd": "2022-03-31",
+        "processingStatus": "APPROVED"
+      }
+    },
+    {
+      "ticker": "ABUK",
+      "reportId": "cmupwl7ev01blbxssdrur5wiy",
+      "from": "Q2 2023",
+      "to": "Q4 2022",
+      "fromFiscalYear": 2023,
+      "toFiscalYear": 2022,
+      "periodEnd": "2022-12-31",
+      "values": 9,
+      "twin": {
+        "id": "cmun5cray0lh7bx9kuh2e1a7k",
+        "values": 10,
+        "periodEnd": "2022-06-30",
+        "processingStatus": "APPROVED"
+      }
+    },
+    {
+      "ticker": "ABUK",
+      "reportId": "cmupwl7hj01cxbxssakqh5vpo",
+      "from": "Q3 2023",
+      "to": "Q1 2023",
+      "fromFiscalYear": 2023,
+      "toFiscalYear": 2023,
+      "periodEnd": "2023-03-31",
+      "values": 8,
+      "twin": {
+        "id": "cmun5cqq20la3bx9k5uxddrop",
+        "values": 9,
+        "periodEnd": "2022-09-30",
+        "processingStatus": "APPROVED"
+      }
+    },
+    {
+      "ticker": "ABUK",
+      "reportId": "cmun5crcr0lhtbx9ki8lubieq",
+      "from": "Q4 2023",
+      "to": "Q2 2023",
+      "fromFiscalYear": 2023,
+      "toFiscalYear": 2023,
+      "periodEnd": "2023-06-30",
+      "values": 10,
+      "twin": {
+        "id": "cmupwl7ev01blbxssdrur5wiy",
+        "values": 9,
+        "periodEnd": "2022-12-31",
+        "processingStatus": "APPROVED"
+      }
+    },
+    {
+      "ticker": "ABUK",
+      "reportId": "cmun5cqs10lapbx9kkkcao01s",
+      "from": "Q1 2024",
+      "to": "Q3 2023",
+      "fromFiscalYear": 2024,
+      "toFiscalYear": 2023,
+      "periodEnd": "2023-09-30",
+      "values": 9,
+      "twin": {
+        "id": "cmupwl7hj01cxbxssakqh5vpo",
+        "values": 8,
+        "periodEnd": "2023-03-31",
+        "processingStatus": "APPROVED"
+      }
+    },
+    {
+      "ticker": "ABUK",
+      "reportId": "cmupwl7e501b7bxss6zw0x36u",
+      "from": "Q2 2024",
+      "to": "Q4 2023",
+      "fromFiscalYear": 2024,
+      "toFiscalYear": 2023,
+      "periodEnd": "2023-12-31",
+      "values": 10,
+      "twin": {
+        "id": "cmun5crcr0lhtbx9ki8lubieq",
+        "values": 10,
+        "periodEnd": "2023-06-30",
+        "processingStatus": "APPROVED"
+      }
+    },
+    {
+      "ticker": "ABUK",
+      "reportId": "cmupwl7gb01cbbxssmuril09x",
+      "from": "Q3 2024",
+      "to": "Q1 2024",
+      "fromFiscalYear": 2024,
+      "toFiscalYear": 2024,
+      "periodEnd": "2024-03-31",
+      "values": 10,
+      "twin": {
+        "id": "cmun5cqs10lapbx9kkkcao01s",
+        "values": 9,
+        "periodEnd": "2023-09-30",
+        "processingStatus": "APPROVED"
+      }
+    },
+    {
+      "ticker": "ABUK",
+      "reportId": "cmun5cree0lifbx9kcdh5eivr",
+      "from": "Q4 2024",
+      "to": "Q2 2024",
+      "fromFiscalYear": 2024,
+      "toFiscalYear": 2024,
+      "periodEnd": "2024-06-30",
+      "values": 10,
+      "twin": {
+        "id": "cmupwl7e501b7bxss6zw0x36u",
+        "values": 10,
+        "periodEnd": "2023-12-31",
+        "processingStatus": "APPROVED"
+      }
+    },
+    {
+      "ticker": "ABUK",
+      "reportId": "cmun5cqtz0lb9bx9kb6n75hh7",
+      "from": "Q1 2025",
+      "to": "Q3 2024",
+      "fromFiscalYear": 2025,
+      "toFiscalYear": 2024,
+      "periodEnd": "2024-09-30",
+      "values": 9,
+      "twin": {
+        "id": "cmupwl7gb01cbbxssmuril09x",
+        "values": 10,
+        "periodEnd": "2024-03-31",
+        "processingStatus": "APPROVED"
+      }
+    },
+    {
+      "ticker": "ABUK",
+      "reportId": "cmupwl7dd01atbxssdi64f23l",
+      "from": "Q2 2025",
+      "to": "Q4 2024",
+      "fromFiscalYear": 2025,
+      "toFiscalYear": 2024,
+      "periodEnd": "2024-12-31",
+      "values": 9,
+      "twin": {
+        "id": "cmun5cree0lifbx9kcdh5eivr",
+        "values": 10,
+        "periodEnd": "2024-06-30",
+        "processingStatus": "APPROVED"
+      }
+    },
+    {
+      "ticker": "ABUK",
+      "reportId": "cmupwl7fq01c1bxsspcjz5ne4",
+      "from": "Q3 2025",
+      "to": "Q1 2025",
+      "fromFiscalYear": 2025,
+      "toFiscalYear": 2025,
+      "periodEnd": "2025-03-31",
+      "values": 8,
+      "twin": {
+        "id": "cmun5cqtz0lb9bx9kb6n75hh7",
+        "values": 9,
+        "periodEnd": "2024-09-30",
+        "processingStatus": "APPROVED"
+      }
+    },
+    {
+      "ticker": "ABUK",
+      "reportId": "cmun5crg50lj1bx9k4enr9s7o",
+      "from": "Q4 2025",
+      "to": "Q2 2025",
+      "fromFiscalYear": 2025,
+      "toFiscalYear": 2025,
+      "periodEnd": "2025-06-30",
+      "values": 10,
+      "twin": {
+        "id": "cmupwl7dd01atbxssdi64f23l",
+        "values": 9,
+        "periodEnd": "2024-12-31",
+        "processingStatus": "APPROVED"
+      }
+    },
+    {
+      "ticker": "ABUK",
+      "reportId": "cmun5cqvk0lbtbx9kva34wai0",
+      "from": "Q1 2026",
+      "to": "Q3 2025",
+      "fromFiscalYear": 2026,
+      "toFiscalYear": 2025,
+      "periodEnd": "2025-09-30",
+      "values": 11,
+      "twin": {
+        "id": "cmupwl7fq01c1bxsspcjz5ne4",
+        "values": 8,
+        "periodEnd": "2025-03-31",
+        "processingStatus": "APPROVED"
+      }
+    },
+    {
+      "ticker": "ABUK",
+      "reportId": "cmw2sqvc7001bplorf2njhsev",
+      "from": "Q2 2026",
+      "to": "Q4 2025",
+      "fromFiscalYear": 2026,
+      "toFiscalYear": 2025,
+      "periodEnd": "2025-12-31",
+      "values": 1,
+      "twin": {
+        "id": "cmun5crg50lj1bx9k4enr9s7o",
+        "values": 10,
+        "periodEnd": "2025-06-30",
+        "processingStatus": "APPROVED"
+      }
+    },
+    {
+      "ticker": "ABUK",
+      "reportId": "cmw2sqvc40017plorzj244zp6",
+      "from": "H1 2026",
+      "to": "H2 2025",
+      "fromFiscalYear": 2026,
+      "toFiscalYear": 2025,
+      "periodEnd": "2025-12-31",
+      "values": 1,
+      "twin": null
+    }
+  ]
+}

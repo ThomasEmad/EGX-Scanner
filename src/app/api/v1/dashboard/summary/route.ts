@@ -1,9 +1,16 @@
-import { NextRequest } from "next/server"
 import { db } from "@/lib/db"
+import { cachedResponse } from "@/lib/public-cache"
 
 // GET /api/v1/dashboard/summary — Real-time market breadth and summary statistics
 
-export async function GET(_req: NextRequest) {
+// 60s in-process SWR cache — the summary runs full-table raw SQL over
+// MarketPrice on every dashboard visit; at 10k visitors that is the single
+// hottest path in the API.
+export async function GET() {
+  return cachedResponse("dashboard-summary", 60 * 1000, buildSummary)
+}
+
+async function buildSummary(): Promise<unknown> {
   try {
     // Get total active companies
     const totalCompanies = await db.company.count({ where: { isActive: true } })
@@ -134,7 +141,7 @@ export async function GET(_req: NextRequest) {
       }
     }
 
-    return Response.json({
+    return {
       stats: {
         totalCompanies: totalCompanies,
         companiesWithPrices: total,
@@ -153,9 +160,9 @@ export async function GET(_req: NextRequest) {
         total: total,
       },
       asOf: new Date().toISOString(),
-    })
+    }
   } catch (e) {
     console.error("dashboard-summary-error", e)
-    return Response.json({ error: "Failed to fetch dashboard summary" }, { status: 500 })
+    throw e instanceof Error ? e : new Error("dashboard summary failed")
   }
 }

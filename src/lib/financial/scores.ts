@@ -43,12 +43,36 @@ function band(value: number, points: [number, number][]): number {
 
 const clamp = (v: number) => Math.max(0, Math.min(100, Math.round(v)))
 
-/** Latest value per metric code from the preferred statement type. */
+/** Latest value per metric code from the preferred statement type.
+ *
+ * Paged + light-select: a company holds 2400+ CalculatedMetric rows; fetching
+ * them full-row in one response repeatedly tripped Turso's server-side
+ * "Resource exhausted: mem_hrana_response" memory guard under load
+ * (production incident 2026-11-06). Only these five columns are consumed. */
 async function latestMetrics(companyId: string): Promise<Map<string, { value: number | null; status: string; asOf: string }>> {
-  const rows = await db.calculatedMetric.findMany({
-    where: { companyId },
-    orderBy: [{ fiscalYear: "desc" }, { periodLabel: "desc" }],
-  })
+  const PAGE = 1200
+  const rows: { code: string; value: number | null; valueStatus: string; statementType: string; fiscalYear: number; periodLabel: string; calculatedAt: Date }[] = []
+  let cursor: string | undefined
+  for (;;) {
+    const page = await db.calculatedMetric.findMany({
+      where: { companyId },
+      orderBy: [{ id: "asc" }],
+      select: { id: true, code: true, value: true, valueStatus: true, statementType: true, fiscalYear: true, periodLabel: true, calculatedAt: true },
+      take: PAGE,
+      ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
+    })
+    rows.push(...page)
+    if (page.length < PAGE) break
+    cursor = page[page.length - 1].id
+  }
+  // Replicate the original orderBy (fiscalYear desc, periodLabel desc): the
+  // first-wins loop below relies on "newest row first" ordering.
+  rows.sort(
+    (a, b) =>
+      b.fiscalYear - a.fiscalYear ||
+      b.periodLabel.localeCompare(a.periodLabel) ||
+      b.calculatedAt.getTime() - a.calculatedAt.getTime()
+  )
   const hasConsolidated = rows.some((r) => r.statementType === "CONSOLIDATED")
   const preferred = hasConsolidated ? "CONSOLIDATED" : "STANDALONE"
   const out = new Map<string, { value: number | null; status: string; asOf: string }>()

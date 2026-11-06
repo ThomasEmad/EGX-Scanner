@@ -5,6 +5,7 @@ import { ArrowLeft } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { LayoutShell } from "@/components/layout/LayoutShell"
 import { useI18n } from "@/lib/i18n"
+import { SectorPeriodSelect } from "./period-select"
 
 function fmtEgp(value: number | null | undefined): string {
   if (value === null || value === undefined || Number.isNaN(value)) return "—"
@@ -34,9 +35,13 @@ interface SectorPageShellProps {
   latestMetric: Map<string, { value: number; periodLabel: string }>
   latestPrice: Map<string, { price: number; asOf: Date }>
   url: string
+  /** pinned fiscal year (null = auto — each company's latest annual) */
+  year: number | null
+  /** fiscal years this sector covers, descending — drives the dropdown */
+  years: number[]
 }
 
-export function SectorPageShell({ sector, ar, companies, latestMetric, latestPrice, url }: SectorPageShellProps) {
+export function SectorPageShell({ sector, ar, companies, latestMetric, latestPrice, url, year, years }: SectorPageShellProps) {
   const { lang } = useI18n()
   const isAr = lang === "ar"
 
@@ -60,16 +65,20 @@ export function SectorPageShell({ sector, ar, companies, latestMetric, latestPri
             {sector} companies — {isAr ? ar : ar}
           </h1>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            {companies.length} active Egyptian Exchange {companies.length === 1 ? "company" : "companies"} in the{" "}
-            {sector} sector. Prices are the latest recorded snapshot (date shown); revenue and net profit are the latest
-            verified annual figure with its fiscal period printed. “—” means no authoritative value is available — it is
-            never treated as zero.
+            {year
+              ? `${companies.length} active Egyptian Exchange ${companies.length === 1 ? "company" : "companies"} in the ${sector} sector, compared on fiscal year ${year} — the same period for every company. Prices are the latest recorded snapshot (date shown). "—" means no authoritative value for that year — it is never treated as zero.`
+              : `${companies.length} active Egyptian Exchange ${companies.length === 1 ? "company" : "companies"} in the ${sector} sector. Prices are the latest recorded snapshot (date shown); revenue and net profit are the latest verified annual figure with its fiscal period printed. "—" means no authoritative value is available — it is never treated as zero.`}
           </p>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground" dir="rtl">
-            {companies.length} شركة نشطة في قطاع {ar} بالبورصة المصرية. الأسعار هي آخر لقطة مسجلة بتاريخها، والإيراد
-            وصافي الربح هما آخر قيمة سنوية متحقق منها مع طباعة السنة المالية. «—» تعني عدم توفر قيمة موثوقة ولا تُعامل
-            كصفر.
+            {year
+              ? `${companies.length} شركة نشطة في قطاع ${ar} بالبورصة المصرية، معروضة على السنة المالية ${year} — نفس الفترة لكل الشركات، مقارنة تاريخية عادلة. الأسعار هي آخر لقطة مسجلة بتاريخها. «—» تعني عدم توفر قيمة موثوقة لهذه السنة ولا تُعامل كصفر.`
+              : `${companies.length} شركة نشطة في قطاع ${ar} بالبورصة المصرية. الأسعار هي آخر لقطة مسجلة بتاريخها، والإيراد وصافي الربح هما آخر قيمة سنوية متحقق منها مع طباعة السنة المالية. «—» تعني عدم توفر قيمة موثوقة ولا تُعامل كصفر.`}
           </p>
+          {years.length > 0 ? (
+            <div className="mt-3">
+              <SectorPeriodSelect sector={sector} year={year ? String(year) : "all"} years={years} />
+            </div>
+          ) : null}
         </header>
 
         <Card className="border-border/60 p-0">

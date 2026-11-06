@@ -1,0 +1,139 @@
+﻿
+================ FULL DATA AUDIT ================
+Run ID: cmvtr5siy0000bxrgemr2qyfm | type=manual
+Companies checked: 264 in 14.7s
+Issues — CRITICAL: 88 | HIGH: 249 | MEDIUM: 750 | LOW: 1129 | TOTAL: 2216
+By category: {"accounting":894,"temporal":458,"provenance":231,"missing":454,"logical":126,"sector":50,"outlier":3}
+
+---------- TOP CRITICAL / HIGH ISSUES ----------
+1. [HIGH] AALR — INSUFFICIENT_TREND_DATA: Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.
+2. [HIGH] ACAMD — INSUFFICIENT_TREND_DATA: Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.
+3. [CRITICAL] ACAP — MISSING_CRITICAL_METRIC: REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.
+4. [HIGH] ACAP — INSUFFICIENT_TREND_DATA: Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.
+5. [HIGH] ACRO — STALE_DATA: Latest data is 22 months old (period FY 2024) — urgent refresh needed.
+6. [HIGH] ACRO — MISSING_CRITICAL_METRIC: COGS exists only as quarantined values — excluded from analytics; re-extract from the original filing.
+7. [HIGH] ADIB — MISSING_CRITICAL_METRIC: LOANS_TO_CUSTOMERS has no data recorded — cannot compute essential ratios.
+8. [HIGH] ADIB — MISSING_CRITICAL_METRIC: CUSTOMER_DEPOSITS has no data recorded — cannot compute essential ratios.
+9. [CRITICAL] ADRI — MISSING_CRITICAL_METRIC: REVENUE has no data recorded — cannot compute essential ratios.
+10. [HIGH] ADRI — INSUFFICIENT_TREND_DATA: Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.
+11. [HIGH] AFDI — INSUFFICIENT_TREND_DATA: Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.
+12. [CRITICAL] AIDC — MISSING_CRITICAL_METRIC: REVENUE has no data recorded — cannot compute essential ratios.
+13. [HIGH] AIDC — INSUFFICIENT_TREND_DATA: Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.
+14. [HIGH] AIHC — STALE_DATA: Latest data is 22 months old (period FY 2024) — urgent refresh needed.
+15. [HIGH] AIHC — INSUFFICIENT_TREND_DATA: Only 1 of the last 5 years have annual revenue data (2021) — trend analysis impossible.
+16. [HIGH] ALEX — STALE_DATA: Latest data is 76 months old (period Q2 2020) — urgent refresh needed.
+17. [HIGH] ALEX — INSUFFICIENT_TREND_DATA: Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.
+18. [HIGH] ALUM — INSUFFICIENT_TREND_DATA: Only 1 of the last 5 years have annual revenue data (2021) — trend analysis impossible.
+19. [CRITICAL] AMER — GROSS_PROFIT_IDENTITY: GROSS_PROFIT_IDENTITY FAILED: gap 127.04% (-344.4M EGP; materiality threshold 5.4M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is befor
+20. [HIGH] AMER — INSUFFICIENT_TREND_DATA: Only 2 of the last 5 years have annual revenue data (2021, 2022) — trend analysis impossible.
+21. [HIGH] AMIA — INSUFFICIENT_TREND_DATA: Only 1 of the last 5 years have annual revenue data (2025) — trend analysis impossible.
+22. [CRITICAL] AMII — MISSING_CRITICAL_METRIC: NET_PROFIT has no data recorded — cannot compute essential ratios.
+23. [HIGH] AMII — MISSING_CRITICAL_METRIC: TOTAL_ASSETS has no data recorded — cannot compute essential ratios.
+24. [HIGH] AMII — MISSING_CRITICAL_METRIC: TOTAL_EQUITY has no data recorded — cannot compute essential ratios.
+25. [HIGH] AMII — MISSING_CRITICAL_METRIC: OPERATING_CASH_FLOW has no data recorded — cannot compute essential ratios.
+26. [HIGH] AMII — INSUFFICIENT_TREND_DATA: Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.
+27. [HIGH] AMOC — GROSS_PROFIT_IDENTITY: GROSS_PROFIT_IDENTITY FAILED: gap 7.20% (676.5M EGP; materiality threshold 187.9M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before
+28. [HIGH] APPC — STALE_DATA: Latest data is 142 months old (period FY 2014) — urgent refresh needed.
+29. [CRITICAL] APPC — MISSING_CRITICAL_METRIC: REVENUE has no data recorded — cannot compute essential ratios.
+30. [CRITICAL] APPC — MISSING_CRITICAL_METRIC: NET_PROFIT exists only as quarantined values — excluded from analytics; re-extract from the original filing.
+31. [HIGH] APPC — MISSING_CRITICAL_METRIC: COGS has no data recorded — cannot compute essential ratios.
+32. [HIGH] APPC — INSUFFICIENT_TREND_DATA: Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.
+33. [HIGH] APSW — INSUFFICIENT_TREND_DATA: Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.
+34. [HIGH] AREH — MISSING_CRITICAL_METRIC: COGS has no data recorded — cannot compute essential ratios.
+35. [HIGH] AREH — INSUFFICIENT_TREND_DATA: Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.
+36. [CRITICAL] ARVA — MISSING_CRITICAL_METRIC: REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.
+37. [HIGH] ARVA — MISSING_CRITICAL_METRIC: COGS exists only as quarantined values — excluded from analytics; re-extract from the original filing.
+38. [HIGH] ARVA — INSUFFICIENT_TREND_DATA: Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.
+39. [HIGH] ASCM — BALANCE_SHEET_EQUATION: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (1.36B) but the L/E split leaves a -234.2M gap (15.52%) — an equity or liability line is
+40. [CRITICAL] ASCM — CASH_FLOW_SUM: CASH_FLOW_SUM FAILED: gap 147.13% (239.8M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow 
+41. [CRITICAL] ASPI — ASSET_COMPONENTS: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 27.5M vs TOTAL_ASSETS = 1.44B (98.09%) — missing/extra component or mapping gap.
+42. [CRITICAL] ASPI — ASSET_COMPONENTS: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 94.3M vs TOTAL_ASSETS = 2.56B (96.31%) — missing/extra component or mapping gap.
+43. [HIGH] ASPI — INSUFFICIENT_TREND_DATA: Only 2 of the last 5 years have annual revenue data (2023, 2024) — trend analysis impossible.
+44. [CRITICAL] ATQA — CASH_FLOW_SUM: CASH_FLOW_SUM FAILED: gap 200.00% (4.32B EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flow s
+45. [HIGH] AXPH — INSUFFICIENT_TREND_DATA: Only 2 of the last 5 years have annual revenue data (2022, 2024) — trend analysis impossible.
+46. [CRITICAL] BIDI — MISSING_CRITICAL_METRIC: REVENUE has no data recorded — cannot compute essential ratios.
+47. [HIGH] BIDI — MISSING_CRITICAL_METRIC: COGS has no data recorded — cannot compute essential ratios.
+48. [HIGH] BIDI — INSUFFICIENT_TREND_DATA: Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.
+49. [HIGH] BIGP — INSUFFICIENT_TREND_DATA: Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.
+50. [CRITICAL] BINV — PBT_TAX_NET_PROFIT: PBT_TAX_NET_PROFIT FAILED: gap 76.93% (79.7M EGP; materiality threshold 1.6M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority interest, d
+51. [CRITICAL] BONY — MISSING_CRITICAL_METRIC: REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.
+52. [HIGH] BONY — INSUFFICIENT_TREND_DATA: Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.
+53. [HIGH] BQDC — MISSING_CRITICAL_METRIC: NET_INTEREST_INCOME has no data recorded — cannot compute essential ratios.
+54. [HIGH] BQDC — MISSING_CRITICAL_METRIC: LOANS_TO_CUSTOMERS has no data recorded — cannot compute essential ratios.
+55. [HIGH] BQDC — MISSING_CRITICAL_METRIC: CUSTOMER_DEPOSITS has no data recorded — cannot compute essential ratios.
+56. [HIGH] CAED — INSUFFICIENT_TREND_DATA: Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.
+57. [HIGH] CANA — MISSING_CRITICAL_METRIC: NET_INTEREST_INCOME has no data recorded — cannot compute essential ratios.
+58. [HIGH] CANA — MISSING_CRITICAL_METRIC: LOANS_TO_CUSTOMERS has no data recorded — cannot compute essential ratios.
+59. [HIGH] CANA — MISSING_CRITICAL_METRIC: CUSTOMER_DEPOSITS has no data recorded — cannot compute essential ratios.
+60. [HIGH] CCAP — INSUFFICIENT_TREND_DATA: Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible.
+
+---------- STALE / REFRESH TARGETS (age months desc) ----------
+KORA (Industrial) — latest: NO DATA, age: 999mo, conf: 62
+SIMO (Industrial) — latest: FY 2013, age: 160mo, conf: 64
+APPC (Healthcare) — latest: FY 2015, age: 130mo, conf: 71
+NCEM (Basic Materials) — latest: FY 2017, age: 112mo, conf: 48
+NOAF (Real Estate) — latest: FY 2017, age: 106mo, conf: 64
+EITP (Industrial) — latest: FY 2019, age: 82mo, conf: 73
+TORA (Basic Materials) — latest: FY 2019, age: 82mo, conf: 70
+ALEX (Industrial) — latest: Q2 2020, age: 76mo, conf: 81
+NCGC (Food) — latest: FY 2020, age: 76mo, conf: 64
+RMTV (Industrial) — latest: FY 2020, age: 70mo, conf: 55
+SMPP (Industrial) — latest: FY 2020, age: 70mo, conf: 59
+GTHE (Telecom) — latest: FY 2021, age: 58mo, conf: 70
+GOCO (Industrial) — latest: FY 2022, age: 46mo, conf: 67
+DCRC (Industrial) — latest: Q2 2023, age: 40mo, conf: 85
+ESRS (Basic Materials) — latest: FY 2023, age: 34mo, conf: 79
+IRAX (Industrial) — latest: Q2 2024, age: 28mo, conf: 83
+UASG (Industrial) — latest: FY 2024, age: 28mo, conf: 67
+ACRO (Construction) — latest: FY 2024, age: 22mo, conf: 83
+AIHC (Investment) — latest: FY 2024, age: 22mo, conf: 77
+EPPK (Industrial) — latest: FY 2024, age: 22mo, conf: 80
+GPPL (Financial Services) — latest: FY 2024, age: 22mo, conf: 85
+MEGM (Other) — latest: FY 2024, age: 22mo, conf: 79
+OIH (Telecom) — latest: FY 2024, age: 22mo, conf: 79
+RTVC (Industrial) — latest: FY 2024, age: 22mo, conf: 74
+GTEX (Consumer) — latest: FY 2025, age: 21mo, conf: 83
+BIDI (Industrial) — latest: Q2 2025, age: 16mo, conf: 81
+DGTZ (Telecom) — latest: Q2 2025, age: 16mo, conf: 84
+ELKA (Financial Services) — latest: Q2 2025, age: 16mo, conf: 86
+ELNA (Industrial) — latest: Q2 2025, age: 16mo, conf: 85
+GMCI (Industrial) — latest: Q2 2025, age: 16mo, conf: 84
+GPIM (Financial Services) — latest: Q2 2025, age: 16mo, conf: 86
+ICLE (Financial Services) — latest: Q2 2025, age: 16mo, conf: 85
+ODIN (Financial Services) — latest: Q2 2025, age: 16mo, conf: 86
+PHGC (Healthcare) — latest: Q2 2025, age: 16mo, conf: 90
+PRDC (Financial Services) — latest: Q2 2025, age: 16mo, conf: 90
+ACGC (Industrial) — latest: Q1 2026, age: 13mo, conf: 83
+AJWA (Food) — latest: Q3 2025, age: 13mo, conf: 78
+GEOS (Other) — latest: FY 2025, age: 13mo, conf: 90
+PHTV (Consumer) — latest: Q3 2025, age: 13mo, conf: 85
+TYCN (Financial Services) — latest: Q3 2025, age: 13mo, conf: 86
+
+Confidence distribution: high(80+)=209 | medium(60-79)=49 | low(30-59)=6 | critical(<30)=0
+
+---------- WORST CONFIDENCE (top 25) ----------
+SPHT (Consumer) conf=41 — critical:7 high:1 latest:FY 2025
+NCEM (Basic Materials) conf=48 — critical:1 high:4 latest:FY 2017
+RMTV (Industrial) conf=55 — critical:1 high:5 latest:FY 2020
+UEGC (Industrial) conf=55 — critical:2 high:2 latest:Q2 2026
+IRON (Industrial) conf=57 — critical:3 high:1 latest:Q2 2026
+SMPP (Industrial) conf=59 — critical:1 high:3 latest:FY 2020
+MIPH (Healthcare) conf=61 — critical:1 high:0 latest:Q1 2026
+KORA (Industrial) conf=62 — critical:2 high:5 latest:none
+ASPI (Financial Services) conf=64 — critical:2 high:1 latest:Q2 2026
+COPR (Financial Services) conf=64 — critical:1 high:1 latest:FY 2025
+NCGC (Food) conf=64 — critical:1 high:4 latest:FY 2020
+NOAF (Real Estate) conf=64 — critical:2 high:4 latest:FY 2017
+SIMO (Industrial) conf=64 — critical:1 high:4 latest:FY 2013
+BINV (Financial Services) conf=65 — critical:1 high:0 latest:Q2 2026
+NAHO (Financial Services) conf=65 — critical:2 high:0 latest:Q2 2026
+GOCO (Industrial) conf=67 — critical:2 high:5 latest:FY 2022
+UASG (Industrial) conf=67 — critical:2 high:4 latest:FY 2024
+ASCM (Industrial) conf=68 — critical:1 high:1 latest:Q2 2026
+GTHE (Telecom) conf=70 — critical:0 high:3 latest:FY 2021
+TORA (Basic Materials) conf=70 — critical:0 high:2 latest:FY 2019
+APPC (Healthcare) conf=71 — critical:2 high:3 latest:FY 2015
+MPCO (Industrial) conf=72 — critical:1 high:0 latest:Q2 2026
+SNFC (Industrial) conf=72 — critical:0 high:2 latest:Q2 2026
+EITP (Industrial) conf=73 — critical:0 high:2 latest:FY 2019
+MFPC (Industrial) conf=74 — critical:1 high:2 latest:Q2 2026

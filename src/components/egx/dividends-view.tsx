@@ -136,47 +136,70 @@ export function DividendsView({ onOpenCompany }: { onOpenCompany: (id: string) =
             ))}
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-px bg-border/70 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-          {calLoading
-            ? Array.from({ length: 12 }).map((_, i) => (
-                <div key={i} className="bg-card p-3">
-                  <Skeleton className="h-4 w-14 rounded-md" />
-                  <Skeleton className="mt-2 h-8 rounded-md" />
+        {calLoading ? (
+          <div className="grid grid-cols-2 gap-px bg-border/70 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+            {Array.from({ length: 12 }).map((_, i) => (
+              <div key={i} className="bg-card p-3">
+                <Skeleton className="h-4 w-14 rounded-md" />
+                <Skeleton className="mt-2 h-8 rounded-md" />
+              </div>
+            ))}
+          </div>
+        ) : calDividends.length === 0 ? (
+          // No dividend events in the database at all — a compact, honest
+          // empty state instead of a 12-cell ghost grid.
+          <div className="flex flex-col items-center justify-center gap-1.5 p-8 text-center">
+            <CalendarRange className="h-6 w-6 text-muted-foreground/40" aria-hidden />
+            <p className="text-sm font-medium text-foreground/80">
+              {lang === "ar" ? "لا توجد توزيعات معلنة رسميًا حتى الآن" : "No officially announced dividends yet"}
+            </p>
+            <p className="max-w-md text-xs text-muted-foreground">
+              {lang === "ar"
+                ? "تظهر التوزيعات هنا فور إعلانها رسميًا من الشركات وتوثيقها من المصادر الرسمية — لا يتم استنتاج أي تاريخ."
+                : "Distributions appear here as soon as companies announce them officially and they are verified from primary sources — no dates are inferred."}
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 gap-px bg-border/70 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+            {months.map((m) => (
+              <div key={m.key} className={`min-h-24 bg-card p-3 transition-colors duration-150 ${m.items.length > 0 ? "" : "opacity-60"}`}>
+                <p className="flex items-baseline gap-1 text-[11px] font-semibold text-muted-foreground">
+                  {m.label}
+                  <span className="text-[9px] font-normal">{m.year}</span>
+                  {m.items.length > 0 ? (
+                    <span className="ms-auto rounded-full bg-primary/10 px-1.5 text-[9px] font-bold text-primary">{m.items.length}</span>
+                  ) : null}
+                </p>
+                <div className="mt-1.5 space-y-1">
+                  {m.items.length === 0 ? (
+                    <span className="text-[10px] text-muted-foreground/60">{t("dv.noEventsThisMonth")}</span>
+                  ) : (
+                    m.items.map((item) => (
+                      <button
+                        key={item.id}
+                        onClick={() => item.companyId && onOpenCompany(item.companyId)}
+                        className="flex w-full items-center gap-1.5 rounded-lg border border-border/60 px-1.5 py-1.5 text-start text-[10px] transition-all duration-150 hover:bg-accent/30 hover:border-primary/20"
+                      >
+                        <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${STATUS_DOT[item.status] ?? "bg-slate-400"}`} aria-hidden />
+                        <span className="font-bold">{item.ticker}</span>
+                        <span className="tabular text-muted-foreground">{item.day}</span>
+                        {item.dps !== null ? <span className="ms-auto tabular text-muted-foreground">{item.dps}</span> : null}
+                      </button>
+                    ))
+                  )}
                 </div>
-              ))
-            : months.map((m) => (
-                <div key={m.key} className={`min-h-24 bg-card p-3 transition-colors duration-150 ${m.items.length > 0 ? "" : "opacity-60"}`}>
-                  <p className="flex items-baseline gap-1 text-[11px] font-semibold text-muted-foreground">
-                    {m.label}
-                    <span className="text-[9px] font-normal">{m.year}</span>
-                    {m.items.length > 0 ? (
-                      <span className="ms-auto rounded-full bg-primary/10 px-1.5 text-[9px] font-bold text-primary">{m.items.length}</span>
-                    ) : null}
-                  </p>
-                  <div className="mt-1.5 space-y-1">
-                    {m.items.length === 0 ? (
-                      <span className="text-[10px] text-muted-foreground/60">{t("dv.noEventsThisMonth")}</span>
-                    ) : (
-                      m.items.map((item) => (
-                        <button
-                          key={item.id}
-                          onClick={() => item.companyId && onOpenCompany(item.companyId)}
-                          className="flex w-full items-center gap-1.5 rounded-lg border border-border/60 px-1.5 py-1.5 text-start text-[10px] transition-all duration-150 hover:bg-accent/30 hover:border-primary/20"
-                        >
-                          <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${STATUS_DOT[item.status] ?? "bg-slate-400"}`} aria-hidden />
-                          <span className="font-bold">{item.ticker}</span>
-                          <span className="tabular text-muted-foreground">{item.day}</span>
-                          {item.dps !== null ? <span className="ms-auto tabular text-muted-foreground">{item.dps}</span> : null}
-                        </button>
-                      ))
-                    )}
-                  </div>
-                </div>
-              ))}
-        </div>
+              </div>
+            ))}
+          </div>
+        )}
       </Card>
 
-      {isLoading ? (
+      {/* The calendar card above already owns the honest empty state when the
+          database has no dividends at all — rendering a second "No data
+          available" box beneath it read as a broken page. Only render this
+          section when there is something (or something loading) to show. */}
+      {(isLoading || calDividends.length > 0) ? (
+        isLoading ? (
         <div className="space-y-3">
           {Array.from({ length: 4 }).map((_, i) => (
             <Skeleton key={i} className="h-24 rounded-xl" />
@@ -224,7 +247,8 @@ export function DividendsView({ onOpenCompany }: { onOpenCompany: (id: string) =
             </section>
           ))}
         </div>
-      )}
+        )
+      ) : null}
     </div>
   )
 }

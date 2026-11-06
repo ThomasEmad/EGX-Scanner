@@ -1,0 +1,1 @@
+﻿RECOMPUTE DONE: companies=264 calculatedMetrics=261954 events=4098 periods=9701 elapsed=84.8s

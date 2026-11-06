@@ -54,6 +54,7 @@ export type AnalysisCategory =
   | "segment_intelligence"
   | "research_profile"
   | "sector_overlay"
+  | "bank_capital"
 
 export interface AnalysisResult {
   category: AnalysisCategory

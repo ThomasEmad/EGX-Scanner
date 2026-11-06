@@ -1,0 +1,44 @@
+﻿
+AALR FY 2021 ASKBORA_SUMMARY
+   CURRENT_ASSETS                     556945218 "Total Current Assets (Refinitiv CF-Export, USD→EGP)" NEEDS_REVIEW
+   CURRENT_LIABILITIES                928242031 "Total Current Liabilities (Refinitiv CF-Export, USD→EGP)" NEEDS_REVIEW
+   TOTAL_ASSETS                       538000000 "إجمالي الأصول" VALID
+   TOTAL_EQUITY                       411000000 "حقوق المساهمين" VALID
+   TOTAL_EQUITY_AND_LIABILITIES       538000000 "إجمالي المطلوبات وحقوق المساهمين" VALID
+   TOTAL_LIABILITIES                  950000000 "إجمالي المطلوبات" VALID
+
+ALEX FY 2016 ASKBORA_SUMMARY
+   CURRENT_ASSETS                     1324642557 "Total Current Assets (Refinitiv CF-Export, USD→EGP)" NEEDS_REVIEW
+   CURRENT_LIABILITIES                1892346510 "Total Current Liabilities (Refinitiv CF-Export, USD→EGP)" VALID
+   NON_CURRENT_ASSETS                 2460050463 "Total Non-Current Assets (Refinitiv CF-Export, USD→EGP)" VALID
+   TOTAL_ASSETS                       3820000000 "إجمالي الأصول" VALID
+   TOTAL_EQUITY                       386000000 "حقوق المساهمين" VALID
+   TOTAL_EQUITY_AND_LIABILITIES       3820000000 "إجمالي المطلوبات وحقوق المساهمين" VALID
+   TOTAL_LIABILITIES                  4210000000 "إجمالي المطلوبات" VALID
+
+ABUK FY 2022 YAHOO_FINANCE_API
+   CURRENT_ASSETS                     16633758989 "Current Assets" VALID
+   CURRENT_LIABILITIES                4129473177 "Total Current Liabilities (Refinitiv CF-Export, USD→EGP)" VALID
+   NON_CURRENT_ASSETS                 5738714873 "Total Non Current Assets" VALID
+   TOTAL_ASSETS                       22372473861 "Total Assets" VALID
+   TOTAL_EQUITY                       17806394611 "Stockholders Equity" VALID
+   TOTAL_EQUITY_AND_LIABILITIES       22370000000 "إجمالي المطلوبات وحقوق المساهمين" VALID
+   TOTAL_LIABILITIES                  22372473861 "Total Liabilities Net Minority Interest" VALID
+
+ABUK FY 2023 YAHOO_FINANCE_API + REUTERS_FINANCIALS_PAGE
+   CURRENT_ASSETS                     26210054681 "Current Assets" VALID
+   CURRENT_LIABILITIES                5721751274 "Total Current Liabilities (Refinitiv CF-Export, USD→EGP)" VALID
+   NON_CURRENT_ASSETS                 8505032005 "Total Non Current Assets" VALID
+   TOTAL_ASSETS                       34715086686 "Total Assets" VALID
+   TOTAL_EQUITY                       26979902760 "Stockholders Equity" VALID
+   TOTAL_EQUITY_AND_LIABILITIES       35430000000 "إجمالي المطلوبات وحقوق المساهمين" VALID
+   TOTAL_LIABILITIES                  7735183926 "Total Liabilities Net Minority Interest" VALID
+
+AMOC FY 2020 ASKBORA_SUMMARY
+   CURRENT_ASSETS                     1809319512 "Total Current Assets (Refinitiv CF-Export, USD→EGP)" VALID
+   CURRENT_LIABILITIES                904659756 "Total Current Liabilities (Refinitiv CF-Export, USD→EGP)" NEEDS_REVIEW
+   NON_CURRENT_ASSETS                 1085591707 "Total Non-Current Assets (Refinitiv CF-Export, USD→EGP)" VALID
+   TOTAL_ASSETS                       2830000000 "إجمالي الأصول" VALID
+   TOTAL_EQUITY                       1880000000 "حقوق المساهمين" VALID
+   TOTAL_EQUITY_AND_LIABILITIES       2830000000 "إجمالي المطلوبات وحقوق المساهمين" VALID
+   TOTAL_LIABILITIES                  947000000 "إجمالي المطلوبات" VALID

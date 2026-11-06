@@ -1,0 +1,24 @@
+﻿*** Begin Patch
+*** Update File: src/lib/financial/latest-period.ts
+@@
+ export function selectLatestByCompany(
+   rows: CalcMetricRow[],
+   codes: readonly string[],
++  options: { fullPeriodCodes?: readonly string[] } = {},
+ ): Map<string, CompanyLatest> {
+   const codeSet = new Set(codes)
++  // ROE/ROA compare a FLOW (profit) with a point-in-time equity/assets base.
++  // A Q1 ratio is not annualised, so ranking it next to a TTM/annual ratio is
++  // apples-to-oranges (VLMRA Q1 2026 would otherwise show a fake 66% ROE at the
++  // top). For these codes "latest" means the latest FULL period (TTM or annual).
++  const fullPeriodCodes = new Set(options.fullPeriodCodes ?? [])
+   const preferred = preferConsolidatedRows(rows)
+   const byCompany = new Map<string, CalcMetricRow[]>()
+   for (const r of preferred) {
+     if (!codeSet.has(r.code)) continue
+     if (r.valueStatus !== "OK" || r.value === null) continue
++    if (fullPeriodCodes.has(r.code) && r.periodType !== "TTM" && r.periodType !== "ANNUAL") continue
+     if (!byCompany.has(r.companyId)) byCompany.set(r.companyId, [])
+     byCompany.get(r.companyId)!.push(r)
+   }
+*** End Patch

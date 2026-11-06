@@ -1,0 +1,12 @@
+﻿
+BQDC Banque du Caire SAE FY2020 EXCEL_STATEMENTS
+  NET_PROFIT 3235030552.81 original=null manual=false
+  TOTAL_ASSETS 205418661455.79 original=null manual=false
+  TOTAL_EQUITY 17629213483.15 original=null manual=false
+  TOTAL_LIABILITIES 187789447972.64 original=null manual=false
+
+IRON Egyptian Iron & Steel FY2020 ASKBORA_SUMMARY
+  NET_PROFIT -983000000 original=null manual=false
+  TOTAL_ASSETS 2830000000 original=null manual=false
+  TOTAL_EQUITY -5770000000 original=-5770000000 manual=true
+  TOTAL_LIABILITIES 8600000000 original=null manual=false

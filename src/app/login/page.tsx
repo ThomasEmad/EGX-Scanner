@@ -9,6 +9,8 @@ import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { setUserToken, getUserToken, clearUserToken } from "@/lib/client/api"
+import { OAuthButtons } from "@/components/auth/oauth-buttons"
+import { useWatchlist } from "@/lib/client/watchlist"
 
 function LoginForm() {
   const router = useRouter()
@@ -59,6 +61,7 @@ function LoginForm() {
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || "Login failed")
       setUserToken(data.token, remember)
+      void useWatchlist.getState().syncFromServer()
       router.replace(next)
       router.refresh()
     } catch (err) {
@@ -78,9 +81,13 @@ function LoginForm() {
           >
             EGX
           </span>
-          <h1 className="text-lg font-bold">تسجيل الدخول — Sign in</h1>
+          <h1 className="text-lg font-bold">
+            <span dir="auto">تسجيل الدخول</span>
+            <span className="mx-1 text-muted-foreground" aria-hidden>·</span>
+            Sign in
+          </h1>
           <p className="text-center text-xs text-muted-foreground">
-            ادخل لمتابعة قائمة المتابعة والتنبيهات — التصفح العامة متاحة بدون حساب.
+            <span dir="auto">ادخل لمتابعة قائمة المتابعة والتنبيهات — التصفح العامة متاحة بدون حساب.</span>
             <br />
             Sign in for watchlists and alerts — public browsing needs no account.
           </p>
@@ -90,9 +97,9 @@ function LoginForm() {
             role="status"
             className="mb-4 rounded-lg border border-primary/30 bg-primary/5 px-3 py-2 text-xs text-muted-foreground"
           >
-            لديك جلسة نشطة بالفعل — يمكنك تسجيل الخروج من زر الحساب أو متابعة استخدام المنصة.{" "}
-            <Link href={next} className="font-medium text-primary hover:underline">
-              العودة للرئيسية
+            <span dir="auto">لديك جلسة نشطة بالفعل — يمكنك تسجيل الخروج من زر الحساب أو متابعة استخدام المنصة.</span>{" "}
+            <Link href={next} className="font-semibold text-primary hover:underline">
+              <span dir="auto">العودة للرئيسية</span>
             </Link>
             <br />
             You already have an active session — the form below still works to switch accounts.
@@ -117,8 +124,8 @@ function LoginForm() {
             <div className="space-y-1">
               <div className="flex items-center justify-between">
                 <Label className="text-xs font-medium" htmlFor="login-password">Password</Label>
-                <Link href="/forgot-password" className="text-[11px] text-primary hover:underline">
-                  نسيت كلمة المرور؟
+                <Link href="/forgot-password" className="text-[11px] font-semibold text-primary hover:underline">
+                  <span dir="auto">نسيت كلمة المرور؟</span>
                 </Link>
               </div>
               <Input
@@ -139,7 +146,9 @@ function LoginForm() {
                 onChange={(e) => setRemember(e.target.checked)}
                 className="h-3.5 w-3.5 accent-[var(--primary)]"
               />
-              تذكرني على هذا الجهاز — Remember me
+              <span dir="auto">تذكرني على هذا الجهاز</span>
+              <span aria-hidden>·</span>
+              Remember me
             </label>
             {error ? (
               <p className="rounded-lg border border-red-500/40 bg-red-500/8 px-3 py-2 text-xs text-red-600 dark:text-red-400" role="alert">
@@ -152,11 +161,14 @@ function LoginForm() {
               Sign in
             </Button>
             <p className="text-center text-xs text-muted-foreground">
-              ليس لديك حساب؟{" "}
-              <Link href="/register" className="font-medium text-primary hover:underline">
-                إنشاء حساب — Register
+              <span dir="auto">ليس لديك حساب؟</span>{" "}
+              <Link href="/register" className="font-semibold text-primary hover:underline">
+                <span dir="auto">إنشاء حساب</span>
               </Link>
+              <span className="mx-1" aria-hidden>·</span>
+              Register
             </p>
+            <OAuthButtons next={next} />
           </form>
         </Card>
       </div>

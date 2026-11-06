@@ -1,0 +1,62 @@
+﻿
+=== Zero values on never-zero metrics ===
+TOTAL_ASSETS           zeros:     0 / 5737
+TOTAL_LIABILITIES      zeros:     0 / 5557
+TOTAL_EQUITY           zeros:    63 / 5811
+REVENUE                zeros:    20 / 3390
+COGS                   zeros:     3 / 2512
+SHORT_TERM_DEBT        zeros:    11 / 1081
+LONG_TERM_DEBT         zeros:    25 / 951
+top zero metrics: [
+  { metricCode: 'FINANCING_CASH_FLOW', n: 122n },
+  { metricCode: 'INCOME_TAX', n: 80n },
+  { metricCode: 'GROSS_PROFIT', n: 78n },
+  { metricCode: 'TOTAL_EQUITY', n: 63n },
+  { metricCode: 'INVESTING_CASH_FLOW', n: 52n },
+  { metricCode: 'CAPITAL_INCREASES_CASH', n: 31n },
+  { metricCode: 'DIVIDEND_PER_SHARE', n: 30n },
+  { metricCode: 'TREASURY_SHARES', n: 28n },
+  { metricCode: 'LONG_TERM_DEBT', n: 25n },
+  { metricCode: 'TREASURY_TRANSACTIONS_CASH', n: 24n },
+  { metricCode: 'ASSET_SALE_PROCEEDS', n: 23n },
+  { metricCode: 'REVENUE', n: 20n },
+  { metricCode: 'NET_CHANGE_IN_CASH', n: 20n },
+  { metricCode: 'EXTRAORDINARY_ITEMS', n: 20n },
+  { metricCode: 'TOTAL_DEBT', n: 13n }
+]
+
+=== TOTAL_DEBT values whose original label is net debt ===
+net-debt mislabeled as TOTAL_DEBT: 14
+  349 Total Debt
+   51 COPIED from 9M 2025 balance sheet (source: YAHOO_FINANCE_API)
+   49 COPIED from H1 2025 balance sheet (source: YAHOO_FINANCE_API)
+   46 TOTAL_DEBT
+   44 COPIED from H1 2026 balance sheet (source: YAHOO_FINANCE_API)
+   16 COPIED from FY 2025 balance sheet (source: YAHOO_FINANCE_API)
+   14 Net Debt
+    3 TOTAL_DEBT (S&P Global via stockanalysis.com annual)
+    1 COPIED from 9M 2023 balance sheet (source: ASKBORA_SUMMARY)
+    1 COPIED from H1 2023 balance sheet (source: ASKBORA_SUMMARY)
+    1 COPIED from H1 2023 balance sheet (source: REUTERS_FINANCIALS_PAGE)
+    1 COPIED from H1 2024 balance sheet (source: ASKBORA_SUMMARY)
+
+=== Reports per period label (same company+label+basis) — source mixing potential ===
+period groups: 6503 | >1 report: 0 | >1 source: 0
+
+=== TOTAL_EQUITY_AND_LIABILITIES availability by period ===
+TEAL usable values: 4653
+
+=== NON_CONTROLLING_INTERESTS usable values by report ===
+NCI usable: 260
+
+=== NET_DEBT metric in MetricDefinition ===
+[
+  'SHORT_TERM_DEBT',
+  'LONG_TERM_DEBT',
+  'TOTAL_DEBT',
+  'debt_growth',
+  'debt_to_equity',
+  'total_debt',
+  'DEBT_PROCEEDS',
+  'DEBT_REPAYMENTS'
+]

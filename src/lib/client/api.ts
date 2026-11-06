@@ -213,7 +213,7 @@ export interface MetricsData {
     labelAr: string
     unit: string
     kind: string
-    cells: Record<string, { value: number | null; status: string; detail: string | null; formulaVersion: string }>
+    cells: Record<string, { value: number | null; status: string; detail: string | null }>
   }[]
 }
 
@@ -224,17 +224,8 @@ export interface CompanyDocument {
   fiscalYear: number
   statementType: string
   language: string
-  processingStatus: string
-  extractionConfidence: number | null
-  parserVersion: string | null
-  version: number
-  isRestatement: boolean
   fileName: string | null
   fileSize: number | null
-  fileHash: string | null
-  sourceUrl: string | null
-  approvedAt: string | null
-  createdAt: string
   hasFile: boolean
   valueCount: number
 }
@@ -246,7 +237,19 @@ export interface AiAnalysisData {
     periodKey: string | null
     dataHash: string
     model: string | null
+    lang?: string | null
+    degraded?: boolean
   } | null
+}
+
+export interface AiChatMessage {
+  role: "user" | "assistant"
+  content: string
+}
+
+export interface AiChatData {
+  reply: string
+  usage?: { used: number; limit: number }
 }
 
 export interface ReviewData {
@@ -363,8 +366,9 @@ export function setUserToken(token: string, remember: boolean): void {
   localStorage.removeItem("egx-user-token")
   if (remember) localStorage.setItem("egx-user-token", token)
   else sessionStorage.setItem("egx-user-token", token)
-  // mirror into a cookie so server components (report page) can resolve the session
-  document.cookie = `egx-user-token=${token}; path=/; max-age=${60 * 60 * 24 * 30}; samesite=lax`
+  // The HttpOnly session cookie (used by server components) is set by the
+  // server itself (login/register/session endpoints) — never from JS, so the
+  // token stays unreadable to page scripts.
 }
 
 export function clearUserToken(): void {
@@ -433,15 +437,22 @@ export const api = {
   companyDocuments: (id: string) =>
     fetch(`/api/v1/companies/${id}/documents`).then((r) => handle<{ documents: CompanyDocument[] }>(r)),
 
-  aiAnalysis: (id: string) =>
-    fetch(`/api/v1/companies/${id}/ai-analysis`, { headers: authHeaders() }).then((r) => handle<AiAnalysisData>(r)),
+  aiAnalysis: (id: string, lang?: string) =>
+    fetch(`/api/v1/companies/${id}/ai-analysis${lang ? `?lang=${encodeURIComponent(lang)}` : ""}`, { headers: authHeaders() }).then((r) => handle<AiAnalysisData>(r)),
 
   generateAiAnalysis: (id: string, lang: string, token?: string | null) =>
     fetch(`/api/v1/companies/${id}/ai-analysis`, {
       method: "POST",
       headers: { "Content-Type": "application/json", ...authHeaders(token) },
       body: JSON.stringify({ lang }),
-    }).then((r) => handle<AiAnalysisData & { cached?: boolean }>(r)),
+    }).then((r) => handle<AiAnalysisData & { cached?: boolean; degraded?: boolean }>(r)),
+
+  aiAnalysisChat: (id: string, messages: AiChatMessage[], lang: string) =>
+    fetch(`/api/v1/companies/${id}/ai-analysis/chat`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...authHeaders() },
+      body: JSON.stringify({ messages, lang }),
+    }).then((r) => handle<AiChatData>(r)),
 
   events: (id: string) =>
     fetch(`/api/v1/companies/${id}/events`, { headers: authHeaders() }).then((r) => handle<{ events: EventItem[] }>(r)),

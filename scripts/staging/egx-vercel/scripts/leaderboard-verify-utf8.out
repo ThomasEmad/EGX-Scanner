@@ -1,0 +1,78 @@
+
+=== profit_growth — top 8 (of 148, 4 extreme excluded: MCQE 843%, RREI 552%, IBCT 996%, KWIN 926%)
+  OBRI   499.966      FY 2025 Financial Services
+  GIHD   486.854      FY 2025 Real Estate
+  BIOC   342.417      TTM ending Q2 2026 Industrial
+  CIRA   297.814      FY 2026 Consumer
+  MHOT   233.199      FY 2026 Consumer
+  ARCC   210.275      FY 2025 Industrial
+  AMIA   196.914      FY 2025 Financial Services
+  MBSC   190.323      TTM ending Q1 2026 Industrial
+
+=== revenue_growth — top 8 (of 95)
+  GIHD   426.396      FY 2025 Real Estate
+  MAAL   352.794      FY 2025 Real Estate
+  UTOP   314.508      TTM ending Q2 2026 Financial Services
+  AIFI   127.007      FY 2025 Food
+  OCDI   118.007      FY 2025 Real Estate
+  HBCO   114.218      FY 2025 Food
+  DAPH   105.016      TTM ending Q2 2026 Financial Services
+  FERC   92.133       TTM ending Q2 2026 Industrial
+
+=== equity_growth — top 8 (of 150, 1 extreme excluded: MCRO 695%)
+  MPCI   417.45       FY 2025 Healthcare
+  SMFR   257.262      FY 2025 Industrial
+  MBSC   162.755      TTM ending Q1 2026 Industrial
+  EBSC   156.676      FY 2025 Financial Services
+  MCQE   110.026      FY 2025 Industrial
+  TMGH   106.451      TTM ending Q2 2026 Real Estate
+  ARCC   101.547      FY 2025 Industrial
+  ICFC   92.716       TTM ending Q1 2026 Industrial
+
+=== roe — top 8 (of 148)
+  SIPC   6,848.457    TTM ending Q1 2026 Healthcare
+  UNIT   271.286      FY 2025 Financial Services
+  HDBK   103.137      TTM ending Q2 2026 Banks
+  RAYA   91.636       TTM ending Q2 2026 Investment
+  SCFM   82.473       FY 2025 Industrial
+  ARCC   77.534       FY 2025 Industrial
+  MBSC   76.95        TTM ending Q1 2026 Industrial
+  GSSC   66.839       FY 2025 Consumer
+
+=== net_profit — top 8 (of 188)
+  COMI   82,238,852,0 FY 2025 Banks
+  HDBK   48,121,939,0 TTM ending Q2 2026 Banks
+  SWDY   44,965,564,6 TTM ending Q2 2026 Industrial
+  TMGH   37,573,633,9 TTM ending Q2 2026 Real Estate
+  QNBE   30,065,417,4 FY 2025 Banks
+  ETEL   27,306,077,0 TTM ending Q2 2026 Telecom
+  BQDC   16,101,634,2 FY 2025 Banks
+  ABUK   13,693,180,1 TTM ending Q1 2026 Industrial
+
+=== revenue — top 8 (of 107)
+  SWDY   281,049,081, FY 2025 Industrial
+  ORAS   240,875,460, FY 2025 Industrial
+  COMI   120,662,550, FY 2025 Banks
+  ETEL   115,455,908, TTM ending Q2 2026 Telecom
+  GBCO   92,854,374,0 TTM ending Q2 2026 Financial Services
+  ISPH   83,040,933,8 TTM ending Q2 2026 Healthcare
+  RAYA   69,837,976,4 TTM ending Q2 2026 Investment
+  TMGH   62,495,144,1 FY 2025 Real Estate
+
+=== p_e — top 8 (of 150)
+  ZEOT   910.156      FY 2025 Industrial
+  ATQA   435.535      FY 2025 Industrial
+  ICID   389.212      TTM ending Q2 2026 Other
+  SCFM   242.175      FY 2025 Industrial
+  MIPH   238.338      FY 2025 Healthcare
+  NIPH   229.011      FY 2026 Healthcare
+  VLMRA  213.128      FY 2025 Financial Services
+  RUBX   209.298      FY 2025 Industrial
+
+=== remediated companies (latest flow CMs)
+  UBEE  eps=0.56 (Q1 2026)  net_profit=611.0M (Q1 2026)  p_e=27.36 (Q1 2026)  roe=3.57 (Q1 2026)
+  HDBK  eps=45.29 (TTM ending Q2 2026)  net_profit=48.12B (TTM ending Q2 2026)  p_e=2.30 (TTM ending Q2 2026)  roe=103.14 (TTM ending Q2 2026)
+  GSSC  eps=5.22 (Q2 2026)  net_profit=91.4M (Q2 2026)  p_e=50.17 (Q2 2026)  roe=11.38 (Q2 2026)
+  MAAL  eps=0.17 (TTM ending Q1 2025)  net_profit=35.0M (TTM ending Q1 2025)  p_e=60.79 (TTM ending Q1 2025)  roe=21.86 (TTM ending Q1 2025)
+  EXPA  eps=5.54 (TTM ending Q1 2026)  net_profit=7.54B (TTM ending Q1 2026)  p_e=3.78 (TTM ending Q1 2026)  roe=28.47 (TTM ending Q1 2026)
+  CCAP  eps=0.05 (Q2 2026)  net_profit=185.0M (Q2 2026)  p_e=137.07 (Q2 2026)  roe=9.54 (FY 2024)

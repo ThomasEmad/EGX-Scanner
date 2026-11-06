@@ -1,0 +1,175 @@
+﻿COPIED values (not failed): 6528
+by status: [
+  { _count: { _all: 965 }, validationStatus: 'NEEDS_REVIEW' },
+  { _count: { _all: 5563 }, validationStatus: 'VALID' }
+]
+ 1272 TOTAL_EQUITY
+ 1160 TOTAL_ASSETS
+ 1136 TOTAL_LIABILITIES
+ 1061 TOTAL_EQUITY_AND_LIABILITIES
+  266 CURRENT_ASSETS
+  190 CLOSING_CASH
+  186 CASH_AND_EQUIVALENTS
+  180 RETAINED_EARNINGS
+  176 PPE
+  168 TOTAL_DEBT
+  127 INVENTORY
+  103 ACCOUNTS_RECEIVABLE
+   99 CURRENT_LIABILITIES
+   87 EQUITY_PARENT
+   85 SHARE_CAPITAL
+   83 TRADE_PAYABLES
+   76 NON_CONTROLLING_INTERESTS
+   44 GOODWILL
+   13 INVESTMENTS
+    4 NON_CURRENT_ASSETS
+    4 SHORT_TERM_DEBT
+    3 LONG_TERM_DEBT
+    2 SHARES_OUTSTANDING
+    1 DEPOSITS
+    1 OTHER_PAYABLES
+
+--- quarantined values by originalLabel pattern (top 20) ---
+ 7775 fabricated template value 
+  333 cross-quarter duplicate 
+  145 CCAP broken-source family 
+  124 mixed-scale/line garbage financials 
+  119 annual-copy contamination (equals FY 2025 OPERATING_EXPENSES_TOTAL)
+  116 annual-copy contamination (equals FY 2022 GROSS_PROFIT)
+  115 annual-copy contamination (equals FY 2023 GROSS_PROFIT)
+  111 annual-copy contamination (equals FY 2025 COGS)
+  104 annual-copy contamination (equals FY 2025 INCOME_TAX)
+  102 annual-copy contamination (equals FY 2024 GROSS_PROFIT)
+   99 x1000 scale family 
+   80 annual-copy contamination (equals FY 2025 OPENING_CASH)
+   77 annual-copy contamination (equals FY 2025 DILUTED_EPS)
+   77 annual-copy contamination (equals FY 2025 EBITDA)
+   77 annual-copy contamination (equals FY 2025 TOTAL_LIABILITIES)
+   75 annual-copy contamination (equals FY 2025 PROFIT_BEFORE_TAX)
+   74 annual-copy contamination (equals FY 2025 BASIC_EPS)
+   74 annual-copy contamination (equals FY 2025 NET_PROFIT_PARENT)
+   74 annual-copy contamination (equals FY 2025 CASH_AND_EQUIVALENTS)
+   73 annual-copy contamination (equals FY 2025 NET_PROFIT)
+   73 annual-copy contamination (equals FY 2025 FREE_CASH_FLOW)
+   73 annual-copy contamination (equals FY 2025 CLOSING_CASH)
+   72 annual-copy contamination (equals FY 2025 CURRENT_ASSETS)
+   72 annual-copy contamination (equals FY 2025 TOTAL_ASSETS)
+   70 annual-copy contamination (equals FY 2025 TOTAL_DEBT)
+   70 annual-copy contamination (equals FY 2025 RETAINED_EARNINGS)
+   69 annual-copy contamination (equals FY 2025 CAPEX)
+   69 annual-copy contamination (equals FY 2025 PPE)
+   68 annual-copy contamination (equals FY 2025 NON_CURRENT_ASSETS)
+   67 annual-copy contamination (equals FY 2025 GROSS_PROFIT)
+   62 annual-copy contamination (equals FY 2025 REVENUE)
+   62 annual-copy contamination (equals FY 2025 NET_INTEREST_INCOME)
+   61 annual-copy contamination (equals FY 2025 EBIT)
+   61 annual-copy contamination (equals FY 2023 FINANCING_CASH_FLOW)
+   60 annual-copy contamination (equals FY 2025 INTEREST_EXPENSE)
+   59 annual-copy contamination (equals FY 2025 ACCOUNTS_RECEIVABLE)
+   59 annual-copy contamination (equals FY 2024 OPERATING_EXPENSES_TOTAL)
+   58 annual-copy contamination (equals FY 2025 INVENTORY)
+   57 annual-copy contamination (equals FY 2022 FINANCING_CASH_FLOW)
+   56 annual-copy contamination (equals FY 2025 OPERATING_CASH_FLOW)
+   55 annual-copy contamination (equals FY 2025 SHORT_TERM_DEBT)
+   53 annual-copy contamination (equals FY 2025 SHARE_CAPITAL)
+   52 annual-copy contamination (equals FY 2025 DIVIDENDS_PAID)
+   52 annual-copy contamination (equals FY 2025 EQUITY_PARENT)
+   51 annual-copy contamination (equals FY 2025 INTEREST_INCOME)
+   51 annual-copy contamination (equals FY 2025 OPERATING_INCOME)
+   50 annual-copy contamination (equals FY 2022 INVESTING_CASH_FLOW)
+   49 annual-copy contamination (equals FY 2025 TRADE_PAYABLES)
+   49 annual-copy contamination (equals FY 2025 FINANCING_CASH_FLOW)
+   49 annual-copy contamination (equals FY 2024 INVESTING_CASH_FLOW)
+   47 annual-copy contamination (equals FY 2025 ADMIN_EXPENSES)
+   47 annual-copy contamination (equals FY 2025 WORKING_CAPITAL)
+   47 annual-copy contamination (equals FY 2025 LONG_TERM_DEBT)
+   47 annual-copy contamination (equals FY 2023 INVESTING_CASH_FLOW)
+   46 annual-copy contamination (equals FY 2025 DEPRECIATION_EXPENSE)
+   46 annual-copy contamination (equals FY 2025 NON_CONTROLLING_INTERESTS)
+   45 annual-copy contamination (equals FY 2024 FINANCING_CASH_FLOW)
+   45 annual-copy contamination (equals FY 2022 NET_PROFIT)
+   42 annual-copy contamination (equals FY 2023 OPERATING_CASH_FLOW)
+   42 annual-copy contamination (equals FY 2024 OPERATING_CASH_FLOW)
+   40 annual-copy contamination (equals FY 2025 ASSET_SALE_PROCEEDS)
+   38 annual-copy contamination (equals FY 2025 EXTRAORDINARY_ITEMS)
+   37 annual-copy contamination (equals FY 2025 INVESTING_CASH_FLOW)
+   35 annual-copy contamination (equals FY 2022 OPERATING_CASH_FLOW)
+   30 annual-copy contamination (equals FY 2024 EBITDA)
+   30 annual-copy contamination (equals FY 2024 NET_PROFIT)
+   29 annual-copy contamination (equals FY 2025 TOTAL_EQUITY)
+   28 annual-copy contamination (equals FY 2025 GOODWILL)
+   27 annual-copy contamination (equals FY 2024 INCOME_TAX)
+   27 annual-copy contamination (equals FY 2023 NET_PROFIT)
+   24 annual-copy contamination (equals FY 2024 COGS)
+   18 annual-copy contamination (equals FY 2025 OTHER_PAYABLES)
+   18 annual-copy contamination (equals FY 2022 REVENUE)
+   17 annual-copy contamination (equals FY 2025 SHARE_PREMIUM)
+   15 annual-copy contamination (equals FY 2023 REVENUE)
+   10 annual-copy contamination (equals FY 2025 TREASURY_SHARES)
+   10 annual-copy contamination (equals FY 2021 TOTAL_EQUITY)
+    9 annual-copy contamination (equals FY 2023 TOTAL_ASSETS)
+    9 annual-copy contamination (equals FY 2023 TOTAL_EQUITY_AND_LIABILITIES
+    8 annual-copy contamination (equals FY 2022 TOTAL_EQUITY_AND_LIABILITIES
+    8 annual-copy contamination (equals FY 2026 NET_PROFIT)
+    8 annual-copy contamination (equals FY 2023 TOTAL_EQUITY)
+    8 annual-copy contamination (equals FY 2024 TOTAL_EQUITY_AND_LIABILITIES
+    7 annual-copy contamination (equals FY 2025 STOCK_COMPENSATION)
+    7 annual-copy contamination (equals FY 2025 CAPITAL_INCREASES_CASH)
+    7 annual-copy contamination (equals FY 2024 REVENUE)
+    7 annual-copy contamination (equals FY 2022 TOTAL_EQUITY)
+    7 annual-copy contamination (equals FY 2022 TOTAL_ASSETS)
+    6 annual-copy contamination (equals FY 2022 TOTAL_LIABILITIES)
+    6 annual-copy contamination (equals FY 2021 GROSS_PROFIT)
+    6 annual-copy contamination (equals FY 2024 TOTAL_ASSETS)
+    5 annual-copy contamination (equals FY 2025 INVESTMENTS)
+    5 annual-copy contamination (equals FY 2024 TOTAL_LIABILITIES)
+    4 MAAL FY2022 cash-flow block breaks every identity (AskBorsa rows recon
+    4 annual-copy contamination (equals FY 2025 OTHER_INCOME)
+    4 annual-copy contamination (equals FY 2026 FINANCING_CASH_FLOW)
+    4 annual-copy contamination (equals FY 2023 TOTAL_LIABILITIES)
+    4 annual-copy contamination (equals FY 2026 TOTAL_LIABILITIES)
+    4 annual-copy contamination (equals FY 2021 NET_CHANGE_IN_CASH)
+    4 annual-copy contamination (equals FY 2022 NET_CHANGE_IN_CASH)
+    4 annual-copy contamination (equals FY 2021 FINANCING_CASH_FLOW)
+    4 annual-copy contamination (equals FY 2024 TOTAL_EQUITY)
+    3 annual-copy contamination (equals FY 2025 TREASURY_TRANSACTIONS_CASH)
+    3 BOOK_VALUE_PER_SHARE line internally inconsistent with the report's ow
+    3 annual-copy contamination (equals FY 2026 TOTAL_EQUITY)
+    3 annual-copy contamination (equals FY 2024 PROFIT_BEFORE_TAX)
+    3 annual-copy contamination (equals FY 2023 OPERATING_EXPENSES_TOTAL)
+    3 annual-copy contamination (equals FY 2026 OPERATING_CASH_FLOW)
+    3 annual-copy contamination (equals FY 2026 INVESTING_CASH_FLOW)
+    3 annual-copy contamination (equals FY 2026 NET_CHANGE_IN_CASH)
+    3 annual-copy contamination (equals FY 2026 TOTAL_ASSETS)
+    3 annual-copy contamination (equals FY 2025 TOTAL_EQUITY_AND_LIABILITIES
+    3 annual-copy contamination (equals FY 2021 INVESTING_CASH_FLOW)
+    3 annual-copy contamination (equals FY 2021 TOTAL_ASSETS)
+    3 annual-copy contamination (equals FY 2021 TOTAL_EQUITY_AND_LIABILITIES
+    2 annual-copy contamination (equals FY 2025 RD_EXPENSES)
+    1 annual-copy contamination (equals FY 2024 NET_CHANGE_IN_CASH)
+    1 annual-copy contamination (equals FY 2020 TOTAL_ASSETS)
+    1 annual-copy contamination (equals FY 2020 TOTAL_EQUITY_AND_LIABILITIES
+    1 annual-copy contamination (equals FY 2023 CURRENT_ASSETS)
+    1 annual-copy contamination (equals FY 2023 INVENTORY)
+    1 annual-copy contamination (equals FY 2026 TOTAL_EQUITY_AND_LIABILITIES
+    1 annual-copy contamination (equals FY 2023 SHORT_TERM_DEBT)
+    1 annual-copy contamination (equals FY 2026 REVENUE)
+    1 annual-copy contamination (equals FY 2021 TOTAL_LIABILITIES)
+
+--- derived reports ---
+total reports: 6503 | reports with notes: 3996
+  561 Q1 summary from AskBorsa (display-rounded)
+  549 Q4 summary from AskBorsa (display-rounded)
+  254 Imported from egx-data pipeline (YAHOO_FINANCE_API). Extracted at: 2026-09-26T12
+  143 Imported from egx-data pipeline (YAHOO_FINANCE_API). Extracted at: 2026-09-25T08
+  108 Discrete quarter (Q ending Sep 2024) income statement from TradingView
+  101 Q1 summary from AskBorsa (display-rounded); fiscal year starts يوليو
+   99 Q4 summary from AskBorsa (display-rounded); fiscal year starts يوليو
+   97 Discrete quarter (Q ending Sep 2025) income statement from TradingView
+   96 Discrete quarter (Q ending Jun 2024) income statement from TradingView
+   90 Discrete quarter (Q ending Jun 2025) income statement from TradingView
+   87 Imported from egx-data pipeline (YAHOO_FINANCE_API + REUTERS_FINANCIALS_PAGE). E
+   81 Discrete quarter (Q ending Dec 2024) income statement from TradingView
+   79 Discrete quarter (Q ending Mar 2024) income statement from TradingView
+   77 Discrete quarter (Q ending Mar 2025) income statement from TradingView
+   75 Net profit from Mubasher public earnings announcements (logged-in session).

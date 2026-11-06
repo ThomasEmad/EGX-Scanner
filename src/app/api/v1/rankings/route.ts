@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server"
+import { cachedResponse } from "@/lib/public-cache"
 import { db } from "@/lib/db"
 import { CALC_METRIC_MAP } from "@/lib/financial/registry"
 import {
@@ -24,6 +25,12 @@ import {
 // basis=annual → each company's latest ANNUAL value.
 // basis=ttm    → each company's latest TTM value (full-period, like-for-like
 //                 for flow metrics such as ROE / margins / revenue).
+// year=YYYY    → optional pin: rank on THAT fiscal year only (the same period
+//                 for every ranked company, a like-for-like historical
+//                 comparison). Rows without that year drop out; the full-period
+//                 restriction still applies inside the year. The response
+//                 carries `years` — every fiscal year the metric actually has
+//                 data for, so the UI only offers valid choices.
 //
 // Every row displays its own periodLabel, so the basis of each figure is visible.
 
@@ -40,23 +47,40 @@ interface RankRow {
   stale: boolean
 }
 
+// 60s in-process SWR cache, keyed by the full query tuple — rankings is the
+// site's heaviest read (scans every CalculatedMetric row for the metric).
 export async function GET(req: NextRequest) {
   const url = new URL(req.url)
   const metric = url.searchParams.get("metric") ?? "roe"
-  if (!CALC_METRIC_MAP[metric]) {
-    return Response.json({ error: "UNKNOWN_METRIC", message: "metric must be one of the calculated metric codes" }, { status: 400 })
-  }
-  const sector = url.searchParams.get("sector")
+  const sector = url.searchParams.get("sector")?.trim() || ""
   const order = url.searchParams.get("order") === "asc" ? "ASC" : "DESC"
   const rawBasis = url.searchParams.get("basis")
   const basis: "latest" | "annual" | "ttm" = rawBasis === "annual" || rawBasis === "ttm" ? rawBasis : "latest"
+  const rawYear = url.searchParams.get("year")
+  const year = rawYear && /^\d{4}$/.test(rawYear) ? Number(rawYear) : null
 
+  const def = CALC_METRIC_MAP[metric]
+  if (!def) {
+    return Response.json({ error: "UNKNOWN_METRIC", message: "metric must be one of the calculated metric codes" }, { status: 400 })
+  }
+
+  const key = `rankings:${metric}|${sector}|${order}|${basis}|${year ?? ""}`
+  return cachedResponse(key, 60 * 1000, () => buildRankings(metric, sector, order, basis, year))
+}
+
+async function buildRankings(
+  metric: string,
+  sector: string,
+  order: "ASC" | "DESC",
+  basis: "latest" | "annual" | "ttm",
+  year: number | null
+): Promise<unknown> {
   const companies = await db.company.findMany({
     where: { isActive: true, ...(sector ? { sector } : {}) },
     select: { id: true, ticker: true, nameEn: true, nameAr: true, sector: true },
   })
   if (companies.length === 0) {
-    return Response.json({ metric: metricInfo(metric), basis, results: [], sectors: await sectors(), total: 0 })
+    return { metric: metricInfo(metric), basis, results: [], sectors: await sectors(), total: 0 }
   }
 
   const rows = await db.calculatedMetric.findMany({
@@ -72,8 +96,20 @@ export async function GET(req: NextRequest) {
     ? rows
     : rows.filter((r) => r.periodType === (basis === "annual" ? "ANNUAL" : "TTM"))
 
-  const latest = selectLatestByCompany(filtered, [metric], {
-    fullPeriodCodes: ["roe", "roa", "roic", "roce"],
+  // Years the metric actually covers (basis-filtered, sector-independent) —
+  // the UI period dropdown renders exactly this list.
+  const years = [...new Set(filtered.map((r) => r.fiscalYear))].sort((a, b) => b - a)
+
+  // A pinned year scopes every company to one period window.
+  const scoped = year ? filtered.filter((r) => r.fiscalYear === year) : filtered
+
+  const latest = selectLatestByCompany(scoped, [metric], {
+    // Full-period restriction for ratio AND absolute flow metrics: ranking a
+    // single quarter's revenue/profit against TTM/annual figures of other
+    // companies is apples-to-oranges (a bank's one quarter can exceed another
+    // company's year). Flow metrics rank on TTM or annual only — the row's
+    // periodLabel always states which.
+    fullPeriodCodes: ["roe", "roa", "roic", "roce", "revenue", "net_profit"],
   })
   const anchors = [...latest.values()]
     .map((v) => v.periods[metric])
@@ -104,13 +140,15 @@ export async function GET(req: NextRequest) {
     (order === "ASC" ? a.value - b.value : b.value - a.value)
   )
 
-  return Response.json({
+  return {
     metric: metricInfo(metric),
     basis,
+    year,
+    years,
     results,
     sectors: await sectors(),
     total: results.length,
-  })
+  }
 }
 
 function metricInfo(code: string) {

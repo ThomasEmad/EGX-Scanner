@@ -1,0 +1,77 @@
+﻿
+===== MHOT (Consumer) =====
+FY 2016   ANNUAL     EXCEL_STATEMENTS          A    1.68e+9 R          - NP          - E    5.92e+8
+FY 2017   ANNUAL     EXCEL_STATEMENTS          A    1.86e+9 R          - NP          - E          -
+FY 2018   ANNUAL     EXCEL_STATEMENTS          A    1.88e+9 R          - NP          - E          -
+FY 2019   ANNUAL     EXCEL_STATEMENTS          A    1.89e+9 R          - NP          - E          -
+FY 2020   ANNUAL     EXCEL_STATEMENTS          A    1.81e+9 R          - NP          - E    7.24e+8
+FY 2021   ANNUAL     ASKBORA_SUMMARY           A    1.70e+9 R          - NP   -1.83e+8 E    4.88e+8
+FY 2022   ANNUAL     YAHOO_FINANCE_API         A    2.03e+9 R    5.26e+8 NP    3.51e+8 E    8.39e+8
+Q2 2022   QUARTERLY  ASKBORA_QUARTERLY         A    1.92e+9 R          - NP          - E    6.39e+8
+Q3 2022   QUARTERLY  ASKBORA_QUARTERLY         A    1.97e+9 R          - NP          - E    7.62e+8
+FY 2023   ANNUAL     YAHOO_FINANCE_API         A    2.82e+9 R    9.76e+8 NP    8.20e+8 E    1.06e+9
+Q2 2023   QUARTERLY  ASKBORA_SUMMARY (DERIVED  A          - R          - NP    2.20e+8 E          -
+Q3 2023   QUARTERLY  ASKBORA_SUMMARY (DERIVED  A          - R          - NP    4.26e+8 E          -
+FY 2024   ANNUAL     YAHOO_FINANCE_API         A    3.27e+9 R    1.44e+9 NP    1.45e+9 E    2.51e+9
+Q2 2024   QUARTERLY  ASKBORA_SUMMARY           A          - R          - NP    4.30e+8 E          -
+Q3 2024   QUARTERLY  ASKBORA_SUMMARY (DERIVED  A          - R          - NP    6.79e+8 E          -
+FY 2025   ANNUAL     YAHOO_FINANCE_API         A    4.65e+9 R    1.91e+9 NP    1.39e+8 E    3.37e+9
+Q1 2025   QUARTERLY  TRADINGVIEW_FINANCIALS    A          - R          - NP    3.45e+8 E          -
+FY 2026   ANNUAL     MUBASHER_EARNINGS         A          - R          - NP    4.63e+8 E          -
+Q4 2026   QUARTERLY  TRADINGVIEW_FINANCIALS    A          - R          - NP    1.37e+8 E          -
+
+===== FWRY (Financial Services) =====
+FY 2016   ANNUAL     EXCEL_STATEMENTS          A   5.68e+11 R    3.12e+8 NP          - E   1.89e+11
+FY 2017   ANNUAL     EXCEL_STATEMENTS          A    1.06e+9 R    4.01e+8 NP          - E    4.24e+8
+FY 2018   ANNUAL     EXCEL_STATEMENTS          A    1.23e+9 R    6.29e+8 NP          - E    4.10e+8
+FY 2019   ANNUAL     EXCEL_STATEMENTS          A    1.43e+9 R    9.37e+8 NP    1.87e+8 E    5.38e+8
+FY 2020   ANNUAL     ASKBORA_SUMMARY           A    2.43e+9 R    1.26e+9 NP    1.86e+8 E    7.97e+8
+FY 2021   ANNUAL     YAHOO_FINANCE_API         A    4.12e+9 R    1.67e+9 NP    1.77e+8 E    1.46e+9
+FY 2022   ANNUAL     YAHOO_FINANCE_API         A    6.42e+9 R    2.28e+9 NP    2.40e+8 E    2.48e+9
+Q2 2022   QUARTERLY  ASKBORA_QUARTERLY         A    5.95e+9 R          - NP    2.41e+7 E    2.32e+9
+Q3 2022   QUARTERLY  ASKBORA_QUARTERLY         A    6.00e+9 R          - NP    7.18e+7 E    2.45e+9
+FY 2023   ANNUAL     YAHOO_FINANCE_API + REUT  A    8.97e+9 R    3.27e+9 NP    7.15e+8 E    3.32e+9
+Q2 2023   QUARTERLY  ASKBORA_SUMMARY (DERIVED  A          - R          - NP    1.60e+8 E          -
+Q3 2023   QUARTERLY  ASKBORA_SUMMARY (DERIVED  A          - R          - NP    2.03e+8 E          -
+FY 2024   ANNUAL     YAHOO_FINANCE_API + REUT  A   1.33e+10 R    5.51e+9 NP    1.75e+9 E    4.95e+9
+Q2 2024   QUARTERLY  ASKBORA_SUMMARY (DERIVED  A          - R          - NP    1.61e+9 E          -
+Q3 2024   QUARTERLY  TRADINGVIEW_FINANCIALS    A          - R          - NP    1.61e+9 E          -
+FY 2025   ANNUAL     YAHOO_FINANCE_API + REUT  A   2.13e+10 R    8.65e+9 NP    2.89e+9 E    7.73e+9
+Q2 2025   QUARTERLY  TRADINGVIEW_FINANCIALS    A   1.29e+10 R    1.97e+9 NP    4.04e+8 E    5.38e+9
+Q3 2025   QUARTERLY  TRADINGVIEW_FINANCIALS    A          - R    2.29e+9 NP    1.03e+9 E          -
+Q1 2026   QUARTERLY  YAHOO_FINANCE_API         A   2.26e+10 R    2.41e+9 NP    7.49e+8 E    8.48e+9
+Q2 2026   QUARTERLY  TRADINGVIEW_FINANCIALS    A          - R    2.81e+9 NP    8.71e+8 E          -
+
+===== ASPI (Financial Services) =====
+FY 2015   ANNUAL     EXCEL_STATEMENTS          A   2.11e+10 R    4.36e+9 NP    7.70e+8 E    7.31e+9
+FY 2016   ANNUAL     EXCEL_STATEMENTS          A   2.02e+10 R    6.86e+9 NP    1.04e+9 E    8.14e+9
+FY 2017   ANNUAL     EXCEL_STATEMENTS          A   2.16e+10 R    8.22e+9 NP          - E    9.13e+9
+FY 2018   ANNUAL     EXCEL_STATEMENTS          A   2.48e+10 R    8.39e+9 NP    1.26e+9 E   1.15e+10
+FY 2019   ANNUAL     EXCEL_STATEMENTS          A   1.61e+10 R    7.50e+9 NP          - E    8.61e+9
+FY 2020   ANNUAL     ASKBORA_SUMMARY           A   1.88e+10 R          - NP    9.46e+8 E    9.83e+9
+Q2 2020   QUARTERLY  ASKBORA_QUARTERLY         A   1.84e+10 R          - NP    4.66e+8 E    9.67e+9
+Q3 2020   QUARTERLY  ASKBORA_QUARTERLY         A   1.88e+10 R          - NP    3.16e+7 E    9.64e+9
+FY 2021   ANNUAL     ASKBORA_SUMMARY           A    6.33e+8 R          - NP    4.52e+7 E    2.15e+8
+Q2 2021   QUARTERLY  ASKBORA_QUARTERLY         A   2.06e+10 R          - NP    1.67e+8 E   1.04e+10
+FY 2022   ANNUAL     YAHOO_FINANCE_API         A    1.25e+7 R          - NP   -4.95e+6 E    9.82e+6
+Q2 2022   QUARTERLY  ASKBORA_QUARTERLY         A    6.60e+8 R          - NP          - E    2.13e+8
+Q3 2022   QUARTERLY  ASKBORA_QUARTERLY         A    7.96e+8 R          - NP          - E    2.13e+8
+FY 2023   ANNUAL     YAHOO_FINANCE_API         A    1.44e+9 R    4.33e+5 NP   -1.63e+7 E    1.43e+9
+FY 2024   ANNUAL     YAHOO_FINANCE_API         A    2.56e+9 R    4.14e+6 NP   -3.23e+7 E    2.52e+9
+FY 2025   ANNUAL     MUBASHER_EARNINGS         A          - R          - NP   -1.75e+8 E          -
+Q2 2025   QUARTERLY  YAHOO_FINANCE_API (DERIV  A          - R    2.38e+7 NP    0.00e+0 E          -
+Q3 2025   QUARTERLY  YAHOO_FINANCE_API (DERIV  A          - R    2.38e+7 NP    0.00e+0 E          -
+Q1 2026   QUARTERLY  YAHOO_FINANCE_API         A    5.88e+8 R    4.18e+6 NP   -2.68e+7 E    2.89e+8
+Q2 2026   QUARTERLY  YAHOO_FINANCE_API (DERIV  A          - R    5.12e+6 NP   -3.36e+7 E          -
+
+===== COPR (Financial Services) =====
+FY 2020   ANNUAL     ASKBORA_SUMMARY           A    5.33e+7 R          - NP   -2.70e+6 E    3.30e+7
+FY 2021   ANNUAL     ASKBORA_SUMMARY           A    2.61e+7 R          - NP   -4.39e+7 E    2.17e+7
+Q2 2021   QUARTERLY  ASKBORA_QUARTERLY         A    5.23e+7 R          - NP   -6.54e+5 E    3.18e+7
+Q3 2021   QUARTERLY  ASKBORA_QUARTERLY         A    5.12e+7 R          - NP   -7.52e+5 E    3.10e+7
+FY 2022   ANNUAL     ASKBORA_SUMMARY           A    1.58e+7 R          - NP   -3.91e+6 E    2.91e+7
+Q2 2022   QUARTERLY  ASKBORA_QUARTERLY         A    2.29e+7 R          - NP   -2.70e+6 E    2.16e+7
+Q3 2022   QUARTERLY  TRADINGVIEW_FINANCIALS    A    1.78e+7 R          - NP    2.46e+6 E    2.49e+7
+FY 2023   ANNUAL     YAHOO_FINANCE_API         A    9.39e+7 R          - NP   -4.30e+6 E    8.87e+7
+FY 2024   ANNUAL     YAHOO_FINANCE_API         A    1.52e+5 R          - NP   -3.71e+6 E    6.06e+6
+FY 2025   ANNUAL     MUBASHER_EARNINGS         A          - R          - NP   -5.14e+6 E          -

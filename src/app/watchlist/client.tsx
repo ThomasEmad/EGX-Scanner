@@ -12,8 +12,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
-import { AppHeader } from "@/components/egx/app-header"
-import { AppFooter } from "@/components/egx/app-footer"
+import { LayoutShell } from "@/components/layout/LayoutShell"
 import { SECTOR_AR } from "@/lib/sectors"
 import { useWatchlist } from "@/lib/client/watchlist"
 import { useI18n } from "@/lib/i18n"
@@ -68,9 +67,8 @@ export default function WatchlistPage() {
 
   if (error) {
     return (
-      <div className="min-h-svh bg-background">
-        <AppHeader view="companies" companyOpen={false} onViewChange={() => router.push("/dashboard")} />
-        <main id="main-content" className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
+      <LayoutShell>
+        <div className="mx-auto max-w-7xl py-6">
           <Card className="border-destructive/20 bg-destructive/5">
             <CardContent className="flex flex-col items-center gap-3 py-8 text-center">
               <p className="text-sm font-medium text-destructive">{ar ? "تعذّر تحميل القائمة — تحقق من اتصالك" : "Failed to load watchlist — please check your connection"}</p>
@@ -78,9 +76,8 @@ export default function WatchlistPage() {
               <Button variant="outline" onClick={() => window.location.reload()} className="mt-2 h-8 text-xs">{ar ? "إعادة التحميل" : "Reload"}</Button>
             </CardContent>
           </Card>
-        </main>
-        <AppFooter />
-      </div>
+        </div>
+      </LayoutShell>
     )
   }
 
@@ -88,9 +85,8 @@ export default function WatchlistPage() {
   const get = (c: WatchCompany, code: string) => fmt(defs.find((d) => d.code === code)?.unit ?? "RATIO", c.metrics[code])
 
   return (
-    <div className="min-h-svh bg-background">
-      <AppHeader view="companies" companyOpen={false} onViewChange={() => router.push("/dashboard")} />
-      <main id="main-content" className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
+    <LayoutShell>
+      <div className="mx-auto max-w-7xl py-6">
         <div className="mb-5">
           <h1 className="flex items-center gap-2 text-xl font-bold tracking-tight">
             <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
@@ -199,8 +195,7 @@ export default function WatchlistPage() {
             {ar ? `${ids.length - data.companies.length} من شركات القائمة غير موجودة في قاعدة البيانات الحالية` : `${ids.length - data.companies.length} watched id(s) not found in the current database`}
           </p>
         ) : null}
-      </main>
-      <AppFooter />
-    </div>
+      </div>
+    </LayoutShell>
   )
 }

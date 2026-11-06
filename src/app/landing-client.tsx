@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { useRouter } from "next/navigation"
 import {
   ArrowRight,
   Building2,
@@ -32,8 +31,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { AppHeader } from "@/components/egx/app-header"
-import { AppFooter } from "@/components/egx/app-footer"
+import { LayoutShell } from "@/components/layout/LayoutShell"
 import { useQuery } from "@tanstack/react-query"
 import { useI18n } from "@/lib/i18n"
 import { api } from "@/lib/client/api"
@@ -42,7 +40,6 @@ import { sectorLabel } from "@/lib/sectors"
 
 export default function LandingClient() {
   const { t, lang } = useI18n()
-  const router = useRouter()
   const ar = lang === "ar"
 
   const { data: dashboardData } = useQuery({
@@ -119,10 +116,9 @@ export default function LandingClient() {
   ]
 
   return (
-    <div className="min-h-screen flex flex-col bg-background selection:bg-primary/20 selection:text-primary">
-      <AppHeader onViewChange={(v) => router.push(`/dashboard#/${v}`)} />
+    <LayoutShell flush>
+      <div className="flex flex-1 flex-col bg-background selection:bg-primary/20 selection:text-primary">
 
-      <main id="main-content" className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-16 md:py-28 border-b border-border/50">
           <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
@@ -130,6 +126,7 @@ export default function LandingClient() {
           <div className="absolute top-1/4 start-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/8 rounded-full blur-[100px] pointer-events-none" />
 
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid items-center gap-10 lg:grid-cols-[1fr_340px]">
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary mb-8 backdrop-blur-xs">
                 <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -143,14 +140,14 @@ export default function LandingClient() {
                   <>
                     اكتشف فرص البورصة <br />
                     <span className="bg-gradient-to-r from-primary to-teal-500 bg-clip-text text-transparent">
-                      بحقائق مالية قابلة للتتبع
+                      بأرقام حقيقية من القوائم المنشورة
                     </span>
                   </>
                 ) : (
                   <>
                     Discover EGX opportunities <br />
                     <span className="bg-gradient-to-r from-primary to-teal-500 bg-clip-text text-transparent">
-                      with traceable financial facts
+                      built on real published financials
                     </span>
                   </>
                 )}
@@ -158,8 +155,8 @@ export default function LandingClient() {
 
               <p className="mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl">
                 {ar
-                  ? "ماسح ذكي لأنماط الشركات المالية: تحولات الخسارة إلى ربح، تسارع الإيرادات، خفض الديون، وتدفقات النقد — كل قيمة متحقق منها مرتبطة بفترتها ومصدرها، والقيم غير المؤكدة تظهر للمراجعة بدلاً من عرضها كحقيقة."
-                  : "Institutional-grade pattern scanner: loss-to-profit turnarounds, revenue acceleration, deleveraging, and cash flows. Every verified value is tied to its period and source; unconfirmed values are shown as review items instead of being presented as fact."}
+                  ? "ماسح ذكي لأنماط الشركات المالية: تحولات الخسارة إلى ربح، تسارع الإيرادات، خفض الديون، وتدفقات النقد — أرقام فعلية من القوائم المالية المنشورة (سنوي وربعي)، والقيم غير المنشورة تظهر «غير متاح» بدون أي تقديرات مخفية."
+                  : "Institutional-grade pattern scanner: loss-to-profit turnarounds, revenue acceleration, deleveraging, and cash flows. Real figures from published quarterly and annual statements; unreported values are shown as unavailable — never silently estimated."}
               </p>
 
               <div className="mt-10 flex flex-wrap items-center gap-3 md:gap-4">
@@ -206,7 +203,7 @@ export default function LandingClient() {
                     {stats ? stats.validValues.toLocaleString() : "—"}
                   </div>
                   <div className="text-[11px] font-medium text-muted-foreground mt-0.5">
-                    {ar ? "قيمة صالحة" : "Validated values"}
+                    {ar ? "نقطة بيانات مالية" : "Financial data points"}
                   </div>
                 </div>
                 <div className="rounded-xl border border-border/60 bg-card/80 p-3.5 backdrop-blur-xs hover:bg-card/100 transition-colors">
@@ -218,6 +215,54 @@ export default function LandingClient() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Right rail — the market at a glance: largest listed companies
+                with their latest recorded price and day change. Same verified
+                snapshot data the terminal uses; renders "—" when unavailable. */}
+            <div className="hidden lg:block">
+              <div className="rounded-2xl border border-border/60 bg-card/80 p-5 shadow-lg shadow-black/[0.03] backdrop-blur-xs">
+                <div className="mb-4 flex items-center justify-between">
+                  <p className="text-sm font-semibold text-foreground">{ar ? "الأكبر بالقيمة السوقية" : "Largest listed companies"}</p>
+                  <Link href="/companies" className="text-[11px] font-medium text-primary hover:underline">
+                    {ar ? "الكل" : "View all"}
+                  </Link>
+                </div>
+                <div className="space-y-1">
+                  {featured.slice(0, 6).map((c) => (
+                    <Link
+                      key={c.id}
+                      href={`/company/${c.ticker}`}
+                      className="flex items-center gap-3 rounded-xl px-2 py-2 transition-colors hover:bg-accent/40"
+                    >
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-[10px] font-bold text-primary">
+                        {c.ticker.slice(0, 4)}
+                      </span>
+                      <span className="min-w-0 flex-1">
+                        <span className="block text-sm font-semibold text-foreground">{c.ticker}</span>
+                        <span className="block truncate text-[10px] text-muted-foreground">{(ar ? c.nameAr ?? c.nameEn : c.nameEn) ?? ""}</span>
+                      </span>
+                      <span className="text-end">
+                        <span className="block text-sm font-bold tabular" dir="ltr">
+                          {c.marketPrice?.price != null ? c.marketPrice.price.toFixed(2) : "—"}
+                        </span>
+                        <span
+                          className={`block text-[10px] font-semibold tabular ${(c.marketPrice?.changePct ?? 0) >= 0 ? "text-emerald-600 dark:text-emerald-400" : "text-red-600 dark:text-red-400"}`}
+                          dir="ltr"
+                        >
+                          {c.marketPrice?.changePct != null
+                            ? `${c.marketPrice.changePct >= 0 ? "+" : ""}${c.marketPrice.changePct.toFixed(2)}%`
+                            : "—"}
+                        </span>
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+                <p className="mt-3 border-t border-border/50 pt-2.5 text-[10px] text-muted-foreground">
+                  {ar ? "آخر سعر مسجل · متأخر 15 دقيقة · ليس نصيحة استثمارية" : "Latest recorded price · 15-min delayed · not investment advice"}
+                </p>
+              </div>
+            </div>
             </div>
           </div>
         </section>
@@ -390,11 +435,11 @@ export default function LandingClient() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 mb-4">
                   <ShieldCheck className="h-6 w-6" />
                 </div>
-                <h3 className="text-lg font-bold tracking-tight">{ar ? "بيانات قابلة للتدقيق" : "Auditable Data"}</h3>
+                <h3 className="text-lg font-bold tracking-tight">{ar ? "أرقام فعلية بدون تعويض" : "Real Figures, No Filler"}</h3>
                 <p className="mt-3 text-xs text-muted-foreground leading-relaxed">
                   {ar
-                    ? "كل قيمة تُفحص من حيث الفترة والهوية المحاسبية والمقياس قبل دخولها التحليلات. القيم المشتقة موسومة بوضوح، والقيم المعزولة لا تظهر كبيانات صالحة."
-                    : "Every value is checked for period, accounting identity and scale before it enters analytics. Derived values are labelled, and quarantined values are never shown as valid data."}
+                    ? "البيانات مأخوذة من القوائم المالية المنشورة للشركات، وتمر بفحوص منطقية (توازن الميزانية وتماسك الفترات) قبل دخولها التحليلات. ما لم يُنشر يظهر «غير متاح» — لا نعوّضه بتقديرات مخفية."
+                    : "Data comes from companies' published financial statements and passes logical checks (balance-sheet identity and period coherence) before entering analytics. Unreported values appear as unavailable — never silently estimated."}
                 </p>
               </Card>
 
@@ -414,7 +459,7 @@ export default function LandingClient() {
                 </div>
                 <h3 className="text-lg font-bold tracking-tight">{ar ? "ذكاء اصطناعي موثق" : "Grounded AI Synthesis"}</h3>
                 <p className="mt-3 text-xs text-muted-foreground leading-relaxed">
-                  {ar ? "توليد تقارير مالية نوعية تستند حصرياً إلى القيم المعتمدة في قاعدة البيانات، بدون اختلاق أرقام." : "Generates qualitative investor profiles grounded exclusively in database-verified metrics without fabricated numbers."}
+                  {ar ? "توليد تقارير مالية نوعية تستند حصرياً إلى الأرقام المتاحة في قاعدة البيانات، بدون اختلاق أرقام." : "Generates qualitative investor profiles grounded exclusively in the platform's database figures without fabricated numbers."}
                 </p>
               </Card>
             </div>
@@ -569,9 +614,8 @@ export default function LandingClient() {
             </div>
           </div>
         </section>
-      </main>
+      </div>
 
-      <AppFooter />
-    </div>
+    </LayoutShell>
   )
 }

@@ -1,0 +1,64 @@
+﻿COUNTS medium/accounting=425 low/accounting=389 low/temporal=346 low/provenance=231 high/missing=223 medium/missing=100 low/missing=87 medium/temporal=80 medium/logical=66 low/logical=65 critical/missing=43 medium/sector=26 high/temporal=25 critical/accounting=19 high/accounting=13 high/outlier=3
+CODES [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.=21 [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.=11 [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.=9 [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED=8 [GROSS_PROFIT_IDENTITY] GROSS_PROFIT_IDENTITY FAILED=5 [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED=3 [MISSING_CRITICAL_METRIC] NET_PROFIT exists only as quarantined values — excluded from analytics; re-extract from the original filing.=2 [BALANCE_SHEET_EQUATION] BALANCE_SHEET_EQUATION FAILED=2 [CASH_OPENING_CLOSING] CASH_OPENING_CLOSING FAILED=1
+ACAP  [missing] [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.
+ADRI  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+AIDC  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+AMER FY 2021 [accounting] [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 63.35% (-96.8M EGP; materiality threshold 2.3M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority
+AMER Q2 2026 [accounting] [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 36.06% (-47.1M EGP; materiality threshold 2.0M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority
+AMII  [missing] [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.
+APPC  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+APPC  [missing] [MISSING_CRITICAL_METRIC] NET_PROFIT exists only as quarantined values — excluded from analytics; re-extract from the original filing.
+ARAB FY 2023 [accounting] [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 140.36% (302.3M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash
+ARVA  [missing] [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.
+BIDI  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+BINV Q2 2026 [accounting] [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 51.37% (-53.2M EGP; materiality threshold 1.6M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority
+BONY  [missing] [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.
+CCRS  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+CPME  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+CRST  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+DGTZ  [missing] [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.
+ECCW  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+ECCW  [missing] [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.
+EGREF  [missing] [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.
+EGTS FY 2024 [accounting] [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 25.79% (-122.0M EGP; materiality threshold 7.1M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minorit
+EHDR  [missing] [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.
+EHDR  [missing] [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.
+ELNA  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+EPPK  [missing] [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.
+FTNS  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+FWRY FY 2019 [accounting] [GROSS_PROFIT_IDENTITY] GROSS_PROFIT_IDENTITY FAILED: gap 20.00% (-187.4M EGP; materiality threshold 18.7M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit
+GGRN  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+GIHD FY 2024 [accounting] [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 52.61% (-1.0M EGP; materiality threshold 29.9K) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority
+GOCO  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+GOCO  [missing] [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.
+GTEX  [missing] [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.
+HRHO Q2 2026 [accounting] [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 34.78% (-600.8M EGP; materiality threshold 25.9M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minori
+INEG  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+IRON FY 2011 [accounting] [GROSS_PROFIT_IDENTITY] GROSS_PROFIT_IDENTITY FAILED: gap 22.50% (712.5M EGP; materiality threshold 63.3M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit 
+IRON FY 2013 [accounting] [BALANCE_SHEET_EQUATION] BALANCE_SHEET_EQUATION FAILED: gap 7.89% (-273.9M EGP; materiality threshold 17.3M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling inte
+IRON FY 2018 [accounting] [GROSS_PROFIT_IDENTITY] GROSS_PROFIT_IDENTITY FAILED: gap 79.65% (2.19B EGP; materiality threshold 54.9M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit l
+KORA  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+KORA  [missing] [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.
+MAAL FY 2022 [accounting] [CASH_OPENING_CLOSING] CASH_OPENING_CLOSING FAILED: gap 75.98% (75.4M EGP; materiality threshold 992.1K) on [OPENING_CASH, CLOSING_CASH, NET_CHANGE_IN_CASH]. The difference is often the FX e
+MAAL FY 2023 [accounting] [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 4.25% (3.1M EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX_EFFECT_CASH not disclosed; verify the cash-flo
+MFPC FY 2023 [accounting] [CASH_FLOW_SUM] CASH_FLOW_SUM FAILED: gap 146.51% (5.05B EGP) — net change is corroborated by opening/closing cash, so the legs are incomplete; FX effect 1.34B tested; verify the cash-flow s
+MMAT FY 2025 [accounting] [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 166.61% (-758.5K EGP; materiality threshold 6.8K) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minori
+MMAT  [missing] [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.
+MPCO FY 2022 [accounting] [GROSS_PROFIT_IDENTITY] GROSS_PROFIT_IDENTITY FAILED: gap 28.51% (48.1M EGP; materiality threshold 3.4M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit li
+NAHO FY 2023 [accounting] [BALANCE_SHEET_EQUATION] BALANCE_SHEET_EQUATION FAILED: gap 15.38% (35.9M EGP; materiality threshold 1.2M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling intere
+NCEM FY 2014 [accounting] [GROSS_PROFIT_IDENTITY] GROSS_PROFIT_IDENTITY FAILED: gap 16.67% (189.2M EGP; materiality threshold 22.7M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit 
+NCGC  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+NHPS  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+NOAF  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+NOAF  [missing] [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.
+OFH FY 2024 [accounting] [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 70.51% (-180.5M EGP; materiality threshold 3.8M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minorit
+OIH  [missing] [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.
+RMTV  [missing] [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.
+SIMO  [missing] [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.
+SMPP  [missing] [MISSING_CRITICAL_METRIC] NET_PROFIT exists only as quarantined values — excluded from analytics; re-extract from the original filing.
+TRTO  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+TWSA  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+UASG  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+UASG  [missing] [MISSING_CRITICAL_METRIC] NET_PROFIT has no data recorded — cannot compute essential ratios.
+UPMS  [missing] [MISSING_CRITICAL_METRIC] REVENUE has no data recorded — cannot compute essential ratios.
+VLMRA  [missing] [MISSING_CRITICAL_METRIC] REVENUE exists only as quarantined values — excluded from analytics; re-extract from the original filing.

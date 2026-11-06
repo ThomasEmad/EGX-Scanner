@@ -15,6 +15,7 @@ import { restatementIntelligenceAnalysis } from "./restatement-intelligence"
 import { revenueQualityAnalysis } from "./revenue-quality"
 import { segmentIntelligenceAnalysis } from "./segment-intelligence"
 import { sectorOverlayAnalysis } from "./sector"
+import { bankCapitalAnalysis } from "./bank-capital"
 
 export interface ResearchProfile {
   companyId: string
@@ -45,6 +46,9 @@ export function buildResearchProfile(ctx: AnalysisContext): ResearchProfile {
   // Sector overlay if applicable
   const sectorOverlay = sectorOverlayAnalysis(ctx)
   if (sectorOverlay) categories.push(sectorOverlay)
+  // Bank capital module only appears for banks that publish regulatory lines
+  const bankCapital = bankCapitalAnalysis(ctx)
+  if (bankCapital) categories.push(bankCapital)
   // Aggregate assessment
   const assessments = categories.map((c) => c.assessment ?? "UNKNOWN")
   let strong = 0, healthy = 0, adequate = 0, weak = 0, unknown = 0

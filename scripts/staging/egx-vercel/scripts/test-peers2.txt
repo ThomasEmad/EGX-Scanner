@@ -1,0 +1,40 @@
+﻿
+=== COMI status=200 sector=Banks peers=14 medians={"roe":26.42473842276239,"roa":3.1053752221162103,"net_margin":40.27114492440562,"book_value_per_share":22.761656333333335,"p_b":1.0742109760416558}
+ADIB roe=36.39 period=FY 2025 (ANNUAL) np=undefined npPeriod=undefined
+BQDC roe=25.69 period=FY 2025 (ANNUAL) np=undefined npPeriod=undefined
+CANA roe=27.89 period=FY 2025 (ANNUAL) np=undefined npPeriod=undefined
+CIEB roe=26.22 period=FY 2025 (ANNUAL) np=undefined npPeriod=undefined
+COMI* roe=26.63 period=FY 2025 (ANNUAL) np=undefined npPeriod=undefined
+EGBE roe=26.81 period=FY 2025 (ANNUAL) np=undefined npPeriod=undefined
+EXPA roe=28.47 period=TTM ending Q1 2026 (TTM) np=undefined npPeriod=undefined
+FAIT roe=9.50 period=FY 2025 (ANNUAL) np=undefined npPeriod=undefined
+
+=== FWRY status=200 sector=Telecom peers=11 medians={"roe":13.33637583892617,"net_margin":30.96341652059997,"debt_to_equity":0.5302740793889101,"net_profit":78180000}
+AMPI roe=-40.06 period=FY 2025 (ANNUAL) np=-1592037 npPeriod=Q1 2026
+DGTZ roe=17.68 period=TTM ending Q1 2025 (TTM) np=28430000 npPeriod=TTM ending Q3 2025
+EFIH roe=22.52 period=FY 2025 (ANNUAL) np=949295996 npPeriod=Q2 2026
+EGSA roe=8.47 period=FY 2025 (ANNUAL) np=16113465 npPeriod=Q2 2026
+ETEL roe=34.10 period=TTM ending Q1 2026 (TTM) np=27306077000 npPeriod=TTM ending Q2 2026
+FWRY* roe=32.57 period=FY 2025 (ANNUAL) np=870519085 npPeriod=Q2 2026
+GTHE roe=-17.87 period=FY 2019 (ANNUAL) np=-190253851.68 npPeriod=FY 2019
+MPRC roe=4.62 period=FY 2025 (ANNUAL) np=390000000 npPeriod=Q1 2026
+
+=== UNIT status=200 sector=Real Estate peers=38 medians={"roe":12.618832765371785,"net_margin":12.192170704788175,"debt_to_equity":0.617009627420535,"net_profit":33892921.5}
+ACAMD roe=-1.26 period=FY 2025 (ANNUAL) np=-1453247 npPeriod=FY 2025
+ACAP roe=16.20 period=TTM ending Q1 2025 (TTM) np=302000000 npPeriod=Q2 2026
+AIFI roe=-16.49 period=FY 2025 (ANNUAL) np=-7323120 npPeriod=FY 2025
+AMER roe=4.53 period=TTM ending Q1 2025 (TTM) np=-130518526 npPeriod=Q2 2026
+ARAB roe=3.58 period=FY 2025 (ANNUAL) np=39110000 npPeriod=Q1 2026
+AREH roe=-33.41 period=FY 2025 (ANNUAL) np=1150000 npPeriod=Q1 2026
+BONY roe=14.74 period=FY 2025 (ANNUAL) np=449000000 npPeriod=Q3 2026
+CCRS roe=-2.57 period=FY 2024 (ANNUAL) np=-810042 npPeriod=FY 2025
+
+=== MBSC status=200 sector=Building Materials peers=13 medians={"roe":41.186237594911404,"net_margin":15.42193447039982,"debt_to_equity":0.3535813368009678,"net_profit":47639956}
+ALEX roe=-977.91 period=FY 2018 (ANNUAL) np=-177000000 npPeriod=Q2 2020
+ARCC roe=77.13 period=FY 2025 (ANNUAL) np=1229327116 npPeriod=Q2 2026
+ARVA roe=2.28 period=FY 2024 (ANNUAL) np=446000 npPeriod=FY 2025
+CERA roe=13.29 period=FY 2024 (ANNUAL) np=5700000 npPeriod=Q1 2026
+ECAP roe=-15.77 period=FY 2025 (ANNUAL) np=-85070000 npPeriod=Q1 2026
+LCSW roe=23.84 period=FY 2024 (ANNUAL) np=47639956 npPeriod=Q2 2026
+MBSC* roe=76.95 period=TTM ending Q1 2026 (TTM) np=3962910000 npPeriod=TTM ending Q1 2026
+MCQE roe=44.43 period=FY 2025 (ANNUAL) np=519114806 npPeriod=Q2 2026

@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server"
 import { db } from "@/lib/db"
+import { findCompanyByKey } from "@/lib/company-lookup"
 import { CALC_METRIC_MAP } from "@/lib/financial/registry"
 import {
   CALC_STATEMENT_TYPES,
@@ -17,7 +18,13 @@ import {
 } from "@/lib/financial/statement-pref"
 
 // GET /api/v1/companies/[id]/metrics — calculated metrics matrix across periods
-// (with value status + formula version for auditability).
+// (with value status). Cell provenance/formula metadata is intentionally NOT
+// exposed to the public API — it is internal engine documentation. The engine's
+// per-cell `statusDetail` (coherence-guard reasons like "period-end collision",
+// "annual copy", "YTD stored as discrete quarter") is pipeline validation
+// language — the public API only forwards the neutral "X not available for this
+// period" phrasing; every other detail is dropped and the UI falls back to a
+// generic "not available" note.
 //
 // Statement-type aware: CalculatedMetric rows exist per statement type
 // (CONSOLIDATED | STANDALONE) and are NEVER mixed. Default is the company's
@@ -29,13 +36,16 @@ import {
 // TTM/OTHER rows are excluded from both views (synthetic/undefined comparability).
 // Default: annual when available, else interim. `availablePeriodViews` tells the
 // UI which toggles to offer.
+//
+// `[id]` accepts company id, ticker or ISIN (see findCompanyByKey).
 
 export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const company = await db.company.findUnique({ where: { id }, select: { id: true } })
+  const company = await findCompanyByKey(id)
   if (!company) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
+  const companyId = company.id
 
-  const { rows, pref } = await fetchCalc(id)
+  const { rows, pref } = await fetchCalc(companyId)
   // CONSOLIDATED before STANDALONE when both exist
   const availableStatementTypes = [...new Set(rows.map((r) => r.statementType))].sort((a, b) => a.localeCompare(b))
 
@@ -50,7 +60,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
   const statementType = requested ?? pref
   const active = requested ? filterByPreference(rows, requested as StatementPref) : rows.filter((r) => r.statementType === statementType)
 
-  const availablePeriodViews = await availableReportPeriodViews(id, statementType)
+  const availablePeriodViews = await availableReportPeriodViews(companyId, statementType)
   const requestedView = validatePeriodView(url.searchParams.get("period_view"))
   if (requestedView === null) {
     return Response.json(
@@ -61,7 +71,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
     const latestEnds = await db.financialReport.groupBy({
     by: ["periodType"],
     where: {
-      companyId: id,
+      companyId,
       processingStatus: { in: [...TRUSTED_REPORT_STATUSES] },
       periodType: { in: ["ANNUAL", "QUARTERLY", "SEMIANNUAL", "NINE_MONTH"] },
     },
@@ -77,7 +87,12 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
   const allowedTypes = periodView ? new Set(PERIOD_VIEW_TYPES[periodView]) : null
 
   const periodMap = new Map<string, { key: string; label: string; periodType: string; fiscalYear: number; rank: number }>()
-  const rowsMap = new Map<string, { code: string; cells: Record<string, { value: number | null; status: string; detail: string | null; formulaVersion: string }> }>()
+  const rowsMap = new Map<string, { code: string; cells: Record<string, { value: number | null; status: string; detail: string | null }> }>()
+
+  // Public-facing detail whitelist: the engine's own "not available" phrasing
+  // is safe for investors; coherence-guard/validation prose is internal only.
+  const NEUTRAL_DETAIL = /^[A-Z][A-Z_]* not available for this period$/
+  const publicDetail = (detail: string | null): string | null => (detail && NEUTRAL_DETAIL.test(detail) ? detail : null)
 
   for (const m of active) {
     if (allowedTypes && !allowedTypes.has(m.periodType)) continue
@@ -94,8 +109,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
     rowsMap.get(m.code)!.cells[m.periodKey] = {
       value: m.value,
       status: m.valueStatus,
-      detail: m.statusDetail,
-      formulaVersion: m.formulaVersion,
+      detail: publicDetail(m.statusDetail),
     }
   }
 

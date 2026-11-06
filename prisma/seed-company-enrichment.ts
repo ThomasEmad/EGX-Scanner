@@ -9,9 +9,9 @@
 //   - EGX_DISCLOSURES  (auto-collector for EGX disclosure feed)
 //   - COMPANY_IR       (per-company investor-relations PDFs)
 
-import { PrismaClient } from "@prisma/client"
+import { buildPrismaClient } from "../src/lib/db"
 
-const db = new PrismaClient()
+const db = buildPrismaClient()
 
 // Ticker -> ISIN map (EGX listed securities — public registry metadata).
 const ISIN_BY_TICKER: Record<string, string> = {

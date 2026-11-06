@@ -135,16 +135,56 @@ const SECTOR_AR: Record<string, string> = {
 }
 
 // ————— company resolution —————
-const GENERIC_NAME_WORDS = new Set(["بنك", "شركه", "شركات", "bank", "company", "co", "the"])
+const GENERIC_NAME_WORDS = new Set([
+  // Arabic generic corporate words
+  "بنك", "شركه", "شركات",
+  // English generic corporate words
+  "bank", "company", "co", "the",
+  // English question/filler words — these previously scored points for any
+  // company whose name contains "for"/"and" etc. (a question mentioning the
+  // word "for" once resolved to "Egypt for Poultry" instead of the real subject)
+  "what", "who", "how", "why", "when", "which", "show", "tell", "give", "list",
+  "compare", "is", "are", "was", "were", "of", "in", "on", "for", "and", "with",
+  "about", "latest", "trend", "data", "status", "does", "did", "have", "has",
+  "their", "its", "please", "me", "my", "from", "to", "by", "at", "as",
+])
+
+// English all-caps words that appear in questions but are NOT tickers — they
+// must never be treated as ticker candidates (e.g. "WHAT IS THE ROE FOR COMI?"
+// used to check ticker "WHAT" first and give up on the real one).
+const UPPERCASE_STOPWORDS = new Set([
+  "WHAT", "WHO", "HOW", "WHY", "WHEN", "WHICH", "IS", "ARE", "THE", "OF", "IN",
+  "ON", "FOR", "AND", "WITH", "TTM", "ROE", "ROA", "EPS", "PE", "PB", "EGP",
+  "USD", "EGX", "QE", "DPS", "ROI", "IT", "ALL", "ANY", "NEW", "TOP", "BEST",
+  "NET", "CAGR", "YTD", "ATM", "CEO", "CFO", "FY",
+])
 
 async function resolveCompany(question: string, explicitId?: string | null) {
   if (explicitId) {
     const c = await db.company.findUnique({ where: { id: explicitId }, select: { id: true, ticker: true, nameEn: true, nameAr: true, sector: true } })
     if (c) return c
   }
-  const tickerMatch = question.toUpperCase().match(/\b([A-Z]{3,6})\b/)
-  if (tickerMatch) {
-    const c = await db.company.findFirst({ where: { ticker: tickerMatch[1], isActive: true }, select: { id: true, ticker: true, nameEn: true, nameAr: true, sector: true } })
+  // Ticker resolution: scan EVERY word-like token (original casing preserved so
+  // title-case words like "What" are still stopword-filtered) and check each
+  // against the ticker table. The old code uppercased the whole question and
+  // took the first match — "What is the net profit trend for COMI?" checked
+  // ticker "WHAT" first and never tried COMI.
+  const tickerCandidates = question
+    .split(/[^A-Za-z0-9]+/)
+    .filter((w) => {
+      if (!/^[A-Za-z]{3,6}$/.test(w)) return false
+      const upper = w.toUpperCase()
+      if (UPPERCASE_STOPWORDS.has(upper)) return false
+      if (GENERIC_NAME_WORDS.has(w.toLowerCase())) return false
+      return true
+    })
+  for (const cand of tickerCandidates) {
+    // SQLite has no case-insensitive `equals` in Prisma — tickers are stored
+    // uppercase, so normalize the candidate before the lookup ("comi" works too).
+    const c = await db.company.findFirst({
+      where: { ticker: cand.toUpperCase(), isActive: true },
+      select: { id: true, ticker: true, nameEn: true, nameAr: true, sector: true },
+    })
     if (c) return c
   }
   // Name resolution happens in memory over normalized names — SQLite `contains`

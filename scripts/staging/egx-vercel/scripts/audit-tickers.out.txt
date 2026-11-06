@@ -1,0 +1,43 @@
+﻿
+===== AMOC acc=45 comp=100 conf=72 review_required =====
+[BALANCE_SHEET_EQUATION] FY 2017 critical :: BALANCE_SHEET_EQUATION FAILED: gap 4.76% (-206.4M EGP; materiality threshold 21.7M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilities mapping issue.
+[GROSS_PROFIT_IDENTITY] FY 2020 high :: GROSS_PROFIT_IDENTITY FAILED: gap 7.20% (676.5M EGP; materiality threshold 187.9M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after other operating items.
+[ASSET_COMPONENTS] FY 2022 high :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 4.65B vs TOTAL_ASSETS = 4.92B (5.56%) — missing/extra component or mapping gap.
+[DEBT_COMPONENTS] FY 2023 medium :: DEBT_COMPONENTS FAILED: ST+LT = 0.00 vs TOTAL_DEBT = 10.1M (100.0%). Total debt may include leases/other debt; confirm the definition.
+[DEBT_COMPONENTS] FY 2025 medium :: DEBT_COMPONENTS FAILED: ST+LT = 26.5M vs TOTAL_DEBT = 158.7M (83.3%). Total debt may include leases/other debt; confirm the definition.
+
+===== FWRY acc=0 comp=100 conf=50 review_required =====
+[BALANCE_SHEET_EQUATION] FY 2018 critical :: BALANCE_SHEET_EQUATION FAILED: gap 16.67% (204.8M EGP; materiality threshold 6.1M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilities mapping issue.
+[ASSET_COMPONENTS] FY 2018 critical :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 1.02B vs TOTAL_ASSETS = 1.23B (16.67%) — missing/extra component or mapping gap.
+[GROSS_PROFIT_IDENTITY] FY 2019 critical :: GROSS_PROFIT_IDENTITY FAILED: gap 20.00% (-187.4M EGP; materiality threshold 18.7M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after other operating items.
+[GROSS_PROFIT_IDENTITY] FY 2021 critical :: GROSS_PROFIT_IDENTITY FAILED: gap 9.29% (154.8M EGP; materiality threshold 33.3M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after other operating items.
+[PBT_TAX_NET_PROFIT] FY 2022 critical :: PBT_TAX_NET_PROFIT FAILED: gap 19.57% (-87.0M EGP; materiality threshold 6.7M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 5% are usually minority interest or attributable-vs-total net profit.
+[PBT_TAX_NET_PROFIT] FY 2023 critical :: PBT_TAX_NET_PROFIT FAILED: gap 9.19% (-100.6M EGP; materiality threshold 16.4M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 5% are usually minority interest or attributable-vs-total net profit.
+[PBT_TAX_NET_PROFIT] FY 2025 high :: PBT_TAX_NET_PROFIT FAILED: gap 5.21% (-211.5M EGP; materiality threshold 60.9M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 5% are usually minority interest or attributable-vs-total net profit.
+[PBT_TAX_NET_PROFIT] Q2 2026 high :: PBT_TAX_NET_PROFIT FAILED: gap 5.23% (-64.3M EGP; materiality threshold 18.4M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 5% are usually minority interest or attributable-vs-total net profit.
+
+===== IRON acc=7 comp=75 conf=45 review_required =====
+[GROSS_PROFIT_IDENTITY] FY 2011 critical :: GROSS_PROFIT_IDENTITY FAILED: gap 22.50% (712.5M EGP; materiality threshold 63.3M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after other operating items.
+[BALANCE_SHEET_EQUATION] FY 2013 critical :: BALANCE_SHEET_EQUATION FAILED: gap 7.89% (-273.9M EGP; materiality threshold 17.3M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilities mapping issue.
+[BALANCE_SHEET_EQUATION] FY 2016 high :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (5.62B) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ 760.0M). Re-extract the liabilities line.
+[BALANCE_SHEET_EQUATION] FY 2017 high :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (5.62B) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ 1.19B). Re-extract the liabilities line.
+[BALANCE_SHEET_EQUATION] FY 2018 high :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (6.73B) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ 510.0M). Re-extract the liabilities line.
+[GROSS_PROFIT_IDENTITY] FY 2018 critical :: GROSS_PROFIT_IDENTITY FAILED: gap 79.65% (2.19B EGP; materiality threshold 54.9M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after other operating items.
+[BALANCE_SHEET_EQUATION] FY 2019 high :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (8.20B) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ -950.0M). Re-extract the liabilities line.
+[BALANCE_SHEET_EQUATION] FY 2020 high :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (8.60B) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ -2.94B). Re-extract the liabilities line.
+[CROSS_QUARTER_DUPLICATE] Q3 2021 high :: Q3 2021 repeats 10/10 values of the previous quarter Q4 2021 (±0.05%) — a tab-switch harvest copy; quarantine the later record and re-extract.
+
+===== MHOT acc=34 comp=37 conf=49 review_required =====
+[BALANCE_SHEET_EQUATION] FY 2024 high :: BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (3.27B) but the L/E split leaves a 56.3M gap — an equity or liability line is mis-mapped.
+[BALANCE_SHEET_EQUATION] FY 2025 critical :: BALANCE_SHEET_EQUATION FAILED: gap 2.43% (-113.1M EGP; materiality threshold 23.3M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilities mapping issue.
+[ASSET_COMPONENTS] FY 2025 high :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 4.93B vs TOTAL_ASSETS = 4.65B (5.97%) — missing/extra component or mapping gap.
+[NET_MARGIN_IMPOSSIBLE] FY 2024 critical :: Net margin 101% > 100% (non-financial) — impossible.
+
+===== SPHT acc=3 comp=75 conf=41 review_required =====
+[GROSS_PROFIT_IDENTITY] FY 2021 critical :: GROSS_PROFIT_IDENTITY FAILED: gap 111.29% (2.1M EGP; materiality threshold 38.4K) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after other operating items.
+[GROSS_PROFIT_EXCEEDS_REVENUE] FY 2021 critical :: GROSS_PROFIT exceeds REVENUE — impossible (GP=1.9M > REV=851.2K).
+[GROSS_PROFIT_IDENTITY] FY 2022 critical :: GROSS_PROFIT_IDENTITY FAILED: gap 143.02% (2.7M EGP; materiality threshold 38.2K) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after other operating items.
+[GROSS_PROFIT_EXCEEDS_REVENUE] FY 2022 critical :: GROSS_PROFIT exceeds REVENUE — impossible (GP=1.9M > REV=544.6K).
+[ASSET_COMPONENTS] FY 2022 critical :: ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 387.9M vs TOTAL_ASSETS = 39.2M (889.16%) — missing/extra component or mapping gap.
+[GROSS_MARGIN_IMPOSSIBLE] FY 2021 critical :: Gross margin 225% > 100% — impossible.
+[GROSS_MARGIN_IMPOSSIBLE] FY 2022 critical :: Gross margin 351% > 100% — impossible.

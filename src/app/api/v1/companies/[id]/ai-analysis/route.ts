@@ -1,88 +1,113 @@
-import { createHash } from "node:crypto"
 import { NextRequest } from "next/server"
-import ZAI from "z-ai-web-dev-sdk"
+import { chatComplete, type AiChatResult } from "@/lib/ai/provider"
 import { db } from "@/lib/db"
 import { audit } from "@/lib/audit"
 import { requireAuth, unauthorizedResponse } from "@/lib/access"
 import { isPremiumUser } from "@/lib/subscription"
-import { getClientIp } from "@/lib/rate-limit"
-import { canUseSmartAnalysis, getSmartAnalysisUsage, incrementSmartAnalysisUsage } from "@/lib/smart-analysis-usage"
-import { EVENT_TYPE_MAP } from "@/lib/financial/registry"
-import { reportPeriodKey } from "@/lib/financial/periods"
+import { checkEndpointRateLimit } from "@/lib/rate-limit"
+import { canUseSmartAnalysis, getSmartAnalysisUsage, consumeSmartAnalysisUsage } from "@/lib/smart-analysis-usage"
 import { buildRuleBasedAnalysis } from "@/lib/financial/rule-based-analysis"
-import {
-  TRUSTED_REPORT_STATUSES,
-  fetchCalc,
-  statementPreference,
-} from "@/lib/financial/statement-pref"
+import { RULE_BASED_MODEL, buildAiSnapshotBundle } from "@/lib/ai/analysis-snapshot"
 
-// GET  /api/v1/companies/[id]/ai-analysis — latest cached AI analysis (or null)
-// POST /api/v1/companies/[id]/ai-analysis — generate a grounded analysis
+// GET  /api/v1/companies/[id]/ai-analysis?lang=ar|en — latest cached AI analysis (or null)
+// POST /api/v1/companies/[id]/ai-analysis — generate a grounded expert analysis
 //
 // GROUNDING RULES (the core of this endpoint): the model receives a JSON
 // snapshot built EXCLUSIVELY from verified database data — calculated metrics
-// (single preferred statement basis, never mixed consolidated/standalone), raw
-// normalized values from trusted reports, detected events with their matched
-// conditions, and a data-quality section. Nothing is invented server-side
-// either: the prompt forbids fabrication, missing data must be called out as
-// unavailable. Identical data (same sha256 of the snapshot) is served from the
-// AiAnalysis cache without an LLM call.
+// (single preferred statement basis, never mixed consolidated/standalone), the
+// latest period's raw line-item values from trusted reports, detected events
+// with their matched conditions, deterministic investor signals and research
+// modules derived from the same verified values, and market data. Nothing is
+// invented server-side either: the prompt forbids fabrication, missing data
+// must be called out as unavailable. Identical data (same sha256 of the
+// snapshot) is served from the AiAnalysis cache without an LLM call — unless
+// the cached row is a degraded (rule-based) fallback, in which case the real
+// LLM gets another chance. Pipeline/data-engineering metadata is intentionally
+// kept out of the snapshot so analyses never surface data-quality
+// documentation to users.
 
-const SYSTEM_PROMPT =
-  "You are a professional equity analyst for Egyptian Exchange (EGX) listed companies. " +
-  "You receive a JSON snapshot containing VERIFIED financial data extracted from uploaded " +
-  "official financial statements, calculated ratios, and detected events. STRICT RULES: " +
-  "(1) Use ONLY numbers present in the provided JSON — never invent, estimate, or fabricate any figure. " +
-  "(2) If a metric is missing or marked unavailable, explicitly say it is 'not available' — never treat missing as zero. " +
-  "(3) Always cite the period labels you refer to. " +
-  "(4) Distinguish quarterly vs annual vs TTM periods — never compare incompatible periods. " +
-  "(5) Note the data quality section if validation warnings exist. " +
-  "(6) Output clean markdown with sections: Overview, Revenue, Profitability, " +
-  "Balance Sheet & Leverage, Cash Flow, Risks & Unusual Changes, Summary. " +
-  "(7) Do not give buy/sell investment advice; this is factual financial analysis."
+const SYSTEM_PROMPT = `You are a senior buy-side equity analyst and portfolio manager with 20+ years covering Egyptian Exchange (EGX) and frontier-emerging-market equities. You think like a forensic fundamental investor: unit economics first, cash over accruals, balance-sheet solvency, capital-allocation discipline, valuation versus sector peers, and risk before reward. You are direct, specific, and numerate — an expert reading, not a summary.
 
-const AI_TIMEOUT_MS = 90_000
-const MAX_PROMPT_PERIODS = 8
-const MAX_PROMPT_EVENTS = 8
+You receive a JSON snapshot containing: verified financial data (calculated metrics per period, the latest period's raw line items, detected events), deterministic investor signals and analysis modules computed from the same verified values, company scores with a sector-relative valuation read, and market data (price, trailing dividends).
+
+ANALYST FRAMEWORK — reason through all of it and weave the findings into prose (never dump the checklist):
+1. Quality of earnings: do reported profits convert into operating cash? Margin sustainability, accrual red flags, one-offs. Cross-check cash taxes paid vs booked tax expense and cash interest vs booked interest when present.
+2. Growth & durability: revenue and earnings trajectory across periods, drivers, cyclicality; respect quarterly-vs-annual boundaries.
+3. Balance sheet & liquidity: leverage (D/E, net debt/EBITDA), interest coverage, working-capital behavior, dilution or capital raises.
+4. Capital allocation & shareholder returns: dividends, reinvestment, buybacks.
+5. Valuation: P/E and P/B versus sector medians, what expectations are priced in; say plainly when no price or multiples exist.
+6. Risks first: anomalies, red flags, deteriorating signals, unusual events — quantify them.
+7. For banks: regulatory capital (CET1/Tier1/total vs Basel III floors), non-performing loans versus equity, and the funding model — treat capital adequacy as the primary solvency lens instead of corporate leverage ratios.
+
+STRICT RULES:
+(1) Use ONLY numbers present in the provided JSON — never invent, estimate, or fabricate any figure.
+(2) Metrics marked "unavailable" must be stated as not available — never treat missing as zero.
+(3) Always cite the period label for every figure you use.
+(4) Never compare quarterly with annual periods directly; say when the reading is limited to short periods.
+(5) The provided signals/modules are deterministic readings of the same data — verify them against the raw numbers, and disagree openly when the numbers do not support them.
+(6) Never discuss data pipelines, extraction, validation, data quality or source tracing — analyze the business, not the dataset.
+(7) Close with an overall stance (bullish / cautiously positive / neutral / bearish) with a conviction level and the specific trigger that would change it. This is market commentary, not personalized investment advice — never phrase it as an instruction to buy or sell.
+
+OUTPUT — clean markdown in the requested language, exactly these section headings in order. The heading line must contain ONLY the heading text itself — never append the format notes after the heading; those describe what to write under it:
+## Investment Thesis
+(3-5 sentences with numbers — your core expert view)
+## Key Numbers
+(a proper markdown table — a header row, a pipe-dashes separator row like |---|---|, then one row per line — of the most decision-relevant verified figures: revenue, net profit, margins, net debt, operating cash flow / free cash flow, plus CET1 & NPL for banks; each row carries its period label; omit rows whose data is unavailable rather than padding; NEVER write the table on a single line)
+## Quality of Earnings & Profitability
+## Growth & Momentum
+## Balance Sheet & Cash Flow
+## Valuation
+(versus sector and what is priced in; state clearly when valuation is not available)
+## Bull Case
+(2-4 tight bullets)
+## Bear Case & Red Flags
+(2-4 tight bullets)
+## Catalysts & What to Watch
+## Overall Stance
+(stance + conviction level + the specific invalidation trigger)`
+
+// Vercel serverless function ceiling for this route. The LLM attempt plan
+// (primary → retry → fallback, see src/lib/ai/provider.ts) stays inside
+// AI_TIMEOUT_MS = 100s; the extra headroom covers snapshot building, quota
+// handling and persistence around the LLM call. Ignored outside Vercel.
+export const maxDuration = 120
+
+const AR_INSTRUCTION =
+  "\n\nاكتب التحليل باللغة العربية الفصحى الواضحة (الأرقام والأكواد اللاتينية تبقى كما هي) بهذه العناوين بنفس الترتيب. العنوان يجب أن يكون نص العنوان فقط — بلا أي وصف ملاصق له؛ الوصف بين القوسين يوضح ما يُكتب تحته: " +
+  "## أطروحة الاستثمار\n(٣-٥ جمل بالأرقام، رأيك الخبير الجوهري) " +
+  "## أبرز الأرقام\n(جدول ماركداون مركّز بأهم الأرقام المؤثرة في القرار: الإيرادات، صافي الربح، الهوامش، صافي الدين، التدفق التشغيلي/الحر، وللبنوك CET1 والقروض المتعثرة — مع ذكر فترة كل رقم؛ اترك أي رقم غير متوفر ولا تعبئ بالتقدير) " +
+  "## جودة الأرباح والربحية " +
+  "## النمو والزخم " +
+  "## الميزانية والتدفقات النقدية " +
+  "## التقييم\n(مقابل القطاع وما هو مسعّر في السعر؛ وضّح بصراحة عندما لا يتوفر تقييم) " +
+  "## الحالة الصاعدة (Bull Case)\n(من نقطتين إلى أربع نقاط مركزة) " +
+  "## الحالة الهابطة والمخاطر الحمراء\n(من نقطتين إلى أربع نقاط مركزة) " +
+  "## المحفزات وما يجب مراقبته " +
+  "## الموقف العام\n(الموقف + درجة الثقة + المُحفّز الذي يغيّر الرأي). " +
+  "استخدم أرقام البيانات فقط مع ذكر فترة كل رقم، وحلّل كمحلل محترف خبير لا كسارد أخبار."
+
+const EN_INSTRUCTION =
+  "\n\nWrite the analysis in English with exactly the sections specified in the system prompt. Use only data figures with period labels, and analyze like a seasoned professional investor — not a news summarizer."
+
+const AI_TIMEOUT_MS = 100_000
+// The provider now orchestrates retries + fallback-model internally inside the
+// request budget (primary → primary → AI_MODEL_FALLBACK), so one outer attempt
+// is enough and the worst case can never exceed maxDuration.
+const AI_ATTEMPTS = 1
 const MAX_INPUT_SUMMARY_CHARS = 20_000
 
-/** Round every float in the snapshot to 2 decimals to keep the prompt compact */
-function roundReplacer(_key: string, value: unknown): unknown {
-  if (typeof value === "number" && Number.isFinite(value)) return Math.round(value * 100) / 100
-  return value
-}
+const FREE_SMART_ANALYSIS_LIMIT = 3
 
-function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
-  return new Promise<T>((resolve, reject) => {
-    const timer = setTimeout(() => reject(new Error(`AI request timed out after ${ms}ms`)), ms)
-    promise.then(
-      (v) => {
-        clearTimeout(timer)
-        resolve(v)
-      },
-      (err) => {
-        clearTimeout(timer)
-        reject(err)
-      }
-    )
+async function callLlm(snapshotJson: string, lang: "ar" | "en"): Promise<AiChatResult> {
+  return chatComplete({
+    system: SYSTEM_PROMPT,
+    user: "Company data (JSON):\n" + snapshotJson + (lang === "ar" ? AR_INSTRUCTION : EN_INSTRUCTION),
+    timeoutMs: AI_TIMEOUT_MS,
   })
 }
 
-function safeParseArray(json: string): unknown[] {
-  try {
-    const parsed = JSON.parse(json)
-    return Array.isArray(parsed) ? parsed : []
-  } catch {
-    return []
-  }
-}
-
-function aiFailed(message: string): Response {
-  return Response.json({ error: "AI_FAILED", message }, { status: 502 })
-}
-
 // GET — latest stored analysis for the company (auth + usage-gated)
-export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
+async function getHandler(req: Request, { params }: { params: Promise<{ id: string }> }) {
   const userId = await requireAuth(req as unknown as NextRequest)
   if (!userId) return unauthorizedResponse()
 
@@ -105,10 +130,21 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
   })
   if (!company) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
 
-  const latest = await db.aiAnalysis.findFirst({
+  const latestAll = await db.aiAnalysis.findFirst({
     where: { companyId: company.id },
     orderBy: { createdAt: "desc" },
   })
+  // Prefer an analysis written in the requested language; fall back to the
+  // latest of any language so the tab is never empty when only the other
+  // language has been generated so far (regenerating rewrites it in-language).
+  const langParam = new URL(req.url).searchParams.get("lang")?.toLowerCase() === "ar" ? "ar" : "en"
+  const latest =
+    latestAll && latestAll.lang === langParam
+      ? latestAll
+      : (await db.aiAnalysis.findFirst({
+          where: { companyId: company.id, lang: langParam },
+          orderBy: { createdAt: "desc" },
+        })) ?? latestAll
 
   return Response.json({
     analysis: latest
@@ -118,51 +154,33 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
           periodKey: latest.periodKey,
           dataHash: latest.dataHash,
           model: latest.model,
+          lang: latest.lang,
+          degraded: latest.model === RULE_BASED_MODEL,
         }
       : null,
   })
 }
 
-// In-memory per-IP rate limit for the LLM-spending endpoint. Public by design
-// (spec flow has no admin gate) — this caps abuse of the paid generation path.
-const globalForRate = globalThis as unknown as {
-  __egxAiRate?: Map<string, number[]>
-}
-const rateBucket = (globalForRate.__egxAiRate ??= new Map<string, number[]>())
-const RATE_LIMIT = 10 // generations
-const RATE_WINDOW_MS = 10 * 60 * 1000 // per 10 minutes
-
-// POST — generate (or serve cached) grounded analysis
-export async function POST(req: Request, { params }: { params: Promise<{ id: string }> }) {
+// POST — generate (or serve cached) grounded expert analysis
+async function postHandler(req: Request, { params }: { params: Promise<{ id: string }> }) {
   const userId = await requireAuth(req as unknown as NextRequest)
   if (!userId) return unauthorizedResponse()
 
   const isPremium = await isPremiumUser(userId)
-  const canAccess = await canUseSmartAnalysis(userId, isPremium)
-  if (!canAccess) {
-    const usage = await getSmartAnalysisUsage(userId)
+
+  // Cheap shields first: per-IP burst limit before any DB or LLM work.
+  const burst = await checkEndpointRateLimit("ai-analysis", userId)
+  if (!burst.allowed) {
+    const retryAfter = Math.ceil((burst.resetAt - Date.now()) / 1000)
     return Response.json(
-      { error: "USAGE_LIMIT_EXCEEDED", message: `Free tier limit: ${usage.limit} Smart Analyses per month. ${usage.remaining} remaining. Resets ${usage.resetAt}.`, usage },
-      { status: 429 }
+      { error: "RATE_LIMITED", message: "AI analysis is limited to 10 generations per 10 minutes." },
+      { status: 429, headers: { "Retry-After": String(retryAfter) } }
     )
   }
-
-  await incrementSmartAnalysisUsage(userId)
 
   const { id } = await params
   const raw = decodeURIComponent(id)
   const upper = raw.toUpperCase()
-  const ip = getClientIp(req)
-  const now = Date.now()
-  const hits = (rateBucket.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS)
-  if (hits.length >= RATE_LIMIT) {
-    return Response.json(
-      { error: "RATE_LIMITED", message: `AI analysis is limited to ${RATE_LIMIT} generations per 10 minutes.` },
-      { status: 429, headers: { "Retry-After": String(Math.ceil((RATE_WINDOW_MS - (now - hits[0])) / 1000)) } }
-    )
-  }
-  hits.push(now)
-  rateBucket.set(ip, hits)
 
   const company = await db.company.findFirst({
     where: { OR: [{ id: raw }, { ticker: upper }, { isin: upper }] },
@@ -170,135 +188,14 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
   if (!company) return Response.json({ error: "NOT_FOUND" }, { status: 404 })
 
   const body = (await req.json().catch(() => ({}))) as { lang?: string }
-  const lang = (body.lang ?? new URL(req.url).searchParams.get("lang") ?? "en").toLowerCase()
+  const lang = ((body.lang ?? new URL(req.url).searchParams.get("lang") ?? "en").toLowerCase() === "ar"
+    ? "ar"
+    : "en") as "ar" | "en"
 
-  // ---------- 1. Verified-data snapshot ----------
-  const { pref: calcPref, filtered: calcRows } = await fetchCalc(company.id)
-
-  const trustedReports = await db.financialReport.findMany({
-    where: { companyId: company.id, processingStatus: { in: [...TRUSTED_REPORT_STATUSES] } },
-    select: {
-      id: true,
-      periodType: true,
-      fiscalYear: true,
-      periodLabel: true,
-      statementType: true,
-      processingStatus: true,
-      parserVersion: true,
-      extractionConfidence: true,
-      version: true,
-      isRestatement: true,
-    },
-    orderBy: [{ fiscalYear: "asc" }, { periodLabel: "asc" }],
-  })
-
-  // Per-company statement basis, never mixing consolidated with standalone
-  const basis = calcRows.length ? calcPref : statementPreference(trustedReports)
-  const basisReportIds = trustedReports.filter((r) => r.statementType === basis).map((r) => r.id)
-  const reportKeyById = new Map<string, string>(
-    trustedReports
-      .filter((r) => r.statementType === basis)
-      .map((r) => [r.id, reportPeriodKey(r)] as const)
-  )
-
-  const rawValues = basisReportIds.length
-    ? await db.financialValue.findMany({
-        where: { companyId: company.id, reportId: { in: basisReportIds }, validationStatus: "VALID" },
-        select: { reportId: true, metricCode: true, normalizedValue: true, unit: true },
-      })
-    : []
-
-  // Period buckets: calculated metrics grouped by periodKey (preferred basis only)
-  const periods = new Map<
-    string,
-    {
-      periodKey: string
-      periodLabel: string
-      periodType: string
-      fiscalYear: number
-      calculatedMetrics: Record<string, { value: number | null; status: string; detail?: string }>
-      rawValues: Record<string, { value: number; unit: string }>
-    }
-  >()
-  for (const m of calcRows) {
-    if (!periods.has(m.periodKey)) {
-      periods.set(m.periodKey, {
-        periodKey: m.periodKey,
-        periodLabel: m.periodLabel,
-        periodType: m.periodType,
-        fiscalYear: m.fiscalYear,
-        calculatedMetrics: {},
-        rawValues: {},
-      })
-    }
-    const bucket = periods.get(m.periodKey)!
-    bucket.calculatedMetrics[m.code] =
-      m.valueStatus === "OK" && m.value !== null
-        ? { value: m.value, status: "OK" }
-        : { value: null, status: m.valueStatus, ...(m.statusDetail ? { detail: m.statusDetail } : {}) }
-  }
-
-  // Raw normalized values attached to their report period (grounding data)
-  for (const v of rawValues) {
-    const key = reportKeyById.get(v.reportId)
-    if (!key) continue
-    if (!periods.has(key)) {
-      const report = trustedReports.find((r) => r.id === v.reportId)!
-      periods.set(key, {
-        periodKey: key,
-        periodLabel: report.periodLabel,
-        periodType: report.periodType,
-        fiscalYear: report.fiscalYear,
-        calculatedMetrics: {},
-        rawValues: {},
-      })
-    }
-    const bucket = periods.get(key)!
-    bucket.rawValues[v.metricCode] = { value: v.normalizedValue, unit: v.unit }
-  }
-
-  // Latest 8 period buckets, most recent first (sort by fiscalYear/period)
-  const orderedPeriods = [...periods.values()].sort(
-    (a, b) => a.fiscalYear - b.fiscalYear || a.periodKey.localeCompare(b.periodKey)
-  )
-  const promptPeriods = orderedPeriods.slice(-MAX_PROMPT_PERIODS).reverse()
-
-  // Anchor period: latest annual period key (or null) — orderedPeriods is ascending
-  const annualPeriods = orderedPeriods.filter((p) => p.periodType === "ANNUAL")
-  const latestAnnualKey = annualPeriods.length ? annualPeriods[annualPeriods.length - 1].periodKey : null
-
-  // Recent detected events (max 8)
-  const events = await db.financialEvent.findMany({
-    where: { companyId: company.id },
-    orderBy: [{ fiscalYear: "desc" }, { periodLabel: "desc" }],
-    take: MAX_PROMPT_EVENTS,
-  })
-
-  // Data-quality section for the underlying reports
-  const validationRows = basisReportIds.length
-    ? await db.financialValidationResult.findMany({
-        where: { reportId: { in: basisReportIds } },
-        select: { status: true },
-      })
-    : []
-  const validationChecks = {
-    failed: validationRows.filter((v) => v.status === "FAILED").length,
-    warning: validationRows.filter((v) => v.status === "WARNING").length,
-  }
-  const manuallyCorrectedValues = basisReportIds.length
-    ? await db.financialValue.count({ where: { reportId: { in: basisReportIds }, isManuallyCorrected: true } })
-    : 0
-  const statusCounts: Record<string, number> = {}
-  for (const r of trustedReports.filter((rep) => rep.statementType === basis)) {
-    statusCounts[r.processingStatus] = (statusCounts[r.processingStatus] ?? 0) + 1
-  }
-  const confidences = trustedReports
-    .filter((rep) => rep.statementType === basis && rep.extractionConfidence !== null)
-    .map((rep) => rep.extractionConfidence as number)
-
-  // ---------- 2. No verified data at all → explicit error, never a fabricated analysis ----------
-  const hasData = calcRows.length > 0 || rawValues.length > 0
-  if (!hasData) {
+  // ---------- 1. Verified-data snapshot (metrics + raw line items + events +
+  // scores + investor signals + research modules + market data) ----------
+  const bundle = await buildAiSnapshotBundle(company)
+  if (!bundle.hasData) {
     return Response.json(
       {
         error: "NO_DATA",
@@ -308,47 +205,16 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     )
   }
 
-  const snapshot = {
-    company: {
-      ticker: company.ticker,
-      name: company.nameEn,
-      nameAr: company.nameAr,
-      sector: company.sector,
-      industry: company.industry,
-    },
-    statementBasis: basis,
-    valueNotes:
-      "rawValues are normalized values from trusted reports: plain EGP for monetary metrics, EGP per share for per-share metrics, unscaled counts for share counts.",
-    periods: promptPeriods,
-    events: events.map((e) => ({
-      eventType: e.eventType,
-      label: EVENT_TYPE_MAP[e.eventType]?.labelEn ?? e.eventType,
-      periodLabel: e.periodLabel,
-      periodType: e.periodType,
-      explanation: e.explanationEn,
-      conditions: safeParseArray(e.conditions),
-    })),
-    dataQuality: {
-      reportsConsidered: basisReportIds.length,
-      reportStatuses: statusCounts,
-      validationChecks,
-      manuallyCorrectedValues,
-      avgExtractionConfidence: confidences.length
-        ? confidences.reduce((a, b) => a + b, 0) / confidences.length
-        : null,
-      parserVersions: [...new Set(trustedReports.filter((r) => r.statementType === basis && r.parserVersion).map((r) => r.parserVersion as string))],
-    },
-  }
-
-  const snapshotJson = JSON.stringify(snapshot, roundReplacer)
-  const dataHash = createHash("sha256").update(snapshotJson).digest("hex")
-
-  // ---------- 3. Cache: identical data → identical analysis, no LLM call ----------
+  // ---------- 2. Cache: identical data + identical language → identical
+  // analysis, no LLM call. Degraded (rule-based) rows never satisfy the cache
+  // — the real LLM gets another chance as soon as a generation is requested.
+  // Language is part of the cache key: the same dataset analyzed in the other
+  // language is a separate generation, so users always read their own language. ----------
   const cached = await db.aiAnalysis.findFirst({
-    where: { companyId: company.id, dataHash },
+    where: { companyId: company.id, dataHash: bundle.dataHash, lang },
     orderBy: { createdAt: "desc" },
   })
-  if (cached) {
+  if (cached && cached.model !== RULE_BASED_MODEL) {
     return Response.json({
       analysis: {
         content: cached.content,
@@ -356,61 +222,94 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
         periodKey: cached.periodKey,
         dataHash: cached.dataHash,
         model: cached.model,
+        lang: cached.lang,
+        degraded: false,
       },
       cached: true,
     })
   }
 
-  // ---------- 4. LLM call (backend only) — falls back to the deterministic
-  // rule-based analysis when no LLM is configured/reachable, so the investor
-  // always gets a grounded reading instead of an error ----------
+  // ---------- 3. Monthly quota (free tier) — consumed atomically and only
+  // when a generation is actually about to happen. Cache hits, 404s, NO_DATA
+  // and rate-limited requests never burn quota; the conditional updateMany
+  // closes the N-parallel-requests quota-bypass race. ----------
+  if (!isPremium) {
+    const consumed = await consumeSmartAnalysisUsage(userId, FREE_SMART_ANALYSIS_LIMIT)
+    if (!consumed) {
+      const usage = await getSmartAnalysisUsage(userId)
+      return Response.json(
+        { error: "USAGE_LIMIT_EXCEEDED", message: `Free tier limit: ${usage.limit} Smart Analyses per month. ${usage.remaining} remaining. Resets ${usage.resetAt}.`, usage },
+        { status: 429 }
+      )
+    }
+  }
+
+  // ---------- 4. LLM call (backend only). The provider runs its bounded
+  // attempt plan (primary → primary → fallback) internally; only when every
+  // attempt fails does the deterministic rule-based analysis serve as a
+  // clearly-labeled degraded fallback. ----------
   let content: string | undefined
-  let model = "glm"
-  try {
-    const zai = await ZAI.create()
-    const completion = await withTimeout(
-      zai.chat.completions.create({
-        messages: [
-          { role: "assistant", content: SYSTEM_PROMPT },
-          {
-            role: "user",
-            content:
-              "Company data (JSON):\n" +
-              snapshotJson +
-              (lang === "ar" ? "\n\nاكتب أطروحة استثمار باللغة العربية بهذا الهيكل بالعناوين: ## أطروحة استثمار (٣ جمل تلخص الوضع) ## نقاط القوة ## نقاط الضعف ## الفرص ## المخاطر ## الاتجاه العام (إيجابي بحذر / محايد / سلبي — بدون توصية شراء أو بيع مباشرة). استخدم أرقام البيانات فقط مع ذكر فترة كل رقم." : "\n\nWrite an investment thesis in English with headings: ## Investment Thesis (3 sentences) ## Strengths ## Weaknesses ## Opportunities ## Risks ## Overall Stance (cautiously positive / neutral / negative — no direct buy/sell recommendation). Use only data figures with period labels."),
-          },
-        ],
-        thinking: { type: "disabled" },
-      }),
-      AI_TIMEOUT_MS
-    )
-    content = completion?.choices?.[0]?.message?.content
-  } catch (e) {
-    const message = e instanceof Error ? e.message : String(e)
-    content = buildRuleBasedAnalysis(snapshot, lang === "ar" ? "ar" : "en")
-    model = "rule-based@1"
+  let model = RULE_BASED_MODEL // replaced by the actual model on success
+  let lastError = ""
+  for (let attempt = 1; attempt <= AI_ATTEMPTS; attempt++) {
+    try {
+      const result = await callLlm(bundle.snapshotJson, lang)
+      if (result.content.trim()) {
+        content = result.content
+        model = result.model
+        break
+      }
+      lastError = `empty response (attempt ${attempt})`
+    } catch (e) {
+      lastError = e instanceof Error ? e.message : String(e)
+    }
+  }
+
+  if (!content) {
+    // A previous degraded row for the same dataHash means the LLM was already
+    // down for this exact dataset — refresh its timestamp instead of piling up
+    // identical fallback rows.
+    if (cached && cached.model === RULE_BASED_MODEL) {
+      await db.aiAnalysis.update({ where: { id: cached.id }, data: { createdAt: new Date() } })
+      await audit("AI_ANALYSIS", {
+        actor: "system",
+        entityType: "Company",
+        entityId: company.id,
+        details: `LLM unavailable (${lastError.slice(0, 400)}) — re-served cached rule-based analysis`,
+      })
+      return Response.json({
+        analysis: {
+          content: cached.content,
+          createdAt: cached.createdAt,
+          periodKey: cached.periodKey,
+          dataHash: cached.dataHash,
+          model: cached.model,
+          degraded: true,
+        },
+        cached: true,
+        degraded: true,
+      })
+    }
+    content = buildRuleBasedAnalysis(JSON.parse(bundle.snapshotJson), lang)
+    model = RULE_BASED_MODEL
     await audit("AI_ANALYSIS", {
       actor: "system",
       entityType: "Company",
       entityId: company.id,
-      details: `LLM unavailable (${message.slice(0, 120)}) — served rule-based analysis`,
+      details: `LLM unavailable (${lastError.slice(0, 400)}) — served rule-based analysis`,
     })
-  }
-
-  if (!content || !content.trim()) {
-    content = buildRuleBasedAnalysis(snapshot, lang === "ar" ? "ar" : "en")
-    model = "rule-based@1"
   }
 
   // ---------- 5. Persist (inputSummary truncated for storage sanity) ----------
   const saved = await db.aiAnalysis.create({
     data: {
       companyId: company.id,
-      periodKey: latestAnnualKey,
+      periodKey: bundle.latestAnnualKey,
       content,
-      dataHash,
-      inputSummary: snapshotJson.slice(0, MAX_INPUT_SUMMARY_CHARS),
+      dataHash: bundle.dataHash,
+      inputSummary: bundle.snapshotJson.slice(0, MAX_INPUT_SUMMARY_CHARS),
       model,
+      lang,
     },
   })
 
@@ -418,7 +317,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     actor: "system",
     entityType: "Company",
     entityId: company.id,
-    details: `Grounded AI analysis generated (${basis} basis, snapshot ${dataHash.slice(0, 12)}…, ${promptPeriods.length} periods, ${events.length} events)`,
+    details: `Grounded expert AI analysis generated (${bundle.statementBasis} basis, snapshot ${bundle.dataHash.slice(0, 12)}…, ${bundle.promptPeriodCount} periods, ${bundle.eventCount} events, model ${model})`,
   })
 
   return Response.json({
@@ -428,7 +327,59 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
       periodKey: saved.periodKey,
       dataHash: saved.dataHash,
       model: saved.model,
+      lang: saved.lang,
+      degraded: saved.model === RULE_BASED_MODEL,
     },
     cached: false,
+    degraded: saved.model === RULE_BASED_MODEL,
   })
+}
+
+// ---------- Hardened public wrappers ----------
+// Any uncaught failure above (auth DB hiccups, snapshot queries hitting a
+// Turso "Resource exhausted: mem_hrana_response" spike, persistence errors)
+// must surface as a JSON error the frontend can render — never as the default
+// HTML 500 page (production incident 2026-11-06: exactly that, from an
+// uncaught Turso memory-exhaustion throw inside snapshot building).
+
+export async function GET(req: Request, ctx: { params: Promise<{ id: string }> }) {
+  try {
+    return await getHandler(req, ctx)
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : String(e)
+    console.error("ai-analysis GET error:", msg.slice(0, 200))
+    return Response.json(
+      {
+        error: "AI_ANALYSIS_TEMPORARILY_UNAVAILABLE",
+        message: "Temporary database hiccup — please try again shortly. | خلل مؤقت في قاعدة البيانات — حاول بعد قليل.",
+      },
+      { status: 503 }
+    )
+  }
+}
+
+export async function POST(req: Request, ctx: { params: Promise<{ id: string }> }) {
+  try {
+    return await postHandler(req, ctx)
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : String(e)
+    console.error("ai-analysis POST error:", msg.slice(0, 200))
+    try {
+      await audit("AI_ANALYSIS", {
+        actor: "system",
+        entityType: "Company",
+        entityId: "unknown",
+        details: `Generation crashed before completion: ${msg.slice(0, 200)}`,
+      })
+    } catch {
+      // auditing must never mask the original failure
+    }
+    return Response.json(
+      {
+        error: "AI_ANALYSIS_TEMPORARILY_UNAVAILABLE",
+        message: "Temporary database hiccup — حاول بعد قليل. | Temporary database hiccup — please try again shortly.",
+      },
+      { status: 503 }
+    )
+  }
 }

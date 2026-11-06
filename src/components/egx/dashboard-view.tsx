@@ -131,14 +131,6 @@ export function DashboardView({
     refetchInterval: 60_000,
   })
 
-  // Sector cards show the day's equal-weighted price move, not average ROE.
-  // The two are different facts; labelling ROE as "performance" made a
-  // profitability ratio look like a price return.
-  const topSectors = [...(sectorAggs?.sectors ?? [])]
-    .filter((s) => s.dayChangePct !== null)
-    .sort((a, b) => (b.dayChangePct ?? -Infinity) - (a.dayChangePct ?? -Infinity))
-    .slice(0, 4)
-
   if (isLoading) {
     return (
       <div className="space-y-6">
@@ -172,83 +164,71 @@ export function DashboardView({
 
   return (
       <div className="space-y-8">
-      {/* ===== HERO BANNER ===== */}
-      <section
-        className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/15 via-primary/5 to-transparent p-8 sm:p-10 min-h-[280px] flex items-center"
-      >
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/40 to-background/80" />
-          <div className="absolute inset-0 [background-image:radial-gradient(circle_at_30%_20%,rgba(163,230,53,0.15)_0%,transparent_50%),radial-gradient(circle_at_70%_80%,rgba(163,230,53,0.1)_0%,transparent_50%)]" />
-          <div className="absolute inset-0 [background-image:linear-gradient(to_right,rgba(163,230,53,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(163,230,53,0.08)_1px,transparent_1px)] [background-size:60px_60px] opacity-20" />
-        </div>
-        <div className="absolute z-0 -top-20 -right-20 w-80 h-80 rounded-full bg-primary/10 blur-[100px]" />
-        <div className="absolute z-0 -bottom-32 -left-32 w-96 h-96 rounded-full bg-emerald-500/10 blur-[120px]" />
-
-        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8 w-full">
-          <div className="flex-1 lg:max-w-[60%]">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+      {/* ===== MARKET HEADER — investor-first, data not marketing ===== */}
+      <section className="rounded-2xl border border-border/60 bg-card p-5 sm:p-6">
+        <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+          <div className="min-w-0">
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/10 px-2.5 py-0.5 text-[11px] font-medium text-primary">
                 <span className="flex h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-                {ar ? "بيانات محدثة مباشرة" : "Live Market Data"}
+                {ar ? "بيانات السوق" : "Market data"}
               </span>
+              {breadth?.asOf ? (
+                <span className="text-[11px] text-muted-foreground" dir="ltr">
+                  {new Date(breadth.asOf).toLocaleString(ar ? "ar-EG" : "en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}
+                </span>
+              ) : null}
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-balance text-foreground mb-4 leading-tight">
-              {ar ? "مستقبل الاستثمار" : "The Future of"}
-              <br />
-              <span className="gradient-text">{ar ? "الذكي يبدأ هنا" : "Smart Investing"}</span>
+            <h1 className="mt-2 text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+              {ar ? "لوحة السوق — البورصة المصرية" : "Market overview — Egyptian Exchange"}
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-[48rem] leading-relaxed mb-8">
-              {ar ? "أقوى أدوات تحليل السوق المصري مع بيانات دقيقة ورؤى ذكية لاتخاذ قرارات استثمارية أفضل" : "Powerful Egyptian market analysis tools with accurate data and smart insights for better investment decisions"}
+            <p className="mt-1 text-sm text-muted-foreground">
+              {ar
+                ? "كل رقم من إفصاحات موثقة — اكتشف الفرص بالماسحات أو تابع القطاعات والقيم."
+                : "Every figure from verified filings — screen opportunities, follow sectors and valuations."}
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Button onClick={() => onViewChange("scanners")} size="lg" className="gap-2 shadow-lg shadow-primary/30">
-                <ScanSearch className="h-5 w-5" />
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Button onClick={() => onViewChange("scanners")} size="sm" className="gap-2">
+                <ScanSearch className="h-4 w-4" />
                 {t("nav.scanners")}
               </Button>
-              <Button variant="outline" size="lg" onClick={() => onViewChange("custom")} className="gap-2">
-                <Sparkles className="h-5 w-5" />
+              <Button variant="outline" size="sm" onClick={() => onViewChange("custom")} className="gap-2">
+                <Sparkles className="h-4 w-4" />
                 {t("nav.customScanner")}
               </Button>
             </div>
           </div>
 
-          <div className="relative z-10 hidden lg:block lg:w-[38%]">
-            <div className="rounded-2xl border border-border/60 bg-card/80 backdrop-blur-xl p-6 shadow-xl shadow-black/[0.02] dark:shadow-black/[0.3]">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <TrendingUp className="h-4 w-4" />
-                </div>
-                <h2 className="text-lg font-semibold text-foreground">{ar ? "أداء القطاعات (يوم)" : "Top Sectors (1D)"}</h2>
-              </div>
-              <div className="grid gap-3">
-                {topSectors.length ? (
-                  topSectors.map((s, i) => (
-                    <div key={s.sector} className="flex items-center gap-3 p-3 rounded-xl hover:bg-muted/50 transition-colors cursor-pointer">
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary text-xs font-bold">
-                        {i + 1}
-                      </span>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium truncate">{sectorLabel(s.sector, lang)}</p>
-                        <p className="text-xs text-muted-foreground">{s.companyCount} {ar ? "شركات" : "companies"}</p>
-                      </div>
-                      <span className={`text-sm font-bold tabular ${(s.dayChangePct ?? 0) >= 0 ? "text-positive" : "text-negative"}`}>
-                        {(s.dayChangePct ?? 0) >= 0 ? "+" : ""}{(s.dayChangePct ?? 0).toFixed(1)}%
-                      </span>
-                    </div>
-                  ))
-                ) : sectorAggs ? (
-                  <div className="text-center text-sm text-muted-foreground py-4">
-                    {ar ? "لا توجد أسعار قطاعية متاحة" : "No sector price data available"}
-                  </div>
-                ) : (
-                  <div className="text-center text-sm text-muted-foreground py-4">
-                    {ar ? "جاري التحميل..." : "Loading..."}
-                  </div>
-                )}
-              </div>
-              <p className="mt-3 text-[10px] text-muted-foreground">
-                {ar ? "تغير السعر المرجّح بالتساوي · متأخر 15 دقيقة" : "Equal-weighted price change · 15-min delayed"}
+          <div className="grid shrink-0 grid-cols-2 gap-2.5 sm:grid-cols-4 lg:w-auto">
+            {/* Breadth: advancing / declining today */}
+            <div className="rounded-xl border border-border/60 bg-background/60 px-3.5 py-3 min-w-[104px]">
+              <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{ar ? "الاتساع السوقي" : "Breadth"}</p>
+              <p className="mt-1 flex items-baseline gap-2 text-lg font-bold tabular" dir="ltr">
+                <span className="text-positive">{breadth?.advancing ?? "—"}</span>
+                <span className="text-[10px] text-muted-foreground">/</span>
+                <span className="text-negative">{breadth?.declining ?? "—"}</span>
               </p>
+              <p className="text-[10px] text-muted-foreground">{ar ? "صاعد / هابط" : "adv / dec"}</p>
+            </div>
+            {/* Traded value today */}
+            <div className="rounded-xl border border-border/60 bg-background/60 px-3.5 py-3 min-w-[104px]">
+              <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{ar ? "القيمة المتداولة" : "Traded value"}</p>
+              <p className="mt-1 text-lg font-bold tabular" dir="ltr">
+                {breadth?.tradedValue != null ? formatEgp(breadth.tradedValue) : "—"}
+              </p>
+              <p className="text-[10px] text-muted-foreground">EGP</p>
+            </div>
+            {/* Companies tracked */}
+            <div className="rounded-xl border border-border/60 bg-background/60 px-3.5 py-3 min-w-[104px]">
+              <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{t("dash.companiesTracked")}</p>
+              <p className="mt-1 text-lg font-bold tabular">{data.stats.companies.toLocaleString()}</p>
+              <p className="text-[10px] text-muted-foreground">{ar ? "شركة مدرجة" : "listed"}</p>
+            </div>
+            {/* Financial data points (from published statements) */}
+            <div className="rounded-xl border border-border/60 bg-background/60 px-3.5 py-3 min-w-[104px]">
+              <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{t("dash.validatedValues")}</p>
+              <p className="mt-1 text-lg font-bold tabular">{data.stats.validValues.toLocaleString()}</p>
+              <p className="text-[10px] text-muted-foreground">{ar ? "من القوائم المنشورة" : "from published filings"}</p>
             </div>
           </div>
         </div>
@@ -318,7 +298,7 @@ export function DashboardView({
           </div>
           <div className="flex w-full flex-1 justify-end sm:justify-start gap-2 sm:ml-auto">
             {[
-              { label: ar ? "الشركات" : "Companies", href: "/rankings", icon: <Building2 className="h-4 w-4" /> },
+              { label: ar ? "الشركات" : "Companies", href: "/companies", icon: <Building2 className="h-4 w-4" /> },
               { label: ar ? "القطاعات" : "Sectors", href: "/sectors", icon: <ScanSearch className="h-4 w-4" /> },
               { label: ar ? "ماسح مخصص" : "Custom Scanner", href: "/dashboard#/custom", icon: <Scale className="h-4 w-4" /> },
               { label: ar ? "مقارنة" : "Compare", href: "/compare", icon: <Sparkles className="h-4 w-4" /> },
@@ -433,7 +413,7 @@ function SectorPerformancePanel({
                       {change !== null ? (
                         <>
                           {positive ? <TrendingUp className="h-3.5 w-3.5" /> : <TrendingDown className="h-3.5 w-3.5" />}
-                          {change >= 0 ? "+" : ""}{change.toFixed(1)}%
+                          <span dir="ltr">{change >= 0 ? "+" : ""}{change.toFixed(1)}%</span>
                         </>
                       ) : "—"}
                     </span>
@@ -572,7 +552,7 @@ function Egx30ChartPanel({
                     {egx30 ? fmt(egx30.level) : "—"}
                   </span>
                   <span className={`text-sm font-bold tabular ${positive ? "text-positive" : "text-negative"}`}>
-                    {egx30 ? `${positive ? "+" : ""}${egx30.changePct.toFixed(2)}%` : "—"}
+                    {egx30 ? <span dir="ltr">{`${positive ? "+" : ""}${egx30.changePct.toFixed(2)}%`}</span> : "—"}
                   </span>
                 </div>
 
@@ -584,7 +564,7 @@ function Egx30ChartPanel({
                         <p className="truncate text-[10px] font-medium text-muted-foreground">{index.name}</p>
                         <p className="text-xs font-bold tabular text-foreground">{fmt(index.level)}</p>
                         <p className={`text-[10px] font-semibold tabular ${up ? "text-positive" : "text-negative"}`}>
-                          {up ? "+" : ""}{index.changePct.toFixed(2)}%
+                          <span dir="ltr">{up ? "+" : ""}{index.changePct.toFixed(2)}%</span>
                         </p>
                       </div>
                     )
@@ -722,7 +702,7 @@ function WatchlistPanel({
                   >
                     <span className="text-sm font-bold">{w.ticker}</span>
                     <span className={`text-xs font-bold tabular ${positive ? "text-positive" : "text-negative"}`}>
-                      {change >= 0 ? "+" : ""}{change.toFixed(2)}%
+                      <span dir="ltr">{change >= 0 ? "+" : ""}{change.toFixed(2)}%</span>
                     </span>
                   </button>
                 )
@@ -785,7 +765,7 @@ function OpportunitiesPanel({
                       >
                         <span className="font-bold">{r.ticker}</span>
                         {r.discountPct !== null && (
-                          <span className="text-positive">{r.discountPct >= 0 ? "+" : ""}{r.discountPct.toFixed(1)}%</span>
+                          <span className="text-positive" dir="ltr">{r.discountPct >= 0 ? "+" : ""}{r.discountPct.toFixed(1)}%</span>
                         )}
                       </button>
                     ))}

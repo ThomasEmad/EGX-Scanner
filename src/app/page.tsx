@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     absolute: "EGX Financial Scanner — Egyptian Exchange Financial Data & Rankings",
   },
   description:
-    "Independent, audited financial data for Egyptian Exchange companies: statements, ratios, sector rankings and data-quality indicators in Arabic and English.",
+    "Independent financial data for Egyptian Exchange companies: statements, ratios, sector rankings and valuations in Arabic and English.",
   keywords: ["EGX", "financial scanner", "Egyptian Exchange", "financial analysis", "pattern detection", "البورصة المصرية", "شركات البورصة", "التحليل المالي"],
     alternates: {
       canonical: "/",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "EGX Financial Scanner — Egyptian Exchange Financial Data & Rankings",
     description:
-      "Independent, audited financial data for Egyptian Exchange companies: statements, ratios, sector rankings and data-quality indicators.",
+      "Independent financial data for Egyptian Exchange companies: statements, ratios, sector rankings and valuations.",
     type: "website",
     locale: "en_US",
     alternateLocale: "ar_EG",

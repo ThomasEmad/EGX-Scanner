@@ -1,0 +1,238 @@
+// Event Engine — detects financial events/patterns from ACTUAL stored values.
+// Explanations are generated from stored values and rules — never invented by AI.
+// Rule version is stored with every event so calculations remain auditable.
+// Condition details are bilingual (detailEn + detailAr) — spec #51 (Arabic-friendly).
+
+import { formatEgp, formatPercent } from "./units"
+import type { MetricResult } from "./calc"
+
+export const EVENTS_RULE_VERSION = "events@3"
+
+export interface PeriodData {
+  periodKey: string
+  periodType: string
+  fiscalYear: number
+  periodLabel: string
+  /** normalized raw values (plain EGP) present for this period, keyed by canonical metric code */
+  values: Record<string, number>
+  /** calculated metrics for this period (computed vs its comparable previous) */
+  metrics: Record<string, MetricResult>
+  sharesOutstanding?: number
+}
+
+export interface EventConditionDetail {
+  metric: string
+  current?: number
+  previous?: number
+  detail: string
+  detailAr: string
+  ok: boolean
+}
+
+export interface DetectedEvent {
+  eventType: string
+  periodKey: string
+  previousPeriodKey: string
+  periodType: string
+  fiscalYear: number
+  periodLabel: string
+  conditions: EventConditionDetail[]
+  explanationEn: string
+  explanationAr: string
+}
+
+interface PeriodPair {
+  cur: PeriodData
+  prev: PeriodData
+}
+
+const cond = (metric: string, cur: number | undefined, prev: number | undefined, detail: string, detailAr: string, ok: boolean): EventConditionDetail => ({
+  metric,
+  current: cur,
+  previous: prev,
+  detail,
+  detailAr,
+  ok,
+})
+
+/** YoY % change on raw values ((cur - prev) / |prev| x 100). Growth calculated
+ * metrics were removed from the product, so event thresholds compute their own. */
+function pctChange(current: number | undefined, previous: number | undefined): number | null {
+  if (current === undefined || previous === undefined || previous === 0) return null
+  return ((current - previous) / Math.abs(previous)) * 100
+}
+
+/** Detect all events for an ordered list of periods (per company). */
+export function detectEvents(periods: PeriodData[]): DetectedEvent[] {
+  const events: DetectedEvent[] = []
+  const sorted = [...periods].sort((a, b) => a.periodKey.localeCompare(b.periodKey))
+  const byKey = new Map(sorted.map((p) => [p.periodKey, p]))
+
+  for (const cur of sorted) {
+    const prevKey = previousKeyOf(cur)
+    if (!prevKey) continue
+    const prev = byKey.get(prevKey)
+    if (!prev) continue
+
+    const pair: PeriodPair = { cur, prev }
+
+    // ---- LOSS_TO_PROFIT / PROFIT_TO_LOSS ----
+    const curNp = valueOf(cur, "NET_PROFIT")
+    const prevNp = valueOf(prev, "NET_PROFIT")
+    if (curNp !== undefined && prevNp !== undefined) {
+      if (prevNp < 0 && curNp > 0) {
+        events.push({
+          eventType: "LOSS_TO_PROFIT",
+          ...base(pair),
+          conditions: [cond("NET_PROFIT", curNp, prevNp, `Net profit moved from ${formatEgp(prevNp)} to ${formatEgp(curNp)}`, `تحول صافي الربح من ${formatEgp(prevNp)} إلى ${formatEgp(curNp)}`, true)],
+          explanationEn: `Turnaround: net profit moved from a loss of ${formatEgp(Math.abs(prevNp))} in ${prev.periodLabel} to a profit of ${formatEgp(curNp)} in ${cur.periodLabel}.`,
+          explanationAr: `تحول مالي: تحول صافي الربح من خسارة قدرها ${formatEgp(Math.abs(prevNp))} في ${prev.periodLabel} إلى ربح قدره ${formatEgp(curNp)} في ${cur.periodLabel}.`,
+        })
+      }
+      if (prevNp > 0 && curNp < 0) {
+        events.push({
+          eventType: "PROFIT_TO_LOSS",
+          ...base(pair),
+          conditions: [cond("NET_PROFIT", curNp, prevNp, `Net profit moved from ${formatEgp(prevNp)} to ${formatEgp(curNp)}`, `تحول صافي الربح من ${formatEgp(prevNp)} إلى ${formatEgp(curNp)}`, true)],
+          explanationEn: `Deterioration: net profit moved from a profit of ${formatEgp(prevNp)} in ${prev.periodLabel} to a loss of ${formatEgp(Math.abs(curNp))} in ${cur.periodLabel}.`,
+          explanationAr: `تدهور مالي: تحول صافي الربح من ربح قدره ${formatEgp(prevNp)} في ${prev.periodLabel} إلى خسارة قدرها ${formatEgp(Math.abs(curNp))} في ${cur.periodLabel}.`,
+        })
+      }
+    }
+
+    // ---- DEBT_REDUCTION (<= -5%) ----
+    const curD = valueOf(cur, "TOTAL_DEBT")
+    const prevD = valueOf(prev, "TOTAL_DEBT")
+    const debtPct = pctChange(curD, prevD)
+    if (debtPct !== null && debtPct <= -5) {
+      events.push({
+        eventType: "DEBT_REDUCTION",
+        ...base(pair),
+        conditions: [cond("TOTAL_DEBT", curD, prevD, `Total debt moved from ${formatEgp(prevD!)} to ${formatEgp(curD!)} — ${formatPercent(debtPct, { sign: true })} (threshold ≤ -5%)`, `انتقل إجمالي الدين من ${formatEgp(prevD!)} إلى ${formatEgp(curD!)} — ${formatPercent(debtPct, { sign: true })} (الحد الأقصى -5%)`, true)],
+        explanationEn: `Total debt decreased by ${formatPercent(Math.abs(debtPct))} (${formatEgp(prevD!)} in ${prev.periodLabel} → ${formatEgp(curD!)} in ${cur.periodLabel}).`,
+        explanationAr: `انخفض إجمالي الدين بنسبة ${formatPercent(Math.abs(debtPct))} (${formatEgp(prevD!)} في ${prev.periodLabel} → ${formatEgp(curD!)} في ${cur.periodLabel}).`,
+      })
+    }
+
+    // ---- CASH_FLOW_IMPROVEMENT ----
+    const curOcf = valueOf(cur, "OPERATING_CASH_FLOW")
+    const prevOcf = valueOf(prev, "OPERATING_CASH_FLOW")
+    if (curOcf !== undefined && prevOcf !== undefined) {
+      const turnedPositive = prevOcf <= 0 && curOcf > 0
+      const improved = prevOcf > 0 && curOcf > prevOcf
+      if (turnedPositive || improved) {
+        const detail = turnedPositive
+          ? `Operating cash flow turned positive: ${formatEgp(prevOcf)} → ${formatEgp(curOcf)}`
+          : `Operating cash flow improved: ${formatEgp(prevOcf)} → ${formatEgp(curOcf)} (${formatPercent(((curOcf - prevOcf) / prevOcf) * 100, { sign: true })})`
+        const detailAr = turnedPositive
+          ? `تحول التدفق النقدي التشغيلي إلى الإيجابية: ${formatEgp(prevOcf)} → ${formatEgp(curOcf)}`
+          : `تحسن التدفق النقدي التشغيلي: ${formatEgp(prevOcf)} → ${formatEgp(curOcf)}`
+        events.push({
+          eventType: "CASH_FLOW_IMPROVEMENT",
+          ...base(pair),
+          conditions: [cond("OPERATING_CASH_FLOW", curOcf, prevOcf, detail, detailAr, true)],
+          explanationEn: `${detail} between ${prev.periodLabel} and ${cur.periodLabel}.`,
+          explanationAr: `${detailAr} بين ${prev.periodLabel} و ${cur.periodLabel}.`,
+        })
+      }
+    }
+
+    // ---- STRONG_PROFITABILITY (ROE >= 15%) ----
+    const roeMetric = cur.metrics["roe"]
+    if (roeMetric?.status === "OK" && roeMetric.value !== undefined && roeMetric.value >= 15) {
+      events.push({
+        eventType: "STRONG_PROFITABILITY",
+        ...base(pair),
+        conditions: [cond("roe", roeMetric.value, undefined, `ROE = ${formatPercent(roeMetric.value)} (threshold ≥ 15%)`, `العائد على حقوق الملكية = ${formatPercent(roeMetric.value)} (الحد الأدنى 15%)`, true)],
+        explanationEn: `Return on equity is ${formatPercent(roeMetric.value)} in ${cur.periodLabel} (threshold ≥ 15%).`,
+        explanationAr: `العائد على حقوق الملكية ${formatPercent(roeMetric.value)} في ${cur.periodLabel} (الحد الأدنى 15%).`,
+      })
+    }
+
+    // ---- HIGH_ASSETS (>= EGP 10B) ----
+    const ta = valueOf(cur, "TOTAL_ASSETS")
+    if (ta !== undefined && ta >= 10e9) {
+      events.push({
+        eventType: "HIGH_ASSETS",
+        ...base(pair),
+        conditions: [cond("TOTAL_ASSETS", ta, undefined, `Total assets = ${formatEgp(ta)} (threshold ≥ EGP 10B)`, `إجمالي الأصول = ${formatEgp(ta)} (الحد الأدنى 10 مليار جنيه)`, true)],
+        explanationEn: `Total assets are ${formatEgp(ta)} in ${cur.periodLabel} (threshold ≥ EGP 10B).`,
+        explanationAr: `إجمالي الأصول ${formatEgp(ta)} في ${cur.periodLabel} (الحد الأدنى 10 مليار جنيه).`,
+      })
+    }
+
+    // ---- FINANCIAL_RECOVERY (multi-condition pattern) ----
+    const hasTurnaround = events.some((e) => e.eventType === "LOSS_TO_PROFIT" && e.periodKey === cur.periodKey)
+    if (hasTurnaround) {
+      const revPct = pctChange(valueOf(cur, "REVENUE"), valueOf(prev, "REVENUE"))
+      const recConds: EventConditionDetail[] = []
+      const c1 = cond("LOSS_TO_PROFIT", curNp, prevNp, "Loss → Profit transition", "تحول من خسارة إلى ربح", true)
+      const c2 = revPct !== null && revPct >= 10
+        ? cond("REVENUE", valueOf(cur, "REVENUE"), valueOf(prev, "REVENUE"), `Revenue grew ${formatPercent(revPct, { sign: true })} (≥ 10%)`, `نمت الإيرادات ${formatPercent(revPct, { sign: true })} (الحد الأدنى 10%)`, true)
+        : null
+      const c3 = curOcf !== undefined && curOcf > 0
+        ? cond("OPERATING_CASH_FLOW", curOcf, undefined, `Operating cash flow = ${formatEgp(curOcf)} (positive)`, `التدفق النقدي التشغيلي = ${formatEgp(curOcf)} (إيجابي)`, true)
+        : null
+      const c4 = debtPct !== null && debtPct <= 0
+        ? cond("TOTAL_DEBT", curD, prevD, `Debt not increasing (${formatPercent(debtPct, { sign: true })})`, `الدين لا يزيد (${formatPercent(debtPct, { sign: true })})`, true)
+        : null
+      if (c2 && c3 && c4) {
+        recConds.push(c1, c2, c3, c4)
+        events.push({
+          eventType: "FINANCIAL_RECOVERY",
+          ...base(pair),
+          conditions: recConds,
+          explanationEn: `Financial recovery pattern detected in ${cur.periodLabel}: loss→profit transition, revenue growth ${formatPercent(revPct, { sign: true })}, positive operating cash flow (${formatEgp(curOcf)}), and debt change ${formatPercent(debtPct, { sign: true })}.`,
+          explanationAr: `نمط تعافي مالي في ${cur.periodLabel}: تحول من خسارة إلى ربح، نمو الإيرادات ${formatPercent(revPct, { sign: true })}، تدفق نقدي تشغيلي إيجابي (${formatEgp(curOcf)})، وتغير الدين ${formatPercent(debtPct, { sign: true })}.`,
+        })
+      }
+    }
+
+    // ---- FINANCIAL_DETERIORATION ----
+    const hasDeterioration = events.some((e) => e.eventType === "PROFIT_TO_LOSS" && e.periodKey === cur.periodKey)
+    if (hasDeterioration) {
+      const revPct = pctChange(valueOf(cur, "REVENUE"), valueOf(prev, "REVENUE"))
+      const revDecline = revPct !== null && revPct < 0
+      const ocfNegative = curOcf !== undefined && curOcf < 0
+      if (revDecline || ocfNegative) {
+        const detConds: EventConditionDetail[] = [
+          cond("NET_PROFIT", curNp, prevNp, "Profit → Loss transition", "تحول من ربح إلى خسارة", true),
+        ]
+        if (revDecline) detConds.push(cond("REVENUE", valueOf(cur, "REVENUE"), valueOf(prev, "REVENUE"), `Revenue declined ${formatPercent(revPct!, { sign: true })}`, `انخفضت الإيرادات ${formatPercent(revPct!, { sign: true })}`, true))
+        if (ocfNegative) detConds.push(cond("OPERATING_CASH_FLOW", curOcf, undefined, `Operating cash flow is negative (${formatEgp(curOcf)})`, `التدفق النقدي التشغيلي سالب (${formatEgp(curOcf)})`, true))
+        events.push({
+          eventType: "FINANCIAL_DETERIORATION",
+          ...base(pair),
+          conditions: detConds,
+          explanationEn: `Financial deterioration pattern detected in ${cur.periodLabel}: profit turned into a loss${revDecline ? `, revenue declined ${formatPercent(revPct!)}` : ""}${revDecline && ocfNegative ? " and" : ocfNegative ? " with" : ""}${ocfNegative ? ` operating cash flow is negative (${formatEgp(curOcf)})` : ""}.`,
+          explanationAr: `نمط تدهور مالي في ${cur.periodLabel}: تحول الربح إلى خسارة${revDecline ? ` مع انخفاض الإيرادات ${formatPercent(revPct!)}` : ""}${ocfNegative ? ` وتدفق نقدي تشغيلي سالب (${formatEgp(curOcf)})` : ""}.`,
+        })
+      }
+    }
+  }
+
+  return events
+}
+
+function base(pair: PeriodPair) {
+  return {
+    periodKey: pair.cur.periodKey,
+    previousPeriodKey: pair.prev.periodKey,
+    periodType: pair.cur.periodType,
+    fiscalYear: pair.cur.fiscalYear,
+    periodLabel: pair.cur.periodLabel,
+  }
+}
+
+function valueOf(p: PeriodData, code: string): number | undefined {
+  return p.values[code]
+}
+
+function previousKeyOf(p: PeriodData): string | null {
+  // uses the canonical previous comparable key convention
+  const [type, yearStr, sub] = p.periodKey.split(":")
+  const year = Number(yearStr)
+  if (!["ANNUAL", "QUARTERLY", "SEMIANNUAL", "NINE_MONTH"].includes(type)) return null
+  if (year <= 1900) return null
+  return `${type}:${year - 1}:${sub ?? ""}`
+}

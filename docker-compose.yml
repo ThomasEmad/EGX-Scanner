@@ -1,0 +1,30 @@
+# EGX Scanner — Docker Compose deployment.
+#
+# 1. Copy the project to the server, then copy your database:
+#        mkdir -p db storage reports && cp custom.db db/   # (if you have existing data)
+# 2. Create .env from .env.example and fill the values.
+# 3. Optional: put the Z.ai config at /etc/.z-ai-config on the host (or edit
+#    the mount below) so the AI analysis works.
+# 4. Start:
+#        docker compose up -d --build
+# 5. Check:  curl http://localhost:3000/api/v1/health
+
+services:
+  app:
+    build: .
+    container_name: egx-scanner
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3000:3000"   # expose only to localhost — put nginx/caddy with TLS in front
+    env_file:
+      - .env
+    environment:
+      # Inside the container the DB always lives at /app/db (the volume below).
+      DATABASE_URL: "file:/app/db/custom.db"
+      EGX_ROOT: /app
+    volumes:
+      - ./db:/app/db                      # SQLite database (persistent)
+      - ./storage:/app/storage            # ingested/uploaded documents
+      - ./reports:/app/reports            # admin-ops logs + journal
+      # AI analysis config — edit the left side if you keep it elsewhere:
+      - /etc/.z-ai-config:/etc/.z-ai-config:ro

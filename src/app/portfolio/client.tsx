@@ -4,17 +4,15 @@
 // Values are user input; prices come from verified snapshots (never estimates —
 // a holding without any recorded price shows cost only, with a notice).
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
+import { useEffect, useState } from "react"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { Briefcase, Loader2, Plus, Trash2, TrendingDown, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Skeleton } from "@/components/ui/skeleton"
-import { AppHeader } from "@/components/egx/app-header"
-import { AppFooter } from "@/components/egx/app-footer"
-import { authHeaders } from "@/lib/client/api"
+import { LayoutShell } from "@/components/layout/LayoutShell"
+import { authHeaders, getUserToken } from "@/lib/client/api"
 import { useSubscriptionGate } from "@/lib/client/subscription-gate"
 import { useI18n } from "@/lib/i18n"
 
@@ -51,19 +49,23 @@ function fmtEgp(v: number): string {
 }
 
 export default function PortfolioPage() {
-  const router = useRouter()
   const { lang } = useI18n()
   const { isPremium } = useSubscriptionGate()
   const qc = useQueryClient()
   const ar = lang === "ar"
 
+  // Auth gate: resolve sign-in state after mount so server and client first
+  // render agree; anonymous users never hit the API (no guaranteed 401).
+  const [authState, setAuthState] = useState<"unknown" | "in" | "out">("unknown")
+  useEffect(() => setAuthState(getUserToken() ? "in" : "out"), [])
   const { data, isLoading, error } = useQuery({
-    queryKey: ["portfolio"],
+    queryKey: ["portfolio", authState],
     queryFn: () =>
       fetch("/api/v1/portfolio", { headers: authHeaders() }).then((r) => {
         if (!r.ok) throw new Error(r.status === 401 ? "AUTH" : "FAILED")
         return r.json() as Promise<PortfolioData>
       }),
+    enabled: authState === "in",
     retry: false,
   })
 
@@ -76,9 +78,8 @@ export default function PortfolioPage() {
   const positive = (totals?.pl ?? 0) >= 0
 
   return (
-    <div className="min-h-svh bg-background">
-      <AppHeader view="companies" companyOpen={false} onViewChange={() => router.push("/dashboard")} />
-      <main id="main-content" className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
+    <LayoutShell>
+      <div className="mx-auto max-w-7xl py-6">
         <div className="mb-5 flex items-start justify-between gap-4">
           <div>
             <h1 className="flex items-center gap-2 text-xl font-bold tracking-tight">
@@ -92,7 +93,7 @@ export default function PortfolioPage() {
           <AddHolding ar={ar} isPremium={isPremium} count={totals?.count ?? 0} disabled={!data && !error} />
         </div>
 
-        {error ? (
+        {error || authState === "out" ? (
           <Card className="border-amber-500/30 bg-amber-500/5">
             <CardContent className="p-5 text-sm text-amber-700 dark:text-amber-400">
               {ar ? "محتاج تسجل دخول عشان تشوف محفظتك — " : "Sign in to view your portfolio — "}
@@ -241,9 +242,8 @@ export default function PortfolioPage() {
             ) : null}
           </div>
         )}
-      </main>
-      <AppFooter />
-    </div>
+      </div>
+    </LayoutShell>
   )
 }
 

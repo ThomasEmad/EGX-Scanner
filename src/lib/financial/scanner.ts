@@ -46,7 +46,7 @@ export interface ConditionEval {
   /** actual value / finding, formatted for display */
   actualDisplay: string
   actualRaw?: number
-  status: "OK" | "DATA_UNAVAILABLE" | "NOT_APPLICABLE" | "NOT_COMPUTABLE"
+  status: "OK" | "DATA_UNAVAILABLE" | "NOT_APPLICABLE" | "NOT_COMPUTABLE" | "NEEDS_REVIEW"
   note?: string
   matched: boolean
 }

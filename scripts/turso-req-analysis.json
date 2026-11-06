@@ -1,0 +1,1 @@
+{"requests":[{"type":"execute","stmt":{"sql":"SELECT name FROM sqlite_master WHERE type='table' AND name LIKE '%nalysis%'"}},{"type":"execute","stmt":{"sql":"SELECT model, COUNT(*) FROM AiAnalysis GROUP BY model"}},{"type":"close"}]}

@@ -9,14 +9,15 @@ export function AppFooter() {
   const ar = lang === "ar"
 
   const links: Array<[string, string, string]> = [
+    ["/companies", ar ? "الشركات" : "Companies", ar ? "دليل شركات البورصة" : "Company directory"],
     ["/rankings", ar ? "الترتيب" : "Rankings", ar ? "ترتيب الشركات" : "Company rankings"],
     ["/sectors", ar ? "القطاعات" : "Sectors", ar ? "قطاعات البورصة" : "EGX sectors"],
     ["/undervalued", ar ? "فرص التقييم" : "Valuation", ar ? "أسهم دون قيمتها" : "Undervalued"],
-    ["/data-quality", ar ? "جودة البيانات" : "Data quality", ar ? "سلامة السجل" : "Integrity"],
     ["/about", ar ? "من نحن" : "About", ar ? "عن المنصة" : "About us"],
     ["/disclaimer", ar ? "إخلاء المسؤولية" : "Disclaimer", ar ? "تنبيه المخاطر" : "Risk notice"],
     ["/terms", ar ? "الشروط" : "Terms", ar ? "شروط الخدمة" : "Terms of service"],
     ["/privacy", ar ? "الخصوصية" : "Privacy", ar ? "سياسة الخصوصية" : "Privacy policy"],
+    ["/status", ar ? "حالة المنصة" : "Status", ar ? "ال uptime وحداثة البيانات" : "Uptime & data freshness"],
   ]
 
   return (

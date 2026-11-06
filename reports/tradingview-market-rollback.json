@@ -1,283 +1,283 @@
 {
-  "fetchedAt": "2026-11-03T15:49:00.000Z",
+  "fetchedAt": "2026-11-05T03:40:00.000Z",
   "source": "TRADINGVIEW_SCANNER",
   "prices": [
     {
       "companyId": "cmui725980003bx90dffz8etz",
       "ticker": "AALR",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 216.99
+      "newPrice": 251.99
     },
     {
       "companyId": "cmuexbjy70024bxn8jqiz9kzp",
       "ticker": "ABUK",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 77.71
+      "newPrice": 80
     },
     {
       "companyId": "cmui7259j0004bx90nchbp58y",
       "ticker": "ACAMD",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 1.95
-    },
-    {
-      "companyId": "cmui7259r0005bx90ln39y953",
-      "ticker": "ACAP",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 6.4
-    },
-    {
-      "companyId": "cmui725ab0007bx902rvrm1xe",
-      "ticker": "ACGC",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 12.76
-    },
-    {
-      "companyId": "cmugriqe10003bx50k9jk69s7",
-      "ticker": "ACTF",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 2.1
-    },
-    {
-      "companyId": "cmui725am0008bx90sgi7so6r",
-      "ticker": "ADCI",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 255.2
-    },
-    {
-      "companyId": "cmuexbjup001ubxn8mb28bbot",
-      "ticker": "ADIB",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 48
-    },
-    {
-      "companyId": "cmui725aw0009bx90iuwgyzz5",
-      "ticker": "ADPC",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 3
-    },
-    {
-      "companyId": "cmui725b5000abx9028vzhfi9",
-      "ticker": "ADRI",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 12.13
-    },
-    {
-      "companyId": "cmui725be000bbx9039uoxc3e",
-      "ticker": "AFDI",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 43.76
-    },
-    {
-      "companyId": "cmui725bm000cbx90m6s5iwjl",
-      "ticker": "AFMC",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 132
-    },
-    {
-      "companyId": "cmui725bv000dbx90g9495k9n",
-      "ticker": "AIDC",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 0.485
-    },
-    {
-      "companyId": "cmugriqeb0004bx50e55bf8wl",
-      "ticker": "AIFI",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 2.03
     },
     {
-      "companyId": "cmui725cd000fbx90en9ourkn",
-      "ticker": "AJWA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "companyId": "cmui7259r0005bx90ln39y953",
+      "ticker": "ACAP",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 213.45
+      "newPrice": 7.05
+    },
+    {
+      "companyId": "cmui725ab0007bx902rvrm1xe",
+      "ticker": "ACGC",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 12.95
+    },
+    {
+      "companyId": "cmugriqe10003bx50k9jk69s7",
+      "ticker": "ACTF",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 2.14
+    },
+    {
+      "companyId": "cmui725am0008bx90sgi7so6r",
+      "ticker": "ADCI",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 256.43
+    },
+    {
+      "companyId": "cmuexbjup001ubxn8mb28bbot",
+      "ticker": "ADIB",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 49.5
+    },
+    {
+      "companyId": "cmui725aw0009bx90iuwgyzz5",
+      "ticker": "ADPC",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 3.06
+    },
+    {
+      "companyId": "cmui725b5000abx9028vzhfi9",
+      "ticker": "ADRI",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 12.8
+    },
+    {
+      "companyId": "cmui725be000bbx9039uoxc3e",
+      "ticker": "AFDI",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 44.07
+    },
+    {
+      "companyId": "cmui725bm000cbx90m6s5iwjl",
+      "ticker": "AFMC",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 136.52
+    },
+    {
+      "companyId": "cmui725bv000dbx90g9495k9n",
+      "ticker": "AIDC",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 0.508
+    },
+    {
+      "companyId": "cmugriqeb0004bx50e55bf8wl",
+      "ticker": "AIFI",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 2.08
+    },
+    {
+      "companyId": "cmui725cd000fbx90en9ourkn",
+      "ticker": "AJWA",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 219.9
     },
     {
       "companyId": "cmugriqef0005bx50nh8b19d2",
       "ticker": "ALCN",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 32.25
+      "newPrice": 32.24
     },
     {
       "companyId": "cmui725cn000gbx90xlr2ebhb",
       "ticker": "ALEX",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 20
+      "newPrice": 21
     },
     {
       "companyId": "cmui725cw000hbx90s7hqnvr8",
       "ticker": "ALUM",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 18.49
+      "newPrice": 19.38
     },
     {
       "companyId": "cmuexbjx30020bxn8p8p2ajqd",
       "ticker": "AMER",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 4.27
+      "newPrice": 4.51
     },
     {
       "companyId": "cmugriqek0006bx50om32gpaz",
       "ticker": "AMES",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 33.74
+      "newPrice": 33.99
     },
     {
       "companyId": "cmui725dj000jbx90ef119ql4",
       "ticker": "AMIA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 17.63
+      "newPrice": 17.98
     },
     {
       "companyId": "cmui725ds000kbx90bmsziyb9",
       "ticker": "AMII",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 7.5
+      "newPrice": 7.8
     },
     {
       "companyId": "cmuexbjyz0026bxn8mp6y6vc6",
       "ticker": "AMOC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 13.5
+      "newPrice": 13.33
     },
     {
       "companyId": "cmui725e2000lbx90r2ethwa4",
       "ticker": "AMPI",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 2.22
+      "newPrice": 2.23
     },
     {
       "companyId": "cmupv8vrf0002bxn0xcaqmvks",
       "ticker": "APPC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.35
+      "newPrice": 1.45
     },
     {
       "companyId": "cmui725et000obx90gscxy0jh",
       "ticker": "APSW",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 7.35
+      "newPrice": 7.48
     },
     {
       "companyId": "cmui725f4000pbx90ap8ngvdz",
       "ticker": "ARAB",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.233
+      "newPrice": 0.24
     },
     {
       "companyId": "cmugriqet0007bx507soqc86s",
       "ticker": "ARCC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 63.03
+      "newPrice": 66.5
     },
     {
       "companyId": "cmui725fm000qbx90didsq245",
       "ticker": "AREH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.05
+      "newPrice": 1.08
     },
     {
       "companyId": "cmui725fv000rbx90d2al8ze3",
       "ticker": "ASCM",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 42.2
+      "newPrice": 44.69
     },
     {
       "companyId": "cmui725g5000sbx90cc3u5ubw",
       "ticker": "ASPI",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.299
+      "newPrice": 0.319
     },
     {
       "companyId": "cmui725ge000tbx90q2l1s3jv",
       "ticker": "ATLC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 4.93
+      "newPrice": 5
     },
     {
       "companyId": "cmugriqey0008bx507bhabe1w",
       "ticker": "ATQA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 9.18
+      "newPrice": 9.28
     },
     {
       "companyId": "cmui725gn000ubx90o6jwje04",
       "ticker": "AXPH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1315.98
+      "newPrice": 1327.99
     },
     {
       "companyId": "cmui725gw000vbx90zv5ownkj",
       "ticker": "BIDI",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 2.12
@@ -285,231 +285,223 @@
     {
       "companyId": "cmui725h4000wbx90kc9d7lu1",
       "ticker": "BIGP",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.213
+      "newPrice": 0.22
     },
     {
       "companyId": "cmui725hc000xbx90m7zwtdit",
       "ticker": "BINV",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 51.99
+      "newPrice": 52.56
     },
     {
       "companyId": "cmui725hk000ybx90f1ot80o8",
       "ticker": "BIOC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 305
+      "newPrice": 310.03
     },
     {
       "companyId": "cmui725hs000zbx90jsze5d71",
       "ticker": "BONY",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 4.26
+      "newPrice": 4.38
     },
     {
       "companyId": "cmupv8vs30008bxn0fdpsrofm",
       "ticker": "BQDC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 5.38
+      "newPrice": 5.5
     },
     {
       "companyId": "cmugriqfe000cbx50yma1sztz",
       "ticker": "BTFH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 2.29
+      "newPrice": 2.34
     },
     {
       "companyId": "cmui725i30010bx90q8zhq4gn",
       "ticker": "CAED",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 99.24
+      "newPrice": 102.64
     },
     {
       "companyId": "cmuipaqq40000bxhsi2jva9z5",
       "ticker": "CANA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 45.32
+      "newPrice": 45.96
     },
     {
       "companyId": "cmugriqfn000ebx50petdqfzv",
       "ticker": "CCAP",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 5.73
+      "newPrice": 5.99
     },
     {
       "companyId": "cmui725if0011bx90m6oxkyic",
       "ticker": "CCRS",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.67
+      "newPrice": 1.91
     },
     {
       "companyId": "cmui725io0012bx90czz5rfri",
       "ticker": "CEFM",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 115.98
+      "newPrice": 118.49
     },
     {
       "companyId": "cmui725ix0013bx90sia90oao",
       "ticker": "CERA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.03
+      "newPrice": 1.04
     },
     {
       "companyId": "cmui725j70014bx906okncncn",
       "ticker": "CFGH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.1
+      "newPrice": 0.101
     },
     {
       "companyId": "cmui725jg0015bx909krx5agn",
       "ticker": "CICH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 10.45
+      "newPrice": 10.57
     },
     {
       "companyId": "cmugriqfr000fbx50f68joktp",
       "ticker": "CIEB",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 22.29
+      "newPrice": 22.61
     },
     {
       "companyId": "cmujp2xwl0000bxskqas13r4u",
       "ticker": "CIRA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 36.02
+      "newPrice": 36.64
     },
     {
       "companyId": "cmuexbk2y002ebxn8roohdxqk",
       "ticker": "CLHO",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 13.23
+      "newPrice": 13.44
     },
     {
       "companyId": "cmui725k20017bx90r38pv1ku",
       "ticker": "CNFN",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 3.81
+      "newPrice": 3.84
     },
     {
       "companyId": "cmuexbjtt001sbxn8bbpnblsn",
       "ticker": "COMI",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 123.48
+      "newPrice": 126.51
     },
     {
       "companyId": "cmui725ke0018bx90xboqu796",
       "ticker": "COPR",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.398
+      "newPrice": 0.41
     },
     {
       "companyId": "cmui725kn0019bx906gs1z172",
       "ticker": "COSG",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.26
+      "newPrice": 1.29
     },
     {
       "companyId": "cmui725kw001abx90847f1rta",
       "ticker": "CPCI",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 594
+      "newPrice": 601.11
     },
     {
       "companyId": "cmui725l5001bbx9006fgbw10",
       "ticker": "CPME",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 38
+      "newPrice": 36.2
     },
     {
       "companyId": "cmui725lg001cbx90swnh7qaf",
       "ticker": "CRST",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 2.72
+      "newPrice": 2.71
     },
     {
       "companyId": "cmui725lr001dbx90pd504xiw",
       "ticker": "CSAG",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 34.02
+      "newPrice": 34.1
     },
     {
       "companyId": "cmui725m0001ebx906kfki10z",
       "ticker": "DAPH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 81
-    },
-    {
-      "companyId": "cmvu2glob000kbxg4knkregdp",
-      "ticker": "DCCC",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 10
+      "newPrice": 82.8
     },
     {
       "companyId": "cmugriqg8000ibx50269oithg",
       "ticker": "DCRC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 57
+      "newPrice": 43.33
     },
     {
       "companyId": "cmui725mk001gbx909h9lgscc",
       "ticker": "DEIN",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 10.35
@@ -517,7 +509,7 @@
     {
       "companyId": "cmui725ms001hbx90088du69t",
       "ticker": "DGTZ",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 1.7
@@ -525,175 +517,183 @@
     {
       "companyId": "cmui725n1001ibx90wt6gill0",
       "ticker": "DOMT",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 22.9
+      "newPrice": 23.47
     },
     {
       "companyId": "cmugriqgc000jbx50979neecj",
       "ticker": "DSCW",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.4
+      "newPrice": 1.45
     },
     {
       "companyId": "cmui725nb001jbx90u24hixiz",
       "ticker": "DTPP",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 47.15
+    },
+    {
+      "companyId": "cmui725nk001kbx90nfcqb3ux",
+      "ticker": "EALR",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 303.42
+    },
+    {
+      "companyId": "cmui725nu001lbx90k5d8qkwc",
+      "ticker": "EASB",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 6.51
+    },
+    {
+      "companyId": "cmuexbk45002ibxn8chzkm2or",
+      "ticker": "EAST",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 33.19
+    },
+    {
+      "companyId": "cmui725o5001mbx90lvgar6nc",
+      "ticker": "EBSC",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 1.53
+    },
+    {
+      "companyId": "cmui725oe001nbx90wcqmx5n2",
+      "ticker": "ECAP",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 27.39
+    },
+    {
+      "companyId": "cmui725om001obx90t5jcwx8s",
+      "ticker": "EDFM",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 354.79
+    },
+    {
+      "companyId": "cmui725ou001pbx90739wnnrp",
+      "ticker": "EEII",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 1.8
+    },
+    {
+      "companyId": "cmui725pj001sbx90d2hp4tkz",
+      "ticker": "EFIC",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 140.83
+    },
+    {
+      "companyId": "cmugriqgy000nbx508vwoo57m",
+      "ticker": "EFID",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 19.4
+    },
+    {
+      "companyId": "cmugriqh2000obx5085ojhvyy",
+      "ticker": "EFIH",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 23.7
+    },
+    {
+      "companyId": "cmuexbjzt0028bxn8b21nwlyf",
+      "ticker": "EGAL",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 320
+    },
+    {
+      "companyId": "cmugriqhb000pbx507mpcg0mg",
+      "ticker": "EGAS",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 46.75
     },
     {
-      "companyId": "cmui725nk001kbx90nfcqb3ux",
-      "ticker": "EALR",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 252.85
-    },
-    {
-      "companyId": "cmui725nu001lbx90k5d8qkwc",
-      "ticker": "EASB",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 6.52
-    },
-    {
-      "companyId": "cmuexbk45002ibxn8chzkm2or",
-      "ticker": "EAST",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 32
-    },
-    {
-      "companyId": "cmui725o5001mbx90lvgar6nc",
-      "ticker": "EBSC",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 1.51
-    },
-    {
-      "companyId": "cmui725oe001nbx90wcqmx5n2",
-      "ticker": "ECAP",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 26.59
-    },
-    {
-      "companyId": "cmui725om001obx90t5jcwx8s",
-      "ticker": "EDFM",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 349.45
-    },
-    {
-      "companyId": "cmui725ou001pbx90739wnnrp",
-      "ticker": "EEII",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 1.7
-    },
-    {
-      "companyId": "cmui725pj001sbx90d2hp4tkz",
-      "ticker": "EFIC",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 136.4
-    },
-    {
-      "companyId": "cmugriqgy000nbx508vwoo57m",
-      "ticker": "EFID",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 18.2
-    },
-    {
-      "companyId": "cmugriqh2000obx5085ojhvyy",
-      "ticker": "EFIH",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 23.49
-    },
-    {
-      "companyId": "cmuexbjzt0028bxn8b21nwlyf",
-      "ticker": "EGAL",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 303
-    },
-    {
-      "companyId": "cmugriqhb000pbx507mpcg0mg",
-      "ticker": "EGAS",
-      "asOf": "2026-11-03T15:49:00.000Z",
-      "oldPrice": null,
-      "oldSource": null,
-      "newPrice": 45.77
-    },
-    {
       "companyId": "cmugriqhf000qbx5092h0rl8m",
       "ticker": "EGBE",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.489
+      "newPrice": 0.485
     },
     {
       "companyId": "cmupv8vsc000abxn00i9yvyob",
       "ticker": "EGCH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 9.94
+      "newPrice": 10.38
     },
     {
       "companyId": "cmui725qg001vbx90rz4ofq0x",
       "ticker": "EGREF",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 20.66
+      "newPrice": 24.04
+    },
+    {
+      "companyId": "cmvublwrd0003bx7oi2tctn2g",
+      "ticker": "MKIT",
+      "asOf": "2026-11-05T03:40:00.000Z",
+      "oldPrice": null,
+      "oldSource": null,
+      "newPrice": 0.82
     },
     {
       "companyId": "cmugriqhr000tbx506hgvmzeu",
       "ticker": "EGSA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 8.96
+      "newPrice": 8.8
     },
     {
       "companyId": "cmui725tc0026bx90iznjlw0d",
       "ticker": "EGTS",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 11.93
+      "newPrice": 13.01
     },
     {
       "companyId": "cmupv8vsw000gbxn0zk3purex",
       "ticker": "EHDR",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.95
+      "newPrice": 2.05
     },
     {
       "companyId": "cmupv8vsi000cbxn0v253i46p",
       "ticker": "EITP",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 7.5
@@ -701,63 +701,63 @@
     {
       "companyId": "cmugriqi8000xbx50jkmv957e",
       "ticker": "ELEC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.54
+      "newPrice": 1.6
     },
     {
       "companyId": "cmui725u60029bx90q6mlbnui",
       "ticker": "ELKA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.41
+      "newPrice": 1.47
     },
     {
       "companyId": "cmui725uf002abx90y1t13l6p",
       "ticker": "ELNA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 39.68
+      "newPrice": 40.1
     },
     {
       "companyId": "cmui725um002bbx90mz0uw7gb",
       "ticker": "ELSH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 9.96
+      "newPrice": 10.32
     },
     {
       "companyId": "cmui725uv002cbx901op2lbk0",
       "ticker": "ELWA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.36
+      "newPrice": 1.38
     },
     {
       "companyId": "cmui725v3002dbx90eh2en1zq",
       "ticker": "EMFD",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 12.21
+      "newPrice": 12.27
     },
     {
       "companyId": "cmugriqid000ybx50tfmnw4ke",
       "ticker": "ENGC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 34.01
+      "newPrice": 35.47
     },
     {
       "companyId": "cmugriqig000zbx50yis0o2u8",
       "ticker": "EOSB",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 1.62
@@ -765,15 +765,15 @@
     {
       "companyId": "cmui725vg002ebx90jgtghjcj",
       "ticker": "EPCO",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 8.37
+      "newPrice": 8.44
     },
     {
       "companyId": "cmupv8vt2000ibxn05gotnj0e",
       "ticker": "EPPK",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 9.78
@@ -781,95 +781,95 @@
     {
       "companyId": "cmuexbjus001vbxn86xnnvyzz",
       "ticker": "ETEL",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 122.88
+      "newPrice": 128
     },
     {
       "companyId": "cmui725w1002gbx9092jvu6g3",
       "ticker": "ETRS",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 10.62
+      "newPrice": 10.76
     },
     {
       "companyId": "cmui725wa002hbx90vgb8rttc",
       "ticker": "EXPA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 13.69
+      "newPrice": 13.81
     },
     {
       "companyId": "cmugriqiy0012bx50sox6s3cz",
       "ticker": "FAIT",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 42.43
+      "newPrice": 43.2
     },
     {
       "companyId": "cmui725wl002ibx90u59qpowe",
       "ticker": "FERC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 58.04
+      "newPrice": 60.02
     },
     {
       "companyId": "cmui725wu002jbx90rgpi1jdg",
       "ticker": "FIRE",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 4.13
+      "newPrice": 4.27
     },
     {
       "companyId": "cmui725x8002kbx900bhlrsrb",
       "ticker": "FNAR",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 9.91
+      "newPrice": 10.9
     },
     {
       "companyId": "cmui725xi002lbx90v4isatuv",
       "ticker": "FTNS",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.03
+      "newPrice": 1.06
     },
     {
       "companyId": "cmugriqj20013bx50vco6k0sm",
       "ticker": "FWRY",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 16.12
+      "newPrice": 17.1
     },
     {
       "companyId": "cmugriqj70014bx50ta2rbger",
       "ticker": "GBCO",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 21.63
+      "newPrice": 22.08
     },
     {
       "companyId": "cmui725xv002mbx90332spj9n",
       "ticker": "GDWA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.526
+      "newPrice": 0.55
     },
     {
       "companyId": "cmui725y3002nbx90jtktpi31",
       "ticker": "GEOS",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 1
@@ -877,55 +877,55 @@
     {
       "companyId": "cmui725yc002obx90ou4su9zj",
       "ticker": "GGCC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.525
+      "newPrice": 0.559
     },
     {
       "companyId": "cmui725ym002pbx90gjs6wzf3",
       "ticker": "GGRN",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.98
+      "newPrice": 1.05
     },
     {
       "companyId": "cmugriqjb0015bx50kdmtc6vr",
       "ticker": "GIHD",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 42.81
+      "newPrice": 44
     },
     {
       "companyId": "cmui725yw002qbx902e6vtnx5",
       "ticker": "GMCI",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.41
+      "newPrice": 1.42
     },
     {
       "companyId": "cmugriqjf0016bx50ma3hmant",
       "ticker": "GOUR",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 14.95
+      "newPrice": 15.13
     },
     {
       "companyId": "cmui725z7002rbx90izd0nyyf",
       "ticker": "GPIM",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.49
+      "newPrice": 1.51
     },
     {
       "companyId": "cmui725zg002sbx90yeku82vf",
       "ticker": "GPPL",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 1.4
@@ -933,15 +933,15 @@
     {
       "companyId": "cmui725zp002tbx902gohgxnx",
       "ticker": "GRCA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 29.31
+      "newPrice": 33.25
     },
     {
       "companyId": "cmui725zy002ubx90po2vu87b",
       "ticker": "GROV",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 1
@@ -949,15 +949,15 @@
     {
       "companyId": "cmui72607002vbx90qcfsu47d",
       "ticker": "GSSC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 246.99
+      "newPrice": 253.8
     },
     {
       "companyId": "cmupv8vtf000mbxn0h55l6w9s",
       "ticker": "GTEX",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 0.039
@@ -965,79 +965,79 @@
     {
       "companyId": "cmupv8vto000obxn0cfjfuzom",
       "ticker": "GTHE",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 3.7
+      "newPrice": 4.65
     },
     {
       "companyId": "cmui7260s002xbx90vpshzu8d",
       "ticker": "GTWL",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 127.5
+      "newPrice": 125.01
     },
     {
       "companyId": "cmugriqjs0019bx50qfxiqiqt",
       "ticker": "HBCO",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 7.93
+      "newPrice": 8.5
     },
     {
       "companyId": "cmui7261d002zbx90popqzk4w",
       "ticker": "HDBK",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 94.15
+      "newPrice": 96.92
     },
     {
       "companyId": "cmui7261v0031bx90fkppe5vj",
       "ticker": "HELI",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 6.35
+      "newPrice": 6.61
     },
     {
       "companyId": "cmuexbk4x002kbxn8d6oh41vj",
       "ticker": "HRHO",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 22.5
+      "newPrice": 23.5
     },
     {
       "companyId": "cmui726250032bx90qbn8y2md",
       "ticker": "IBCT",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 9.6
+      "newPrice": 10
     },
     {
       "companyId": "cmui7262g0033bx90a859vhy9",
       "ticker": "ICFC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 23.16
+      "newPrice": 23.93
     },
     {
       "companyId": "cmugriqkd001dbx5033hkq5tv",
       "ticker": "ICID",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 17.04
+      "newPrice": 17.24
     },
     {
       "companyId": "cmui7262r0034bx90fv1jmjie",
       "ticker": "ICLE",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 15.76
@@ -1045,47 +1045,47 @@
     {
       "companyId": "cmui726330035bx90ukqvxxkx",
       "ticker": "IDRE",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 37.55
+      "newPrice": 38.67
     },
     {
       "companyId": "cmui7263c0036bx90g79aciyh",
       "ticker": "IEEC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.72
+      "newPrice": 0.766
     },
     {
       "companyId": "cmui7263l0037bx903pwr1p0s",
       "ticker": "IFAP",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 15.65
+      "newPrice": 16.2
     },
     {
       "companyId": "cmui7263w0038bx90mzpj9zsz",
       "ticker": "INEG",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.505
+      "newPrice": 0.529
     },
     {
       "companyId": "cmui726460039bx90uia1fllt",
       "ticker": "INFI",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 114.35
+      "newPrice": 120.25
     },
     {
       "companyId": "cmugriqkh001ebx50jecvhefb",
       "ticker": "IRAX",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 1250
@@ -1093,151 +1093,151 @@
     {
       "companyId": "cmui7264j003abx90mjghbtvj",
       "ticker": "IRON",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 23.88
+      "newPrice": 24.08
     },
     {
       "companyId": "cmui7264r003bbx903zog4ys7",
       "ticker": "ISMA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 19.05
+      "newPrice": 19.47
     },
     {
       "companyId": "cmui72650003cbx90d92s2884",
       "ticker": "ISMQ",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 7.11
+      "newPrice": 7.38
     },
     {
       "companyId": "cmuexbk3r002gbxn8hn5haga2",
       "ticker": "ISPH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 9.45
+      "newPrice": 10.1
     },
     {
       "companyId": "cmuexbk1m002abxn8g9kbmzcr",
       "ticker": "JUFO",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 23
+      "newPrice": 23.95
     },
     {
       "companyId": "cmui7265b003dbx904vnpwdzi",
       "ticker": "KABO",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 6.77
+      "newPrice": 7.17
     },
     {
       "companyId": "cmugriqkq001fbx50jmosn6zr",
       "ticker": "KORA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.75
+      "newPrice": 1.84
     },
     {
       "companyId": "cmui7265s003fbx90rp31h1yf",
       "ticker": "KRDI",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.346
+      "newPrice": 0.349
     },
     {
       "companyId": "cmui72660003gbx9050qqs6fv",
       "ticker": "KWIN",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 63.55
+      "newPrice": 72.86
     },
     {
       "companyId": "cmui72667003hbx90ks898fws",
       "ticker": "KZPC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 12.74
+      "newPrice": 12.65
     },
     {
       "companyId": "cmui7266e003ibx90fg0qiaes",
       "ticker": "LCSW",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 35.3
+      "newPrice": 35.12
     },
     {
       "companyId": "cmugriqku001gbx50qgd4p3we",
       "ticker": "LUTS",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.713
+      "newPrice": 0.724
     },
     {
       "companyId": "cmugriqky001hbx506ea9sd8k",
       "ticker": "MAAL",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 6.7
+      "newPrice": 6.96
     },
     {
       "companyId": "cmuexbjw6001zbxn8deenezqv",
       "ticker": "MASR",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 6.65
+      "newPrice": 6.78
     },
     {
       "companyId": "cmui72673003lbx90d4mbiedm",
       "ticker": "MBEG",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 5
+      "newPrice": 5.3
     },
     {
       "companyId": "cmui7267a003mbx90y8or1rmm",
       "ticker": "MBSC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 311.02
+      "newPrice": 315.21
     },
     {
       "companyId": "cmugriql3001ibx50ddif7gdk",
       "ticker": "MCQE",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 161.01
+      "newPrice": 167.5
     },
     {
       "companyId": "cmui7267k003nbx902mjdyfp6",
       "ticker": "MCRO",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.29
+      "newPrice": 1.32
     },
     {
       "companyId": "cmupv8vu3000sbxn063kwjopl",
       "ticker": "MEGM",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 12.54
@@ -1245,71 +1245,71 @@
     {
       "companyId": "cmui72680003pbx908y5nxfxz",
       "ticker": "MENA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 5.78
+      "newPrice": 5.83
     },
     {
       "companyId": "cmui72688003qbx90ogmftk9k",
       "ticker": "MEPA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.26
+      "newPrice": 1.29
     },
     {
       "companyId": "cmuexbk190029bxn8a8058nco",
       "ticker": "MFPC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 40.07
+      "newPrice": 41.37
     },
     {
       "companyId": "cmui7268n003sbx90pvoji9j6",
       "ticker": "MFSC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 32.9
+      "newPrice": 35.45
     },
     {
       "companyId": "cmui7268v003tbx90q7ljp3w3",
       "ticker": "MHOT",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 15.15
+      "newPrice": 16.09
     },
     {
       "companyId": "cmui72694003ubx90wdc669i2",
       "ticker": "MICH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 39.95
+      "newPrice": 40.11
     },
     {
       "companyId": "cmui7269b003vbx90abm72l6v",
       "ticker": "MILS",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 124.85
+      "newPrice": 128.51
     },
     {
       "companyId": "cmui7269j003wbx90s8ossgac",
       "ticker": "MIPH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 754
+      "newPrice": 798.92
     },
     {
       "companyId": "cmvu2glol000lbxg4sy5p28y0",
       "ticker": "MISR",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 5.51
@@ -1317,87 +1317,87 @@
     {
       "companyId": "cmugriqll001mbx50ty1cn7nk",
       "ticker": "MMAT",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 4.9
+      "newPrice": 5.08
     },
     {
       "companyId": "cmui726af0040bx9007mnfy5z",
       "ticker": "MOED",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.457
+      "newPrice": 0.48
     },
     {
       "companyId": "cmui726an0041bx90mzwztjy1",
       "ticker": "MOIL",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.625
+      "newPrice": 0.633
     },
     {
       "companyId": "cmugriqlv001nbx50sucan10c",
       "ticker": "MOIN",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 28.18
+      "newPrice": 29.04
     },
     {
       "companyId": "cmui726aw0042bx90gf0hfjqx",
       "ticker": "MOSC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 234.23
+      "newPrice": 249.2
     },
     {
       "companyId": "cmui726b40043bx90pltdipbh",
       "ticker": "MPCI",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 311.65
+      "newPrice": 312.61
     },
     {
       "companyId": "cmui726bb0044bx90y58mcp4q",
       "ticker": "MPCO",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.77
+      "newPrice": 1.84
     },
     {
       "companyId": "cmui726bk0045bx9037qmi2c4",
       "ticker": "MPRC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 33.27
+      "newPrice": 33.96
     },
     {
       "companyId": "cmugriqm1001obx50mfign038",
       "ticker": "MTIE",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 6.64
+      "newPrice": 6.8
     },
     {
       "companyId": "cmui726bt0046bx900mn6ysf9",
       "ticker": "NAHO",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.124
+      "newPrice": 0.125
     },
     {
       "companyId": "cmui726c20047bx90hp0zbuxt",
       "ticker": "NAMI",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 5
@@ -1405,15 +1405,15 @@
     {
       "companyId": "cmui726cb0048bx90y16nlck9",
       "ticker": "NARE",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 13.05
+      "newPrice": 13.36
     },
     {
       "companyId": "cmui726d6004abx90hkm9et90",
       "ticker": "NBKE",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 30.18
@@ -1421,15 +1421,15 @@
     {
       "companyId": "cmui726dh004bbx90hl6l6t3q",
       "ticker": "NCCW",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 5.33
+      "newPrice": 5.41
     },
     {
       "companyId": "cmupv8vvz001cbxn0knojb8c2",
       "ticker": "NCGC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 50
@@ -1437,7 +1437,7 @@
     {
       "companyId": "cmupv8vun000ybxn0igxkyj9o",
       "ticker": "NDRL",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 4.69
@@ -1445,119 +1445,119 @@
     {
       "companyId": "cmui726eg004ebx90vlq39zvc",
       "ticker": "NEDA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 2.4
+      "newPrice": 2.45
     },
     {
       "companyId": "cmui726er004fbx90hx6axhhi",
       "ticker": "NHPS",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 57.5
+      "newPrice": 60.87
     },
     {
       "companyId": "cmui726ez004gbx903n1vn1zu",
       "ticker": "NINH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 14.67
+      "newPrice": 15.22
     },
     {
       "companyId": "cmui726f8004hbx90jyyuioyk",
       "ticker": "NIPH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 274
+      "newPrice": 278
     },
     {
       "companyId": "cmui726fn004jbx90cwl352v4",
       "ticker": "OBRI",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 22.88
+      "newPrice": 23.5
     },
     {
       "companyId": "cmugriqme001rbx50j2qvu3a2",
       "ticker": "OCDI",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 23.45
+      "newPrice": 24.43
     },
     {
       "companyId": "cmui726g6004lbx903uq2cj7s",
       "ticker": "OCPH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 179.5
+      "newPrice": 186.97
     },
     {
       "companyId": "cmui726ge004mbx90qc6idnvt",
       "ticker": "ODIN",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.99
+      "newPrice": 2.05
     },
     {
       "companyId": "cmuicituk0004bxnkcjdaqfxe",
       "ticker": "OFH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.709
+      "newPrice": 0.71
     },
     {
       "companyId": "cmupv8vv70014bxn03wuerkkb",
       "ticker": "OIH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.64
+      "newPrice": 1.71
     },
     {
       "companyId": "cmui726gw004obx90rkmv4lxg",
       "ticker": "OLFI",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 18.8
+      "newPrice": 19.27
     },
     {
       "companyId": "cmugriqmr001ubx50s7g3b8t3",
       "ticker": "ORAS",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 790.05
+      "newPrice": 797.02
     },
     {
       "companyId": "cmuexbjx60021bxn8q8ukw2kv",
       "ticker": "ORHD",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 10.15
+      "newPrice": 10.1
     },
     {
       "companyId": "cmuexbjy40023bxn8zjyx2xhd",
       "ticker": "ORWE",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 24.8
+      "newPrice": 24.99
     },
     {
       "companyId": "cmui726ha004pbx90kc1d7fjx",
       "ticker": "PACH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 90
@@ -1565,39 +1565,39 @@
     {
       "companyId": "cmugriqn6001vbx501oegp0xs",
       "ticker": "PHAR",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 98.4
+      "newPrice": 101.87
     },
     {
       "companyId": "cmuexbjw3001ybxn823hjukwx",
       "ticker": "PHDC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 11.32
+      "newPrice": 11.27
     },
     {
       "companyId": "cmugriqnh001wbx50twcdmgwa",
       "ticker": "PHGC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.077
+      "newPrice": 0.079
     },
     {
       "companyId": "cmui726hv004rbx90rsj2iisb",
       "ticker": "PHTV",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 315.61
+      "newPrice": 320
     },
     {
       "companyId": "cmvublwri0004bx7ofgbwa59t",
       "ticker": "POCO",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 5
@@ -1605,87 +1605,87 @@
     {
       "companyId": "cmui726im004ubx905gerka7d",
       "ticker": "POUL",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 10
+      "newPrice": 10.1
     },
     {
       "companyId": "cmui726iv004vbx90bq0znnli",
       "ticker": "PRCL",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 21.1
+      "newPrice": 21.55
     },
     {
       "companyId": "cmui726j3004wbx90ltf6gciz",
       "ticker": "PRDC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 6.09
+      "newPrice": 6.34
     },
     {
       "companyId": "cmui726jc004xbx90vtpg84lm",
       "ticker": "PRMH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.93
+      "newPrice": 1.96
     },
     {
       "companyId": "cmui726jl004ybx90rlvcoo6b",
       "ticker": "QNBE",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 52.47
+      "newPrice": 53.03
     },
     {
       "companyId": "cmui726jx004zbx90jec74s1t",
       "ticker": "RACC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 7.55
+      "newPrice": 7.8
     },
     {
       "companyId": "cmui726k50050bx90r6xfiu14",
       "ticker": "RAKT",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 22.55
+      "newPrice": 22.39
     },
     {
       "companyId": "cmuexbk5i002mbxn8nivpitn6",
       "ticker": "RAYA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 5.2
+      "newPrice": 5.45
     },
     {
       "companyId": "cmugriqo0001ybx50b5fns63d",
       "ticker": "RKAZ",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 4.1
+      "newPrice": 4.18
     },
     {
       "companyId": "cmuexbk3u002hbxn8o48zc6nf",
       "ticker": "RMDA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 5.12
+      "newPrice": 5.48
     },
     {
       "companyId": "cmupv8vve0016bxn0j9jyp56d",
       "ticker": "RMTV",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 100
@@ -1693,143 +1693,143 @@
     {
       "companyId": "cmui726l10053bx908eq252mn",
       "ticker": "ROTO",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 30.41
+      "newPrice": 32.02
     },
     {
       "companyId": "cmugriqob0020bx50u23947a8",
       "ticker": "RREI",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 2.68
+      "newPrice": 2.81
     },
     {
       "companyId": "cmui726lc0054bx907qgyy7b1",
       "ticker": "RTVC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 2.74
+      "newPrice": 2.8
     },
     {
       "companyId": "cmugriqof0021bx5031cermr1",
       "ticker": "RUBX",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 12.81
+      "newPrice": 13.38
     },
     {
       "companyId": "cmugriqok0022bx50vyr7xo1q",
       "ticker": "SAIB",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 3.03
+      "newPrice": 2.53
     },
     {
       "companyId": "cmui726lo0055bx90kcehtav8",
       "ticker": "SAUD",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 19.98
+      "newPrice": 20.28
     },
     {
       "companyId": "cmui726lx0056bx90f1hpltrh",
       "ticker": "SCEM",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 88.04
+      "newPrice": 92
     },
     {
       "companyId": "cmui726m60057bx906kpftljj",
       "ticker": "SCFM",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 211.8
+      "newPrice": 216.2
     },
     {
       "companyId": "cmui726mf0058bx907ixg8idg",
       "ticker": "SCTS",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 485.3
+      "newPrice": 494.45
     },
     {
       "companyId": "cmui726mo0059bx909rckwosi",
       "ticker": "SDTI",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 86.07
+      "newPrice": 88.79
     },
     {
       "companyId": "cmui726mx005abx9054iq80tw",
       "ticker": "SEIG",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 266.15
+      "newPrice": 254.57
     },
     {
       "companyId": "cmugriqou0024bx50y6oj3tkw",
       "ticker": "SIPC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 4.59
+      "newPrice": 4.67
     },
     {
       "companyId": "cmuexbjyi0025bxn87aji2us4",
       "ticker": "SKPC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 14.44
+      "newPrice": 14.7
     },
     {
       "companyId": "cmui726nu005dbx90oeul23tp",
       "ticker": "SMFR",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 186.03
+      "newPrice": 192.12
     },
     {
       "companyId": "cmupv8vvm0018bxn0z7nlpyh0",
       "ticker": "SMPP",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 85.11
+      "newPrice": 100
     },
     {
       "companyId": "cmui726oc005fbx90wyvcs8nn",
       "ticker": "SNFC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 10.61
+      "newPrice": 10.65
     },
     {
       "companyId": "cmui726on005gbx90j0rsrfbq",
       "ticker": "SNFI",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 9
+      "newPrice": 9.25
     },
     {
       "companyId": "cmui726ow005hbx90egiqf6vb",
       "ticker": "SPHT",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 1.42
@@ -1837,95 +1837,95 @@
     {
       "companyId": "cmui726p5005ibx90gt9nhh4w",
       "ticker": "SPIN",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 14.57
+      "newPrice": 14.45
     },
     {
       "companyId": "cmui726pf005jbx90cmcu92bd",
       "ticker": "SPMD",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.336
+      "newPrice": 0.344
     },
     {
       "companyId": "cmvu2glot000mbxg4yjinh334",
       "ticker": "SUCE",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 127
+      "newPrice": 129
     },
     {
       "companyId": "cmuexbk2f002cbxn8qw98g4d7",
       "ticker": "SUGR",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 47.31
+      "newPrice": 48.2
     },
     {
       "companyId": "cmui726py005lbx90zfyun05n",
       "ticker": "SVCE",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 8.45
+      "newPrice": 8.84
     },
     {
       "companyId": "cmuexbjxn0022bxn8ngc9pcnb",
       "ticker": "SWDY",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 108.6
+      "newPrice": 112
     },
     {
       "companyId": "cmui726qb005mbx906vftw3xz",
       "ticker": "TALM",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 19.15
+      "newPrice": 19.6
     },
     {
       "companyId": "cmui726ql005nbx905ghtzldh",
       "ticker": "TANM",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 5.67
+      "newPrice": 5.79
     },
     {
       "companyId": "cmugriqp90025bx501g76pgt9",
       "ticker": "TAQA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 13.84
+      "newPrice": 14.18
     },
     {
       "companyId": "cmuexbjvm001xbxn8ri66bnyg",
       "ticker": "TMGH",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 79.8
+      "newPrice": 81.08
     },
     {
       "companyId": "cmupv8vsp000ebxn00p6i3qhk",
       "ticker": "TORA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 54
+      "newPrice": 55.01
     },
     {
       "companyId": "cmui726re005qbx906uyku5k5",
       "ticker": "TRTO",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
       "newPrice": 0.059
@@ -1933,226 +1933,147 @@
     {
       "companyId": "cmui726rn005rbx90nd1d3f4x",
       "ticker": "TWSA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 6.52
+      "newPrice": 7.03
     },
     {
       "companyId": "cmui726rx005sbx90qi8468h7",
       "ticker": "TYCN",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 11.11
+      "newPrice": 13.33
     },
     {
       "companyId": "cmui726s5005tbx90txtevhh4",
       "ticker": "UBEE",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 14.95
+      "newPrice": 14.9
     },
     {
       "companyId": "cmui726se005ubx905whdcg28",
       "ticker": "UEFM",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 442
+      "newPrice": 465
     },
     {
       "companyId": "cmui726sn005vbx90pux219rb",
       "ticker": "UEGC",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 1.42
+      "newPrice": 1.47
     },
     {
       "companyId": "cmui726sv005wbx90clvtrb95",
       "ticker": "UNIP",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.282
+      "newPrice": 0.293
     },
     {
       "companyId": "cmui726t3005xbx90f8btgbfc",
       "ticker": "UNIT",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 18.01
+      "newPrice": 18.51
     },
     {
       "companyId": "cmui726tb005ybx90os3wozzd",
       "ticker": "UPMS",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 10
+      "newPrice": 9.8
     },
     {
       "companyId": "cmui726tl005zbx90heo21ykd",
       "ticker": "UTOP",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 82.3
+      "newPrice": 90.53
     },
     {
       "companyId": "cmui726tu0060bx906vdq7mhv",
       "ticker": "VALU",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 9.04
+      "newPrice": 9.33
     },
     {
       "companyId": "cmui726u30061bx90faqd1uzs",
       "ticker": "VERT",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 3.92
+      "newPrice": 4.23
     },
     {
       "companyId": "cmvu2glp2000nbxg4sjkg5ael",
       "ticker": "VLMR",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 0.621
+      "newPrice": 0.633
     },
     {
       "companyId": "cmui726uc0062bx90njurrofx",
       "ticker": "VLMRA",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 23.31
+      "newPrice": 23.89
     },
     {
       "companyId": "cmvublwrw0007bx7ork65rfiw",
       "ticker": "WATP",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 21.95
+      "newPrice": 17
     },
     {
       "companyId": "cmui726ut0064bx90oaglpnj3",
       "ticker": "WCDF",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 493
+      "newPrice": 500.02
     },
     {
       "companyId": "cmui726v30065bx905h0iakjd",
       "ticker": "WKOL",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 247.8
+      "newPrice": 186.21
     },
     {
       "companyId": "cmui726vj0067bx90j52qw3ou",
       "ticker": "ZEOT",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 10.27
+      "newPrice": 10.9
     },
     {
       "companyId": "cmui726vu0068bx90kznn7kso",
       "ticker": "ZMID",
-      "asOf": "2026-11-03T15:49:00.000Z",
+      "asOf": "2026-11-05T03:40:00.000Z",
       "oldPrice": null,
       "oldSource": null,
-      "newPrice": 6.65
+      "newPrice": 6.8
     }
   ],
-  "shares": [
-    {
-      "companyId": "cmui725cn000gbx90xlr2ebhb",
-      "ticker": "ALEX",
-      "oldShares": null,
-      "newShares": 458029000
-    },
-    {
-      "companyId": "cmupv8vrf0002bxn0xcaqmvks",
-      "ticker": "APPC",
-      "oldShares": null,
-      "newShares": 8982644
-    },
-    {
-      "companyId": "cmugriqg8000ibx50269oithg",
-      "ticker": "DCRC",
-      "oldShares": null,
-      "newShares": 23106000
-    },
-    {
-      "companyId": "cmupv8vsc000abxn00i9yvyob",
-      "ticker": "EGCH",
-      "oldShares": null,
-      "newShares": 1986580000
-    },
-    {
-      "companyId": "cmupv8vsw000gbxn0zk3purex",
-      "ticker": "EHDR",
-      "oldShares": null,
-      "newShares": 672000000
-    },
-    {
-      "companyId": "cmupv8vt2000ibxn05gotnj0e",
-      "ticker": "EPPK",
-      "oldShares": null,
-      "newShares": 8320000
-    },
-    {
-      "companyId": "cmupv8vto000obxn0cfjfuzom",
-      "ticker": "GTHE",
-      "oldShares": null,
-      "newShares": 4721120000
-    },
-    {
-      "companyId": "cmupv8vu3000sbxn063kwjopl",
-      "ticker": "MEGM",
-      "oldShares": null,
-      "newShares": 62628000
-    },
-    {
-      "companyId": "cmvu2glol000lbxg4sy5p28y0",
-      "ticker": "MISR",
-      "oldShares": null,
-      "newShares": 8650000
-    },
-    {
-      "companyId": "cmui726d6004abx90hkm9et90",
-      "ticker": "NBKE",
-      "oldShares": null,
-      "newShares": 500000000
-    },
-    {
-      "companyId": "cmupv8vun000ybxn0igxkyj9o",
-      "ticker": "NDRL",
-      "oldShares": null,
-      "newShares": 5000000
-    },
-    {
-      "companyId": "cmupv8vv70014bxn03wuerkkb",
-      "ticker": "OIH",
-      "oldShares": null,
-      "newShares": 5245690000
-    },
-    {
-      "companyId": "cmvu2glp2000nbxg4sjkg5ael",
-      "ticker": "VLMR",
-      "oldShares": null,
-      "newShares": 830840000
-    }
-  ]
+  "shares": []
 }

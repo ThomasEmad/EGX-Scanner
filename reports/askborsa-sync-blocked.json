@@ -1,0 +1,10 @@
+{
+  "generatedAt": "2026-11-05T00:18:51.377Z",
+  "blocked": [
+    {
+      "ticker": "EGBE",
+      "periodLabel": "Q2 2025",
+      "reason": "SOFT_DELETED"
+    }
+  ]
+}

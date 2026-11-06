@@ -5,13 +5,17 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "EGX Financial Scanner",
     short_name: "EGX Scanner",
     description:
-      "Audited financial data, ratios, sector rankings and data-quality indicators for Egyptian Exchange companies.",
+      "Financial data, ratios, sector rankings and valuations for Egyptian Exchange companies.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
     theme_color: "#0b1220",
-    lang: "en",
-    dir: "ltr",
+    // Arabic-first product: the install UI and standalone window should
+    // reflect the primary RTL locale (pages flip dir client-side).
+    lang: "ar-EG",
+    dir: "rtl",
+    id: "/",
+    scope: "/",
     categories: ["finance", "business", "productivity"],
     icons: [
       { src: "/logo.svg", sizes: "any", type: "image/svg+xml", purpose: "any" },

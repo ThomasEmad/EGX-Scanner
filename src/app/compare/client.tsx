@@ -3,7 +3,7 @@
 // /compare?ids=a,b,c — side-by-side comparison of 2-4 companies on their latest
 // verified annual metrics. Best value per row highlighted; shareable URL.
 
-import { useCallback, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { useRouter } from "next/navigation"
 import { useQuery } from "@tanstack/react-query"
 import { Scale, X } from "lucide-react"
@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Skeleton } from "@/components/ui/skeleton"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { LayoutShell } from "@/components/layout/LayoutShell"
 import { SECTOR_AR } from "@/lib/sectors"
 import { useI18n } from "@/lib/i18n"
@@ -30,6 +31,9 @@ interface CompareCompany {
 interface CompareData {
   companies: CompareCompany[]
   metricDefs: { code: string; labelEn: string; labelAr: string; unit: string }[]
+  year: number | null
+  /** fiscal years where ≥2 selected companies have annual data (descending) */
+  years: number[]
 }
 
 const HIGHER_BETTER = new Set(["revenue", "net_profit", "net_margin", "roe", "roa", "total_assets", "total_equity", "eps", "market_cap"])
@@ -65,6 +69,25 @@ export default function ComparePage() {
   const [search, setSearch] = useState("")
   const [debounced, setDebounced] = useState("")
   const [debounceId, setDebounceId] = useState<ReturnType<typeof setTimeout> | null>(null)
+  // "all" = each company's own latest annual — or ONE pinned fiscal year for
+  // everyone (like-for-like). Synced with the ?year= URL param for sharing.
+  const [year, setYear] = useState<string>(() => {
+    if (typeof window === "undefined") return "all"
+    const y = new URLSearchParams(window.location.search).get("year")
+    return y && /^\d{4}$/.test(y) ? y : "all"
+  })
+
+  const updateYearUrl = useCallback((next: string) => {
+    const u = new URL(window.location.href)
+    if (next !== "all") u.searchParams.set("year", next)
+    else u.searchParams.delete("year")
+    window.history.replaceState(null, "", u.toString())
+  }, [])
+
+  function pickYear(v: string) {
+    setYear(v)
+    updateYearUrl(v)
+  }
 
   const updateUrl = useCallback((next: string[]) => {
     const u = new URL(window.location.href)
@@ -94,11 +117,21 @@ export default function ComparePage() {
   })
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["compare", ids.join(",")],
-    queryFn: () => fetch(`/api/v1/compare?ids=${ids.join(",")}`).then((r) => (r.ok ? (r.json() as Promise<CompareData>) : null)),
+    queryKey: ["compare", ids.join(","), year],
+    queryFn: () =>
+      fetch(`/api/v1/compare?ids=${ids.join(",")}${year !== "all" ? `&year=${year}` : ""}`).then((r) =>
+        r.ok ? (r.json() as Promise<CompareData>) : null,
+      ),
     enabled: ids.length >= 2,
     staleTime: 120_000,
   })
+
+  // A pinned year that the current company set can't satisfy resets to auto
+  // instead of showing a table full of dashes forever.
+  useEffect(() => {
+    if (data && year !== "all" && !(data.years ?? []).includes(Number(year))) pickYear("all")
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data, year])
 
   const pickedInfo = useMemo(() => {
     const fromSearch = (searchResults?.companies ?? []) as { id: string; ticker: string; nameEn: string }[]
@@ -153,8 +186,33 @@ export default function ComparePage() {
             {ar ? "مقارنة الشركات" : "Compare Companies"}
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            {ar ? "قارن حتى 4 شركات على أحدث قوائم سنوية متاحة لكل شركة — الرابط يتحدث تلقائيًا للمشاركة." : "Compare up to 4 companies on each one's latest annual statements — the URL updates for sharing."}
+            {year !== "all"
+              ? ar
+                ? `مقارنة على السنة المالية ${year} — نفس الفترة لكل الشركات المختارة. الشركات بدون قوائم سنوية منشورة لهذه السنة تظهر شرطات.`
+                : `Comparing on fiscal year ${year} — the same period for every selected company. Companies without annual filings for that year show dashes.`
+              : ar
+                ? "قارن حتى 4 شركات على أحدث قوائم سنوية متاحة لكل شركة — الرابط يتحدث تلقائيًا للمشاركة."
+                : "Compare up to 4 companies on each one's latest annual statements — the URL updates for sharing."}
           </p>
+          {ids.length >= 2 ? (
+            <div className="mt-3">
+              <Select value={year} onValueChange={pickYear}>
+                <SelectTrigger className="h-8 w-56 text-xs" aria-label={ar ? "الفترة" : "Period"}>
+                  <SelectValue placeholder={ar ? "الفترة" : "Period"} />
+                </SelectTrigger>
+                <SelectContent className="max-h-72">
+                  <SelectItem value="all" className="text-xs">
+                    {ar ? "تلقائي — أحدث سنة لكل شركة" : "Auto — each company's latest year"}
+                  </SelectItem>
+                  {(data?.years ?? []).map((y) => (
+                    <SelectItem key={y} value={String(y)} className="text-xs">
+                      {ar ? `سنة مالية ${y}` : `Fiscal year ${y}`}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          ) : null}
         </div>
 
         {/* picker */}
@@ -207,7 +265,7 @@ export default function ComparePage() {
                           <a href={`/company/${c.id}`} className="block hover:text-primary">
                             <span className="block text-sm font-bold">{c.ticker}</span>
                             <span className="block max-w-36 truncate text-[10px] font-normal text-muted-foreground">{ar ? c.nameAr ?? c.nameEn : c.nameEn}</span>
-                            <span className="block text-[10px] font-normal text-muted-foreground/80">{c.periodLabel ?? ar ? "—" : "—"}</span>
+                            <span className="block text-[10px] font-normal text-muted-foreground/80">{c.periodLabel ?? "—"}</span>
                           </a>
                         </th>
                       ))}
@@ -261,9 +319,11 @@ export default function ComparePage() {
           </Card>
         )}
 
-        <Badge variant="outline" className="mt-4 border-success/40 text-[10px] text-success-foreground">
-          {ar ? "الأخضر = الأفضل في الصف — كل قيمة من أحدث قوائم سنوية متحقق منها لكل شركة" : "Green = best in row — every value from each company's latest verified annual filing"}
-        </Badge>
+        {data && data.companies.length >= 2 ? (
+          <Badge variant="outline" className="mt-4 border-success/40 text-[10px] text-success-foreground">
+            {ar ? "الأخضر = الأفضل في الصف — كل قيمة من أحدث قوائم سنوية متحقق منها لكل شركة" : "Green = best in row — every value from each company's latest verified annual filing"}
+          </Badge>
+        ) : null}
       </div>
     </LayoutShell>
   )

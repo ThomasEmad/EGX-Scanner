@@ -1,0 +1,151 @@
+﻿
+=== AUDIT v2 DRY RUN — 264 companies in 5.9s ===
+total=2404 critical=331 high=314 medium=609 low=1150
+by class: { blocker: 382, coverage: 612, advisory: 1179, metadata: 231 }
+certification: { certified: 55, provisional: 66, review_required: 143 }
+accuracy bands (100 / 95-99 / 80-94 / <80): { perfect: 36, near: 83, fair: 11, poor: 134 }
+
+--- root causes (all findings) ---
+  361 YOY_MOVE           Large year-over-year move
+  307 CASH_QUALITY       Operating cash vs profit
+  279 TREND_COVERAGE     Trend history gap
+  251 CF_IDENTITY        Cash-flow identity
+  244 MISSING_METRIC     Missing critical metric
+  231 ISIN               ISIN metadata
+  140 BS_IDENTITY        Balance sheet does not balance
+  121 DEBT_DEFINITION    Debt components definition
+   97 IS_TAX_BASIS       Tax / net-profit basis
+   75 BS_COMPONENTS      Balance sheet components mismatch
+   68 RATIO_OUTLIER      Ratio outside normal band
+   59 IS_GROSS_PROFIT    Gross profit identity
+   50 SECTOR_RULE        Sector rule violation / gap
+   39 FRESHNESS          Stale data
+   30 DUPLICATE_PERIOD   Duplicate period data
+   23 SIGN_INVERSION     Sign inversion
+   22 IS_OPERATING       Operating vs net profit gap
+    7 IS_MARGIN          Impossible margin
+
+--- blocker findings by root cause ---
+  143 CF_IDENTITY
+   83 BS_IDENTITY
+   48 BS_COMPONENTS
+   32 DEBT_DEFINITION
+   23 SIGN_INVERSION
+   22 IS_TAX_BASIS
+   14 DUPLICATE_PERIOD
+   10 IS_GROSS_PROFIT
+    7 IS_MARGIN
+
+--- companies with blockers (top 25 by blocker count) ---
+companies with ≥1 blocker: 145 of 264
+IRON   blockers= 24 accuracy=0 completeness=87 conf=45 [IS_GROSS_PROFIT,SIGN_INVERSION,BS_IDENTITY,BS_COMPONENTS,CF_IDENTITY,DUPLICATE_PERIOD]
+AMOC   blockers= 10 accuracy=11 completeness=100 conf=55 [BS_IDENTITY,SIGN_INVERSION,BS_COMPONENTS,CF_IDENTITY,DEBT_DEFINITION]
+UEGC   blockers=  9 accuracy=27 completeness=99 conf=61 [CF_IDENTITY,BS_IDENTITY,BS_COMPONENTS]
+ASCM   blockers=  8 accuracy=0 completeness=87 conf=45 [BS_IDENTITY,DEBT_DEFINITION,CF_IDENTITY,IS_MARGIN,DUPLICATE_PERIOD]
+ABUK   blockers=  7 accuracy=26 completeness=100 conf=61 [BS_IDENTITY,BS_COMPONENTS,CF_IDENTITY]
+SPHT   blockers=  7 accuracy=3 completeness=75 conf=41 [IS_GROSS_PROFIT,BS_COMPONENTS,IS_MARGIN]
+CIRA   blockers=  6 accuracy=55 completeness=38 conf=62 [DEBT_DEFINITION,BS_COMPONENTS]
+ISPH   blockers=  6 accuracy=45 completeness=100 conf=73 [CF_IDENTITY,DEBT_DEFINITION]
+NCEM   blockers=  6 accuracy=44 completeness=62 conf=46 [BS_COMPONENTS,SIGN_INVERSION,BS_IDENTITY]
+SNFI   blockers=  6 accuracy=33 completeness=75 conf=58 [SIGN_INVERSION,IS_GROSS_PROFIT,IS_MARGIN]
+AALR   blockers=  5 accuracy=63 completeness=61 conf=70 [BS_IDENTITY]
+ALEX   blockers=  5 accuracy=62 completeness=87 conf=63 [BS_COMPONENTS,BS_IDENTITY]
+CCAP   blockers=  5 accuracy=17 completeness=70 conf=51 [BS_IDENTITY,CF_IDENTITY,DUPLICATE_PERIOD]
+COSG   blockers=  5 accuracy=5 completeness=99 conf=50 [CF_IDENTITY,BS_IDENTITY,IS_TAX_BASIS]
+EGAL   blockers=  5 accuracy=45 completeness=38 conf=57 [SIGN_INVERSION,CF_IDENTITY]
+MFPC   blockers=  5 accuracy=5 completeness=100 conf=52 [BS_COMPONENTS,CF_IDENTITY,IS_MARGIN]
+MHOT   blockers=  5 accuracy=1 completeness=37 conf=33 [CF_IDENTITY,BS_IDENTITY,BS_COMPONENTS,IS_MARGIN]
+NAHO   blockers=  5 accuracy=15 completeness=99 conf=55 [BS_IDENTITY,IS_TAX_BASIS,DEBT_DEFINITION,DUPLICATE_PERIOD]
+OFH    blockers=  5 accuracy=30 completeness=99 conf=63 [DEBT_DEFINITION,SIGN_INVERSION,IS_GROSS_PROFIT,IS_TAX_BASIS]
+RAKT   blockers=  5 accuracy=63 completeness=62 conf=68 [BS_IDENTITY]
+SCEM   blockers=  5 accuracy=33 completeness=99 conf=62 [BS_IDENTITY,CF_IDENTITY]
+SCFM   blockers=  5 accuracy=62 completeness=74 conf=70 [BS_IDENTITY]
+ALCN   blockers=  4 accuracy=45 completeness=100 conf=68 [BS_COMPONENTS,CF_IDENTITY]
+AMER   blockers=  4 accuracy=18 completeness=85 conf=55 [DEBT_DEFINITION,CF_IDENTITY,IS_GROSS_PROFIT]
+CLHO   blockers=  4 accuracy=76 completeness=99 conf=88 [DEBT_DEFINITION]
+
+--- blocker samples (first 40) ---
+[AALR] BALANCE_SHEET_EQUATION FY 2021 :: BALANCE_SHEET_EQUATION FAILED: gap 86.63% (-823.0M EGP; materiality threshold 4.8M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabiliti
+[AALR] BALANCE_SHEET_EQUATION FY 2022 :: BALANCE_SHEET_EQUATION FAILED: gap 87.90% (-879.0M EGP; materiality threshold 5.0M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabiliti
+[AALR] BALANCE_SHEET_EQUATION FY 2023 :: BALANCE_SHEET_EQUATION FAILED: gap 91.06% (-947.0M EGP; materiality threshold 5.2M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabiliti
+[AALR] BALANCE_SHEET_EQUATION FY 2024 :: BALANCE_SHEET_EQUATION FAILED: gap 89.43% (-948.0M EGP; materiality threshold 5.3M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabiliti
+[AALR] BALANCE_SHEET_EQUATION FY 2025 :: BALANCE_SHEET_EQUATION FAILED: gap 90.99% (-1.01B EGP; materiality threshold 5.5M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilitie
+[ABUK] BALANCE_SHEET_EQUATION FY 2017 :: BALANCE_SHEET_EQUATION FAILED: gap 3.03% (206.4M EGP; materiality threshold 34.1M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilitie
+[ABUK] ASSET_COMPONENTS FY 2018 :: ASSET_COMPONENTS FAILED: gap 2.63% (208.4M EGP; materiality threshold 79.2M) on [CURRENT_ASSETS, NON_CURRENT_ASSETS, TOTAL_ASSETS].
+[ABUK] BALANCE_SHEET_EQUATION FY 2019 :: BALANCE_SHEET_EQUATION FAILED: gap 2.08% (189.3M EGP; materiality threshold 45.4M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilitie
+[ABUK] BALANCE_SHEET_EQUATION FY 2022 :: BALANCE_SHEET_EQUATION FAILED: gap 79.59% (-17.81B EGP; materiality threshold 111.9M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabili
+[ABUK] CASH_FLOW_SUM FY 2023 :: CASH_FLOW_SUM FAILED: gap 38.21% (-4.01B EGP) — FX effect 4.01B included; verify the cash-flow statement.
+[ABUK] CASH_FLOW_SUM FY 2024 :: CASH_FLOW_SUM FAILED: gap 76.44% (-6.75B EGP) — FX effect 6.75B included; verify the cash-flow statement.
+[ABUK] CASH_FLOW_SUM Q1 2026 :: CASH_FLOW_SUM FAILED: gap 201.03% (-8.85B EGP) — FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[ACAP] ASSET_COMPONENTS FY 2023 :: ASSET_COMPONENTS FAILED: gap 6.67% (-340.5M EGP; materiality threshold 51.1M) on [CURRENT_ASSETS, NON_CURRENT_ASSETS, TOTAL_ASSETS].
+[ACGC] CASH_FLOW_SUM FY 2023 :: CASH_FLOW_SUM FAILED: gap 200.00% (-686.6M EGP) — FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[ACGC] CASH_FLOW_SUM FY 2024 :: CASH_FLOW_SUM FAILED: gap 74.62% (-544.1M EGP) — FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[ACTF] BALANCE_SHEET_EQUATION FY 2021 :: BALANCE_SHEET_EQUATION FAILED: gap 4.75% (21.4M EGP; materiality threshold 2.3M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilities 
+[ACTF] BALANCE_SHEET_EQUATION FY 2022 :: BALANCE_SHEET_EQUATION FAILED: gap 2.62% (12.8M EGP; materiality threshold 2.4M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilities 
+[ADCI] CASH_FLOW_SUM Q3 2026 :: CASH_FLOW_SUM FAILED: gap 32.12% (-25.1M EGP) — FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[AFMC] CASH_FLOW_SUM Q3 2026 :: CASH_FLOW_SUM FAILED: gap 72.29% (-39.2M EGP) — FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[AIDC] CROSS_QUARTER_DUPLICATE Q4 2025 :: Q4 2025 repeats 6/6 values of the previous quarter Q3 2025 (±0.05%) — a tab-switch harvest copy; quarantine the later record and re-extract.
+[AIDC] CROSS_QUARTER_DUPLICATE Q2 2026 :: Q2 2026 repeats 5/5 values of the previous quarter Q1 2026 (±0.05%) — a tab-switch harvest copy; quarantine the later record and re-extract.
+[AJWA] ASSET_COMPONENTS FY 2023 :: ASSET_COMPONENTS FAILED: gap 3.69% (-145.5M EGP; materiality threshold 39.4M) on [CURRENT_ASSETS, NON_CURRENT_ASSETS, TOTAL_ASSETS].
+[ALCN] ASSET_COMPONENTS FY 2018 :: ASSET_COMPONENTS FAILED: gap 3.45% (-208.4M EGP; materiality threshold 60.4M) on [CURRENT_ASSETS, NON_CURRENT_ASSETS, TOTAL_ASSETS].
+[ALCN] CASH_FLOW_SUM FY 2023 :: CASH_FLOW_SUM FAILED: gap 16.28% (-634.8M EGP) — FX effect 426.8M included; verify the cash-flow statement.
+[ALCN] CASH_FLOW_SUM FY 2024 :: CASH_FLOW_SUM FAILED: gap 10.92% (-459.8M EGP) — FX effect 467.5M included; verify the cash-flow statement.
+[ALCN] CASH_FLOW_SUM Q2 2026 :: CASH_FLOW_SUM FAILED: gap 120.82% (-2.78B EGP) — FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[ALEX] ASSET_COMPONENTS FY 2014 :: ASSET_COMPONENTS FAILED: gap 3.03% (-86.5M EGP; materiality threshold 28.5M) on [CURRENT_ASSETS, NON_CURRENT_ASSETS, TOTAL_ASSETS].
+[ALEX] BALANCE_SHEET_EQUATION FY 2016 :: BALANCE_SHEET_EQUATION FAILED: gap 18.43% (-776.0M EGP; materiality threshold 21.1M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilit
+[ALEX] BALANCE_SHEET_EQUATION FY 2017 :: BALANCE_SHEET_EQUATION FAILED: gap 36.88% (-1.82B EGP; materiality threshold 24.7M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabiliti
+[ALEX] BALANCE_SHEET_EQUATION FY 2019 :: BALANCE_SHEET_EQUATION FAILED: gap 12.35% (-547.0M EGP; materiality threshold 22.1M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilit
+[ALEX] BALANCE_SHEET_EQUATION Q2 2020 :: BALANCE_SHEET_EQUATION FAILED: gap 20.83% (-979.0M EGP; materiality threshold 23.5M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabilit
+[ALUM] CASH_FLOW_SUM FY 2021 :: CASH_FLOW_SUM FAILED: gap 200.00% (-108.3M EGP) — FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[ALUM] CASH_FLOW_SUM FY 2022 :: CASH_FLOW_SUM FAILED: gap 99.00% (-28.6M EGP) — FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[AMER] DEBT_COMPONENTS FY 2021 :: DEBT_COMPONENTS FAILED: ST+LT = 837.9M vs TOTAL_DEBT = 430.1M (48.7%). Components exceed the reported total — mapping error.
+[AMER] DEBT_COMPONENTS FY 2022 :: DEBT_COMPONENTS FAILED: ST+LT = 1.02B vs TOTAL_DEBT = 555.8M (45.7%). Components exceed the reported total — mapping error.
+[AMER] CASH_FLOW_SUM Q2 2025 :: CASH_FLOW_SUM FAILED: gap 6.86% (7.6M EGP) — FX_EFFECT_CASH not disclosed; verify the cash-flow statement.
+[AMER] GROSS_PROFIT_IDENTITY Q2 2026 :: GROSS_PROFIT_IDENTITY FAILED: gap 127.04% (-344.4M EGP; materiality threshold 5.4M) on [REVENUE, COGS, GROSS_PROFIT]. Check the COGS sign and whether the gross-profit line is before/after ot
+[AMOC] BALANCE_SHEET_EQUATION FY 2017 :: BALANCE_SHEET_EQUATION FAILED: gap 4.76% (-206.4M EGP; materiality threshold 21.7M) on [TOTAL_ASSETS, TOTAL_LIABILITIES, TOTAL_EQUITY]. Possible non-controlling interest or a total-liabiliti
+[AMOC] GROSS_PROFIT_IDENTITY FY 2020 :: GROSS_PROFIT_IDENTITY FAILED: reported 322.0M has the opposite sign of REVENUE − COGS = -354.5M — sign inversion, quarantine and re-extract.
+[AMOC] ASSET_COMPONENTS FY 2020 :: ASSET_COMPONENTS FAILED: gap 2.29% (-64.9M EGP; materiality threshold 28.3M) on [CURRENT_ASSETS, NON_CURRENT_ASSETS, TOTAL_ASSETS].
+
+--- lowest overall quality (top 20) ---
+LCSW   score= 32 acc=  0 comp= 37 fresh=100 prov= 80 review_required
+MHOT   score= 33 acc=  1 comp= 37 fresh=100 prov= 80 review_required
+CNFN   score= 40 acc= 13 comp= 43 fresh=100 prov= 80 review_required
+SPHT   score= 41 acc=  3 comp= 75 fresh= 85 prov= 80 review_required
+ASCM   score= 45 acc=  0 comp= 87 fresh=100 prov= 80 review_required
+IRON   score= 45 acc=  0 comp= 87 fresh=100 prov= 80 review_required
+NCEM   score= 46 acc= 44 comp= 62 fresh= 15 prov= 65 review_required
+RMTV   score= 49 acc= 70 comp= 22 fresh= 15 prov= 65 review_required
+SVCE   score= 49 acc= 39 comp= 37 fresh= 85 prov= 80 review_required
+COSG   score= 50 acc=  5 comp= 99 fresh=100 prov= 80 review_required
+CCAP   score= 51 acc= 17 comp= 70 fresh=100 prov=100 review_required
+CICH   score= 51 acc= 34 comp= 43 fresh=100 prov= 80 review_required
+MFPC   score= 52 acc=  5 comp=100 fresh=100 prov=100 review_required
+MIPH   score= 52 acc= 43 comp= 37 fresh= 85 prov= 80 review_required
+SMPP   score= 53 acc= 70 comp= 37 fresh= 15 prov= 65 review_required
+EGTS   score= 54 acc= 48 comp= 37 fresh= 85 prov= 80 review_required
+GTHE   score= 54 acc= 67 comp= 49 fresh= 15 prov= 65 review_required
+AMER   score= 55 acc= 18 comp= 85 fresh=100 prov=100 review_required
+AMOC   score= 55 acc= 11 comp=100 fresh=100 prov=100 review_required
+ASPI   score= 55 acc= 43 comp= 43 fresh=100 prov= 80 review_required
+
+--- quarantine load (top 20) ---
+ENGC   usable= 510 quarantined= 175
+CCAP   usable= 373 quarantined= 174
+JUFO   usable= 563 quarantined= 165
+MCQE   usable= 550 quarantined= 162
+ARCC   usable= 538 quarantined= 157
+UNIT   usable= 417 quarantined= 157
+EFID   usable= 568 quarantined= 154
+BTFH   usable= 469 quarantined= 153
+DSCW   usable= 573 quarantined= 148
+MTIE   usable= 531 quarantined= 148
+RMDA   usable= 408 quarantined= 148
+VALU   usable=  30 quarantined= 143
+ATLC   usable= 359 quarantined= 133
+SKPC   usable= 610 quarantined= 133
+EFIH   usable= 520 quarantined= 130
+EFIC   usable= 432 quarantined= 129
+FWRY   usable= 563 quarantined= 128
+ORWE   usable= 590 quarantined= 127
+SWDY   usable= 568 quarantined= 125
+ZMID   usable= 361 quarantined= 123

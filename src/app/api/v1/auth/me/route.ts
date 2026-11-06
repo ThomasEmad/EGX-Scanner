@@ -14,5 +14,8 @@ export async function GET(req: NextRequest) {
   })
   if (!user) return Response.json({ error: "UNAUTHENTICATED" }, { status: 401 })
   const subscription = await getSubscriptionSummary(userId)
-  return Response.json({ user, subscription })
+  return Response.json(
+    { user, subscription },
+    { headers: { "Cache-Control": "no-store" } }
+  )
 }

@@ -284,6 +284,125 @@ function balanceSheetRiskSignals(ctx: AnalysisContext): InvestorSignal[] {
     })
   }
 
+  // Interest coverage — earnings must cover the interest bill
+  const interestExp = latest.values.INTEREST_EXPENSE ?? latest.values.FINANCE_COST
+  const ebitVal = latest.values.EBIT ?? latest.values.OPERATING_INCOME
+  if (interestExp !== undefined && ebitVal !== undefined && interestExp > 0) {
+    const ic = ebitVal / interestExp
+    let tone: SignalTone = "positive"
+    let direction: SignalDirection = "STABLE"
+    let interpretation = `Interest coverage ${ic.toFixed(1)}x — comfortable.`
+    let severity: "info" | "warning" | "critical" | undefined
+    if (ic < 1) {
+      tone = "negative"; direction = "DETERIORATION"; severity = "critical"
+      interpretation = `Interest coverage ${ic.toFixed(1)}x — operating earnings do not even cover the interest bill.`
+    } else if (ic < 2) {
+      tone = "warning"; direction = "DETERIORATION"; severity = "warning"
+      interpretation = `Interest coverage ${ic.toFixed(1)}x — thin buffer above the 2x comfort line.`
+    }
+    out.push({
+      id: nextId("bs"),
+      dimension: "BALANCE_SHEET",
+      code: "interest_coverage",
+      label: "Interest coverage",
+      labelAr: "تغطية الفوائد",
+      direction,
+      tone,
+      magnitude: ic,
+      interpretation,
+      interpretationAr: ic < 1
+        ? `تغطية الفوائد ${ic.toFixed(1)}x — الأرباح التشغيلية لا تغطي مصروف الفوائد أصلاً.`
+        : ic < 2
+          ? `تغطية الفوائد ${ic.toFixed(1)}x — هامش ضيق تحت خط الراحة 2x.`
+          : `تغطية الفوائد ${ic.toFixed(1)}x — مريحة.`,
+      evidence: [
+        { metricCode: "OPERATING_INCOME", periodKey: latest.periodKey, value: ebitVal },
+        { metricCode: "INTEREST_EXPENSE", periodKey: latest.periodKey, value: interestExp },
+      ],
+      confidence: 0.85,
+      severity,
+    })
+  }
+
+  // Net debt / EBITDA — the deleveraging yardstick
+  const ndEbitdaNum = latest.values.NET_DEBT
+  const ebitdaVal = latest.values.EBITDA
+  if (ndEbitdaNum !== undefined && ebitdaVal !== undefined && ebitdaVal > 0) {
+    const ndRatio = ndEbitdaNum / ebitdaVal
+    let tone: SignalTone = "positive"
+    let direction: SignalDirection = "STABLE"
+    let interpretation = `Net debt / EBITDA ${ndRatio.toFixed(2)}x.`
+    let severity: "info" | "warning" | "critical" | undefined
+    if (ndRatio > 3) {
+      tone = "warning"; direction = "DETERIORATION"; severity = "warning"
+      interpretation = `Net debt / EBITDA ${ndRatio.toFixed(2)}x — deleveraging pressure above the 3x threshold.`
+    } else if (ndRatio < 0) {
+      interpretation = `Net cash position — net debt / EBITDA ${ndRatio.toFixed(2)}x.`
+    }
+    out.push({
+      id: nextId("bs"),
+      dimension: "BALANCE_SHEET",
+      code: "net_debt_to_ebitda",
+      label: "Net debt / EBITDA",
+      labelAr: "صافي الدين إلى الأرباح قبل الفوائد والضرائب والإهلاك",
+      direction,
+      tone,
+      magnitude: ndRatio,
+      interpretation,
+      interpretationAr: ndRatio > 3
+        ? `صافي الدين/EBITDA ${ndRatio.toFixed(2)}x — ضغط استرداد ديون أعلى من حد 3x.`
+        : ndRatio < 0
+          ? `وضع نقدي صافٍ — صافي الدين/EBITDA ${ndRatio.toFixed(2)}x.`
+          : `صافي الدين/EBITDA ${ndRatio.toFixed(2)}x.`,
+      evidence: [
+        { metricCode: "NET_DEBT", periodKey: latest.periodKey, value: ndEbitdaNum },
+        { metricCode: "EBITDA", periodKey: latest.periodKey, value: ebitdaVal },
+      ],
+      confidence: 0.85,
+      severity,
+    })
+  }
+
+  // Bank regulatory capital — CET1 vs the Basel III floor
+  const cet1 = latest.values.CET1_CAPITAL
+  const rwa = latest.values.RISK_WEIGHTED_ASSETS
+  if (cet1 !== undefined && rwa !== undefined && rwa > 0) {
+    const pct = (cet1 / rwa) * 100
+    let tone: SignalTone = "positive"
+    let direction: SignalDirection = "STABLE"
+    let interpretation = `CET1 ratio ${pct.toFixed(1)}% — above the Basel III floor.`
+    let severity: "info" | "warning" | "critical" | undefined
+    if (pct < 4.5) {
+      tone = "negative"; direction = "DETERIORATION"; severity = "critical"
+      interpretation = `CET1 ratio ${pct.toFixed(1)}% — below the Basel III floor of 4.5%.`
+    } else if (pct < 8) {
+      tone = "warning"; direction = "STABLE"; severity = "warning"
+      interpretation = `CET1 ratio ${pct.toFixed(1)}% — thin common-equity buffer.`
+    }
+    out.push({
+      id: nextId("bs"),
+      dimension: "BALANCE_SHEET",
+      code: "bank_cet1_ratio",
+      label: "Bank CET1 capital ratio",
+      labelAr: "نسبة كفاية رأس المال الأساسية (CET1)",
+      direction,
+      tone,
+      magnitude: pct,
+      interpretation,
+      interpretationAr: pct < 4.5
+        ? `نسبة CET1 ${pct.toFixed(1)}% — تحت الحد الأدنى لبازل 3 (4.5%).`
+        : pct < 8
+          ? `نسبة CET1 ${pct.toFixed(1)}% — هامش أساسي ضيق.`
+          : `نسبة CET1 ${pct.toFixed(1)}% — فوق الحد الأدنى لبازل 3.`,
+      evidence: [
+        { metricCode: "CET1_CAPITAL", periodKey: latest.periodKey, value: cet1 },
+        { metricCode: "RISK_WEIGHTED_ASSETS", periodKey: latest.periodKey, value: rwa },
+      ],
+      confidence: 0.9,
+      severity,
+    })
+  }
+
   // Working capital pressure (receivables growth vs revenue growth)
   const rev = latest.values.REVENUE
   const revPrior = prior.values.REVENUE

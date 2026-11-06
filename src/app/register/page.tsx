@@ -9,6 +9,8 @@ import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { setUserToken, getUserToken, clearUserToken } from "@/lib/client/api"
+import { OAuthButtons } from "@/components/auth/oauth-buttons"
+import { useWatchlist } from "@/lib/client/watchlist"
 
 interface FieldErrors {
   name?: string
@@ -75,6 +77,7 @@ function RegisterForm() {
       // register → auto sign-in when the API returns a session, else go to login
       if (data.token) {
         setUserToken(data.token, true)
+        void useWatchlist.getState().syncFromServer()
         router.replace("/")
         router.refresh()
       } else {
@@ -188,6 +191,7 @@ function RegisterForm() {
                 تسجيل الدخول — Sign in
               </Link>
             </p>
+            <OAuthButtons next="/" />
           </form>
         </Card>
       </div>

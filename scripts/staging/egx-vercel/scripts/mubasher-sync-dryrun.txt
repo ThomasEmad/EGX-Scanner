@@ -1,0 +1,183 @@
+﻿
+=== Mubasher sector sync DRY RUN ===
+
+Mubasher tickers parsed: 288
+App companies: 265 | matched: 250 | unmatched: 15
+Sector changes: 154
+
+  AALR      Financial Services     -> Construction         General Co. for Land Reclamation Development & Reconstruction
+  ABUK      Industrial             -> Basic Materials      Abu Qir Fertilizers & Chemical Industries
+  ACAMD     Financial Services     -> Real Estate          Arab Co. for Asset Management & Development
+  ACAP      Financial Services     -> Real Estate          A Capital Holding
+  ACGC      Industrial             -> Textiles             Arab Cotton Ginning Co.
+  AFMC      Consumer               -> Food                 Alexandria Flour Mills Co.
+  AIFI      Food                   -> Real Estate          Atlas for Investment and Food Industries
+  AIHC      Investment             -> Financial Services   Arabia Investments Holding SAE
+  ALCN      Industrial             -> Transport            Alexandria Container & Cargo Handling
+  ALEX      Industrial             -> Building Materials   Alexandria Cement Co.
+  ALUM      Industrial             -> Basic Materials      Arab Aluminum Co. SAE
+  AMOC      Industrial             -> Energy               Alexandria Mineral Oils Company
+  APSW      Industrial             -> Textiles             Arab Polvara Spinning & Weaving Co.
+  ARAB      Financial Services     -> Real Estate          Arab Developers Holding
+  ARCC      Industrial             -> Building Materials   Arabian Cement Company
+  AREH      Industrial             -> Real Estate          Egyptian Real Estate Group
+  ARVA      Industrial             -> Building Materials   Arab Valves Co SAE
+  ASCM      Industrial             -> Basic Materials      ASEC Co. for Mining
+  ATQA      Industrial             -> Basic Materials      Misr National Steel (ATQA)
+  BIDI      Industrial             -> Basic Materials      El Badr Investment and Development - BID
+  BIGP      Industrial             -> Trade                ElBarbary Investment Group
+  BIOC      Industrial             -> Healthcare           GlaxoSmithKline S.A.E.
+  BONY      Financial Services     -> Real Estate          Bonyan for Development and Trade
+  CAED      Consumer               -> Education            Cairo Educational Services
+  CCAP      Real Estate            -> Financial Services   QALA For Financial Investments (formerly CI Capital)
+  CCRS      Financial Services     -> Real Estate          Gulf Canadian Real Estate Investment Co.
+  CEFM      Industrial             -> Food                 Middle Egypt Flour Mills
+  CERA      Industrial             -> Building Materials   Arab Ceramic Co. - Ceramica Remas
+  CFGH      Consumer               -> Textiles             Concrete Fashion Group for Commercial and Industrial Investments S.A.E
+  CIRA      Consumer               -> Education            Cairo for Investment & Real Estate Development (CIRA)
+  COPR      Financial Services     -> Construction         Cooper for Commercial Investment & Real Estate Development
+  CRST      Industrial             -> Construction         Creast Mark For Contracting And Real Estate Development
+  CSAG      Industrial             -> Transport            Canal Shipping Agencies Co.
+  DCRC      Industrial             -> Real Estate          Delta Construction & Reinforcement
+  DSCW      Consumer               -> Textiles             Dice Sports & Casual Wear
+  EALR      Financial Services     -> Construction         El Arabia for Land Reclamation
+  EAST      Consumer               -> Food                 Eastern Company
+  ECAP      Industrial             -> Building Materials   El Ezz Ceramics & Porcelain Co. (Gemma)
+  EEII      Telecom                -> Industrial           El Arabia Engineering Industries
+  EFIC      Industrial             -> Basic Materials      Egyptian Financial & Industrial Co.
+  EFIH      Financial Services     -> Telecom              eFinance Investment Group (EFIG)
+  EGAL      Industrial             -> Basic Materials      Egypt Aluminum (Egyptalum)
+  EGREF     Consumer               -> Financial Services   Egyptians Real Estate Fund
+  EGSA      Industrial             -> Telecom              Egyptian Steel
+  EGTS      Industrial             -> Travel & Leisure     Egyptian for Tourism Resorts
+  EITP      Industrial             -> Travel & Leisure     Egyptian Co for International Touristic Projects SAE
+  ELKA      Financial Services     -> Real Estate          El Kahera Housing
+  ELNA      Industrial             -> Food                 El Nasr For Manufacturing Agricultural Crops
+  ELSH      Financial Services     -> Real Estate          El Shams Housing & Urbanization
+  ELWA      Consumer               -> Travel & Leisure     El Wadi For International and Investement Development
+  EMFD      Financial Services     -> Real Estate          Emaar Misr for Development
+  ENGC      Industrial             -> Construction         Engineering Company for Engineering Industries
+  EPCO      Industrial             -> Food                 Egypt for Poultry
+  EPPK      Industrial             -> Paper                El Ahram Co for Printing and Packaging SAE
+  ETRS      Industrial             -> Transport            Egyptian Transport & Commercial Services Co. -EGYTRANS NOSCO
+  FERC      Industrial             -> Basic Materials      FERCHEM MISR CO. FOR FERTILLIZERS & CHEMICALS
+  FIRE      Financial Services     -> Real Estate          First Investment Company And Real Estate Development
+  FNAR      Industrial             -> Construction         Al Fanar Contracting Construction Trade Import And Export Co
+  FTNS      Telecom                -> Travel & Leisure     Fitness Prime
+  FWRY      Financial Services     -> Telecom              Fawry for Banking Technology and Electronic Payments
+  GBCO      Financial Services     -> Industrial           GB Corp (GB Capital)
+  GEOS      Other                  -> Construction         GEOS
+  GGCC      Industrial             -> Construction         Giza General Contracting
+  GGRN      Investment             -> Food                 Gogreen for Agricultural Investment
+  GMCI      Industrial             -> Trade                GMC GROUP FOR INDUSTRIAL COMMERCIAL & FINANCIAL INVESTMENTS
+  GOCO      Industrial             -> Travel & Leisure     Golden Coast El Sokhna Company for Touristic Investment SAE
+  GPIM      Financial Services     -> Construction         GPI For Urban Growth
+  GPPL      Financial Services     -> Travel & Leisure     Golden Pyramids Plaza
+  GSSC      Consumer               -> Food                 General Silos & Storage
+  GTEX      Consumer               -> Textiles             GTEX for Commercial and Industrial Investments
+  GTWL      Industrial             -> Textiles             Golden Textiles & Clothes Wool
+  HBCO      Food                   -> Construction         Heliopolis Brewing Company
+  HELI      Consumer               -> Real Estate          Heliopolis Housing
+  ICFC      Industrial             -> Basic Materials      International Company For Fertilizers & Chemicals
+  ICID      Other                  -> Real Estate          International Company for Investment and Development
+  IDRE      Consumer               -> Real Estate          Ismailia Development and Real Estate Co
+  IEEC      Industrial             -> Construction         Industrial & Engineering Projects
+  IFAP      Industrial             -> Trade                International Agricultural Products
+  IRAX      Industrial             -> Basic Materials      Ezz Dekheila Steel (Alexandria National Iron & Steel)
+  IRON      Industrial             -> Basic Materials      Egyptian Iron & Steel
+  ISMA      Industrial             -> Food                 Ismailia Misr Poultry
+  ISMQ      Industrial             -> Basic Materials      Iron And Steel for Mines and Quarries
+  KABO      Food                   -> Textiles             El Nasr Clothes & Textiles (Kabo)
+  KORA      Industrial             -> Construction         Korra Steel
+  KRDI      Financial Services     -> Food                 Al Khair River For Development Agricultural Investment&Envir
+  KZPC      Industrial             -> Basic Materials      Kafr El Zayat Pesticides
+  LCSW      Industrial             -> Building Materials   Lecico Egypt
+  LUTS      Industrial             -> Food                 Loutos for Touristic Investment
+  MBSC      Industrial             -> Building Materials   Misr Beni Suef Cement
+  MCQE      Industrial             -> Building Materials   Misr Chemical Industries
+  MEGM      Other                  -> Paper                Middle East Glass Manufacturing Co SAE
+  MENA      Financial Services     -> Real Estate          Mena Touristic & Real Estate Investment
+  MEPA      Industrial             -> Healthcare           Medical Packaging Company
+  MFPC      Industrial             -> Basic Materials      Misr Fertilizers Production Co. (MFPC)
+  MFSC      Consumer               -> Trade                Misr Duty Free Shops
+  MHOT      Consumer               -> Travel & Leisure     Misr Hotels
+  MICH      Industrial             -> Basic Materials      Misr Chemical Industries
+  MILS      Industrial             -> Food                 North Cairo Mills
+  MMAT      Real Estate            -> Travel & Leisure     Marseilla Al Masreia Al Khalegeya
+  MOED      Investment             -> Education            The Egyptian Modern Education Systems
+  MOIL      Industrial             -> Energy               Maridive & oil services
+  MOSC      Industrial             -> Food                 Misr Oils & Soap
+  MPCO      Industrial             -> Food                 Mansourah Poultry
+  MPRC      Consumer               -> Telecom              Egyptian Media Production City
+  MTIE      Financial Services     -> Trade                MM Group for Industry and International Trade
+  NAMI      Other                  -> Real Estate          NAMI
+  NAPR      Industrial             -> Paper                National Printing Co
+  NARE      Financial Services     -> Real Estate          Naeem Real Estate Holding Group
+  NCCW      Industrial             -> Construction         Nasr Company for Civil Works
+  NCGC      Food                   -> Textiles             Nile Cotton Ginning SAE
+  NDRL      Investment             -> Energy               Grand Capital for Financial Investments SAE (GRCA.CA)
+  NEDA      Industrial             -> Food                 Northern Upper Egypt Development & Agricultural Production
+  NHPS      Financial Services     -> Real Estate          National Housing for Professional Syndicates
+  OBRI      Financial Services     -> Real Estate          El Obour Real Estate Investment
+  ORAS      Industrial             -> Construction         Orascom Construction
+  ORWE      Consumer               -> Textiles             Oriental Weavers (Carpet Industries)
+  PACH      Industrial             -> Basic Materials      Paint & Chemicals Industries (Pachin)
+  PHTV      Consumer               -> Travel & Leisure     Pyramisa Hotels
+  POUL      Industrial             -> Food                 Cairo Poultry
+  PRCL      Consumer               -> Building Materials   Ceramic & Porcelain
+  PRDC      Financial Services     -> Real Estate          Pioneers Properties For Urban Development - PRE Group
+  RACC      Investment             -> Telecom              Raya Customer Experience
+  RAKT      Industrial             -> Paper                Rakta Paper Manufacturing
+  RAYA      Investment             -> Financial Services   Raya Holding for Financial Investments
+  RKAZ      Financial Services     -> Industrial           Rekaz Financial Holding
+  RMTV      Industrial             -> Travel & Leisure     Rowad Misr for Tourism Investment Co SAE
+  ROTO      Financial Services     -> Travel & Leisure     Rowad Tourism (Al Rowad)
+  RTVC      Industrial             -> Travel & Leisure     Remco for Touristic Villages Construction
+  RUBX      Industrial             -> Building Materials   Rubex International for Plastic & Acrylic Manufacturing
+  SCEM      Industrial             -> Building Materials   Sinai Cement Co. (SCEM)
+  SCFM      Industrial             -> Food                 South Cairo & Giza Mills & Bakeries
+  SCTS      Investment             -> Education            Sues Canal Company For Technology Settling
+  SDTI      Consumer               -> Travel & Leisure     Sharm Dreams Co. for Tourism Investment
+  SIMO      Industrial             -> Paper                Middle East Paper Company Egypt SAE
+  SKPC      Industrial             -> Basic Materials      Sidi Kerir Petrochemicals (SIDPEC)
+  SMFR      Industrial             -> Trade                Samad Misr -EGYFERT
+  SNFC      Industrial             -> Food                 Sharkia National Food
+  SPHT      Consumer               -> Travel & Leisure     El Shams Pyramids For Hotels& Touristic Projects
+  SPIN      Industrial             -> Textiles             Alexandria Spinning & Weaving (SPINALEX)
+  SVCE      Industrial             -> Building Materials   South Valley Cement
+  TALM      Consumer               -> Education            Taaleem Management Services
+  TANM      Financial Services     -> Real Estate          Tanmiya for Real Estate Investment
+  TORA      Basic Materials        -> Building Materials   Egyptian Tourah Portland Cement Co SAE
+  TRTO      Investment             -> Travel & Leisure     TransOceans Tours
+  UASG      Industrial             -> Transport            United Arab Stevedoring Co SAE
+  UEFM      Industrial             -> Food                 Upper Egypt Flour Mills
+  UEGC      Industrial             -> Real Estate          Elsaeed Contracting& Real Estate Investment Company SCCD
+  UNIP      Industrial             -> Paper                Universal For Paper and Packaging Materials (Unipack
+  UNIT      Financial Services     -> Real Estate          United Housing & Development
+  UPMS      Healthcare             -> Real Estate          Union Pharmacist Company For Medical Services and Investment
+  WCDF      Industrial             -> Food                 Middle & West Delta Flour Mills
+  WKOL      Industrial             -> Construction         Wadi Kom Ombo Land Reclamation
+  ZEOT      Industrial             -> Food                 Extracted Oils
+  ZMID      Financial Services     -> Real Estate          Zahraa Maadi Investment & Development
+
+App tickers not in any Mubasher sector index (15):
+  ADRI      Financial Services     Arab Development & Real Estate Investment
+  AMII      Industrial             Arabian Metal Industries and Industrial Investments
+  AMPH      Healthcare             Amoun Pharmaceutical
+  DAPH      Financial Services     Development & Engineering Consultants
+  ECCW      Industrial             Electro Cable Egypt
+  EGAS      Energy                 Egypt Gas (Natural Gas & Mining Project)
+  GOUR      Consumer               Gourmet Egypt (Online Food Retail)
+  GROV      Other                  GROV
+  IBCT      Industrial             International Business Corporation For Trading and Agencies
+  INEG      Industrial             Integrated Engineering Group S.A.E
+  NCEM      Basic Materials        National Cement Co SAE
+  NOAF      Real Estate            North Africa Company for Real Estate Investment SAE
+  TAQA      Energy                 TAQA Arabia
+  UTOP      Financial Services     UTOPIA
+  VERT      Telecom                Vertika for Industry & Trade
+
+Mubasher tickers not in app (38, informational):
+  ACFR, ALXD, ARPI, CCAPP, DCCC, DIFC, EEPM, EFAC, EGOT, EGWA, ELAB, ENPI, ESAC, FAITA, GETO, HAVC, HCFI, HDST, KASABF, MISR, MKIT, MLIC, NBCC, NIRE, PMSC, POCO, PTCC, SEIGA, SFWA, SIEG, SINA, SLAR, SMCSA, SUCE, TOUR, TRST, VLMR, WATP
+
+Dry run — re-run with --apply to write.

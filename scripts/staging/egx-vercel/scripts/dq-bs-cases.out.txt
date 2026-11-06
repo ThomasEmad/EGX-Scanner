@@ -1,0 +1,114 @@
+﻿
+===== RAKT FY 2021 (1 reports) =====
+  -- ASKBORA_SUMMARY ANNUAL
+    CURRENT_ASSETS                        185,648,406 NEEDS_REVIEW Total Current Assets (Refinitiv CF-Export, USD→EGP)"
+    CURRENT_LIABILITIES                   185,648,406 NEEDS_REVIEW Total Current Liabilities (Refinitiv CF-Export, USD→EGP)"
+    TOTAL_ASSETS                          157,000,000 VALID        إجمالي الأصول"
+    TOTAL_EQUITY                          582,000,000 VALID        حقوق المساهمين"
+    TOTAL_EQUITY_AND_LIABILITIES          157,000,000 VALID        إجمالي المطلوبات وحقوق المساهمين"
+    TOTAL_LIABILITIES                     739,000,000 VALID        إجمالي المطلوبات"
+
+===== RAKT FY 2022 (1 reports) =====
+  -- ASKBORA_SUMMARY ANNUAL
+    CURRENT_ASSETS                        196,641,580 NEEDS_REVIEW Total Current Assets (Refinitiv CF-Export, USD→EGP)"
+    TOTAL_ASSETS                          161,000,000 VALID        إجمالي الأصول"
+    TOTAL_EQUITY                          218,000,000 VALID        حقوق المساهمين"
+    TOTAL_EQUITY_AND_LIABILITIES          161,000,000 VALID        إجمالي المطلوبات وحقوق المساهمين"
+    TOTAL_LIABILITIES                     380,000,000 VALID        إجمالي المطلوبات"
+
+===== RAKT FY 2023 (1 reports) =====
+  -- ASKBORA_SUMMARY ANNUAL
+    TOTAL_ASSETS                          144,000,000 VALID        إجمالي الأصول"
+    TOTAL_EQUITY                          268,000,000 VALID        حقوق المساهمين"
+    TOTAL_EQUITY_AND_LIABILITIES          144,000,000 VALID        إجمالي المطلوبات وحقوق المساهمين"
+    TOTAL_LIABILITIES                     412,000,000 VALID        إجمالي المطلوبات"
+
+===== RAKT FY 2025 (1 reports) =====
+  -- ASKBORA_SUMMARY ANNUAL
+    TOTAL_ASSETS                          127,000,000 VALID        إجمالي الأصول"
+    TOTAL_EQUITY                          973,000,000 VALID        حقوق المساهمين"
+    TOTAL_EQUITY_AND_LIABILITIES          127,000,000 VALID        إجمالي المطلوبات وحقوق المساهمين"
+    TOTAL_LIABILITIES                   1,100,000,000 VALID        إجمالي المطلوبات"
+
+===== UEGC FY 2021 (1 reports) =====
+  -- YAHOO_FINANCE_API ANNUAL
+    CURRENT_ASSETS                     19,181,611,364 VALID        Current Assets"
+    CURRENT_LIABILITIES                   890,116,636 NEEDS_REVIEW Total Current Liabilities (Refinitiv CF-Export, USD→EGP)"
+    NON_CURRENT_ASSETS                      9,912,861 VALID        Total Non Current Assets"
+    TOTAL_ASSETS                          832,210,172 VALID        Total Assets"
+    TOTAL_EQUITY                        1,035,771,364 VALID        Stockholders Equity"
+    TOTAL_EQUITY_AND_LIABILITIES        2,020,000,000 VALID        إجمالي المطلوبات وحقوق المساهمين"
+    TOTAL_LIABILITIES                     831,174,401 VALID        Total Liabilities Net Minority Interest"
+
+===== IRON FY 2019 (1 reports) =====
+  -- ASKBORA_SUMMARY ANNUAL
+    CURRENT_ASSETS                      2,460,609,781 VALID        Total Current Assets (Refinitiv CF-Export, USD→EGP)"
+    CURRENT_LIABILITIES                 8,138,940,045 VALID        Total Current Liabilities (Refinitiv CF-Export, USD→EGP)"
+    NON_CURRENT_ASSETS                  1,135,666,053 VALID        Total Non-Current Assets (Refinitiv CF-Export, USD→EGP)"
+    TOTAL_ASSETS                        3,630,000,000 VALID        إجمالي الأصول"
+    TOTAL_EQUITY                        4,580,000,000 VALID        حقوق المساهمين"
+    TOTAL_EQUITY_AND_LIABILITIES            3,630,000 VALID        إجمالي المطلوبات وحقوق المساهمين"
+    TOTAL_LIABILITIES                   8,200,000,000 VALID        إجمالي المطلوبات"
+
+===== IRON FY 2020 (1 reports) =====
+  -- ASKBORA_SUMMARY ANNUAL
+    CURRENT_ASSETS                      1,809,319,512 VALID        Total Current Assets (Refinitiv CF-Export, USD→EGP)"
+    CURRENT_LIABILITIES                 8,503,801,705 VALID        Total Current Liabilities (Refinitiv CF-Export, USD→EGP)"
+    NON_CURRENT_ASSETS                  1,085,591,707 VALID        Total Non-Current Assets (Refinitiv CF-Export, USD→EGP)"
+    TOTAL_ASSETS                        2,830,000,000 VALID        إجمالي الأصول"
+    TOTAL_EQUITY                        5,770,000,000 VALID        حقوق المساهمين"
+    TOTAL_EQUITY_AND_LIABILITIES        2,830,000,000 VALID        إجمالي المطلوبات وحقوق المساهمين"
+    TOTAL_LIABILITIES                   8,600,000,000 VALID        إجمالي المطلوبات"
+
+===== IRON FY 2013 (1 reports) =====
+  -- EXCEL_STATEMENTS ANNUAL
+    CURRENT_ASSETS                      2,191,362,714 VALID        Total Current Assets (Refinitiv CF-Export, USD→EGP)"
+    CURRENT_LIABILITIES                 3,195,737,291 VALID        Total Current Liabilities (Refinitiv CF-Export, USD→EGP)"
+    NON_CURRENT_ASSETS                  1,095,681,357 VALID        Total Non-Current Assets (Refinitiv CF-Export, USD→EGP)"
+    TOTAL_ASSETS                        3,378,350,851 VALID        Total Assets (Refinitiv CF-Export, USD→EGP)"
+    TOTAL_EQUITY                          182,613,560 VALID        Total Shareholders' Equity - including Minority Interest & Hybrid Deb
+    TOTAL_LIABILITIES                   3,469,657,630 VALID        Total Liabilities (Refinitiv CF-Export, USD→EGP)"
+
+===== COPR FY 2022 (1 reports) =====
+  -- ASKBORA_SUMMARY ANNUAL
+    TOTAL_ASSETS                           15,840,000 VALID        إجمالي الأصول"
+    TOTAL_EQUITY                           29,100,000 VALID        حقوق المساهمين"
+    TOTAL_EQUITY_AND_LIABILITIES           15,840,000 VALID        إجمالي المطلوبات وحقوق المساهمين"
+    TOTAL_LIABILITIES                      44,930,000 VALID        إجمالي المطلوبات"
+
+===== COPR FY 2024 (1 reports) =====
+  -- YAHOO_FINANCE_API ANNUAL
+    CURRENT_ASSETS                             51,770 VALID        Current Assets"
+    NON_CURRENT_ASSETS                        100,000 VALID        Total Non Current Assets"
+    RETAINED_EARNINGS                     -31,600,305 VALID        Retained Earnings"
+    TOTAL_ASSETS                              151,770 VALID        Total Assets"
+    TOTAL_EQUITY                            6,060,609 VALID        Stockholders Equity"
+    TOTAL_EQUITY_AND_LIABILITIES           95,050,000 VALID        إجمالي المطلوبات وحقوق المساهمين"
+    TOTAL_LIABILITIES                       6,212,379 VALID        Total Liabilities Net Minority Interest"
+
+===== COSG FY 2021 (1 reports) =====
+  -- YAHOO_FINANCE_API ANNUAL
+    CURRENT_LIABILITIES                   178,023,327 NEEDS_REVIEW Total Current Liabilities (Refinitiv CF-Export, USD→EGP)"
+    RETAINED_EARNINGS                    -245,057,851 VALID        Retained Earnings"
+    TOTAL_ASSETS                           94,320,000 VALID        إجمالي الأصول"
+    TOTAL_EQUITY                          205,000,000 VALID        حقوق المساهمين"
+    TOTAL_EQUITY_AND_LIABILITIES           94,320,000 VALID        إجمالي المطلوبات وحقوق المساهمين"
+    TOTAL_LIABILITIES                     300,000,000 VALID        إجمالي المطلوبات"
+
+===== SIPC FY 2024 (1 reports) =====
+  -- TRADINGVIEW_FINANCIALS ANNUAL
+    TOTAL_ASSETS                          169,000,000 VALID        إجمالي الأصول"
+    TOTAL_EQUITY                           96,910,000 VALID        حقوق المساهمين"
+    TOTAL_EQUITY_AND_LIABILITIES          169,000,000 VALID        إجمالي المطلوبات وحقوق المساهمين"
+    TOTAL_LIABILITIES                   1,959,808,478 VALID        إجمالي المطلوبات"
+
+===== ASCM FY 2021 (1 reports) =====
+  -- YAHOO_FINANCE_API ANNUAL
+    CURRENT_ASSETS                        542,592,831 VALID        Current Assets"
+    CURRENT_LIABILITIES                   712,093,309 NEEDS_REVIEW Total Current Liabilities (Refinitiv CF-Export, USD→EGP)"
+    NON_CURRENT_ASSETS                    795,091,446 VALID        Total Non Current Assets"
+    RETAINED_EARNINGS                    -806,021,462 VALID        Retained Earnings"
+    TOTAL_ASSETS                        1,360,000,000 VALID        Total Assets"
+    TOTAL_EQUITY                           84,959,568 VALID        Stockholders Equity"
+    TOTAL_EQUITY_AND_LIABILITIES        1,360,000,000 VALID        إجمالي المطلوبات وحقوق المساهمين"
+    TOTAL_LIABILITIES                   1,509,256,320 VALID        Total Liabilities Net Minority Interest"

@@ -80,7 +80,16 @@ async function buildScanContextsUncached(basis: PeriodBasis): Promise<
   const periodKeys = [...new Set(latestKeyPerCompany.values())]
   const [allMetricRows, eventRows, dividendRows] = await Promise.all([
     periodKeys.length
-      ? db.calculatedMetric.findMany({ where: { periodKey: { in: periodKeys }, statementType: { in: ["CONSOLIDATED", "STANDALONE"] } } })
+      ? // Light select + explicit type cast: this query spans ALL companies for
+        // the latest period keys — full-row fetch (with the heavy provenance
+        // text columns) produced multi-MB responses that tripped Turso's
+        // server-side response-memory guard under load (2026-11-06).
+        db.calculatedMetric
+          .findMany({
+            where: { periodKey: { in: periodKeys }, statementType: { in: ["CONSOLIDATED", "STANDALONE"] } },
+            select: { id: true, companyId: true, code: true, periodKey: true, periodType: true, fiscalYear: true, periodLabel: true, value: true, valueStatus: true, statusDetail: true, formulaVersion: true, statementType: true, calculatedAt: true },
+          })
+          .then((rows) => rows as unknown as CalcMetricRow[])
       : Promise.resolve([] as CalcMetricRow[]),
     periodKeys.length
       ? db.financialEvent.findMany({ where: { currentPeriodKey: { in: periodKeys } }, select: { companyId: true, eventType: true, currentPeriodKey: true } })
@@ -144,8 +153,20 @@ export async function runScan(
   basis: PeriodBasis
 ): Promise<ScanRunOutput> {
   const validation = validateRuleConditions(conditions)
+  // Single shared build — concurrent callers (e.g. every preset card) must
+  // never each trigger their own full-market fetch (a 10× cache stampede of
+  // ~270k-row queries is enough to exhaust memory on small hosts).
   const contexts = await buildScanContextsCached(basis)
+  return evaluateAgainstContexts(conditions, basis, contexts, validation)
+}
 
+// Evaluate a rule against pre-built scan contexts (no cache involved).
+function evaluateAgainstContexts(
+  conditions: ScanCondition[],
+  basis: PeriodBasis,
+  contexts: Awaited<ReturnType<typeof buildScanContextsUncached>>,
+  validation?: ReturnType<typeof validateRuleConditions>,
+): ScanRunOutput {
   const results: CompanyScanResult[] = contexts.map(({ company, context, periodKey }) => {
     const evaluation = evaluateRule(conditions, context)
     return {
@@ -169,39 +190,38 @@ export async function runScan(
     results,
     matched,
     availability,
-    validationErrors: validation.errors,
+    validationErrors: validation ? validation.errors : validateRuleConditions(conditions).errors,
     ranAt: new Date().toISOString(),
   }
 }
 
 
 // Dashboard scanner cards — every preset scanned on the latest annual basis.
-// ~16s cold (14 rules × full-market scan), so it is cached market-wide and can
-// be warmed in the background right after a recompute.
+// Scan contexts are built ONCE and shared by all presets (the cached build is
+// a full-market fetch; per-preset evaluation is pure and cheap).
 export async function getPresetScannerCards(): Promise<
   { id: string; presetKey: string | null; name: string; nameAr: string | null; description: string | null; count: number; topMatches: { companyId: string; ticker: string; nameEn: string; nameAr: string | null; period: string | null }[] }[]
 > {
   return cached("dashboard:scannerCards", 30 * 60_000, async () => {
     const presets = await db.scannerRule.findMany({ where: { isPreset: true, isActive: true }, orderBy: { createdAt: "asc" } })
-    return Promise.all(
-      presets.map(async (rule) => {
-        const output = await runScan(JSON.parse(rule.conditions) as ScanCondition[], "LATEST_ANNUAL")
-        return {
-          id: rule.id,
-          presetKey: rule.presetKey,
-          name: rule.name,
-          nameAr: rule.nameAr,
-          description: rule.description,
-          count: output.matched.length,
-          topMatches: output.matched.slice(0, 4).map((m) => ({
-            companyId: m.companyId,
-            ticker: m.ticker,
-            nameEn: m.nameEn,
-            nameAr: m.nameAr,
-            period: m.contextPeriodLabel,
-          })),
-        }
-      })
-    )
+    const contexts = await buildScanContextsCached("LATEST_ANNUAL")
+    return presets.map((rule) => {
+      const output = evaluateAgainstContexts(JSON.parse(rule.conditions) as ScanCondition[], "LATEST_ANNUAL", contexts)
+      return {
+        id: rule.id,
+        presetKey: rule.presetKey,
+        name: rule.name,
+        nameAr: rule.nameAr,
+        description: rule.description,
+        count: output.matched.length,
+        topMatches: output.matched.slice(0, 4).map((m) => ({
+          companyId: m.companyId,
+          ticker: m.ticker,
+          nameEn: m.nameEn,
+          nameAr: m.nameAr,
+          period: m.contextPeriodLabel,
+        })),
+      }
+    })
   })
 }

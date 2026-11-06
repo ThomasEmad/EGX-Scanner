@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, IBM_Plex_Sans_Arabic } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Providers } from "./providers";
+import { ServiceWorkerRegistration } from "@/components/sw-registration";
 import { OrganizationSchema, WebSiteSchema } from "@/components/seo/structured-data";
 import { siteConfig } from "@/lib/seo-config";
 
@@ -119,6 +120,7 @@ export default function RootLayout({
           Skip to content — تجاوز إلى المحتوى
         </a>
         <Providers>{children}</Providers>
+        <ServiceWorkerRegistration />
         <Toaster />
         <OrganizationSchema />
         <WebSiteSchema />

@@ -1,0 +1,12 @@
+﻿node : ERROR TypeError: Cannot read properties of undefined (reading 'type')
+At line:18 char:55
++ ... tf8 scripts\debug-peer.cjs ; node scripts\debug-peer.cjs 2>&1 | Out-F ...
++                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ERROR TypeError...reading 'type'):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+    at C:/Users/tomas/Downloads/EGX-Scanner-backup/EGX-Scanner/src/app/api/v1/companies/[id]/peers/route.ts:109:60
+    at Array.reduce (<anonymous>)
+    at Proxy.GET 
+(C:/Users/tomas/Downloads/EGX-Scanner-backup/EGX-Scanner/src/app/api/v1/companies/[id]/peers/route.ts:108:36)
+    at async main (C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\debug-peer.cjs:9:17)

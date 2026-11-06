@@ -1,0 +1,467 @@
+﻿
+=== SCFM | South Cairo & Giza Mills & Bakeries ===
+  [high] [BALANCE_SHEET_EQUATION] BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (383.6M) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ 398.4M). Re-extract the liabilities line | cur=383640000 exp=398360000
+  [high] [INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible. | cur=null exp=null
+  2026 Q1 2026 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 53610000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    GROSS_PROFIT 12980000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    REVENUE 66599999.99999999 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+  2026 Q2 2026 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 62990000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    GROSS_PROFIT 23210000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    REVENUE 86190000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+  2026 Q3 2026 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 68140000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    GROSS_PROFIT 59090000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    REVENUE 127240000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+  2025 FY 2025 ANNUAL CONSOLIDATED ASKBORA_SUMMARY
+    CURRENT_ASSETS 583999245.69 NEEDS_REVIEW AUDIT_QUARANTINE: fabricated template value — identical value 583999245.69 for CURRENT_ASSETS FY2025
+    CURRENT_LIABILITIES 583999245.69 NEEDS_REVIEW AUDIT_QUARANTINE: fabricated template value — identical value 583999245.69 for CURRENT_LIABILITIES F
+    GROSS_PROFIT 57320000 VALID AskBorsa annual summary (display-rounded)
+    NET_PROFIT 6070000 VALID AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+    TOTAL_ASSETS 391000000 VALID AskBorsa annual summary (display-rounded)
+    TOTAL_EQUITY -7360000 VALID AUDIT_CORRECTION: AskBorsa FY2025 equity is −7.36m (accumulated losses), not +7.36m; positive sign p
+    TOTAL_LIABILITIES 383640000 VALID AUDIT_CORRECTION: liabilities corrected from 398000000 to TOTAL_ASSETS − TOTAL_EQUITY = 383640000
+  2025 Q1 2025 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 41320000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    GROSS_PROFIT 12220000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    NET_PROFIT -1270000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    REVENUE 53540000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    TOTAL_ASSETS 459000000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_EQUITY 20320000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_LIABILITIES 438680000 VALID AUDIT_CORRECTION: liabilities corrected from 480000000 to TOTAL_ASSETS − TOTAL_EQUITY = 438680000
+  2025 Q2 2025 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 52440000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    GROSS_PROFIT 6300000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    NET_PROFIT -10410000 VALID 
+    REVENUE 58730000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    TOTAL_EQUITY 32070000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  2025 Q3 2025 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 52220000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    GROSS_PROFIT 15910000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    REVENUE 68130000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    TOTAL_EQUITY 22260000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  2025 Q4 2025 QUARTERLY CONSOLIDATED ASKBORA_SUMMARY
+    CURRENT_ASSETS 583999245.69 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    CURRENT_LIABILITIES 583999245.69 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_ASSETS 391000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_EQUITY 7360000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_LIABILITIES 398000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+
+=== PRCL | Ceramic & Porcelain ===
+  [high] [BALANCE_SHEET_EQUATION] BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (331.0M) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ 679.0M). Re-extract the liabilities line | cur=331000000 exp=679000000
+  [high] [INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible. | cur=null exp=null
+  2026 Q1 2026 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 21260000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    REVENUE 27520000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+  2026 Q2 2026 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 24010000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    REVENUE 29830000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+  2026 Q3 2026 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 10600000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    REVENUE 26920000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+  2025 FY 2025 ANNUAL CONSOLIDATED ASKBORA_SUMMARY
+    CURRENT_ASSETS 583999245.69 NEEDS_REVIEW AUDIT_QUARANTINE: fabricated template value — identical value 583999245.69 for CURRENT_ASSETS FY2025
+    CURRENT_LIABILITIES 583999245.69 NEEDS_REVIEW AUDIT_QUARANTINE: fabricated template value — identical value 583999245.69 for CURRENT_LIABILITIES F
+    GROSS_PROFIT 36860000 VALID AskBorsa annual summary (display-rounded)
+    NET_PROFIT -99220000 VALID AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+    TOTAL_ASSETS 505000000 VALID AskBorsa annual summary (display-rounded)
+    TOTAL_EQUITY -174000000 VALID AUDIT_CORRECTION: AskBorsa FY2025 equity is −174m, not +174m (source: AskBorsa annual summary)
+    TOTAL_LIABILITIES 331000000 VALID AUDIT_CORRECTION: liabilities corrected from 678000000 to TOTAL_ASSETS − TOTAL_EQUITY = 331000000
+  2025 Q1 2025 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 34700000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    GROSS_PROFIT 10290000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    NET_PROFIT -19570000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    REVENUE 44580000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    TOTAL_ASSETS 334000000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_EQUITY 95320000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_LIABILITIES 238680000 VALID AUDIT_CORRECTION: liabilities corrected from 429000000 to TOTAL_ASSETS − TOTAL_EQUITY = 238680000
+  2025 Q2 2025 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 12150000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    GROSS_PROFIT 12510000 VALID 
+    NET_PROFIT -25340000 VALID 
+    REVENUE 24660000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    TOTAL_ASSETS 356000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_EQUITY 121000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_LIABILITIES 477000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  2025 Q3 2025 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 18180000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    REVENUE 21490000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+  2024 FY 2024 ANNUAL CONSOLIDATED EXCEL_STATEMENTS
+    COGS 376080120.46 NEEDS_REVIEW AUDIT_QUARANTINE: fabricated template value — identical value 376080120.46 for COGS FY2024 shared ac
+    CURRENT_LIABILITIES 514007177.67 NEEDS_REVIEW AUDIT_QUARANTINE: fabricated template value — identical value 514007177.67 for CURRENT_LIABILITIES F
+    REVENUE 376080120.46 NEEDS_REVIEW AUDIT_QUARANTINE: fabricated template value — identical value 376080120.46 for REVENUE FY2024 shared
+    TOTAL_ASSETS 514007177.67 VALID 
+    TOTAL_LIABILITIES 514007177.67 VALID 
+
+=== AALR | General Co. for Land Reclamation Development & Reconstruction ===
+  [high] [BALANCE_SHEET_EQUATION] BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (100.0M) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ 1.11B). Re-extract the liabilities line. | cur=100000000 exp=1106000000
+  [high] [INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible. | cur=null exp=null
+  2026 Q3 2026 QUARTERLY CONSOLIDATED ASKBORA_SUMMARY (DERIVED)
+    TOTAL_ASSETS 622000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_EQUITY 492000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  2026 Q2 2026 QUARTERLY CONSOLIDATED ASKBORA_SUMMARY
+    GROSS_PROFIT 633000 VALID 
+    NET_PROFIT -19990000 VALID 
+    TOTAL_ASSETS 600000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_EQUITY 523000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  2025 FY 2025 ANNUAL CONSOLIDATED ASKBORA_SUMMARY
+    CURRENT_ASSETS 583999245.69 NEEDS_REVIEW AUDIT_QUARANTINE: fabricated template value — identical value 583999245.69 for CURRENT_ASSETS FY2025
+    CURRENT_LIABILITIES 1167998491.38 NEEDS_REVIEW AUDIT_QUARANTINE: fabricated template value — identical value 1167998491.38 for CURRENT_LIABILITIES 
+    TOTAL_ASSETS 603000000 VALID AskBorsa annual summary (display-rounded)
+    TOTAL_EQUITY -503000000 VALID AUDIT_CORRECTION: AskBorsa FY2025 equity is −503m, not +503m (source: AskBorsa annual summary)
+    TOTAL_LIABILITIES 100000000 VALID AUDIT_CORRECTION: liabilities corrected from 1110000000 to TOTAL_ASSETS − TOTAL_EQUITY = 100000000
+  2025 Q1 2025 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 22630000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    GROSS_PROFIT -5770000 VALID AUDIT_CORRECTION: gross profit sign corrected from 5770000 to -5770000
+    NET_PROFIT -8890000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    REVENUE 16860000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    TOTAL_ASSETS 594000000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_EQUITY 483000000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_LIABILITIES 111000000 VALID AUDIT_CORRECTION: liabilities corrected from 1080000000 to TOTAL_ASSETS − TOTAL_EQUITY = 111000000
+  2025 Q4 2025 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 33440000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    CURRENT_ASSETS 583999245.69 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    CURRENT_LIABILITIES 1167998491.38 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    GROSS_PROFIT 8440000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    REVENUE 41880000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    TOTAL_ASSETS 603000000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_EQUITY 503000000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_LIABILITIES 100000000 VALID AUDIT_CORRECTION: liabilities corrected from 1110000000 to TOTAL_ASSETS − TOTAL_EQUITY = 100000000
+  2025 Q3 2025 QUARTERLY CONSOLIDATED ASKBORA_SUMMARY (DERIVED)
+    NET_PROFIT 14602000 VALID 
+    TOTAL_ASSETS 603000000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 TOTAL_ASSETS); no genuine quarterly repl
+    TOTAL_EQUITY -503000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_LIABILITIES 1110000000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 TOTAL_LIABILITIES); no genuine quarterly
+  2025 Q2 2025 QUARTERLY CONSOLIDATED DERIVED (ASKBORA_SUMMARY chain)
+    NET_PROFIT -15290000 VALID 
+    TOTAL_ASSETS 584000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_EQUITY 498000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_LIABILITIES 1080000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  2024 FY 2024 ANNUAL CONSOLIDATED ASKBORA_SUMMARY
+    CURRENT_ASSETS 514007177.67 NEEDS_REVIEW AUDIT_QUARANTINE: fabricated template value — identical value 514007177.67 for CURRENT_ASSETS FY2024
+    CURRENT_LIABILITIES 1028014355.35 NEEDS_REVIEW AUDIT_QUARANTINE: fabricated template value — identical value 1028014355.35 for CURRENT_LIABILITIES 
+    GROSS_PROFIT 15900000 VALID AskBorsa annual summary (display-rounded)
+    NET_PROFIT 56350 VALID AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+    TOTAL_ASSETS 586000000 VALID AskBorsa annual summary (display-rounded)
+    TOTAL_EQUITY 474000000 VALID AskBorsa annual summary (display-rounded)
+    TOTAL_LIABILITIES 112000000 VALID AUDIT_CORRECTION: liabilities corrected from 1060000000 to TOTAL_ASSETS − TOTAL_EQUITY = 112000000
+
+=== ALEX | Alexandria Cement Co. ===
+  [high] [BALANCE_SHEET_EQUATION] BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_LIABILITIES (3.88B) is calibrated like total equity & liabilities / total assets, not liabilities (expected ≈ 4.44B). Re-extract the liabilities line. | cur=3883000000 exp=4437000000
+  [high] [STALE_DATA] Latest data is 76 months old (period Q2 2020) — urgent refresh needed. | cur=null exp=null
+  [high] [INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible. | cur=null exp=null
+
+=== COPR | Cooper for Commercial Investment & Real Estate Development ===
+  [critical] [ASSET_COMPONENTS] ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 531.4K vs TOTAL_ASSETS = 93.9M (99.43%) — missing/extra component or mapping gap. | cur=93900000 exp=531374
+  [high] [BALANCE_SHEET_EQUATION] BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (95.0M) but the L/E split leaves a 7.6M gap (8.00%) — an equity or liability line is mis-mapped. | cur=95050000 exp=87442379
+  [critical] [ASSET_COMPONENTS] ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 151.8K vs TOTAL_ASSETS = 95.0M (99.84%) — missing/extra component or mapping gap. | cur=95050000 exp=151770
+  [high] [MISSING_CRITICAL_METRIC] COGS exists only as quarantined values — excluded from analytics; re-extract from the original filing. | cur=null exp=null
+  [high] [INSUFFICIENT_TREND_DATA] Only 0 of the last 5 years have annual revenue data (none) — trend analysis impossible. | cur=null exp=null
+  2025 FY 2025 ANNUAL CONSOLIDATED MUBASHER_EARNINGS
+    NET_PROFIT -5137332 VALID Mubasher earnings announcements table (public, logged-in session)
+  2025 Q1 2025 QUARTERLY CONSOLIDATED ASKBORA_SUMMARY
+    GROSS_PROFIT 182000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    NET_PROFIT -3170000 VALID 
+    TOTAL_ASSETS 315918 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_EQUITY -5168954 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_LIABILITIES 5484872 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+  2025 Q2 2025 QUARTERLY CONSOLIDATED ASKBORA_SUMMARY (DERIVED)
+    TOTAL_ASSETS 315918 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_EQUITY -5168954 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_LIABILITIES 5484872 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  2024 FY 2024 ANNUAL CONSOLIDATED YAHOO_FINANCE_API
+    CASH_AND_EQUIVALENTS 30146 VALID API import — YAHOO_FINANCE_API
+    CURRENT_ASSETS 51770 VALID API import — YAHOO_FINANCE_API
+    GROSS_PROFIT 9060000 VALID AskBorsa annual summary (display-rounded 0.01M)
+    NET_PROFIT 4010000 VALID AUDIT_CORRECTION: AskBorsa FY2024 net profit is +4.01m; stored value was negative (source: AskBorsa 
+    NET_PROFIT_PARENT -3712047 VALID API import — YAHOO_FINANCE_API
+    NON_CURRENT_ASSETS 100000 VALID API import — YAHOO_FINANCE_API
+    TOTAL_ASSETS 95050000 VALID AUDIT_CORRECTION: stored 151,770 is not a balance-sheet scale; AskBorsa FY2024 total assets are 95.0
+    TOTAL_DEBT 3758999 VALID API import — YAHOO_FINANCE_API
+    TOTAL_EQUITY 81230000 VALID AUDIT_CORRECTION: AskBorsa FY2024 equity is +81.23m; stored negative value was wrong (source: AskBor
+    TOTAL_LIABILITIES 6212379 VALID API import — YAHOO_FINANCE_API
+  2024 Q1 2024 QUARTERLY CONSOLIDATED ASKBORA_SUMMARY
+    GROSS_PROFIT 1200000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    NET_PROFIT -3712047 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2024 NET_PROFIT); no genuine quarterly replac
+    TOTAL_ASSETS 89810000 VALID 
+    TOTAL_EQUITY -6060609 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_LIABILITIES 12160000 VALID 
+  2024 Q4 2024 QUARTERLY CONSOLIDATED ASKBORA_SUMMARY
+    GROSS_PROFIT 2100000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    NET_PROFIT 284000 VALID 
+    TOTAL_ASSETS 151770 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_EQUITY -6060609 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_LIABILITIES 6212379 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+  2024 Q2 2024 QUARTERLY CONSOLIDATED ASKBORA_SUMMARY (DERIVED)
+    GROSS_PROFIT 6090000 VALID 
+    NET_PROFIT -3712047 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2024 NET_PROFIT); no genuine quarterly replac
+    TOTAL_ASSETS 95060000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_EQUITY -6060609 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_LIABILITIES 12410000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  2024 Q3 2024 QUARTERLY CONSOLIDATED ASKBORA_SUMMARY (DERIVED)
+    GROSS_PROFIT 6426000 VALID 
+    NET_PROFIT -3712047 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2024 NET_PROFIT); no genuine quarterly replac
+    TOTAL_ASSETS 94860000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_EQUITY -6060609 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_LIABILITIES 13920000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+
+=== UNIT | United Housing & Development ===
+  [high] [BALANCE_SHEET_EQUATION] BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (1.92B) but the L/E split leaves a -1.70B gap (60.24%) — an equity or liability line is mis-mapped. | cur=1920000000 exp=3624700000
+  [critical] [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 55.08% (71.6M EGP; materiality threshold 1.9M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority interest, discontinued operati | cur=130000000 exp=58400000
+  [critical] [ASSET_COMPONENTS] ASSET_COMPONENTS FAILED: CURRENT_ASSETS+NON_CURRENT_ASSETS = 5.28B vs TOTAL_ASSETS = 1.92B (175.11%) — missing/extra component or mapping gap. | cur=1920000000 exp=5282100000
+  2026 Q1 2026 QUARTERLY CONSOLIDATED YAHOO_FINANCE_API
+    CASH_AND_EQUIVALENTS 982600000 VALID API import — YAHOO_FINANCE_API
+    COGS 388000000 VALID API import — YAHOO_FINANCE_API
+    CURRENT_ASSETS 1807800000 VALID API import — YAHOO_FINANCE_API
+    GROSS_PROFIT 599500000 VALID API import — YAHOO_FINANCE_API
+    NET_PROFIT -70300000 VALID API import — YAHOO_FINANCE_API
+    NET_PROFIT_PARENT -85800000 VALID API import — YAHOO_FINANCE_API
+    NON_CURRENT_ASSETS 11303600000 VALID API import — YAHOO_FINANCE_API
+    REVENUE 987500000 VALID API import — YAHOO_FINANCE_API
+    TOTAL_ASSETS 13111400000 VALID API import — YAHOO_FINANCE_API
+    TOTAL_DEBT 11108700000 VALID API import — YAHOO_FINANCE_API
+    TOTAL_EQUITY 319700000 VALID API import — YAHOO_FINANCE_API
+    TOTAL_LIABILITIES 12791700000 VALID API import — YAHOO_FINANCE_API
+  2026 Q2 2026 QUARTERLY CONSOLIDATED YAHOO_FINANCE_API (DERIVED)
+    CASH_AND_EQUIVALENTS 608900000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    COGS 383600000 VALID API import — YAHOO_FINANCE_API
+    CURRENT_ASSETS 1485500000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    GROSS_PROFIT 526100000 VALID API import — YAHOO_FINANCE_API
+    NET_PROFIT -155900000 VALID 
+    NET_PROFIT_PARENT -171600000 VALID 
+    NON_CURRENT_ASSETS 11495400000 VALID API import — YAHOO_FINANCE_API
+    REVENUE 909700000 VALID API import — YAHOO_FINANCE_API
+    TOTAL_ASSETS 12980900000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_DEBT 11093100000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_EQUITY 161500000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_LIABILITIES 12819400000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  2025 FY 2025 ANNUAL CONSOLIDATED YAHOO_FINANCE_API
+    CASH_AND_EQUIVALENTS 53500000 VALID API import — YAHOO_FINANCE_API
+    COGS 742600000 VALID API import — YAHOO_FINANCE_API
+    CURRENT_ASSETS 831000000 VALID API import — YAHOO_FINANCE_API
+    GROSS_PROFIT 1491900000 VALID API import — YAHOO_FINANCE_API
+    NET_PROFIT 1031700000 NEEDS_REVIEW AUDIT_QUARANTINE: FY2025 figures (1.03bn profit / 12.04bn assets / 380m equity) conflict with AskBor
+    NET_PROFIT_PARENT 1248700000 VALID API import — YAHOO_FINANCE_API
+    NON_CURRENT_ASSETS 11205700000 VALID API import — YAHOO_FINANCE_API
+    REVENUE 2234500000 VALID API import — YAHOO_FINANCE_API
+    TOTAL_ASSETS 12036700000 NEEDS_REVIEW AUDIT_QUARANTINE: FY2025 figures (1.03bn profit / 12.04bn assets / 380m equity) conflict with AskBor
+    TOTAL_DEBT 10022500000 VALID API import — YAHOO_FINANCE_API
+    TOTAL_EQUITY 380300000 NEEDS_REVIEW AUDIT_QUARANTINE: FY2025 figures (1.03bn profit / 12.04bn assets / 380m equity) conflict with AskBor
+    TOTAL_LIABILITIES 11656300000 VALID API import — YAHOO_FINANCE_API
+  2025 Q1 2025 QUARTERLY CONSOLIDATED YAHOO_FINANCE_API
+    GROSS_PROFIT 59620000 VALID 
+    NET_PROFIT 1304700000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_ASSETS 2220000000 VALID 
+    TOTAL_EQUITY 812000000 VALID 
+    TOTAL_LIABILITIES 1410000000 VALID 
+  2025 Q4 2025 QUARTERLY CONSOLIDATED ASKBORA_SUMMARY
+    CASH_AND_EQUIVALENTS 53500000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    COGS 742600000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 COGS); no genuine quarterly replacement 
+    CURRENT_ASSETS 831000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    GROSS_PROFIT 1491900000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 GROSS_PROFIT); no genuine quarterly repl
+    REVENUE 2234500000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 REVENUE); no genuine quarterly replaceme
+    TOTAL_ASSETS 12036700000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_DEBT 10022500000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_EQUITY 380300000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_LIABILITIES 11656300000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  2025 Q2 2025 QUARTERLY CONSOLIDATED YAHOO_FINANCE_API (DERIVED)
+    CASH_AND_EQUIVALENTS 53500000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 CASH_AND_EQUIVALENTS); no genuine quarte
+    COGS 742600000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 COGS); no genuine quarterly replacement 
+    CURRENT_ASSETS 831000000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 CURRENT_ASSETS); no genuine quarterly re
+    GROSS_PROFIT 98820000 VALID 
+    NET_PROFIT 1304700000 VALID 
+    NET_PROFIT_PARENT 1248700000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 NET_PROFIT_PARENT); no genuine quarterly
+    NON_CURRENT_ASSETS 11205700000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 NON_CURRENT_ASSETS); no genuine quarterl
+    REVENUE -22990000 VALID 
+    TOTAL_ASSETS 2250000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_DEBT 10022500000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 TOTAL_DEBT); no genuine quarterly replac
+    TOTAL_EQUITY 886000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_LIABILITIES 1370000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  2025 Q3 2025 QUARTERLY CONSOLIDATED YAHOO_FINANCE_API (DERIVED)
+    CASH_AND_EQUIVALENTS 53500000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 CASH_AND_EQUIVALENTS); no genuine quarte
+    COGS 742600000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 COGS); no genuine quarterly replacement 
+    CURRENT_ASSETS 831000000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 CURRENT_ASSETS); no genuine quarterly re
+    GROSS_PROFIT 58720000 VALID 
+    NET_PROFIT 1304700000 VALID API import — YAHOO_FINANCE_API
+    NET_PROFIT_PARENT 1248700000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 NET_PROFIT_PARENT); no genuine quarterly
+    NON_CURRENT_ASSETS 11205700000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 NON_CURRENT_ASSETS); no genuine quarterl
+    REVENUE -14910000 VALID 
+    TOTAL_ASSETS 2370000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_DEBT 10022500000 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 TOTAL_DEBT); no genuine quarterly replac
+    TOTAL_EQUITY 905000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_LIABILITIES 1460000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  2024 FY 2024 ANNUAL CONSOLIDATED YAHOO_FINANCE_API
+    CASH_AND_EQUIVALENTS 155600000 VALID API import — YAHOO_FINANCE_API
+    COGS 140300000 VALID API import — YAHOO_FINANCE_API
+    CURRENT_ASSETS 269600000 VALID API import — YAHOO_FINANCE_API
+    CURRENT_LIABILITIES 525830831.35 NEEDS_REVIEW AUDIT_QUARANTINE: fabricated template value — identical value 525830831.35 for CURRENT_LIABILITIES F
+    GROSS_PROFIT 1026600000 VALID API import — YAHOO_FINANCE_API
+    NET_PROFIT 130000000 VALID AUDIT_CORRECTION: AskBorsa FY2024 net profit is 130m; stored 58.4m does not match the issuer (source
+    NET_PROFIT_PARENT 91300000 VALID API import — YAHOO_FINANCE_API
+    NON_CURRENT_ASSETS 5012500000 VALID API import — YAHOO_FINANCE_API
+    REVENUE 1166900000 VALID API import — YAHOO_FINANCE_API
+    TOTAL_ASSETS 1920000000 VALID AUDIT_CORRECTION: AskBorsa FY2024 total assets are 1.92bn; stored 5.28bn does not match the issuer (
+    TOTAL_DEBT 5864100000 VALID API import — YAHOO_FINANCE_API
+    TOTAL_EQUITY 795000000 VALID AUDIT_CORRECTION: AskBorsa FY2024 equity is 795m; stored 2.45bn does not match the issuer (source: A
+    TOTAL_LIABILITIES 2829700000 VALID AUDIT_CORRECTION: liabilities corrected from 7734000000 to TOTAL_ASSETS − TOTAL_EQUITY = 2829700000
+
+=== SIPC | Saba for Pharmaceuticals (SIPC) ===
+  [high] [BALANCE_SHEET_EQUATION] BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (169.0M) but the L/E split leaves a -1.89B gap (96.32%) — an equity or liability line is mis-mapped. | cur=169000000 exp=2056718478
+  [high] [BALANCE_SHEET_EQUATION] BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (169.0M) but the L/E split leaves a -2.21B gap (97.23%) — an equity or liability line is mis-mapped. | cur=169000000 exp=2380378936
+  2026 Q1 2026 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 3250000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    GROSS_PROFIT 160000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    NET_PROFIT -5160000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    REVENUE 3410000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    TOTAL_ASSETS 168000000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_EQUITY 100000000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_LIABILITIES 67980000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+  2026 Q2 2026 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 6490000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    REVENUE 12350000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+  2025 FY 2025 ANNUAL CONSOLIDATED ASKBORA_SUMMARY
+    NET_PROFIT -6650000 VALID AUDIT_CORRECTION: added AskBorsa FY2025 net profit −6.65m after assets/equity correction (source: As
+    TOTAL_ASSETS 169000000 VALID AUDIT_CORRECTION: AskBorsa FY2025 total assets are 169m; stored 8.29bn is another company/scale (sou
+    TOTAL_EQUITY 106000000 VALID AUDIT_CORRECTION: AskBorsa FY2025 equity is 106m; stored 6.02bn is another company/scale (source: As
+    TOTAL_LIABILITIES 2274378936 VALID AskBorsa annual summary (display-rounded)
+  2025 Q1 2025 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 4632038855 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    GROSS_PROFIT 4457110833 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    NET_PROFIT 2284539004 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    REVENUE 9089149688 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    TOTAL_ASSETS 177000000 VALID 
+    TOTAL_EQUITY 99700000 VALID 
+    TOTAL_LIABILITIES 77420000 VALID 
+  2025 Q2 2025 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 4632038855 NEEDS_REVIEW AUDIT_QUARANTINE: cross-quarter duplicate of Q1 2025 — audit-confirmed tab-switch copy; re-extract t
+    GROSS_PROFIT 4457110833 NEEDS_REVIEW AUDIT_QUARANTINE: cross-quarter duplicate of Q1 2025 — audit-confirmed tab-switch copy; re-extract t
+    NET_PROFIT 2284539004 NEEDS_REVIEW AUDIT_QUARANTINE: cross-quarter duplicate of Q1 2025 — audit-confirmed tab-switch copy; re-extract t
+    REVENUE 9089149688 NEEDS_REVIEW AUDIT_QUARANTINE: cross-quarter duplicate of Q1 2025 — audit-confirmed tab-switch copy; re-extract t
+    TOTAL_EQUITY 109000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  2025 Q3 2025 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 4632038855 NEEDS_REVIEW AUDIT_QUARANTINE: cross-quarter duplicate of Q2 2025 — audit-confirmed tab-switch copy; re-extract t
+    GROSS_PROFIT 4457110833 NEEDS_REVIEW AUDIT_QUARANTINE: cross-quarter duplicate of Q2 2025 — audit-confirmed tab-switch copy; re-extract t
+    NET_PROFIT 2284539004 NEEDS_REVIEW AUDIT_QUARANTINE: cross-quarter duplicate of Q2 2025 — audit-confirmed tab-switch copy; re-extract t
+    REVENUE 9089149688 NEEDS_REVIEW AUDIT_QUARANTINE: cross-quarter duplicate of Q2 2025 — audit-confirmed tab-switch copy; re-extract t
+    TOTAL_EQUITY 114000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  2025 Q4 2025 QUARTERLY CONSOLIDATED ASKBORA_SUMMARY
+    GROSS_PROFIT 4457110833 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    NET_PROFIT 2284539004 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_ASSETS 8294717672 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+    TOTAL_EQUITY 6020338736 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_LIABILITIES 2274378936 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  2024 FY 2024 ANNUAL CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 20220000 VALID TradingView income statement, company-level verification unavailable
+    GROSS_PROFIT 2510000 VALID TradingView income statement, company-level verification unavailable
+    NET_PROFIT -19177020 VALID AskBorsa annual summary (display-rounded 0.01M)
+    REVENUE 22730000 VALID TradingView income statement, company-level verification unavailable
+    TOTAL_ASSETS 169000000 VALID AskBorsa annual summary (display-rounded)
+    TOTAL_EQUITY 96910000 VALID AskBorsa annual summary (display-rounded)
+    TOTAL_LIABILITIES 1959808478 VALID AskBorsa annual summary (display-rounded)
+
+=== GSSC | General Silos & Storage ===
+  [high] [BALANCE_SHEET_EQUATION] BALANCE_SHEET_EQUATION MAPPING ERROR: TOTAL_EQUITY_AND_LIABILITIES agrees with TOTAL_ASSETS (4.06B) but the L/E split leaves a -381.3M gap (9.39%) — an equity or liability line is mis-mapped. | cur=4058833447.36 exp=4440119861.3
+  2026 FY 2026 ANNUAL CONSOLIDATED MUBASHER_EARNINGS
+    NET_PROFIT 61660823 VALID Mubasher earnings announcements table (public, logged-in session)
+  2026 Q1 2026 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 183330000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    GROSS_PROFIT 78380000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    REVENUE 261710000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+  2026 Q2 2026 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS 346100000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    GROSS_PROFIT 121840000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    NET_PROFIT 91400000 VALID 
+    REVENUE 467940000 VALID TradingView quarterly income statement (discrete quarter, display-scaled)
+    TOTAL_EQUITY 803000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  2026 Q3 2026 QUARTERLY CONSOLIDATED ASKBORA_SUMMARY (DERIVED)
+    GROSS_PROFIT 73000000 VALID 
+    NET_PROFIT 88940000 VALID 
+    TOTAL_EQUITY 895000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  2025 FY 2025 ANNUAL CONSOLIDATED YAHOO_FINANCE_API
+    CASH_AND_EQUIVALENTS 874788584.06 VALID AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as absolute EGP) — /100
+    COGS 1144276186 VALID AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as absolute EGP) — /100
+    CURRENT_ASSETS 2585031490.57 VALID AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as absolute EGP) — /100
+    CURRENT_LIABILITIES 2335996982.77 VALID 
+    GROSS_PROFIT 343489653.86 VALID AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as absolute EGP) — /100
+    NET_PROFIT 135000000 VALID AUDIT_CORRECTION: AskBorsa FY2025 net profit is 135m; stored 265m double-counted an annual-copy quar
+    NET_PROFIT_PARENT 265160968.67 VALID AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as absolute EGP) — /100
+    NON_CURRENT_ASSETS 1473801956.79 VALID AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as absolute EGP) — /100
+    REVENUE 1487765839.86 VALID AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as absolute EGP) — /100
+    TOTAL_ASSETS 4058833447.36 VALID AUDIT_UNIT_FIX: value stored x1000 (source printed EGP thousands, normalized as absolute EGP) — /100
+    TOTAL_DEBT 583999245.69 VALID AUDIT_CORRECTION: total debt corrected from 0 to ST+LT = 583999245.69
+    TOTAL_EQUITY 778000000 VALID AUDIT_CORRECTION: AskBorsa FY2025 equity is 778m; stored 396.7m came from the same bad annual copy (
+    TOTAL_LIABILITIES 3662119861.3 VALID AUDIT_CORRECTION: liabilities corrected from 4058833447.36 to TOTAL_ASSETS − TOTAL_EQUITY = 36621198
+  2025 Q1 2025 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS -145110000 VALID 
+    GROSS_PROFIT 343489653860 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 GROSS_PROFIT); no genuine quarterly repl
+    NET_PROFIT 265160968670 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 NET_PROFIT); no genuine quarterly replac
+    REVENUE 226330000 VALID 
+    TOTAL_ASSETS 3790000000 VALID 
+    TOTAL_EQUITY 690000000 VALID 
+    TOTAL_LIABILITIES 3100000000 VALID 
+  2025 Q2 2025 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS -294960000 VALID 
+    GROSS_PROFIT 343489653860 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 GROSS_PROFIT); no genuine quarterly repl
+    NET_PROFIT 265160968670 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 NET_PROFIT); no genuine quarterly replac
+    REVENUE 392340000 VALID 
+    TOTAL_EQUITY 647000000 NEEDS_REVIEW AUDIT_QUARANTINE: carried-forward copy from another period — not observed in this filing
+  2025 Q3 2025 QUARTERLY CONSOLIDATED TRADINGVIEW_FINANCIALS
+    COGS -298740000 VALID 
+    GROSS_PROFIT 343489653860 NEEDS_REVIEW AUDIT_QUARANTINE: annual-copy contamination (equals FY 2025 GROSS_PROFIT); no genuine quarterly repl
+    REVENUE 355050000 VALID 
+
+=== OFH | O B Financial Holding ===
+  [critical] [PBT_TAX_NET_PROFIT] PBT_TAX_NET_PROFIT FAILED: gap 70.51% (-180.5M EGP; materiality threshold 3.8M) on [PROFIT_BEFORE_TAX, INCOME_TAX, NET_PROFIT]. Differences up to 25% are usually minority interest, discontinued opera | cur=40965900 exp=221447000
+  2026 Q2 2026 QUARTERLY CONSOLIDATED YAHOO_FINANCE_API + REUTERS_FINANCIALS_PAGE
+    CASH_AND_EQUIVALENTS 827850000 VALID API import — YAHOO_FINANCE_API (3 sources agree)
+    CURRENT_ASSETS 831086000 VALID API import — YAHOO_FINANCE_API (2 sources agree)
+    NET_PROFIT -107630000 VALID API import — YAHOO_FINANCE_API (2 sources agree)
+    NET_PROFIT_PARENT -68920000 VALID API import — YAHOO_FINANCE_API
+    NON_CURRENT_ASSETS 2361661000 VALID API import — YAHOO_FINANCE_API
+    TOTAL_ASSETS 3192747000 VALID API import — YAHOO_FINANCE_API
+    TOTAL_DEBT 1990000 VALID API import — YAHOO_FINANCE_API
+    TOTAL_EQUITY 3096022000 VALID API import — YAHOO_FINANCE_API
+    TOTAL_LIABILITIES 96725000 VALID API import — YAHOO_FINANCE_API
+  2026 Q1 2026 QUARTERLY CONSOLIDATED REUTERS_FINANCIALS_PAGE
+    NET_PROFIT -68920000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_ASSETS 3192747000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_EQUITY 3096022000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_LIABILITIES 96725000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+  2025 FY 2025 ANNUAL CONSOLIDATED REUTERS_FINANCIALS_PAGE
+    CASH_AND_EQUIVALENTS 893637000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+    CURRENT_ASSETS 894103000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+    CURRENT_LIABILITIES 22479000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+    NET_PROFIT 153000 NEEDS_REVIEW AUDIT_QUARANTINE: 153k FY2025 profit is implausible vs 40.9m in FY2024 and AskBorsa's FY2024 loss; R
+    REVENUE 0 NEEDS_REVIEW AUDIT_QUARANTINE: zero placeholder for a metric that cannot be zero — treated as missing
+    TOTAL_ASSETS 3186777000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+    TOTAL_DEBT 2255000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+    TOTAL_EQUITY 3099207000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+    TOTAL_LIABILITIES 87570000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  2025 Q2 2025 QUARTERLY CONSOLIDATED YAHOO_FINANCE_API
+    NET_PROFIT -5782000 VALID API import — YAHOO_FINANCE_API (2 sources agree)
+    NET_PROFIT_PARENT 613063000 VALID API import — YAHOO_FINANCE_API
+  2025 Q1 2025 QUARTERLY CONSOLIDATED ASKBORA_SUMMARY
+    NET_PROFIT -67050000 VALID 
+    TOTAL_ASSETS 2530000000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_EQUITY 2350000000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_LIABILITIES 182000000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+  2024 FY 2024 ANNUAL CONSOLIDATED REUTERS_FINANCIALS_PAGE
+    CASH_AND_EQUIVALENTS 291509000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+    CURRENT_ASSETS 475794000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+    CURRENT_LIABILITIES 110767000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+    NET_PROFIT 40965900 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+    REVENUE 43122000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+    TOTAL_ASSETS 2569304000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+    TOTAL_EQUITY 2386738000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+    TOTAL_LIABILITIES 182566000 VALID API import — REUTERS_FINANCIALS_PAGE (rescaled ×1e6 from Reuters millions)
+  2024 Q1 2024 QUARTERLY CONSOLIDATED ASKBORA_SUMMARY
+    NET_PROFIT -22230000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_ASSETS 2460000000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_EQUITY 2280000000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_LIABILITIES 175000000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+  2024 Q4 2024 QUARTERLY CONSOLIDATED ASKBORA_SUMMARY
+    NET_PROFIT -5340000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_ASSETS 2570000000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_EQUITY 2390000000 VALID AskBorsa quarterly summary (display-rounded 0.01M)
+    TOTAL_LIABILITIES 182000000 VALID AskBorsa quarterly summary (display-rounded 0.01M)

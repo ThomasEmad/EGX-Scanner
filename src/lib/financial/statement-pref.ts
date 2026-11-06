@@ -26,7 +26,15 @@ export const CALC_STATEMENT_TYPES = ["CONSOLIDATED", "STANDALONE"] as const
  */
 export const TRUSTED_REPORT_STATUSES = ["VALIDATED", "APPROVED", "EXTRACTED"] as const
 
-/** Shape of a Prisma CalculatedMetric row (explicit for type stability) */
+/** Shape of a Prisma CalculatedMetric row (explicit for type stability).
+ *
+ * Read paths fetch ONLY the light columns (see CALC_SELECT below): the heavy
+ * provenance columns (formula, sourceMetricCodes, sourceDocumentIds,
+ * sourcePeriods, calculationType, trend* fields) are write-path concerns and
+ * are never read on read paths. Fetching them made one query return ~490KB for
+ * a single company (2403 rows) — enough to trip Turso's server-side
+ * "Resource exhausted: mem_hrana_response" memory guard under load
+ * (production incident 2026-11-06). */
 export interface CalcMetricRow {
   id: string
   companyId: string
@@ -39,7 +47,6 @@ export interface CalcMetricRow {
   valueStatus: string
   statusDetail: string | null
   formulaVersion: string
-  sourcePeriods: string
   statementType: string
   calculatedAt: Date
 }
@@ -96,16 +103,77 @@ export function defaultStatementType(available: string[]): string | null {
  * query BOTH statement types, compute the company's preference, filter.
  * Returns everything so callers can expose availability metadata.
  */
+/**
+ * Light column set for CalculatedMetric read queries. Excludes the heavy
+ * provenance text columns (formula, sourceMetricCodes, sourceDocumentIds,
+ * sourcePeriods, calculationType, trendType, trendPeriodsCount, isDerived) —
+ * nothing on a read path consumes them, and carrying them turned a single
+ * company's metrics into a ~490KB DB response that repeatedly exhausted
+ * Turso's server-side response memory.
+ */
+const CALC_SELECT = {
+  id: true,
+  companyId: true,
+  code: true,
+  periodKey: true,
+  periodType: true,
+  fiscalYear: true,
+  periodLabel: true,
+  value: true,
+  valueStatus: true,
+  statusDetail: true,
+  formulaVersion: true,
+  statementType: true,
+  calculatedAt: true,
+} satisfies Prisma.CalculatedMetricSelect
+
+interface PagedDb {
+  calculatedMetric: {
+    findMany: (args: Record<string, unknown>) => Promise<Record<string, unknown>[]>
+  }
+}
+
+/**
+ * Cursor-paged findMany for CalculatedMetric. Even with the light select, a
+ * single company can hold 2400+ rows (~190KB per page at 1200 rows); paging
+ * keeps every individual DB response small so Turso's server-side response
+ * memory guard never trips, at the cost of one extra round trip per 1200 rows.
+ */
+async function pagedCalcFindMany(
+  db: PagedDb,
+  base: {
+    where: Prisma.CalculatedMetricWhereInput
+    orderBy: Prisma.CalculatedMetricOrderByWithRelationInput[]
+  }
+): Promise<CalcMetricRow[]> {
+  const PAGE = 1200
+  const out: CalcMetricRow[] = []
+  let cursor: string | undefined
+  for (;;) {
+    const page = (await db.calculatedMetric.findMany({
+      where: base.where,
+      orderBy: [...base.orderBy, { id: "asc" }],
+      select: CALC_SELECT,
+      take: PAGE,
+      ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
+    })) as unknown as CalcMetricRow[]
+    out.push(...page)
+    if (page.length < PAGE) break
+    cursor = page[page.length - 1].id
+  }
+  return out
+}
+
 export async function fetchCalc(companyId: string, where: Prisma.CalculatedMetricWhereInput = {}): Promise<{
   rows: CalcMetricRow[]
   pref: StatementPref
   filtered: CalcMetricRow[]
 }> {
   const { db } = await import("@/lib/db")
-  const rows = (await db.calculatedMetric.findMany({
+  const rows = await pagedCalcFindMany(db as unknown as PagedDb, {
     where: { companyId, statementType: { in: [...CALC_STATEMENT_TYPES] }, ...where },
     orderBy: [{ code: "asc" }, { periodKey: "asc" }],
-  })) as CalcMetricRow[]
+  })
   const pref = statementPreference(rows)
   const filtered = filterByPreference(rows, pref)
   return { rows, pref, filtered }
@@ -128,10 +196,10 @@ export async function fetchCalcMany(
     return { rows: [], filtered: [], prefByCompany: {}, filteredByCompany: {} }
   }
   const { db } = await import("@/lib/db")
-  const rows = (await db.calculatedMetric.findMany({
+  const rows = await pagedCalcFindMany(db as unknown as PagedDb, {
     where: { companyId: { in: companyIds }, statementType: { in: [...CALC_STATEMENT_TYPES] }, ...where },
     orderBy: [{ companyId: "asc" }, { code: "asc" }, { periodKey: "asc" }],
-  })) as CalcMetricRow[]
+  })
   const filtered = preferConsolidatedRows(rows)
   const prefByCompany: Record<string, StatementPref> = {}
   const filteredByCompany: Record<string, CalcMetricRow[]> = {}

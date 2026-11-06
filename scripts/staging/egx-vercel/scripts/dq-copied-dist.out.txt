@@ -1,0 +1,7 @@
+﻿COPIED by period type:
+QUARTERLY    { total: 6528, valid: 5563 }
+
+non-static copied values: 6441 | static (whitelisted): 87
+
+companies with VALID copied values: 225 of 264
+top 15: EGBE=61, MASR=53, TMGH=50, ENGC=50, ASPI=49, NAHO=47, PHAR=46, LCSW=45, UNIT=44, SKPC=43, DSCW=43, EGSA=43, HDBK=43, SWDY=42, CNFN=42

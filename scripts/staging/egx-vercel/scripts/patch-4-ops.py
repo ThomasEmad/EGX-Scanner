@@ -1,0 +1,199 @@
+#!/usr/bin/env python3
+"""Patch 4 — change-password endpoint + ops hygiene.
+
+  A. NEW /api/v1/auth/change-password — authenticated password change:
+     verifies current password, refuses reuse of current, updates hash,
+     invalidates every OTHER session (current device stays logged in).
+  B. health route — richer payload (uptime, memory, version, db latency).
+  C. docker-entrypoint.sh — run `migrate deploy` unconditionally (schema
+     updates to an existing mounted DB were silently skipped).
+  D. DEPLOY.md — cron examples: these endpoints are GET-only.
+  E. vercel.json — delete (dead config: this is a Docker/VPS deployment, and
+     its market/refresh cron targets an admin-cookie-gated endpoint).
+  F. src/app/api/route.ts — delete hello-world stub.
+"""
+import pathlib
+
+ROOT = pathlib.Path("/tmp/my-project")
+
+
+def patch(rel: str, old: str, new: str, count: int = 1) -> None:
+    p = ROOT / rel
+    s = p.read_text()
+    n = s.count(old)
+    assert n == count, f"{rel}: expected {count} occurrence(s), found {n}"
+    p.write_text(s.replace(old, new))
+    print(f"[ok] {rel}")
+
+
+# ------------------------------------------------- A: change-password route
+route = '''import { NextRequest } from "next/server"
+import { db } from "@/lib/db"
+import { getSessionUser, hashPassword, verifyPassword, invalidateUserSessions, USER_SESSION_COOKIE } from "@/lib/auth"
+import { audit } from "@/lib/audit"
+import { checkEndpointRateLimit, getClientIp } from "@/lib/rate-limit"
+import { hashToken } from "@/lib/secure-compare"
+
+const PASSWORD_MIN = 8
+const PASSWORD_MAX = 72
+
+// POST /api/v1/auth/change-password
+// Body: { currentPassword, newPassword }. Auth: x-session-token header.
+// Effect: re-authenticates, updates the hash, invalidates every OTHER
+// session (the current device stays signed in), audits the change.
+export async function POST(req: NextRequest) {
+  try {
+    const ip = getClientIp(req)
+    const rateLimit = await checkEndpointRateLimit("auth-change-password", ip)
+    if (!rateLimit.allowed) {
+      const retryAfter = Math.ceil((rateLimit.resetAt - Date.now()) / 1000)
+      return Response.json(
+        { error: "RATE_LIMITED", message: "Too many attempts. Please try again later.", retryAfter },
+        { status: 429, headers: { "Retry-After": String(retryAfter) } }
+      )
+    }
+
+    const token = req.headers.get("x-session-token") ?? req.headers.get("authorization")?.replace("Bearer ", "") ?? null
+    const userId = await getSessionUser(token)
+    if (!userId) return Response.json({ error: "UNAUTHENTICATED" }, { status: 401 })
+
+    const body = await req.json()
+    const currentPassword = typeof body?.currentPassword === "string" ? body.currentPassword : ""
+    const newPassword = typeof body?.newPassword === "string" ? body.newPassword : ""
+    if (!currentPassword || !newPassword) {
+      return Response.json({ error: "VALIDATION", message: "Current and new passwords are required." }, { status: 400 })
+    }
+    if (newPassword.length < PASSWORD_MIN || newPassword.length > PASSWORD_MAX) {
+      return Response.json(
+        { error: "VALIDATION", message: `Password must be between ${PASSWORD_MIN} and ${PASSWORD_MAX} characters.` },
+        { status: 400 }
+      )
+    }
+
+    const user = await db.user.findUnique({ where: { id: userId }, select: { passwordHash: true, email: true, isActive: true } })
+    if (!user || !user.isActive) return Response.json({ error: "UNAUTHENTICATED" }, { status: 401 })
+    // OAuth-only accounts have no local password yet — treat "current" as
+    // unset so they can set one (without knowing a previous password).
+    if (user.passwordHash) {
+      const ok = await verifyPassword(currentPassword, user.passwordHash)
+      if (!ok) {
+        await audit("PASSWORD_CHANGE_FAILED", {
+          actor: userId,
+          entityType: "User",
+          entityId: userId,
+          details: "Current password incorrect",
+        }).catch(() => {})
+        return Response.json({ error: "INVALID_CREDENTIALS", message: "Current password is incorrect." }, { status: 403 })
+      }
+      const same = await verifyPassword(newPassword, user.passwordHash)
+      if (same) {
+        return Response.json({ error: "VALIDATION", message: "New password must be different from the current one." }, { status: 400 })
+      }
+    }
+
+    const passwordHash = await hashPassword(newPassword)
+    await db.user.update({ where: { id: userId }, data: { passwordHash, emailVerified: true } })
+    // kill other devices; keep the caller's session
+    if (token) {
+      const currentHash = hashToken(token)
+      await db.session.deleteMany({ where: { userId, NOT: { token: currentHash } } }).catch(() => {})
+    }
+    await audit("PASSWORD_CHANGED", {
+      actor: userId,
+      entityType: "User",
+      entityId: userId,
+      details: `Password changed for ${user.email} — other sessions invalidated`,
+    })
+    return Response.json(
+      { ok: true },
+      { headers: { "Set-Cookie": token ? `${USER_SESSION_COOKIE}=${token}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${7 * 24 * 60 * 60}` : "" } }
+    )
+  } catch (e) {
+    console.error("change-password error", e)
+    return Response.json({ error: "INTERNAL_ERROR" }, { status: 500 })
+  }
+}
+'''
+cp = ROOT / "src/app/api/v1/auth/change-password"
+cp.mkdir(parents=True, exist_ok=True)
+(cp / "route.ts").write_text(route)
+print("[ok] created src/app/api/v1/auth/change-password/route.ts")
+
+# ------------------------------------------------- B: health enrichment
+patch("src/app/api/v1/health/route.ts",
+'''import { db } from "@/lib/db"
+
+// GET /api/v1/health — basic system health for monitoring.
+export async function GET() {
+  try {
+    await db.company.count()
+    return Response.json({ ok: true, service: "egx-financial-scanner", database: "connected", time: new Date().toISOString() })
+  } catch (e) {
+    return Response.json({ ok: false, database: "error", message: e instanceof Error ? e.message : "unknown" }, { status: 500 })
+  }
+}''',
+'''import { db } from "@/lib/db"
+
+// GET /api/v1/health — system health for monitoring/load balancers.
+// Checks the database round-trip and reports process vitals so an external
+// watchdog can distinguish "up" from "up but starving".
+const BOOT = Date.now()
+
+export async function GET() {
+  const t0 = Date.now()
+  try {
+    const [companies] = await Promise.all([db.company.count()])
+    const dbMs = Date.now() - t0
+    const mem = process.memoryUsage()
+    return Response.json(
+      {
+        ok: true,
+        service: "egx-financial-scanner",
+        database: "connected",
+        dbLatencyMs: dbMs,
+        companies,
+        uptimeSec: Math.round((Date.now() - BOOT) / 1000),
+        memoryRssMb: Math.round(mem.rss / 1024 / 1024),
+        heapUsedMb: Math.round(mem.heapUsed / 1024 / 1024),
+        version: process.env.npm_package_version ?? "unknown",
+        time: new Date().toISOString(),
+      },
+      { headers: { "Cache-Control": "no-store" } }
+    )
+  } catch (e) {
+    return Response.json(
+      { ok: false, database: "error", message: e instanceof Error ? e.message : "unknown" },
+      { status: 500, headers: { "Cache-Control": "no-store" } }
+    )
+  }
+}''')
+
+# ------------------------------------------------- C: entrypoint migrate
+patch("docker-entrypoint.sh",
+'''if [ ! -f "$DB_PATH" ]; then
+  echo "[entrypoint] no database found at $DB_PATH — applying migrations..."
+  DATABASE_URL="file:$DB_PATH" node node_modules/prisma/build/index.js migrate deploy
+  echo "[entrypoint] migrations applied."
+fi''',
+'''# Always apply migrations — `migrate deploy` is a no-op when the schema is
+# current, and skipping it on an existing DB left mounts silently outdated.
+echo "[entrypoint] applying migrations (if any)..."
+DATABASE_URL="file:$DB_PATH" node node_modules/prisma/build/index.js migrate deploy
+echo "[entrypoint] migrations up to date."''')
+
+# ------------------------------------------------- D: DEPLOY.md cron docs
+patch("DEPLOY.md",
+'''0 * * * * curl -fsS -X POST -H "Authorization: Bearer $CRON_SECRET" http://127.0.0.1:3000/api/v1/cron/recompute > /dev/null''',
+'''0 * * * * curl -fsS -H "Authorization: Bearer $CRON_SECRET" http://127.0.0.1:3000/api/v1/cron/recompute > /dev/null''')
+patch("DEPLOY.md",
+'''30 3 * * * curl -fsS -X POST -H "Authorization: Bearer $CRON_SECRET" http://127.0.0.1:3000/api/v1/cron/audit > /dev/null''',
+'''30 3 * * * curl -fsS -H "Authorization: Bearer $CRON_SECRET" "http://127.0.0.1:3000/api/v1/cron/audit?type=daily" > /dev/null''')
+
+# ------------------------------------------------- E/F: deletions
+for rel in ["vercel.json", "src/app/api/route.ts"]:
+    p = ROOT / rel
+    if p.exists():
+        p.unlink()
+        print(f"[ok] deleted {rel}")
+
+print("patch-4 complete")

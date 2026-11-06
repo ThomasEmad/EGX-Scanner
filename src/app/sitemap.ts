@@ -12,10 +12,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: now, changeFrequency: "daily", priority: 1 },
-    { url: `${baseUrl}/rankings`, lastModified: now, changeFrequency: "daily", priority: 0.95 },
+    { url: `${baseUrl}/companies`, lastModified: now, changeFrequency: "daily", priority: 0.95 },
+    { url: `${baseUrl}/rankings`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
     { url: `${baseUrl}/undervalued`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
     { url: `${baseUrl}/sectors`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${baseUrl}/data-quality`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     // /compare is intentionally noindex (user-selected companies), so it is
     // not advertised here.
     { url: `${baseUrl}/premium`, lastModified: now, changeFrequency: "weekly", priority: 0.6 },
@@ -23,6 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/disclaimer`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/status`, lastModified: now, changeFrequency: "daily", priority: 0.5 },
   ]
 
   const companies = await db.company.findMany({

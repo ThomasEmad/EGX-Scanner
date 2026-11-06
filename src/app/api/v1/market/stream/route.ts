@@ -5,8 +5,30 @@ import { db } from "@/lib/db"
 
 // GET /api/v1/market/stream — Server-Sent Events stream for live market prices
 // Streams price updates every 5 seconds with 15-minute delayed data from TradingView
+//
+// Resource safety: each SSE connection used to leak its 5s setInterval forever
+// (the cleanup returned from start() is not invoked by ReadableStream, and
+// cancel() was empty) — a handful of tabs idling all night exhausted CPU and
+// memory. Now: a process-wide connection cap, the interval is cleared in
+// cancel(), enqueue failures close the stream, and every stream ends itself
+// after a fixed lifetime so the client's EventSource reconnects cleanly.
+
+const TICK_MS = 5000
+const MAX_STREAM_MS = 10 * 60 * 1000 // client EventSource auto-reconnects after this
+const MAX_CONCURRENT_STREAMS = 50
+
+const globalForStream = globalThis as unknown as { __egxSseConnections?: number }
 
 export async function GET(_req: NextRequest) {
+  const connections = (globalForStream.__egxSseConnections ??= 0)
+  if (connections >= MAX_CONCURRENT_STREAMS) {
+    return Response.json(
+      { error: "TOO_MANY_STREAMS", message: "Live stream is at capacity — retry shortly." },
+      { status: 429, headers: { "Retry-After": "30" } }
+    )
+  }
+  globalForStream.__egxSseConnections = connections + 1
+
   const encoder = new TextEncoder()
 
   // Generate a deterministic but varying "live" price from the latest snapshot
@@ -59,21 +81,55 @@ export async function GET(_req: NextRequest) {
     }
   }
 
+  let active = true
+  let interval: ReturnType<typeof setInterval> | null = null
+  let lifetime: ReturnType<typeof setTimeout> | null = null
+
+  const cleanup = () => {
+    if (!active) return
+    active = false
+    globalForStream.__egxSseConnections = Math.max(0, (globalForStream.__egxSseConnections ?? 1) - 1)
+  }
+
+  const teardown = () => {
+    if (interval) clearInterval(interval)
+    if (lifetime) clearTimeout(lifetime)
+    interval = null
+    lifetime = null
+    cleanup()
+    try {
+      controller?.close()
+    } catch {}
+  }
+
+  let controller: ReadableStreamDefaultController<Uint8Array> | null = null
+
   const stream = new ReadableStream({
-    async start(controller) {
-      const interval = setInterval(async () => {
-        const data = await generateLiveUpdate()
-        controller.enqueue(encoder.encode(data))
-      }, 5000)
+    async start(c) {
+      controller = c
 
-      // Send initial data immediately
-      const initial = await generateLiveUpdate()
-      controller.enqueue(encoder.encode(initial))
+      const push = async () => {
+        if (!active || !controller) return
+        try {
+          const data = await generateLiveUpdate()
+          controller.enqueue(encoder.encode(data))
+        } catch {
+          // stream already closed by the client — stop ticking
+          teardown()
+        }
+      }
 
-      return () => clearInterval(interval)
+      interval = setInterval(push, TICK_MS)
+      // self-terminate after a fixed lifetime; the client's EventSource
+      // reconnects automatically, which also rebalances the connection cap
+      lifetime = setTimeout(() => teardown(), MAX_STREAM_MS)
+
+      // initial frame
+      await push()
     },
     cancel() {
-      // Cleanup on client disconnect
+      // Client disconnect — stop the interval immediately or it leaks forever.
+      teardown()
     },
   })
 

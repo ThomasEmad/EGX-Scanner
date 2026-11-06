@@ -2,7 +2,7 @@ import { NextRequest } from "next/server"
 import { db } from "@/lib/db"
 import { isAdmin } from "@/lib/admin-auth"
 import { unauthorizedResponse } from "@/lib/access"
-import { runIngestion, type IngestionRequest } from "@/lib/ingestion/orchestrator"
+import { runIngestion, isIngestionBusy, IngestionBusyError, type IngestionRequest } from "@/lib/ingestion/orchestrator"
 import { audit } from "@/lib/audit"
 
 // POST /api/v1/admin/ingestion/run — start an ingestion run for one or more
@@ -12,6 +12,16 @@ import { audit } from "@/lib/audit"
 // If companies is omitted, all active companies are processed.
 export async function POST(req: NextRequest) {
   if (!(await isAdmin(req))) return await unauthorizedResponse()
+
+  // Single-flight: overlapping ingestion runs would double-process the same
+  // company+period (duplicate downloads + racing DB writes).
+  if (isIngestionBusy()) {
+    return Response.json(
+      { error: "BUSY", message: "An ingestion run is already in progress — wait for it to finish." },
+      { status: 409 }
+    )
+  }
+
   const body = await req.json().catch(() => ({})) as {
     companies?: string[]
     fiscalYear?: number
@@ -40,22 +50,32 @@ export async function POST(req: NextRequest) {
 
   // Run ingestion in the background; the HTTP response returns immediately
   // with the runId so the caller can poll /runs for status.
-  const result = await runIngestion(reqs)
-  return Response.json({
-    ok: true,
-    runId: result.runId,
-    companiesRequested: companies.length,
-    outcomes: result.outcomes.map((o) => ({
-      companyId: o.companyId,
-      fiscalYear: o.fiscalYear,
-      documentsDiscovered: o.documentsDiscovered,
-      documentsVerified: o.documentsVerified,
-      documentsDownloaded: o.documentsDownloaded,
-      documentsStored: o.documentsStored,
-      documentsFailed: o.documentsFailed,
-      valuesExtracted: o.valuesExtracted,
-      durationMs: o.durationMs,
-      errorCount: o.errors.length,
-    })),
-  })
+  try {
+    const result = await runIngestion(reqs)
+    return Response.json({
+      ok: true,
+      runId: result.runId,
+      companiesRequested: companies.length,
+      outcomes: result.outcomes.map((o) => ({
+        companyId: o.companyId,
+        fiscalYear: o.fiscalYear,
+        documentsDiscovered: o.documentsDiscovered,
+        documentsVerified: o.documentsVerified,
+        documentsDownloaded: o.documentsDownloaded,
+        documentsStored: o.documentsStored,
+        documentsFailed: o.documentsFailed,
+        valuesExtracted: o.valuesExtracted,
+        durationMs: o.durationMs,
+        errorCount: o.errors.length,
+      })),
+    })
+  } catch (e) {
+    if (e instanceof IngestionBusyError) {
+      return Response.json(
+        { error: "BUSY", message: "An ingestion run is already in progress — wait for it to finish." },
+        { status: 409 }
+      )
+    }
+    throw e
+  }
 }

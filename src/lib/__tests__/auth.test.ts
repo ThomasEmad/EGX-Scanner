@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeAll, afterAll } from "vitest"
 import { PrismaClient } from "@prisma/client"
+import { hashToken } from "@/lib/secure-compare"
 
 const db = new PrismaClient()
 
@@ -44,7 +45,7 @@ describe("database-backed sessions", () => {
     const token = await createSession(user.id)
 
     await db.session.update({
-      where: { token },
+      where: { token: hashToken(token) },
       data: { expiresAt: new Date(Date.now() - 1000) },
     })
 
