@@ -8,10 +8,6 @@
     {
       "path": "/api/v1/cron/audit?type=weekly",
       "schedule": "0 4 * * 1"
-    },
-    {
-      "path": "/api/v1/market/refresh",
-      "schedule": "*/2 * * * *"
     }
   ]
 }
