@@ -90,6 +90,14 @@ const EN_INSTRUCTION =
   "\n\nWrite the analysis in English with exactly the sections specified in the system prompt. Use only data figures with period labels, and analyze like a seasoned professional investor — not a news summarizer."
 
 const AI_TIMEOUT_MS = 100_000
+// v5.1 speed cap: NVIDIA streams ~150 tok/s, so a sprawling 3-5k-token
+// report costs 50s+ end-to-end. A hard word budget keeps the report dense
+// and the request fast (600 words ≈ 20-30s). Set 0 to uncapped.
+const AI_MAX_WORDS = Number(process.env.AI_ANALYSIS_MAX_WORDS || "") || 600
+const LENGTH_BUDGET =
+  AI_MAX_WORDS > 0
+    ? `\n\nLength budget: the entire report must stay under ${AI_MAX_WORDS} words total — dense and numeric, every section tight, zero filler or repetition. This budget overrides any longer count implied by the section notes.`
+    : ""
 // The provider now orchestrates retries + fallback-model internally inside the
 // request budget (primary → primary → AI_MODEL_FALLBACK), so one outer attempt
 // is enough and the worst case can never exceed maxDuration.
@@ -101,7 +109,7 @@ const FREE_SMART_ANALYSIS_LIMIT = 3
 async function callLlm(snapshotJson: string, lang: "ar" | "en"): Promise<AiChatResult> {
   return chatComplete({
     system: SYSTEM_PROMPT,
-    user: "Company data (JSON):\n" + snapshotJson + (lang === "ar" ? AR_INSTRUCTION : EN_INSTRUCTION),
+    user: "Company data (JSON):\n" + snapshotJson + (lang === "ar" ? AR_INSTRUCTION : EN_INSTRUCTION) + LENGTH_BUDGET,
     timeoutMs: AI_TIMEOUT_MS,
   })
 }

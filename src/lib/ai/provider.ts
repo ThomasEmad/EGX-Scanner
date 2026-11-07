@@ -49,6 +49,13 @@
 //   max_tokens (AI_MAX_TOKENS, default 8192) is now sent explicitly: NIM
 //   applies a small per-model output default and a truncated mid-JSON
 //   analysis is worse than a slower one.
+//   v5.1 (2026-11-07): latency. A/B on 40KB grounded prompts showed the
+//   NVIDIA reasoning phase delays first content 5-15s (5.3/13.6s ON vs
+//   1.5/2.4s OFF) while cutting useful output 3x in the same window.
+//   NVIDIA requests now send chat_template_kwargs {enable_thinking} per
+//   AI_THINKING (default off); the analysis route adds a word budget
+//   (AI_ANALYSIS_MAX_WORDS, default 600) because total time tracks the
+//   generated length (~150 tok/s), not the prompt size.
 //
 // Configuration (Vercel env vars):
 //   AI_API_KEY        — primary API key (required to enable the external
@@ -452,6 +459,9 @@ async function chatViaExternalApi(req: AiChatRequest): Promise<AiChatResult> {
   const apiKey = keys[0] ?? ""
   const baseUrl = (process.env.AI_BASE_URL || DEFAULT_BASE_URL).trim().replace(/\/+$/, "")
   const maxTokens = Number(process.env.AI_MAX_TOKENS || "") || DEFAULT_MAX_TOKENS
+  // v5.1: NVIDIA reasoning phase measured 5-15s of dead time on 40KB prompts
+  // before the first content byte; OFF makes the answer stream immediately.
+  const nvidiaThinking = (process.env.AI_THINKING || "off").trim().toLowerCase() === "on"
   const budget = Math.min(req.timeoutMs ?? DEFAULT_TIMEOUT_MS, 120_000)
   const deadline = Date.now() + budget
   const models = await resolveModelPlan(baseUrl, apiKey, budget)
@@ -515,6 +525,9 @@ async function chatViaExternalApi(req: AiChatRequest): Promise<AiChatResult> {
           max_tokens: maxTokens,
           stream: true,
           ...(baseUrl.includes("generativelanguage") ? { reasoning_effort: "low" } : {}),
+          ...(baseUrl.includes("nvidia")
+            ? { chat_template_kwargs: { enable_thinking: nvidiaThinking } }
+            : {}),
         }),
         signal: AbortSignal.timeout(attempt.timeoutMs),
       })
