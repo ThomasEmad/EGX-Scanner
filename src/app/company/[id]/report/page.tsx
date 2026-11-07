@@ -62,9 +62,9 @@ export default async function CompanyReportPage({ params }: { params: Promise<{ 
         `SELECT code, "fiscalYear", value FROM (
            SELECT cm.code, cm."fiscalYear", cm.value,
                   ROW_NUMBER() OVER (PARTITION BY cm.code, cm."fiscalYear" ORDER BY cm."fiscalYear" DESC) AS rn
-           FROM CalculatedMetric cm
+           FROM "CalculatedMetric" cm
            WHERE cm."companyId" = ? AND cm."periodType" = 'ANNUAL' AND cm."valueStatus" = 'OK'
-             AND cm.value IS NOT NULL AND cm.statementType = 'CONSOLIDATED'
+             AND cm.value IS NOT NULL AND cm."statementType" = 'CONSOLIDATED'
              AND cm.code IN (${trendCodes.map(() => "?").join(",")})
          ) t WHERE rn = 1 ORDER BY code, "fiscalYear" DESC`,
         id, ...trendCodes

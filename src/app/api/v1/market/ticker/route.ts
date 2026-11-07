@@ -56,8 +56,8 @@ export async function GET(req: NextRequest) {
       pricesAsOf = pricesAsOf ?? snap.asOf
     } else {
       const priceRows = (await db.$queryRawUnsafe(
-        `SELECT c.ticker, mp.price, mp."asOf" FROM MarketPrice mp
-         JOIN Company c ON c.id = mp."companyId" AND c."isActive" = 1
+        `SELECT c.ticker, mp.price, mp."asOf" FROM "MarketPrice" mp
+         JOIN "Company" c ON c.id = mp."companyId" AND c."isActive" = true
          ORDER BY mp."companyId", mp."asOf"`
       )) as { ticker: string; price: number; asOf: Date | string }[]
       // SQLite stores Prisma DateTimes in a format julianday() can't parse — do

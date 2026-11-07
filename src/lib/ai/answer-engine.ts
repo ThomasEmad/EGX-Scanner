@@ -257,10 +257,10 @@ async function annualSeries(companyId: string, code: string, take = 5) {
 // ————— sector leaderboard (batched: one query per call) —————
 async function sectorBest(code: string, sector: string | null, lang: Lang): Promise<QaAnswer> {
   const rows = (await db.$queryRawUnsafe(
-    `SELECT cm.companyId, cm.value, cm.fiscalYear, cm.periodLabel,
+    `SELECT cm."companyId", cm.value, cm."fiscalYear", cm."periodLabel",
             c.ticker, c."nameEn", c."nameAr", c.sector
-     FROM CalculatedMetric cm
-     JOIN Company c ON c.id = cm.companyId AND c."isActive" = 1
+     FROM "CalculatedMetric" cm
+     JOIN "Company" c ON c.id = cm."companyId" AND c."isActive" = true
      WHERE cm.code = ? AND cm."valueStatus" = 'OK' AND cm.value IS NOT NULL
        AND cm."periodType" = 'ANNUAL' AND cm."fiscalYear" >= 2023
        ${sector ? `AND c.sector = ?` : ""}

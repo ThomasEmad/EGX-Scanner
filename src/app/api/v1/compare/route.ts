@@ -41,7 +41,7 @@ export async function GET(req: NextRequest) {
   // latest ANNUAL metrics per company, one query
   const rows = (await db.$queryRawUnsafe(
     `SELECT cm."companyId", cm.code, cm.value, cm."fiscalYear", cm."periodLabel"
-     FROM CalculatedMetric cm
+     FROM "CalculatedMetric" cm
      WHERE cm."companyId" IN (${ids.map(() => "?").join(",")})
        AND cm."periodType" = 'ANNUAL' AND cm."valueStatus" = 'OK' AND cm.value IS NOT NULL
        AND cm.code IN (${COMPARE_METRICS.map(() => "?").join(",")})

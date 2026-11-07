@@ -458,11 +458,11 @@ export async function computeCompletenessReport(now = new Date()): Promise<Compl
 
   // ---- calculations ----
   const calcRows = await db.$queryRawUnsafe<Array<{ code: string; companies: bigint | number; okRows: bigint | number; rows: bigint | number }>>(
-    `SELECT code, COUNT(DISTINCT companyId) AS companies,
-            SUM(CASE WHEN valueStatus = 'OK' THEN 1 ELSE 0 END) AS okRows,
+    `SELECT code, COUNT(DISTINCT "companyId") AS companies,
+            SUM(CASE WHEN "valueStatus" = 'OK' THEN 1 ELSE 0 END) AS "okRows",
             COUNT(*) AS rows
-       FROM CalculatedMetric
-      WHERE companyId IN (${companyIds.map(() => "?").join(",")})
+       FROM "CalculatedMetric"
+      WHERE "companyId" IN (${companyIds.map(() => "?").join(",")})
       GROUP BY code
       ORDER BY companies DESC, code ASC`,
     ...companyIds,

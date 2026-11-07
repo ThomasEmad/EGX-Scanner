@@ -67,10 +67,10 @@ async function buildScanContextsUncached(basis: PeriodBasis): Promise<
   const allTypeRows = await db.$queryRawUnsafe<
     { companyId: string; periodType: string; statementType: string; periodKey: string }[]
   >(
-    `SELECT companyId, periodType, statementType, MAX(periodKey) AS periodKey
-     FROM CalculatedMetric
-     WHERE statementType IN ('CONSOLIDATED','STANDALONE')
-     GROUP BY companyId, periodType, statementType`
+    `SELECT "companyId", "periodType", "statementType", MAX("periodKey") AS "periodKey"
+     FROM "CalculatedMetric"
+     WHERE "statementType" IN ('CONSOLIDATED','STANDALONE')
+     GROUP BY "companyId", "periodType", "statementType"`
   )
   const metrics = preferConsolidatedRows(allTypeRows)
 

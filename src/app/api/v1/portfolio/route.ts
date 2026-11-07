@@ -27,9 +27,9 @@ export async function GET(req: NextRequest) {
   const prices = ids.length
     ? ((await db.$queryRawUnsafe(
         `SELECT mp."companyId", mp.price, mp."asOf", mp.currency
-         FROM MarketPrice mp
+         FROM "MarketPrice" mp
          WHERE mp."companyId" IN (${ids.map(() => "?").join(",")})
-           AND mp."asOf" = (SELECT MAX("asOf") FROM MarketPrice WHERE "companyId" = mp."companyId")`,
+           AND mp."asOf" = (SELECT MAX("asOf") FROM "MarketPrice" WHERE "companyId" = mp."companyId")`,
         ...ids
       )) as { companyId: string; price: number; asOf: Date; currency: string }[])
     : []
@@ -39,7 +39,7 @@ export async function GET(req: NextRequest) {
   const dpsRows = ids.length
     ? ((await db.$queryRawUnsafe(
         `SELECT d."companyId", SUM(d."dividendPerShare") AS dps
-         FROM Dividend d
+         FROM "Dividend" d
          WHERE d."companyId" IN (${ids.map(() => "?").join(",")})
            AND d."dividendPerShare" IS NOT NULL
            AND COALESCE(d."announcementDate", d."createdAt") >= ?

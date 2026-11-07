@@ -8,14 +8,13 @@
 
 generator client {
   provider        = "prisma-client-js"
-  // driverAdapters enables the Turso/libSQL runtime adapter (see src/lib/db.ts):
-  // local SQLite (file:) keeps working unchanged; when TURSO_DATABASE_URL is
-  // set the client connects to the Turso cloud database instead.
-  previewFeatures = ["driverAdapters"]
+  // Postgres (Neon / Supabase / Vercel Postgres) via the standard Prisma
+  // engine — no driver adapter needed. Set DATABASE_URL to the POOLED
+  // connection string on serverless (pgbouncer / -pooler host).
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 

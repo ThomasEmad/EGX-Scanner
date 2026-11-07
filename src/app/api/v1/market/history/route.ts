@@ -84,8 +84,8 @@ export async function GET(req: NextRequest) {
 
     const rows = await db.$queryRawUnsafe(
       `SELECT c.ticker, mp.price, mp."asOf"
-       FROM MarketPrice mp
-       JOIN Company c ON c.id = mp."companyId" AND c."isActive" = 1
+       FROM "MarketPrice" mp
+       JOIN "Company" c ON c.id = mp."companyId" AND c."isActive" = true
        WHERE c.ticker = ?
        ORDER BY mp."asOf" DESC
        LIMIT ?`,

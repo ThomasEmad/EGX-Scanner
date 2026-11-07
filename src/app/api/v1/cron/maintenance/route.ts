@@ -47,7 +47,10 @@ export async function GET(req: NextRequest) {
     // Fold the WAL back into the main DB file so it never grows unbounded.
     // NOTE: PRAGMA statements return a result row, so this must go through
     // $queryRawUnsafe — $executeRawUnsafe rejects queries that return results.
-    await db.$queryRawUnsafe("PRAGMA wal_checkpoint(TRUNCATE);")
+    const isPostgres = (process.env.DATABASE_URL || "").trim().startsWith("postgres")
+    if (!isPostgres) {
+      await db.$queryRawUnsafe("PRAGMA wal_checkpoint(TRUNCATE);")
+    }
 
     return Response.json({ ok: true, summary })
   } catch (e) {

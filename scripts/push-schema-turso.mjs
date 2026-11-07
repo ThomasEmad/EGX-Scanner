@@ -2,7 +2,7 @@
 // file: database for testing.
 //
 // Usage:
-//   TURSO_DATABASE_URL=libsql://<YOUR-DB>.turso.io \
+//   TURSO_DATABASE_URL=libsql://your-db-yourorg.turso.io \
 //   TURSO_AUTH_TOKEN=eyJ... \
 //   node scripts/push-schema-turso.mjs
 //

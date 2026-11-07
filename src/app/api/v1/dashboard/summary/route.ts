@@ -17,9 +17,9 @@ async function buildSummary(): Promise<unknown> {
 
     // Get market breadth from latest market prices
     const latestPrices = await db.$queryRawUnsafe(
-      `SELECT c.ticker, c.nameEn, c.nameAr, c.sector, mp.price, mp."asOf"
-       FROM MarketPrice mp
-       JOIN Company c ON c.id = mp."companyId" AND c."isActive" = 1
+      `SELECT c.ticker, c."nameEn", c."nameAr", c.sector, mp.price, mp."asOf"
+       FROM "MarketPrice" mp
+       JOIN "Company" c ON c.id = mp."companyId" AND c."isActive" = true
        WHERE mp.price IS NOT NULL AND mp.price > 0
        ORDER BY mp."asOf" DESC`
     ) as { ticker: string; nameEn: string; nameAr: string | null; sector: string; price: number; asOf: Date }[]
@@ -45,8 +45,8 @@ async function buildSummary(): Promise<unknown> {
     // Get previous close prices for change calculation (from previous trading day)
     const previousPrices = await db.$queryRawUnsafe(
       `SELECT c.ticker, mp.price, mp."asOf"
-       FROM MarketPrice mp
-       JOIN Company c ON c.id = mp."companyId" AND c."isActive" = 1
+       FROM "MarketPrice" mp
+       JOIN "Company" c ON c.id = mp."companyId" AND c."isActive" = true
        WHERE mp.price IS NOT NULL AND mp.price > 0
        ORDER BY mp."asOf" ASC`
     ) as { ticker: string; price: number; asOf: Date }[]
