@@ -289,9 +289,6 @@ model CalculatedMetric {
 
   @@unique([companyId, code, periodKey, statementType])
   @@index([companyId, periodKey])
-  @@index([code])
-  @@index([calculationType])
-  @@index([isDerived])
 }
 
 model FinancialEvent {
