@@ -1,7 +1,10 @@
 // Environment validation — fail fast on missing required production config.
 
+// DATABASE_URL (local SQLite mode) OR TURSO_DATABASE_URL (Vercel/Turso mode)
+// — the dual-mode db client in src/lib/db.ts accepts either.
+const DATABASE_URL_VARS = ["DATABASE_URL", "TURSO_DATABASE_URL"]
 const REQUIRED_ENV_VARS = [
-  "DATABASE_URL",
+  ...DATABASE_URL_VARS,
   "ADMIN_PASSCODE",
 ]
 
@@ -12,7 +15,9 @@ const OPTIONAL_ENV_VARS = [
 export function validateEnv() {
   const missing: string[] = []
   for (const key of REQUIRED_ENV_VARS) {
-    if (!process.env[key]) {
+    // any one of a DB-URL group satisfies the database requirement
+    const group = DATABASE_URL_VARS.includes(key) ? DATABASE_URL_VARS : [key]
+    if (!group.some((k) => process.env[k])) {
       missing.push(key)
     }
   }
