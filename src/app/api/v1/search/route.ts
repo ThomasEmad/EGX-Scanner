@@ -24,9 +24,9 @@ async function searchCompanies(q: string) {
     where: {
       isActive: true,
       OR: [
-        { ticker: { startsWith: like } },
-        { ticker: { contains: like } },
-        { nameEn: { contains: like } },
+        { ticker: { startsWith: like, mode: "insensitive" } },
+        { ticker: { contains: like, mode: "insensitive" } },
+        { nameEn: { contains: like, mode: "insensitive" } },
         { nameAr: { contains: q } },
       ],
     },

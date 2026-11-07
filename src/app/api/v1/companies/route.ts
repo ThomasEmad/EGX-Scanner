@@ -61,8 +61,8 @@ async function listCompanies(url: URL): Promise<unknown> {
   if (["LISTED", "SUSPENDED", "DELISTED"].includes(listingStatus)) where.listingStatus = listingStatus
   if (search) {
     where.OR = [
-      { ticker: { contains: search } },
-      { nameEn: { contains: search } },
+      { ticker: { contains: search, mode: "insensitive" } },
+      { nameEn: { contains: search, mode: "insensitive" } },
       { nameAr: { contains: search } },
     ]
   }
