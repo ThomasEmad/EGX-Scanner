@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { TopHeader } from "./TopHeader"
 import { MobileBottomNav } from "./MobileBottomNav"
+import { MobileNavDrawer } from "./MobileNavDrawer"
 import { AppSidebar } from "./AppSidebar"
 import { AppFooter } from "@/components/egx/app-footer"
 
@@ -41,11 +42,16 @@ export function LayoutShell({ children, showMobileNav = true, flush = false }: L
           <TopHeader />
         </div>
 
-        {/* Mobile top bar */}
+        {/* Mobile top bar — hamburger opens the full nav drawer (the desktop
+            sidebar is hidden below sm, so this is how phones reach Dashboard,
+            Compare, Portfolio and Premium). */}
         <div className="sm:hidden flex h-14 items-center gap-2 px-3 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+          <MobileNavDrawer />
           <a href="/" className="flex-1 flex items-center justify-center">
             <span className="font-bold tracking-tight text-foreground text-sm">Meza</span>
           </a>
+          {/* spacer keeps the brand centered against the 9-wide hamburger */}
+          <span className="w-9 shrink-0" aria-hidden="true" />
         </div>
 
         <main

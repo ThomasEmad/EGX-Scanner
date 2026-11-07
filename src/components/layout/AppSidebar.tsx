@@ -21,7 +21,7 @@ import {
 import { useI18n } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
 
-interface NavItem {
+export interface NavItem {
   href: string
   label: string
   labelAr: string
@@ -29,13 +29,15 @@ interface NavItem {
   exact?: boolean
 }
 
-interface NavSection {
+export interface NavSection {
   label: string
   labelAr: string
   items: NavItem[]
 }
 
-const SECTIONS: NavSection[] = [
+// Single source of truth for navigation — shared with the mobile drawer
+// (MobileNavDrawer), which mirrors these sections below the sm breakpoint.
+export const SECTIONS: NavSection[] = [
   {
     label: "Platform",
     labelAr: "المنصة",
