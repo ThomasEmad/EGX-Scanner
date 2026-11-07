@@ -28,7 +28,7 @@ export async function GET(req: NextRequest) {
     ? ((await db.$queryRawUnsafe(
         `SELECT mp."companyId", mp.price, mp."asOf", mp.currency
          FROM "MarketPrice" mp
-         WHERE mp."companyId" IN (${ids.map(() => "?").join(",")})
+         WHERE mp."companyId" IN (${ids.map((_, i) => `$${i + 1}`).join(",")})
            AND mp."asOf" = (SELECT MAX("asOf") FROM "MarketPrice" WHERE "companyId" = mp."companyId")`,
         ...ids
       )) as { companyId: string; price: number; asOf: Date; currency: string }[])
@@ -40,9 +40,9 @@ export async function GET(req: NextRequest) {
     ? ((await db.$queryRawUnsafe(
         `SELECT d."companyId", SUM(d."dividendPerShare") AS dps
          FROM "Dividend" d
-         WHERE d."companyId" IN (${ids.map(() => "?").join(",")})
+         WHERE d."companyId" IN (${ids.map((_, i) => `$${i + 1}`).join(",")})
            AND d."dividendPerShare" IS NOT NULL
-           AND COALESCE(d."announcementDate", d."createdAt") >= ?
+           AND COALESCE(d."announcementDate", d."createdAt") >= $${ids.length + 1}
          GROUP BY d."companyId"`,
         ...ids, new Date(Date.now() - 365 * 24 * 3600 * 1000)
       )) as { companyId: string; dps: number }[])

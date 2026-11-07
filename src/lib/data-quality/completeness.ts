@@ -462,7 +462,7 @@ export async function computeCompletenessReport(now = new Date()): Promise<Compl
             SUM(CASE WHEN "valueStatus" = 'OK' THEN 1 ELSE 0 END) AS "okRows",
             COUNT(*) AS rows
        FROM "CalculatedMetric"
-      WHERE "companyId" IN (${companyIds.map(() => "?").join(",")})
+      WHERE "companyId" IN (${companyIds.map((_, i) => `$${i + 1}`).join(",")})
       GROUP BY code
       ORDER BY companies DESC, code ASC`,
     ...companyIds,

@@ -42,9 +42,9 @@ export async function GET(req: NextRequest) {
   const rows = (await db.$queryRawUnsafe(
     `SELECT cm."companyId", cm.code, cm.value, cm."fiscalYear", cm."periodLabel"
      FROM "CalculatedMetric" cm
-     WHERE cm."companyId" IN (${ids.map(() => "?").join(",")})
+     WHERE cm."companyId" IN (${ids.map((_, i) => `$${i + 1}`).join(",")})
        AND cm."periodType" = 'ANNUAL' AND cm."valueStatus" = 'OK' AND cm.value IS NOT NULL
-       AND cm.code IN (${COMPARE_METRICS.map(() => "?").join(",")})
+       AND cm.code IN (${COMPARE_METRICS.map((_, i) => `$${ids.length + i + 1}`).join(",")})
      ORDER BY cm."fiscalYear" DESC`,
     ...ids, ...COMPARE_METRICS
   )) as { companyId: string; code: string; value: number; fiscalYear: number; periodLabel: string }[]

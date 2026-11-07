@@ -261,9 +261,9 @@ async function sectorBest(code: string, sector: string | null, lang: Lang): Prom
             c.ticker, c."nameEn", c."nameAr", c.sector
      FROM "CalculatedMetric" cm
      JOIN "Company" c ON c.id = cm."companyId" AND c."isActive" = true
-     WHERE cm.code = ? AND cm."valueStatus" = 'OK' AND cm.value IS NOT NULL
+     WHERE cm.code = $1 AND cm."valueStatus" = 'OK' AND cm.value IS NOT NULL
        AND cm."periodType" = 'ANNUAL' AND cm."fiscalYear" >= 2023
-       ${sector ? `AND c.sector = ?` : ""}
+       ${sector ? `AND c.sector = $2` : ""}
      ORDER BY cm.value DESC`,
     code, ...(sector ? [sector] : [])
   )) as { companyId: string; value: number; fiscalYear: number; periodLabel: string; ticker: string; nameEn: string; nameAr: string | null; sector: string }[]

@@ -86,9 +86,9 @@ export async function GET(req: NextRequest) {
       `SELECT c.ticker, mp.price, mp."asOf"
        FROM "MarketPrice" mp
        JOIN "Company" c ON c.id = mp."companyId" AND c."isActive" = true
-       WHERE c.ticker = ?
+       WHERE c.ticker = $1
        ORDER BY mp."asOf" DESC
-       LIMIT ?`,
+       LIMIT $2`,
       symbol,
       RANGE_LIMITS[range]
     ) as { ticker: string; price: number; asOf: Date }[]
