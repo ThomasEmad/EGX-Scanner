@@ -32,3 +32,5 @@ download/egx-turso-dump.sql.gz
 *.bundle
 *.sql.gz
 download/zi2kelvZ
+.vercel
+.env*
