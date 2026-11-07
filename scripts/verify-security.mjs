@@ -1,4 +1,4 @@
-// Verify security hardening on the running EGX-Scanner server.
+// Verify security hardening on the running Meza server.
 // Usage: node scripts/verify-security.mjs [baseUrl]
 import { execFileSync } from "node:child_process"
 

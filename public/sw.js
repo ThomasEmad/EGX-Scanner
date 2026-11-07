@@ -1,4 +1,4 @@
-// EGX Scanner service worker — deliberately conservative.
+// Meza service worker — deliberately conservative.
 //
 // Rules (in order):
 //   1. /api/*            → NETWORK ONLY. Never cached, ever. Financial data

@@ -1,4 +1,4 @@
-﻿# تقييم جاهزية الإطلاق — EGX Scanner / Production Readiness Assessment
+﻿# تقييم جاهزية الإطلاق — Meza / Production Readiness Assessment
 
 **التاريخ / Date:** 2026-11-03  
 **الإصدار / Version:** 0.3.0 (local, uncommitted)  

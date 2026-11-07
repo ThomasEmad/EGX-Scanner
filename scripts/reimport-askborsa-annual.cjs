@@ -17,7 +17,7 @@ const LABEL_MAP = {
 }
 
 ;(async () => {
-  const file = "C:/Users/tomas/Downloads/EGX-Scanner-backup/egx-data/data/askborsa-harvest.jsonl"
+  const file = "C:/Users/tomas/Downloads/Meza-backup/egx-data/data/askborsa-harvest.jsonl"
   const lines = fs.readFileSync(file, "utf8").split("\n").filter(l => l.trim())
   console.log("lines:", lines.length)
 

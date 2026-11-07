@@ -1,4 +1,4 @@
-# دليل التشغيل — EGX Scanner / Operations runbook
+# دليل التشغيل — Meza / Operations runbook
 
 **آخر تحديث / Last updated:** 2026-11-03  
 **النطاق / Scope:** التشغيل اليومي، النسخ الاحتياطي، الاستعادة، المراقبة، والأسرار.
@@ -55,7 +55,7 @@ npm run backup -- --dry-run    # يعرض المسارات فقط
 
 ```powershell
 # Windows Task Scheduler (مثال)
-schtasks /Create /SC DAILY /TN "EGX-Scanner-Backup" /TR "cmd /c cd /d C:\path\to\EGX-Scanner && npm run backup" /ST 02:00
+schtasks /Create /SC DAILY /TN "Meza-Backup" /TR "cmd /c cd /d C:\path\to\Meza && npm run backup" /ST 02:00
 ```
 
 **التحقق الدوري:** مرة شهرياً، استعد نسخة إلى قاعدة منفصلة (انظر القسم 3) وشغّل `npm run healthcheck`.
@@ -106,7 +106,7 @@ Remove-Item .\backups\drill.db
 
 ```powershell
 npm run healthcheck
-$env:BASE_URL="https://egx-scanner.com"; npm run healthcheck
+$env:BASE_URL="https://meza-ashy.vercel.app"; npm run healthcheck
 ```
 
 **يفحص:** `/api/v1/health`, `/api/v1/market/ticker`, `/api/v1/companies/COMI`, `/`.

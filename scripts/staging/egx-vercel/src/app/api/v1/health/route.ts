@@ -14,7 +14,7 @@ export async function GET() {
     return Response.json(
       {
         ok: true,
-        service: "egx-financial-scanner",
+        service: "meza",
         database: "connected",
         dbLatencyMs: dbMs,
         companies,

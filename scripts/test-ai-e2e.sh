@@ -1,7 +1,7 @@
 #!/bin/bash
 # E2E test: new diagnostic user -> login -> run AI analysis on production (NVIDIA GLM)
 # usage: test-ai-e2e.sh [company_id]   (default: first company)
-BASE="https://egx-scanner-ashy.vercel.app"
+BASE="https://meza-ashy.vercel.app"
 TS=$(date +%s)
 EMAIL="diag.glm531.${TS}@diag-test.local"
 PASS="DiagTest#2026x"

@@ -5,7 +5,7 @@
 //   - ticker + company name
 //   - sector (one of the 10 supported)
 //   - report type (annual / quarterly)
-//   - PDF URL (or local path under /home/z/my-project/EGX-Scanner/test-data/)
+//   - PDF URL (or local path under /home/z/my-project/Meza/test-data/)
 //   - manually verified critical metrics
 //   - expected precision / recall targets
 //
@@ -41,7 +41,7 @@ export interface BenchmarkReport {
   reportType: "ANNUAL" | "Q1" | "Q2" | "Q3" | "H1" | "H2" | "9M"
   fiscalYear: number
   pdfUrl?: string // optional — may be set at runtime
-  localPath?: string // e.g. "/home/z/my-project/EGX-Scanner/test-data/COMI-FY2023.pdf"
+  localPath?: string // e.g. "/home/z/my-project/Meza/test-data/COMI-FY2023.pdf"
   // Manually verified ground truth — extracted values must match these
   verified: BenchmarkMetricTruth[]
   // Expected extraction performance targets
@@ -64,7 +64,7 @@ export const BENCHMARK_DATASET: BenchmarkReport[] = [
     sector: "Banks",
     reportType: "ANNUAL",
     fiscalYear: 2023,
-    localPath: "/home/z/my-project/EGX-Scanner/test-data/COMI-FY2023.pdf",
+    localPath: "/home/z/my-project/Meza/test-data/COMI-FY2023.pdf",
     verified: [
       { metricCode: "REVENUE", value: 41.3e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
       { metricCode: "NET_PROFIT", value: 21.5e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
@@ -89,7 +89,7 @@ export const BENCHMARK_DATASET: BenchmarkReport[] = [
     sector: "Banks", // placeholder sector for second bank — actually Telecom (we'll fix)
     reportType: "ANNUAL",
     fiscalYear: 2023,
-    localPath: "/home/z/my-project/EGX-Scanner/test-data/ETEL-FY2023.pdf",
+    localPath: "/home/z/my-project/Meza/test-data/ETEL-FY2023.pdf",
     verified: [
       { metricCode: "REVENUE", value: 39.5e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
       { metricCode: "NET_PROFIT", value: 14.2e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
@@ -110,7 +110,7 @@ export const BENCHMARK_DATASET: BenchmarkReport[] = [
     sector: "Real Estate",
     reportType: "ANNUAL",
     fiscalYear: 2023,
-    localPath: "/home/z/my-project/EGX-Scanner/test-data/ORHD-FY2023.pdf",
+    localPath: "/home/z/my-project/Meza/test-data/ORHD-FY2023.pdf",
     verified: [
       { metricCode: "REVENUE", value: 22e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
       { metricCode: "NET_PROFIT", value: 1.5e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
@@ -132,7 +132,7 @@ export const BENCHMARK_DATASET: BenchmarkReport[] = [
     sector: "Real Estate",
     reportType: "ANNUAL",
     fiscalYear: 2023,
-    localPath: "/home/z/my-project/EGX-Scanner/test-data/TMGH-FY2023.pdf",
+    localPath: "/home/z/my-project/Meza/test-data/TMGH-FY2023.pdf",
     verified: [
       { metricCode: "REVENUE", value: 25e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
       { metricCode: "NET_PROFIT", value: 4.5e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
@@ -153,7 +153,7 @@ export const BENCHMARK_DATASET: BenchmarkReport[] = [
     sector: "Industrial",
     reportType: "ANNUAL",
     fiscalYear: 2023,
-    localPath: "/home/z/my-project/EGX-Scanner/test-data/EGCH-FY2023.pdf",
+    localPath: "/home/z/my-project/Meza/test-data/EGCH-FY2023.pdf",
     verified: [
       { metricCode: "REVENUE", value: 8e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
       { metricCode: "NET_PROFIT", value: 0.5e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
@@ -171,7 +171,7 @@ export const BENCHMARK_DATASET: BenchmarkReport[] = [
     sector: "Industrial",
     reportType: "ANNUAL",
     fiscalYear: 2023,
-    localPath: "/home/z/my-project/EGX-Scanner/test-data/SWDY-FY2023.pdf",
+    localPath: "/home/z/my-project/Meza/test-data/SWDY-FY2023.pdf",
     verified: [
       { metricCode: "REVENUE", value: 65e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
       { metricCode: "NET_PROFIT", value: 3.5e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
@@ -193,7 +193,7 @@ export const BENCHMARK_DATASET: BenchmarkReport[] = [
     sector: "Telecom",
     reportType: "ANNUAL",
     fiscalYear: 2023,
-    localPath: "/home/z/my-project/EGX-Scanner/test-data/ETEL-FY2023.pdf",
+    localPath: "/home/z/my-project/Meza/test-data/ETEL-FY2023.pdf",
     verified: [
       { metricCode: "REVENUE", value: 39.5e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
       { metricCode: "NET_PROFIT", value: 14.2e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
@@ -213,7 +213,7 @@ export const BENCHMARK_DATASET: BenchmarkReport[] = [
     sector: "Telecom", // Fintech — closest to telecom
     reportType: "ANNUAL",
     fiscalYear: 2023,
-    localPath: "/home/z/my-project/EGX-Scanner/test-data/FWRY-FY2023.pdf",
+    localPath: "/home/z/my-project/Meza/test-data/FWRY-FY2023.pdf",
     verified: [
       { metricCode: "REVENUE", value: 2.5e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
       { metricCode: "NET_PROFIT", value: 0.7e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
@@ -232,7 +232,7 @@ export const BENCHMARK_DATASET: BenchmarkReport[] = [
     sector: "Healthcare",
     reportType: "ANNUAL",
     fiscalYear: 2023,
-    localPath: "/home/z/my-project/EGX-Scanner/test-data/CAQA-FY2023.pdf",
+    localPath: "/home/z/my-project/Meza/test-data/CAQA-FY2023.pdf",
     verified: [
       { metricCode: "REVENUE", value: 5.5e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
       { metricCode: "NET_PROFIT", value: 0.8e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
@@ -252,7 +252,7 @@ export const BENCHMARK_DATASET: BenchmarkReport[] = [
     sector: "Healthcare",
     reportType: "ANNUAL",
     fiscalYear: 2023,
-    localPath: "/home/z/my-project/EGX-Scanner/test-data/MDCI-FY2023.pdf",
+    localPath: "/home/z/my-project/Meza/test-data/MDCI-FY2023.pdf",
     verified: [
       { metricCode: "REVENUE", value: 1.2e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
       { metricCode: "NET_PROFIT", value: 0.15e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
@@ -271,7 +271,7 @@ export const BENCHMARK_DATASET: BenchmarkReport[] = [
     sector: "Financial Services",
     reportType: "ANNUAL",
     fiscalYear: 2023,
-    localPath: "/home/z/my-project/EGX-Scanner/test-data/HRHO-FY2023.pdf",
+    localPath: "/home/z/my-project/Meza/test-data/HRHO-FY2023.pdf",
     verified: [
       { metricCode: "REVENUE", value: 14e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
       { metricCode: "NET_PROFIT", value: 3e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
@@ -289,7 +289,7 @@ export const BENCHMARK_DATASET: BenchmarkReport[] = [
     sector: "Financial Services",
     reportType: "ANNUAL",
     fiscalYear: 2023,
-    localPath: "/home/z/my-project/EGX-Scanner/test-data/BTEG-FY2023.pdf",
+    localPath: "/home/z/my-project/Meza/test-data/BTEG-FY2023.pdf",
     verified: [
       { metricCode: "REVENUE", value: 3.5e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
       { metricCode: "NET_PROFIT", value: 0.4e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
@@ -307,7 +307,7 @@ export const BENCHMARK_DATASET: BenchmarkReport[] = [
     sector: "Food",
     reportType: "ANNUAL",
     fiscalYear: 2023,
-    localPath: "/home/z/my-project/EGX-Scanner/test-data/AUTO-FY2023.pdf",
+    localPath: "/home/z/my-project/Meza/test-data/AUTO-FY2023.pdf",
     verified: [
       { metricCode: "REVENUE", value: 5.5e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
       { metricCode: "NET_PROFIT", value: 0.4e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
@@ -328,7 +328,7 @@ export const BENCHMARK_DATASET: BenchmarkReport[] = [
     sector: "Food",
     reportType: "ANNUAL",
     fiscalYear: 2023,
-    localPath: "/home/z/my-project/EGX-Scanner/test-data/EAST-FY2023.pdf",
+    localPath: "/home/z/my-project/Meza/test-data/EAST-FY2023.pdf",
     verified: [
       { metricCode: "REVENUE", value: 18e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
       { metricCode: "NET_PROFIT", value: 2.2e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
@@ -348,7 +348,7 @@ export const BENCHMARK_DATASET: BenchmarkReport[] = [
     sector: "Energy",
     reportType: "ANNUAL",
     fiscalYear: 2023,
-    localPath: "/home/z/my-project/EGX-Scanner/test-data/EGAS-FY2023.pdf",
+    localPath: "/home/z/my-project/Meza/test-data/EGAS-FY2023.pdf",
     verified: [
       { metricCode: "REVENUE", value: 200e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
       { metricCode: "NET_PROFIT", value: 30e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
@@ -366,7 +366,7 @@ export const BENCHMARK_DATASET: BenchmarkReport[] = [
     sector: "Energy",
     reportType: "ANNUAL",
     fiscalYear: 2023,
-    localPath: "/home/z/my-project/EGX-Scanner/test-data/EGPC-FY2023.pdf",
+    localPath: "/home/z/my-project/Meza/test-data/EGPC-FY2023.pdf",
     verified: [
       { metricCode: "REVENUE", value: 600e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },
       { metricCode: "NET_PROFIT", value: 50e9, periodKey: "ANNUAL:2023:", unit: "EGP", scale: "BILLION" },

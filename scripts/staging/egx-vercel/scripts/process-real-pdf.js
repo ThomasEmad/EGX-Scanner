@@ -1,4 +1,4 @@
-process.env.DATABASE_URL = 'file:/home/z/my-project/EGX-Scanner/prisma/prisma/dev.db';
+process.env.DATABASE_URL = 'file:/home/z/my-project/Meza/prisma/prisma/dev.db';
 
 const { PrismaClient } = require('@prisma/client');
 const { createHash } = require('node:crypto');
@@ -7,7 +7,7 @@ const { readFile } = require('node:fs/promises');
 async function main() {
   console.log('=== Processing REAL CIB Q1 2025 Consolidated Financial Statements ===');
   
-  const pdfPath = '/home/z/my-project/EGX-Scanner/storage/reports/cib_q1_2025_consol.pdf';
+  const pdfPath = '/home/z/my-project/Meza/storage/reports/cib_q1_2025_consol.pdf';
   const buf = await readFile(pdfPath);
   const hash = createHash('sha256').update(buf).digest('hex');
   console.log('PDF:', buf.length, 'bytes,', (buf.length/1024/1024).toFixed(1), 'MB');

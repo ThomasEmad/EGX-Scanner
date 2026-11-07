@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next"
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "EGX Financial Scanner",
-    short_name: "EGX Scanner",
+    name: "Meza",
+    short_name: "Meza",
     description:
       "Financial data, ratios, sector rankings and valuations for Egyptian Exchange companies.",
     start_url: "/",

@@ -1,6 +1,6 @@
 #!/bin/bash
 # FINAL STREAMING verification: real LLM analysis on production
-BASE="https://egx-scanner-ashy.vercel.app"
+BASE="https://meza-ashy.vercel.app"
 TS=$(date +%s)
 EMAIL="diag6${TS}@egx-diag.local"
 PASS="Diag${TS}pass!"

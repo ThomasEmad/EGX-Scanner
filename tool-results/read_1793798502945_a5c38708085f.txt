@@ -1,0 +1,605 @@
+     1→// Recompute service (server-only): recalculates derived metrics + detects events
+     2→// for a company from validated source values. Calculated values are always stored
+     3→// separately from raw values, with formula version + source periods for auditability.
+     4→//
+     5→// STATEMENT-TYPE SEPARATION (critical):
+     6→//   Consolidated and standalone filings of the same period are NEVER mixed in one
+     7→//   calculation bucket. Every bucket key is `${statementType}|${periodKey}` and every
+     8→//   CalculatedMetric row carries its statementType (unique is
+     9→//   [companyId, code, periodKey, statementType]). UNKNOWN statementType on a report is
+    10→//   treated as CONSOLIDATED (documented default — most EGX filings are consolidated).
+    11→//   TTM windows are built per statement type from that type's own quarters.
+    12→//   Events are detected ONLY from the preferred statement type (CONSOLIDATED when any
+    13→//   consolidated filing buckets exist, else STANDALONE) — this avoids FinancialEvent
+    14→//   unique-key collisions across statement types and prevents mixing.
+    15→//
+    16→// TTM (trailing twelve months): synthetic periods built from four consecutive
+    17→// quarterly reports. Flow metrics (income / cash flow) are SUMS of the four
+    18→// quarters; balance-sheet metrics are the END-quarter values. A TTM period is
+    19→// only built when all four quarters exist — missing quarters are never treated
+    20→// as zero. Events are NOT detected on TTM periods (they stay on filing periods).
+    21→
+    22→import { db } from "@/lib/db"
+    23→import type { CalculatedMetric } from "@prisma/client"
+    24→import {
+    25→  bookValuePerShare, debtToEquity, dividendYield, eps, margin, marketCap,
+    26→  priceToBook, priceToEarnings, ratio, roa, roe, type MetricResult,
+    27→} from "./calc"
+    28→import { detectEvents, EVENTS_RULE_VERSION, type PeriodData } from "./events"
+    29→import { reportPeriodKey, parsePeriodKey, periodKeyLabel, periodKey, quarterSequenceIndex } from "./periods"
+    30→import { getLatestPrice, sumDps12m } from "./market"
+    31→import { nonAuthoritativeReason } from "./integrity-policy"
+    32→
+    33→export interface RecomputeResult {
+    34→  companyId: string
+    35→  periods: string[]
+    36→  calculatedMetrics: number
+    37→  events: string[]
+    38→  statementTypes: string[]
+    39→  preferredStatementType: "CONSOLIDATED" | "STANDALONE" | "NONE"
+    40→}
+    41→
+    42→/** Which report processing statuses contain trustworthy (approved/validated) values */
+    43→const TRUSTED_STATUSES = ["VALIDATED", "APPROVED", "EXTRACTED"]
+    44→
+    45→/** Raw metrics that are flows for TTM purposes — summed across the four quarters */
+    46→const TTM_FLOW_CODES = new Set([
+    47→  "REVENUE", "COGS", "GROSS_PROFIT", "OPERATING_INCOME", "NET_INTEREST_INCOME",
+    48→  "NET_PROFIT", "EPS", "OPERATING_CASH_FLOW", "INVESTING_CASH_FLOW", "FINANCING_CASH_FLOW",
+    49→  "PROFIT_BEFORE_TAX", "INCOME_TAX", "FINANCE_COST", "NET_PROFIT_PARENT",
+    50→  "NET_CHANGE_IN_CASH", "DIVIDEND_PER_SHARE",
+    51→])
+    52→
+    53→/** Raw metrics that are point-in-time (balance sheet) — taken from the end quarter */
+    54→const TTM_POINT_CODES = new Set([
+    55→  "TOTAL_ASSETS", "TOTAL_LIABILITIES", "TOTAL_EQUITY", "TOTAL_DEBT", "DEPOSITS", "LOANS_NET",
+    56→  "SHORT_TERM_DEBT", "LONG_TERM_DEBT", "INVENTORY", "EBITDA", "NON_CURRENT_ASSETS",
+    57→  "RETAINED_EARNINGS", "INVESTING_CASH_FLOW", "FINANCING_CASH_FLOW",
+    58→  "CASH_AND_EQUIVALENTS", "CURRENT_ASSETS", "NON_CURRENT_ASSETS", "CURRENT_LIABILITIES",
+    59→  "NON_CURRENT_LIABILITIES", "ACCOUNTS_RECEIVABLE", "INVENTORY", "INVESTMENTS",
+    60→  "SHORT_TERM_DEBT", "LONG_TERM_DEBT", "RETAINED_EARNINGS", "EQUITY_PARENT",
+    61→  "NON_CONTROLLING_INTERESTS", "TOTAL_EQUITY_AND_LIABILITIES", "SHARES_OUTSTANDING",
+    62→  "BOOK_VALUE_PER_SHARE",
+    63→])
+    64→
+    65→/**
+    66→ * Headline net income for a bucket: NET_PROFIT (total, including minority
+    67→ * interests) when present, otherwise NET_PROFIT_PARENT (attributable).
+    68→ * Some issuers only carry trustworthy attributable figures (e.g. CCAP, whose
+    69→ * Yahoo-sourced total-NI rows were quarantined as garbage while
+    70→ * NET_PROFIT_PARENT matches AskBorsa ground truth exactly) — the fallback
+    71→ * keeps roe / eps / p_e / margins computable instead of degrading to
+    72→ * DATA_UNAVAILABLE. Never mixes the two within one period.
+    73→ */
+    74→const niOf = (vals: Record<string, number | undefined>): number | undefined =>
+    75→  vals["NET_PROFIT"] ?? vals["NET_PROFIT_PARENT"]
+    76→
+    77→/**
+    78→ * Net income attributable to the parent, for shareholder-return ratios.
+    79→ *
+    80→ * ROE/ROA answer "what did shareholders earn on their equity/assets?". Using
+    81→ * total net income that includes minority interests overstates that return:
+    82→ * MCQE FY2025 has 2.558bn total but 2.033bn attributable (1.004bn NCI), so total
+    83→ * NI gives 55.9% ROE instead of 44.4%; UNIT FY2024 is 130m total vs 91.3m
+    84→ * attributable (16.4% vs 11.5%). Prefer the attributable line, fall back to
+    85→ * total only when no attributable figure exists.
+    86→ */
+    87→const niParentOf = (vals: Record<string, number | undefined>): number | undefined =>
+    88→  vals["NET_PROFIT_PARENT"] ?? vals["NET_PROFIT"]
+    89→
+    90→/**
+    91→ * Normalize a report statementType to a calculation-bucket statement type.
+    92→ * UNKNOWN (and anything unexpected) resolves to CONSOLIDATED — the dominant filing
+    93→ * form on the EGX — so that unknown-typed reports still participate in calculations
+    94→ * instead of being silently dropped. Documented default, never mixed with STANDALONE.
+    95→ */
+    96→function bucketStatementType(statementType: string): "CONSOLIDATED" | "STANDALONE" {
+    97→  return statementType === "STANDALONE" ? "STANDALONE" : "CONSOLIDATED"
+    98→}
+    99→
+   100→/** Sub-period token carried by the report itself (Q1..Q4 / H1 / 9M). */
+   101→function subOf(r: { periodType: string; periodLabel: string }): string | null {
+   102→  const l = r.periodLabel.toUpperCase()
+   103→  if (r.periodType === "QUARTERLY") { const m = l.match(/Q([1-4])/); return m ? `Q${m[1]}` : null }
+   104→  if (r.periodType === "SEMIANNUAL") { const m = l.match(/H([1-2])/); return m ? `H${m[1]}` : null }
+   105→  if (r.periodType === "NINE_MONTH") return "9M"
+   106→  return null
+   107→}
+   108→
+   109→interface SourceValue {
+   110→  metricCode: string
+   111→  normalizedValue: number
+   112→  subPeriod: string | null
+   113→  validationStatus: string
+   114→  validationNotes: string | null
+   115→  originalLabel: string | null
+   116→}
+   117→
+   118→/**
+   119→ * The values that truly belong to THIS report's own period.
+   120→ *
+   121→ * A harvested report often stores two columns per metric: CURRENT (the period
+   122→ * being reported) and PREVIOUS/Q1…Q4 (the comparative column). The old
+   123→ * recompute loop simply overwrote by iteration order, so a comparative column
+   124→ * could win and poison TTM sums / ROE. Rule (same as the audit engine):
+   125→ * CURRENT wins; otherwise the sub-period matching the report type; a single
+   126→ * unambiguous value is accepted; anything else is ambiguous and skipped.
+   127→ *
+   128→ * Quarantined values (NEEDS_REVIEW / FAILED), carried-forward copies and zero
+   129→ * placeholders are excluded here too — calculations must never certify data
+   130→ * users cannot see.
+   131→ */
+   132→function ownValues(r: { periodType: string; periodLabel: string; values: SourceValue[] }): SourceValue[] {
+   133→  const byMetric = new Map<string, SourceValue[]>()
+   134→  for (const v of r.values) {
+   135→    if (!byMetric.has(v.metricCode)) byMetric.set(v.metricCode, [])
+   136→    byMetric.get(v.metricCode)!.push(v)
+   137→  }
+   138→  const expected = subOf(r)
+   139→  const out: SourceValue[] = []
+   140→  for (const list of byMetric.values()) {
+   141→    const current = list.find(v => v.subPeriod === "CURRENT")
+   142→    let chosen: SourceValue | undefined
+   143→    if (current) chosen = current
+   144→    else {
+   145→      const matching = expected ? list.find(v => v.subPeriod === expected) : undefined
+   146→      if (matching) chosen = matching
+   147→      else if (list.length === 1) chosen = list[0]
+   148→    }
+   149→    if (!chosen) continue
+   150→    if (chosen.validationStatus !== "VALID" && chosen.validationStatus !== "PENDING") continue
+   151→    if (nonAuthoritativeReason(chosen) !== null) continue
+   152→    out.push(chosen)
+   153→  }
+   154→  return out
+   155→}
+   156→
+   157→interface PeriodBucket {
+   158→  /** "CONSOLIDATED" | "STANDALONE" — part of the bucket identity, never mixed */
+   159→  statementType: "CONSOLIDATED" | "STANDALONE"
+   160→  periodKey: string
+   161→  periodType: string
+   162→  fiscalYear: number
+   163→  periodLabel: string
+   164→  values: Record<string, number>
+   165→  periodStart?: Date
+   166→  periodEnd?: Date
+   167→  sourcePeriodKeys: string[]
+   168→  /** highest report version that contributed values (restatements overwrite older data) */
+   169→  version: number
+   170→}
+   171→
+   172→/**
+   173→ * Detect fiscal years whose quarterly flow values are NOT discrete quarters.
+   174→ *
+   175→ * Some import paths store the annual figure in every quarter (RAYA FY2025 has
+   176→ * 2.588bn in Q1, Q2, Q3 and Q4) or store cumulative year-to-date figures. Summing
+   177→ * those four rows creates a fake TTM (RAYA: 8.2bn vs a 2.9bn annual profit) and a
+   178→ * fake 90% ROE. A quarter set is only trusted when its sum is within 25% of the
+   179→ * audited annual figure for the same fiscal year. When it is not, the year/code
+   180→ * is excluded from every TTM window rather than silently over-counted.
+   181→ */
+   182→function ttmInconsistentKeys(quarterly: PeriodBucket[], annual: PeriodBucket[]): Set<string> {
+   183→  const out = new Set<string>()
+   184→  for (const a of annual) {
+   185→    const qs = quarterly.filter(
+   186→      (q) => q.statementType === a.statementType && q.fiscalYear === a.fiscalYear && q.periodType === "QUARTERLY",
+   187→    )
+   188→    if (qs.length < 2) continue
+   189→    const codes = new Set<string>()
+   190→    for (const q of qs) for (const code of Object.keys(q.values)) if (TTM_FLOW_CODES.has(code)) codes.add(code)
+   191→    for (const code of codes) {
+   192→      if (a.values[code] === undefined) continue
+   193→      if (!qs.every((q) => q.values[code] !== undefined)) continue
+   194→      // A quarter that is byte-for-byte the annual figure is an annual copy,
+   195→      // not a discrete quarter. Two such rows are enough to distrust the year
+   196→      // even when only three quarters were imported (MCQE, MPRC, ATLC, ASPI,
+   197→      // DSCW). This check runs before the four-quarter sum check.
+   198→      const sameAsAnnual = qs.filter((q) => {
+   199→        const v = q.values[code] as number
+   200→        return Math.abs(v - a.values[code]) / Math.max(Math.abs(a.values[code]), 1) < 0.005
+   201→      }).length
+   202→      if (sameAsAnnual >= 2) {
+   203→        out.add(`${a.statementType}|${a.fiscalYear}|${code}`)
+   204→        continue
+   205→      }
+   206→      if (qs.length < 4) continue // cannot validate an incomplete year by sum
+   207→      const sum = qs.reduce((acc, q) => acc + q.values[code], 0)
+   208→      const denom = Math.abs(a.values[code])
+   209→      if (denom > 0 && Math.abs(sum - a.values[code]) / denom > 0.25) {
+   210→        out.add(`${a.statementType}|${a.fiscalYear}|${code}`)
+   211→      }
+   212→    }
+   213→  }
+   214→
+   215→  // Even without an annual row, a fiscal year whose three or more quarterly
+   216→  // flow values are identical is an annual figure repeated across quarters
+   217→  // (HELI FY2025: 478,056,306 in Q1–Q4). Exclude those years from TTM.
+   218→  const groups = new Map<string, { code: string; rows: PeriodBucket[] }>()
+   219→  for (const q of quarterly) {
+   220→    if (q.periodType !== "QUARTERLY") continue
+   221→    for (const code of Object.keys(q.values)) {
+   222→      if (!TTM_FLOW_CODES.has(code)) continue
+   223→      const key = `${q.statementType}|${q.fiscalYear}|${code}`
+   224→      if (!groups.has(key)) groups.set(key, { code, rows: [] })
+   225→      groups.get(key)!.rows.push(q)
+   226→    }
+   227→  }
+   228→  for (const [key, g] of groups) {
+   229→    if (g.rows.length < 3) continue
+   230→    const vals = g.rows.map((q) => q.values[g.code])
+   231→    if (vals.every((v) => v !== undefined && Math.abs((v as number) - (vals[0] as number)) / Math.max(Math.abs(vals[0] as number), 1) < 0.005)) {
+   232→      out.add(key)
+   233→    }
+   234→  }
+   235→  return out
+   236→}
+   237→
+   238→/** Build TTM buckets from consecutive quarterly buckets (sum flows, point balance sheet). */
+   239→function buildTtmBuckets(quarterly: PeriodBucket[], inconsistent: Set<string>): PeriodBucket[] {
+   240→  const sorted = [...quarterly].sort((a, b) => {
+   241→    const ia = quarterSequenceIndex(parsePeriodKey(a.periodKey).fiscalYear, parsePeriodKey(a.periodKey).sub)
+   242→    const ib = quarterSequenceIndex(parsePeriodKey(b.periodKey).fiscalYear, parsePeriodKey(b.periodKey).sub)
+   243→    return (ia ?? 0) - (ib ?? 0)
+   244→  })
+   245→
+   246→  const out: PeriodBucket[] = []
+   247→  for (let i = 3; i < sorted.length; i++) {
+   248→    const window = sorted.slice(i - 3, i + 1)
+   249→    const idxs = window.map((b) => {
+   250→      const p = parsePeriodKey(b.periodKey)
+   251→      return quarterSequenceIndex(p.fiscalYear, p.sub)
+   252→    })
+   253→    // require strictly consecutive quarters — a gap means no TTM window
+   254→    if (idxs.some((v) => v === null)) continue
+   255→    let consecutive = true
+   256→    for (let k = 1; k < idxs.length; k++) {
+   257→      if ((idxs[k] as number) - (idxs[k - 1] as number) !== 1) consecutive = false
+   258→    }
+   259→    if (!consecutive) continue
+   260→
+   261→    const end = window[3]
+   262→    const values: Record<string, number> = {}
+   263→    const codes = new Set<string>()
+   264→    for (const b of window) for (const code of Object.keys(b.values)) codes.add(code)
+   265→    for (const code of codes) {
+   266→      if (TTM_FLOW_CODES.has(code)) {
+   267→        // Skip a flow code when any fiscal year in the window failed the
+   268→        // discrete-quarter consistency check (annual-copy / cumulative rows).
+   269→        if (window.some((b) => inconsistent.has(`${b.statementType}|${b.fiscalYear}|${code}`))) continue
+   270→        // sum only when the metric exists in ALL four quarters (never zero-fill);
+   271→        // NET_PROFIT falls back to NET_PROFIT_PARENT for the whole window when the
+   272→        // total-NI line is missing in any quarter (never mixes the two definitions)
+   273→        if (code === "NET_PROFIT") {
+   274→          if (window.every((b) => b.values[code] !== undefined)) {
+   275→            values[code] = window.reduce((acc, b) => acc + b.values[code], 0)
+   276→          } else if (window.every((b) => b.values["NET_PROFIT_PARENT"] !== undefined)) {
+   277→            values[code] = window.reduce((acc, b) => acc + (b.values["NET_PROFIT_PARENT"] as number), 0)
+   278→          }
+   279→        } else if (window.every((b) => b.values[code] !== undefined)) {
+   280→          values[code] = window.reduce((acc, b) => acc + b.values[code], 0)
+   281→        }
+   282→      } else if (TTM_POINT_CODES.has(code)) {
+   283→        const v = end.values[code]
+   284→        if (v !== undefined) values[code] = v
+   285→      }
+   286→      // other codes are ignored for TTM windows
+   287→    }
+   288→
+   289→    out.push({
+   290→      statementType: end.statementType,
+   291→      periodKey: periodKey("TTM", end.fiscalYear, parsePeriodKey(end.periodKey).sub),
+   292→      periodType: "TTM",
+   293→      fiscalYear: end.fiscalYear,
+   294→      periodLabel: `TTM ending ${parsePeriodKey(end.periodKey).sub} ${end.fiscalYear}`,
+   295→      values,
+   296→      periodStart: window[0].periodStart,
+   297→      periodEnd: end.periodEnd,
+   298→      sourcePeriodKeys: window.map((b) => b.periodKey),
+   299→      version: Math.max(...window.map((b) => b.version)),
+   300→    })
+   301→  }
+   302→  return out
+   303→}
+   304→
+   305→export async function recomputeCompany(companyId: string): Promise<RecomputeResult> {
+   306→  const company = await db.company.findUnique({ where: { id: companyId } })
+   307→  if (!company) throw new Error(`Company ${companyId} not found`)
+   308→
+   309→  const reports = await db.financialReport.findMany({
+   310→    where: { companyId, processingStatus: { in: TRUSTED_STATUSES } },
+   311→    include: { values: true },
+   312→    // version ascending so a newer restatement overwrites the same bucket
+   313→    orderBy: [{ fiscalYear: "asc" }, { periodLabel: "asc" }, { version: "asc" }],
+   314→  })
+   315→
+   316→  // Build period map: `${statementType}|${periodKey}` -> bucket (statement types never mix)
+   317→  const buckets = new Map<string, PeriodBucket>()
+   318→  for (const report of reports) {
+   319→    const statementType = bucketStatementType(report.statementType)
+   320→    const key = reportPeriodKey(report)
+   321→    const bucketKey = `${statementType}|${key}`
+   322→    let bucket = buckets.get(bucketKey)
+   323→    if (!bucket) {
+   324→      buckets.set(bucketKey, {
+   325→        statementType,
+   326→        periodKey: key,
+   327→        periodType: report.periodType,
+   328→        fiscalYear: report.fiscalYear,
+   329→        periodLabel: report.periodLabel,
+   330→        values: {},
+   331→        periodStart: report.periodStart ?? undefined,
+   332→        periodEnd: report.periodEnd,
+   333→        sourcePeriodKeys: [key],
+   334→        version: report.version,
+   335→      })
+   336→      bucket = buckets.get(bucketKey)!
+   337→    } else if (report.version > bucket.version) {
+   338→      // a higher-version restatement of the same (statementType, period) replaces values
+   339→      bucket.periodType = report.periodType
+   340→      bucket.fiscalYear = report.fiscalYear
+   341→      bucket.periodLabel = report.periodLabel
+   342→      bucket.periodStart = report.periodStart ?? undefined
+   343→      bucket.periodEnd = report.periodEnd
+   344→      bucket.values = {}
+   345→      bucket.version = report.version
+   346→    }
+   347→    for (const v of ownValues(report)) {
+   348→      bucket.values[v.metricCode] = v.normalizedValue
+   349→    }
+   350→  }
+   351→
+   352→  const ordered = [...buckets.values()].sort((a, b) =>
+   353→    (a.statementType + "|" + a.periodKey).localeCompare(b.statementType + "|" + b.periodKey)
+   354→  )
+   355→
+   356→  // Synthetic TTM windows from consecutive quarters — built PER statement type
+   357→  const ttmBuckets: PeriodBucket[] = []
+   358→  const byStatement = new Map<string, PeriodBucket[]>()
+   359→  for (const b of ordered) {
+   360→    const list = byStatement.get(b.statementType) ?? []
+   361→    list.push(b)
+   362→    byStatement.set(b.statementType, list)
+   363→  }
+   364→  const annualBuckets = ordered.filter((b) => b.periodType === "ANNUAL")
+   365→  for (const [, quarterlyBuckets] of byStatement) {
+   366→    const quarters = quarterlyBuckets.filter((b) => b.periodType === "QUARTERLY")
+   367→    ttmBuckets.push(...buildTtmBuckets(quarters, ttmInconsistentKeys(quarters, annualBuckets)))
+   368→  }
+   369→  const allBuckets = [...ordered, ...ttmBuckets]
+   370→
+   371→  // Market data (observed price points — never fabricated)
+   372→  const latestPrice = await getLatestPrice(companyId)
+   373→  const priceValue = latestPrice?.price
+   374→  const companyShares = company.sharesOutstanding ?? undefined
+   375→  const dpsInfo = latestPrice ? await sumDps12m(companyId, latestPrice.asOf) : { hasRecords: false }
+   376→
+   377→  // Compute calculated metrics for every period (incl. TTM) that has a comparable previous
+   378→  const calcRows: {
+   379→    companyId: string; code: string; periodKey: string; periodType: string; fiscalYear: number
+   380→    periodLabel: string; value: number | null; valueStatus: string; statusDetail: string | null
+   381→    formulaVersion: string; sourcePeriods: string; statementType: string
+   382→  }[] = []
+   383→
+   384→  const eventPeriods: PeriodData[] = []
+   385→
+   386→  // Events come ONLY from the preferred statement type: CONSOLIDATED when any consolidated
+   387→  // filing bucket exists, else STANDALONE (else nothing). Prevents FinancialEvent unique-key
+   388→  // collisions across statement types and never mixes consolidated + standalone figures.
+   389→  const hasConsolidatedFilings = ordered.some((b) => b.statementType === "CONSOLIDATED")
+   390→  const preferredStatementType: "CONSOLIDATED" | "STANDALONE" | "NONE" = hasConsolidatedFilings
+   391→    ? "CONSOLIDATED"
+   392→    : ordered.some((b) => b.statementType === "STANDALONE")
+   393→      ? "STANDALONE"
+   394→      : "NONE"
+   395→
+   396→  for (const bucket of allBuckets) {
+   397→    const isTtm = bucket.periodType === "TTM"
+   398→    const cur = bucket.values
+   399→    const metrics: Record<string, MetricResult> = {}
+   400→
+   401→    // Per-period share count (a COUNT, never unit-scaled) preferred over the
+   402→    // company-level sharesOutstanding when the filing reports its own figure
+   403→    const periodShares = cur["SHARES_OUTSTANDING"] ?? companyShares
+   404→
+   405→    const push = (code: string, result: MetricResult, sources: string[], formulaVersion: string) => {
+   406→      metrics[code] = result
+   407→      calcRows.push({
+   408→        companyId,
+   409→        code,
+   410→        periodKey: bucket.periodKey,
+   411→        periodType: bucket.periodType,
+   412→        fiscalYear: bucket.fiscalYear,
+   413→        periodLabel: bucket.periodLabel,
+   414→        value: result.status === "OK" ? result.value ?? null : null,
+   415→        valueStatus: result.status,
+   416→        statusDetail: result.detail ?? null,
+   417→        formulaVersion,
+   418→        sourcePeriods: JSON.stringify(sources),
+   419→        statementType: bucket.statementType,
+   420→      })
+   421→    }
+   422→
+   423→    // Margins
+   424→    push("gross_margin", margin(cur["GROSS_PROFIT"], cur["REVENUE"]), [bucket.periodKey], "gross_margin@1")
+   425→    push("operating_margin", margin(cur["OPERATING_INCOME"], cur["REVENUE"]), [bucket.periodKey], "operating_margin@1")
+   426→    push("net_margin", margin(niOf(cur), cur["REVENUE"]), [bucket.periodKey], "net_margin@1")
+   427→
+   428→    // Ratios
+   429→    // ROE/ROA use net income attributable to the parent (see niParentOf).
+   430→    push("roe", roe(niParentOf(cur), cur["TOTAL_EQUITY"]), [bucket.periodKey], "roe@1")
+   431→    push("roa", roa(niParentOf(cur), cur["TOTAL_ASSETS"]), [bucket.periodKey], "roa@1")
+   432→    push("debt_to_equity", debtToEquity(cur["TOTAL_DEBT"], cur["TOTAL_EQUITY"]), [bucket.periodKey], "debt_to_equity@1")
+   433→    // liabilities-to-equity — fills the leverage gap: total liabilities coverage
+   434→    // is near-universal across sources, unlike the debt-only split
+   435→    push("liabilities_to_equity", debtToEquity(cur["TOTAL_LIABILITIES"], cur["TOTAL_EQUITY"]), [bucket.periodKey], "liabilities_to_equity@1")
+   436→    push("eps", eps(niOf(cur), periodShares), [bucket.periodKey], "eps@1")
+   437→    push("book_value_per_share", bookValuePerShare(cur["TOTAL_EQUITY"], periodShares), [bucket.periodKey], "book_value_per_share@1")
+   438→
+   439→    // Passthroughs (so scanners can threshold absolute values)
+   440→    const passthrough = (code: string, rawCode: string, fv: string) => {
+   441→      const v = cur[rawCode]
+   442→      push(code, v !== undefined ? { status: "OK", value: v } : { status: "DATA_UNAVAILABLE", detail: `${rawCode} not available for this period` }, [bucket.periodKey], fv)
+   443→    }
+   444→    passthrough("revenue", "REVENUE", "revenue@1")
+   445→    {
+   446→      // net_profit passthrough with NET_PROFIT_PARENT fallback (see niOf)
+   447→      const ni = niOf(cur)
+   448→      push("net_profit", ni !== undefined
+   449→        ? { status: "OK", value: ni }
+   450→        : { status: "DATA_UNAVAILABLE", detail: "NET_PROFIT not available for this period" },
+   451→        [bucket.periodKey], "net_profit@1")
+   452→    }
+   453→    passthrough("operating_cash_flow", "OPERATING_CASH_FLOW", "operating_cash_flow@1")
+   454→    passthrough("total_assets", "TOTAL_ASSETS", "total_assets@1")
+   455→    passthrough("total_equity", "TOTAL_EQUITY", "total_equity@1")
+   456→    passthrough("total_debt", "TOTAL_DEBT", "total_debt@1")
+   457→    passthrough("short_term_debt", "SHORT_TERM_DEBT", "short_term_debt@1")
+   458→    passthrough("long_term_debt", "LONG_TERM_DEBT", "long_term_debt@1")
+   459→    passthrough("inventory", "INVENTORY", "inventory@1")
+   460→    passthrough("ebitda", "EBITDA", "ebitda@1")
+   461→    passthrough("non_current_assets", "NON_CURRENT_ASSETS", "non_current_assets@1")
+   462→    passthrough("retained_earnings", "RETAINED_EARNINGS", "retained_earnings@1")
+   463→    passthrough("investing_cash_flow", "INVESTING_CASH_FLOW", "investing_cash_flow@1")
+   464→    passthrough("financing_cash_flow", "FINANCING_CASH_FLOW", "financing_cash_flow@1")
+   465→
+   466→    // Market metrics — computed from the latest observed price point (p_b@2 …).
+   467→    // No price => DATA_UNAVAILABLE; negative earnings/book => NOT_APPLICABLE with reason.
+   468→    push("p_b", priceToBook(priceValue, periodShares, cur["TOTAL_EQUITY"]), [bucket.periodKey], "p_b@2")
+   469→    push("p_e", priceToEarnings(priceValue, periodShares, niOf(cur)), [bucket.periodKey], "p_e@2")
+   470→    push("market_cap", marketCap(priceValue, periodShares), [bucket.periodKey], "market_cap@2")
+   471→    push("dividend_yield", dividendYield(priceValue, dpsInfo.dps12m, dpsInfo.hasRecords), [bucket.periodKey], "dividend_yield@2")
+   472→
+   473→    // Events are detected on filing periods only (not synthetic TTM windows) and only
+   474→    // for the preferred statement type
+   475→    if (!isTtm && bucket.statementType === preferredStatementType) {
+   476→      eventPeriods.push({
+   477→        periodKey: bucket.periodKey,
+   478→        periodType: bucket.periodType,
+   479→        fiscalYear: bucket.fiscalYear,
+   480→        periodLabel: bucket.periodLabel,
+   481→        values: bucket.values,
+   482→        metrics,
+   483→        sharesOutstanding: periodShares,
+   484→      })
+   485→    }
+   486→  }
+   487→
+   488→  // Detect events
+   489→  const detected = preferredStatementType === "NONE" ? [] : detectEvents(eventPeriods)
+   490→
+   491→  // Persist atomically-ish (delete + recreate for this company, both statement types)
+   492→  await db.$transaction(async (tx) => {
+   493→    await tx.calculatedMetric.deleteMany({ where: { companyId } })
+   494→    await tx.financialEvent.deleteMany({ where: { companyId } })
+   495→    if (calcRows.length) {
+   496→      await tx.calculatedMetric.createMany({ data: calcRows })
+   497→    }
+   498→    if (detected.length) {
+   499→      await tx.financialEvent.createMany({
+   500→        data: detected.map((e) => ({
+   501→          companyId,
+   502→          eventType: e.eventType,
+   503→          periodType: e.periodType,
+   504→          fiscalYear: e.fiscalYear,
+   505→          periodLabel: e.periodLabel,
+   506→          currentPeriodKey: e.periodKey,
+   507→          previousPeriodKey: e.previousPeriodKey,
+   508→          conditions: JSON.stringify(e.conditions),
+   509→          explanationEn: e.explanationEn,
+   510→          explanationAr: e.explanationAr,
+   511→          ruleVersion: EVENTS_RULE_VERSION,
+   512→        })),
+   513→      })
+   514→    }
+   515→  })
+   516→
+   517→  const statementTypesUsed = [...new Set(allBuckets.map((b) => b.statementType))].sort()
+   518→
+   519→  await db.auditLog.create({
+   520→    data: {
+   521→      actor: "system",
+   522→      action: "CALCULATE",
+   523→      entityType: "Company",
+   524→      entityId: companyId,
+   525→      details: `Recomputed ${calcRows.length} calculated metrics across ${allBuckets.length} period buckets (statement types: ${statementTypesUsed.join(", ") || "none"}; ${ttmBuckets.length} TTM; preferred for events: ${preferredStatementType}); detected ${detected.length} events (${detected.map((e) => e.eventType).join(", ") || "none"})`,
+   526→    },
+   527→  })
+   528→
+   529→  return {
+   530→    companyId,
+   531→    periods: [...new Set(allBuckets.map((b) => b.periodKey))],
+   532→    calculatedMetrics: calcRows.length,
+   533→    events: detected.map((e) => `${e.eventType}@${e.periodKey}`),
+   534→    statementTypes: statementTypesUsed,
+   535→    preferredStatementType,
+   536→  }
+   537→}
+   538→
+   539→/** Recompute every active company (used by seed + admin actions) */
+   540→export async function recomputeAll(): Promise<RecomputeResult[]> {
+   541→  const companies = await db.company.findMany({ where: { isActive: true }, select: { id: true } })
+   542→  const results: RecomputeResult[] = []
+   543→  for (const c of companies) {
+   544→    results.push(await recomputeCompany(c.id))
+   545→  }
+   546→  return results
+   547→}
+   548→
+   549→/**
+   550→ * Latest period keys (annual + quarterly + TTM) for a company from stored calculated metrics.
+   551→ * Statement-type aware: when duplicates exist for the same period across CONSOLIDATED and
+   552→ * STANDALONE rows, the CONSOLIDATED rows win (unless an explicit statementType is requested).
+   553→ */
+   554→export async function latestPeriodKeys(
+   555→  companyId: string,
+   556→  opts?: { statementType?: "CONSOLIDATED" | "STANDALONE" }
+   557→): Promise<{ annual?: string; quarterly?: string; ttm?: string }> {
+   558→  const metrics = await db.calculatedMetric.findMany({
+   559→    where: { companyId, code: "revenue" },
+   560→    select: { periodKey: true, periodType: true, fiscalYear: true, statementType: true },
+   561→  })
+   562→  let rows = metrics
+   563→  if (opts?.statementType) {
+   564→    rows = metrics.filter((m) => m.statementType === opts.statementType)
+   565→  } else {
+   566→    // auto-preference: CONSOLIDATED when present, else STANDALONE
+   567→    const hasConsolidated = metrics.some((m) => m.statementType === "CONSOLIDATED")
+   568→    rows = metrics.filter((m) => (hasConsolidated ? m.statementType === "CONSOLIDATED" : m.statementType === "STANDALONE"))
+   569→  }
+   570→  let annual: string | undefined
+   571→  let quarterly: string | undefined
+   572→  let ttm: string | undefined
+   573→  for (const m of rows) {
+   574→    if (m.periodType === "ANNUAL" && (!annual || m.fiscalYear > parsePeriodKey(annual).fiscalYear)) annual = m.periodKey
+   575→    if (m.periodType === "QUARTERLY" && (!quarterly || m.fiscalYear > parsePeriodKey(quarterly).fiscalYear)) quarterly = m.periodKey
+   576→    if (m.periodType === "TTM" && (!ttm || m.fiscalYear > parsePeriodKey(ttm).fiscalYear)) ttm = m.periodKey
+   577→  }
+   578→  return { annual, quarterly, ttm }
+   579→}
+   580→
+   581→/**
+   582→ * Read-path helper: return a company's calculated metrics for ONE statement type.
+   583→ * Reads rows for BOTH statement types and returns the preferred set — CONSOLIDATED
+   584→ * when the company has any CONSOLIDATED rows, else STANDALONE. An explicit
+   585→ * opts.statementType filters strictly to that type (rows carry statementType so
+   586→ * consumers can always verify what they got). Used by read-path APIs and the scanner.
+   587→ */
+   588→export async function getCompanyCalcMetrics(
+   589→  companyId: string,
+   590→  opts?: { statementType?: "CONSOLIDATED" | "STANDALONE" }
+   591→): Promise<CalculatedMetric[]> {
+   592→  const rows = await db.calculatedMetric.findMany({
+   593→    where: { companyId },
+   594→    orderBy: [{ periodType: "asc" }, { fiscalYear: "asc" }, { periodKey: "asc" }, { code: "asc" }],
+   595→  })
+   596→  if (opts?.statementType) {
+   597→    return rows.filter((r) => r.statementType === opts.statementType)
+   598→  }
+   599→  const hasConsolidated = rows.some((r) => r.statementType === "CONSOLIDATED")
+   600→  const preferred = hasConsolidated ? "CONSOLIDATED" : "STANDALONE"
+   601→  return rows.filter((r) => r.statementType === preferred)
+   602→}
+   603→
+   604→export { periodKeyLabel, bucketStatementType }
+   605→

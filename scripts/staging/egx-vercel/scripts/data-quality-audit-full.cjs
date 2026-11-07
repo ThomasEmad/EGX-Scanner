@@ -1,5 +1,5 @@
 /* DATA-QUALITY-AUDIT-FULL — implements the 8-category audit from
-   DATA-AUDIT-PROMPT.md over the live EGX Scanner DB, stores AuditRun +
+   DATA-AUDIT-PROMPT.md over the live Meza DB, stores AuditRun +
    AuditIssue + CompanyConfidenceScore (Z's models).
    Usage: node scripts/data-quality-audit-full.cjs [--runId=...]  */
 const { PrismaClient } = require("@prisma/client")

@@ -1,9 +1,9 @@
-# EGX Financial Scanner — Worklog / Handover Document
+# Meza — Worklog / Handover Document
 
 ---
 Task ID: 1
 Agent: Z.ai Code (main orchestrator)
-Task: Initial build of the EGX Financial Scanner from the uploaded master engineering specification (EGX Scanner.docx), adapted to the sandbox stack (Next.js 16 + TypeScript + Prisma/SQLite + shadcn/ui instead of Django/MySQL/Flutter — same layered architecture, API-first so any mobile/web client can consume /api/v1).
+Task: Initial build of the Meza from the uploaded master engineering specification (Meza.docx), adapted to the sandbox stack (Next.js 16 + TypeScript + Prisma/SQLite + shadcn/ui instead of Django/MySQL/Flutter — same layered architecture, API-first so any mobile/web client can consume /api/v1).
 
 Work Log:
 - Analyzed the uploaded spec (60 sections): discovery/pattern-detection product, data-integrity rules, period model, normalization, validation, calculation engine, event engine, scanner engine, review workflow, acceptance tests, phased plan.
@@ -49,7 +49,7 @@ Stage Summary:
 ---
 Task ID: 1
 Agent: Z.ai Code (main orchestrator)
-Task: Transform EGX Financial Scanner from demo-data app into real financial-data platform (per master spec). Phase 1: database foundation, registry expansion, demo-data removal, real EGX company registry.
+Task: Transform Meza from demo-data app into real financial-data platform (per master spec). Phase 1: database foundation, registry expansion, demo-data removal, real EGX company registry.
 
 Work Log:
 - Schema (prisma/schema.prisma) updated + db:push applied: FinancialReport gains statementType (CONSOLIDATED|STANDALONE|UNKNOWN), language, fileName, parserVersion, extractionConfidence, errorMessage, uploadedBy/reviewedBy/reviewedBy/approvedBy + timestamps; unique identity now (companyId, periodType, periodLabel, statementType, version) so consolidated+standalone coexist per period. FinancialValue gains manual-correction trail (originalValue, isManuallyCorrected, correctedBy, correctedAt, correctionReason). CalculatedMetric gains statementType (unique includes it — never mix consolidated/standalone). New tables: FinancialValidationResult (per-check structured results), FinancialExtractionLog (pipeline stage logs), AiAnalysis (cached AI output + dataHash for invalidation).

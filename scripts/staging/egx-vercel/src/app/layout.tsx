@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   applicationName: siteConfig.name,
   title: {
-    default: "EGX Financial Scanner — Egyptian Exchange Financial Data & Rankings",
-    template: "%s · EGX Financial Scanner",
+    default: "Meza — Egyptian Exchange Financial Data & Rankings",
+    template: "%s · Meza",
   },
   description: siteConfig.description,
   keywords: [
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: "EGX Financial Scanner — audited Egyptian Exchange financial data",
+        alt: "Meza — audited Egyptian Exchange financial data",
       },
     ],
   },

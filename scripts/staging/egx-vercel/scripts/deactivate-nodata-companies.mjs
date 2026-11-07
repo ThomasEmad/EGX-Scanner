@@ -2,9 +2,9 @@
 //
 // Evidence gathered 2026-11-03:
 //   * ECCW, EFOOD, MESF, PSFL, RPCO, VODE are absent from the current EGX
-//     market directory, the TradingView EGX scanner and Mubasher company pages.
+//     market directory, the TradingView Meza and Mubasher company pages.
 //     Their only stored values are untrusted Yahoo Finance market data.
-//   * KORA is live on the TradingView EGX scanner (EGX:KORA, 1.75 EGP) but has
+//   * KORA is live on the TradingView Meza (EGX:KORA, 1.75 EGP) but has
 //     not published financial statements yet. It stays active with a public
 //     "statements not yet available" note instead of being hidden.
 //

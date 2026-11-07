@@ -70,7 +70,7 @@ const LIMIT = limitArg ? Number(limitArg.split("=")[1]) : null
 const CONCURRENCY = 5
 const STAGGER_MS = 120
 const TIMEOUT_MS = 25_000
-const USER_AGENT = "EGX-Scanner-data-sync/1.0 (+public disclosure aggregation)"
+const USER_AGENT = "Meza-data-sync/1.0 (+public disclosure aggregation)"
 const CURRENT_YEAR = new Date().getUTCFullYear()
 
 const ITEM_TO_METRIC = {

@@ -1,0 +1,1061 @@
+     1→// AskBorsa → DB full sync pipeline (one file).
+     2→//
+     3→//   node scripts/askborsa-sync.mjs                      # harvest + build plan (DRY RUN)
+     4→//   node scripts/askborsa-sync.mjs --from-snapshot      # plan from saved snapshot, no network
+     5→//   node scripts/askborsa-sync.mjs --apply              # write to DB (+ rollback file + audit log)
+     6→//   node scripts/askborsa-sync.mjs --apply --recompute  # write + rebuild derived metrics
+     7→//   node scripts/askborsa-sync.mjs --rollback           # undo the last --apply
+     8→//   node scripts/askborsa-sync.mjs --tickers=COMI,ETEL  # restrict to tickers (smoke test)
+     9→//   node scripts/askborsa-sync.mjs --limit=10           # first N tickers
+    10→//
+    11→// What it reads (public pages only — no auth/paywall bypass, robots.txt allows
+    12→// public page crawling):
+    13→//   1. /company/{TICKER}            → embedded 5-year pivot JSON (FY + Q1..Q4 × 10 items)
+    14→//                                     + metadata (currency, fiscal-year start) + period links
+    15→//   2. /company/{TICKER}/{fy|qN}-{y} → per-period statement pages. Newer periods
+    16→//                                     (e.g. q3-2026) often exist ONLY here; the page
+    17→//                                     payload carries precise values (title attrs) for
+    18→//                                     the period AND its prior-year comparative.
+    19→//
+    20→// Import policy (conservative, mirrors the platform's established rules):
+    21→//   • only-missing-slot: existing values are NEVER overwritten; conflicts (>5%)
+    22→//     are logged to reports/askborsa-sync-conflicts.json for review.
+    23→//   • FLOW metrics (profit/cash flows): askborsa bank pages are CUMULATIVE (9M),
+    24→//     non-bank pages are usually DISCRETE. Per (company, metric) the script votes
+    25→//     a pattern from years where the full series + FY exist:
+    26→//       discrete  : Q1+Q2+Q3+Q4 ≈ FY (5%/1m), no Q1..Q3 equals FY  → QUARTERLY reports
+    27→//       cumulative: magnitudes monotone, terminal ≈ FY             → Q1=Q report,
+    28→//                                                                     Q2=H1, Q3=9M
+    29→//     current-year quarters (no ask FY yet) import only when the historical
+    30→//     pattern is known, gated by monotonicity and a prior-year ratio check.
+    31→//   • STOCK metrics (assets/liabilities/equity): point-in-time; quarter must
+    32→//     differ from FY, scale-sane (0.1–10×) vs FY/app annual. Q4 stock ≡ FY stock.
+    33→//   • Annual years missing entirely are created when ≥3 values exist.
+    34→//   • EGP companies only (currency from AskBorsa metadata); future periods skipped.
+    35→import { PrismaClient } from "@prisma/client"
+    36→import { mkdirSync, writeFileSync, readFileSync, existsSync } from "node:fs"
+    37→import { statementKind } from "./lib/statement-kind.mjs"
+    38→
+    39→const db = new PrismaClient()
+    40→
+    41→const SNAPSHOT = "reports/askborsa-sync-snapshot.json"
+    42→const PLAN = "reports/askborsa-sync-plan.json"
+    43→const ROLLBACK = "reports/askborsa-sync-rollback.json"
+    44→const CONFLICTS = "reports/askborsa-sync-conflicts.json"
+    45→const MARK = "ASKBORA_SYNC:"
+    46→const PARSER = "askborsa-sync@1"
+    47→
+    48→const APPLY = process.argv.includes("--apply")
+    49→const FROM_SNAPSHOT = process.argv.includes("--from-snapshot")
+    50→const ROLLBACK_MODE = process.argv.includes("--rollback")
+    51→const RECOMPUTE = process.argv.includes("--recompute")
+    52→const tickersArg = process.argv.find((a) => a.startsWith("--tickers="))
+    53→const ONLY_TICKERS = tickersArg ? tickersArg.split("=")[1].split(",").map((t) => t.trim().toUpperCase()).filter(Boolean) : null
+    54→const limitArg = process.argv.find((a) => a.startsWith("--limit="))
+    55→const LIMIT = limitArg ? Number(limitArg.split("=")[1]) : null
+    56→
+    57→const CONCURRENCY = 5
+    58→const STAGGER_MS = 120
+    59→const TIMEOUT_MS = 25_000
+    60→const USER_AGENT = "EGX-Scanner-data-sync/1.0 (+public disclosure aggregation)"
+    61→const CURRENT_YEAR = new Date().getUTCFullYear()
+    62→
+    63→const ITEM_TO_METRIC = {
+    64→  net_profit: "NET_PROFIT",
+    65→  total_assets: "TOTAL_ASSETS",
+    66→  total_liabilities: "TOTAL_LIABILITIES",
+    67→  total_equity: "TOTAL_EQUITY",
+    68→  total_liabilities_and_equity: "TOTAL_EQUITY_AND_LIABILITIES",
+    69→  cf_operating: "OPERATING_CASH_FLOW",
+    70→  cf_investing: "INVESTING_CASH_FLOW",
+    71→  cf_financing: "FINANCING_CASH_FLOW",
+    72→  net_change_in_cash: "NET_CHANGE_IN_CASH",
+    73→  dividends_paid: "DIVIDENDS_PAID",
+    74→}
+    75→const AR_LABEL = {
+    76→  NET_PROFIT: "صافي الربح",
+    77→  TOTAL_ASSETS: "إجمالي الأصول",
+    78→  TOTAL_LIABILITIES: "إجمالي المطلوبات",
+    79→  TOTAL_EQUITY: "حقوق المساهمين",
+    80→  TOTAL_EQUITY_AND_LIABILITIES: "إجمالي المطلوبات وحقوق المساهمين",
+    81→  OPERATING_CASH_FLOW: "التدفق النقدي التشغيلي",
+    82→  INVESTING_CASH_FLOW: "التدفق النقدي الاستثماري",
+    83→  FINANCING_CASH_FLOW: "التدفق النقدي التمويلي",
+    84→  NET_CHANGE_IN_CASH: "صافي التغير في النقد",
+    85→  DIVIDENDS_PAID: "توزيعات نقدية مدفوعة",
+    86→}
+    87→// Canonical English labels for metrics the importer can write but AR_LABEL
+    88→// does not cover — originalLabel is user-visible, so a raw code like
+    89→// NET_PROFIT_PARENT must never land in it.
+    90→const EN_FALLBACK = {
+    91→  REVENUE: "Revenue",
+    92→  COGS: "Cost of Sales",
+    93→  GROSS_PROFIT: "Gross Profit",
+    94→  OPERATING_EXPENSES_TOTAL: "Total Operating Expenses",
+    95→  OPERATING_INCOME: "Operating Income",
+    96→  EBIT: "EBIT",
+    97→  EBITDA: "EBITDA",
+    98→  NET_PROFIT_PARENT: "Net Profit Attributable to Parent",
+    99→  PROFIT_BEFORE_TAX: "Profit Before Tax",
+   100→  INCOME_TAX: "Income Tax Expense",
+   101→  INTEREST_INCOME: "Interest Income",
+   102→  INTEREST_EXPENSE: "Interest Expense",
+   103→  NET_INTEREST_INCOME: "Net Interest Income",
+   104→  BASIC_EPS: "Basic Earnings Per Share",
+   105→  DILUTED_EPS: "Diluted Earnings Per Share",
+   106→  DIVIDEND_PER_SHARE: "Dividend Per Share",
+   107→  SHARES_OUTSTANDING: "Shares Outstanding",
+   108→  SHARE_CAPITAL: "Share Capital",
+   109→  TREASURY_SHARES: "Treasury Shares",
+   110→  LONG_TERM_DEBT: "Long-Term Debt",
+   111→  SHORT_TERM_DEBT: "Short-Term Debt",
+   112→  LEASE_LIABILITIES_NONCURRENT: "Non-Current Lease Liabilities",
+   113→  NON_CURRENT_ASSETS: "Non-Current Assets",
+   114→  CAPEX: "Capital Expenditure",
+   115→  FREE_CASH_FLOW: "Free Cash Flow",
+   116→  DEPRECIATION_EXPENSE: "Depreciation & Amortization",
+   117→  STOCK_COMPENSATION: "Stock-Based Compensation",
+   118→  FX_EFFECT_CASH: "FX Effect on Cash",
+   119→  EXTRAORDINARY_ITEMS: "Extraordinary Items",
+   120→  OTHER_INCOME: "Other Income",
+   121→  ADMIN_EXPENSES: "Administrative Expenses",
+   122→  OTHER_PAYABLES: "Other Payables",
+   123→  ASSET_SALE_PROCEEDS: "Asset Sale Proceeds",
+   124→  CAPITAL_INCREASES_CASH: "Capital Increases (Cash)",
+   125→  TREASURY_TRANSACTIONS_CASH: "Treasury Share Transactions (Cash)",
+   126→  DIVIDENDS_PAID_COMMON: "Dividends Paid (Common)",
+   127→  WORKING_CAPITAL: "Working Capital",
+   128→  TOTAL_EQUITY_AND_LIABILITIES_FY: "Total Liabilities and Equity",
+   129→}
+   130→function prettyCode(code) {
+   131→  return String(code)
+   132→    .toLowerCase()
+   133→    .split("_")
+   134→    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+   135→    .join(" ")
+   136→}
+   137→const FLOW = new Set(["NET_PROFIT", "OPERATING_CASH_FLOW", "INVESTING_CASH_FLOW", "FINANCING_CASH_FLOW", "NET_CHANGE_IN_CASH", "DIVIDENDS_PAID"])
+   138→const STOCK = new Set(["TOTAL_ASSETS", "TOTAL_LIABILITIES", "TOTAL_EQUITY", "TOTAL_EQUITY_AND_LIABILITIES"])
+   139→const PERIOD_TYPES = ["fy", "q1", "q2", "q3", "q4"]
+   140→const FY_END_MONTH_OFFSET = { fy: 12, q1: 3, q2: 6, q3: 9, q4: 12 }
+   141→
+   142→const approx = (a, b) => Math.abs(a - b) <= Math.max(Math.abs(b) * 0.005, 1)
+   143→const closeSum = (sum, fy) => Math.abs(sum - fy) <= Math.max(Math.abs(fy) * 0.05, 1_000_000)
+   144→const relDiff = (a, b) => (a === 0 || b === 0 ? null : Math.abs(a / b - 1))
+   145→const sameSign = (v) => (v > 0 ? 1 : v < 0 ? -1 : 0)
+   146→
+   147→function log(...args) {
+   148→  console.log(new Date().toISOString().slice(11, 19), ...args)
+   149→}
+   150→
+   151→// ---------------------------------------------------------------- fetching
+   152→async function fetchText(url) {
+   153→  const controller = new AbortController()
+   154→  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS)
+   155→  try {
+   156→    const res = await fetch(url, {
+   157→      headers: { "user-agent": USER_AGENT, accept: "text/html,application/xhtml+xml" },
+   158→      signal: controller.signal,
+   159→    })
+   160→    if (res.status === 404) return { status: 404, html: null }
+   161→    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+   162→    return { status: 200, html: await res.text() }
+   163→  } finally {
+   164→    clearTimeout(timer)
+   165→  }
+   166→}
+   167→
+   168→async function fetchWithRetry(url, attempts = 3) {
+   169→  for (let i = 1; i <= attempts; i++) {
+   170→    try {
+   171→      return await fetchText(url)
+   172→    } catch (e) {
+   173→      if (i === attempts) return { status: 0, error: String(e?.message ?? e) }
+   174→      await new Promise((r) => setTimeout(r, 400 * i))
+   175→    }
+   176→  }
+   177→}
+   178→
+   179→async function mapLimit(items, limit, fn) {
+   180→  const out = new Array(items.length)
+   181→  let next = 0
+   182→  let done = 0
+   183→  async function worker() {
+   184→    while (true) {
+   185→      const i = next++
+   186→      if (i >= items.length) return
+   187→      out[i] = await fn(items[i])
+   188→      done++
+   189→      if (done % 50 === 0) log(`  progress ${done}/${items.length}`)
+   190→      await new Promise((r) => setTimeout(r, STAGGER_MS))
+   191→    }
+   192→  }
+   193→  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker))
+   194→  return out
+   195→}
+   196→
+   197→// ---------------------------------------------------------------- parsing
+   198→function unescapeNextFlight(html) {
+   199→  return html.replace(/\\"/g, '"').replace(/\\\\/g, "\\")
+   200→}
+   201→
+   202→function extractPivots(html) {
+   203→  const text = unescapeNextFlight(html)
+   204→  const start = text.indexOf('[{"period":"')
+   205→  if (start < 0) return null
+   206→  let depth = 0
+   207→  let inString = false
+   208→  let escaped = false
+   209→  let end = -1
+   210→  for (let i = start; i < text.length; i++) {
+   211→    const ch = text[i]
+   212→    if (inString) {
+   213→      if (escaped) escaped = false
+   214→      else if (ch === "\\") escaped = true
+   215→      else if (ch === '"') inString = false
+   216→    } else {
+   217→      if (ch === '"') inString = true
+   218→      else if (ch === "[") depth++
+   219→      else if (ch === "]") {
+   220→        depth--
+   221→        if (depth === 0) { end = i + 1; break }
+   222→      }
+   223→    }
+   224→  }
+   225→  if (end < 0) return null
+   226→  try {
+   227→    const pivots = JSON.parse(text.slice(start, end))
+   228→    if (!Array.isArray(pivots)) return null
+   229→    return pivots.filter((p) => p && typeof p.period === "string" && Array.isArray(p.rows))
+   230→  } catch {
+   231→    return null
+   232→  }
+   233→}
+   234→
+   235→const AR_MONTHS = { "يناير": 1, "فبراير": 2, "مارس": 3, "أبريل": 4, "ابريل": 4, "مايو": 5, "يونيو": 6, "يوليو": 7, "اغسطس": 8, "أغسطس": 8, "سبتمبر": 9, "اكتوبر": 10, "أكتوبر": 10, "نوفمبر": 11, "ديسمبر": 12 }
+   236→
+   237→function extractOverviewMeta(html) {
+   238→  const text = html.replace(/<script[\s\S]*?<\/script>/g, " ").replace(/<style[\s\S]*?<\/style>/g, " ")
+   239→    .replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/\s+/g, " ")
+   240→  const currency = /العملة\s+(EGP|USD)/.exec(text)?.[1]
+   241→    ?? (/\bUSD\b|بالدولار/.test(text) ? "USD" : /العملة\s+جنيه|\bEGP\b/.test(text) ? "EGP" : null)
+   242→  const fiscalMonthAr = /السنة المالية تبدأ في\s+([^\s·،]+)/.exec(text)?.[1] ?? null
+   243→  const fiscalYearStartMonth = fiscalMonthAr ? (AR_MONTHS[fiscalMonthAr] ?? null) : null
+   244→  const noStatements = /No summarised financial statements are available|لا توجد قوائم مالية ملخصة/.test(text)
+   245→  return { currency, fiscalYearStartMonth, fiscalMonthAr, noStatements }
+   246→}
+   247→
+   248→function periodHrefPeriods(html, ticker) {
+   249→  const escapedTicker = ticker.replace(/[.*+?^${}()|[\]\\]/g, "\\$")
+   250→  const re = new RegExp(`href="/company/${escapedTicker}/(fy|q[1-4])-(\\d{4})"`, "g")
+   251→  const out = new Set()
+   252→  let m
+   253→  while ((m = re.exec(html))) out.add(`${m[1]}-${m[2]}`)
+   254→  return [...out]
+   255→}
+   256→
+   257→// Statement page: metric blocks in the flight payload.
+   258→//   hero card : ["$","div","{id}",{"className":"card ...
+   259→//   table row : ["$","div","{id}",{"className":"grid grid-cols... (current, prior, delta)
+   260→function parseStatementPage(html, ticker) {
+   261→  // each push wraps one JS string literal; match it atomically so an escaped
+   262→  // quote or an inner "]" never truncates the chunk
+   263→  const chunks = [...html.matchAll(/self\.__next_f\.push\(\[1,"((?:[^"\\]|\\.)*)"\]\)/g)].map((m) => m[1])
+   264→  if (!chunks.length) return { metrics: {}, otherPeriods: [], parsed: false }
+   265→  const flight = unescapeNextFlight(chunks.join(""))
+   266→
+   267→  // block boundaries: every ["$","div","<id>",{"className":"card|grid...
+   268→  const marks = []
+   269→  const markRe = /\["\$","div","([a-z_0-9]+)",\{"className":"(?:card|grid)/g
+   270→  let mm
+   271→  while ((mm = markRe.exec(flight))) marks.push({ id: mm[1], start: mm.index })
+   272→  const metrics = {}
+   273→  for (let i = 0; i < marks.length; i++) {
+   274→    const segEnd = i + 1 < marks.length ? marks[i + 1].start : Math.min(marks[i].start + 4000, flight.length)
+   275→    const seg = flight.slice(marks[i].start, segEnd)
+   276→    const metric = ITEM_TO_METRIC[marks[i].id]
+   277→    if (!metric) continue
+   278→    const titles = [...seg.matchAll(/"title":"([0-9][0-9,.-]*)"/g)].map((m) => Number(m[1].replace(/,/g, "")))
+   279→    const isHero = /className":"card/.test(seg.slice(0, 80))
+   280→    const entry = metrics[metric] ?? {}
+   281→    if (titles[0] !== undefined && Number.isFinite(titles[0])) entry.current = titles[0]
+   282→    if (!isHero && titles[1] !== undefined && Number.isFinite(titles[1])) entry.prior = titles[1]
+   283→    metrics[metric] = entry
+   284→  }
+   285→  return { metrics, otherPeriods: periodHrefPeriods(html, ticker), parsed: true }
+   286→}
+   287→
+   288→// ---------------------------------------------------------------- calendar
+   289→function periodEnd(periodKey, year, startMonth) {
+   290→  const sm = startMonth && startMonth >= 1 && startMonth <= 12 ? startMonth : 1
+   291→  const startYear = sm === 1 ? year : year - 1
+   292→  const monthAfter = sm - 1 + FY_END_MONTH_OFFSET[periodKey]
+   293→  return new Date(Date.UTC(startYear, monthAfter, 0))
+   294→}
+   295→function periodStart(end) {
+   296→  // fiscal year spans ~12 months ending at `end`; start = 1st of the month 11 back
+   297→  const d = new Date(end.getTime())
+   298→  d.setUTCMonth(d.getUTCMonth() - 11)
+   299→  d.setUTCDate(1)
+   300→  return d
+   301→}
+   302→function quarterStart(end) {
+   303→  const d = new Date(end.getTime())
+   304→  d.setUTCMonth(d.getUTCMonth() - 2)
+   305→  d.setUTCDate(1)
+   306→  return d
+   307→}
+   308→const isFuture = (d) => d.getTime() > Date.now() + 86_400_000
+   309→
+   310→// ---------------------------------------------------------------- harvest
+   311→async function harvest(tickers) {
+   312→  log(`harvest: fetching ${tickers.length} overview pages`)
+   313→  const overviews = await mapLimit(tickers, CONCURRENCY, async (ticker) => {
+   314→    const url = `https://askborsa.com/company/${encodeURIComponent(ticker)}`
+   315→    const res = await fetchWithRetry(url)
+   316→    if (res.status === 404) return { ticker, status: "not_found" }
+   317→    if (res.status !== 200) return { ticker, status: "fetch_failed", error: res.error ?? `HTTP ${res.status}` }
+   318→    const meta = extractOverviewMeta(res.html)
+   319→    const pivots = extractPivots(res.html)
+   320→    const periods = periodHrefPeriods(res.html, ticker)
+   321→    return { ticker, status: "ok", url, ...meta, pivots: pivots ?? [], overviewPeriods: periods }
+   322→  })
+   323→
+   324→  // build statement-page fetch plan
+   325→  const fetchPlan = new Map() // ticker -> Set(periodKey "q3-2026")
+   326→  for (const o of overviews) {
+   327→    if (o.status !== "ok") continue
+   328→    const set = new Set()
+   329→    const covered = new Set()
+   330→    for (const p of o.pivots ?? []) {
+   331→      for (const y of p.years ?? []) {
+   332→        const key = `${p.period.toLowerCase()}-${y}`
+   333→        covered.add(key)
+   334→        // pivot-covered periods still get a page fetch when the pivot row set
+   335→        // is thin (pivot lacks stock/cf rows for that period) — skip for now;
+   336→        // comparatives from newer pages backfill older years anyway.
+   337→      }
+   338→    }
+   339→    for (const key of o.overviewPeriods ?? []) if (!covered.has(key)) set.add(key)
+   340→    // generated candidates: years beyond each pivot window up to CURRENT_YEAR
+   341→    const maxByType = {}
+   342→    for (const p of o.pivots ?? []) {
+   343→      const t = p.period.toLowerCase()
+   344→      for (const y of p.years ?? []) maxByType[t] = Math.max(maxByType[t] ?? 0, y)
+   345→    }
+   346→    for (const t of PERIOD_TYPES) {
+   347→      // no pivot at all → probe a bounded recent window (2023+) and let BFS find older
+   348→      const from = maxByType[t] ? maxByType[t] + 1 : 2023
+   349→      for (let y = Math.max(from, 2019); y <= CURRENT_YEAR; y++) {
+   350→        const key = `${t}-${y}`
+   351→        if (!covered.has(key)) set.add(key)
+   352→      }
+   353→    }
+   354→    fetchPlan.set(o.ticker, set)
+   355→  }
+   356→
+   357→  let pages = [...fetchPlan.entries()].flatMap(([t, keys]) => [...keys].map((k) => ({ ticker: t, key: k })))
+   358→  log(`statement pages to fetch (wave 1): ${pages.length}`)
+   359→
+   360→  const pageData = new Map() // `${ticker}|${key}` -> { metrics, otherPeriods }
+   361→  async function fetchStatementWave(items) {
+   362→    await mapLimit(items, CONCURRENCY, async ({ ticker, key }) => {
+   363→      const id = `${ticker}|${key}`
+   364→      const url = `https://askborsa.com/company/${encodeURIComponent(ticker)}/${key}`
+   365→      const res = await fetchWithRetry(url)
+   366→      if (res.status !== 200) {
+   367→        pageData.set(id, { status: res.status === 404 ? "missing" : "fetch_failed", error: res.error })
+   368→        return
+   369→      }
+   370→      const parsed = parseStatementPage(res.html, ticker)
+   371→      pageData.set(id, { status: "ok", url, ...parsed })
+   372→    })
+   373→  }
+   374→  await fetchStatementWave(pages)
+   375→
+   376→  // BFS wave 2: "فترات أخرى" links discovered on fetched pages, not yet covered
+   377→  const wave2 = []
+   378→  for (const [id, d] of pageData) {
+   379→    if (d.status !== "ok") continue
+   380→    const [ticker] = id.split("|")
+   381→    const plan = fetchPlan.get(ticker) ?? new Set()
+   382→    for (const key of d.otherPeriods ?? []) {
+   383→      if (!plan.has(key) && !pageData.has(`${ticker}|${key}`)) {
+   384→        plan.add(key)
+   385→        wave2.push({ ticker, key })
+   386→      }
+   387→    }
+   388→  }
+   389→  if (wave2.length) {
+   390→    log(`statement pages to fetch (wave 2, discovered links): ${wave2.length}`)
+   391→    await fetchStatementWave(wave2)
+   392→  }
+   393→
+   394→  // merge everything into a unified snapshot
+   395→  const results = []
+   396→  for (const o of overviews) {
+   397→    const out = {
+   398→      ticker: o.ticker,
+   399→      status: o.status,
+   400→      currency: o.currency ?? null,
+   401→      fiscalYearStartMonth: o.fiscalYearStartMonth ?? null,
+   402→      fiscalMonthAr: o.fiscalMonthAr ?? null,
+   403→      sourceUrl: o.url ?? null,
+   404→      periods: {}, // "q3-2026" -> { metric: {value, source} }
+   405→      pivotCovered: [],
+   406→    }
+   407→    if (o.status === "ok") {
+   408→      for (const p of o.pivots ?? []) {
+   409→        const t = p.period.toLowerCase()
+   410→        for (const y of p.years ?? []) {
+   411→          const key = `${t}-${y}`
+   412→          out.pivotCovered.push(key)
+   413→          const bucket = out.periods[key] ??= {}
+   414→          for (const row of p.rows ?? []) {
+   415→            const metric = ITEM_TO_METRIC[row.item]
+   416→            if (!metric) continue
+   417→            const v = row.values?.[String(y)]
+   418→            if (v === null || v === undefined || !Number.isFinite(Number(v)) || Number(v) === 0) continue
+   419→            bucket[metric] = { value: Number(v), source: "pivot" }
+   420→          }
+   421→        }
+   422→      }
+   423→    }
+   424→    for (const [id, d] of pageData) {
+   425→      if (!id.startsWith(`${o.ticker}|`) || d.status !== "ok") continue
+   426→      const key = id.split("|")[1]
+   427→      const bucket = out.periods[key] ??= {}
+   428→      for (const [metric, vals] of Object.entries(d.metrics ?? {})) {
+   429→        if (vals.current !== undefined && Number.isFinite(vals.current) && vals.current !== 0) {
+   430→          bucket[metric] = { value: vals.current, source: "statement" }
+   431→        }
+   432→      }
+   433→      // prior-year comparative fills gaps only
+   434→      const [t, yStr] = key.split("-")
+   435→      const priorKey = `${t}-${Number(yStr) - 1}`
+   436→      if (Number(yStr) - 1 >= 2015) {
+   437→        const priorBucket = out.periods[priorKey] ??= {}
+   438→        for (const [metric, vals] of Object.entries(d.metrics ?? {})) {
+   439→          if (vals.prior === undefined || !Number.isFinite(vals.prior) || vals.prior === 0) continue
+   440→          if (!priorBucket[metric]) priorBucket[metric] = { value: vals.prior, source: "comparative" }
+   441→        }
+   442→      }
+   443→    }
+   444→    results.push(out)
+   445→  }
+   446→
+   447→  const summary = {}
+   448→  for (const r of results) summary[r.status] = (summary[r.status] ?? 0) + 1
+   449→  const periodsFetched = [...pageData.values()].filter((d) => d.status === "ok").length
+   450→  log(`harvest done: companies=${JSON.stringify(summary)}, statementPagesOK=${periodsFetched}`)
+   451→  return { generatedAt: new Date().toISOString(), currentYear: CURRENT_YEAR, summary, statementPagesFetched: periodsFetched, results }
+   452→}
+   453→
+   454→// ---------------------------------------------------------------- pattern votes
+   455→// Per (ticker, metric): vote "discrete" | "cumulative" | null from years where
+   456→// the full flow series + FY value exist on AskBorsa.
+   457→function votePatterns(snapshot) {
+   458→  const votes = new Map() // ticker -> metric -> { discrete, cumulative, years: [] }
+   459→  for (const r of snapshot.results) {
+   460→    if (r.status !== "ok") continue
+   461→    // collect per fiscal year flow series: values for q1..q4 + fy
+   462→    const byYear = new Map()
+   463→    for (const [key, bucket] of Object.entries(r.periods)) {
+   464→      const [t, yStr] = key.split("-")
+   465→      const y = Number(yStr)
+   466→      for (const metric of FLOW) {
+   467→        const v = bucket[metric]?.value
+   468→        if (v === undefined || !Number.isFinite(v) || v === 0) continue
+   469→        if (!byYear.has(y)) byYear.set(y, {})
+   470→        const rec = byYear.get(y)
+   471→        ;(rec[t] ??= {})[metric] = v
+   472→      }
+   473→    }
+   474→    for (const [y, rec] of byYear) {
+   475→      const fyVals = rec.fy ?? {}
+   476→      for (const metric of FLOW) {
+   477→        const fy = fyVals[metric]
+   478→        if (fy === undefined) continue
+   479→        const qs = ["q1", "q2", "q3", "q4"].map((t) => rec[t]?.[metric])
+   480→        if (qs.some((v) => v === undefined)) continue // need full series
+   481→        const [q1, q2, q3, q4] = qs
+   482→        let vote = null
+   483→        if (closeSum(q1 + q2 + q3 + q4, fy) && ![q1, q2, q3].some((v) => approx(v, fy)) && !([q1, q2, q3].every((v) => v === 0))) {
+   484→          vote = "discrete"
+   485→        } else {
+   486→          // cumulative: same sign, |magnitudes| non-decreasing, terminal ≈ FY
+   487→          const series = [q1, q2, q3, q4]
+   488→          const signs = series.map(sameSign)
+   489→          const sign = signs.find((s) => s !== 0)
+   490→          const monotone = sign !== undefined && signs.every((s) => s === sign || s === 0)
+   491→            && series.every((v, i) => i === 0 || Math.abs(v) >= Math.abs(series[i - 1]) * 0.995)
+   492→          const terminalOk = approx(q4, fy) && Math.abs(q4 / fy - 1) <= 0.01
+   493→          const accumulation = Math.abs(q3) >= Math.abs(q1) * 1.2
+   494→          if (monotone && terminalOk && accumulation) vote = "cumulative"
+   495→        }
+   496→        if (vote) {
+   497→          if (!votes.has(r.ticker)) votes.set(r.ticker, {})
+   498→          const v = votes.get(r.ticker)
+   499→          v[metric] ??= { discrete: 0, cumulative: 0, years: [] }
+   500→          v[metric][vote]++
+   501→          v[metric].years.push(`${y}:${vote}`)
+   502→        }
+   503→      }
+   504→    }
+   505→  }
+   506→  const patterns = new Map()
+   507→  for (const [ticker, byMetric] of votes) {
+   508→    for (const [metric, v] of Object.entries(byMetric)) {
+   509→      const winner = v.discrete === v.cumulative ? null : (v.discrete > v.cumulative ? "discrete" : "cumulative")
+   510→      patterns.set(`${ticker}|${metric}`, { pattern: winner, discrete: v.discrete, cumulative: v.cumulative })
+   511→    }
+   512→  }
+   513→  return patterns
+   514→}
+   515→
+   516→// ---------------------------------------------------------------- plan
+   517→function reportKey(pt, label) {
+   518→  return `${pt}|${label}`
+   519→}
+   520→
+   521→async function buildPlan(snapshot, patterns) {
+   522→  const companies = await db.company.findMany({
+   523→    where: { isActive: true, ...(ONLY_TICKERS ? { ticker: { in: ONLY_TICKERS } } : {}) },
+   524→    select: { id: true, ticker: true, nameEn: true },
+   525→  })
+   526→  const byTicker = new Map(companies.map((c) => [c.ticker, c]))
+   527→
+   528→  const reports = await db.financialReport.findMany({
+   529→    where: {
+   530→      companyId: { in: companies.map((c) => c.id) },
+   531→      deletedAt: null,
+   532→      isDemoData: false,
+   533→      processingStatus: { notIn: ["FAILED", "REJECTED", "DELETED"] },
+   534→      periodType: { in: ["ANNUAL", "QUARTERLY", "SEMIANNUAL", "NINE_MONTH"] },
+   535→    },
+   536→    select: {
+   537→      id: true, companyId: true, periodType: true, periodLabel: true, fiscalYear: true,
+   538→      statementType: true, processingStatus: true, createdAt: true, supersedesId: true,
+   539→      values: { select: { metricCode: true, subPeriod: true, normalizedValue: true, validationStatus: true } },
+   540→    },
+   541→  })
+   542→  const superseded = new Set(reports.map((r) => r.supersedesId).filter(Boolean))
+   543→  const statusRank = { APPROVED: 0, VALIDATED: 1, EXTRACTED: 2 }
+   544→  const existing = new Map() // companyId -> Map(reportKey -> report)
+   545→  for (const r of reports) {
+   546→    if (superseded.has(r.id)) continue
+   547→    if (r.statementType !== "CONSOLIDATED") continue
+   548→    const per = existing.get(r.companyId) ?? new Map()
+   549→    const key = reportKey(r.periodType, r.periodLabel)
+   550→    const prev = per.get(key)
+   551→    if (!prev || (statusRank[r.processingStatus] ?? 9) < (statusRank[prev.processingStatus] ?? 9)) per.set(key, r)
+   552→    existing.set(r.companyId, per)
+   553→  }
+   554→
+   555→  // app annual values (per company per metric, nearest-year reference) — used
+   556→  // for the company-level scale gate and per-value sanity checks
+   557→  const appAnnualVals = new Map() // companyId -> metric -> [{year, value}]
+   558→  for (const [companyId, per] of existing) {
+   559→    for (const r of per.values()) {
+   560→      if (r.periodType !== "ANNUAL") continue
+   561→      for (const v of r.values) {
+   562→        if (!Number.isFinite(v.normalizedValue) || v.normalizedValue === 0) continue
+   563→        if (v.subPeriod !== "CURRENT" && v.subPeriod !== null) continue
+   564→        const m = appAnnualVals.get(companyId) ?? new Map()
+   565→        const arr = m.get(v.metricCode) ?? []
+   566→        arr.push({ year: r.fiscalYear, value: v.normalizedValue })
+   567→        m.set(v.metricCode, arr)
+   568→        appAnnualVals.set(companyId, m)
+   569→      }
+   570→    }
+   571→  }
+   572→
+   573→  const plan = []
+   574→  const skipped = []
+   575→  const conflicts = []
+   576→  const skip = (ticker, key, metric, reason) => skipped.push({ ticker, period: key, metric, reason })
+   577→
+   578→  for (const r of snapshot.results) {
+   579→    const company = byTicker.get(r.ticker)
+   580→    if (!company) { skipped.push({ ticker: r.ticker, period: null, metric: null, reason: "NO_DB_COMPANY" }); continue }
+   581→    if (r.status !== "ok") { skipped.push({ ticker: r.ticker, period: null, metric: null, reason: `ASK_${r.status.toUpperCase()}` }); continue }
+   582→    if (r.currency && r.currency !== "EGP") { skipped.push({ ticker: r.ticker, period: null, metric: null, reason: `CURRENCY_${r.currency}` }); continue }
+   583→    const per = existing.get(company.id) ?? new Map()
+   584→    const annualRef = appAnnualVals.get(company.id) ?? new Map()
+   585→
+   586→    // company-level scale gate: if EVERY overlapping (metric, FY year) pair
+   587→    // between AskBorsa and the app's own annuals disagrees by >10x, AskBorsa is
+   588→    // printing this company in a different unit (documented thousands cases:
+   589→    // BQDC/IRON) — skip the company entirely instead of importing bad scale.
+   590→    {
+   591→      const pairs = []
+   592→      for (const [key, bucket] of Object.entries(r.periods)) {
+   593→        if (!key.startsWith("fy-")) continue
+   594→        const y = Number(key.slice(3))
+   595→        for (const [metric, v] of Object.entries(bucket)) {
+   596→          const refs = annualRef.get(metric)
+   597→          const app = refs?.find((a) => a.year === y)?.value
+   598→          if (app === undefined || !Number.isFinite(v.value) || v.value === 0) continue
+   599→          pairs.push({ metric, y, ask: v.value, app, ratio: app / v.value })
+   600→        }
+   601→      }
+   602→      if (pairs.length && pairs.every((p) => !(p.ratio >= 0.1 && p.ratio <= 10))) {
+   603→        skipped.push({ ticker: r.ticker, period: null, metric: null, reason: `COMPANY_SCALE_MISMATCH (${pairs.length} pairs, e.g. ${pairs[0].metric} ${pairs[0].y} app/ask=${pairs[0].ratio.toExponential(1)})` })
+   604→        continue
+   605→      }
+   606→    }
+   607→
+   608→    // group periods by fiscal year
+   609→    const years = new Map()
+   610→    for (const [key, bucket] of Object.entries(r.periods)) {
+   611→      const [t, yStr] = key.split("-")
+   612→      const y = Number(yStr)
+   613→      if (!Number.isFinite(y) || y < 2015 || y > CURRENT_YEAR + 1) continue
+   614→      if (!years.has(y)) years.set(y, {})
+   615→      const rec = years.get(y)
+   616→      rec[t] = { key, bucket }
+   617→    }
+   618→
+   619→    for (const [y, rec] of [...years.entries()].sort((a, b) => b[0] - a[0])) {
+   620→      const fyRec = rec.fy
+   621→      const fyEnd = periodEnd("fy", y, r.fiscalYearStartMonth)
+   622→
+   623→      // ---- ANNUAL: create missing FY report (or fill missing slots)
+   624→      if (fyRec && !isFuture(fyEnd)) {
+   625→        const annualValues = Object.entries(fyRec.bucket)
+   626→          .filter(([metric, v]) => Number.isFinite(v.value) && v.value !== 0)
+   627→          .map(([metric, v]) => ({ metric, value: v.value, source: v.source }))
+   628→        const existingAnnual = per.get(reportKey("ANNUAL", `FY ${y}`))
+   629→        if (!existingAnnual) {
+   630→          if (annualValues.length >= 3) {
+   631→            plan.push({
+   632→              action: "CREATE_REPORT", kind: "ANNUAL", ticker: r.ticker, companyId: company.id,
+   633→              periodType: "ANNUAL", periodLabel: `FY ${y}`, fiscalYear: y,
+   634→              periodStart: periodStart(fyEnd).toISOString(), periodEnd: fyEnd.toISOString(),
+   635→              sourceUrl: r.sourceUrl, confidence: 0.8, verifiedBy: "ANNUAL_FILL",
+   636→              values: annualValues.map((v) => ({ metric: v.metric, value: v.value, verifiedBy: "ANNUAL_FILL" })),
+   637→            })
+   638→          } else skip(r.ticker, `fy-${y}`, null, `ANNUAL_TOO_THIN (${annualValues.length} values)`)
+   639→        } else {
+   640→          const have = new Set(existingAnnual.values
+   641→            .filter((v) => v.subPeriod === "CURRENT" || v.subPeriod === null)
+   642→            .map((v) => v.metricCode))
+   643→          const fills = annualValues.filter((v) => !have.has(v.metric))
+   644→          for (const v of fills) {
+   645→            plan.push({
+   646→              action: "ADD_VALUE", kind: "ANNUAL", ticker: r.ticker, companyId: company.id,
+   647→              reportId: existingAnnual.id, reportKey: `FY ${y}`, fiscalYear: y,
+   648→              sourceUrl: r.sourceUrl, confidence: 0.8, verifiedBy: "ANNUAL_SLOT_FILL",
+   649→              values: [{ metric: v.metric, value: v.value, verifiedBy: "ANNUAL_SLOT_FILL" }],
+   650→            })
+   651→          }
+   652→          // conflict scan on existing annual slots
+   653→          for (const v of annualValues) {
+   654→            const ex = existingAnnual.values.find((x) => x.metricCode === v.metric && (x.subPeriod === "CURRENT" || x.subPeriod === null) && Number.isFinite(x.normalizedValue))
+   655→            if (ex) {
+   656→              const d = relDiff(v.value, ex.normalizedValue)
+   657→              if (d !== null && d > 0.05) conflicts.push({ ticker: r.ticker, period: `FY ${y}`, metric: v.metric, askValue: v.value, appValue: ex.normalizedValue, relDiff: Number(d.toFixed(4)), askSource: v.source })
+   658→            }
+   659→          }
+   660→        }
+   661→      }
+   662→
+   663→      // ---- QUARTERS
+   664→      for (const t of ["q1", "q2", "q3", "q4"]) {
+   665→        const qRec = rec[t]
+   666→        if (!qRec) continue
+   667→        const end = periodEnd(t, y, r.fiscalYearStartMonth)
+   668→        if (isFuture(end)) { skip(r.ticker, qRec.key, null, "FUTURE_PERIOD"); continue }
+   669→        const qi = { q1: 1, q2: 2, q3: 3, q4: 4 }[t]
+   670→
+   671→        // stock metrics → QUARTERLY report, point-in-time
+   672→        const stockValues = []
+   673→        for (const metric of STOCK) {
+   674→          const v = qRec.bucket[metric]?.value
+   675→          if (v === undefined || v === 0) continue
+   676→          if (t === "q4") {
+   677→            // Q4 balance sheet ≡ FY balance sheet; require the ask FY value
+   678→            const fyv = fyRec?.bucket[metric]?.value
+   679→            if (fyv === undefined) { skip(r.ticker, qRec.key, metric, "Q4_STOCK_NO_ASK_FY"); continue }
+   680→            if (!approx(v, fyv)) { skip(r.ticker, qRec.key, metric, "Q4_STOCK_NE_ASK_FY"); continue }
+   681→            stockValues.push({ metric, value: v, verifiedBy: "Q4_STOCK_EQ_FY" })
+   682→            continue
+   683→          }
+   684→          const fyv = fyRec?.bucket[metric]?.value
+   685→          if (fyv !== undefined && approx(v, fyv)) { skip(r.ticker, qRec.key, metric, "Q_STOCK_EQ_FY_COPY"); continue }
+   686→          // scale sanity vs ask FY, else app's nearest annual
+   687→          const ref = fyv ?? nearestAnnual(annualRef.get(metric), y)
+   688→          if (ref === undefined) { skip(r.ticker, qRec.key, metric, "STOCK_NO_REFERENCE"); continue }
+   689→          const ratio = Math.abs(v) / Math.abs(ref)
+   690→          if (!(ratio >= 0.1 && ratio <= 10)) { skip(r.ticker, qRec.key, metric, `STOCK_SCALE_SUSPECT (${ratio.toFixed(2)}x)`); continue }
+   691→          stockValues.push({ metric, value: v, verifiedBy: "POINT_IN_TIME" })
+   692→        }
+   693→
+   694→        // flow metrics → discrete QUARTERLY or cumulative (H1/9M) reports
+   695→        const flowByTarget = new Map() // "QUARTERLY|Q3 2026" -> values[]
+   696→        const askFyExists = fyRec !== undefined
+   697→        for (const metric of FLOW) {
+   698→          const v = qRec.bucket[metric]?.value
+   699→          if (v === undefined || v === 0) continue
+   700→          let target = null
+   701→          let verifiedBy = null
+   702→          if (askFyExists) {
+   703→            // year-specific gate from askborsa's own data
+   704→            const qvals = ["q1", "q2", "q3", "q4"].map((tt) => rec[tt]?.bucket[metric]?.value)
+   705→            const fy = fyRec.bucket[metric]?.value
+   706→            if (fy !== undefined && qvals.every((x) => x !== undefined) &&
+   707→                closeSum(qvals.reduce((a, b) => a + b, 0), fy) &&
+   708→                ![qvals[0], qvals[1], qvals[2]].some((x) => approx(x, fy)) &&
+   709→                ![qvals[0], qvals[1], qvals[2]].every((x) => x === 0)) {
+   710→              target = { pt: "QUARTERLY", label: `${t.toUpperCase().replace("Q", "Q")} ${y}` }
+   711→              verifiedBy = "SUM_TO_FY"
+   712→            } else {
+   713→              const cum = cumulativeCheck(rec, metric, fy)
+   714→              if (cum) {
+   715→                const tgt = { q1: ["QUARTERLY", `Q1 ${y}`], q2: ["SEMIANNUAL", `H1 ${y}`], q3: ["NINE_MONTH", `9M ${y}`], q4: null }[t]
+   716→                if (tgt) { target = { pt: tgt[0], label: tgt[1] }; verifiedBy = "CUMULATIVE_SERIES" }
+   717→              }
+   718→            }
+   719→            if (!target && !fy) skip(r.ticker, qRec.key, metric, "FLOW_GATE_FAILED_HISTORICAL")
+   720→            if (!target && fy) { /* discrete failed & cumulative failed for a metric with FY: only flag when full series existed */
+   721→              const full = ["q1", "q2", "q3", "q4"].every((tt) => rec[tt]?.bucket[metric]?.value !== undefined)
+   722→              if (full) skip(r.ticker, qRec.key, metric, "FLOW_GATE_FAILED_FULL_SERIES")
+   723→            }
+   724→          } else {
+   725→            // current year: historical pattern + monotonicity + prior-year ratio
+   726→            const pat = patterns.get(`${r.ticker}|${metric}`)
+   727→            if (!pat?.pattern) { skip(r.ticker, qRec.key, metric, "FLOW_NO_PATTERN"); continue }
+   728→            const priorVal = r.periods[`${t}-${y - 1}`]?.[metric]?.value
+   729→            if (priorVal === undefined) { skip(r.ticker, qRec.key, metric, "FLOW_NO_PRIOR_YEAR"); continue }
+   730→            const ratio = Math.abs(v) / Math.abs(priorVal)
+   731→            if (!(ratio >= 0.05 && ratio <= 20)) { skip(r.ticker, qRec.key, metric, `FLOW_PRIOR_RATIO_SUSPECT (${ratio.toFixed(2)}x)`); continue }
+   732→            const mono = cumulativeMonotoneUpTo(rec, metric, t)
+   733→            if (mono === false) { skip(r.ticker, qRec.key, metric, "FLOW_MONOTONICITY_BROKEN"); continue }
+   734→            if (pat.pattern === "discrete") {
+   735→              target = { pt: "QUARTERLY", label: `${t.toUpperCase()} ${y}` }
+   736→              verifiedBy = "PATTERN_DISCRETE"
+   737→            } else if (pat.pattern === "cumulative") {
+   738→              if (t === "q4") { skip(r.ticker, qRec.key, metric, "CUMULATIVE_Q4_COVERED_BY_FY"); continue }
+   739→              const tgt = { q1: ["QUARTERLY", `Q1 ${y}`], q2: ["SEMIANNUAL", `H1 ${y}`], q3: ["NINE_MONTH", `9M ${y}`] }[t]
+   740→              target = { pt: tgt[0], label: tgt[1] }
+   741→              verifiedBy = "PATTERN_CUMULATIVE"
+   742→            }
+   743→          }
+   744→          if (!target) continue
+   745→          const tk = `${target.pt}|${target.label}`
+   746→          const arr = flowByTarget.get(tk) ?? []
+   747→          arr.push({ metric, value: v, verifiedBy })
+   748→          flowByTarget.set(tk, arr)
+   749→        }
+   750→
+   751→        // emit plans for this quarter
+   752→        const targets = new Map()
+   753→        if (stockValues.length) targets.set(`QUARTERLY|${t.toUpperCase()} ${y}`, { pt: "QUARTERLY", label: `${t.toUpperCase()} ${y}`, values: stockValues })
+   754→        for (const [tk, vals] of flowByTarget) {
+   755→          const [pt, label] = tk.split("|")
+   756→          const ex = targets.get(tk)
+   757→          if (ex) ex.values.push(...vals)
+   758→          else targets.set(tk, { pt, label, values: vals })
+   759→        }
+   760→        for (const [tk, spec] of targets) {
+   761→          const existingReport = per.get(reportKey(spec.pt, spec.label))
+   762→          // per-value sanity vs the app's own annuals of the same metric.
+   763→          // flows get a wider band than stocks: seasonal quarters can be a
+   764→          // tiny fraction of the year (GPIM Q1 ≈ 4% of FY), while a balance
+   765→          // sheet cannot plausibly collapse to 5% year-over-year. Real unit
+   766→          // errors are ~1000x and are blocked by both bands.
+   767→          const saneValues = []
+   768→          for (const v of spec.values) {
+   769→            const ref = nearestAnnual(annualRef.get(v.metric), y)
+   770→            if (ref === undefined) { saneValues.push(v); continue }
+   771→            const ratio = Math.abs(v.value) / Math.abs(ref)
+   772→            const [lo, hi] = FLOW.has(v.metric) ? [0.01, 50] : [0.05, 20]
+   773→            if (ratio >= lo && ratio <= hi) saneValues.push(v)
+   774→            else skip(r.ticker, qRec.key, v.metric, `VALUE_SCALE_VS_APP (${ratio.toExponential(1)}x vs ${v.metric} annual)`)
+   775→          }
+   776→          if (!saneValues.length) continue
+   777→          spec.values = saneValues
+   778→          // a Q4 report carrying ONLY point-in-time stock values would just
+   779→          // duplicate the annual balance sheet — never create it
+   780→          if (!existingReport && t === "q4" && !spec.values.some((v) => FLOW.has(v.metric))) {
+   781→            skip(r.ticker, qRec.key, null, "Q4_STOCK_ONLY_NO_REPORT")
+   782→            continue
+   783→          }
+   784→          if (!existingReport) {
+   785→            plan.push({
+   786→              action: "CREATE_REPORT", kind: "QUARTER", ticker: r.ticker, companyId: company.id,
+   787→              periodType: spec.pt, periodLabel: spec.label, fiscalYear: y,
+   788→              periodStart: quarterStart(end).toISOString(), periodEnd: end.toISOString(),
+   789→              sourceUrl: r.sourceUrl, confidence: spec.values.some((v) => String(v.verifiedBy).startsWith("PATTERN")) ? 0.7 : 0.8,
+   790→              verifiedBy: spec.values.map((v) => v.verifiedBy).join("+"),
+   791→              values: spec.values,
+   792→            })
+   793→          } else {
+   794→            const have = new Set(existingReport.values
+   795→              .filter((v) => v.subPeriod === "CURRENT" || v.subPeriod === null)
+   796→              .map((v) => v.metricCode))
+   797→            const fills = spec.values.filter((v) => !have.has(v.metric))
+   798→            if (fills.length) {
+   799→              plan.push({
+   800→                action: "ADD_VALUE", kind: "QUARTER", ticker: r.ticker, companyId: company.id,
+   801→                reportId: existingReport.id, reportKey: spec.label, fiscalYear: y,
+   802→                sourceUrl: r.sourceUrl, confidence: fills.some((v) => String(v.verifiedBy).startsWith("PATTERN")) ? 0.7 : 0.8,
+   803→                verifiedBy: fills.map((v) => v.verifiedBy).join("+"),
+   804→                values: fills,
+   805→              })
+   806→            }
+   807→            for (const v of spec.values) {
+   808→              const exV = existingReport.values.find((x) => x.metricCode === v.metric && (x.subPeriod === "CURRENT" || x.subPeriod === null) && Number.isFinite(x.normalizedValue))
+   809→              if (exV) {
+   810→                const d = relDiff(v.value, exV.normalizedValue)
+   811→                if (d !== null && d > 0.05) conflicts.push({ ticker: r.ticker, period: spec.label, metric: v.metric, askValue: v.value, appValue: exV.normalizedValue, relDiff: Number(d.toFixed(4)), askSource: "askborsa" })
+   812→              }
+   813→            }
+   814→          }
+   815→        }
+   816→      }
+   817→    }
+   818→  }
+   819→
+   820→  return { plan, skipped, conflicts }
+   821→}
+   822→
+   823→function nearestAnnual(arr, year) {
+   824→  if (!arr?.length) return undefined
+   825→  let best
+   826→  for (const a of arr) {
+   827→    const dist = Math.abs(a.year - year)
+   828→    if (!best || dist < best.dist) best = { dist, value: a.value }
+   829→  }
+   830→  return best.value
+   831→}
+   832→
+   833→// cumulative check for a year with ask FY: series Q1..Q3 (+Q4 or FY as terminal)
+   834→function cumulativeCheck(rec, metric, fy) {
+   835→  const vals = ["q1", "q2", "q3"].map((t) => rec[t]?.bucket[metric]?.value)
+   836→  if (vals.some((v) => v === undefined || v === 0)) return false
+   837→  const q4 = rec.q4?.bucket[metric]?.value
+   838→  const series = q4 !== undefined && q4 !== 0 ? [...vals, q4] : [...vals, fy]
+   839→  if (series.some((v) => v === undefined || v === 0)) return false
+   840→  const sign = sameSign(series[0])
+   841→  if (sign === 0) return false
+   842→  const monotone = series.every((v) => sameSign(v) === sign) && series.every((v, i) => i === 0 || Math.abs(v) >= Math.abs(series[i - 1]) * 0.995)
+   843→  const terminalOk = q4 !== undefined && q4 !== 0 ? approx(q4, fy) && Math.abs(q4 / fy - 1) <= 0.01 : true
+   844→  const accumulation = Math.abs(vals[2]) >= Math.abs(vals[0]) * 1.2
+   845→  // must NOT pass the discrete sum gate (that case is handled first)
+   846→  const allFour = ["q1", "q2", "q3", "q4"].map((t) => rec[t]?.bucket[metric]?.value)
+   847→  const discretePass = allFour.every((v) => v !== undefined) && closeSum(allFour.reduce((a, b) => a + b, 0), fy)
+   848→  return monotone && terminalOk && accumulation && !discretePass
+   849→}
+   850→
+   851→// monotonicity of cumulative pattern up to quarter t (for current-year import)
+   852→function cumulativeMonotoneUpTo(rec, metric, upTo) {
+   853→  const idx = { q1: 1, q2: 2, q3: 3, q4: 4 }[upTo]
+   854→  const series = []
+   855→  for (const t of ["q1", "q2", "q3", "q4"].slice(0, idx)) {
+   856→    const v = rec[t]?.bucket[metric]?.value
+   857→    if (v !== undefined && v !== 0) series.push(v)
+   858→  }
+   859→  if (series.length < 2) return true // nothing to contradict
+   860→  const sign = sameSign(series[0])
+   861→  return sign !== 0 && series.every((v) => sameSign(v) === sign) && series.every((v, i) => i === 0 || Math.abs(v) >= Math.abs(series[i - 1]) * 0.995)
+   862→}
+   863→
+   864→// ---------------------------------------------------------------- apply
+   865→async function applyPlan(plan) {
+   866→  mkdirSync("reports", { recursive: true })
+   867→  const rollback = { generatedAt: new Date().toISOString(), reports: [], values: [] }
+   868→  let reportCount = 0
+   869→  let valueCount = 0
+   870→  for (const p of plan) {
+   871→    let reportId
+   872→    if (p.action === "CREATE_REPORT") {
+   873→      const dup = await db.financialReport.findFirst({
+   874→        where: { companyId: p.companyId, periodType: p.periodType, periodLabel: p.periodLabel, statementType: "CONSOLIDATED", deletedAt: null, isDemoData: false },
+   875→        select: { id: true },
+   876→      })
+   877→      if (dup) {
+   878→        reportId = dup.id
+   879→      } else {
+   880→        const created = await db.financialReport.create({
+   881→          data: {
+   882→            companyId: p.companyId,
+   883→            reportType: p.periodType === "ANNUAL" ? "ANNUAL" : "INTERIM",
+   884→            periodType: p.periodType,
+   885→            statementType: "CONSOLIDATED",
+   886→            fiscalYear: p.fiscalYear,
+   887→            periodLabel: p.periodLabel,
+   888→            periodStart: new Date(p.periodStart),
+   889→            periodEnd: new Date(p.periodEnd),
+   890→            language: "AR",
+   891→            sourceName: "ASKBORA_PUBLIC",
+   892→            sourceUrl: p.sourceUrl,
+   893→            processingStatus: "EXTRACTED",
+   894→            extractionMethod: "ASKBORA_HARVEST",
+   895→            parserVersion: PARSER,
+   896→            extractionConfidence: p.confidence,
+   897→            isDemoData: false,
+   898→            version: 1,
+   899→            notes: `AskBorsa public data sync; verified: ${p.verifiedBy}.`,
+   900→          },
+   901→          select: { id: true },
+   902→        })
+   903→        reportId = created.id
+   904→        rollback.reports.push({ id: reportId, ticker: p.ticker, periodLabel: p.periodLabel })
+   905→        reportCount++
+   906→      }
+   907→    } else {
+   908→      reportId = p.reportId
+   909→    }
+   910→    for (const v of p.values) {
+   911→      // final only-missing-slot re-check under concurrency-safe conditions
+   912→      const slot = await db.financialValue.findFirst({
+   913→        where: { reportId, metricCode: v.metric, OR: [{ subPeriod: "CURRENT" }, { subPeriod: null }] },
+   914→        select: { id: true },
+   915→      })
+   916→      if (slot) continue
+   917→      const row = await db.financialValue.create({
+   918→        data: {
+   919→          companyId: p.companyId,
+   920→          reportId,
+   921→          metricCode: v.metric,
+   922→          // Product rule: originalLabel is user-visible (bilingual hint on the
+   923→          // statements table) — never embed tooling/source refs like
+   924→          // "(AskBorsa Qx)" here. Provenance lives in validationNotes instead.
+   925→          originalLabel: AR_LABEL[v.metric] ?? EN_FALLBACK[v.metric] ?? prettyCode(v.metric),
+   926→          value: v.value,
+   927→          currency: "EGP",
+   928→          unit: "UNIT",
+   929→          normalizedValue: v.value,
+   930→          statementType: statementKind(v.metric),
+   931→          subPeriod: "CURRENT",
+   932→          extractionMethod: "ASKBORA_HARVEST",
+   933→          confidence: p.confidence ?? 0.8,
+   934→          validationStatus: "VALID",
+   935→          validationNotes: `${MARK} ${v.verifiedBy}; source ${p.sourceUrl}`,
+   936→          sourceText: p.sourceUrl,
+   937→          isDemoData: false,
+   938→        },
+   939→        select: { id: true },
+   940→      })
+   941→      rollback.values.push({ id: row.id, ticker: p.ticker, metric: v.metric, value: v.value })
+   942→      valueCount++
+   943→    }
+   944→  }
+   945→  writeFileSync(ROLLBACK, JSON.stringify(rollback, null, 2), "utf8")
+   946→  await db.auditLog.create({
+   947→    data: {
+   948→      actor: "system",
+   949→      action: "UPLOAD",
+   950→      entityType: "FinancialReport",
+   951→      details: `ASKBORA_SYNC: ${reportCount} reports created, ${valueCount} values added (parser ${PARSER}); rollback ${ROLLBACK}`,
+   952→    },
+   953→  })
+   954→  return { reportCount, valueCount }
+   955→}
+   956→
+   957→async function runRollback() {
+   958→  if (!existsSync(ROLLBACK)) { console.error(`No rollback file at ${ROLLBACK}`); process.exit(1) }
+   959→  const data = JSON.parse(readFileSync(ROLLBACK, "utf8"))
+   960→  let values = 0
+   961→  let reports = 0
+   962→  let skipped = 0
+   963→  for (const v of data.values ?? []) {
+   964→    const row = await db.financialValue.findUnique({ where: { id: v.id }, select: { validationNotes: true } })
+   965→    if (!row || !String(row.validationNotes ?? "").startsWith(MARK)) { skipped++; continue }
+   966→    await db.financialValue.delete({ where: { id: v.id } })
+   967→    values++
+   968→  }
+   969→  for (const r of data.reports ?? []) {
+   970→    const row = await db.financialReport.findUnique({ where: { id: r.id }, select: { sourceName: true, _count: { select: { values: true } } } })
+   971→    if (!row || row.sourceName !== "ASKBORA_PUBLIC" || row._count.values > 0) { skipped++; continue }
+   972→    await db.financialReport.delete({ where: { id: r.id } })
+   973→    reports++
+   974→  }
+   975→  console.log(`rollback complete: values=${values}, reports=${reports}, skipped=${skipped}`)
+   976→}
+   977→
+   978→// ---------------------------------------------------------------- recompute
+   979→async function runRecompute() {
+   980→  const path = await import("node:path")
+   981→  const { createJiti } = await import("jiti")
+   982→  const root = path.resolve(process.cwd())
+   983→  const jiti = createJiti(path.join(root, "scripts", "askborsa-sync.mjs"), {
+   984→    interopDefault: true,
+   985→    moduleCache: false,
+   986→    alias: { "@": path.join(root, "src") },
+   987→  })
+   988→  const mod = await jiti.import(path.join(root, "src", "lib", "financial", "recompute.ts"))
+   989→  const { recomputeAll } = mod
+   990→  log("recompute: rebuilding derived metrics for all companies…")
+   991→  const results = await recomputeAll()
+   992→  let calc = 0
+   993→  let events = 0
+   994→  for (const r of results) { calc += r.calculatedMetrics ?? 0; events += (r.events ?? []).length }
+   995→  log(`recompute done: companies=${results.length}, calculatedMetrics=${calc}, events=${events}`)
+   996→}
+   997→
+   998→// ---------------------------------------------------------------- main
+   999→async function main() {
+  1000→  if (ROLLBACK_MODE) return runRollback()
+  1001→
+  1002→  mkdirSync("reports", { recursive: true })
+  1003→
+  1004→  let snapshot
+  1005→  if (FROM_SNAPSHOT && existsSync(SNAPSHOT)) {
+  1006→    snapshot = JSON.parse(readFileSync(SNAPSHOT, "utf8"))
+  1007→    log(`loaded snapshot ${SNAPSHOT} (${snapshot.generatedAt})`)
+  1008→  } else {
+  1009→    const dbCompanies = await db.company.findMany({
+  1010→      where: { isActive: true, ...(ONLY_TICKERS ? { ticker: { in: ONLY_TICKERS } } : {}) },
+  1011→      select: { ticker: true },
+  1012→      orderBy: { ticker: "asc" },
+  1013→    })
+  1014→    let tickers = dbCompanies.map((c) => c.ticker)
+  1015→    if (LIMIT) tickers = tickers.slice(0, LIMIT)
+  1016→    snapshot = await harvest(tickers)
+  1017→    writeFileSync(SNAPSHOT, JSON.stringify(snapshot, null, 2), "utf8")
+  1018→    log(`wrote ${SNAPSHOT}`)
+  1019→  }
+  1020→
+  1021→  const patterns = votePatterns(snapshot)
+  1022→  const discreteCount = [...patterns.values()].filter((p) => p.pattern === "discrete").length
+  1023→  const cumulativeCount = [...patterns.values()].filter((p) => p.pattern === "cumulative").length
+  1024→  log(`flow patterns voted: ${patterns.size} (ticker|metric) pairs — discrete=${discreteCount}, cumulative=${cumulativeCount}`)
+  1025→
+  1026→  const { plan, skipped, conflicts } = await buildPlan(snapshot, patterns)
+  1027→  const createReports = plan.filter((p) => p.action === "CREATE_REPORT")
+  1028→  const addValues = plan.filter((p) => p.action === "ADD_VALUE")
+  1029→  const totalValues = plan.reduce((n, p) => n + p.values.length, 0)
+  1030→  const byTicker = {}
+  1031→  for (const p of plan) byTicker[p.ticker] = (byTicker[p.ticker] ?? 0) + 1
+  1032→  const skipReasons = {}
+  1033→  for (const s of skipped) skipReasons[s.reason ?? "UNKNOWN"] = (skipReasons[s.reason ?? "UNKNOWN"] ?? 0) + 1
+  1034→
+  1035→  log(`PLAN: ${createReports.length} reports to create, ${addValues.length} slot-fills, ${totalValues} values total, ${skipped.length} skips, ${conflicts.length} conflicts`)
+  1036→  log(`top companies: ${Object.entries(byTicker).sort((a, b) => b[1] - a[1]).slice(0, 10).map(([t, n]) => `${t}(${n})`).join(", ")}`)
+  1037→  log(`skip reasons: ${JSON.stringify(skipReasons)}`)
+  1038→
+  1039→  writeFileSync(PLAN, JSON.stringify({ generatedAt: new Date().toISOString(), mode: APPLY ? "apply" : "dry-run", createReports: createReports.length, addValues: addValues.length, totalValues, plan, skipped }, null, 2), "utf8")
+  1040→  log(`wrote ${PLAN}`)
+  1041→  if (conflicts.length) {
+  1042→    writeFileSync(CONFLICTS, JSON.stringify({ generatedAt: new Date().toISOString(), conflicts }, null, 2), "utf8")
+  1043→    log(`wrote ${CONFLICTS} (${conflicts.length} conflicts for review — no data written for them)`)
+  1044→  }
+  1045→
+  1046→  if (!APPLY) {
+  1047→    log("DRY RUN — rerun with --apply to write. Add --recompute to rebuild derived metrics after import.")
+  1048→    return
+  1049→  }
+  1050→
+  1051→  const res = await applyPlan(plan)
+  1052→  log(`APPLIED: reports=${res.reportCount}, values=${res.valueCount}; rollback saved to ${ROLLBACK}`)
+  1053→
+  1054→  if (RECOMPUTE) await runRecompute()
+  1055→  else log("next step: node scripts/run-recompute.cjs  (or rerun with --recompute)")
+  1056→}
+  1057→
+  1058→main()
+  1059→  .catch((e) => { console.error("ASKBORA SYNC FAILED:", e); process.exitCode = 1 })
+  1060→  .finally(() => db.$disconnect())
+  1061→

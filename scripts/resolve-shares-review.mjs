@@ -109,7 +109,7 @@ const report = {
   generatedAt: new Date().toISOString(),
   sources: {
     mubasher: "https://english.mubasher.info/markets/EGX/stocks/<ticker> (Current Total Shares)",
-    tradingview: "TradingView public EGX scanner (shares_outstanding)",
+    tradingview: "TradingView public Meza (shares_outstanding)",
   },
   decisions: [],
 }

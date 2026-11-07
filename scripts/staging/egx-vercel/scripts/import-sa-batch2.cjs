@@ -1,7 +1,7 @@
 const fs = require("fs")
 const { PrismaClient } = require("@prisma/client")
 const db = new PrismaClient()
-const rows = JSON.parse(fs.readFileSync("C:/Users/tomas/Downloads/EGX-Scanner-backup/EGX-Scanner/scripts/sa-batch2.json", "utf8"))
+const rows = JSON.parse(fs.readFileSync("C:/Users/tomas/Downloads/Meza-backup/Meza/scripts/sa-batch2.json", "utf8"))
 ;(async () => {
   let created = 0, added = 0, skipped = 0
   for (const [ticker, periodEnd, label, rev, ni] of rows) {

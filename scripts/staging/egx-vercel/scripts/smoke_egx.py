@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Comprehensive HTTP smoke test for the running EGX-Scanner server."""
+"""Comprehensive HTTP smoke test for the running Meza server."""
 import json, urllib.request, urllib.error, sys
 
 BASE = "http://localhost:3000"

@@ -256,13 +256,13 @@ export function AppHeader({
             <Link
               href="/"
               className="flex items-center gap-2 rounded-xl px-2 py-1.5 transition-colors hover:bg-muted/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1"
-              aria-label="EGX Financial Scanner — home"
+              aria-label="Meza — home"
             >
               <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm shadow-primary/20">
                 <Activity className="h-4 w-4" />
               </span>
               <span className="hidden sm:flex flex-col items-start leading-tight">
-                <span className="text-sm font-bold tracking-tight">EGX Scanner</span>
+                <span className="text-sm font-bold tracking-tight">Meza</span>
                 <span className="text-[10px] text-muted-foreground">{t("dash.title")}</span>
               </span>
             </Link>

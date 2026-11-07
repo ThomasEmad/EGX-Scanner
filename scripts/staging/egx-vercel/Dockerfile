@@ -1,5 +1,5 @@
-# EGX Scanner — production image (Next.js 16 standalone + Prisma/SQLite).
-# Build:  docker build -t egx-scanner .
+# Meza — production image (Next.js 16 standalone + Prisma/SQLite).
+# Build:  docker build -t meza .
 # Run:    see docker-compose.yml (mounts db/, storage/, reports/ + .env)
 
 # ---------- 1. Dependencies ----------

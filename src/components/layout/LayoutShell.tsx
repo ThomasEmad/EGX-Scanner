@@ -44,7 +44,7 @@ export function LayoutShell({ children, showMobileNav = true, flush = false }: L
         {/* Mobile top bar */}
         <div className="sm:hidden flex h-14 items-center gap-2 px-3 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
           <a href="/" className="flex-1 flex items-center justify-center">
-            <span className="font-bold tracking-tight text-foreground text-sm">EGX Scanner</span>
+            <span className="font-bold tracking-tight text-foreground text-sm">Meza</span>
           </a>
         </div>
 

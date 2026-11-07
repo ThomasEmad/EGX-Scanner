@@ -60,7 +60,7 @@ function stripTags(s) {
 
 async function fetchIndex(idx) {
   const res = await fetch(`https://english.mubasher.info/markets/EGX/indices/${idx}`, {
-    headers: { "user-agent": "Mozilla/5.0 EGX-Scanner data audit" },
+    headers: { "user-agent": "Mozilla/5.0 Meza data audit" },
   })
   if (!res.ok) throw new Error(`Mubasher ${idx} HTTP ${res.status}`)
   const html = await res.text()

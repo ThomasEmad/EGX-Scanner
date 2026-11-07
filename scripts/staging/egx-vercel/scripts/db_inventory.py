@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Inventory report for the EGX-Scanner SQLite database (dev.db)."""
+"""Inventory report for the Meza SQLite database (dev.db)."""
 import sqlite3
 
-DB = "/home/z/my-project/EGX-Scanner/prisma/prisma/dev.db"
+DB = "/home/z/my-project/Meza/prisma/prisma/dev.db"
 
 def main():
     con = sqlite3.connect(f"file:{DB}?mode=ro", uri=True)

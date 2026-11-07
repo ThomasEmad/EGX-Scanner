@@ -7,7 +7,7 @@ API = "https://api.vercel.com"
 MAX = int(sys.argv[1]) if len(sys.argv) > 1 else 480
 
 DEPLOYS = {
-    "dpl_2FvBAvJU7ZVNkJuCYFwt3u9B3ssY": "egx-scanner",
+    "dpl_2FvBAvJU7ZVNkJuCYFwt3u9B3ssY": "meza",
     "dpl_2ck4sSRXbHNv6DoqmENPtHoyJGiu": "my-portfolio-47o1",
     "dpl_CwJkwggRRrUwmeixd3pSjsEHDJig": "my-portfolio",
     "dpl_3H9jRGTuN6gJqoffENKcjJyEdAYK": "my-portfolio-zzoh",
@@ -47,7 +47,7 @@ for did, name in DEPLOYS.items():
     st, d = api("GET", f"/v13/deployments/{did}")
     rs = d.get("readyState")
     extra = ""
-    if name == "egx-scanner":
+    if name == "meza":
         extra = f" url={d.get('url')} alias={d.get('alias')}"
     if rs == "ERROR":
         st2, ev = api("GET", f"/v2/deployments/{did}/events?limit=200")

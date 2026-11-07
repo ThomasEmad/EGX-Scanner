@@ -1,4 +1,4 @@
-// EGX Financial Scanner — data model
+// Meza — data model
 // Principles (from master spec):
 //  - Never invent financial data; every value keeps original label + source traceability
 //  - Raw financial values and derived/calculated metrics are stored SEPARATELY

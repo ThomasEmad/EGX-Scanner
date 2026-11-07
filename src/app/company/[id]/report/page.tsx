@@ -10,7 +10,7 @@ import { PrintReportButton } from "./print-button"
 // one-page summary; Premium renders the full multi-year document + print/PDF.
 
 export const metadata: Metadata = {
-  title: "تقرير الشركة — EGX Financial Scanner",
+  title: "تقرير الشركة — Meza",
   robots: { index: false, follow: false },
 }
 
@@ -118,7 +118,7 @@ export default async function CompanyReportPage({ params }: { params: Promise<{ 
             {company.isin ? ` · ISIN ${company.isin}` : ""}
           </p>
           <p className="mt-1 text-[11px] text-slate-500">
-            تقرير استثماري من EGX Financial Scanner — أحدث قوائم سنوية متحقق منها{fy ? ` (FY${fy})` : ""}. تاريخ التقرير: {new Date().toISOString().slice(0, 10)}
+            تقرير استثماري من Meza — أحدث قوائم سنوية متحقق منها{fy ? ` (FY${fy})` : ""}. تاريخ التقرير: {new Date().toISOString().slice(0, 10)}
           </p>
         </div>
         {premium ? <PrintReportButton label="طباعة / PDF" /> : null}

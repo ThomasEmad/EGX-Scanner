@@ -8,10 +8,10 @@ const BS = String.fromCharCode(92)
 const sl = (p) => p.split(BS).join("/")
 
 const task3 = JSON.parse(
-  fs.readFileSync("C:/Users/tomas/Downloads/EGX-Scanner-backup/statments/ocr-MASR/task3.json", "utf8")
+  fs.readFileSync("C:/Users/tomas/Downloads/Meza-backup/statments/ocr-MASR/task3.json", "utf8")
 )
-const cropTask = "C:/Users/tomas/Downloads/EGX-Scanner-backup/statments/ocr-MASR/task-crop.json"
-const pngOut = "C:/Users/tomas/Downloads/EGX-Scanner-backup/statments/masr-digits.png"
+const cropTask = "C:/Users/tomas/Downloads/Meza-backup/statments/ocr-MASR/task-crop.json"
+const pngOut = "C:/Users/tomas/Downloads/Meza-backup/statments/masr-digits.png"
 const cropTaskFwd = sl(cropTask)
 const pngFwd = sl(pngOut)
 const pdfFwd = sl(task3.pdf)

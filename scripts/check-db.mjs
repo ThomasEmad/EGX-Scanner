@@ -1,5 +1,5 @@
 import { DatabaseSync } from 'node:sqlite'
-const db = new DatabaseSync('C:/Users/tomas/Downloads/EGX-Scanner-backup/EGX-Scanner/prisma/dev.db')
+const db = new DatabaseSync('C:/Users/tomas/Downloads/Meza-backup/Meza/prisma/dev.db')
 const tables = db.prepare("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name").all()
 console.log('NUM TABLES:', tables.length)
 console.log('TABLES:', JSON.stringify(tables.map(t => t.name), null, 2))

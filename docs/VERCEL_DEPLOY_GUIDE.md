@@ -1,4 +1,4 @@
-# 🚀 دليل نشر موقع EGX Scanner على Vercel — مجاني 100%
+# 🚀 دليل نشر موقع Meza على Vercel — مجاني 100%
 
 > إجمالي التكلفة: **0 جنيه/دولار** — استضافة مجانية + قاعدة بيانات مجانية + SSL تلقائي + لينك حقيقي فوراً.
 > الوقت المطلوب منك: **15-20 دقيقة** (إعداد الحسابات والنسخ واللصق).
@@ -33,7 +33,7 @@
 
 ### الطريقة الموصى بها (أسرع — 5 دقائق):
 1. من حساب GitHub: اضغط **+** (فوق يمين) → **New repository**
-2. الاسم مثلاً: `egx-scanner` — اختر **Private** — **متحقق من خيار README ولا تشغله** (repo فاضي) → Create
+2. الاسم مثلاً: `meza` — اختر **Private** — **متحقق من خيار README ولا تشغله** (repo فاضي) → Create
 3. اعمل مفتاح وصول Temporary:
    - GitHub → Settings → Developer settings → Personal access tokens → **Tokens (classic)** → Generate new token (classic)
    - Note: `vercel-deploy` — Expiration: **7 days** — علّم على `repo` فقط → Generate
@@ -47,8 +47,8 @@
 تحتاج Git مثبت على جهازك — فك ضغط `egx-vercel-deploy.zip` ثم:
 ```bash
 cd egx-vercel-deploy
-git init && git add . && git commit -m "EGX Scanner - Vercel ready"
-git remote add origin https://github.com/USERNAME/egx-scanner.git
+git init && git add . && git commit -m "Meza - Vercel ready"
+git remote add origin https://github.com/USERNAME/meza.git
 git branch -M main
 git push -u origin main
 ```
@@ -70,7 +70,7 @@ git push -u origin main
 
 > بديل يدوي للمتقنين (لو مش هتبعتلي التوكن):
 > ```bash
-> export TURSO_DATABASE_URL="libsql://egx-prod-USERNAME.turso.io"
+> export TURSO_DATABASE_URL="libsql://<YOUR-DB>-<USERNAME>.turso.io"
 > export TURSO_AUTH_TOKEN="eyJ..."
 > npm install && npm run db:push:turso && bun prisma/seed.ts   # قاعدة جديدة فاضية بالسجل الكامل
 > # أو انقل بياناتك الفعلية:
@@ -92,31 +92,31 @@ git push -u origin main
 
 ## الخطوة 5️⃣ — الاستيراد في Vercel (5 دقائق)
 
-1. https://vercel.com/new → اضغط **Import** جنب repo `egx-scanner`
+1. https://vercel.com/new → اضغط **Import** جنب repo `meza`
 2. Framework Preset هيتكتشف تلقائياً: **Next.js** — سيبه زي ما هو
 3. **قبل ما تضغط Deploy**: افتح **Environment Variables** (تحت)، وأضف واحد واحد:
 
 | الاسم | القيمة | ملاحظة |
 |---|---|---|
 | `DATABASE_URL` | `file:./db/unused.db` | قيمة ثابتة — انسخها زي ما هي |
-| `TURSO_DATABASE_URL` | `libsql://egx-prod-…turso.io` | من Turso |
+| `TURSO_DATABASE_URL` | `libsql://<YOUR-DB>-…turso.io` | من Turso |
 | `TURSO_AUTH_TOKEN` | `eyJ…` | من Turso |
-| `ADMIN_PASSCODE` | `4431839a611b3d08d62415f6e7c1915f` | جاهز — انسخه |
+| `ADMIN_PASSCODE` | `<YOUR-ADMIN-PASSCODE>` | جاهز — انسخه |
 | `CRON_SECRET` | `6c676ef713fe9f46c564ba4a4a05ad8bba2a57214f57a199c9367cb4852e3221` | جاهز — انسخه |
 | `TRUSTED_PROXIES` | `*` | ضروري للـ rate limiting صح |
 | `MAIL_PROVIDER` | `smtp` | |
 | `SMTP_HOST` | `smtp.gmail.com` | |
 | `SMTP_PORT` | `465` | |
 | `SMTP_USER` | `tomasemad286@gmail.com` | |
-| `SMTP_PASS` | `xmiqliobgmnsosnf` | App Password بتاعك |
-| `MAIL_FROM` | `EGX Scanner <tomasemad286@gmail.com>` | |
+| `SMTP_PASS` | `<YOUR-GMAIL-APP-PASSWORD>` | App Password بتاعك |
+| `MAIL_FROM` | `Meza <tomasemad286@gmail.com>` | |
 | `AI_API_KEY` | `AIza…` | من الخطوة 4 |
 | `NEXT_PUBLIC_SITE_URL` | *(أضِفها بعد أول Deploy)* | حط لينك الموقع اللي هيطلع |
 
 > ⚠️ **متضفش** `NEXT_PUBLIC_TEMP_EDIT_MODE` في الإنتاج (ده وضع تجريبي للمراجعة).
 
 4. اضغط **Deploy** — البناء 2-4 دقائق. لو نجح هيطلعلك **Congratulations** بلينك زي:
-   `https://egx-scanner-xxxx.vercel.app`
+   `https://meza-xxxx.vercel.app`
 
 5. **بعد أول deploy**: Settings → Environment Variables → عدّل `NEXT_PUBLIC_SITE_URL` وحط اللينك الجديد → Deployments → آخر deployment → **Redeploy** (عشان الإيميلات وروابط استعادة كلمة السر تستخدم اللينك الصح).
 

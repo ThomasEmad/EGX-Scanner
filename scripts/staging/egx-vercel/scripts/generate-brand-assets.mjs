@@ -53,7 +53,7 @@ const ogSvg = `
   <g font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#94a3b8">
     <text x="72" y="540">Arabic + English</text>
     <text x="300" y="540">Latest verified period per metric</text>
-    <text x="700" y="540">egx-scanner.com</text>
+    <text x="700" y="540">meza-ashy.vercel.app</text>
   </g>
   <rect x="72" y="470" width="1056" height="2" fill="#ffffff" opacity="0.12"/>
 </svg>`

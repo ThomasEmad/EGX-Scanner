@@ -57,6 +57,6 @@ const CUM_LABELS = [
   }
   console.log(JSON.stringify({ total: violations.length, byClass: violations.reduce((m, v) => ({ ...m, [v.class]: (m[v.class] || 0) + 1 }), {}) }, null, 1))
   for (const v of violations) console.log(` ${v.class} ${v.ticker} FY${v.fy}: ${v.detail} (${v.source.slice(0, 18)})`)
-  require("fs").writeFileSync("C:/Users/tomas/Downloads/EGX-Scanner-backup/egx-data/data/coherence-violations.json", JSON.stringify(violations, null, 1), "utf8")
+  require("fs").writeFileSync("C:/Users/tomas/Downloads/Meza-backup/egx-data/data/coherence-violations.json", JSON.stringify(violations, null, 1), "utf8")
   await db.$disconnect()
 })().catch((e) => { console.error(e); process.exit(1) })

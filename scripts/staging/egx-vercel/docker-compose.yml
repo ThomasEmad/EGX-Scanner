@@ -1,4 +1,4 @@
-# EGX Scanner — Docker Compose deployment.
+# Meza — Docker Compose deployment.
 #
 # 1. Copy the project to the server, then copy your database:
 #        mkdir -p db storage reports && cp custom.db db/   # (if you have existing data)
@@ -12,7 +12,7 @@
 services:
   app:
     build: .
-    container_name: egx-scanner
+    container_name: meza
     restart: unless-stopped
     ports:
       - "127.0.0.1:3000:3000"   # expose only to localhost — put nginx/caddy with TLS in front

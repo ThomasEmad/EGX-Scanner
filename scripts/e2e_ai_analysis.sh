@@ -1,6 +1,6 @@
 #!/bin/bash
 # E2E: register fresh user -> pick a company -> run AI analysis -> print result
-BASE="https://egx-scanner-ashy.vercel.app"
+BASE="https://meza-ashy.vercel.app"
 JAR="/tmp/e2e_cookies.txt"
 EMAIL="aitest$(date +%s)@example.com"
 PASS="AiTest#2026x"

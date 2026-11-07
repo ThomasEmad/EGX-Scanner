@@ -1,4 +1,4 @@
-// Consistent, verifiable SQLite backup for EGX Scanner.
+// Consistent, verifiable SQLite backup for Meza.
 //
 // Uses SQLite's `VACUUM INTO`, which produces a clean copy even while the
 // database is open, then verifies the copy with `PRAGMA integrity_check`.

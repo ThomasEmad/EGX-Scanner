@@ -1,4 +1,4 @@
-# EGX Scanner — Production Runbook
+# Meza — Production Runbook
 Last verified: 2026-11-06 (all commands below tested on the live deployment)
 
 ## 1. Start / Restart (the ONLY correct way)

@@ -51,7 +51,7 @@ function stripTags(s) {
 
 async function fetchAskBorsa() {
   const res = await fetch("https://askborsa.com/companies", {
-    headers: { "user-agent": "Mozilla/5.0 EGX-Scanner data audit" },
+    headers: { "user-agent": "Mozilla/5.0 Meza data audit" },
   })
   if (!res.ok) throw new Error(`AskBorsa HTTP ${res.status}`)
   const html = await res.text()

@@ -1,9 +1,9 @@
-// External health check for EGX Scanner. Designed for a cron job or an
+// External health check for Meza. Designed for a cron job or an
 // uptime monitor: it exits non-zero when a critical surface is unhealthy.
 //
 // Usage:
 //   node scripts/healthcheck.mjs
-//   BASE_URL=https://egx-scanner.com node scripts/healthcheck.mjs
+//   BASE_URL=https://meza-ashy.vercel.app node scripts/healthcheck.mjs
 //
 // Writes a small JSON report to reports/healthcheck.json (no secrets).
 

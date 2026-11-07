@@ -84,13 +84,13 @@ export function AppSidebar() {
       <Link
         href="/"
         className="flex h-16 shrink-0 items-center gap-2.5 border-b border-border/60 px-4 transition-colors hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-        aria-label="EGX Financial Scanner — Home"
+        aria-label="Meza — Home"
       >
         <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
           <Activity className="h-4.5 w-4.5" />
         </div>
         <div className="flex flex-col leading-tight">
-          <span className="font-bold tracking-tight text-foreground">EGX Scanner</span>
+          <span className="font-bold tracking-tight text-foreground">Meza</span>
           <span className="text-[10px] text-muted-foreground">
             {ar ? "تحليل بيانات البورصة المصرية" : "EGX market intelligence"}
           </span>
@@ -143,7 +143,7 @@ export function AppSidebar() {
 
       {/* Footer */}
       <div className="shrink-0 border-t border-border/40 px-4 py-3">
-        <p className="text-[10px] leading-none text-muted-foreground/70">EGX Scanner v0.3.0</p>
+        <p className="text-[10px] leading-none text-muted-foreground/70">Meza v0.3.0</p>
         <p className="mt-1.5 text-[10px] leading-tight text-muted-foreground/50">
           {ar
             ? "أسعار متأخرة 15 دقيقة — ليست نصيحة استثمارية"

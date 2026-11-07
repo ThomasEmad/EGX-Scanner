@@ -1,5 +1,5 @@
 ﻿
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\src\app\watchlist\page.tsx
+C:\Users\tomas\Downloads\Meza-backup\Meza\src\app\watchlist\page.tsx
   72:76  warning  Do not use `window.location.href` to navigate to internal Next.js pages. Use `redirect()` in the render phase, or `useRouter().push()` in Client Components' event handlers instead. See: https://nextjs.org/docs/messages/no-location-assign-relative-destination  @next/next/no-location-assign-relative-destination
   91:67  warning  Do not use `window.location.href` to navigate to internal Next.js pages. Use `redirect()` in the render phase, or `useRouter().push()` in Client Components' event handlers instead. See: https://nextjs.org/docs/messages/no-location-assign-relative-destination  @next/next/no-location-assign-relative-destination
 

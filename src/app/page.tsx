@@ -24,7 +24,7 @@ const faq = [
 
 export const metadata: Metadata = {
   title: {
-    absolute: "EGX Financial Scanner — Egyptian Exchange Financial Data & Rankings",
+    absolute: "Meza — Egyptian Exchange Financial Data & Rankings",
   },
   description:
     "Independent financial data for Egyptian Exchange companies: statements, ratios, sector rankings and valuations in Arabic and English.",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       languages: { en: "/", "ar-EG": "/" },
     },
   openGraph: {
-    title: "EGX Financial Scanner — Egyptian Exchange Financial Data & Rankings",
+    title: "Meza — Egyptian Exchange Financial Data & Rankings",
     description:
       "Independent financial data for Egyptian Exchange companies: statements, ratios, sector rankings and valuations.",
     type: "website",
@@ -42,11 +42,11 @@ export const metadata: Metadata = {
     alternateLocale: "ar_EG",
     siteName: siteConfig.name,
     url: "/",
-    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: "EGX Financial Scanner" }],
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: "Meza" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "EGX Financial Scanner",
+    title: "Meza",
     description:
       "Independent, audited financial data for Egyptian Exchange companies.",
     images: [siteConfig.ogImage],

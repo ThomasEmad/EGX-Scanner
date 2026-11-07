@@ -1,6 +1,6 @@
 #!/bin/bash
 # End-to-end diagnostic: register diag user, login, trigger LLM ai-analysis on production NIPH
-BASE="https://egx-scanner-ashy.vercel.app"
+BASE="https://meza-ashy.vercel.app"
 TS=$(date +%s)
 EMAIL="diag${TS}@egx-diag.local"
 PASS="Diag${TS}pass!"

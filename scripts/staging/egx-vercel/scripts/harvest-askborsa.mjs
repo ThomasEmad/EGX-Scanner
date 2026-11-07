@@ -23,7 +23,7 @@ const db = new PrismaClient()
 const OUT = "reports/askborsa-harvest.json"
 const CONCURRENCY = 5
 const TIMEOUT_MS = 25_000
-const USER_AGENT = "EGX-Scanner-data-audit/1.0 (+public disclosure verification)"
+const USER_AGENT = "Meza-data-audit/1.0 (+public disclosure verification)"
 
 const args = process.argv.slice(2)
 const limitArg = args.find((a) => a.startsWith("--limit="))

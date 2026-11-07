@@ -1,7 +1,7 @@
 import { createWorker } from "tesseract.js"
 const worker = await createWorker("ara") // Arabic model — reads Arabic-Indic digits natively
 await worker.setParameters({ tessedit_pageseg_mode: "6" })
-const { data } = await worker.recognize("C:/Users/tomas/Downloads/EGX-Scanner-backup/statments/masr-p6-hi.png")
+const { data } = await worker.recognize("C:/Users/tomas/Downloads/Meza-backup/statments/masr-p6-hi.png")
 const AR = { "٠": "0", "١": "1", "٢": "2", "٣": "3", "٤": "4", "٥": "5", "٦": "6", "٧": "7", "٨": "8", "٩": "9" }
 const norm = (s) => s.replace(/[٠-٩]/g, (d) => AR[d] ?? d)
 const lines = norm(data.text).split("\n").filter((l) => l.trim())

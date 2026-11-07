@@ -1,5 +1,5 @@
 ﻿net_profit
-node : C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\node_modules\@prisma\client\runtime\library.js:29
+node : C:\Users\tomas\Downloads\Meza-backup\Meza\node_modules\@prisma\client\runtime\library.js:29
 At line:10 char:63
 + ... k-profit-codes.mjs ; node scripts\check-profit-codes.mjs 2>&1 | Out-F ...
 +                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -207,16 +207,16 @@ Invalid `prisma.metricDefinition.findMany()` invocation:
 
 Unknown field `nameEn` for select statement on model `MetricDefinition`. Available options are marked with ?.
     at Nn 
-(C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\node_modules\@prisma\client\runtime\library.js:29:1363)
+(C:\Users\tomas\Downloads\Meza-backup\Meza\node_modules\@prisma\client\runtime\library.js:29:1363)
     at ei.handleRequestError 
-(C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\node_modules\@prisma\client\runtime\library.js:121:6911)
+(C:\Users\tomas\Downloads\Meza-backup\Meza\node_modules\@prisma\client\runtime\library.js:121:6911)
     at ei.handleAndLogRequestError 
-(C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\node_modules\@prisma\client\runtime\library.js:121:6593)
+(C:\Users\tomas\Downloads\Meza-backup\Meza\node_modules\@prisma\client\runtime\library.js:121:6593)
     at ei.request 
-(C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\node_modules\@prisma\client\runtime\library.js:121:6300)
+(C:\Users\tomas\Downloads\Meza-backup\Meza\node_modules\@prisma\client\runtime\library.js:121:6300)
     at async a 
-(C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\node_modules\@prisma\client\runtime\library.js:130:9551)
-    at async file:///C:/Users/tomas/Downloads/EGX-Scanner-backup/EGX-Scanner/scripts/check-profit-codes.mjs:6:16 {
+(C:\Users\tomas\Downloads\Meza-backup\Meza\node_modules\@prisma\client\runtime\library.js:130:9551)
+    at async file:///C:/Users/tomas/Downloads/Meza-backup/Meza/scripts/check-profit-codes.mjs:6:16 {
   clientVersion: '6.19.3'
 }
 

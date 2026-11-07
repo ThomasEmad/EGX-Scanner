@@ -1,0 +1,799 @@
+     1→"use client"
+     2→
+     3→import Link from "next/link"
+     4→import { useRouter } from "next/navigation"
+     5→import { useQuery } from "@tanstack/react-query"
+     6→import {
+     7→  ArrowRight,
+     8→  BellRing,
+     9→  Building2,
+    10→  CalendarDays,
+    11→  FileCheck2,
+    12→  Gauge,
+    13→  Lock,
+    14→  Percent,
+    15→  Scale,
+    16→  ScanSearch,
+    17→  Sparkles,
+    18→  Star,
+    19→  TrendingDown,
+    20→  TrendingUp,
+    21→  Activity,
+    22→} from "lucide-react"
+    23→import { Badge } from "@/components/ui/badge"
+    24→import { Button } from "@/components/ui/button"
+    25→import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+    26→import { Skeleton } from "@/components/ui/skeleton"
+    27→import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+    28→import { api, getUserToken, type DashboardData } from "@/lib/client/api"
+    29→import { useWatchlist } from "@/lib/client/watchlist"
+    30→import { useI18n, type DictKey } from "@/lib/i18n"
+    31→import { formatEgp } from "@/lib/financial/units"
+    32→import { DemoBadge, EventBadge } from "./shared"
+    33→import { QaBox } from "./qa-box"
+    34→import { EVENT_TYPE_MAP } from "@/lib/financial/registry"
+    35→import type { ViewKey } from "@/lib/view-keys"
+    36→import { sectorLabel } from "@/lib/sectors"
+    37→
+    38→interface SectorAgg {
+    39→  sector: string
+    40→  companyCount: number
+    41→  avgRoe: number | null
+    42→  avgRoa: number | null
+    43→  avgNetMargin: number | null
+    44→  avgPe: number | null
+    45→  avgPb: number | null
+    46→  totalMarketCap: number | null
+    47→  totalRevenue: number | null
+    48→  totalNetProfit: number | null
+    49→  medianRoe: number | null
+    50→  medianPe: number | null
+    51→  medianPb: number | null
+    52→  periodLabel: string | null
+    53→  periodType: string | null
+    54→  fiscalYear: number | null
+    55→  dayChangePct: number | null
+    56→  advancing: number
+    57→  declining: number
+    58→  unchanged: number
+    59→  pricedCompanyCount: number
+    60→}
+    61→
+    62→interface BreadthData {
+    63→  advancing: number
+    64→  declining: number
+    65→  unchanged: number
+    66→  tradedValue: number | null
+    67→  asOf: string | null
+    68→  pricedCount?: number
+    69→  tradedValueCoverage?: number | null
+    70→}
+    71→
+    72→interface WatchlistItemWithPrice {
+    73→  id: string
+    74→  ticker: string
+    75→  price?: number
+    76→  changePct?: number
+    77→  asOf?: string
+    78→}
+    79→
+    80→export function DashboardView({
+    81→  onOpenScanner,
+    82→  onOpenCompany,
+    83→  onViewChange,
+    84→}: {
+    85→  onOpenScanner: (ruleId: string) => void
+    86→  onOpenCompany: (id: string) => void
+    87→  onViewChange: (v: ViewKey) => void
+    88→}) {
+    89→  const router = useRouter()
+    90→  const { t, lang, pick } = useI18n()
+    91→  const ar = lang === "ar"
+    92→
+    93→  const { data, isLoading, error } = useQuery({ queryKey: ["dashboard"], queryFn: api.dashboard })
+    94→  const { data: subData } = useQuery({ queryKey: ["my-subscription"], queryFn: () => api.subscription() })
+    95→  const { data: latest } = useQuery({ queryKey: ["latest-results"], queryFn: () => api.latestResults(), staleTime: 60_000 })
+    96→  const { data: valuation } = useQuery({
+    97→    queryKey: ["market-valuation"],
+    98→    queryFn: () => fetch("/api/v1/dashboard/valuation").then((r) => (r.ok ? ((r.json() as unknown) as { results: { companyId: string; ticker: string; name: string; sector: string; pe: number | null; discountPct: number | null }[] }) : null)),
+    99→    staleTime: 300_000,
+   100→  })
+   101→
+   102→  const { data: sectorAggs } = useQuery({
+   103→    queryKey: ["sector-aggs"],
+   104→    queryFn: () => fetch("/api/v1/sectors").then((r) => (r.ok ? (r.json() as Promise<{ sectors: SectorAgg[] }>) : { sectors: [] })),
+   105→    staleTime: 120_000,
+   106→  })
+   107→
+   108→  const { data: breadth } = useQuery({
+   109→    queryKey: ["market-breadth"],
+   110→    queryFn: () => fetch("/api/v1/market/breadth").then((r) => (r.ok ? (r.json() as Promise<BreadthData>) : null)),
+   111→    staleTime: 60_000,
+   112→    refetchInterval: 300_000,
+   113→  })
+   114→
+   115→  const isPremium = !!subData?.isPremium
+   116→  const watchItems = useWatchlist((s) => s.items)
+   117→  const watchIds = watchItems.map((w) => w.id)
+   118→
+   119→  const { data: watchPrices } = useQuery({
+   120→    queryKey: ["watch-prices", watchIds.join(",")],
+   121→    queryFn: () => fetch(`/api/v1/market/ticker?fresh=true`).then((r) => (r.ok ? (r.json() as Promise<{ movers?: { ticker: string; price: number; changePct: number }[] }>) : { movers: [] })),
+   122→    enabled: watchIds.length > 0,
+   123→    staleTime: 30_000,
+   124→    refetchInterval: 60_000,
+   125→  })
+   126→
+   127→  const alertsQuery = useQuery({
+   128→    queryKey: ["watch-alerts", watchIds.join(",")],
+   129→    queryFn: () => api.eventsFeed(watchIds, 8),
+   130→    enabled: watchIds.length > 0 && isPremium,
+   131→    refetchInterval: 60_000,
+   132→  })
+   133→
+   134→  if (isLoading) {
+   135→    return (
+   136→      <div className="space-y-6">
+   137→        <section className="relative overflow-hidden rounded-[20px] border border-primary/20 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent p-6 sm:p-8 h-[240px]">
+   138→          <Skeleton className="h-full w-full rounded-[20px]" />
+   139→        </section>
+   140→        <div className="grid gap-6 lg:grid-cols-12">
+   141→          <div className="lg:col-span-4"><Skeleton className="h-[240px] rounded-[20px]" /></div>
+   142→          <div className="lg:col-span-4"><Skeleton className="h-[240px] rounded-[20px]" /></div>
+   143→          <div className="lg:col-span-4"><Skeleton className="h-[240px] rounded-[20px]" /></div>
+   144→        </div>
+   145→        <div className="grid gap-6 lg:grid-cols-12">
+   146→          <div className="lg:col-span-4"><Skeleton className="h-[200px] rounded-[20px]" /></div>
+   147→          <div className="lg:col-span-4"><Skeleton className="h-[200px] rounded-[20px]" /></div>
+   148→          <div className="lg:col-span-4"><Skeleton className="h-[200px] rounded-[20px]" /></div>
+   149→        </div>
+   150→      </div>
+   151→    )
+   152→  }
+   153→
+   154→  if (error || !data) {
+   155→    return (
+   156→      <Card className="border-destructive/20 bg-destructive/5">
+   157→        <CardHeader>
+   158→          <CardTitle className="text-destructive">{t("common.noData")}</CardTitle>
+   159→          <CardDescription>{error instanceof Error ? error.message : String(error)}</CardDescription>
+   160→        </CardHeader>
+   161→      </Card>
+   162→    )
+   163→  }
+   164→
+   165→  return (
+   166→      <div className="space-y-8">
+   167→      {/* ===== MARKET HEADER — investor-first, data not marketing ===== */}
+   168→      <section className="rounded-2xl border border-border/60 bg-card p-5 sm:p-6">
+   169→        <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+   170→          <div className="min-w-0">
+   171→            <div className="flex items-center gap-2">
+   172→              <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/10 px-2.5 py-0.5 text-[11px] font-medium text-primary">
+   173→                <span className="flex h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+   174→                {ar ? "بيانات السوق" : "Market data"}
+   175→              </span>
+   176→              {breadth?.asOf ? (
+   177→                <span className="text-[11px] text-muted-foreground" dir="ltr">
+   178→                  {new Date(breadth.asOf).toLocaleString(ar ? "ar-EG" : "en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}
+   179→                </span>
+   180→              ) : null}
+   181→            </div>
+   182→            <h1 className="mt-2 text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+   183→              {ar ? "لوحة السوق — البورصة المصرية" : "Market overview — Egyptian Exchange"}
+   184→            </h1>
+   185→            <p className="mt-1 text-sm text-muted-foreground">
+   186→              {ar
+   187→                ? "كل رقم من إفصاحات موثقة — اكتشف الفرص بالماسحات أو تابع القطاعات والقيم."
+   188→                : "Every figure from verified filings — screen opportunities, follow sectors and valuations."}
+   189→            </p>
+   190→            <div className="mt-4 flex flex-wrap gap-2">
+   191→              <Button onClick={() => onViewChange("scanners")} size="sm" className="gap-2">
+   192→                <ScanSearch className="h-4 w-4" />
+   193→                {t("nav.scanners")}
+   194→              </Button>
+   195→              <Button variant="outline" size="sm" onClick={() => onViewChange("custom")} className="gap-2">
+   196→                <Sparkles className="h-4 w-4" />
+   197→                {t("nav.customScanner")}
+   198→              </Button>
+   199→            </div>
+   200→          </div>
+   201→
+   202→          <div className="grid shrink-0 grid-cols-2 gap-2.5 sm:grid-cols-4 lg:w-auto">
+   203→            {/* Breadth: advancing / declining today */}
+   204→            <div className="rounded-xl border border-border/60 bg-background/60 px-3.5 py-3 min-w-[104px]">
+   205→              <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{ar ? "الاتساع السوقي" : "Breadth"}</p>
+   206→              <p className="mt-1 flex items-baseline gap-2 text-lg font-bold tabular" dir="ltr">
+   207→                <span className="text-positive">{breadth?.advancing ?? "—"}</span>
+   208→                <span className="text-[10px] text-muted-foreground">/</span>
+   209→                <span className="text-negative">{breadth?.declining ?? "—"}</span>
+   210→              </p>
+   211→              <p className="text-[10px] text-muted-foreground">{ar ? "صاعد / هابط" : "adv / dec"}</p>
+   212→            </div>
+   213→            {/* Traded value today */}
+   214→            <div className="rounded-xl border border-border/60 bg-background/60 px-3.5 py-3 min-w-[104px]">
+   215→              <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{ar ? "القيمة المتداولة" : "Traded value"}</p>
+   216→              <p className="mt-1 text-lg font-bold tabular" dir="ltr">
+   217→                {breadth?.tradedValue != null ? formatEgp(breadth.tradedValue) : "—"}
+   218→              </p>
+   219→              <p className="text-[10px] text-muted-foreground">EGP</p>
+   220→            </div>
+   221→            {/* Companies tracked */}
+   222→            <div className="rounded-xl border border-border/60 bg-background/60 px-3.5 py-3 min-w-[104px]">
+   223→              <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{t("dash.companiesTracked")}</p>
+   224→              <p className="mt-1 text-lg font-bold tabular">{data.stats.companies.toLocaleString()}</p>
+   225→              <p className="text-[10px] text-muted-foreground">{ar ? "شركة مدرجة" : "listed"}</p>
+   226→            </div>
+   227→            {/* Financial data points (from published statements) */}
+   228→            <div className="rounded-xl border border-border/60 bg-background/60 px-3.5 py-3 min-w-[104px]">
+   229→              <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{t("dash.validatedValues")}</p>
+   230→              <p className="mt-1 text-lg font-bold tabular">{data.stats.validValues.toLocaleString()}</p>
+   231→              <p className="text-[10px] text-muted-foreground">{ar ? "من القوائم المنشورة" : "from published filings"}</p>
+   232→            </div>
+   233→          </div>
+   234→        </div>
+   235→      </section>
+   236→
+   237→      {/* ===== ANALYTICS ROW ===== */}
+   238→      <div className="grid gap-6 lg:grid-cols-12">
+   239→        {/* Panel A — Sector Performance (Real Data) */}
+   240→        <SectorPerformancePanel
+   241→          sectorAggs={sectorAggs?.sectors ?? []}
+   242→          onOpenCompany={onOpenCompany}
+   243→          isPremium={isPremium}
+   244→          ar={ar}
+   245→          lang={lang}
+   246→          onViewChange={onViewChange}
+   247→        />
+   248→
+   249→        {/* Panel B — Market Summary (Real Data) */}
+   250→        <MarketSummaryPanel breadth={breadth} ar={ar} />
+   251→
+   252→        {/* Panel C — EGX30 Chart (No Synthetic Data) */}
+   253→        <Egx30ChartPanel isPremium={isPremium} ar={ar} onViewChange={onViewChange} router={router} />
+   254→      </div>
+   255→
+   256→      {/* ===== SECONDARY ROW ===== */}
+   257→      <div className="grid gap-6 lg:grid-cols-12">
+   258→        {/* Panel D — Important Events */}
+   259→        <EventsPanel data={data} isPremium={isPremium} ar={ar} onOpenCompany={onOpenCompany} />
+   260→
+   261→        {/* Panel E — Watchlist (Real Price Changes) */}
+   262→        <WatchlistPanel
+   263→          watchItems={watchItems}
+   264→          watchPrices={watchPrices?.movers ?? []}
+   265→          onOpenCompany={onOpenCompany}
+   266→          ar={ar}
+   267→          router={router}
+   268→        />
+   269→
+   270→        {/* Panel F — Opportunities Under Radar (Real Valuation Data) */}
+   271→        <OpportunitiesPanel
+   272→          valuation={valuation}
+   273→          isPremium={isPremium}
+   274→          ar={ar}
+   275→          onOpenCompany={onOpenCompany}
+   276→          router={router}
+   277→          onViewChange={onViewChange}
+   278→        />
+   279→      </div>
+   280→
+   281→      {/* ===== BOTTOM STRIP ===== */}
+   282→      <section className="rounded-[20px] border border-border/60 bg-card p-5 sm:p-6">
+   283→        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+   284→          <div className="flex w-full flex-1 items-center gap-3 sm:flex-nowrap">
+   285→            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-muted/40 text-muted-foreground">
+   286→              <Activity className="h-4 w-4" />
+   287→            </div>
+   288→            <div className="flex-1 min-w-0">
+   289→              <input
+   290→                type="search"
+   291→                placeholder={ar ? "اسأل عن السوق…" : "Ask about the market…"}
+   292→                className="w-full px-3 py-1.5 text-sm rounded-xl border border-input bg-background/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring transition-colors"
+   293→              />
+   294→              <Button size="sm" className="ml-2 h-9 px-3 text-xs font-semibold">
+   295→                {ar ? "إرسال" : "Send"}
+   296→              </Button>
+   297→            </div>
+   298→          </div>
+   299→          <div className="flex w-full flex-1 justify-end sm:justify-start gap-2 sm:ml-auto">
+   300→            {[
+   301→              { label: ar ? "الشركات" : "Companies", href: "/rankings", icon: <Building2 className="h-4 w-4" /> },
+   302→              { label: ar ? "القطاعات" : "Sectors", href: "/sectors", icon: <ScanSearch className="h-4 w-4" /> },
+   303→              { label: ar ? "ماسح مخصص" : "Custom Scanner", href: "/dashboard#/custom", icon: <Scale className="h-4 w-4" /> },
+   304→              { label: ar ? "مقارنة" : "Compare", href: "/compare", icon: <Sparkles className="h-4 w-4" /> },
+   305→            ].map((item) => (
+   306→              <Link
+   307→                key={item.href}
+   308→                href={item.href}
+   309→                onClick={(e) => {
+   310→                  if (item.href.startsWith("/dashboard#")) {
+   311→                    e.preventDefault()
+   312→                    router.push(item.href)
+   313→                  }
+   314→                }}
+   315→                className="flex items-center gap-2 rounded-xl border border-border/60 bg-background px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground"
+   316→              >
+   317→                {item.icon}
+   318→                {item.label}
+   319→              </Link>
+   320→            ))}
+   321→          </div>
+   322→        </div>
+   323→      </section>
+   324→    </div>
+   325→  )
+   326→}
+   327→
+   328→/* ===== Index Card ===== */
+   329→function IndexCard({ label, change, value }: { label: string; change: string; value: string }) {
+   330→  const positive = !change.startsWith("-")
+   331→  return (
+   332→    <div className="rounded-xl border border-border/50 bg-card/80 px-3 py-2.5 backdrop-blur-sm">
+   333→      <div className="flex items-center justify-between">
+   334→        <div>
+   335→          <span className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{label}</span>
+   336→          <span className="text-xs font-bold tabular text-foreground">{value}</span>
+   337→        </div>
+   338→        <span className={`text-xs font-bold tabular ${positive ? "text-positive" : "text-negative"}`}>
+   339→          {change}
+   340→        </span>
+   341→      </div>
+   342→    </div>
+   343→  )
+   344→}
+   345→
+   346→/* ===== Panel A — Sector Performance (Real Data) ===== */
+   347→function SectorPerformancePanel({
+   348→  sectorAggs,
+   349→  onOpenCompany,
+   350→  isPremium,
+   351→  ar,
+   352→  lang,
+   353→  onViewChange,
+   354→}: {
+   355→  sectorAggs: SectorAgg[]
+   356→  onOpenCompany: (id: string) => void
+   357→  isPremium: boolean
+   358→  ar: boolean
+   359→  lang: "en" | "ar"
+   360→  onViewChange?: (v: ViewKey) => void
+   361→}) {
+   362→  const router = useRouter()
+   363→
+   364→  const rowsWithData = sectorAggs
+   365→    .filter((s) => s.dayChangePct !== null)
+   366→    .sort((a, b) => (b.dayChangePct ?? -Infinity) - (a.dayChangePct ?? -Infinity))
+   367→
+   368→  return (
+   369→    <div className="lg:col-span-4">
+   370→      <Card className="border-border/60 p-0">
+   371→        <CardHeader className="pb-3 px-5">
+   372→          <div className="flex items-center justify-between gap-2">
+   373→            <CardTitle className="text-sm font-semibold flex items-center gap-2">
+   374→              <Gauge className="h-3.5 w-3.5 text-primary" />
+   375→              {ar ? "أداء القطاعات (يوم)" : "Sector Performance (1D)"}
+   376→            </CardTitle>
+   377→            <Button variant="ghost" size="sm" className="h-6 px-2 text-[10px]" onClick={() => router.push("/sectors")}>
+   378→              {ar ? "عرض الكل" : "Show all"}
+   379→            </Button>
+   380→          </div>
+   381→        </CardHeader>
+   382→        <CardContent className="p-0">
+   383→          <div className="space-y-1.5 p-4">
+   384→            {rowsWithData.length > 0 ? (
+   385→              rowsWithData.slice(0, 5).map((row, i) => {
+   386→                const change = row.dayChangePct
+   387→                const positive = change !== null && change >= 0
+   388→                const widthPct = change !== null ? Math.min(Math.abs(change) * 10, 100) : 0
+   389→                return (
+   390→                  <div
+   391→                    key={row.sector}
+   392→                    onClick={() => router.push("/sectors/" + encodeURIComponent(row.sector))}
+   393→                    className="group flex items-center justify-between gap-2 rounded-xl px-3 py-2.5 text-start transition-all duration-200 hover:bg-primary/5 hover:border-primary/30 border border-transparent cursor-pointer"
+   394→                  >
+   395→                    <div className="flex items-center gap-2 min-w-0">
+   396→                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary text-xs font-bold">
+   397→                        {i + 1}
+   398→                      </span>
+   399→                      <span className="text-sm font-medium truncate">{sectorLabel(row.sector, lang)}</span>
+   400→                    </div>
+   401→                    <div className="flex-1 h-[8px] mx-3 overflow-hidden rounded-full bg-muted/40">
+   402→                      <div
+   403→                        className="h-full rounded-full transition-all duration-500"
+   404→                        style={{
+   405→                          width: widthPct + "%",
+   406→                          background: positive
+   407→                            ? "linear-gradient(90deg, var(--positive) 0%, #22c55e 100%)"
+   408→                            : "linear-gradient(90deg, var(--negative) 0%, #ef4444 100%)",
+   409→                        }}
+   410→                      />
+   411→                    </div>
+   412→                    <span className={`text-sm font-bold tabular shrink-0 flex items-center gap-1 ${positive ? "text-positive" : change !== null ? "text-negative" : "text-muted-foreground"}`}>
+   413→                      {change !== null ? (
+   414→                        <>
+   415→                          {positive ? <TrendingUp className="h-3.5 w-3.5" /> : <TrendingDown className="h-3.5 w-3.5" />}
+   416→                          <span dir="ltr">{change >= 0 ? "+" : ""}{change.toFixed(1)}%</span>
+   417→                        </>
+   418→                      ) : "—"}
+   419→                    </span>
+   420→                  </div>
+   421→                )
+   422→              })
+   423→            ) : (
+   424→              <div className="text-center text-xs text-muted-foreground py-4">
+   425→                {ar ? "لا توجد أسعار قطاعية متاحة بعد" : "No sector price data available yet"}
+   426→              </div>
+   427→            )}
+   428→          </div>
+   429→          <p className="px-4 pb-3 text-[10px] text-muted-foreground">
+   430→            {ar ? "تغير السعر المرجّح بالتساوي · متأخر 15 دقيقة" : "Equal-weighted price change · 15-min delayed"}
+   431→          </p>
+   432→        </CardContent>
+   433→      </Card>
+   434→    </div>
+   435→  )
+   436→}
+   437→
+   438→/* ===== Panel B — Market Summary (Real Data) ===== */
+   439→function MarketSummaryPanel({ breadth, ar }: { breadth: BreadthData | null | undefined; ar: boolean }) {
+   440→  const advancing = breadth?.advancing ?? 0
+   441→  const declining = breadth?.declining ?? 0
+   442→  const unchanged = breadth?.unchanged ?? 0
+   443→  const tradedValue = breadth?.tradedValue
+   444→  const asOf = breadth?.asOf
+   445→
+   446→  const cells = [
+   447→    { label: ar ? "منخفضة" : "Declining", value: String(declining), color: "text-negative", dot: "bg-negative" },
+   448→    { label: ar ? "مستقرة" : "Unchanged", value: String(unchanged), color: "text-muted-foreground", dot: "bg-muted-foreground" },
+   449→    { label: ar ? "صاعدة" : "Advancing", value: String(advancing), color: "text-positive", dot: "bg-positive" },
+   450→    {
+   451→      label: ar ? "قيمة التداول" : "Traded Value",
+   452→      value: tradedValue !== null && tradedValue !== undefined ? formatEgp(tradedValue) : (ar ? "غير متاح" : "N/A"),
+   453→      color: "text-gold",
+   454→      dot: "bg-gold/20 text-gold",
+   455→    },
+   456→  ]
+   457→
+   458→  return (
+   459→    <div className="lg:col-span-4">
+   460→      <Card className="border-border/60 p-0">
+   461→        <CardHeader className="pb-3 px-5">
+   462→          <CardTitle className="text-sm font-semibold flex items-center gap-2">
+   463→            <FileCheck2 className="h-3.5 w-3.5 text-primary" />
+   464→            {ar ? "ملخص السوق" : "Market Summary"}
+   465→          </CardTitle>
+   466→        </CardHeader>
+   467→        <CardContent className="p-0">
+   468→          <div className="grid grid-cols-2 gap-2 p-4">
+   469→            {cells.map((cell, i) => (
+   470→              <div key={i} className="rounded-xl border border-border/50 bg-card/80 p-3">
+   471→                <div className="flex items-center justify-between mb-1">
+   472→                  <span className={`text-[10px] font-medium uppercase tracking-wide ${cell.color}`}>{cell.label}</span>
+   473→                  <span className={`flex h-5 w-5 items-center justify-center rounded-full ${cell.dot}`} />
+   474→                </div>
+   475→                <span className="text-xl font-bold tabular text-foreground">{cell.value}</span>
+   476→              </div>
+   477→            ))}
+   478→          </div>
+   479→          {asOf && (
+   480→            <div className="px-4 pb-1 text-[10px] text-muted-foreground text-right">
+   481→              {ar ? "آخر تحديث: " : "Updated: "}{new Date(asOf).toLocaleString(ar ? "ar-EG" : "en-GB")}
+   482→            </div>
+   483→          )}
+   484→          <div className="px-4 pb-3 text-[10px] text-muted-foreground">
+   485→            {ar ? "اتساع السوق حسب تغير السعر · متأخر 15 دقيقة" : "Price breadth · 15-min delayed"}
+   486→          </div>
+   487→        </CardContent>
+   488→      </Card>
+   489→    </div>
+   490→  )
+   491→}
+   492→
+   493→/* ===== Panel C — EGX30 (latest level only; no synthetic history) ===== */
+   494→function Egx30ChartPanel({
+   495→  ar,
+   496→  router,
+   497→}: {
+   498→  isPremium: boolean
+   499→  ar: boolean
+   500→  onViewChange: (v: ViewKey) => void
+   501→  router: ReturnType<typeof useRouter>
+   502→}) {
+   503→  const { data, isLoading } = useQuery({
+   504→    queryKey: ["market-ticker"],
+   505→    queryFn: () =>
+   506→      fetch("/api/v1/market/ticker?fresh=true").then((r) =>
+   507→        r.ok
+   508→          ? (r.json() as Promise<{
+   509→              indices: { name: string; level: number; changePct: number }[]
+   510→              pricesAsOf?: string | null
+   511→              delayMinutes?: number | null
+   512→            }>)
+   513→          : null,
+   514→      ),
+   515→    staleTime: 30_000,
+   516→    refetchInterval: 60_000,
+   517→  })
+   518→
+   519→  const egx30 = data?.indices?.find((i) => i.name === "EGX30")
+   520→  const others = (data?.indices ?? []).filter((i) => i.name !== "EGX30").slice(0, 3)
+   521→  const positive = (egx30?.changePct ?? 0) >= 0
+   522→  const fmt = (value: number) =>
+   523→    value.toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+   524→
+   525→  return (
+   526→    <div className="lg:col-span-4">
+   527→      <Card className="border-border/60 p-0">
+   528→        <CardHeader className="pb-3 px-5">
+   529→          <div className="flex items-center justify-between gap-2">
+   530→            <CardTitle className="text-sm font-semibold flex items-center gap-2">
+   531→              <Activity className="h-3.5 w-3.5 text-primary" />
+   532→              {ar ? "مؤشر EGX30" : "EGX30 Index"}
+   533→            </CardTitle>
+   534→            <span className="rounded-full border border-border/60 bg-muted/30 px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
+   535→              {ar ? "متأخر 15 دقيقة" : "15m delayed"}
+   536→            </span>
+   537→          </div>
+   538→        </CardHeader>
+   539→        <CardContent className="p-0">
+   540→          <div className="space-y-4 p-4">
+   541→            {isLoading ? (
+   542→              <div className="flex h-[120px] items-center justify-center">
+   543→                <div className="flex flex-col items-center gap-2 text-muted-foreground">
+   544→                  <div className="h-6 w-6 animate-spin rounded-full border-2 border-primary/30 border-t-primary" />
+   545→                  <span className="text-xs">{ar ? "جاري تحميل البيانات..." : "Loading market data..."}</span>
+   546→                </div>
+   547→              </div>
+   548→            ) : (
+   549→              <>
+   550→                <div className="flex items-baseline justify-between gap-3">
+   551→                  <span className="text-3xl font-extrabold tabular text-foreground">
+   552→                    {egx30 ? fmt(egx30.level) : "—"}
+   553→                  </span>
+   554→                  <span className={`text-sm font-bold tabular ${positive ? "text-positive" : "text-negative"}`}>
+   555→                    {egx30 ? <span dir="ltr">{`${positive ? "+" : ""}${egx30.changePct.toFixed(2)}%`}</span> : "—"}
+   556→                  </span>
+   557→                </div>
+   558→
+   559→                <div className="grid grid-cols-3 gap-2">
+   560→                  {others.map((index) => {
+   561→                    const up = index.changePct >= 0
+   562→                    return (
+   563→                      <div key={index.name} className="rounded-lg border border-border/50 bg-card/80 p-2">
+   564→                        <p className="truncate text-[10px] font-medium text-muted-foreground">{index.name}</p>
+   565→                        <p className="text-xs font-bold tabular text-foreground">{fmt(index.level)}</p>
+   566→                        <p className={`text-[10px] font-semibold tabular ${up ? "text-positive" : "text-negative"}`}>
+   567→                          <span dir="ltr">{up ? "+" : ""}{index.changePct.toFixed(2)}%</span>
+   568→                        </p>
+   569→                      </div>
+   570→                    )
+   571→                  })}
+   572→                </div>
+   573→              </>
+   574→            )}
+   575→
+   576→            <p className="text-[10px] leading-relaxed text-muted-foreground">
+   577→              {ar
+   578→                ? "المستوى الحالي من مصدر عام متأخر 15 دقيقة. الرسم البياني التاريخي للمؤشر يتطلب تغذية بيانات مرخصة."
+   579→                : "Latest level from a 15-minute-delayed public source. Historical index charts require a licensed data feed."}
+   580→            </p>
+   581→            {data?.pricesAsOf ? (
+   582→              <p className="text-[10px] text-muted-foreground">
+   583→                {ar ? "آخر تحديث: " : "Updated: "}
+   584→                {new Date(data.pricesAsOf).toLocaleString(ar ? "ar-EG" : "en-GB")}
+   585→              </p>
+   586→            ) : null}
+   587→
+   588→            <Button variant="outline" size="sm" className="w-full" onClick={() => router.push("/sectors")}>
+   589→              {ar ? "استعرض أداء القطاعات" : "Explore sector performance"}
+   590→            </Button>
+   591→          </div>
+   592→        </CardContent>
+   593→      </Card>
+   594→    </div>
+   595→  )
+   596→}
+   597→
+   598→/* ===== Panel D — Important Events ===== */
+   599→function EventsPanel({
+   600→  data,
+   601→  isPremium,
+   602→  ar,
+   603→  onOpenCompany,
+   604→}: {
+   605→  data: DashboardData
+   606→  isPremium: boolean
+   607→  ar: boolean
+   608→  onOpenCompany: (id: string) => void
+   609→}) {
+   610→  const { pick } = useI18n()
+   611→  return (
+   612→    <div className="lg:col-span-4">
+   613→      <Card className="border-border/60 p-0">
+   614→        <CardHeader className="pb-3 px-5">
+   615→          <CardTitle className="text-sm font-semibold flex items-center gap-2">
+   616→            <CalendarDays className="h-3.5 w-3.5 text-primary" />
+   617→            {ar ? "أحداث هامة" : "Important Events"}
+   618→          </CardTitle>
+   619→        </CardHeader>
+   620→        <CardContent className="p-0">
+   621→          {isPremium ? (
+   622→            <div className="p-4 space-y-2">
+   623→              {data.recentEvents.slice(0, 5).map((e) => {
+   624→                const meta = EVENT_TYPE_MAP[e.eventType]
+   625→                const tone = meta?.tone ?? "neutral"
+   626→                return (
+   627→                  <button
+   628→                    key={e.id}
+   629→                    onClick={() => onOpenCompany(e.company.id)}
+   630→                    className="flex items-center gap-2 rounded-lg border border-border/60 bg-card p-2.5 text-start transition-colors hover:bg-accent/30"
+   631→                  >
+   632→                    <span className={`flex h-6 w-6 items-center justify-center rounded ${tone === "positive" ? "bg-positive/10 text-positive" : tone === "negative" ? "bg-negative/10 text-negative" : "bg-muted/30 text-muted-foreground"}`}>
+   633→                      <BellRing className="h-3 w-3" />
+   634→                    </span>
+   635→                    <div className="min-w-0 flex-1">
+   636→                      <p className="text-xs font-semibold text-foreground leading-tight">
+   637→                        {pick(e.explanationEn, e.explanationAr)}
+   638→                      </p>
+   639→                      <p className="text-[10px] text-muted-foreground">{e.periodLabel}</p>
+   640→                    </div>
+   641→                  </button>
+   642→                )
+   643→              })}
+   644→            </div>
+   645→          ) : (
+   646→            <div className="flex flex-col items-center justify-center gap-2 py-8 text-center text-xs text-muted-foreground">
+   647→              <Lock className="h-5 w-5 text-warning-foreground" aria-hidden />
+   648→              <p>{ar ? "الأحداث متاحة لمشتركي بريميوم فقط" : "Events available for Premium subscribers only"}</p>
+   649→              <Button size="sm" variant="link" className="h-auto gap-1 text-xs" onClick={() => {}}>
+   650→                {ar ? "ترقية" : "Upgrade"}
+   651→              </Button>
+   652→            </div>
+   653→          )}
+   654→        </CardContent>
+   655→      </Card>
+   656→    </div>
+   657→  )
+   658→}
+   659→
+   660→/* ===== Panel E — Watchlist (Real Price Changes) ===== */
+   661→function WatchlistPanel({
+   662→  watchItems,
+   663→  watchPrices,
+   664→  onOpenCompany,
+   665→  ar,
+   666→  router,
+   667→}: {
+   668→  watchItems: { id: string; ticker: string }[]
+   669→  watchPrices: { ticker: string; price: number; changePct: number }[]
+   670→  onOpenCompany: (id: string) => void
+   671→  ar: boolean
+   672→  router: any
+   673→}) {
+   674→  const priceMap = new Map(watchPrices.map((p) => [p.ticker, p]))
+   675→
+   676→  return (
+   677→    <div className="lg:col-span-4">
+   678→      <Card className="border-border/60 p-0">
+   679→        <CardHeader className="pb-3 px-5 flex items-center justify-between">
+   680→          <CardTitle className="text-sm font-semibold flex items-center gap-2">
+   681→            <Star className="h-3.5 w-3.5 text-gold" />
+   682→            {ar ? "قائمة المتابعة" : "Watchlist"}
+   683→          </CardTitle>
+   684→          {watchItems.length > 0 ? (
+   685→            <Button variant="ghost" size="sm" className="h-6 px-2 text-[10px]" onClick={() => router.push("/watchlist")}>
+   686→              {ar ? "الكل" : "All"}
+   687→            </Button>
+   688→          ) : null}
+   689→        </CardHeader>
+   690→        <CardContent className="p-0">
+   691→          {watchItems.length > 0 ? (
+   692→            <div className="space-y-1 p-3">
+   693→              {watchItems.slice(0, 5).map((w) => {
+   694→                const priceInfo = priceMap.get(w.ticker)
+   695→                const change = priceInfo?.changePct ?? 0
+   696→                const positive = change >= 0
+   697→                return (
+   698→                  <button
+   699→                    key={w.id}
+   700→                    onClick={() => onOpenCompany(w.id)}
+   701→                    className="flex items-center justify-between gap-2 rounded-lg border border-border/60 bg-card p-2.5 text-start transition-colors hover:bg-accent/30"
+   702→                  >
+   703→                    <span className="text-sm font-bold">{w.ticker}</span>
+   704→                    <span className={`text-xs font-bold tabular ${positive ? "text-positive" : "text-negative"}`}>
+   705→                      <span dir="ltr">{change >= 0 ? "+" : ""}{change.toFixed(2)}%</span>
+   706→                    </span>
+   707→                  </button>
+   708→                )
+   709→              })}
+   710→            </div>
+   711→          ) : (
+   712→            <div className="flex flex-col items-center justify-center gap-2 py-8 text-center text-xs text-muted-foreground">
+   713→              <Star className="h-5 w-5 text-muted-foreground/60" aria-hidden />
+   714→              <p>{ar ? "لم تضف أي شركة إلى قائمة المتابعة بعد" : "No companies in your watchlist yet"}</p>
+   715→            </div>
+   716→          )}
+   717→        </CardContent>
+   718→      </Card>
+   719→    </div>
+   720→  )
+   721→}
+   722→
+   723→/* ===== Panel F — Opportunities Under Radar (Real Valuation Data) ===== */
+   724→function OpportunitiesPanel({
+   725→  valuation,
+   726→  isPremium,
+   727→  ar,
+   728→  onOpenCompany,
+   729→  router,
+   730→  onViewChange,
+   731→}: {
+   732→  valuation: { results: Array<{ companyId: string; ticker: string; name: string; sector: string; pe: number | null; discountPct: number | null }> } | null | undefined
+   733→  isPremium: boolean
+   734→  ar: boolean
+   735→  onOpenCompany: (id: string) => void
+   736→  router: any
+   737→  onViewChange: (v: ViewKey) => void
+   738→}) {
+   739→  const results = valuation?.results ?? []
+   740→
+   741→  return (
+   742→    <div className="lg:col-span-4">
+   743→      <Card className="border-border/60 p-0">
+   744→        <CardContent className="p-0">
+   745→          <div className="relative overflow-hidden rounded-[20px] border border-primary/30 bg-gradient-to-br from-primary/10 via-surface to-transparent p-5 sm:p-6 h-[200px] flex flex-col">
+   746→            <div className="absolute top-0 right-0 z-0 w-32 h-32 rounded-full bg-primary/20 blur-[60px] -mt-8 -mr-8" />
+   747→            <div className="relative z-10 flex flex-col h-full">
+   748→              <div className="flex items-center gap-2 mb-3">
+   749→                <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-primary/20 text-primary">
+   750→                  <Sparkles className="h-3.5 w-3.5" />
+   751→                </div>
+   752→                <h3 className="text-sm font-semibold text-foreground">{ar ? "فرص تحت الرادار" : "Opportunities Under Radar"}</h3>
+   753→              </div>
+   754→              {results.length > 0 ? (
+   755→                <>
+   756→                  <p className="text-xs text-text-secondary leading-relaxed mb-3 flex-1">
+   757→                    {ar ? "شركات تفي بمعايير التقييم — اضغط للتفاصيل" : "Companies meeting valuation criteria — tap for details"}
+   758→                  </p>
+   759→                  <div className="flex flex-wrap gap-1.5 mb-3">
+   760→                    {results.slice(0, 3).map((r) => (
+   761→                      <button
+   762→                        key={r.companyId}
+   763→                        onClick={() => onOpenCompany(r.companyId)}
+   764→                        className="flex items-center gap-1.5 rounded-lg border border-border/60 bg-card px-2 py-1 text-xs transition-colors hover:bg-accent/30"
+   765→                      >
+   766→                        <span className="font-bold">{r.ticker}</span>
+   767→                        {r.discountPct !== null && (
+   768→                          <span className="text-positive" dir="ltr">{r.discountPct >= 0 ? "+" : ""}{r.discountPct.toFixed(1)}%</span>
+   769→                        )}
+   770→                      </button>
+   771→                    ))}
+   772→                  </div>
+   773→                  <Button
+   774→                    onClick={() => onViewChange("scanners")}
+   775→                    className="mt-auto w-fit px-4 py-2 text-xs font-bold shadow-sm shadow-primary/20"
+   776→                  >
+   777→                    {ar ? "استكشف الآن" : "Explore Now"}
+   778→                  </Button>
+   779→                </>
+   780→              ) : (
+   781→                <>
+   782→                  <p className="text-xs text-text-secondary leading-relaxed mb-4 flex-1">
+   783→                    {ar ? "اكتشف شركات واعدة من خلال أدوات التحليل المتقدمة والماسحات المخصصة." : "Discover promising companies through advanced analysis tools and custom scanners."}
+   784→                  </p>
+   785→                  <Button
+   786→                    onClick={() => onViewChange("scanners")}
+   787→                    className="mt-auto w-fit px-4 py-2 text-xs font-bold shadow-sm shadow-primary/20"
+   788→                  >
+   789→                    {ar ? "استكشف الآن" : "Explore Now"}
+   790→                  </Button>
+   791→                </>
+   792→              )}
+   793→            </div>
+   794→          </div>
+   795→        </CardContent>
+   796→      </Card>
+   797→    </div>
+   798→  )
+   799→}

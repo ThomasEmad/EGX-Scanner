@@ -1,21 +1,37 @@
 skills/
 node_modules/
 
-# --- secret-bearing local diagnostics: NEVER commit (live API keys inside) ---
+# local env files (real secrets live on Vercel only)
+.env
+.env.local
+.env*.local
+
+# heavy artifacts / DB dumps must never enter the repo
+download/backup/
+download/backups/
+download/code-backup/
+download/db/
+*.bundle
+*.sql.gz
+download/zi2kelvZ
+
+# secret-bearing dev scripts never enter the public repo
+scripts/.vtoken
+scripts/diag-*
 scripts/nv_*
 scripts/test-nv-*
-scripts/test-deepseek-full.mjs
-scripts/test-isolate.mjs
-scripts/test-matrix.mjs
-scripts/test-nothink.mjs
-scripts/diag-*
+scripts/test-deepseek-*
+scripts/test-isolate*
+scripts/test-matrix*
+scripts/test-nothink*
+scripts/test-real-stream*
 scripts/vercel_env_update.sh
-scripts/turso-query.sh
-scripts/verify-turso-gemini.mjs
+scripts/turso*
+scripts/verify-turso*
 scripts/e2e_ai_analysis.sh
-scripts/test-real-stream.mjs
-scripts/turso.py
 scripts/vercel_setup.py
-# DB dumps — real user data (emails + password hashes), never commit
-*.sql.gz
-scripts/staging/db-work/
+scripts/vercel_deploy.py
+scripts/vercel_watch.py
+download/egx-vercel-env.txt
+scripts/.turso_token
+download/config/

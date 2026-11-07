@@ -1,0 +1,627 @@
+     1→"use client"
+     2→
+     3→import Link from "next/link"
+     4→import { useRouter } from "next/navigation"
+     5→import {
+     6→  ArrowRight,
+     7→  Building2,
+     8→  Gauge,
+     9→  ScanSearch,
+    10→  CalendarDays,
+    11→  FileCheck2,
+    12→  Crown,
+    13→  ShieldCheck,
+    14→  Sparkles,
+    15→  TrendingUp,
+    16→  Scale,
+    17→  Search,
+    18→  Activity,
+    19→  Layers,
+    20→  CheckCircle2,
+    21→  ArrowUpRight,
+    22→  Check,
+    23→  Clock,
+    24→  BookOpen,
+    25→  Zap,
+    26→  BarChart3,
+    27→  Users,
+    28→  GraduationCap,
+    29→  RefreshCw,
+    30→} from "lucide-react"
+    31→import { Button } from "@/components/ui/button"
+    32→import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+    33→import { Badge } from "@/components/ui/badge"
+    34→import { Separator } from "@/components/ui/separator"
+    35→import { AppHeader } from "@/components/egx/app-header"
+    36→import { AppFooter } from "@/components/egx/app-footer"
+    37→import { useQuery } from "@tanstack/react-query"
+    38→import { useI18n } from "@/lib/i18n"
+    39→import { api } from "@/lib/client/api"
+    40→import { formatEgp } from "@/lib/financial/units"
+    41→import { sectorLabel } from "@/lib/sectors"
+    42→
+    43→export default function LandingClient() {
+    44→  const { t, lang } = useI18n()
+    45→  const router = useRouter()
+    46→  const ar = lang === "ar"
+    47→
+    48→  const { data: dashboardData } = useQuery({
+    49→    queryKey: ["dashboard"],
+    50→    queryFn: api.dashboard,
+    51→    staleTime: 120_000,
+    52→  })
+    53→
+    54→  // Featured companies are live: top of the active universe by current
+    55→  // price × shares outstanding. The old version hard-coded six names and even
+    56→  // included a company (MOPCO) that is inactive in the database.
+    57→  const {
+    58→    data: featuredData,
+    59→    isLoading: featuredLoading,
+    60→    isError: featuredError,
+    61→  } = useQuery({
+    62→    queryKey: ["featured-companies"],
+    63→    queryFn: () => api.companies({ sort: "marketCap", pageSize: 8 }),
+    64→    staleTime: 120_000,
+    65→  })
+    66→  const featured = featuredData?.companies ?? []
+    67→  const scannerCards = dashboardData?.scannerCards ?? []
+    68→
+    69→  // Never substitute invented numbers when the stats API is unavailable — the
+    70→  // UI renders "—" instead, so a failed fetch can never look like real data.
+    71→  const stats = dashboardData?.stats ?? null
+    72→
+    73→  const howItWorks = [
+    74→    {
+    75→      step: "1",
+    76→      title: ar ? "اختر ماسحاً مالياً" : "Pick a financial screen",
+    77→      desc: ar ? "من الماسحات الجاهزة ( Turnaround، ROE قوي، قيمة منخفضة) أو أنشئ ماسحك الخاص بأي مؤشر." : "Choose from ready-made screens (turnaround, strong ROE, deep value) or build your own with any metric.",
+    78→      icon: <ScanSearch className="h-5 w-5" />,
+    79→    },
+    80→    {
+    81→      step: "2",
+    82→      title: ar ? "شاهد الشركات المطابقة" : "See matching companies",
+    83→      desc: ar ? "قائمة فورية بالشركات التي تحقق الشرط، مع تفسير مفصل لكل شرط." : "Instant list of matching companies with a per-condition explanation.",
+    84→      icon: <Users className="h-5 w-5" />,
+    85→    },
+    86→    {
+    87→      step: "3",
+    88→      title: ar ? "حلل واتخذ قرار" : "Analyze and decide",
+    89→      desc: ar ? "افتح صفحة الشركة للقوائم المالية، الأحداث المكتشفة، ومقارنة القطاع مع تحليل ذكي موثق." : "Open company page for financials, detected events, sector comparison, and grounded AI analysis.",
+    90→      icon: <BarChart3 className="h-5 w-5" />,
+    91→    },
+    92→  ]
+    93→
+    94→  const faqs = [
+    95→    {
+    96→      q: ar ? "هل البيانات حقيقية أم تقديرية؟" : "Is the data real or estimated?",
+    97→      a: ar
+    98→        ? "كل رقم يخضع لفحص الفترة والهوية المحاسبية والمقياس قبل دخوله التحليلات. القيم المشتقة موسومة بوضوح، والقيم غير المتاحة تظهر «—» ولا تُقدَّر أو تُخترع."
+    99→        : "Every figure is checked for period, accounting identity and scale before it enters analytics. Derived values are labelled as derived, and unavailable values show “—” — they are never estimated or invented.",
+   100→    },
+   101→    {
+   102→      q: ar ? "ما الفرق بين النسخة المجانية والمميزة؟" : "What is the difference between Free and Premium?",
+   103→      a: ar
+   104→        ? "النسخة المجانية تتيح تصفح الشركات، القوائم المالية، الترتيب العام، والمقارنات. النسخة المميزة تضيف التحليل بالذكاء الاصطناعي، الماسحات المخصصة، التنبيهات على الأحداث المكتشفة، وتصدير البيانات."
+   105→        : "Free includes company browsing, financial statements, public rankings, and comparisons. Premium adds AI-assisted analysis, custom scanners, alerts on detected events, and data export.",
+   106→    },
+   107→    {
+   108→      q: ar ? "كيف يمكنني التأكد من صحة الميزانية؟" : "How can I verify balance sheet accuracy?",
+   109→      a: ar
+   110→        ? "تُشغّل المنصة فحوصاً محاسبية تلقائية (مثل هوية PBT − الضريبة ≈ صافي الربح) وتُظهر حالة كل قيمة: صالحة، تحتاج مراجعة، أو معزولة. لا يُعرض أي رقم غير متحقق كحقيقة."
+   111→        : "The platform runs automated accounting checks (for example PBT − tax ≈ net profit) and exposes each value's state: valid, needs review, or quarantined. No unverified figure is presented as fact.",
+   112→    },
+   113→    {
+   114→      q: ar ? "هل يدعم الموقع اللغة العربية؟" : "Does the site support Arabic?",
+   115→      a: ar
+   116→        ? "نعم، الواجهة ثنائية اللغة (عربي وإنجليزي) مع دعم كامل لاتجاه RTL. أسماء الشركات والمصطلحات المالية معروضة باللغتين حيث تتوفر الترجمة الموثوقة."
+   117→        : "Yes — the interface is bilingual (Arabic/English) with full RTL support. Company names and financial terms are shown in both languages where a reliable translation exists.",
+   118→    },
+   119→  ]
+   120→
+   121→  return (
+   122→    <div className="min-h-screen flex flex-col bg-background selection:bg-primary/20 selection:text-primary">
+   123→      <AppHeader onViewChange={(v) => router.push(`/dashboard#/${v}`)} />
+   124→
+   125→      <main id="main-content" className="flex-1">
+   126→        {/* Hero Section */}
+   127→        <section className="relative overflow-hidden py-16 md:py-28 border-b border-border/50">
+   128→          <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
+   129→          <div className="absolute top-0 start-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+   130→          <div className="absolute top-1/4 start-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/8 rounded-full blur-[100px] pointer-events-none" />
+   131→
+   132→          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+   133→            <div className="grid items-center gap-10 lg:grid-cols-[1fr_340px]">
+   134→            <div className="max-w-3xl">
+   135→              <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary mb-8 backdrop-blur-xs">
+   136→                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+   137→                <span>
+   138→                  {ar ? "منصة استخبارات مالية مستقلة · البورصة المصرية EGX" : "Independent Financial Intelligence Platform · Egyptian Exchange"}
+   139→                </span>
+   140→              </div>
+   141→
+   142→              <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-balance leading-[1.1]">
+   143→                {ar ? (
+   144→                  <>
+   145→                    اكتشف فرص البورصة <br />
+   146→                    <span className="bg-gradient-to-r from-primary to-teal-500 bg-clip-text text-transparent">
+   147→                      بحقائق مالية قابلة للتتبع
+   148→                    </span>
+   149→                  </>
+   150→                ) : (
+   151→                  <>
+   152→                    Discover EGX opportunities <br />
+   153→                    <span className="bg-gradient-to-r from-primary to-teal-500 bg-clip-text text-transparent">
+   154→                      with traceable financial facts
+   155→                    </span>
+   156→                  </>
+   157→                )}
+   158→              </h1>
+   159→
+   160→              <p className="mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+   161→                {ar
+   162→                  ? "ماسح ذكي لأنماط الشركات المالية: تحولات الخسارة إلى ربح، تسارع الإيرادات، خفض الديون، وتدفقات النقد — كل قيمة متحقق منها مرتبطة بفترتها ومصدرها، والقيم غير المؤكدة تظهر للمراجعة بدلاً من عرضها كحقيقة."
+   163→                  : "Institutional-grade pattern scanner: loss-to-profit turnarounds, revenue acceleration, deleveraging, and cash flows. Every verified value is tied to its period and source; unconfirmed values are shown as review items instead of being presented as fact."}
+   164→              </p>
+   165→
+   166→              <div className="mt-10 flex flex-wrap items-center gap-3 md:gap-4">
+   167→                <Link href="/dashboard">
+   168→                  <Button size="lg" className="h-12 px-8 gap-2 btn-primary font-semibold text-sm shadow-md shadow-primary/25">
+   169→                    {ar ? "فتح المنصة والماسحات" : "Open Financial Terminal"}
+   170→                    <ArrowRight className="h-4 w-4 rtl-flip" />
+   171→                  </Button>
+   172→                </Link>
+   173→                <Link href="/dashboard#/custom">
+   174→                  <Button size="lg" variant="outline" className="h-12 px-6 gap-2 text-sm border-border/80 hover:bg-muted/60">
+   175→                    <ScanSearch className="h-4 w-4 text-primary" />
+   176→                    {ar ? "بناء ماسح مخصص" : "Build Custom Scanner"}
+   177→                  </Button>
+   178→                </Link>
+   179→                <Link href="/premium">
+   180→                  <Button size="lg" variant="ghost" className="h-12 px-5 gap-2 text-sm text-amber-600 dark:text-amber-400 border-amber-500/30 hover:bg-amber-500/5">
+   181→                    <Crown className="h-4 w-4" />
+   182→                    <span>Premium</span>
+   183→                  </Button>
+   184→                </Link>
+   185→              </div>
+   186→
+   187→              {/* KPI Strip — shows "—" when the stats API is unavailable */}
+   188→              <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 border-t border-border/50 pt-8">
+   189→                <div className="rounded-xl border border-border/60 bg-card/80 p-3.5 backdrop-blur-xs hover:bg-card/100 transition-colors">
+   190→                  <div className="text-2xl sm:text-3xl font-extrabold tabular text-primary">
+   191→                    {stats ? stats.companies.toLocaleString() : "—"}
+   192→                  </div>
+   193→                  <div className="text-[11px] font-medium text-muted-foreground mt-0.5">
+   194→                    {ar ? "شركة مدرجة" : "Listed companies"}
+   195→                  </div>
+   196→                </div>
+   197→                <div className="rounded-xl border border-border/60 bg-card/80 p-3.5 backdrop-blur-xs hover:bg-card/100 transition-colors">
+   198→                  <div className="text-2xl sm:text-3xl font-extrabold tabular text-foreground">
+   199→                    {stats ? stats.reports.toLocaleString() : "—"}
+   200→                  </div>
+   201→                  <div className="text-[11px] font-medium text-muted-foreground mt-0.5">
+   202→                    {ar ? "قائمة مالية" : "Financial reports"}
+   203→                  </div>
+   204→                </div>
+   205→                <div className="rounded-xl border border-border/60 bg-card/80 p-3.5 backdrop-blur-xs hover:bg-card/100 transition-colors">
+   206→                  <div className="text-2xl sm:text-3xl font-extrabold tabular text-emerald-600 dark:text-emerald-400">
+   207→                    {stats ? stats.validValues.toLocaleString() : "—"}
+   208→                  </div>
+   209→                  <div className="text-[11px] font-medium text-muted-foreground mt-0.5">
+   210→                    {ar ? "قيمة صالحة" : "Validated values"}
+   211→                  </div>
+   212→                </div>
+   213→                <div className="rounded-xl border border-border/60 bg-card/80 p-3.5 backdrop-blur-xs hover:bg-card/100 transition-colors">
+   214→                  <div className="text-2xl sm:text-3xl font-extrabold tabular text-teal-600 dark:text-teal-400">
+   215→                    {stats ? stats.events.toLocaleString() : "—"}
+   216→                  </div>
+   217→                  <div className="text-[11px] font-medium text-muted-foreground mt-0.5">
+   218→                    {ar ? "حدث مالي" : "Detected events"}
+   219→                  </div>
+   220→                </div>
+   221→              </div>
+   222→            </div>
+   223→
+   224→            {/* Right rail — the market at a glance: largest listed companies
+   225→                with their latest recorded price and day change. Same verified
+   226→                snapshot data the terminal uses; renders "—" when unavailable. */}
+   227→            <div className="hidden lg:block">
+   228→              <div className="rounded-2xl border border-border/60 bg-card/80 p-5 shadow-lg shadow-black/[0.03] backdrop-blur-xs">
+   229→                <div className="mb-4 flex items-center justify-between">
+   230→                  <p className="text-sm font-semibold text-foreground">{ar ? "الأكبر بالقيمة السوقية" : "Largest listed companies"}</p>
+   231→                  <Link href="/rankings" className="text-[11px] font-medium text-primary hover:underline">
+   232→                    {ar ? "الكل" : "View all"}
+   233→                  </Link>
+   234→                </div>
+   235→                <div className="space-y-1">
+   236→                  {featured.slice(0, 6).map((c) => (
+   237→                    <Link
+   238→                      key={c.id}
+   239→                      href={`/company/${c.ticker}`}
+   240→                      className="flex items-center gap-3 rounded-xl px-2 py-2 transition-colors hover:bg-accent/40"
+   241→                    >
+   242→                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-[10px] font-bold text-primary">
+   243→                        {c.ticker.slice(0, 4)}
+   244→                      </span>
+   245→                      <span className="min-w-0 flex-1">
+   246→                        <span className="block text-sm font-semibold text-foreground">{c.ticker}</span>
+   247→                        <span className="block truncate text-[10px] text-muted-foreground">{(ar ? c.nameAr ?? c.nameEn : c.nameEn) ?? ""}</span>
+   248→                      </span>
+   249→                      <span className="text-end">
+   250→                        <span className="block text-sm font-bold tabular" dir="ltr">
+   251→                          {c.marketPrice?.price != null ? c.marketPrice.price.toFixed(2) : "—"}
+   252→                        </span>
+   253→                        <span
+   254→                          className={`block text-[10px] font-semibold tabular ${(c.marketPrice?.changePct ?? 0) >= 0 ? "text-emerald-600 dark:text-emerald-400" : "text-red-600 dark:text-red-400"}`}
+   255→                          dir="ltr"
+   256→                        >
+   257→                          {c.marketPrice?.changePct != null
+   258→                            ? `${c.marketPrice.changePct >= 0 ? "+" : ""}${c.marketPrice.changePct.toFixed(2)}%`
+   259→                            : "—"}
+   260→                        </span>
+   261→                      </span>
+   262→                    </Link>
+   263→                  ))}
+   264→                </div>
+   265→                <p className="mt-3 border-t border-border/50 pt-2.5 text-[10px] text-muted-foreground">
+   266→                  {ar ? "آخر سعر مسجل · متأخر 15 دقيقة · ليس نصيحة استثمارية" : "Latest recorded price · 15-min delayed · not investment advice"}
+   267→                </p>
+   268→              </div>
+   269→            </div>
+   270→            </div>
+   271→          </div>
+   272→        </section>
+   273→
+   274→        {/* How It Works */}
+   275→        <section className="py-16 md:py-24 border-b border-border/50">
+   276→          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+   277→            <div className="text-center max-w-2xl mx-auto mb-16">
+   278→              <Badge variant="outline" className="mb-3 border-primary/30 text-primary">
+   279→                {ar ? "آلية العمل" : "How it works"}
+   280→              </Badge>
+   281→              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+   282→                {ar ? "من الفكرة إلى القرار في ثلاث خطوات" : "From idea to decision in three steps"}
+   283→              </h2>
+   284→              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+   285→                {ar ? "لا أرقام مخترعة: كل قيمة إما مستخرجة من مصدر أو تظهر «—» عند عدم توفرها." : "No invented numbers — every value is either sourced or shown as “—” when unavailable."}
+   286→              </p>
+   287→            </div>
+   288→
+   289→            <div className="grid gap-8 md:grid-cols-3">
+   290→              {howItWorks.map((step) => (
+   291→                <Card key={step.step} className="border-border/60 bg-card p-6 rounded-2xl transition-all hover:shadow-lg hover:border-primary/40">
+   292→                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary mb-4">
+   293→                    {step.icon}
+   294→                  </div>
+   295→                  <h3 className="text-lg font-bold tracking-tight">{step.title}</h3>
+   296→                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+   297→                </Card>
+   298→              ))}
+   299→            </div>
+   300→          </div>
+   301→        </section>
+   302→
+   303→        {/* Live EGX Leaders Showcase */}
+   304→        <section className="py-16 md:py-24 bg-muted/20 border-b border-border/50">
+   305→          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+   306→            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+   307→              <div>
+   308→                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight flex items-center gap-2">
+   309→                  <Activity className="h-5 w-5 text-primary" />
+   310→                  {ar ? "شركات مختارة من البورصة المصرية" : "Featured Egyptian Exchange Companies"}
+   311→                </h2>
+   312→                <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
+   313→                  {ar ? "اضغط على أي شركة لاستعراض القوائم والمؤشرات والتحليل المباشر" : "Select any company to inspect balance sheets, ratios, and grounded AI analysis"}
+   314→                </p>
+   315→                {featuredData?.marketAsOf ? (
+   316→                  <p className="mt-1 text-[10px] text-muted-foreground">
+   317→                    {ar ? "أسعار متأخرة 15 دقيقة · آخر تحديث: " : "15-minute-delayed prices · Updated: "}
+   318→                    {new Date(featuredData.marketAsOf).toLocaleString(ar ? "ar-EG" : "en-GB")}
+   319→                  </p>
+   320→                ) : null}
+   321→              </div>
+   322→              <Link href="/dashboard#/companies">
+   323→                <Button variant="outline" size="sm" className="gap-1 text-xs">
+   324→                  {ar ? "استعراض جميع الشركات" : "View all companies"}
+   325→                  <ArrowRight className="h-3.5 w-3.5 rtl-flip" />
+   326→                </Button>
+   327→              </Link>
+   328→            </div>
+   329→
+   330→            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+   331→              {featuredLoading ? (
+   332→                Array.from({ length: 8 }).map((_, i) => (
+   333→                  <div key={i} className="h-[176px] animate-pulse rounded-2xl border border-border/60 bg-muted/30" />
+   334→                ))
+   335→              ) : featuredError || featured.length === 0 ? (
+   336→                <div className="col-span-full rounded-2xl border border-border/60 bg-card p-6 text-sm text-muted-foreground">
+   337→                  {ar ? "تعذر تحميل بيانات الشركات الحية الآن." : "Live company data is temporarily unavailable."}{" "}
+   338→                  <Link href="/dashboard#/companies" className="text-primary hover:underline">
+   339→                    {ar ? "استعراض القائمة الكاملة" : "Browse the full list"}
+   340→                  </Link>
+   341→                </div>
+   342→              ) : (
+   343→                featured.map((c) => {
+   344→                  const change = c.marketPrice?.changePct ?? null
+   345→                  const positive = (change ?? 0) >= 0
+   346→                  const latestFy =
+   347→                    c.snapshot?.net_profit?.fiscalYear ??
+   348→                    c.snapshot?.revenue?.fiscalYear ??
+   349→                    null
+   350→                  return (
+   351→                    <Link
+   352→                      key={c.ticker}
+   353→                      href={`/company/${c.ticker}`}
+   354→                      className="group rounded-2xl border border-border/60 bg-card p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:border-primary/50"
+   355→                    >
+   356→                      <div className="flex items-start justify-between gap-2 mb-3">
+   357→                        <div className="flex items-center gap-2.5 min-w-0">
+   358→                          <span className="flex h-9 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xs font-bold text-primary">
+   359→                            {c.ticker}
+   360→                          </span>
+   361→                          <div className="min-w-0">
+   362→                            <div className="truncate text-xs font-bold group-hover:text-primary transition-colors">
+   363→                              {ar ? (c.nameAr ?? c.nameEn) : c.nameEn}
+   364→                            </div>
+   365→                            <div className="truncate text-[10px] text-muted-foreground">
+   366→                              {sectorLabel(c.sector, lang)}
+   367→                            </div>
+   368→                          </div>
+   369→                        </div>
+   370→                        <Badge variant="secondary" className="shrink-0 text-[10px] font-semibold">
+   371→                          {c.marketPrice ? "EGP" : "—"}
+   372→                        </Badge>
+   373→                      </div>
+   374→
+   375→                      <div className="grid grid-cols-2 gap-2 rounded-xl border border-border/40 bg-muted/20 p-2.5">
+   376→                        <div>
+   377→                          <div className="text-[10px] text-muted-foreground">{ar ? "السعر" : "Price"}</div>
+   378→                          <div className="text-sm font-bold tabular">
+   379→                            {c.marketPrice ? `${c.marketPrice.price.toFixed(2)}` : "—"}
+   380→                          </div>
+   381→                        </div>
+   382→                        <div className="text-end">
+   383→                          <div className="text-[10px] text-muted-foreground">{ar ? "التغير اليومي" : "1D change"}</div>
+   384→                          <div className={`text-sm font-bold tabular ${positive ? "text-positive" : "text-negative"}`}>
+   385→                            {change === null ? "—" : `${positive ? "+" : ""}${change.toFixed(2)}%`}
+   386→                          </div>
+   387→                        </div>
+   388→                      </div>
+   389→
+   390→                      <div className="mt-3 flex items-center justify-between text-[11px] text-muted-foreground pt-3 border-t border-border/40">
+   391→                        <span className="flex items-center gap-1">
+   392→                          <ShieldCheck className="h-3 w-3 text-emerald-500" />
+   393→                          {latestFy ? `${ar ? "آخر سنة مالية" : "Latest FY"} ${latestFy}` : (ar ? "بيانات متحققة" : "Verified data")}
+   394→                        </span>
+   395→                        <span className="flex items-center gap-0.5 text-primary font-medium group-hover:translate-x-0.5 rtl-flip transition-transform">
+   396→                          {ar ? "فتح الملف" : "Inspect"}
+   397→                          <ArrowUpRight className="h-3 w-3" />
+   398→                        </span>
+   399→                      </div>
+   400→                      <div className="mt-1.5 text-[10px] text-muted-foreground">
+   401→                        {ar ? "القيمة السوقية: " : "Market cap: "}
+   402→                        {c.marketCap ? formatEgp(c.marketCap) : "—"}
+   403→                      </div>
+   404→                    </Link>
+   405→                  )
+   406→                })
+   407→              )}
+   408→            </div>
+   409→          </div>
+   410→        </section>
+   411→
+   412→        {/* 4 Pillars of Institutional Trust */}
+   413→        <section className="py-16 md:py-24 border-b border-border/50">
+   414→          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+   415→            <div className="text-center max-w-2xl mx-auto mb-16">
+   416→              <Badge variant="outline" className="mb-3 border-primary/30 text-primary">
+   417→                {ar ? "معايير النزاهة المؤسسية" : "Institutional Integrity"}
+   418→              </Badge>
+   419→              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+   420→                {ar ? "لماذا يعتمد المستثمرون على EGX Scanner؟" : "Engineered for Serious Financial Research"}
+   421→              </h2>
+   422→              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+   423→                {ar ? "بنيت المنصة بأعلى معايير الدقة والشفافية لإلغاء التقديرات غير المؤكدة وتقديم أرقام يمكنك الاعتماد عليها." : "Built from first principles to eliminate hallucinations, enforce accounting identities, and deliver decision-grade data."}
+   424→              </p>
+   425→            </div>
+   426→
+   427→            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+   428→              <Card className="border-border/60 bg-card p-6 rounded-2xl transition-all hover:shadow-md">
+   429→                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary mb-4">
+   430→                  <ScanSearch className="h-6 w-6" />
+   431→                </div>
+   432→                <h3 className="text-lg font-bold tracking-tight">{ar ? "ماسح أنماط مالي" : "Deterministic Scanner"}</h3>
+   433→                <p className="mt-3 text-xs text-muted-foreground leading-relaxed">
+   434→                  {ar ? "قواعد منطقية صريحة تفحص تحولات الأرباح، الرفع المالي، وجودة التدفق النقدي مع تفسير مفصل لكل شرط مطابق." : "Explicit Boolean logic testing profit transitions, debt changes, and cash quality with step-by-step condition auditing."}
+   435→                </p>
+   436→              </Card>
+   437→
+   438→              <Card className="border-border/60 bg-card p-6 rounded-2xl transition-all hover:shadow-md">
+   439→                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 mb-4">
+   440→                  <ShieldCheck className="h-6 w-6" />
+   441→                </div>
+   442→                <h3 className="text-lg font-bold tracking-tight">{ar ? "بيانات قابلة للتدقيق" : "Auditable Data"}</h3>
+   443→                <p className="mt-3 text-xs text-muted-foreground leading-relaxed">
+   444→                  {ar
+   445→                    ? "كل قيمة تُفحص من حيث الفترة والهوية المحاسبية والمقياس قبل دخولها التحليلات. القيم المشتقة موسومة بوضوح، والقيم المعزولة لا تظهر كبيانات صالحة."
+   446→                    : "Every value is checked for period, accounting identity and scale before it enters analytics. Derived values are labelled, and quarantined values are never shown as valid data."}
+   447→                </p>
+   448→              </Card>
+   449→
+   450→              <Card className="border-border/60 bg-card p-6 rounded-2xl transition-all hover:shadow-md">
+   451→                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 mb-4">
+   452→                  <Scale className="h-6 w-6" />
+   453→                </div>
+   454→                <h3 className="text-lg font-bold tracking-tight">{ar ? "مقارنة قطاعية منضبطة" : "Strict Sector Benchmarking"}</h3>
+   455→                <p className="mt-3 text-xs text-muted-foreground leading-relaxed">
+   456→                  {ar ? "مقارنة الشركات داخل قطاعها فقط لتفادي تشويه النسب. البنوك تقارن على ROE والودائع، والصناعة على الهوامش." : "Compares companies strictly within their peer universe. Banks on ROE/BVPS; real estate on inventory and margins."}
+   457→                </p>
+   458→              </Card>
+   459→
+   460→              <Card className="border-border/60 bg-card p-6 rounded-2xl transition-all hover:shadow-md">
+   461→                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/10 text-violet-600 dark:text-violet-400 mb-4">
+   462→                  <Sparkles className="h-6 w-6" />
+   463→                </div>
+   464→                <h3 className="text-lg font-bold tracking-tight">{ar ? "ذكاء اصطناعي موثق" : "Grounded AI Synthesis"}</h3>
+   465→                <p className="mt-3 text-xs text-muted-foreground leading-relaxed">
+   466→                  {ar ? "توليد تقارير مالية نوعية تستند حصرياً إلى القيم المعتمدة في قاعدة البيانات، بدون اختلاق أرقام." : "Generates qualitative investor profiles grounded exclusively in database-verified metrics without fabricated numbers."}
+   467→                </p>
+   468→              </Card>
+   469→            </div>
+   470→          </div>
+   471→        </section>
+   472→
+   473→        {/* Popular Scanner Strategies */}
+   474→        <section className="py-16 md:py-24 bg-muted/15 border-b border-border/50">
+   475→          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+   476→            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+   477→              <div>
+   478→                <h2 className="text-2xl font-bold tracking-tight">
+   479→                  {ar ? "استراتيجيات المسح الجاهزة" : "Popular Pre-Built Scanner Strategies"}
+   480→                </h2>
+   481→                <p className="mt-1 text-sm text-muted-foreground">
+   482→                  {ar ? "شغّل ماسحات مالية صريحة بنقرة واحدة واطّلع على تفسير كل شرط مطابق" : "Run explicit financial screens with one click and inspect the proof for every matched condition"}
+   483→                </p>
+   484→              </div>
+   485→              <Link href="/dashboard#/scanners">
+   486→                <Button className="btn-primary gap-1 text-xs">
+   487→                  {ar ? "استعراض كل الماسحات" : "Browse all scanners"}
+   488→                  <ArrowRight className="h-3.5 w-3.5 rtl-flip" />
+   489→                </Button>
+   490→              </Link>
+   491→            </div>
+   492→
+   493→            <div className="grid gap-4 md:grid-cols-3">
+   494→              {!dashboardData ? (
+   495→                Array.from({ length: 3 }).map((_, i) => (
+   496→                  <div key={i} className="h-[210px] animate-pulse rounded-2xl border border-border/70 bg-muted/30" />
+   497→                ))
+   498→              ) : scannerCards.length === 0 ? (
+   499→                <div className="col-span-full rounded-2xl border border-border/70 bg-card p-6 text-sm text-muted-foreground">
+   500→                  {ar ? "لا توجد ماسحات جاهزة نشطة حالياً." : "No active pre-built screens are available right now."}{" "}
+   501→                  <Link href="/dashboard#/custom" className="text-primary hover:underline">
+   502→                    {ar ? "أنشئ ماسحك الخاص" : "Build a custom screen"}
+   503→                  </Link>
+   504→                </div>
+   505→              ) : (
+   506→                scannerCards.slice(0, 3).map((card) => {
+   507→                  const presetHref = card.presetKey
+   508→                    ? `/dashboard?preset=${encodeURIComponent(card.presetKey)}#/scanners`
+   509→                    : "/dashboard#/scanners"
+   510→                  return (
+   511→                    <div
+   512→                      key={card.id}
+   513→                      className="rounded-2xl border border-border/70 bg-card p-5 flex flex-col justify-between shadow-xs hover:border-primary/40 transition-colors"
+   514→                    >
+   515→                      <div>
+   516→                        <div className="flex items-center justify-between mb-3">
+   517→                          <Badge variant="outline" className="border-primary/40 bg-primary/5 text-primary text-[10px] font-bold">
+   518→                            {card.presetKey ?? "Preset"}
+   519→                          </Badge>
+   520→                          <span className="text-[10px] font-medium text-muted-foreground">
+   521→                            {card.count} {ar ? "شركة مطابقة" : "matches"}
+   522→                          </span>
+   523→                        </div>
+   524→                        <h3 className="text-base font-bold text-foreground">
+   525→                          {ar ? (card.nameAr ?? card.name) : card.name}
+   526→                        </h3>
+   527→                        <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+   528→                          {card.description ?? (ar ? "ماسح مالي جاهز مع تفسير لكل شرط." : "A pre-built financial screen with per-condition proof.")}
+   529→                        </p>
+   530→                        {card.topMatches.length > 0 ? (
+   531→                          <div className="mt-3 flex flex-wrap gap-1.5">
+   532→                            {card.topMatches.slice(0, 3).map((match) => (
+   533→                              <Link
+   534→                                key={match.companyId}
+   535→                                href={`/company/${match.ticker}`}
+   536→                                className="rounded-md border border-border/50 bg-muted/30 px-2 py-0.5 text-[10px] font-semibold text-foreground hover:border-primary/40 hover:text-primary"
+   537→                              >
+   538→                                {match.ticker}
+   539→                              </Link>
+   540→                            ))}
+   541→                          </div>
+   542→                        ) : null}
+   543→                      </div>
+   544→                      <div className="mt-5 pt-3 border-t border-border/40 flex items-center justify-between">
+   545→                        <span className="text-[11px] text-muted-foreground">
+   546→                          {ar ? "تفسير مفصل لكل شرط" : "With proof panel"}
+   547→                        </span>
+   548→                        <Link href={presetHref}>
+   549→                          <Button variant="ghost" size="sm" className="h-7 text-xs text-primary font-semibold gap-1 p-0 hover:bg-transparent">
+   550→                            {ar ? "تشغيل الآن" : "Run scan"}
+   551→                            <ArrowRight className="h-3 w-3 rtl-flip" />
+   552→                          </Button>
+   553→                        </Link>
+   554→                      </div>
+   555→                    </div>
+   556→                  )
+   557→                })
+   558→              )}
+   559→            </div>
+   560→          </div>
+   561→        </section>
+   562→
+   563→        {/* FAQ */}
+   564→        <section className="py-16 md:py-24 border-b border-border/50">
+   565→          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+   566→            <div className="text-center max-w-2xl mx-auto mb-16">
+   567→              <Badge variant="outline" className="mb-3 border-primary/30 text-primary">
+   568→                {ar ? "الأسئلة الشائعة" : "Frequently Asked Questions"}
+   569→              </Badge>
+   570→              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+   571→                {ar ? "أي استفسار لديك؟" : "Any questions?"}
+   572→              </h2>
+   573→            </div>
+   574→
+   575→            <div className="max-w-3xl mx-auto space-y-3">
+   576→              {faqs.map((faq, i) => (
+   577→                <Card key={i} className="border-border/60 bg-card p-5 rounded-xl">
+   578→                  <div className="flex items-center justify-between gap-3">
+   579→                    <h3 className="text-sm font-semibold text-foreground">{faq.q}</h3>
+   580→                    <CheckCircle2 className="h-4 w-4 shrink-0 text-primary/50" aria-hidden />
+   581→                  </div>
+   582→                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+   583→                </Card>
+   584→              ))}
+   585→            </div>
+   586→          </div>
+   587→        </section>
+   588→
+   589→        {/* Final CTA Banner */}
+   590→        <section className="py-16 md:py-20">
+   591→          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+   592→            <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent p-8 md:p-16 text-center shadow-lg">
+   593→              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground mb-6 shadow-md shadow-primary/25">
+   594→                <Crown className="h-6 w-6" />
+   595→              </div>
+   596→              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+   597→                {ar ? "ابدأ فحص أسهم البورصة المصرية الآن" : "Take Command of Egyptian Market Fundamentals"}
+   598→              </h2>
+   599→              <p className="mt-4 text-sm sm:text-base text-muted-foreground max-w-xl mx-auto leading-relaxed">
+   600→                {ar
+   601→                  ? "تصفح القوائم المالية والمؤشرات والماسحات مجاناً بالكامل. قم بالترقية لفتح تحليلات الذكاء الاصطناعي والتنبيهات الحية."
+   602→                  : "Explore comprehensive financial statements and scanner discovery free. Upgrade to Premium for grounded AI analysis and custom screening."}
+   603→              </p>
+   604→              <div className="mt-10 flex flex-wrap justify-center items-center gap-3">
+   605→                <Link href="/dashboard">
+   606→                  <Button size="lg" className="h-11 px-8 btn-primary font-semibold text-sm">
+   607→                    {ar ? "فتح لوحة التحكم" : "Launch Dashboard"}
+   608→                    <ArrowRight className="h-4 w-4 rtl-flip" />
+   609→                  </Button>
+   610→                </Link>
+   611→                <Link href="/premium">
+   612→                  <Button size="lg" variant="outline" className="h-11 px-6 text-sm border-border/80">
+   613→                    <Crown className="h-4 w-4 text-amber-500" />
+   614→                    {ar ? "عرض باقات Premium" : "View Premium Plans"}
+   615→                  </Button>
+   616→                </Link>
+   617→              </div>
+   618→            </div>
+   619→          </div>
+   620→        </section>
+   621→      </main>
+   622→
+   623→      <AppFooter />
+   624→    </div>
+   625→  )
+   626→}
+   627→

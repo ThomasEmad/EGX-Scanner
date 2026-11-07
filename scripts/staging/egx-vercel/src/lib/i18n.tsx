@@ -38,7 +38,7 @@ const dict = {
   "common.verifiedData": { en: "Filings", ar: "إفصاحات" },
   "common.egp": { en: "EGP", ar: "ج.م" },
   // dashboard
-  "dash.title": { en: "EGX Financial Scanner", ar: "ماسح البيانات المالية للبورصة المصرية" },
+  "dash.title": { en: "Meza", ar: "ماسح البيانات المالية للبورصة المصرية" },
   "dash.subtitle": {
     en: "Discover Egyptian Exchange companies by financial conditions and changes over time — with a factual explanation for every match.",
     ar: "اكتشف شركات البورصة المصرية بناءً على الأوضاع المالية وتغيراتها عبر الزمن — مع تفسير واقعي لكل مطابقة.",

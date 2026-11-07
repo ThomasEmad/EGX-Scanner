@@ -15,7 +15,7 @@
 //        (reset tokens land in the audit log for admin hand-off), so nothing
 //        breaks and no capability is silently lost.
 //
-// MAIL_FROM — "EGX Scanner <sender@gmail.com>". With Gmail SMTP the address
+// MAIL_FROM — "Meza <sender@gmail.com>". With Gmail SMTP the address
 // part must match SMTP_USER (Google rewrites anything else).
 // NEXT_PUBLIC_SITE_URL — used for password-reset links (falls back to the
 // request origin passed by the caller).
@@ -122,7 +122,7 @@ export async function sendMail(input: MailInput): Promise<MailResult> {
 // styles only (email clients strip <style> tags), no external assets.
 // ---------------------------------------------------------------------------
 
-const BRAND = "EGX Scanner"
+const BRAND = "Meza"
 
 function layout(titleAr: string, titleEn: string, bodyHtml: string): string {
   return `<!doctype html>

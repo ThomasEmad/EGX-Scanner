@@ -1,0 +1,252 @@
+/tmp/my-project/src/components/user-menu.tsx:3:import { useState } from "react"
+/tmp/my-project/src/components/user-menu.tsx:27:    // authHeaders() is required — without the session token the server never
+/tmp/my-project/src/components/user-menu.tsx:28:    // invalidates the session, and without clearUserToken() the dead token
+/tmp/my-project/src/lib/smart-analysis-usage.ts:59: * Race safety: the previous canUseSmartAnalysis()-then-increment() pair was a
+/tmp/my-project/src/lib/smart-analysis-usage.ts:64: * case and the unique-violation retry collapses concurrent creates.
+/tmp/my-project/src/lib/smart-analysis-usage.ts:105:export async function canUseSmartAnalysis(userId: string, isPremium: boolean): Promise<boolean> {
+/tmp/my-project/src/lib/secure-compare.ts:7:// hash of session tokens, never the raw token (a DB leak must not yield
+/tmp/my-project/src/lib/secure-compare.ts:8:// working sessions).
+/tmp/my-project/src/lib/secure-compare.ts:32: * SHA-256 hex of a session token. Sessions are stored hashed: createSession
+/tmp/my-project/src/lib/safe-json.ts:4:// `</script>` (e.g. a crafted company name from the database) closes the
+/tmp/my-project/src/lib/rate-limit.ts:2:// Uses an in-memory store by default, with a swappable interface for Redis.
+/tmp/my-project/src/lib/optional-auth.ts:2:import { getSessionUser } from "@/lib/auth"
+/tmp/my-project/src/lib/optional-auth.ts:9:  const token = req.headers.get("x-session-token") ?? req.headers.get("authorization")?.replace("Bearer ", "")
+/tmp/my-project/src/lib/optional-auth.ts:12:  const userId = await getSessionUser(token)
+/tmp/my-project/src/lib/oauth.ts:12://        → session created (same Session model as password login) and the
+/tmp/my-project/src/components/ui/sidebar.tsx:47:function useSidebar() {
+/tmp/my-project/src/components/ui/sidebar.tsx:50:    throw new Error("useSidebar must be used within a SidebarProvider.")
+/tmp/my-project/src/components/ui/sidebar.tsx:70:  const [openMobile, setOpenMobile] = React.useState(false)
+/tmp/my-project/src/components/ui/sidebar.tsx:74:  const [_open, _setOpen] = React.useState(defaultOpen)
+/tmp/my-project/src/components/ui/sidebar.tsx:113:  // This makes it easier to style the sidebar with Tailwind classes.
+/tmp/my-project/src/components/ui/sidebar.tsx:166:  const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
+/tmp/my-project/src/components/ui/sidebar.tsx:261:  const { toggleSidebar } = useSidebar()
+/tmp/my-project/src/components/ui/sidebar.tsx:283:  const { toggleSidebar } = useSidebar()
+/tmp/my-project/src/components/ui/sidebar.tsx:430:        // Increases the hit area of the button on mobile.
+/tmp/my-project/src/components/ui/sidebar.tsx:512:  const { isMobile, state } = useSidebar()
+/tmp/my-project/src/components/ui/sidebar.tsx:565:        // Increases the hit area of the button on mobile.
+/tmp/my-project/src/components/ui/sidebar.tsx:725:  useSidebar,
+/tmp/my-project/src/lib/market/snapshot.ts:8:// This helper is server-only (it uses `fs`). It never invents a price: a
+/tmp/my-project/src/lib/key-lock.ts:4:// concurrent handler bodies per key closes check-then-act races (free-tier
+/tmp/my-project/src/lib/ingestion/search-provider.ts:1:// Search-based document discovery — uses z-ai-web-dev-sdk to find financial
+/tmp/my-project/src/lib/ingestion/search-provider.ts:26:// In-process cache: query → search results (avoids duplicate calls within a session)
+/tmp/my-project/src/lib/ingestion/orchestrator.ts:15:import { mkdir, writeFile, readFile, stat } from "node:fs/promises"
+/tmp/my-project/src/lib/i18n.tsx:6:import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react"
+/tmp/my-project/src/lib/i18n.tsx:176:  "dv.filterAll": { en: "All statuses", ar: "كل الحالات" },
+/tmp/my-project/src/lib/i18n.tsx:320:  const [lang, setLangState] = useState<Lang>("en")
+/tmp/my-project/src/components/ui/carousel.tsx:61:  const [canScrollPrev, setCanScrollPrev] = React.useState(false)
+/tmp/my-project/src/components/ui/carousel.tsx:62:  const [canScrollNext, setCanScrollNext] = React.useState(false)
+/tmp/my-project/src/lib/financial/validation/cross-document.ts:4:// Use cases:
+/tmp/my-project/src/lib/financial/validation/accounting.ts:255:      // the check passes when all four components are present and total movement
+/tmp/my-project/src/lib/financial/validate.ts:96:    // Sign validation — do not accidentally flip negative expenses / losses / cash flows.
+/tmp/my-project/src/lib/financial/validate.ts:99:    // printed in parentheses — that is the source's deduction notation, NOT a
+/tmp/my-project/src/lib/financial/validate.ts:195:    // prints it (positive or in parentheses). Use its magnitude — the stored
+/tmp/my-project/src/lib/financial/statement-pref.ts:23: * Report processing statuses considered trustworthy on read paths.
+/tmp/my-project/src/lib/financial/statement-pref.ts:24: * Mirrors TRUSTED_STATUSES in recompute.ts (the calculation engine's own trust
+/tmp/my-project/src/lib/financial/statement-pref.ts:25: * boundary) so every read path exposes exactly the data the engine computed from.
+/tmp/my-project/src/lib/financial/statement-pref.ts:27:export const TRUSTED_REPORT_STATUSES = ["VALIDATED", "APPROVED", "EXTRACTED"] as const
+/tmp/my-project/src/lib/financial/statement-pref.ts:196:    where: { companyId, processingStatus: { in: [...TRUSTED_REPORT_STATUSES] } },
+/tmp/my-project/src/lib/financial/statement-pref.ts:260:      processingStatus: { in: [...TRUSTED_REPORT_STATUSES] },
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:6:// Every metric carries: code, labelEn, labelAr, statementType, aliases (EN+AR),
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:30:    aliases: ["subscribers", "total subscribers", "active subscribers", "customer base", "المشتركين", "إجمالي المشتركين", "قاعدة المشتركين"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:41:    aliases: ["arpu", "average revenue per user", "average revenue per subscriber", "متوسط الإيراد لكل مشترك", "متوسط الإيراد للمستخدم"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:51:    aliases: ["churn rate", "churn", "subscriber churn", "معدل التسرب", "تسرب المشتركين"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:61:    aliases: ["service revenue", "service income", "recurring revenue", "إيرادات الخدمات", "إيرادات الخدمة"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:71:    aliases: ["data revenue", "mobile data revenue", "internet revenue", "إيرادات البيانات", "إيرادات البيانات المتنقلة"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:81:    aliases: ["ebitda", "earnings before interest tax depreciation amortization", "الأرباح قبل الفوائد والضرائب والإهلاك"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:91:    aliases: ["network capex", "network capital expenditure", "telecom capex", "الإنفاق الرأسمالي على الشبكة", "إنفاق الشبكة"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:108:    aliases: ["bed capacity", "licensed beds", "total beds", "number of beds", "السرر", "السعة السريرية", "عدد الأسرة"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:118:    aliases: ["occupancy rate", "bed occupancy", "inpatient occupancy", "معدل الإشغال", "إشغال الأسرة"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:128:    aliases: ["patient revenue", "patient service revenue", "hospital revenue", "inpatient revenue", "إيرادات المرضى", "إيرادات الخدمات الطبية"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:138:    aliases: ["pharmacy revenue", "drug revenue", "pharmacy sales", "إيرادات الصيدلية", "إيرادات الأدوية"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:149:    aliases: ["physicians count", "doctors count", "number of doctors", "medical staff", "عدد الأطباء", "الأطباء"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:160:    aliases: ["admissions", "inpatient admissions", "patient admissions", "حالات الدخول", "إجمالي حالات القبول"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:176:    aliases: ["raw material cost", "raw materials consumed", "materials cost", "تكلفة المواد الخام", "مواد خام"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:179:    code: "FOOD_DISTRIBUTION_EXPENSES",
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:180:    labelEn: "Distribution Expenses",
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:183:    description: "Distribution and logistics expenses (separate from selling)",
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:186:    aliases: ["distribution expenses", "logistics expenses", "freight and distribution", "مصروفات التوزيع", "مصروفات النقل"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:197:    aliases: ["volume sold", "sales volume", "units sold", "production volume", "حجم المبيعات", "الكمية المباعة"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:207:    aliases: ["export revenue", "export sales", "exports", "إيرادات التصدير", "صادرات"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:218:    aliases: ["brands count", "number of brands", "brand portfolio", "العلامات التجارية", "عدد الماركات"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:229:    aliases: ["sku count", "number of skus", "stock keeping units", "عدد الأصناف", "عدد المنتجات"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:246:    aliases: ["generation volume", "energy generated", "electricity generated", "net generation", "حجم التوليد", "الطاقة المولدة"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:257:    aliases: ["installed capacity", "nameplate capacity", "capacity mw", "total capacity", "القدرة المركبة", "القدرة المثبتة"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:267:    aliases: ["capacity utilization", "capacity factor", "utilization rate", "معامل الاستخدام", "معامل الحمل"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:277:    aliases: ["tariff", "average tariff", "energy tariff", "تعريفة", "متوسط التعريفة"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:287:    aliases: ["fuel cost", "fuel expense", "cost of fuel", "تكلفة الوقود", "مصروف الوقود"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:298:    aliases: ["co2 emissions", "carbon emissions", "emissions", "carbon footprint", "انبعاثات الكربون", "الانبعاثات"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:314:    aliases: ["presales", "pre-sales", "off-plan sales", "forward sales", "المبيعات المسبقة", "بيع على المخطط"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:324:    aliases: ["backlog", "project backlog", "contracted backlog", "remaining performance obligations", "محفظة المشاريع", "المتبقي من العقود"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:334:    aliases: ["cash collections", "customer collections", "cash received from customers", "التحصيلات النقدية", "التحصيل من العملاء"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:344:    aliases: ["contract assets", "receivables from contracts", "أصول العقود", "الذمم العقدية"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:354:    aliases: ["contract liabilities", "deferred revenue", "advance from customers", "التزامات العقود", "الإيراد المؤجل", "الدفعات المقدمة"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:370:    aliases: ["raw materials", "raw materials inventory", "materials inventory", "المواد الخام", "مواد خام"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:380:    aliases: ["work in progress", "wip", "work in process", "تحت التشغيل", "أثناء التصنيع"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:390:    aliases: ["finished goods", "finished goods inventory", "completed products", "البضاعة التامة", "المنتجات النهائية"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:401:    aliases: ["production capacity", "installed capacity", "nameplate capacity", "الطاقة الإنتاجية", "الطاقة المركبة"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:411:    aliases: ["capacity utilization", "utilization rate", "plant utilization", "نسبة استخدام الطاقة", "معامل الاستخدام"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:421:    aliases: ["export revenue", "export sales", "exports", "إيرادات التصدير", "صادرات"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:437:    aliases: ["non performing loans", "npl", "non-performing loans", "impaired loans", "القروض المتعثرة", "القروض غير المنتظمة"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:442:    labelEn: "Expected Credit Losses",
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:448:    aliases: ["expected credit losses", "ecl", "ecl provisions", "credit loss provisions", "الخسائر الائتمانية المتوقعة", "مخصصات الخسائر الائتمانية"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:459:    aliases: ["coverage ratio", "npl coverage", "provision coverage", "نسبة التغطية", "تغطية القروض المتعثرة"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:467:    description: "Operating expenses / operating income — efficiency",
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:470:    aliases: ["cost to income ratio", "cost income ratio", "cir", "efficiency ratio", "نسبة التكلفة إلى الدخل", "نسبة الكفاءة"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:481:    aliases: ["loan to deposit ratio", "ldr", "loans to deposits", "نسبة القروض إلى الودائع"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:492:    aliases: ["net interest margin", "nim", "interest margin", "هامش الفائدة الصافي", "هامش العائد"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:503:    aliases: ["cet1", "cet1 ratio", "common equity tier 1", "core capital ratio", "نسبة رأس المال الأساسي", "رأس المال الأساسي"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:514:    aliases: ["capital adequacy ratio", "car", "capital ratio", "نسبة كفاية رأس المال", "كفاية رأس المال"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:531:    aliases: ["net asset value", "nav", "صافي القيمة الأصول", "صافي الأصول"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:541:    aliases: ["assets under management", "aum", "الأصول تحت الإدارة", "الأصول المدارة"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:551:    aliases: ["aum", "assets under management", "funds under management", "الأصول تحت الإدارة", "الأصول المدارة"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:561:    aliases: ["fee income", "commission income", "fee and commission income", "إيرادات العمولات", "إيرادات الرسوم"],
+/tmp/my-project/src/lib/financial/sector-kpi-metrics.ts:571:    aliases: ["brokerage revenue", "brokerage income", "commission revenue", "إيرادات السمسرة", "إيرادات الوساطة"],
+/tmp/my-project/src/lib/financial/scanner.ts:19:  | { kind: "dividend"; statuses: string[] }
+/tmp/my-project/src/lib/financial/scanner.ts:29:  /** dividend statuses present for the company (e.g. ANNOUNCED, UPCOMING, PAID...) */
+/tmp/my-project/src/lib/financial/scanner.ts:30:  dividendStatuses: string[]
+/tmp/my-project/src/lib/financial/scanner.ts:39:  statuses?: string[]
+/tmp/my-project/src/lib/financial/scanner.ts:168:  const matched = condition.statuses.some((s) => ctx.dividendStatuses.includes(s))
+/tmp/my-project/src/lib/financial/scanner.ts:171:    statuses: condition.statuses,
+/tmp/my-project/src/lib/financial/scanner.ts:172:    labelEn: `Dividend status in (${condition.statuses.join(", ")})`,
+/tmp/my-project/src/lib/financial/scanner.ts:173:    labelAr: `حالة التوزيعات (${condition.statuses.join("، ")})`,
+/tmp/my-project/src/lib/financial/scanner.ts:174:    actualDisplay: ctx.dividendStatuses.length ? ctx.dividendStatuses.join(", ") : "None",
+/tmp/my-project/src/lib/financial/scanner.ts:215:      if (!Array.isArray(c.statuses) || c.statuses.length === 0 || c.statuses.some((s) => !allowed.includes(s))) {
+/tmp/my-project/src/lib/financial/scanner.ts:216:        errors.push(`Invalid dividend statuses — allowed: ${allowed.join(", ")}`)
+/tmp/my-project/src/lib/financial/scan-service.ts:56:  // has any consolidated rows, else STANDALONE) — the two bases are never mixed
+/tmp/my-project/src/lib/financial/scan-service.ts:135:        dividendStatuses: dividendsByCompany.get(company.id) ?? [],
+/tmp/my-project/src/lib/financial/registry.ts:27:  aliases: string[]
+/tmp/my-project/src/lib/financial/registry.ts:56:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:67:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:77:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:87:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:98:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:110:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:122:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:132:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:142:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:153:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:164:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:177:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:187:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:198:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:209:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:220:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:231:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:241:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:251:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:261:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:271:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:281:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:291:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:301:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:311:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:322:    aliases: ["invested capital", "رأس المال المستثمر"],
+/tmp/my-project/src/lib/financial/registry.ts:330:    aliases: ["total capitalization", "إجمالي الرسملة"],
+/tmp/my-project/src/lib/financial/registry.ts:337:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:348:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:358:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:369:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:381:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:391:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:402:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:414:    aliases: ["net debt", "صافي الدين"],
+/tmp/my-project/src/lib/financial/registry.ts:422:    aliases: ["deposits", "customer deposits", "الودائع", "ودائع العملاء"],
+/tmp/my-project/src/lib/financial/registry.ts:431:    aliases: ["loans net", "net loans", "loans and advances to customers", "صافي القروض", "القروض للعملاء"],
+/tmp/my-project/src/lib/financial/registry.ts:441:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:453:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:463:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:473:    aliases: [
+/tmp/my-project/src/lib/financial/registry.ts:485:    aliases: ["ebitda", "normalized ebitda"],
+/tmp/my-project/src/lib/financial/registry.ts:492:    aliases: ["ebit"],
+/tmp/my-project/src/lib/financial/registry.ts:499:    aliases: ["extraordinary items", "total unusual items"],
+/tmp/my-project/src/lib/financial/registry.ts:506:    aliases: ["depreciation amortization", "reconciled depreciation"],
+/tmp/my-project/src/lib/financial/registry.ts:513:    aliases: ["working capital"],
+/tmp/my-project/src/lib/financial/registry.ts:520:    aliases: ["free cash flow"],
+/tmp/my-project/src/lib/financial/registry.ts:527:    aliases: ["stock compensation", "share based compensation"],
+/tmp/my-project/src/lib/financial/registry.ts:534:    aliases: ["fx effect cash", "effect of exchange rate"],
+/tmp/my-project/src/lib/financial/registry.ts:541:    aliases: ["interest paid cf"],
+/tmp/my-project/src/lib/financial/recompute.ts:42:/** Which report processing statuses contain trustworthy (approved/validated) values */
+/tmp/my-project/src/lib/financial/recompute.ts:43:const TRUSTED_STATUSES = ["VALIDATED", "APPROVED", "EXTRACTED"]
+/tmp/my-project/src/lib/financial/recompute.ts:45:/** Raw metrics that are flows for TTM purposes — summed across the four quarters */
+/tmp/my-project/src/lib/financial/recompute.ts:243: * columns. The TTM guard (ttmInconsistentKeys) already refuses to SUM such
+/tmp/my-project/src/lib/financial/recompute.ts:245: * valueStatus=OK. Verified market-wide cases this guard now blocks:
+/tmp/my-project/src/lib/financial/recompute.ts:476:    where: { companyId, processingStatus: { in: TRUSTED_STATUSES } },
+/tmp/my-project/src/lib/financial/recompute.ts:726:// Single-flight guard: two concurrent recomputeAll() passes would interleave
+/tmp/my-project/src/components/layout/TopHeader.tsx:3:import { useState, useRef, useEffect, useMemo } from "react"
+/tmp/my-project/src/components/layout/TopHeader.tsx:54:  const [searchQuery, setSearchQuery] = useState("")
+/tmp/my-project/src/components/layout/TopHeader.tsx:55:  const [debouncedQuery, setDebouncedQuery] = useState("")
+/tmp/my-project/src/components/layout/TopHeader.tsx:56:  const [showSearchResults, setShowSearchResults] = useState(false)
+/tmp/my-project/src/components/layout/TopHeader.tsx:57:  const [profileOpen, setProfileOpen] = useState(false)
+/tmp/my-project/src/components/layout/TopHeader.tsx:58:  const [mounted, setMounted] = useState(false)
+/tmp/my-project/src/components/layout/TopHeader.tsx:64:    // Hydration-safe theme/session gating (same pattern as Sidebar).
+/tmp/my-project/src/components/layout/TopHeader.tsx:75:  // Real session state. The old header rendered a hard-coded "Thomas Emad"
+/tmp/my-project/src/components/layout/TopHeader.tsx:82:        ? fetch("/api/v1/auth/me", { headers: { "x-session-token": token } }).then((r) => {
+/tmp/my-project/src/components/layout/TopHeader.tsx:97:      fetch("/api/v1/subscription/me", { headers: { "x-session-token": token ?? "" } }).then((r) =>
+/tmp/my-project/src/components/layout/Sidebar.tsx:3:import { useState, useEffect, useCallback, useRef, useMemo } from "react"
+/tmp/my-project/src/components/layout/Sidebar.tsx:47:import { useSubscriptionGate } from "@/lib/client/subscription-gate"
+/tmp/my-project/src/components/layout/Sidebar.tsx:110:  const { isPremium } = useSubscriptionGate()
+/tmp/my-project/src/components/layout/Sidebar.tsx:113:  const [searchQuery, setSearchQuery] = useState("")
+/tmp/my-project/src/components/layout/Sidebar.tsx:114:  const [focusedIndex, setFocusedIndex] = useState(-1)
+/tmp/my-project/src/components/layout/Sidebar.tsx:115:  const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>(
+/tmp/my-project/src/components/layout/Sidebar.tsx:118:  const [showSearch, setShowSearch] = useState(false)
+/tmp/my-project/src/components/layout/Sidebar.tsx:119:  const [recentItems, setRecentItems] = useState<string[]>([])
+/tmp/my-project/src/components/layout/LayoutShell.tsx:3:import { useState, useEffect } from "react"
+/tmp/my-project/src/components/layout/LayoutShell.tsx:19:  const [isMobile, setIsMobile] = useState(false)
+/tmp/my-project/src/components/layout/LayoutShell.tsx:30:      {/* Desktop sidebar (sm+): brand + primary navigation. Uses logical
+/tmp/my-project/src/lib/financial/ontology/sector-applicability.ts:128:      "FOOD_RAW_MATERIAL_COST", "FOOD_DISTRIBUTION_EXPENSES",
+/tmp/my-project/src/lib/financial/ontology/metric-period-types.ts:53:  OPERATING_INCOME: "FLOW", SELLING_EXPENSES: "FLOW", ADMIN_EXPENSES: "FLOW", RD_EXPENSES: "FLOW",
+/tmp/my-project/src/lib/financial/ontology/metric-period-types.ts:54:  OPERATING_EXPENSES_TOTAL: "FLOW", FINANCE_INCOME: "FLOW", FINANCE_COST: "FLOW",
+/tmp/my-project/src/lib/financial/ontology/metric-period-types.ts:57:  OTHER_INCOME: "FLOW", OTHER_EXPENSES: "FLOW", CURRENT_TAX: "FLOW", DEFERRED_TAX: "FLOW",
+/tmp/my-project/src/lib/financial/ontology/metric-period-types.ts:71:  CAPEX: "FLOW", PPE_PURCHASES: "FLOW", INTANGIBLE_PURCHASES: "FLOW",
+/tmp/my-project/src/lib/financial/ontology/metric-period-types.ts:75:  DIVIDENDS_PAID: "FLOW", CAPITAL_INCREASES_CASH: "FLOW", TREASURY_TRANSACTIONS_CASH: "FLOW",
+/tmp/my-project/src/lib/financial/ontology/investor-relevance.ts:53:  { code: "LEASE_LIABILITIES", tier: "HIGH", rationale: "Total leverage including IFRS 16 leases" },
+/tmp/my-project/src/lib/financial/ontology/investor-relevance.ts:81:  { code: "SELLING_EXPENSES", tier: "MEDIUM" },
+/tmp/my-project/src/lib/financial/ontology/investor-relevance.ts:82:  { code: "ADMIN_EXPENSES", tier: "MEDIUM" },
+/tmp/my-project/src/lib/financial/ontology/investor-relevance.ts:83:  { code: "RD_EXPENSES", tier: "MEDIUM" },
+/tmp/my-project/src/lib/financial/ontology/investor-relevance.ts:84:  { code: "OPERATING_EXPENSES_TOTAL", tier: "MEDIUM" },
+/tmp/my-project/src/lib/financial/ontology/investor-relevance.ts:92:  { code: "OTHER_EXPENSES", tier: "MEDIUM" },
+/tmp/my-project/src/lib/financial/ontology/investor-relevance.ts:117:  { code: "PPE_PURCHASES", tier: "MEDIUM" },
+/tmp/my-project/src/lib/financial/ontology/investor-relevance.ts:118:  { code: "INTANGIBLE_PURCHASES", tier: "MEDIUM" },
+/tmp/my-project/src/lib/financial/ontology/investor-relevance.ts:125:  { code: "CAPITAL_INCREASES_CASH", tier: "MEDIUM" },
+/tmp/my-project/src/lib/financial/ontology/investor-relevance.ts:151:  { code: "TAX_LOSSES_UNRECOGNIZED", tier: "MEDIUM" },
+/tmp/my-project/src/lib/financial/ontology/fact-graph.ts:5://   - Total → breakdown relationships (TOTAL_DEBT → ST + LT + LEASES)
+/tmp/my-project/src/lib/financial/ontology/fact-graph.ts:11://   - Coverage report: to mark "total found but breakdowns missing" cases
+/tmp/my-project/src/lib/financial/ontology/fact-graph.ts:25:  | "OPPOSITE" // A → B where A and B are inverses (INTEREST_INCOME ↔ INTEREST_EXPENSE)
+/tmp/my-project/src/lib/financial/ontology/fact-graph.ts:47:  { from: "OPERATING_INCOME", to: "OPERATING_EXPENSES_TOTAL", type: "DERIVATION" },
+/tmp/my-project/src/lib/financial/ontology/fact-graph.ts:48:  { from: "OPERATING_EXPENSES_TOTAL", to: "SELLING_EXPENSES", type: "BREAKDOWN" },
+/tmp/my-project/src/lib/financial/ontology/fact-graph.ts:49:  { from: "OPERATING_EXPENSES_TOTAL", to: "ADMIN_EXPENSES", type: "BREAKDOWN" },
+/tmp/my-project/src/lib/financial/ontology/fact-graph.ts:50:  { from: "OPERATING_EXPENSES_TOTAL", to: "RD_EXPENSES", type: "BREAKDOWN" },
+/tmp/my-project/src/lib/financial/ontology/fact-graph.ts:128:  { from: "CAPEX", to: "PPE_PURCHASES", type: "BREAKDOWN" },
+/tmp/my-project/src/lib/financial/ontology/fact-graph.ts:129:  { from: "CAPEX", to: "INTANGIBLE_PURCHASES", type: "BREAKDOWN" },
+/tmp/my-project/src/lib/financial/ontology/fact-graph.ts:139:  { from: "FINANCING_CASH_FLOW", to: "CAPITAL_INCREASES_CASH", type: "BREAKDOWN" },
+/tmp/my-project/src/lib/financial/ontology/fact-graph.ts:243: *  report to flag "total found but breakdowns missing" cases. */
+/tmp/my-project/src/components/egx/shared.tsx:48:const toneClasses: Record<string, string> = {
+/tmp/my-project/src/components/egx/shared.tsx:56:    <Badge variant="outline" className={`${toneClasses[tone]} ${small ? "text-[10px]" : "text-xs"} whitespace-nowrap`}>
+/tmp/my-project/src/components/egx/scanners-view.tsx:3:import { useCallback, useEffect, useMemo, useState } from "react"
+/tmp/my-project/src/components/egx/scanners-view.tsx:87:  const [selectedRuleId, setSelectedRuleId] = useState<string | null>(null)
+/tmp/my-project/src/components/egx/scanners-view.tsx:88:  const [basis, setBasis] = useState<Basis>("LATEST_ANNUAL")
+/tmp/my-project/src/components/egx/scanners-view.tsx:89:  const [result, setResult] = useState<{ ruleId: string; matched: number; total: number; periodBasis: string } | null>(null)
+/tmp/my-project/src/components/egx/scanners-view.tsx:90:  const [expanded, setExpanded] = useState<string | null>(null)
+/tmp/my-project/src/components/egx/scanners-view.tsx:492:  const [rows, setRows] = useState<BuilderRow[]>([emptyRow("metric")])
+/tmp/my-project/src/components/egx/scanners-view.tsx:493:  const [name, setName] = useState("")
+/tmp/my-project/src/components/egx/scanners-view.tsx:494:  const [nameAr, setNameAr] = useState("")
+/tmp/my-project/src/components/egx/scanners-view.tsx:495:  const [description, setDescription] = useState("")
+/tmp/my-project/src/components/egx/scanners-view.tsx:496:  const [basis, setBasis] = useState<Basis>("LATEST_ANNUAL")
+/tmp/my-project/src/components/egx/scanners-view.tsx:497:  const [scanOutput, setScanOutput] = useState<{ matched: number; total: number; results: CompanyScanResult[]; periodBasis: string } | null>(null)
+/tmp/my-project/src/components/egx/scanners-view.tsx:498:  const [expanded, setExpanded] = useState<string | null>(null)
+/tmp/my-project/src/components/egx/scanners-view.tsx:533:        conds.push({ kind: "dividend", statuses: r.statusAny ? ["ANNOUNCED", "UPCOMING", "ELIGIBLE"] : ["PAID"] })
+/tmp/my-project/src/components/egx/scanners-view.tsx:568:  const [confirmDeleteId, setConfirmDeleteId] = useState<number | null>(null)
+/tmp/my-project/src/lib/financial/latest-period.ts:13:// uses a null/DATA_UNAVAILABLE row, and never treats missing as zero.
+/tmp/my-project/src/components/egx/qa-box.tsx:6:import { useState } from "react"
+/tmp/my-project/src/components/egx/qa-box.tsx:35:  const [question, setQuestion] = useState("")
+/tmp/my-project/src/components/egx/qa-box.tsx:36:  const [turns, setTurns] = useState<QaTurn[]>([])
+/tmp/my-project/src/components/egx/qa-box.tsx:37:  const [busy, setBusy] = useState(false)
+/tmp/my-project/src/components/egx/price-chart.tsx:6:import { useMemo, useState } from "react"
+/tmp/my-project/src/components/egx/price-chart.tsx:35:  const [range, setRange] = useState<(typeof RANGES)[number]["key"]>("1y")
+/tmp/my-project/src/components/egx/market-ticker.tsx:8:import { useEffect, useState } from "react"
+/tmp/my-project/src/components/egx/market-ticker.tsx:85:  const [isRefreshing, setIsRefreshing] = useState(false)
+/tmp/my-project/src/components/egx/market-ticker.tsx:86:  const [isLive] = useState(false)
+/tmp/my-project/src/components/egx/market-ticker.tsx:87:  const [sseConnected] = useState(false)
+/tmp/my-project/src/components/egx/market-ticker.tsx:90:  const [isAdminUser, setIsAdminUser] = useState(false)
+
+[Showing results with pagination = limit: 250]

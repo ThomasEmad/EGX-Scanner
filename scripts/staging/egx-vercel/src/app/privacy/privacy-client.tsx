@@ -12,7 +12,7 @@ export default function PrivacyClient() {
     ? [
         {
           h: "1. من نحن",
-          p: "EGX Financial Scanner منصة مستقلة لتحليل بيانات البورصة المصرية. نحن المتحكم في البيانات الشخصية التي تُجمع عبر الموقع. للتواصل بشأن الخصوصية: privacy@egx-scanner.com.",
+          p: "Meza منصة مستقلة لتحليل بيانات البورصة المصرية. نحن المتحكم في البيانات الشخصية التي تُجمع عبر الموقع. للتواصل بشأن الخصوصية: privacy@meza-ashy.vercel.app.",
         },
         {
           h: "2. البيانات التي نجمعها",
@@ -36,7 +36,7 @@ export default function PrivacyClient() {
         },
         {
           h: "7. حقوقك",
-          p: "لك الحق في الوصول إلى بياناتك وتصحيحها وحذفها وتقييد معالجتها والاعتراض عليها ونقلها حيث ينطبق القانون. أرسل طلبك إلى privacy@egx-scanner.com وسنرد خلال المدة القانونية. يمكنك أيضاً تقديم شكوى إلى الجهة المختصة.",
+          p: "لك الحق في الوصول إلى بياناتك وتصحيحها وحذفها وتقييد معالجتها والاعتراض عليها ونقلها حيث ينطبق القانون. أرسل طلبك إلى privacy@meza-ashy.vercel.app وسنرد خلال المدة القانونية. يمكنك أيضاً تقديم شكوى إلى الجهة المختصة.",
         },
         {
           h: "8. ملفات تعريف الارتباط",
@@ -62,7 +62,7 @@ export default function PrivacyClient() {
     : [
         {
           h: "1. Who we are",
-          p: "EGX Financial Scanner is an independent Egyptian Exchange financial-analysis platform. We are the controller of personal data collected through the site. Privacy contact: privacy@egx-scanner.com.",
+          p: "Meza is an independent Egyptian Exchange financial-analysis platform. We are the controller of personal data collected through the site. Privacy contact: privacy@meza-ashy.vercel.app.",
         },
         {
           h: "2. Data we collect",
@@ -86,7 +86,7 @@ export default function PrivacyClient() {
         },
         {
           h: "7. Your rights",
-          p: "You may access, correct, delete, restrict or object to processing, and request portability where applicable. Send requests to privacy@egx-scanner.com; we respond within the legal period. You may also complain to the competent authority.",
+          p: "You may access, correct, delete, restrict or object to processing, and request portability where applicable. Send requests to privacy@meza-ashy.vercel.app; we respond within the legal period. You may also complain to the competent authority.",
         },
         {
           h: "8. Cookies",

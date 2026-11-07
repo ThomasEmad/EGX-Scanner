@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 
-const FLAT_URL  = 'file:C:/Users/tomas/Downloads/EGX-Scanner-backup/EGX-Scanner/prisma/dev.db'
-const NESTED_URL = 'file:C:/Users/tomas/Downloads/EGX-Scanner-backup/EGX-Scanner/prisma/prisma/dev.db'
+const FLAT_URL  = 'file:C:/Users/tomas/Downloads/Meza-backup/Meza/prisma/dev.db'
+const NESTED_URL = 'file:C:/Users/tomas/Downloads/Meza-backup/Meza/prisma/prisma/dev.db'
 
 const flat = new PrismaClient({ datasources: { db: { url: FLAT_URL } } })
 const nested = new PrismaClient({ datasources: { db: { url: NESTED_URL } } })

@@ -98,7 +98,7 @@ async function fetchAsk(ticker) {
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
       const res = await fetch(`https://askborsa.com/company/${ticker}`, {
-        headers: { "user-agent": "Mozilla/5.0 EGX-Scanner data audit" },
+        headers: { "user-agent": "Mozilla/5.0 Meza data audit" },
       })
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
       const html = await res.text()

@@ -1,6 +1,6 @@
 #!/bin/bash
 # FINAL verification: real LLM analysis on production with NVIDIA GLM
-BASE="https://egx-scanner-ashy.vercel.app"
+BASE="https://meza-ashy.vercel.app"
 TS=$(date +%s)
 EMAIL="diag3${TS}@egx-diag.local"
 PASS="Diag${TS}pass!"

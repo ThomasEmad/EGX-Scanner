@@ -6,7 +6,7 @@ import { db } from "@/lib/db"
 // GET /api/v1/market/ticker — index levels + top movers.
 //
 // The primary snapshot (`public/data/market-ticker.json`) is refreshed from the
-// public TradingView EGX scanner (15-minute delayed) by
+// public TradingView Meza (15-minute delayed) by
 // `scripts/refresh-market-snapshot.mjs`. It carries `indices`, `movers`,
 // `indicesAsOf` and `pricesAsOf`, so the strip does not need a second database
 // query and does not derive a previous close from a month-old row.

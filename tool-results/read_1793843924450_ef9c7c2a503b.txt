@@ -1,0 +1,1002 @@
+     1→#!/usr/bin/env node
+     2→// TradingView → DB financial statements import (professional, full-coverage).
+     3→//
+     4→//   node scripts/tradingview-financials-import.mjs                       # PLAN (dry run, harvests all companies)
+     5→//   node scripts/tradingview-financials-import.mjs --from-snapshot      # plan from saved snapshot, no network
+     6→//   node scripts/tradingview-financials-import.mjs --apply              # harvest + WRITE (+ rollback + audit log)
+     7→//   node scripts/tradingview-financials-import.mjs --apply --recompute  # write + rebuild derived metrics
+     8→//   node scripts/tradingview-financials-import.mjs --rollback           # undo the last --apply
+     9→//   node scripts/tradingview-financials-import.mjs --tickers=ABUK,COMI  # restrict to tickers (smoke test)
+    10→//   node scripts/tradingview-financials-import.mjs --limit=10           # first N companies
+    11→//   node scripts/tradingview-financials-import.mjs --workers=6          # parallel browser contexts (default 5)
+    12→//
+    13→// Why TradingView: EGX fundamentals on TradingView carry the FULL exact-value
+    14→// history per company — income statement (~24 rows), balance sheet (6 rows),
+    15→// cash flow (4 rows) × 20 fiscal years + ~32 quarterly columns — and the latest
+    16→// published quarter (e.g. ABUK Q3 2026) which askborsa does not have. The
+    17→// public symbol pages render these tables client-side; the exact (unformatted)
+    18→// values live in the React fiber of each table row — no paywall bypass, no
+    19→// scraping of private APIs: it reads exactly what the public page displays.
+    20→//
+    21→// Import policy (conservative, mirrors the platform's established rules):
+    22→//   • only-missing-slot: existing values are NEVER overwritten; conflicts (>5%)
+    23→//     go to reports/tv-financials-conflicts.json for review.
+    24→//   • period identity = (periodType, periodLabel, CONSOLIDATED) AND the stored
+    25→//     periodEnd must match TradingView's within 45 days — fiscal-year changes
+    26→//     (e.g. ABUK Jun-end → Dec-end) make the same label a DIFFERENT period;
+    27→//     those are skipped + logged, never silently merged.
+    28→//   • expense rows arrive negative on TradingView and are flipped to the
+    29→//     platform's positive convention (COGS, INCOME_TAX, OPEX, provisions…).
+    30→//   • exact-zero values are skipped (they are placeholder noise, the purge job
+    31→//     exists to remove exactly that).
+    32→//   • discrete-quarter sum vs FY cross-check (≤8% / EGP 1m tolerance) — TradingView
+    33→//     quarters are discrete by construction; large mismatches mean a fiscal
+    34→//     transition artifact and those (metric, quarter) slots are skipped.
+    35→//   • quarterly label is derived from the period END month (calendar), not the
+    36→//     printed fiscal label — fiscal-year companies (ABUK "Q4 '18" ending
+    37→//     Jun 2018) land on the platform's calendar convention (Q2 2018).
+    38→//   • currency must be EGP (read from the page's own metadata).
+    39→//   • every write lands in reports/tv-financials-rollback.json + AuditLog.
+    40→//
+    41→// Output artifacts (reports/):
+    42→//   tv-financials-snapshot.json   raw harvest (crash-safe, incremental)
+    43→//   tv-financials-plan.json       the classified/validated import plan
+    44→//   tv-financials-rollback.json   undo journal for the last apply
+    45→//   tv-financials-conflicts.json  conflicts with existing DB values
+    46→//   tv-financials-errors.json     per-company harvest errors
+    47→import { chromium } from "playwright"
+    48→import { PrismaClient } from "@prisma/client"
+    49→import { mkdirSync, writeFileSync, readFileSync, existsSync } from "node:fs"
+    50→
+    51→const db = new PrismaClient()
+    52→
+    53→// ---------------------------------------------------------------- CLI ----
+    54→const APPLY = process.argv.includes("--apply")
+    55→const FROM_SNAPSHOT = process.argv.includes("--from-snapshot")
+    56→const ROLLBACK_MODE = process.argv.includes("--rollback")
+    57→const RECOMPUTE = process.argv.includes("--recompute")
+    58→const tickersArg = process.argv.find((a) => a.startsWith("--tickers="))
+    59→const ONLY_TICKERS = tickersArg ? tickersArg.split("=")[1].split(",").map((t) => t.trim().toUpperCase()).filter(Boolean) : null
+    60→const limitArg = process.argv.find((a) => a.startsWith("--limit="))
+    61→const LIMIT = limitArg ? Number(limitArg.split("=")[1]) : null
+    62→const workersArg = process.argv.find((a) => a.startsWith("--workers="))
+    63→const WORKERS = workersArg ? Math.max(1, Math.min(8, Number(workersArg.split("=")[1]))) : 5
+    64→const budgetArg = process.argv.find((a) => a.startsWith("--budget-min="))
+    65→const BUDGET_MS = budgetArg ? Number(budgetArg.split("=")[1]) * 60_000 : null
+    66→const HARVEST_ONLY = process.argv.includes("--harvest-only")
+    67→
+    68→const SNAPSHOT = "reports/tv-financials-snapshot.json"
+    69→const PLAN = "reports/tv-financials-plan.json"
+    70→const ROLLBACK = "reports/tv-financials-rollback.json"
+    71→const CONFLICTS = "reports/tv-financials-conflicts.json"
+    72→const ERRORS = "reports/tv-financials-errors.json"
+    73→const AUDIT_MARK = "TV_FIN_IMPORT:"
+    74→const PARSER = "tv-financials-import@1"
+    75→const SOURCE = "TRADINGVIEW_FINANCIALS"
+    76→const METHOD = "TRADINGVIEW_HARVEST"
+    77→const CONFLICT_PCT = 5
+    78→const SUM_TOL_PCT = 8
+    79→const SUM_TOL_ABS = 1_000_000 // EGP 1m
+    80→const PERIOD_END_TOL_DAYS = 45
+    81→const PAGE_LOAD_TIMEOUT = 45_000
+    82→const SETTLE_MS = 900
+    83→const QUARTER_SETTLE_MS = 1_400
+    84→const PAGE_DELAY_MS = 1_600 // per-worker inter-page delay (politeness)
+    85→const JITTER_MS = 900
+    86→
+    87→const log = (...a) => console.log(new Date().toISOString().slice(11, 19), ...a)
+    88→
+    89→// ------------------------------------------------------- metric mapping ----
+    90→// TradingView row id (idWithoutPeriod) → platform metric code.
+    91→// flip: TV prints the row negative (expense) — platform stores costs positive.
+    92→const FLIP = true
+    93→const INCOME_ROWS = {
+    94→  total_revenue: { code: "REVENUE" },
+    95→  cost_of_goods: { code: "COGS", flip: FLIP },
+    96→  gross_profit: { code: "GROSS_PROFIT" },
+    97→  operating_expenses: { code: "OPERATING_EXPENSES_TOTAL", flip: FLIP },
+    98→  oper_income: { code: "OPERATING_INCOME" },
+    99→  total_non_oper_income: { code: "OTHER_INCOME" },
+   100→  pretax_income: { code: "PROFIT_BEFORE_TAX" },
+   101→  income_tax: { code: "INCOME_TAX", flip: FLIP },
+   102→  equity_in_earnings: { code: "INVESTMENT_INCOME" },
+   103→  net_income: { code: "NET_PROFIT" },
+   104→  earnings_per_share_basic: { code: "BASIC_EPS" },
+   105→  earnings_per_share_diluted: { code: "DILUTED_EPS" },
+   106→  basic_shares_outstanding: { code: "WEIGHTED_AVG_SHARES" },
+   107→  diluted_shares_outstanding: { code: "WEIGHTED_AVG_SHARES_DILUTED" },
+   108→  ebitda: { code: "EBITDA" },
+   109→  ebit: { code: "EBIT" },
+   110→  // bank statements
+   111→  interest_income_net: { code: "NET_INTEREST_INCOME" },
+   112→  non_interest_income: { code: "OTHER_INCOME" },
+   113→  loan_loss_provision: { code: "PROVISIONS", flip: FLIP },
+   114→  non_interest_expense: { code: "OPERATING_EXPENSES_TOTAL", flip: FLIP },
+   115→  unusual_expense_inc: { code: "EXTRAORDINARY_ITEMS", flip: FLIP },
+   116→}
+   117→// rows deliberately NOT imported (redundant / wrong statement kind / risky):
+   118→// net_revenue (banks — total_revenue is REVENUE, Yahoo-compatible),
+   119→// net_revenue_after_provision, income_from_cont_ops, net_income_bef_disc_oper,
+   120→// diluted_net_income, minority_interest_exp, after_tax_other_income,
+   121→// discontinued_operations, dilution_adjustment, preferred_dividends,
+   122→// total_oper_expense (≡ COGS+OPEX).
+   123→const BALANCE_ROWS = {
+   124→  total_assets: { code: "TOTAL_ASSETS" },
+   125→  total_liabilities: { code: "TOTAL_LIABILITIES" },
+   126→  total_equity: { code: "TOTAL_EQUITY" },
+   127→  total_liabilities_shrhldrs_equity: { code: "TOTAL_EQUITY_AND_LIABILITIES" },
+   128→  total_debt: { code: "TOTAL_DEBT" },
+   129→  net_debt: { code: "NET_DEBT" },
+   130→}
+   131→const CASH_ROWS = {
+   132→  cash_f_operating_activities: { code: "OPERATING_CASH_FLOW" },
+   133→  cash_f_investing_activities: { code: "INVESTING_CASH_FLOW" },
+   134→  cash_f_financing_activities: { code: "FINANCING_CASH_FLOW" },
+   135→  free_cash_flow: { code: "FREE_CASH_FLOW" },
+   136→}
+   137→const AR_LABEL = {
+   138→  REVENUE: "إجمالي الإيرادات",
+   139→  COGS: "تكلفة الإيرادات",
+   140→  GROSS_PROFIT: "مجمل الربح",
+   141→  OPERATING_EXPENSES_TOTAL: "إجمالي المصروفات التشغيلية",
+   142→  OPERATING_INCOME: "الربح التشغيلي",
+   143→  OTHER_INCOME: "الإيرادات والمصروفات الأخرى",
+   144→  PROFIT_BEFORE_TAX: "الربح قبل الضريبة",
+   145→  INCOME_TAX: "مصروف ضريبة الدخل",
+   146→  INVESTMENT_INCOME: "أرباح الاستثمارات",
+   147→  NET_PROFIT: "صافي الربح",
+   148→  BASIC_EPS: "ربحية السهم الأساسية",
+   149→  DILUTED_EPS: "ربحية السهم المخففة",
+   150→  WEIGHTED_AVG_SHARES: "المتوسط المرجح لعدد الأسهم",
+   151→  WEIGHTED_AVG_SHARES_DILUTED: "المتوسط المرجح المخفف",
+   152→  EBITDA: "الأرباح قبل الفوائد والضرائب والإهلاك",
+   153→  EBIT: "الأرباح قبل الفوائد والضرائب",
+   154→  NET_INTEREST_INCOME: "صافي دخل الفوائد",
+   155→  PROVISIONS: "المخصصات",
+   156→  EXTRAORDINARY_ITEMS: "بنود غير اعتيادية",
+   157→  TOTAL_ASSETS: "إجمالي الأصول",
+   158→  TOTAL_LIABILITIES: "إجمالي المطلوبات",
+   159→  TOTAL_EQUITY: "إجمالي حقوق المساهمين",
+   160→  TOTAL_EQUITY_AND_LIABILITIES: "إجمالي المطلوبات وحقوق الملكية",
+   161→  TOTAL_DEBT: "إجمالي الدين",
+   162→  NET_DEBT: "صافي الدين",
+   163→  OPERATING_CASH_FLOW: "التدفق النقدي التشغيلي",
+   164→  INVESTING_CASH_FLOW: "التدفق النقدي الاستثماري",
+   165→  FINANCING_CASH_FLOW: "التدفق النقدي التمويلي",
+   166→  FREE_CASH_FLOW: "التدفق النقدي الحر",
+   167→}
+   168→const FLOW_METRICS = new Set([
+   169→  "REVENUE", "COGS", "GROSS_PROFIT", "OPERATING_EXPENSES_TOTAL", "OPERATING_INCOME", "OTHER_INCOME",
+   170→  "PROFIT_BEFORE_TAX", "INCOME_TAX", "INVESTMENT_INCOME", "NET_PROFIT", "EBITDA", "EBIT",
+   171→  "NET_INTEREST_INCOME", "PROVISIONS", "EXTRAORDINARY_ITEMS",
+   172→  "OPERATING_CASH_FLOW", "INVESTING_CASH_FLOW", "FINANCING_CASH_FLOW", "FREE_CASH_FLOW",
+   173→])
+   174→// ratio/average metrics — summing them across quarters is meaningless (share
+   175→// counts double-count, EPS denominators shift), so the quarter-sum check skips them
+   176→const NO_SUM_CHECK = new Set(["WEIGHTED_AVG_SHARES", "WEIGHTED_AVG_SHARES_DILUTED", "BASIC_EPS", "DILUTED_EPS"])
+   177→function statementKind(code) {
+   178→  if (BALANCE_ROWS && Object.values(BALANCE_ROWS).some((m) => m.code === code)) return "BALANCE_SHEET"
+   179→  if (CASH_ROWS && Object.values(CASH_ROWS).some((m) => m.code === code)) return "CASH_FLOW"
+   180→  if (FLOW_METRICS.has(code) || code === "BASIC_EPS" || code === "DILUTED_EPS" || code.startsWith("WEIGHTED_AVG")) return "INCOME_STATEMENT"
+   181→  return "OTHER"
+   182→}
+   183→function prettyCode(code) {
+   184→  return code.replaceAll("_", " ").toLowerCase().replace(/\b\w/g, (ch) => ch.toUpperCase())
+   185→}
+   186→
+   187→// ------------------------------------------------------ period mapping ----
+   188→const MONTHS = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 }
+   189→function parseMonthYear(s) {
+   190→  // "Jun 2006" | "Dec 2025" → Date at month end (UTC)
+   191→  const m = String(s || "").trim().match(/^([A-Za-z]{3})\s+(\d{4})$/)
+   192→  if (!m) return null
+   193→  const mi = MONTHS[m[1].toLowerCase()]
+   194→  if (mi === undefined) return null
+   195→  const y = Number(m[2])
+   196→  return new Date(Date.UTC(y, mi + 1, 0, 23, 59, 59))
+   197→}
+   198→function daysBetween(a, b) {
+   199→  return Math.abs(a.getTime() - b.getTime()) / 86_400_000
+   200→}
+   201→// Classify one column of a statement view. Returns a period object or null.
+   202→// tvFiscalYear = the fiscal year TradingView labels the column with (Q4 '18 →
+   203→// FY2018 even when the quarter ends Jun-2018) — used for the quarter-sum
+   204→// checks; the platform report itself keeps the calendar year of periodEnd.
+   205→function classifyColumn(header, subheader) {
+   206→  const end = parseMonthYear(subheader)
+   207→  if (!end) return null
+   208→  const now = Date.now() + 5 * 86_400_000
+   209→  if (end.getTime() > now) return { skip: "FUTURE" }
+   210→  const h = String(header || "").trim()
+   211→  const year = end.getUTCFullYear()
+   212→  const month = end.getUTCMonth()
+   213→  // "H1 '25" / "H2 '25" — semiannual columns
+   214→  let m = h.match(/^H([12])\s*'(\d{2})$/)
+   215→  if (m) {
+   216→    const half = Number(m[1])
+   217→    return { periodType: "SEMIANNUAL", periodLabel: `H${half} ${year}`, fiscalYear: year, tvFiscalYear: 2000 + Number(m[2]), periodEnd: end, kind: half === 1 ? "H1" : "H2", months: 6 }
+   218→  }
+   219→  // "Q3 '26" — quarterly columns (fiscal labels; calendar mapping comes from the end month)
+   220→  m = h.match(/^Q([1-4])\s*'(\d{2})$/)
+   221→  if (m) {
+   222→    const q = month <= 2 ? 1 : month <= 5 ? 2 : month <= 8 ? 3 : 4
+   223→    return { periodType: "QUARTERLY", periodLabel: `Q${q} ${year}`, fiscalYear: year, tvFiscalYear: 2000 + Number(m[2]), periodEnd: end, kind: `Q${q}`, months: 3 }
+   224→  }
+   225→  // "H1 2025" / "H2 2025" unquoted variant
+   226→  m = h.match(/^H([12])\s+(\d{4})$/)
+   227→  if (m) {
+   228→    const half = Number(m[1])
+   229→    return { periodType: "SEMIANNUAL", periodLabel: `H${half} ${year}`, fiscalYear: year, tvFiscalYear: Number(m[2]), periodEnd: end, kind: half === 1 ? "H1" : "H2", months: 6 }
+   230→  }
+   231→  // plain year "2006" — annual column
+   232→  if (/^\d{4}$/.test(h)) {
+   233→    return { periodType: "ANNUAL", periodLabel: `FY ${h}`, fiscalYear: Number(h), tvFiscalYear: Number(h), periodEnd: end, kind: "FY", months: 12 }
+   234→  }
+   235→  return null
+   236→}
+   237→function classifyView(headers, subheaders) {
+   238→  const out = []
+   239→  const seen = new Map()
+   240→  let restated = 0
+   241→  for (let i = 0; i < headers.length; i++) {
+   242→    const p = classifyColumn(headers[i], subheaders[i])
+   243→    if (!p) { out.push(null); continue }
+   244→    if (p.skip) { out.push(null); continue }
+   245→    const key = `${p.periodType}|${p.periodLabel}`
+   246→    if (seen.has(key)) {
+   247→      // same label appearing twice: keep the later column (restatement), log it
+   248→      const prevIdx = seen.get(key)
+   249→      out[prevIdx] = null
+   250→      restated++
+   251→      seen.set(key, i)
+   252→      out.push(p)
+   253→      continue
+   254→    }
+   255→    seen.set(key, i)
+   256→    out.push(p)
+   257→  }
+   258→  return { periods: out, restated }
+   259→}
+   260→
+   261→// ------------------------------------------------------------ harvest ----
+   262→// Runs inside the page. Walks the React fiber of every table row to recover
+   263→// the EXACT values (the DOM shows rounded "8.84 B"; the fiber holds the raw
+   264→// numbers the WebSocket payload delivered).
+   265→const EXTRACT_FN = `
+   266→(() => {
+   267→  const rows = [];
+   268→  const seen = new Set();
+   269→  for (const el of document.querySelectorAll('[data-name]')) {
+   270→    let hit = null;
+   271→    for (const k of Object.keys(el)) {
+   272→      if (!k.startsWith('__reactFiber')) continue;
+   273→      let cur = el[k], d = 0;
+   274→      while (cur && d < 6) {
+   275→        const p = cur.memoizedProps;
+   276→        if (p && p.idWithoutPeriod && Array.isArray(p.values) && p.values.length > 0) { hit = p; break; }
+   277→        cur = cur.return; d++;
+   278→      }
+   279→      if (hit) break;
+   280→    }
+   281→    if (!hit || seen.has(hit.idWithoutPeriod)) continue;
+   282→    seen.add(hit.idWithoutPeriod);
+   283→    rows.push({ id: hit.idWithoutPeriod, title: el.getAttribute('data-name'), values: hit.values, additional: typeof hit.additionalValue === 'number' ? hit.additionalValue : null });
+   284→  }
+   285→  let headers = null, subheaders = null;
+   286→  // walk from every data-name element until one reaches the table component
+   287→  // (nav elements never do — the component is an ancestor of the ROWS)
+   288→  const els = document.querySelectorAll('[data-name]');
+   289→  outer: for (const el of els) {
+   290→    for (const k of Object.keys(el)) {
+   291→      if (!k.startsWith('__reactFiber')) continue;
+   292→      let cur = el[k], d = 0;
+   293→      while (cur && d < 45) {
+   294→        const p = cur.memoizedProps;
+   295→        if (p && Array.isArray(p.headerValues) && p.headerValues.length > 0 && Array.isArray(p.items)) {
+   296→          headers = p.headerValues.map((x) => String(x));
+   297→          subheaders = Array.isArray(p.headerSubvalues) ? p.headerSubvalues.map((x) => String(x)) : null;
+   298→          break outer;
+   299→        }
+   300→        cur = cur.return; d++;
+   301→      }
+   302→    }
+   303→  }
+   304→  // page metadata: symbol, currency, report frequency (from SSR init-data)
+   305→  let symbol = null, currency = null, frequency = null, fiscalQ = null, fiscalFY = null;
+   306→  for (const s of document.querySelectorAll('script[type="application/prs.init-data+json"]')) {
+   307→    try {
+   308→      const j = JSON.parse(s.textContent);
+   309→      for (const v of Object.values(j)) {
+   310→        if (v && typeof v === 'object') {
+   311→          if (typeof v.symbol === 'string' && !symbol) symbol = v.symbol;
+   312→          const q = v.initFinancialsQuotes;
+   313→          if (q) {
+   314→            currency = currency || (q.fundamental_currency_code || '').trim();
+   315→            frequency = frequency || q.last_report_frequency;
+   316→            fiscalQ = Array.isArray(q.fiscal_period_fq_h) ? q.fiscal_period_fq_h : null;
+   317→            fiscalFY = Array.isArray(q.fiscal_period_fy_h) ? q.fiscal_period_fy_h : null;
+   318→          }
+   319→        }
+   320→      }
+   321→    } catch {}
+   322→  }
+   323→  return { rows, headers, subheaders, symbol, currency, frequency, fiscalQ, fiscalFY, url: location.href };
+   324→})()
+   325→`
+   326→
+   327→function sleep(ms) { return new Promise((r) => setTimeout(r, ms)) }
+   328→function jitter(base) { return base + Math.floor(Math.random() * JITTER_MS) }
+   329→
+   330→function statementUrl(tvSymbol, statement) {
+   331→  return `https://www.tradingview.com/symbols/${tvSymbol.replace(":", "-")}/financials-${statement}/`
+   332→}
+   333→
+   334→// Light probe used by waitForFunction: counts fiber-backed table rows and
+   335→// whether the current column labels are quarterly-style. The financials table
+   336→// mounts asynchronously (data arrives over a WebSocket), so the page must be
+   337→// polled — a fixed sleep is not reliable.
+   338→const PROBE_FN = `
+   339→(() => {
+   340→  let n = 0, quarterly = false, headers = null;
+   341→  for (const el of document.querySelectorAll('[data-name]')) {
+   342→    for (const k of Object.keys(el)) {
+   343→      if (!k.startsWith('__reactFiber')) continue;
+   344→      let cur = el[k], d = 0;
+   345→      while (cur && d < 6) {
+   346→        const p = cur.memoizedProps;
+   347→        if (p && p.idWithoutPeriod && Array.isArray(p.values) && p.values.length > 0) { n++; break; }
+   348→        cur = cur.return; d++;
+   349→      }
+   350→    }
+   351→  }
+   352→  // the headerValues-holding component is an ancestor of the financial rows —
+   353→  // nav/[data-name] elements never reach it, so walk from EVERY data-name
+   354→  // element until one succeeds (the first table row wins)
+   355→  const els = document.querySelectorAll('[data-name]');
+   356→  outer: for (const el of els) {
+   357→    for (const k of Object.keys(el)) {
+   358→      if (!k.startsWith('__reactFiber')) continue;
+   359→      let cur = el[k], d = 0;
+   360→      while (cur && d < 45) {
+   361→        const p = cur.memoizedProps;
+   362→        if (p && Array.isArray(p.headerValues) && p.headerValues.length > 0 && Array.isArray(p.items)) {
+   363→          headers = p.headerValues.map(String);
+   364→          break outer;
+   365→        }
+   366→        cur = cur.return; d++;
+   367→      }
+   368→    }
+   369→  }
+   370→  if (headers) quarterly = headers.some((h) => /^Q[1-4]\\s*'/.test(h) || /^H[12]\\s*'/.test(h));
+   371→  return { n, quarterly };
+   372→})()
+   373→`
+   374→
+   375→async function extractView(page, view) {
+   376→  if (view === "quarterly") {
+   377→    const btn = page.locator("button", { hasText: /^Quarterly$/ }).first()
+   378→    try {
+   379→      await btn.click({ timeout: 5_000 })
+   380→    } catch {
+   381→      return { error: "QUARTERLY_TOGGLE_MISSING" }
+   382→    }
+   383→  }
+   384→  // poll until the table the view needs is actually mounted
+   385→  const wantQuarterly = view === "quarterly"
+   386→  const deadline = Date.now() + 25_000
+   387→  let probe = { n: 0, quarterly: false }
+   388→  let lastProbeErr = null
+   389→  const t0v = Date.now()
+   390→  while (Date.now() < deadline) {
+   391→    probe = await page.evaluate(PROBE_FN).catch((e) => { lastProbeErr = e.message.slice(0, 100); return { n: 0, quarterly: false } })
+   392→    if (process.env.TV_DEBUG) log(`  [probe ${view}] t+${Date.now() - t0v}ms n=${probe.n} q=${probe.quarterly} err=${lastProbeErr ?? "-"}`)
+   393→    if (probe.n > 0 && (!wantQuarterly || probe.quarterly)) break
+   394→    if (view === "quarterly" && probe.n > 0 && !probe.quarterly) {
+   395→      // annual table still showing — the click may have raced the render; retry
+   396→      await page.locator("button", { hasText: /^Quarterly$/ }).first().click({ timeout: 3_000 }).catch(() => {})
+   397→    }
+   398→    await sleep(700)
+   399→  }
+   400→  if (probe.n === 0) return { error: `TABLE_NOT_FOUND${lastProbeErr ? " (probe: " + lastProbeErr + ")" : ""}` }
+   401→  if (wantQuarterly && !probe.quarterly) return { error: "QUARTERLY_TOGGLE_FAILED" }
+   402→  await sleep(500) // let value arrays settle after mount
+   403→  const raw = await page.evaluate(EXTRACT_FN).catch((e) => ({ error: "EVAL_FAILED:" + e.message.slice(0, 120) }))
+   404→  if (raw.error) return raw
+   405→  if (!raw.headers || raw.rows.length === 0) return { error: "TABLE_NOT_FOUND" }
+   406→  return raw
+   407→}
+   408→
+   409→async function harvestStatement(browser, url, statement) {
+   410→  const context = await browser.newContext({ viewport: { width: 1600, height: 900 }, locale: "en-US" })
+   411→  const page = await context.newPage()
+   412→  const out = { url, annual: null, quarterly: null }
+   413→  try {
+   414→    const res = await page.goto(url, { waitUntil: "domcontentloaded", timeout: PAGE_LOAD_TIMEOUT })
+   415→    if (res && (res.status() === 404 || res.status() === 410)) {
+   416→      out.notFound = true
+   417→      return out
+   418→    }
+   419→    if (res && res.status() >= 400) {
+   420→      out.error = `HTTP_${res.status()}`
+   421→      return out
+   422→    }
+   423→    await page.waitForSelector("[data-name]", { timeout: 20_000 }).catch(() => {})
+   424→    out.annual = await extractView(page, "annual")
+   425→    out.quarterly = await extractView(page, "quarterly")
+   426→  } catch (e) {
+   427→    out.error = e.message.slice(0, 200)
+   428→  } finally {
+   429→    await context.close().catch(() => {})
+   430→  }
+   431→  return out
+   432→}
+   433→
+   434→async function searchSymbol(query) {
+   435→  // fallback mapping when EGX-{ticker} does not resolve: the public symbol
+   436→  // search indexes every EGX listing (name match, not a private endpoint)
+   437→  try {
+   438→    const res = await fetch(
+   439→      `https://symbol-search.tradingview.com/symbol_search/v3/?text=${encodeURIComponent(query)}&exchange=EGX&limit=20&lang=en`,
+   440→      { headers: { origin: "https://www.tradingview.com", "user-agent": "Mozilla/5.0" } },
+   441→    )
+   442→    if (!res.ok) return null
+   443→    const j = await res.json()
+   444→    return (j.symbols ?? []).map((s) => ({ symbol: s.symbol, description: s.description, full: s.full_name }))
+   445→  } catch {
+   446→    return null
+   447→  }
+   448→}
+   449→
+   450→// ------------------------------------------------- harvest orchestration ----
+   451→const STATEMENTS = ["income-statement", "balance-sheet", "cash-flow"]
+   452→
+   453→async function harvestCompany(browser, comp) {
+   454→  const t0 = Date.now()
+   455→  const result = {
+   456→    ticker: comp.ticker,
+   457→    nameEn: comp.nameEn,
+   458→    currency: null,
+   459→    frequency: null,
+   460→    tvSymbol: null,
+   461→    notFound: false,
+   462→    errors: [],
+   463→    statements: {},
+   464→    fetchedAt: new Date().toISOString(),
+   465→  }
+   466→  for (const st of STATEMENTS) {
+   467→    let url = statementUrl(`EGX:${comp.ticker}`, st)
+   468→    let got = await harvestStatement(browser, url, st)
+   469→    if (got.notFound) {
+   470→      // try the original ticker (pre-rename), then the public symbol search
+   471→      const candidates = []
+   472→      if (comp.originalTicker && comp.originalTicker.toUpperCase() !== comp.ticker) candidates.push(`EGX:${comp.originalTicker.toUpperCase()}`)
+   473→      const search = await searchSymbol(comp.ticker)
+   474→      if (search?.length) candidates.push(...search.map((s) => s.symbol))
+   475→      let resolved = null
+   476→      for (const sym of candidates) {
+   477→        const u = statementUrl(sym, st)
+   478→        const retry = await harvestStatement(browser, u, st)
+   479→        if (!retry.notFound && !retry.error && retry.annual?.rows?.length) { resolved = { sym, url: u, got: retry }; break }
+   480→      }
+   481→      if (!resolved) { result.notFound = true; result.errors.push(`${st}:NO_SYMBOL_ON_TV`); continue }
+   482→      url = resolved.url
+   483→      got = resolved.got
+   484→    } else if (got.error) {
+   485→      result.errors.push(`${st}:${got.error}`)
+   486→      continue
+   487→    }
+   488→    result.tvSymbol = result.tvSymbol || got.annual?.symbol || `EGX:${comp.ticker}`
+   489→    result.currency = result.currency || got.annual?.currency || null
+   490→    result.frequency = result.frequency || got.annual?.frequency || null
+   491→    result.statements[st] = { url, annual: got.annual, quarterly: got.quarterly }
+   492→    await sleep(jitter(PAGE_DELAY_MS))
+   493→  }
+   494→  result.ms = Date.now() - t0
+   495→  return result
+   496→}
+   497→
+   498→async function runHarvest(companies) {
+   499→  const { chromium: _c } = await import("playwright")
+   500→  const browser = await _c.launch({ headless: true, args: ["--no-sandbox", "--disable-dev-shm-usage"] })
+   501→  mkdirSync("reports", { recursive: true })
+   502→  const snapshot = existsSync(SNAPSHOT) ? JSON.parse(readFileSync(SNAPSHOT, "utf8")) : { generatedAt: null, companies: {} }
+   503→  let done = 0
+   504→  const errs = []
+   505→  let consecutiveFailures = 0
+   506→
+   507→  async function worker(queue) {
+   508→    while (queue.length) {
+   509→      if (BUDGET_MS && Date.now() - t0 > BUDGET_MS) { queue.length = 0; break } // time budget — resume on next run
+   510→      const comp = queue.shift()
+   511→      if (!comp) break
+   512→      let rec = null
+   513→      try {
+   514→        rec = await harvestCompany(browser, comp)
+   515→        consecutiveFailures = 0
+   516→      } catch (e) {
+   517→        rec = { ticker: comp.ticker, nameEn: comp.nameEn, error: "HARVEST_CRASH:" + e.message.slice(0, 160) }
+   518→        consecutiveFailures++
+   519→        if (consecutiveFailures >= 4) { log("circuit breaker: 4 consecutive crashes — aborting the run"); queue.length = 0 }
+   520→      }
+   521→      if (rec.error) errs.push({ ticker: rec.ticker, error: rec.error })
+   522→      else if (rec.errors?.length) errs.push({ ticker: rec.ticker, errors: rec.errors })
+   523→      snapshot.companies[rec.ticker] = rec
+   524→      snapshot.generatedAt = new Date().toISOString()
+   525→      done++
+   526→      if (done % 5 === 0 || done === companies.length) {
+   527→        writeFileSync(SNAPSHOT, JSON.stringify(snapshot), "utf8")
+   528→        const ok = Object.values(snapshot.companies).filter((c) => Object.keys(c.statements ?? {}).length > 0).length
+   529→        log(`harvest ${done}/${companies.length} (usable: ${ok}, last: ${rec.ticker})`)
+   530→      }
+   531→    }
+   532→  }
+   533→
+   534→  const queue = [...companies]
+   535→  const t0 = Date.now()
+   536→  await Promise.all(Array.from({ length: WORKERS }, () => worker(queue)))
+   537→  writeFileSync(SNAPSHOT, JSON.stringify(snapshot), "utf8")
+   538→  writeFileSync(ERRORS, JSON.stringify({ generatedAt: new Date().toISOString(), errors: errs }, null, 2), "utf8")
+   539→  await browser.close()
+   540→  return { snapshot, errors: errs }
+   541→}
+   542→
+   543→// ------------------------------------------------- normalize + validate ----
+   544→function normRowValue(raw, flip) {
+   545→  if (raw === null || raw === undefined || !Number.isFinite(Number(raw))) return null
+   546→  let v = Number(raw)
+   547→  if (!Number.isFinite(v)) return null
+   548→  if (flip) v = -v
+   549→  if (v === 0) return null // zero placeholders are noise — skip (see policy header)
+   550→  if (Math.abs(v) > 1e15) return null // scale-insane
+   551→  return v
+   552→}
+   553→
+   554→// Build a flat {metricCode: value} matrix per (statement, view, columnIndex)
+   555→function matrixFromView(view) {
+   556→  if (!view || view.error || !view.headers) return null
+   557→  const { periods, restated } = classifyView(view.headers, view.subheaders ?? [])
+   558→  const cells = new Map() // colIdx → Map(code → value)
+   559→  let dropped = 0
+   560→  for (const row of view.rows ?? []) {
+   561→    const rowMap = INCOME_ROWS[row.id] ?? BALANCE_ROWS[row.id] ?? CASH_ROWS[row.id]
+   562→    if (!rowMap) continue
+   563→    if (!Array.isArray(row.values) || row.values.length !== view.headers.length) { dropped++; continue }
+   564→    for (let i = 0; i < row.values.length; i++) {
+   565→      if (!periods[i]) continue
+   566→      const v = normRowValue(row.values[i], rowMap.flip)
+   567→      if (v === null) continue
+   568→      if (!cells.has(i)) cells.set(i, new Map())
+   569→      const m = cells.get(i)
+   570→      if (m.has(rowMap.code)) {
+   571→        // same metric twice in one view (unexpected) — keep the larger-magnitude row
+   572→        const prev = m.get(rowMap.code)
+   573→        m.set(rowMap.code, Math.abs(v) > Math.abs(prev) ? v : prev)
+   574→      } else m.set(rowMap.code, v)
+   575→    }
+   576→  }
+   577→  return { periods, cells, restated, dropped }
+   578→}
+   579→
+   580→// ------------------------------------------------------------- planning ----
+   581→async function loadExistingReports(companyIds) {
+   582→  const rows = await db.financialReport.findMany({
+   583→    where: { companyId: { in: companyIds }, deletedAt: null },
+   584→    select: { id: true, companyId: true, periodType: true, periodLabel: true, periodEnd: true, statementType: true, processingStatus: true },
+   585→  })
+   586→  const map = new Map()
+   587→  for (const r of rows) {
+   588→    const key = `${r.companyId}|${r.periodType}|${r.periodLabel}|CONSOLIDATED`
+   589→    // keep the "best" row per key: prefer non-failed statuses
+   590→    const rank = ["APPROVED", "VALIDATED", "EXTRACTED", "PROCESSING", "NEW_DOWNLOADED", "NEEDS_REVIEW"].indexOf(r.processingStatus)
+   591→    const prev = map.get(key)
+   592→    if (!prev || (rank >= 0 && rank < (prev._rank ?? 99))) { map.set(key, { ...r, _rank: rank >= 0 ? rank : 99 }) }
+   593→  }
+   594→  return map
+   595→}
+   596→
+   597→async function planFromSnapshot(snapshot, companies) {
+   598→  const companyIds = companies.map((c) => c.id)
+   599→  const existingReports = await loadExistingReports(companyIds)
+   600→  const existingValues = new Map() // reportId → Set(metricCode)
+   601→  const valRows = await db.financialValue.findMany({
+   602→    where: { companyId: { in: companyIds }, isDemoData: false },
+   603→    select: { reportId: true, metricCode: true, value: true, normalizedValue: true, subPeriod: true, id: true },
+   604→  })
+   605→  for (const v of valRows) {
+   606→    if (v.subPeriod && v.subPeriod !== "CURRENT") continue
+   607→    if (!existingValues.has(v.reportId)) existingValues.set(v.reportId, new Map())
+   608→    existingValues.get(v.reportId).set(v.metricCode, v.normalizedValue ?? v.value)
+   609→  }
+   610→
+   611→  const planEntries = []
+   612→  const conflicts = []
+   613→  const skipped = []
+   614→  const stats = { newReports: 0, fills: 0, conflicts: 0, skippedSlots: 0, companies: 0 }
+   615→  const sumChecks = [] // accumulated across all companies for the summary
+   616→
+   617→  for (const comp of companies) {
+   618→    const rec = snapshot.companies[comp.ticker]
+   619→    if (!rec) { skipped.push({ ticker: comp.ticker, reason: "NO_SNAPSHOT" }); continue }
+   620→    if (rec.notFound) { skipped.push({ ticker: comp.ticker, reason: "NO_SYMBOL_ON_TV" }); continue }
+   621→    const usable = Object.keys(rec.statements ?? {}).length
+   622→    if (usable === 0) { skipped.push({ ticker: comp.ticker, reason: "HARVEST_FAILED", errors: rec.errors }); continue }
+   623→    if (rec.currency && rec.currency.toUpperCase() !== "EGP") { skipped.push({ ticker: comp.ticker, reason: `CURRENCY_${rec.currency.toUpperCase()}` }); continue }
+   624→
+   625→    // company-level cross-check data: FY values per metric (from annual view) for sum-checks
+   626→    const perMetric = new Map() // metricCode → { annual: Map(fiscalYear→{value,end}), quarters: Map(label→{value,end,idx}) }
+   627→    const periodOwner = new Map() // "periodType|label" → { idx, end, statement, view, cells }
+   628→
+   629→    for (const [st, view] of Object.entries(rec.statements)) {
+   630→      for (const viewName of ["annual", "quarterly"]) {
+   631→        const m = matrixFromView(view[viewName])
+   632→        if (!m) continue
+   633→        m.periods.forEach((p, i) => {
+   634→          if (!p) return
+   635→          const key = `${p.periodType}|${p.periodLabel}`
+   636→          const cells = m.cells.get(i)
+   637→          if (!cells || cells.size === 0) return
+   638→          const prev = periodOwner.get(key)
+   639→          if (prev && daysBetween(prev.end, p.periodEnd) <= PERIOD_END_TOL_DAYS) {
+   640→            // same period already captured from another statement/view — merge metrics
+   641→            const target = prev.cells
+   642→            for (const [code, v] of cells) if (!target.has(code)) target.set(code, v)
+   643→            return
+   644→          }
+   645→          if (prev) {
+   646→            // same label but different periodEnd (fiscal-year change) — the later
+   647→            // statement in iteration order wins is ambiguous; prefer the one with
+   648→            // more metrics, log the ambiguity
+   649→            if (cells.size > prev.cells.size) periodOwner.set(key, { end: p.periodEnd, statement: st, view: viewName, cells, period: p, ambiguity: true })
+   650→            else prev.ambiguity = true
+   651→            return
+   652→          }
+   653→          periodOwner.set(key, { end: p.periodEnd, statement: st, view: viewName, cells, period: p })
+   654→        })
+   655→      }
+   656→    }
+   657→
+   658→    // fill perMetric for validation
+   659→    for (const [key, slot] of periodOwner.entries()) {
+   660→      for (const [code, v] of slot.cells) {
+   661→        if (!perMetric.has(code)) perMetric.set(code, { annual: new Map(), quarters: new Map() })
+   662→        const pm = perMetric.get(code)
+   663→        if (slot.period.periodType === "ANNUAL") pm.annual.set(slot.period.fiscalYear, { value: v, end: slot.period.periodEnd, label: slot.period.periodLabel, tvFiscalYear: slot.period.tvFiscalYear })
+   664→        else if (slot.period.periodType === "QUARTERLY") pm.quarters.set(key, { value: v, end: slot.period.periodEnd, label: slot.period.periodLabel, tvFiscalYear: slot.period.tvFiscalYear })
+   665→      }
+   666→    }
+   667→
+   668→    // sum-check: per metric, per TV fiscal year, Σ fiscal quarters vs FY.
+   669→    // TradingView quarterly labels carry the fiscal year (Q4 '18 = FY2018 for
+   670→    // a Jun-ending filer), so grouping by that year is exact — no date
+   671→    // windows, which would pull a 5th quarter for mid-year filers.
+   672→    const suspectSlots = new Set() // "periodType|label|code"
+   673→    const sumDetail = new Map() // suspect slot → {sum, fyValue, quarters}
+   674→    for (const [code, pm] of perMetric) {
+   675→      if (NO_SUM_CHECK.has(code)) continue // averages/ratios — summing is meaningless
+   676→      if (!FLOW_METRICS.has(code)) continue // stock (balance-sheet) metrics are point-in-time — never summed
+   677→      for (const [fy, fySlot] of pm.annual) {
+   678→        const qs = [...pm.quarters.entries()].filter(([, q]) => q.tvFiscalYear === fySlot.tvFiscalYear)
+   679→        if (qs.length < 3) continue // need most of the year for a meaningful check
+   680→        const sum = qs.reduce((a, [, q]) => a + q.value, 0)
+   681→        const tol = Math.max(Math.abs(fySlot.value) * SUM_TOL_PCT / 100, SUM_TOL_ABS)
+   682→        const ok = Math.abs(sum - fySlot.value) <= tol
+   683→        sumChecks.push({ code, fy, ok, sum, fyValue: fySlot.value, quarters: qs.length })
+   684→        if (!ok) for (const [k] of qs) { suspectSlots.add(`${k}|${code}`); sumDetail.set(`${k}|${code}`, { sum, fyValue: fySlot.value, quarters: qs.length }) }
+   685→      }
+   686→    }
+   687→
+   688→    // build plan entries per period
+   689→    for (const [key, slot] of periodOwner.entries()) {
+   690→      const { period } = slot
+   691→      const repKey = `${comp.id}|${period.periodType}|${period.periodLabel}|CONSOLIDATED`
+   692→      const existing = existingReports.get(repKey)
+   693→      const writes = []
+   694→      for (const [code, v] of slot.cells) {
+   695→        const suspect = suspectSlots.has(`${key}|${code}`)
+   696→        const kind = statementKind(code)
+   697→        if (kind === "OTHER" && !AR_LABEL[code]) { stats.skippedSlots++; continue }
+   698→        if (existing) {
+   699→          const slotVals = existingValues.get(existing.id)
+   700→          const prev = slotVals?.get(code)
+   701→          if (prev !== undefined) {
+   702→            const pct = Math.abs(v - prev) / Math.max(Math.abs(prev), 1) * 100
+   703→            if (pct > CONFLICT_PCT) { conflicts.push({ ticker: comp.ticker, period: period.periodLabel, metric: code, existing: prev, tv: v, diffPct: +pct.toFixed(1) }); stats.conflicts++ }
+   704→            continue // only-missing: never overwrite
+   705→          }
+   706→        }
+   707→        writes.push({ code, value: v, suspect, sumCheck: suspect ? sumDetail.get(`${key}|${code}`) : null })
+   708→      }
+   709→      if (writes.length === 0) continue
+   710→      // periodEnd guard on existing reports
+   711→      if (existing && existing.periodEnd && daysBetween(new Date(existing.periodEnd), period.periodEnd) > PERIOD_END_TOL_DAYS) {
+   712→        conflicts.push({
+   713→          ticker: comp.ticker, period: period.periodLabel, metric: "PERIOD",
+   714→          existing: new Date(existing.periodEnd).toISOString().slice(0, 10), tv: period.periodEnd.toISOString().slice(0, 10),
+   715→          diffPct: null, note: "PERIOD_END_MISMATCH (fiscal-year change) — skipped",
+   716→        })
+   717→        stats.conflicts++
+   718→        continue
+   719→      }
+   720→      planEntries.push({
+   721→        ticker: comp.ticker,
+   722→        companyId: comp.id,
+   723→        reportId: existing?.id ?? null,
+   724→        periodType: period.periodType,
+   725→        periodLabel: period.periodLabel,
+   726→        fiscalYear: period.fiscalYear,
+   727→        periodStart: new Date(period.periodEnd.getTime() - period.months * 30.44 * 86_400_000).toISOString().slice(0, 10),
+   728→        periodEnd: period.periodEnd.toISOString().slice(0, 10),
+   729→        statement: slot.statement,
+   730→        sourceUrl: rec.statements[slot.statement]?.url ?? null,
+   731→        tvSymbol: rec.tvSymbol,
+   732→        ambiguity: slot.ambiguity ?? false,
+   733→        values: writes.map((w) => ({ metric: w.code, value: w.value, kind: statementKind(w.code), label: AR_LABEL[w.code] ?? prettyCode(w.code), suspect: w.suspect, sumCheck: w.sumCheck })),
+   734→      })
+   735→      if (!existing) stats.newReports++
+   736→      stats.fills += writes.length
+   737→    }
+   738→    stats.companies++
+   739→  }
+   740→  return { entries: planEntries, conflicts, skipped, stats, sumChecks: sumChecksSample(sumChecks) }
+   741→}
+   742→function sumChecksSample(checks) {
+   743→  const bad = checks.filter((c) => !c.ok)
+   744→  return { total: checks.length, failed: bad.length, samples: bad.slice(0, 40) }
+   745→}
+   746→
+   747→// ---------------------------------------------------------------- apply ----
+   748→const STATUS_RANK = { APPROVED: 0, VALIDATED: 1, EXTRACTED: 2, PROCESSING: 3, NEW_DOWNLOADED: 4, NEEDS_REVIEW: 5, FAILED: 8, REJECTED: 9, DELETED: 10 }
+   749→
+   750→async function applyPlan(entries) {
+   751→  mkdirSync("reports", { recursive: true })
+   752→  const rollback = { generatedAt: new Date().toISOString(), source: SOURCE, parser: PARSER, reports: [], values: [] }
+   753→  const blocked = []
+   754→  let reportCount = 0
+   755→  let valueCount = 0
+   756→
+   757→  // group by report slot: entries may target the same existing report from
+   758→  // different statements (income/balance/cash) — merge their values
+   759→  const bySlot = new Map()
+   760→  for (const e of entries) {
+   761→    const key = `${e.companyId}|${e.periodType}|${e.periodLabel}|CONSOLIDATED`
+   762→    if (!bySlot.has(key)) bySlot.set(key, { ...e, values: [...e.values] })
+   763→    else {
+   764→      const t = bySlot.get(key)
+   765→      const have = new Set(t.values.map((v) => v.metric))
+   766→      for (const v of e.values) if (!have.has(v.metric)) { t.values.push(v); have.add(v.metric) }
+   767→    }
+   768→  }
+   769→
+   770→  for (const entry of bySlot.values()) {
+   771→    let reportId = entry.reportId
+   772→    if (!reportId) {
+   773→      // soft-deleted / superseded / FAILED rows still occupy the key — never
+   774→      // resurrect a deliberately removed report (platform rule)
+   775→      const dup = await db.financialReport.findFirst({
+   776→        where: { companyId: entry.companyId, periodType: entry.periodType, periodLabel: entry.periodLabel, statementType: "CONSOLIDATED" },
+   777→        select: { id: true, deletedAt: true, processingStatus: true },
+   778→      })
+   779→      if (dup && (dup.deletedAt || (STATUS_RANK[dup.processingStatus] ?? 9) >= 8)) {
+   780→        blocked.push({ ticker: entry.ticker, periodLabel: entry.periodLabel, reason: dup.deletedAt ? "SOFT_DELETED" : dup.processingStatus })
+   781→        continue
+   782→      }
+   783→      if (dup) {
+   784→        reportId = dup.id
+   785→      } else {
+   786→        const created = await db.financialReport.create({
+   787→          data: {
+   788→            companyId: entry.companyId,
+   789→            reportType: entry.periodType === "ANNUAL" ? "ANNUAL" : "INTERIM",
+   790→            periodType: entry.periodType,
+   791→            statementType: "CONSOLIDATED",
+   792→            fiscalYear: entry.fiscalYear,
+   793→            periodLabel: entry.periodLabel,
+   794→            periodStart: new Date(entry.periodStart),
+   795→            periodEnd: new Date(entry.periodEnd),
+   796→            language: "EN",
+   797→            sourceName: SOURCE,
+   798→            sourceUrl: entry.sourceUrl,
+   799→            processingStatus: "EXTRACTED",
+   800→            extractionMethod: METHOD,
+   801→            parserVersion: PARSER,
+   802→            extractionConfidence: 0.85,
+   803→            isDemoData: false,
+   804→            version: 1,
+   805→            notes: `TradingView financial statements import (${entry.tvSymbol}); exact printed values via public symbol page.`,
+   806→          },
+   807→          select: { id: true },
+   808→        })
+   809→        reportId = created.id
+   810→        rollback.reports.push({ id: reportId, ticker: entry.ticker, periodLabel: entry.periodLabel })
+   811→        reportCount++
+   812→      }
+   813→    }
+   814→    // values: only-missing-slot with an in-memory pre-check + P2002 backstop
+   815→    const existing = await db.financialValue.findMany({
+   816→      where: { reportId },
+   817→      select: { metricCode: true, subPeriod: true },
+   818→    })
+   819→    const have = new Set(existing.filter((v) => !v.subPeriod || v.subPeriod === "CURRENT").map((v) => v.metricCode))
+   820→    for (const v of entry.values) {
+   821→      if (have.has(v.metric)) continue
+   822→      const validationStatus = v.suspect ? "NEEDS_REVIEW" : "VALID"
+   823→      const confidence = v.suspect ? 0.7 : 0.85
+   824→      const notes = [
+   825→        `${AUDIT_MARK} TradingView ${entry.tvSymbol} (${entry.statement}); source ${entry.sourceUrl}`,
+   826→        ...(v.suspect && v.sumCheck ? [`sum-check FAILED vs FY: Σ ${v.sumCheck.quarters} quarters = ${v.sumCheck.sum} vs FY ${v.sumCheck.fyValue} — flagged for review`] : []),
+   827→      ].join(" | ")
+   828→      try {
+   829→        const row = await db.financialValue.create({
+   830→          data: {
+   831→            companyId: entry.companyId,
+   832→            reportId,
+   833→            metricCode: v.metric,
+   834→            // originalLabel is user-visible (Arabic hint on the statements
+   835→            // table) — provenance lives in validationNotes (product rule).
+   836→            originalLabel: AR_LABEL[v.metric] ?? v.label ?? prettyCode(v.metric),
+   837→            value: v.value,
+   838→            currency: "EGP",
+   839→            unit: "UNIT",
+   840→            normalizedValue: v.value,
+   841→            statementType: v.kind || statementKind(v.metric),
+   842→            subPeriod: "CURRENT",
+   843→            extractionMethod: METHOD,
+   844→            confidence,
+   845→            validationStatus,
+   846→            validationNotes: notes,
+   847→            sourceText: entry.sourceUrl,
+   848→            isDemoData: false,
+   849→          },
+   850→          select: { id: true },
+   851→        })
+   852→        rollback.values.push({ id: row.id, ticker: entry.ticker, metric: v.metric, value: v.value })
+   853→        valueCount++
+   854→      } catch (e) {
+   855→        if (String(e?.code) === "P2002") { blocked.push({ ticker: entry.ticker, periodLabel: entry.periodLabel, metric: v.metric, reason: "VALUE_UNIQUE" }); continue }
+   856→        throw e
+   857→      }
+   858→    }
+   859→  }
+   860→  writeFileSync(ROLLBACK, JSON.stringify(rollback), "utf8")
+   861→  if (blocked.length) {
+   862→    writeFileSync("reports/tv-financials-blocked.json", JSON.stringify({ generatedAt: new Date().toISOString(), blocked }, null, 2), "utf8")
+   863→    log(`blocked (soft-deleted/failed/unique): ${blocked.length} → reports/tv-financials-blocked.json`)
+   864→  }
+   865→  await db.auditLog.create({
+   866→    data: {
+   867→      actor: "system",
+   868→      action: "UPLOAD",
+   869→      entityType: "FinancialReport",
+   870→      details: `${AUDIT_MARK} ${reportCount} reports created, ${valueCount} values added (parser ${PARSER}); rollback ${ROLLBACK}`,
+   871→    },
+   872→  })
+   873→  return { reportCount, valueCount }
+   874→}
+   875→
+   876→async function runRollback() {
+   877→  if (!existsSync(ROLLBACK)) { console.error(`No rollback file at ${ROLLBACK}`); process.exit(1) }
+   878→  const data = JSON.parse(readFileSync(ROLLBACK, "utf8"))
+   879→  let values = 0
+   880→  let reports = 0
+   881→  let skipped = 0
+   882→  for (const v of data.values ?? []) {
+   883→    const row = await db.financialValue.findUnique({ where: { id: v.id }, select: { validationNotes: true } })
+   884→    if (!row || !String(row.validationNotes ?? "").includes(AUDIT_MARK)) { skipped++; continue }
+   885→    await db.financialValue.delete({ where: { id: v.id } })
+   886→    values++
+   887→  }
+   888→  for (const r of data.reports ?? []) {
+   889→    const rep = await db.financialReport.findUnique({ where: { id: r.id }, select: { notes: true, _count: { select: { values: true } } } })
+   890→    if (!rep || !String(rep.notes ?? "").includes("TradingView financial statements import")) { skipped++; continue }
+   891→    if (rep._count.values > 0) { skipped++; continue } // only empty reports; values were removed above
+   892→    await db.financialReport.delete({ where: { id: r.id } })
+   893→    reports++
+   894→  }
+   895→  await db.auditLog.create({
+   896→    data: {
+   897→      actor: "system",
+   898→      action: "DELETE",
+   899→      entityType: "FinancialReport",
+   900→      details: `${AUDIT_MARK} rollback: ${values} values removed, ${reports} reports deleted, ${skipped} skipped`,
+   901→    },
+   902→  })
+   903→  log(`rollback done: ${values} values, ${reports} reports, ${skipped} skipped`)
+   904→}
+   905→
+   906→async function recomputeAll() {
+   907→  const PORT = process.env.PORT || "3000"
+   908→  const SECRET = process.env.CRON_SECRET
+   909→  if (!SECRET) { log("recompute skipped: CRON_SECRET not set"); return }
+   910→  log("triggering full metric recompute …")
+   911→  try {
+   912→    const res = await fetch(`http://127.0.0.1:${PORT}/api/v1/cron/recompute`, { headers: { authorization: `Bearer ${SECRET}` } })
+   913→    const body = await res.json().catch(() => ({}))
+   914→    if (!res.ok || !body.ok) { log(`recompute failed: HTTP ${res.status}`); return }
+   915→    const t = body.totals ?? {}
+   916→    log(`recompute done: ${t.companies ?? "?"} companies, ${t.calculatedMetrics ?? "?"} metrics, ${t.events ?? "?"} events`)
+   917→  } catch (e) {
+   918→    log(`recompute request failed: ${e.message}`)
+   919→  }
+   920→}
+   921→
+   922→// ------------------------------------------------------------- printing ----
+   923→function printPlanSummary(plan) {
+   924→  const s = plan.stats
+   925→  log("── plan summary ────────────────────────────────────────────")
+   926→  log(`companies planned:      ${s.companies}`)
+   927→  log(`new reports:            ${s.newReports}`)
+   928→  log(`values to write:        ${s.fills}`)
+   929→  log(`conflicts (>5% diff):   ${s.conflicts}`)
+   930→  log(`skipped slots:          ${s.skippedSlots}`)
+   931→  log(`skipped companies:      ${plan.skipped.filter((x) => !x.metric).length}`)
+   932→  log(`sum-checks:             ${plan.sumChecks.total} (${plan.sumChecks.failed} failed)`)
+   933→  const byType = {}
+   934→  for (const e of plan.entries) byType[e.periodType] = (byType[e.periodType] ?? 0) + 1
+   935→  log(`entries by period type: ${JSON.stringify(byType)}`)
+   936→  const sample = plan.entries.filter((e) => e.ticker === "ABUK").slice(0, 6)
+   937→  for (const e of sample) log(`  ABUK ${e.periodLabel.padEnd(9)} → ${e.values.length} values (${e.reportId ? "fill" : "NEW"})`)
+   938→}
+   939→
+   940→// ----------------------------------------------------------------- main ----
+   941→async function main() {
+   942→  if (ROLLBACK_MODE) { await runRollback(); await db.$disconnect(); return }
+   943→
+   944→  const companies = await db.company.findMany({
+   945→    where: { isActive: true, isDemoData: false },
+   946→    select: { id: true, ticker: true, nameEn: true, originalTicker: true },
+   947→    orderBy: { ticker: "asc" },
+   948→  })
+   949→  const target = ONLY_TICKERS ? companies.filter((c) => ONLY_TICKERS.includes(c.ticker.toUpperCase())) : companies.slice(0, LIMIT ?? companies.length)
+   950→  log(`target companies: ${target.length} (apply=${APPLY}, fromSnapshot=${FROM_SNAPSHOT}, workers=${WORKERS})`)
+   951→
+   952→  let snapshot
+   953→  if (FROM_SNAPSHOT) {
+   954→    snapshot = JSON.parse(readFileSync(SNAPSHOT, "utf8"))
+   955→    log(`using saved snapshot (${Object.keys(snapshot.companies).length} companies, generated ${snapshot.generatedAt})`)
+   956→  } else {
+   957→    // resume: a company is done when it has usable statements, or is known
+   958→    // absent from TradingView, or failed only with terminal errors. Anything
+   959→    // else (page errors, toggle failures) is retried on the next run.
+   960→    const prev = existsSync(SNAPSHOT) ? JSON.parse(readFileSync(SNAPSHOT, "utf8")) : { companies: {} }
+   961→    const isUsable = (rec) =>
+   962→      rec &&
+   963→      (rec.notFound ||
+   964→        (Object.keys(rec.statements ?? {}).length > 0 &&
+   965→          (rec.errors ?? []).every((e) => e.includes("NO_SYMBOL_ON_TV"))))
+   966→    const todo = target.filter((c) => !isUsable(prev.companies?.[c.ticker]))
+   967→    if (todo.length < target.length) log(`resume: ${target.length - todo.length} already harvested, ${todo.length} to (re)harvest`)
+   968→    const res = await runHarvest(todo)
+   969→    snapshot = res.snapshot
+   970→    const failed = res.errors.length
+   971→    const usable = Object.values(snapshot.companies).filter(isUsable).length
+   972→    log(`harvest finished: ${usable}/${target.length} usable, ${failed} with errors → ${ERRORS}`)
+   973→  }
+   974→
+   975→  if (HARVEST_ONLY) {
+   976→    log("harvest-only mode — no plan, no writes.")
+   977→    await db.$disconnect()
+   978→    return
+   979→  }
+   980→
+   981→  const plan = await planFromSnapshot(snapshot, target)
+   982→  writeFileSync(PLAN, JSON.stringify({ generatedAt: new Date().toISOString(), apply: APPLY, ...plan }, null, 2), "utf8")
+   983→  if (plan.conflicts.length) writeFileSync(CONFLICTS, JSON.stringify({ generatedAt: new Date().toISOString(), conflicts: plan.conflicts }, null, 2), "utf8")
+   984→  printPlanSummary(plan)
+   985→
+   986→  if (!APPLY) {
+   987→    log("dry run only — nothing written. Re-run with --apply to write.")
+   988→  } else {
+   989→    const t0 = Date.now()
+   990→    const res = await applyPlan(plan.entries)
+   991→    log(`apply done in ${((Date.now() - t0) / 1000).toFixed(0)}s: ${res.reportCount} reports created, ${res.valueCount} values written`)
+   992→    if (RECOMPUTE) await recomputeAll()
+   993→  }
+   994→  await db.$disconnect()
+   995→}
+   996→
+   997→main().catch(async (e) => {
+   998→  console.error(e)
+   999→  await db.$disconnect()
+  1000→  process.exit(1)
+  1001→})
+  1002→

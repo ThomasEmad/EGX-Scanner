@@ -1,0 +1,614 @@
+     1→"use client"
+     2→
+     3→import { useState, useRef, useEffect, useMemo } from "react"
+     4→import Link from "next/link"
+     5→import { usePathname, useRouter } from "next/navigation"
+     6→import { useTheme } from "next-themes"
+     7→import { useQuery, useQueryClient } from "@tanstack/react-query"
+     8→import { useI18n } from "@/lib/i18n"
+     9→import { Button } from "@/components/ui/button"
+    10→import {
+    11→  Search,
+    12→  User,
+    13→  Menu,
+    14→  X,
+    15→  Sun,
+    16→  Moon,
+    17→  Crown,
+    18→  ShieldCheck,
+    19→  Building2,
+    20→  Shield,
+    21→  Scale,
+    22→  Briefcase,
+    23→  CalendarDays,
+    24→  Activity,
+    25→  ChevronDown,
+    26→  LayoutDashboard,
+    27→  LogOut,
+    28→} from "lucide-react"
+    29→import { cn } from "@/lib/utils"
+    30→import { motion, AnimatePresence } from "framer-motion"
+    31→import { api, authHeaders, clearUserToken, getUserToken } from "@/lib/client/api"
+    32→import { SECTORS, sectorLabel } from "@/lib/sectors"
+    33→
+    34→const NAV_TABS = [
+    35→  { href: "/dashboard", label: "Dashboard", labelAr: "لوحة القيادة", icon: LayoutDashboard, exact: true },
+    36→  { href: "/rankings", label: "Companies", labelAr: "الشركات", icon: Building2 },
+    37→  { href: "/sectors", label: "Sectors", labelAr: "القطاعات", icon: Shield },
+    38→  { href: "/compare", label: "Compare", labelAr: "المقارنة", icon: Scale },
+    39→  { href: "/portfolio", label: "Portfolio", labelAr: "المحفظة", icon: Briefcase },
+    40→  { href: "/dividends", label: "Dividends", labelAr: "التوزيعات", icon: CalendarDays },
+    41→  { href: "/watchlist", label: "Watchlist", labelAr: "قائمة المتابعة", icon: ShieldCheck },
+    42→] as const
+    43→
+    44→type NavTab = typeof NAV_TABS[number]
+    45→
+    46→interface TopHeaderProps {
+    47→  className?: string
+    48→}
+    49→
+    50→export function TopHeader({ className }: TopHeaderProps = {}) {
+    51→  const { lang, setLang } = useI18n()
+    52→  const { setTheme, theme } = useTheme()
+    53→  const pathname = usePathname()
+    54→  const router = useRouter()
+    55→  const queryClient = useQueryClient()
+    56→  const [searchQuery, setSearchQuery] = useState("")
+    57→  const [debouncedQuery, setDebouncedQuery] = useState("")
+    58→  const [showSearchResults, setShowSearchResults] = useState(false)
+    59→  const [profileOpen, setProfileOpen] = useState(false)
+    60→  const [mounted, setMounted] = useState(false)
+    61→  const searchInputRef = useRef<HTMLInputElement>(null)
+    62→  const resultsRef = useRef<HTMLDivElement>(null)
+    63→  const profileRef = useRef<HTMLDivElement>(null)
+    64→
+    65→  useEffect(() => {
+    66→    setMounted(true)
+    67→  }, [])
+    68→
+    69→  const ar = lang === "ar"
+    70→  // next-themes resolves the theme on the client only. Rendering the sun/moon
+    71→  // icon from `theme` on the server caused a hydration mismatch; gate it on
+    72→  // mount instead.
+    73→  const isDark = mounted && theme === "dark"
+    74→
+    75→  // Real session state. The old header rendered a hard-coded "Thomas Emad"
+    76→  // and a fake "3" notification badge for every visitor.
+    77→  const token = mounted ? getUserToken() : null
+    78→  const { data: me } = useQuery({
+    79→    queryKey: ["auth-me", token],
+    80→    queryFn: () =>
+    81→      token
+    82→        ? fetch("/api/v1/auth/me", { headers: { "x-session-token": token } }).then((r) => {
+    83→            if (r.status === 401) {
+    84→              clearUserToken()
+    85→              return null
+    86→            }
+    87→            return r.ok ? r.json() : null
+    88→          })
+    89→        : Promise.resolve(null),
+    90→    enabled: mounted,
+    91→    staleTime: 60_000,
+    92→    retry: false,
+    93→  })
+    94→  const { data: subscription } = useQuery({
+    95→    queryKey: ["subscription-me", token],
+    96→    queryFn: () =>
+    97→      fetch("/api/v1/subscription/me", { headers: { "x-session-token": token ?? "" } }).then((r) =>
+    98→        r.ok ? r.json() : null,
+    99→      ),
+   100→    enabled: mounted && !!token,
+   101→    staleTime: 60_000,
+   102→    retry: false,
+   103→  })
+   104→
+   105→  const loggedIn = !!me?.user
+   106→  const meName: string | null = me?.user?.name ?? me?.user?.email ?? null
+   107→  const isPremium = !!subscription?.isPremium
+   108→
+   109→  const normalizedQuery = debouncedQuery.trim().toLowerCase()
+   110→  const { data: companySearch, isFetching: companySearching } = useQuery({
+   111→    queryKey: ["header-company-search", debouncedQuery],
+   112→    queryFn: () =>
+   113→      fetch(`/api/v1/companies?search=${encodeURIComponent(debouncedQuery)}&pageSize=6`).then(async (r) => {
+   114→        if (!r.ok) return { companies: [] as { id: string; ticker: string; nameEn: string; nameAr: string | null; sector: string }[] }
+   115→        const json = (await r.json()) as { companies?: { id: string; ticker: string; nameEn: string; nameAr: string | null; sector: string }[] }
+   116→        return { companies: json.companies ?? [] }
+   117→      }),
+   118→    enabled: debouncedQuery.length >= 2,
+   119→    staleTime: 30_000,
+   120→    retry: false,
+   121→  })
+   122→
+   123→  const matchedSectors = useMemo(() => {
+   124→    if (normalizedQuery.length < 2) return []
+   125→    return SECTORS.filter(
+   126→      (sector) =>
+   127→        sector.toLowerCase().includes(normalizedQuery) ||
+   128→        sectorLabel(sector, lang).toLowerCase().includes(normalizedQuery),
+   129→    ).slice(0, 4)
+   130→  }, [normalizedQuery, lang])
+   131→
+   132→  const matchedTabs = useMemo(() => {
+   133→    if (normalizedQuery.length < 2) return []
+   134→    return NAV_TABS.filter(
+   135→      (tab) =>
+   136→        tab.href !== "/dashboard" &&
+   137→        ((ar ? tab.labelAr : tab.label).toLowerCase().includes(normalizedQuery) ||
+   138→          tab.label.toLowerCase().includes(normalizedQuery)),
+   139→    ).slice(0, 4)
+   140→  }, [normalizedQuery, ar])
+   141→
+   142→  const toggleTheme = () => {
+   143→    setTheme((t) => (t === "dark" ? "light" : "dark"))
+   144→  }
+   145→
+   146→  const isActive = useMemo(() => (href: string) => {
+   147→    if (href === "/dashboard") return pathname === "/dashboard" || pathname === "/"
+   148→    return pathname === href || pathname.startsWith(`${href}/`)
+   149→  }, [pathname])
+   150→
+   151→  const handleLogout = async () => {
+   152→    try {
+   153→      await fetch("/api/v1/auth/logout", {
+   154→        method: "POST",
+   155→        headers: { "Content-Type": "application/json", ...authHeaders() },
+   156→      })
+   157→    } finally {
+   158→      clearUserToken()
+   159→      queryClient.clear()
+   160→      router.push("/login")
+   161→    }
+   162→  }
+   163→
+   164→  const handleProfileClick = () => {
+   165→    if (loggedIn) setProfileOpen((open) => !open)
+   166→    else router.push("/login")
+   167→  }
+   168→
+   169→  const handleKeyDown = (e: KeyboardEvent) => {
+   170→    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+   171→      e.preventDefault()
+   172→      searchInputRef.current?.focus()
+   173→      setShowSearchResults(true)
+   174→    }
+   175→  }
+   176→
+   177→  useEffect(() => {
+   178→    document.addEventListener("keydown", handleKeyDown)
+   179→    return () => document.removeEventListener("keydown", handleKeyDown)
+   180→  }, [])
+   181→
+   182→  useEffect(() => {
+   183→    const id = setTimeout(() => setDebouncedQuery(searchQuery.trim()), 200)
+   184→    return () => clearTimeout(id)
+   185→  }, [searchQuery])
+   186→
+   187→  useEffect(() => {
+   188→    function onDoc(e: MouseEvent) {
+   189→      if (resultsRef.current && !resultsRef.current.contains(e.target as Node)) setShowSearchResults(false)
+   190→      if (profileRef.current && !profileRef.current.contains(e.target as Node)) setProfileOpen(false)
+   191→    }
+   192→    document.addEventListener("mousedown", onDoc)
+   193→    return () => document.removeEventListener("mousedown", onDoc)
+   194→  }, [])
+   195→
+   196→  const go = (href: string) => {
+   197→    setShowSearchResults(false)
+   198→    setSearchQuery("")
+   199→    router.push(href)
+   200→  }
+   201→
+   202→  return (
+   203→    <header
+   204→      dir={ar ? "rtl" : "ltr"}
+   205→      className={cn(
+   206→        "sticky top-0 z-40 h-16 border-b border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/90 shadow-sm transition-colors",
+   207→        className,
+   208→      )}
+   209→    >
+   210→      <div className="flex h-full items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+   211→        {/* Left: Brand */}
+   212→        <div className="flex items-center gap-3 flex-shrink-0">
+   213→          <Link
+   214→            href="/"
+   215→            className="flex items-center gap-2 rounded-lg px-2 py-1.5 transition-colors hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+   216→            aria-label="EGX Financial Scanner — Home"
+   217→          >
+   218→            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
+   219→              <Activity className="h-4.5 w-4.5" />
+   220→            </div>
+   221→            <span className="hidden sm:inline font-bold tracking-tight text-foreground text-base">EGX Scanner</span>
+   222→          </Link>
+   223→        </div>
+   224→
+   225→        {/* Center: Nav tabs + Search (unified bar on desktop) */}
+   226→        <div className="hidden lg:flex lg:items-center lg:gap-4 lg:flex-1 lg:max-w-[900px]">
+   227→          {/* Nav tabs - clean underline style */}
+   228→          <nav className="flex items-center gap-1" aria-label="Main navigation" role="navigation">
+   229→            {NAV_TABS.map((tab) => {
+   230→              const active = isActive(tab.href)
+   231→              const Icon = tab.icon
+   232→              return (
+   233→                <Link
+   234→                  key={tab.href}
+   235→                  href={tab.href}
+   236→                  className={cn(
+   237→                    "relative flex items-center gap-2 px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-lg",
+   238→                    active
+   239→                      ? "text-primary"
+   240→                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50",
+   241→                  )}
+   242→                  aria-current={active ? "page" : undefined}
+   243→                >
+   244→                  <Icon className={cn("h-4 w-4 shrink-0", active ? "text-primary" : "text-muted-foreground")} aria-hidden="true" />
+   245→                  <span>{ar ? tab.labelAr : tab.label}</span>
+   246→                  {active && (
+   247→                    <motion.div
+   248→                      layout
+   249→                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full"
+   250→                      initial={false}
+   251→                    />
+   252→                  )}
+   253→                </Link>
+   254→              )
+   255→            })}
+   256→          </nav>
+   257→
+   258→          {/* Divider */}
+   259→          <div className="hidden lg:block w-px h-6 bg-border/40" aria-hidden="true" />
+   260→
+   261→          {/* Global Search - prominent */}
+   262→          <div className="relative flex-1 max-w-xl" ref={resultsRef}>
+   263→            <label htmlFor="global-search" className="sr-only">
+   264→              {ar ? "البحث في الشركات والقطاعات" : "Search companies and sectors"}
+   265→            </label>
+   266→            <div className="relative">
+   267→              <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center">
+   268→                <Search className="h-4 w-4 text-muted-foreground/60" aria-hidden="true" />
+   269→                <kbd className="ml-2 hidden sm:inline-flex items-center gap-0.5 rounded border border-border/60 bg-muted/80 px-1.5 py-0.5 text-[10px] font-mono text-muted-foreground/70">
+   270→                  ⌘K
+   271→                </kbd>
+   272→              </div>
+   273→              <input
+   274→                ref={searchInputRef}
+   275→                id="global-search"
+   276→                type="search"
+   277→                value={searchQuery}
+   278→                onChange={(e) => {
+   279→                  setSearchQuery(e.target.value)
+   280→                  setShowSearchResults(true)
+   281→                }}
+   282→                onFocus={() => setShowSearchResults(true)}
+   283→                onBlur={() => setTimeout(() => setShowSearchResults(false), 200)}
+   284→                onKeyDown={(e) => {
+   285→                  if (e.key === "Escape") {
+   286→                    setShowSearchResults(false)
+   287→                    searchInputRef.current?.blur()
+   288→                  }
+   289→                }}
+   290→                placeholder={ar ? "ابحث عن شركة، قطاع، أو رمز… (⌘K)" : "Search companies, sectors, tickers… (⌘K)"}
+   291→                className="w-full h-9 pl-10 pr-10 text-sm rounded-xl border border-border/60 bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-200"
+   292→                autoComplete="off"
+   293→                aria-autocomplete="list"
+   294→                aria-controls="search-results"
+   295→                
+   296→              />
+   297→              {searchQuery && (
+   298→                <button
+   299→                  type="button"
+   300→                  onClick={() => { setSearchQuery(""); setShowSearchResults(false); searchInputRef.current?.focus() }}
+   301→                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-lg text-muted-foreground/50 hover:text-foreground hover:bg-muted transition-colors"
+   302→                  aria-label={ar ? "مسح البحث" : "Clear search"}
+   303→                >
+   304→                  <X className="h-4 w-4" />
+   305→                </button>
+   306→              )}
+   307→            </div>
+   308→
+   309→            {/* Search Results Dropdown */}
+   310→            <AnimatePresence>
+   311→              {showSearchResults && debouncedQuery.length >= 2 && (
+   312→                <motion.div
+   313→                  id="search-results"
+   314→                  initial={{ opacity: 0, y: -8, scale: 0.98 }}
+   315→                  animate={{ opacity: 1, y: 0, scale: 1 }}
+   316→                  exit={{ opacity: 0, y: -8, scale: 0.98 }}
+   317→                  transition={{ duration: 0.15, ease: "easeOut" }}
+   318→                  className="absolute top-full left-0 right-0 z-50 mt-2 rounded-xl border border-border/60 bg-background shadow-xl shadow-black/10 overflow-hidden"
+   319→                  role="listbox"
+   320→                >
+   321→                  <div className="max-h-80 overflow-y-auto">
+   322→                    <div className="px-3 py-2 border-b border-border/40 text-[11px] font-semibold text-muted-foreground uppercase tracking-wider flex items-center justify-between">
+   323→                      <span>{ar ? "نتائج البحث" : "Search Results"}</span>
+   324→                      <span className="text-[10px] text-muted-foreground/70">
+   325→                        {ar ? "اضغط Enter للاختيار" : "Press Enter to select"}
+   326→                      </span>
+   327→                    </div>
+   328→
+   329→                    {companySearching && (
+   330→                      <div className="px-3 py-3 text-xs text-muted-foreground">
+   331→                        {ar ? "جاري البحث..." : "Searching..."}
+   332→                      </div>
+   333→                    )}
+   334→
+   335→                    {companySearch?.companies.length ? (
+   336→                      <div className="py-1">
+   337→                        <div className="px-3 pt-2 pb-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+   338→                          {ar ? "الشركات" : "Companies"}
+   339→                        </div>
+   340→                        {companySearch.companies.map((company) => (
+   341→                          <Link
+   342→                            key={company.id}
+   343→                            href={`/company/${company.ticker}`}
+   344→                            onClick={() => go(`/company/${company.ticker}`)}
+   345→                            className="flex items-center gap-3 px-3 py-2.5 text-sm rounded-lg transition-colors hover:bg-muted/50"
+   346→                            role="option"
+   347→                          >
+   348→                            <span className="flex h-8 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-[10px] font-bold text-primary">
+   349→                              {company.ticker}
+   350→                            </span>
+   351→                            <div className="min-w-0 flex-1">
+   352→                              <span className="block truncate font-medium text-foreground">
+   353→                                {ar ? (company.nameAr ?? company.nameEn) : company.nameEn}
+   354→                              </span>
+   355→                              <span className="block truncate text-[11px] text-muted-foreground">
+   356→                                {sectorLabel(company.sector, lang)}
+   357→                              </span>
+   358→                            </div>
+   359→                          </Link>
+   360→                        ))}
+   361→                      </div>
+   362→                    ) : null}
+   363→
+   364→                    {matchedSectors.length ? (
+   365→                      <div className="py-1 border-t border-border/40">
+   366→                        <div className="px-3 pt-2 pb-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+   367→                          {ar ? "القطاعات" : "Sectors"}
+   368→                        </div>
+   369→                        {matchedSectors.map((sector) => (
+   370→                          <Link
+   371→                            key={sector}
+   372→                            href={`/sectors/${encodeURIComponent(sector)}`}
+   373→                            onClick={() => go(`/sectors/${encodeURIComponent(sector)}`)}
+   374→                            className="flex items-center gap-3 px-3 py-2.5 text-sm rounded-lg transition-colors hover:bg-muted/50"
+   375→                            role="option"
+   376→                          >
+   377→                            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+   378→                              <Shield className="h-4 w-4" />
+   379→                            </span>
+   380→                            <span className="min-w-0 flex-1 truncate font-medium text-foreground">
+   381→                              {sectorLabel(sector, lang)}
+   382→                            </span>
+   383→                            <span className="text-[10px] uppercase tracking-wide text-muted-foreground">
+   384→                              {ar ? "قطاع" : "Sector"}
+   385→                            </span>
+   386→                          </Link>
+   387→                        ))}
+   388→                      </div>
+   389→                    ) : null}
+   390→
+   391→                    {matchedTabs.length ? (
+   392→                      <div className="py-1 border-t border-border/40">
+   393→                        <div className="px-3 pt-2 pb-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+   394→                          {ar ? "الصفحات" : "Pages"}
+   395→                        </div>
+   396→                        {matchedTabs.map((tab) => (
+   397→                          <Link
+   398→                            key={tab.href}
+   399→                            href={tab.href}
+   400→                            onClick={() => go(tab.href)}
+   401→                            className="flex items-center gap-3 px-3 py-2.5 text-sm rounded-lg transition-colors hover:bg-muted/50"
+   402→                            role="option"
+   403→                          >
+   404→                            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+   405→                              <tab.icon className="h-4 w-4" />
+   406→                            </span>
+   407→                            <span className="min-w-0 flex-1 truncate font-medium text-foreground">
+   408→                              {ar ? tab.labelAr : tab.label}
+   409→                            </span>
+   410→                          </Link>
+   411→                        ))}
+   412→                      </div>
+   413→                    ) : null}
+   414→
+   415→                    {!companySearching &&
+   416→                    !(companySearch?.companies.length) &&
+   417→                    matchedSectors.length === 0 &&
+   418→                    matchedTabs.length === 0 ? (
+   419→                      <div className="px-3 py-6 text-center text-xs text-muted-foreground">
+   420→                        {ar ? "لا توجد نتائج مطابقة" : "No matching results"}
+   421→                      </div>
+   422→                    ) : null}
+   423→                  </div>
+   424→                </motion.div>
+   425→              )}
+   426→            </AnimatePresence>
+   427→          </div>
+   428→        </div>
+   429→
+   430→        {/* Right: Actions */}
+   431→        <div className="flex items-center gap-2 flex-shrink-0">
+   432→          {/* Theme Toggle */}
+   433→          <Button
+   434→            variant="ghost"
+   435→            size="icon"
+   436→            className="h-9 w-9 rounded-xl"
+   437→            onClick={toggleTheme}
+   438→            aria-label={ar ? "تبديل المظهر" : "Toggle theme"}
+   439→            title={ar ? "تبديل المظهر" : "Toggle theme"}
+   440→          >
+   441→            <AnimatePresence mode="wait">
+   442→              {isDark ? (
+   443→                <motion.div key="sun" initial={{ rotate: -90, scale: 0 }} animate={{ rotate: 0, scale: 1 }} exit={{ rotate: 90, scale: 0 }} transition={{ duration: 0.2 }}>
+   444→                  <Sun className="h-5 w-5 text-amber-400" />
+   445→                </motion.div>
+   446→              ) : (
+   447→                <motion.div key="moon" initial={{ rotate: 90, scale: 0 }} animate={{ rotate: 0, scale: 1 }} exit={{ rotate: -90, scale: 0 }} transition={{ duration: 0.2 }}>
+   448→                  <Moon className="h-5 w-5 text-muted-foreground" />
+   449→                </motion.div>
+   450→              )}
+   451→            </AnimatePresence>
+   452→          </Button>
+   453→
+   454→          {/* Profile / Account Menu */}
+   455→          <div className="relative" ref={profileRef}>
+   456→            <button
+   457→              onClick={handleProfileClick}
+   458→              className="flex items-center gap-2 rounded-xl border border-border/60 bg-card px-3 py-1.5 transition-all duration-200 hover:bg-accent/30 hover:border-primary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20"
+   459→              aria-label={loggedIn ? (ar ? "حسابي" : "My account") : (ar ? "تسجيل الدخول" : "Sign in")}
+   460→              aria-expanded={loggedIn ? profileOpen : undefined}
+   461→              aria-haspopup={loggedIn ? "true" : undefined}
+   462→            >
+   463→              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+   464→                <User className="h-4 w-4" />
+   465→              </div>
+   466→              <div className="hidden sm:flex flex-col items-end leading-tight text-right">
+   467→                <span className="text-sm font-semibold text-foreground truncate max-w-[140px]">
+   468→                  {loggedIn ? (meName ?? (ar ? "حسابي" : "My account")) : (ar ? "تسجيل الدخول" : "Sign in")}
+   469→                </span>
+   470→                <span className="text-[11px] text-muted-foreground truncate max-w-[140px]">
+   471→                  {loggedIn
+   472→                    ? (isPremium ? (ar ? "بريميوم" : "Premium") : (ar ? "مجاني" : "Free"))
+   473→                    : (ar ? "للوصول الكامل" : "For full access")}
+   474→                </span>
+   475→              </div>
+   476→              <ChevronDown className="h-4 w-4 text-muted-foreground/70 transition-transform duration-200" style={{ transform: profileOpen ? "rotate(180deg)" : "rotate(0deg)" }} />
+   477→            </button>
+   478→
+   479→            {loggedIn && profileOpen && (
+   480→              <AnimatePresence>
+   481→                <motion.div
+   482→                  initial={{ opacity: 0, y: -8, scale: 0.98 }}
+   483→                  animate={{ opacity: 1, y: 0, scale: 1 }}
+   484→                  exit={{ opacity: 0, y: -8, scale: 0.98 }}
+   485→                  transition={{ duration: 0.15 }}
+   486→                  className="absolute right-0 top-full z-50 mt-2 w-56 rounded-xl border border-border/60 bg-background shadow-xl shadow-black/10 overflow-hidden"
+   487→                  role="menu"
+   488→                >
+   489→                  <div className="p-2 space-y-1">
+   490→                    <div className="px-3 py-2">
+   491→                      <p className="truncate text-sm font-semibold text-foreground">{meName}</p>
+   492→                      <p className="truncate text-[11px] text-muted-foreground">{me?.user?.email}</p>
+   493→                    </div>
+   494→                    <hr className="border-border/40 my-1" />
+   495→                    <button
+   496→                      onClick={() => { setProfileOpen(false); router.push("/premium") }}
+   497→                      className={cn("w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors hover:bg-muted/50", "text-right")}
+   498→                      role="menuitem"
+   499→                    >
+   500→                      <Crown className="h-4 w-4 text-muted-foreground" />
+   501→                      <span className="font-medium">{ar ? "الاشتراك" : "Subscription"}</span>
+   502→                    </button>
+   503→                    <button
+   504→                      onClick={() => { setProfileOpen(false); router.push("/data-quality") }}
+   505→                      className={cn("w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors hover:bg-muted/50", "text-right")}
+   506→                      role="menuitem"
+   507→                    >
+   508→                      <ShieldCheck className="h-4 w-4 text-muted-foreground" />
+   509→                      <span className="font-medium">{ar ? "جودة البيانات" : "Data quality"}</span>
+   510→                    </button>
+   511→                    <hr className="border-border/40 my-1" />
+   512→                    <button
+   513→                      onClick={handleLogout}
+   514→                      className={cn("w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors hover:bg-destructive/10 hover:text-destructive", "text-right")}
+   515→                      role="menuitem"
+   516→                    >
+   517→                      <LogOut className="h-4 w-4" />
+   518→                      <span className="font-medium">{ar ? "تسجيل الخروج" : "Sign out"}</span>
+   519→                    </button>
+   520→                  </div>
+   521→                </motion.div>
+   522→              </AnimatePresence>
+   523→            )}
+   524→          </div>
+   525→
+   526→          {/* Premium badge / upgrade link — never shown as account status to non-premium users */}
+   527→          {isPremium ? (
+   528→            <div className="hidden lg:flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/5 px-2.5 py-1">
+   529→              <Crown className="h-3.5 w-3.5 text-primary" />
+   530→              <span className="text-xs font-bold text-primary tracking-tight">{ar ? "بريميوم" : "Premium"}</span>
+   531→            </div>
+   532→          ) : (
+   533→            <Link
+   534→              href="/premium"
+   535→              className="hidden lg:flex items-center gap-1.5 rounded-full border border-border/60 bg-card px-2.5 py-1 text-xs font-bold text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+   536→            >
+   537→              <Crown className="h-3.5 w-3.5" />
+   538→              {ar ? "ترقية" : "Upgrade"}
+   539→            </Link>
+   540→          )}
+   541→
+   542→          {/* Language Toggle */}
+   543→          <Button
+   544→            variant="ghost"
+   545→            size="sm"
+   546→            className="h-9 px-3 rounded-xl border border-border/60 bg-card transition-colors hover:bg-accent/50"
+   547→            onClick={() => setLang(lang === "en" ? "ar" : "en")}
+   548→            aria-label={ar ? "تغيير اللغة" : "Change language"}
+   549→          >
+   550→            <ShieldCheck className="h-3.5 w-3.5 mr-1.5" />
+   551→            <span className="text-xs font-semibold uppercase tracking-wider">{lang === "en" ? "AR" : "EN"}</span>
+   552→          </Button>
+   553→        </div>
+   554→
+   555→        {/* Mobile: compact actions */}
+   556→        <div className="lg:hidden flex items-center gap-1">
+   557→          <Button
+   558→            variant="ghost"
+   559→            size="icon"
+   560→            className="h-9 w-9 rounded-xl"
+   561→            onClick={toggleTheme}
+   562→            aria-label="Toggle theme"
+   563→          >
+   564→            {isDark ? <Sun className="h-5 w-5 text-amber-400" /> : <Moon className="h-5 w-5" />}
+   565→          </Button>
+   566→          <Button
+   567→            variant="ghost"
+   568→            size="icon"
+   569→            className="h-9 w-9 rounded-xl"
+   570→            onClick={() => setLang(lang === "en" ? "ar" : "en")}
+   571→            aria-label="Change language"
+   572→          >
+   573→            <span className="text-xs font-bold uppercase">{lang === "en" ? "AR" : "EN"}</span>
+   574→          </Button>
+   575→          <Button
+   576→            variant="ghost"
+   577→            size="icon"
+   578→            className="h-9 w-9 rounded-xl"
+   579→            onClick={() => router.push(loggedIn ? "/premium" : "/login")}
+   580→            aria-label={loggedIn ? (ar ? "حسابي" : "My account") : (ar ? "تسجيل الدخول" : "Sign in")}
+   581→          >
+   582→            <User className="h-5 w-5" />
+   583→          </Button>
+   584→        </div>
+   585→      </div>
+   586→
+   587→      {/* Mobile Nav Tabs (below header on small screens) */}
+   588→      <div className="lg:hidden border-t border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/100">
+   589→        <nav className="flex overflow-x-auto px-3 py-2 gap-1 scrollbar-hide -mx-3" aria-label="Mobile navigation" role="navigation">
+   590→          {NAV_TABS.map((tab) => {
+   591→            const active = isActive(tab.href)
+   592→            const Icon = tab.icon
+   593→            return (
+   594→              <Link
+   595→                key={tab.href}
+   596→                href={tab.href}
+   597→                className={cn(
+   598→                  "flex shrink-0 items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap",
+   599→                  active
+   600→                    ? "bg-primary text-primary-foreground shadow-sm"
+   601→                    : "text-muted-foreground hover:bg-muted/50 hover:text-foreground",
+   602→                )}
+   603→                aria-current={active ? "page" : undefined}
+   604→              >
+   605→                <Icon className="h-3.5 w-3.5" aria-hidden="true" />
+   606→                <span>{ar ? tab.labelAr : tab.label}</span>
+   607→              </Link>
+   608→            )
+   609→          })}
+   610→        </nav>
+   611→      </div>
+   612→    </header>
+   613→  )
+   614→}

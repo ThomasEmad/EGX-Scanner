@@ -1,0 +1,582 @@
+     1→"use client"
+     2→
+     3→import { useEffect, useRef, useState } from "react"
+     4→import { useRouter } from "next/navigation"
+     5→import { useTheme } from "next-themes"
+     6→import { useQuery } from "@tanstack/react-query"
+     7→import Link from "next/link"
+     8→import {
+     9→  Activity,
+    10→  BadgeCheck,
+    11→  Bell,
+    12→  Briefcase,
+    13→  Building2,
+    14→  CalendarDays,
+    15→  FileCheck2,
+    16→  Gauge,
+    17→  Languages,
+    18→  Moon,
+    19→  ScanSearch,
+    20→  Scale,
+    21→  Search,
+    22→  ShieldCheck,
+    23→  Sun,
+    24→  Wand2,
+    25→  Crown,
+    26→  Trophy,
+    27→  X,
+    28→  Menu,
+    29→  ChevronRight,
+    30→} from "lucide-react"
+    31→import { Badge } from "@/components/ui/badge"
+    32→import { Button } from "@/components/ui/button"
+    33→import { useI18n } from "@/lib/i18n"
+    34→import type { ViewKey } from "@/lib/view-keys"
+    35→import { UserMenu } from "@/components/user-menu"
+    36→import { api, getUserToken, clearUserToken } from "@/lib/client/api"
+    37→import { MarketTicker } from "./market-ticker"
+    38→
+    39→interface AppHeaderProps {
+    40→  view?: ViewKey
+    41→  companyOpen?: boolean
+    42→  onViewChange?: (v: ViewKey) => void
+    43→  onMenuToggle?: () => void
+    44→  sidebarCollapsed?: boolean
+    45→}
+    46→
+    47→function HeaderSearch() {
+    48→  const { lang } = useI18n()
+    49→  const router = useRouter()
+    50→  const [q, setQ] = useState("")
+    51→  const [debounced, setDebounced] = useState("")
+    52→  const [open, setOpen] = useState(false)
+    53→  const [cursor, setCursor] = useState(0)
+    54→  const boxRef = useRef<HTMLDivElement>(null)
+    55→  const inputRef = useRef<HTMLInputElement>(null)
+    56→  const ar = lang === "ar"
+    57→
+    58→  const popularTickers = [
+    59→    { ticker: "COMI", nameEn: "Commercial International Bank", nameAr: "البنك التجاري الدولي", sector: "Banks" },
+    60→    { ticker: "ETEL", nameEn: "Telecom Egypt", nameAr: "المصرية للاتصالات", sector: "Telecom" },
+    61→    { ticker: "ABUK", nameEn: "Abu Qir Fertilizers", nameAr: "أبو قير للأسمدة", sector: "Basic Materials" },
+    62→    { ticker: "TMGH", nameEn: "Talaat Moustafa Group", nameAr: "مجموعة طلعت مصطفى", sector: "Real Estate" },
+    63→    { ticker: "EAST", nameEn: "Eastern Company", nameAr: "الشرقية للدخان", sector: "Consumer" },
+    64→  ]
+    65→
+    66→  useEffect(() => {
+    67→    const id = setTimeout(() => setDebounced(q.trim()), 200)
+    68→    return () => clearTimeout(id)
+    69→  }, [q])
+    70→
+    71→  useEffect(() => {
+    72→    function onKeyDown(e: KeyboardEvent) {
+    73→      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+    74→        e.preventDefault()
+    75→        inputRef.current?.focus()
+    76→        setOpen(true)
+    77→      }
+    78→    }
+    79→    window.addEventListener("keydown", onKeyDown)
+    80→    return () => window.removeEventListener("keydown", onKeyDown)
+    81→  }, [])
+    82→
+    83→  useEffect(() => {
+    84→    function onDoc(e: MouseEvent) {
+    85→      if (boxRef.current && !boxRef.current.contains(e.target as Node)) setOpen(false)
+    86→    }
+    87→    document.addEventListener("mousedown", onDoc)
+    88→    return () => document.removeEventListener("mousedown", onDoc)
+    89→  }, [])
+    90→
+    91→  const { data } = useQuery({
+    92→    queryKey: ["header-search", debounced],
+    93→    queryFn: () => api.companies({ search: debounced, pageSize: 6 }),
+    94→    enabled: debounced.length >= 2,
+    95→    staleTime: 60_000,
+    96→  })
+    97→  const results = debounced.length >= 2 ? data?.companies ?? [] : []
+    98→
+    99→  function go(id: string) {
+   100→    setOpen(false)
+   101→    setQ("")
+   102→    router.push(`/company/${id}`)
+   103→  }
+   104→
+   105→  const itemsToShow = debounced.length >= 2 ? results : open ? popularTickers : []
+   106→
+   107→  return (
+   108→    <div ref={boxRef} className="relative">
+   109→      <div className="flex items-center gap-1.5 rounded-lg border border-border/70 bg-muted/40 px-2.5 py-1.5 transition-all duration-150 focus-within:border-primary/60 focus-within:bg-background focus-within:ring-2 focus-within:ring-primary/20">
+   110→        <Search className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+   111→        <input
+   112→          ref={inputRef}
+   113→          value={q}
+   114→          onChange={(e) => {
+   115→            setQ(e.target.value)
+   116→            setOpen(true)
+   117→            setCursor(0)
+   118→          }}
+   119→          onFocus={() => setOpen(true)}
+   120→          onKeyDown={(e) => {
+   121→            if (e.key === "ArrowDown") {
+   122→              e.preventDefault()
+   123→              setCursor((c) => Math.min(c + 1, itemsToShow.length - 1))
+   124→            } else if (e.key === "ArrowUp") {
+   125→              e.preventDefault()
+   126→              setCursor((c) => Math.max(c - 1, 0))
+   127→            } else if (e.key === "Enter" && itemsToShow[cursor]) {
+   128→              e.preventDefault()
+   129→              go((itemsToShow[cursor] as { id?: string; ticker: string }).id ?? itemsToShow[cursor].ticker)
+   130→            } else if (e.key === "Escape") {
+   131→              setOpen(false)
+   132→              inputRef.current?.blur()
+   133→            }
+   134→          }}
+   135→          placeholder={ar ? "ابحث عن شركة… (⌘K)" : "Search companies… (⌘K)"}
+   136→          className="w-32 bg-transparent text-xs outline-none placeholder:text-muted-foreground/70 lg:w-48"
+   137→          aria-label={ar ? "بحث الشركات" : "Company search"}
+   138→        />
+   139→        <kbd className="hidden lg:inline-flex items-center rounded border border-border/60 bg-muted/80 px-1 py-0.5 text-[9px] font-mono text-muted-foreground select-none">
+   140→          ⌘K
+   141→        </kbd>
+   142→      </div>
+   143→
+   144→      {open && itemsToShow.length > 0 ? (
+   145→        <div className="absolute -right-1 top-full z-50 mt-2 w-72 overflow-hidden rounded-xl border border-border/70 bg-card shadow-xl shadow-black/10 backdrop-blur-md animate-in fade-in-50 zoom-in-95 duration-100">
+   146→          <div className="px-3 py-1.5 border-b border-border/40 text-[10px] font-medium text-muted-foreground uppercase tracking-wider flex items-center justify-between">
+   147→            <span>{debounced.length >= 2 ? (ar ? "الشركات المطابقة" : "Matching companies") : (ar ? "شركات شائعة" : "Popular companies")}</span>
+   148→            <span className="text-[9px]">{ar ? "اختر للفتح" : "Select to open"}</span>
+   149→          </div>
+   150→          <div className="max-h-72 overflow-y-auto scrollbar-thin py-1">
+   151→            {itemsToShow.map((c, i) => (
+   152→              <button
+   153→                key={(c as { id?: string; ticker: string }).id ?? c.ticker}
+   154→                onClick={() => go((c as { id?: string; ticker: string }).id ?? c.ticker)}
+   155→                onMouseEnter={() => setCursor(i)}
+   156→                className={`flex w-full items-center gap-2.5 px-3 py-2 text-start transition-colors ${
+   157→                  i === cursor ? "bg-primary/10 text-primary" : "hover:bg-muted/50"
+   158→                }`}
+   159→              >
+   160→                <span className="flex h-7 w-10 shrink-0 items-center justify-center rounded bg-primary/15 text-[10px] font-bold text-primary tabular">
+   161→                  {c.ticker}
+   162→                </span>
+   163→                <span className="min-w-0 flex-1">
+   164→                  <span className="block truncate text-xs font-semibold text-foreground">
+   165→                    {lang === "ar" ? c.nameAr || c.nameEn : c.nameEn}
+   166→                  </span>
+   167→                  <span className="block text-[10px] text-muted-foreground">{c.sector}</span>
+   168→                </span>
+   169→              </button>
+   170→            ))}
+   171→          </div>
+   172→        </div>
+   173→      ) : null}
+   174→    </div>
+   175→  )
+   176→}
+   177→
+   178→export function AppHeader({
+   179→  view,
+   180→  companyOpen,
+   181→  onViewChange,
+   182→  onMenuToggle,
+   183→  sidebarCollapsed,
+   184→}: AppHeaderProps) {
+   185→  const { t, lang, setLang } = useI18n()
+   186→  const { theme, setTheme } = useTheme()
+   187→  const router = useRouter()
+   188→  const [methodologyOpen, setMethodologyOpen] = useState(false)
+   189→  const [premiumOpen, setPremiumOpen] = useState(false)
+   190→  const [menuOpen, setMenuOpen] = useState(false)
+   191→  const [notificationOpen, setNotificationOpen] = useState(false)
+   192→  const [mounted, setMounted] = useState(false)
+   193→
+   194→  // Hydration-safe mount gate: theme (from next-themes/localStorage) differs
+   195→  // between server and first client render. Render nothing until mounted so
+   196→  // server HTML and initial client output match, then reveal the correct icon.
+   197→  useEffect(() => {
+   198→    // eslint-disable-next-line react-hooks/set-state-in-effect
+   199→    setMounted(true)
+   200→  }, [])
+   201→
+   202→  const token = mounted ? getUserToken() : null
+   203→  const { data: me } = useQuery({
+   204→    queryKey: ["auth-me", token],
+   205→    queryFn: () =>
+   206→      token
+   207→        ? fetch("/api/v1/auth/me", { headers: { "x-session-token": token } }).then((r) => {
+   208→            if (r.status === 401) clearUserToken()
+   209→            return r.ok ? r.json() : null
+   210→          })
+   211→        : Promise.resolve(null),
+   212→    enabled: mounted,
+   213→    staleTime: 60_000,
+   214→    retry: false,
+   215→  })
+   216→  const loggedIn = !!me?.user
+   217→  const meName: string | null = me?.user?.name ?? me?.user?.email ?? null
+   218→
+   219→  const isDark = mounted && theme === "dark"
+   220→
+   221→  const ar = lang === "ar"
+   222→
+   223→  const handleNav = (targetKey: ViewKey) => {
+   224→    if (typeof window !== "undefined" && !window.location.pathname.startsWith("/dashboard")) {
+   225→      router.push(`/dashboard#/${targetKey}`)
+   226→      return
+   227→    }
+   228→    if (onViewChange) {
+   229→      onViewChange(targetKey)
+   230→    } else {
+   231→      router.push(`/dashboard#/${targetKey}`)
+   232→    }
+   233→  }
+   234→
+   235→  return (
+   236→    <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 shadow-sm">
+   237→      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+   238→        <div className="flex h-14 items-center justify-between gap-3">
+   239→          {/* Brand + menu toggle */}
+   240→          <div className="flex items-center gap-3">
+   241→            {onMenuToggle && (
+   242→              <button
+   243→                onClick={onMenuToggle}
+   244→                className="p-1.5 rounded-lg hover:bg-accent/50 text-muted-foreground hover:text-foreground transition-colors lg:hidden"
+   245→                aria-label={ar ? "القائمة" : "Menu"}
+   246→              >
+   247→                <Menu className="h-5 w-5" />
+   248→              </button>
+   249→            )}
+   250→            <Link
+   251→              href="/"
+   252→              className="flex items-center gap-2 rounded-xl px-2 py-1.5 transition-colors hover:bg-muted/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1"
+   253→              aria-label="EGX Financial Scanner — home"
+   254→            >
+   255→              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm shadow-primary/20">
+   256→                <Activity className="h-4 w-4" />
+   257→              </span>
+   258→              <span className="hidden sm:flex flex-col items-start leading-tight">
+   259→                <span className="text-sm font-bold tracking-tight">EGX Scanner</span>
+   260→                <span className="text-[10px] text-muted-foreground">{t("dash.title")}</span>
+   261→              </span>
+   262→            </Link>
+   263→          </div>
+   264→
+   265→          {/* Market ticker — fixed width, never shrinks (a crowded header row
+   266→              would otherwise squeeze the marquee down to nothing) */}
+   267→          <div className="hidden lg:block w-[300px] xl:w-[440px] shrink-0 overflow-hidden">
+   268→            <MarketTicker />
+   269→          </div>
+   270→
+   271→          {/* Desktop nav (only visible when sidebar is collapsed) */}
+   272→          <nav className={`hidden lg:flex items-center gap-0.5 ${sidebarCollapsed ? "" : "hidden"}`} aria-label="Primary">
+   273→            <Link
+   274→              href="/rankings"
+   275→              className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm text-muted-foreground transition-all duration-150 hover:bg-accent hover:text-accent-foreground"
+   276→            >
+   277→              <Trophy className="h-4 w-4" />
+   278→              {lang === "ar" ? "الترتيب" : "Rankings"}
+   279→            </Link>
+   280→            <Link
+   281→              href="/sectors"
+   282→              className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm text-muted-foreground transition-all duration-150 hover:bg-accent hover:text-accent-foreground"
+   283→            >
+   284→              <Building2 className="h-4 w-4" />
+   285→              {lang === "ar" ? "القطاعات" : "Sectors"}
+   286→            </Link>
+   287→            <Link
+   288→              href="/compare"
+   289→              className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm text-muted-foreground transition-all duration-150 hover:bg-accent hover:text-accent-foreground"
+   290→            >
+   291→              <Scale className="h-4 w-4" />
+   292→              {lang === "ar" ? "مقارنة" : "Compare"}
+   293→            </Link>
+   294→            <Link
+   295→              href="/portfolio"
+   296→              className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm text-muted-foreground transition-all duration-150 hover:bg-accent hover:text-accent-foreground"
+   297→            >
+   298→              <Briefcase className="h-4 w-4" />
+   299→              {lang === "ar" ? "محفظتي" : "Portfolio"}
+   300→            </Link>
+   301→            <HeaderSearch />
+   302→          </nav>
+   303→
+   304→          {/* Right actions */}
+   305→          <div className="flex items-center gap-1">
+   306→            <Button
+   307→              variant="ghost"
+   308→              size="sm"
+   309→              className="h-8 gap-1.5 hidden sm:flex"
+   310→              onClick={() => setPremiumOpen(true)}
+   311→              title="Premium"
+   312→            >
+   313→              <Crown className="h-4 w-4 text-amber-500" />
+   314→              <span className="hidden md:inline text-xs font-semibold">Premium</span>
+   315→            </Button>
+   316→
+   317→            <div className="relative hidden sm:block">
+   318→              <Button
+   319→                variant="ghost"
+   320→                size="sm"
+   321→                className="h-8 gap-1.5"
+   322→                onClick={() => {
+   323→                  if (loggedIn) setMenuOpen((o) => !o)
+   324→                  else router.push("/login")
+   325→                }}
+   326→                title="Account"
+   327→              >
+   328→                <ShieldCheck className="h-4 w-4 text-primary" />
+   329→                <span className="hidden md:inline text-xs max-w-28 truncate">
+   330→                  {loggedIn ? (meName || (lang === "ar" ? "حسابي" : "My account")) : (lang === "ar" ? "تسجيل الدخول" : "Sign in")}
+   331→                </span>
+   332→              </Button>
+   333→              {menuOpen && loggedIn ? (
+   334→                <>
+   335→                  <div className="fixed inset-0 z-40" onClick={() => setMenuOpen(false)} aria-hidden />
+   336→                  <div className="absolute right-0 top-full z-50 mt-2">
+   337→                    <UserMenu />
+   338→                  </div>
+   339→                </>
+   340→              ) : null}
+   341→            </div>
+   342→
+   343→            <Link
+   344→              href="/data-quality"
+   345→              className="inline-flex h-8 items-center gap-1.5 rounded-lg px-2 text-xs font-semibold text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+   346→              title={lang === "ar" ? "جودة البيانات والاعتماد" : "Data quality & certification"}
+   347→            >
+   348→              <BadgeCheck className="h-4 w-4 text-emerald-500" />
+   349→              <span className="hidden xl:inline">{lang === "ar" ? "جودة البيانات" : "Data quality"}</span>
+   350→            </Link>
+   351→
+   352→            <div className="relative hidden sm:block">
+   353→              <Button
+   354→                variant="ghost"
+   355→                size="sm"
+   356→                className="h-8 w-8 p-0"
+   357→                onClick={() => setNotificationOpen((o) => !o)}
+   358→                aria-label="Notifications"
+   359→              >
+   360→                <Bell className="h-4 w-4" />
+   361→              </Button>
+   362→              {notificationOpen ? (
+   363→                <div className="fixed inset-0 z-40" onClick={() => setNotificationOpen(false)} aria-hidden />
+   364→              ) : null}
+   365→              {notificationOpen ? (
+   366→                <div className="fixed inset-0 z-50 flex items-start justify-end p-4" onClick={() => setNotificationOpen(false)}>
+   367→                  <div className="w-full max-w-xs mt-4 rounded-xl border border-border/70 bg-card shadow-xl shadow-black/10" onClick={(e) => e.stopPropagation()}>
+   368→                    <div className="flex items-center justify-between border-b border-border/70 p-4">
+   369→                      <h2 className="text-sm font-semibold tracking-tight flex items-center gap-2">
+   370→                        <Bell className="h-4 w-4" />
+   371→                        {lang === "ar" ? "التنبيهات الأخيرة" : "Recent alerts"}
+   372→                      </h2>
+   373→                      <Button variant="ghost" size="sm" onClick={() => setNotificationOpen(false)}>{lang === "ar" ? "إغلاق" : "Close"}</Button>
+   374→                    </div>
+   375→                    <div className="p-3 space-y-3">
+   376→                      <p className="text-[10px] text-muted-foreground uppercase tracking-wider">{lang === "ar" ? "الأحداث المالية" : "Financial events"}</p>
+   377→                      <div className="rounded-lg border border-border/40 bg-muted/30 p-3 text-sm leading-relaxed text-muted-foreground">
+   378→                        <p className="mb-1 font-medium text-foreground">
+   379→                          {lang === "ar" ? "لا توجد تنبيهات معروضة" : "No alerts to show"}
+   380→                        </p>
+   381→                        <p>
+   382→                          {lang === "ar"
+   383→                            ? "التنبيهات المالية تُبنى على أحداث مكتشفة من القوائم الموثقة، وتظهر لمشتركي Premium بعد تسجيل الدخول. لا نعرض تنبيهات تجريبية."
+   384→                            : "Financial alerts are generated from events detected in verified statements and are shown to signed-in Premium subscribers. We do not display sample alerts."}
+   385→                        </p>
+   386→                      </div>
+   387→                      <div className="flex items-center justify-between gap-2 border-t border-border/40 pt-3">
+   388→                        <Link href="/premium" className="text-xs font-semibold text-primary hover:underline">
+   389→                          {lang === "ar" ? "باقات Premium" : "Premium plans"}
+   390→                        </Link>
+   391→                        <Link href="/data-quality" className="text-xs text-muted-foreground hover:underline">
+   392→                          {lang === "ar" ? "جودة البيانات" : "Data quality"}
+   393→                        </Link>
+   394→                      </div>
+   395→                    </div>
+   396→                  </div>
+   397→                </div>
+   398→              ) : null}
+   399→            </div>
+   400→
+   401→            <Button
+   402→              variant="ghost"
+   403→              size="sm"
+   404→              className="h-8 px-2 hidden sm:flex"
+   405→              onClick={() => setLang(lang === "en" ? "ar" : "en")}
+   406→              aria-label="Toggle language"
+   407→            >
+   408→              <Languages className="h-4 w-4" />
+   409→              <span className="text-xs font-semibold">{lang === "en" ? "AR" : "EN"}</span>
+   410→            </Button>
+   411→
+   412→            <Button
+   413→              variant="ghost"
+   414→              size="sm"
+   415→              className="h-8 w-8 px-0 hidden sm:flex"
+   416→              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+   417→              aria-label="Toggle dark mode"
+   418→            >
+   419→              {mounted && (isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />)}
+   420→            </Button>
+   421→
+   422→            {/* Mobile actions */}
+   423→            <div className="flex items-center gap-1 sm:hidden">
+   424→              <Button
+   425→                variant="ghost"
+   426→                size="sm"
+   427→                className="h-8 w-8 p-0"
+   428→                onClick={() => setLang(lang === "en" ? "ar" : "en")}
+   429→                aria-label="Toggle language"
+   430→              >
+   431→                <Languages className="h-4 w-4" />
+   432→              </Button>
+   433→              <Button
+   434→                variant="ghost"
+   435→                size="sm"
+   436→                className="h-8 w-8 p-0"
+   437→                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+   438→                aria-label="Toggle dark mode"
+   439→              >
+   440→                {mounted && (isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />)}
+   441→              </Button>
+   442→            </div>
+   443→          </div>
+   444→        </div>
+   445→
+   446→        {/* Mobile nav tabs */}
+   447→        <nav className="lg:hidden -mx-1 flex gap-1 overflow-x-auto pb-2 pt-1 scrollbar-thin border-b border-border" aria-label="Primary mobile">
+   448→          <button
+   449→            onClick={() => handleNav("dashboard")}
+   450→            className={`flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs transition-all duration-150 ${
+   451→              (view ?? "dashboard") === "dashboard"
+   452→                ? "bg-primary text-primary-foreground font-medium shadow-sm shadow-primary/15"
+   453→                : "bg-muted/60 text-muted-foreground hover:text-foreground"
+   454→            }`}
+   455→          >
+   456→            <Gauge className="h-4 w-4" />
+   457→            {t("nav.dashboard")}
+   458→          </button>
+   459→          <button
+   460→            onClick={() => handleNav("scanners")}
+   461→            className={`flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs transition-all duration-150 ${
+   462→              view === "scanners"
+   463→                ? "bg-primary text-primary-foreground font-medium shadow-sm shadow-primary/15"
+   464→                : "bg-muted/60 text-muted-foreground hover:text-foreground"
+   465→            }`}
+   466→          >
+   467→            <ScanSearch className="h-4 w-4" />
+   468→            {t("nav.scanners")}
+   469→          </button>
+   470→          <button
+   471→            onClick={() => handleNav("custom")}
+   472→            className={`flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs transition-all duration-150 ${
+   473→              view === "custom"
+   474→                ? "bg-primary text-primary-foreground font-medium shadow-sm shadow-primary/15"
+   475→                : "bg-muted/60 text-muted-foreground hover:text-foreground"
+   476→            }`}
+   477→          >
+   478→            <Wand2 className="h-4 w-4" />
+   479→            {t("nav.customScanner")}
+   480→          </button>
+   481→          <button
+   482→            onClick={() => handleNav("companies")}
+   483→            className={`flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs transition-all duration-150 ${
+   484→              view === "companies" || companyOpen
+   485→                ? "bg-primary text-primary-foreground font-medium shadow-sm shadow-primary/15"
+   486→                : "bg-muted/60 text-muted-foreground hover:text-foreground"
+   487→            }`}
+   488→          >
+   489→            <Building2 className="h-4 w-4" />
+   490→            {t("nav.companies")}
+   491→          </button>
+   492→          <button
+   493→            onClick={() => handleNav("dividends")}
+   494→            className={`flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs transition-all duration-150 ${
+   495→              view === "dividends"
+   496→                ? "bg-primary text-primary-foreground font-medium shadow-sm shadow-primary/15"
+   497→                : "bg-muted/60 text-muted-foreground hover:text-foreground"
+   498→            }`}
+   499→          >
+   500→            <CalendarDays className="h-4 w-4" />
+   501→            {t("nav.dividends")}
+   502→          </button>
+   503→          <Link
+   504→            href="/rankings"
+   505→            className="flex shrink-0 items-center gap-1.5 rounded-lg bg-muted/60 px-2.5 py-1 text-xs text-muted-foreground hover:text-foreground"
+   506→          >
+   507→            <Trophy className="h-3.5 w-3.5" />
+   508→            {lang === "ar" ? "الترتيب" : "Rankings"}
+   509→          </Link>
+   510→          <Link
+   511→            href="/sectors"
+   512→            className="flex shrink-0 items-center gap-1.5 rounded-lg bg-muted/60 px-2.5 py-1 text-xs text-muted-foreground hover:text-foreground"
+   513→          >
+   514→            <Building2 className="h-3.5 w-3.5" />
+   515→            {lang === "ar" ? "القطاعات" : "Sectors"}
+   516→          </Link>
+   517→          <Link
+   518→            href="/compare"
+   519→            className="flex shrink-0 items-center gap-1.5 rounded-lg bg-muted/60 px-2.5 py-1 text-xs text-muted-foreground hover:text-foreground"
+   520→          >
+   521→            <Scale className="h-3.5 w-3.5" />
+   522→            {lang === "ar" ? "مقارنة" : "Compare"}
+   523→          </Link>
+   524→        </nav>
+   525→
+   526→        {/* Methodology modal */}
+   527→        {methodologyOpen ? (
+   528→          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4" onClick={() => setMethodologyOpen(false)} role="dialog" aria-modal="true" aria-label={t("md.title")}>
+   529→            <div className="w-full max-w-lg rounded-xl border border-border/70 bg-card p-6 shadow-xl shadow-black/10" onClick={(e) => e.stopPropagation()}>
+   530→              <div className="flex items-center gap-2 mb-3">
+   531→                <ShieldCheck className="h-5 w-5 text-primary" />
+   532→                <h2 className="text-lg font-semibold tracking-tight">{t("md.title")}</h2>
+   533→              </div>
+   534→              <p className="text-sm leading-relaxed text-muted-foreground">{t("md.body")}</p>
+   535→              <div className="mt-4 grid gap-2 text-xs text-muted-foreground">
+   536→                <div className="flex items-center gap-2">
+   537→                  <Badge variant="secondary" className="font-mono text-[10px]">/api/v1</Badge>
+   538→                  <span>REST API — public read-only, admin-gated mutations</span>
+   539→                </div>
+   540→                <div className="flex items-center gap-2">
+   541→                  <Badge variant="secondary" className="font-mono text-[10px]">SHA-256</Badge>
+   542→                  <span>Data pipeline & validation</span>
+   543→                </div>
+   544→              </div>
+   545→              <Button className="mt-5 w-full" onClick={() => setMethodologyOpen(false)}>
+   546→                {t("common.close")}
+   547→              </Button>
+   548→            </div>
+   549→          </div>
+   550→        ) : null}
+   551→
+   552→        {/* Premium modal */}
+   553→        {premiumOpen ? (
+   554→          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4" onClick={() => setPremiumOpen(false)}>
+   555→            <div className="w-full max-w-md rounded-xl border border-border/70 bg-card shadow-xl shadow-black/10" onClick={(e) => e.stopPropagation()}>
+   556→              <div className="flex items-center justify-between border-b border-border/70 p-4">
+   557→                <h2 className="text-lg font-semibold tracking-tight flex items-center gap-2">
+   558→                  <Crown className="h-5 w-5 text-amber-500" />
+   559→                  {lang === "ar" ? "بريميوم" : "Premium"}
+   560→                </h2>
+   561→                <Button variant="ghost" size="sm" onClick={() => setPremiumOpen(false)}>{lang === "ar" ? "إغلاق" : "Close"}</Button>
+   562→              </div>
+   563→              <div className="p-4 space-y-3 text-xs">
+   564→                <p className="font-medium">{lang === "ar" ? "التحليل المالي المتقدم متاح فقط للمشتركين." : "Advanced financial analysis is available to subscribers only."}</p>
+   565→                <ul className="space-y-1.5 text-muted-foreground">
+   566→                  <li>• {lang === "ar" ? "تحليل مالي متعمق بالذكاء الاصطناعي" : "In-depth AI-powered financial analysis"}</li>
+   567→                  <li>• {lang === "ar" ? "مقارنات فورية بين الشركات" : "Instant cross-company comparisons"}</li>
+   568→                  <li>• {lang === "ar" ? "ماسح ضوئي مخصص للشروط المالية" : "Custom financial-condition scanner"}</li>
+   569→                  <li>• {lang === "ar" ? "بدون إعلانات" : "No ads"}</li>
+   570→                </ul>
+   571→                <Button className="w-full" onClick={() => { setPremiumOpen(false); router.push("/premium") }}>
+   572→                  {lang === "ar" ? "عرض الباقات" : "View plans"}
+   573→                </Button>
+   574→              </div>
+   575→            </div>
+   576→          </div>
+   577→        ) : null}
+   578→      </div>
+   579→    </header>
+   580→  )
+   581→}
+   582→

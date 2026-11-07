@@ -413,7 +413,7 @@ export default function LandingClient() {
                 {ar ? "معايير النزاهة المؤسسية" : "Institutional Integrity"}
               </Badge>
               <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-                {ar ? "لماذا يعتمد المستثمرون على EGX Scanner؟" : "Engineered for Serious Financial Research"}
+                {ar ? "لماذا يعتمد المستثمرون على Meza؟" : "Engineered for Serious Financial Research"}
               </h2>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
                 {ar ? "بنيت المنصة بأعلى معايير الدقة والشفافية لإلغاء التقديرات غير المؤكدة وتقديم أرقام يمكنك الاعتماد عليها." : "Built from first principles to eliminate hallucinations, enforce accounting identities, and deliver decision-grade data."}

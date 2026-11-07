@@ -1,10 +1,10 @@
 export const siteConfig = {
-  name: "EGX Financial Scanner",
+  name: "Meza",
   description:
     "Independent financial data for Egyptian Exchange companies — statements, metrics, sector rankings and valuations in Arabic and English.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://egx-scanner.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://meza-ashy.vercel.app",
   ogImage: "/og-image.png",
-  twitterHandle: "@egxscanner",
+  twitterHandle: "@meza",
   links: {
     homepage: "/",
     companies: "/companies",

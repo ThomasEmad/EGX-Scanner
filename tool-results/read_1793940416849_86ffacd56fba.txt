@@ -1,0 +1,958 @@
+     1→// EGX Financial Scanner — data model
+     2→// Principles (from master spec):
+     3→//  - Never invent financial data; every value keeps original label + source traceability
+     4→//  - Raw financial values and derived/calculated metrics are stored SEPARATELY
+     5→//  - Reports are versioned (restatements never destroy history)
+     6→//  - Every uploaded document is hashed (SHA-256) for duplicate protection
+     7→//  - Demo/synthetic data is always explicitly flagged (isDemoData)
+     8→
+     9→generator client {
+    10→  provider = "prisma-client-js"
+    11→}
+    12→
+    13→datasource db {
+    14→  provider = "sqlite"
+    15→  url      = env("DATABASE_URL")
+    16→}
+    17→
+    18→model Company {
+    19→  id            String   @id @default(cuid())
+    20→  ticker        String   @unique
+    21→  isin          String?  @unique
+    22→  nameEn        String
+    23→  nameAr        String?
+    24→  sector        String // Banks | Real Estate | Industrial | Telecom | Healthcare | Food | Investment | Financial Services | Consumer | Other
+    25→  industry      String?
+    26→  listingStatus String   @default("LISTED") // LISTED | SUSPENDED | DELISTED
+    27→  isActive      Boolean  @default(true)
+    28→  isDemoData    Boolean  @default(false)
+    29→  sharesOutstanding Float? // shares in units (for EPS calculation)
+    30→  website           String?
+    31→  descriptionEn String?
+    32→  descriptionAr String?
+    33→  egxCategory   String?  // MAIN | PRIME | NILE | OTC
+    34→  sourceUrl     String?
+    35→  irUrl         String?
+    36→  lastVerifiedAt DateTime?
+    37→  originalTicker String?
+    38→  createdAt     DateTime @default(now())
+    39→  updatedAt     DateTime @updatedAt
+    40→
+    41→  reports           FinancialReport[]
+    42→  values            FinancialValue[]
+    43→  calculatedMetrics CalculatedMetric[]
+    44→  events            FinancialEvent[]
+    45→  dividends         Dividend[]
+    46→  marketPrices      MarketPrice[]
+    47→  aiAnalyses        AiAnalysis[]
+    48→  debtInstruments       DebtInstrument[]
+    49→  segmentDisclosures    SegmentDisclosure[]
+    50→  fairValueMovements    FairValueMovement[]
+    51→  investmentDisclosures InvestmentDisclosure[]
+    52→  relatedPartyTransactions RelatedPartyTransaction[]
+    53→  contingencies         ContingencyDisclosure[]
+    54→  shareMovements        ShareMovement[]
+    55→  dataQualityScores     DataQualityScore[]
+    56→  portfolioHoldings     PortfolioHolding[]
+    57→  confidenceScore       CompanyConfidenceScore?
+    58→  watchlistItems        WatchlistItem[]
+    59→  priceAlerts           PriceAlert[]
+    60→
+    61→  @@index([sector])
+    62→  @@index([isActive])
+    63→  @@index([nameEn])
+    64→  @@index([nameAr])
+    65→}
+    66→
+    67→// Market data (price feed). Kept separate from filings: a price point is a
+    68→// timestamped observation from a data source — never inferred from financials.
+    69→// When no price exists, market-dependent metrics stay DATA_UNAVAILABLE.
+    70→model MarketPrice {
+    71→  id         String   @id @default(cuid())
+    72→  companyId  String
+    73→  company    Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+    74→  asOf       DateTime
+    75→  price      Float
+    76→  currency   String   @default("EGP")
+    77→  sourceName String
+    78→  isDemoData Boolean  @default(false)
+    79→  notes      String?
+    80→  createdAt  DateTime @default(now())
+    81→
+    82→  @@unique([companyId, asOf])
+    83→  @@index([companyId, asOf])
+    84→}
+    85→
+    86→model FinancialReport {
+    87→   id               String    @id @default(cuid())
+    88→   companyId        String
+    89→   company          Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
+    90→   reportType       String // ANNUAL | INTERIM | OTHER
+    91→   periodType       String // QUARTERLY | SEMIANNUAL | NINE_MONTH | ANNUAL | TTM | OTHER
+    92→   statementType    String    @default("CONSOLIDATED") // CONSOLIDATED | STANDALONE | UNKNOWN
+    93→   fiscalYear       Int
+    94→   periodLabel      String // "FY 2024" | "Q2 2025" ...
+    95→   periodStart      DateTime?
+    96→   periodEnd        DateTime
+    97→   publicationDate  DateTime?
+    98→   language         String    @default("UNKNOWN") // EN | AR | MIXED | UNKNOWN
+    99→   sourceName       String
+   100→   sourceUrl        String?
+   101→   localFileRef     String?
+   102→   fileName         String? // original upload filename
+   103→   fileHash         String? // SHA-256 of the uploaded document (duplicate protection)
+   104→   fileSize         Int?
+   105→   processingStatus String    @default("NEW_DOWNLOADED") // NEW_DOWNLOADED | PROCESSING | EXTRACTED | VALIDATED | NEEDS_REVIEW | APPROVED | FAILED | REJECTED | DELETED
+   106→   extractionMethod String? // SEED_DEMO | PDF_TEXT | PDF_ZLIB | CSV_TEXT | MANUAL_ENTRY | OCR
+   107→   parserVersion    String? // e.g. "extract@2" — pipeline version that produced the values
+   108→   extractionConfidence Float? // average extraction confidence 0..1 across values
+   109→   errorMessage     String?   // human-readable failure reason when processing fails
+   110→   uploadedBy       String?
+   111→   reviewedBy       String?
+   112→   reviewedAt       DateTime?
+   113→   approvedBy       String?
+   114→   approvedAt       DateTime?
+   115→   version          Int       @default(1)
+   116→   isRestatement    Boolean   @default(false)
+   117→   supersedesId     String?
+   118→   isDemoData       Boolean   @default(false)
+   119→   deletedAt        DateTime?
+   120→   deletedBy        String?
+   121→   notes            String?
+   122→   discoveredAt     DateTime?
+   123→   documentType     String?
+   124→   createdAt        DateTime  @default(now())
+   125→   updatedAt        DateTime  @updatedAt
+   126→
+   127→   values            FinancialValue[]
+   128→   validationResults FinancialValidationResult[]
+   129→   extractionLogs    FinancialExtractionLog[]
+   130→   debtInstruments       DebtInstrument[]
+   131→   segmentDisclosures    SegmentDisclosure[]
+   132→   fairValueMovements    FairValueMovement[]
+   133→   investmentDisclosures InvestmentDisclosure[]
+   134→   relatedPartyTransactions RelatedPartyTransaction[]
+   135→   contingencies         ContingencyDisclosure[]
+   136→   shareMovements        ShareMovement[]
+   137→   dataQualityScores     DataQualityScore[]
+   138→
+   139→   @@unique([companyId, periodType, periodLabel, statementType, version])
+   140→   @@index([companyId, processingStatus])
+   141→   @@index([processingStatus])
+   142→   @@index([companyId, statementType])
+   143→}
+   144→
+   145→// Canonical metric registry — normalization dictionary (EN + AR aliases)
+   146→model MetricDefinition {
+   147→  id               String   @id @default(cuid())
+   148→  code             String   @unique // REVENUE, NET_PROFIT, TOTAL_ASSETS ...
+   149→  labelEn          String
+   150→  labelAr          String?
+   151→  statementType    String // INCOME_STATEMENT | BALANCE_SHEET | CASH_FLOW | OTHER
+   152→  description      String?
+   153→  aliases          String   @default("[]") // JSON string array (EN + AR aliases for extraction)
+   154→  appliesToSectors String? // JSON string array; null = applies to all sectors
+   155→  calcRole         String   @default("INPUT") // INPUT (source value) | CALCULATED (derived)
+   156→  isActive         Boolean  @default(true)
+   157→  group            String?
+   158→  displayOrder     Int?
+   159→  createdAt        DateTime @default(now())
+   160→}
+   161→
+   162→model FinancialValue {
+   163→  id               String    @id @default(cuid())
+   164→  companyId        String
+   165→  company          Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
+   166→  reportId         String
+   167→  report           FinancialReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+   168→  metricCode       String // canonical code from registry
+   169→  originalLabel    String // preserved original extraction label (never destroyed)
+   170→  value            Float // as printed in the document
+   171→  currency         String    @default("EGP")
+   172→  unit             String    @default("MILLION") // UNIT | THOUSAND | MILLION | BILLION
+   173→  normalizedValue  Float // value converted to plain EGP units
+   174→  statementType    String
+   175→  group            String?
+   176→  subPeriod        String?  @default("CURRENT")
+   177→  isRestated       Boolean  @default(false)
+   178→  displayOrder     Int?
+   179→  sourceTable      Int?
+   180→  sourceRow        Int?
+   181→  sourceCol        Int?
+   182→  sourceBbox       String?
+   183→  sourcePage       Int?
+   184→  sourceText       String?
+   185→  extractionMethod String // SEED_DEMO | PDF_TEXT | CSV_TEXT | MANUAL_ENTRY | OCR
+   186→  confidence       Float     @default(1) // 0..1
+   187→  validationStatus String    @default("PENDING") // PENDING | VALID | NEEDS_REVIEW | FAILED
+   188→  validationNotes  String?
+   189→  isDemoData       Boolean   @default(false)
+   190→  originalValue     Float?    // value exactly as first extracted, before any manual correction (null = never corrected)
+   191→  isManuallyCorrected Boolean @default(false)
+   192→  correctedBy       String?
+   193→  correctedAt       DateTime?
+   194→  correctionReason  String?
+   195→  createdAt        DateTime  @default(now())
+   196→  updatedAt        DateTime  @updatedAt
+   197→
+   198→  @@unique([reportId, metricCode, subPeriod])
+   199→  @@index([companyId, metricCode])
+   200→  @@index([validationStatus])
+   201→  @@index([companyId, statementType, group])
+   202→  @@index([companyId, group])
+   203→}
+   204→
+   205→// Structured per-check validation results for a document (balance identity, PBT-tax-NI,
+   206→// sign/unit/currency checks, completeness…). Never silently alters extracted values.
+   207→model FinancialValidationResult {
+   208→  id        String   @id @default(cuid())
+   209→  reportId  String
+   210→  report    FinancialReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+   211→  checkName String   // BALANCE_SHEET_IDENTITY | PBT_TAX_NET_PROFIT | SIGN_CHECK | UNIT_CHECK | CURRENCY_CHECK | COMPLETENESS | PERIOD_CONSISTENCY | DUPLICATE_FIGURE
+   212→  category  String   // MATH | SIGN | UNIT | CURRENCY | COMPLETENESS | PERIOD
+   213→  status    String   // PASSED | WARNING | FAILED | SKIPPED
+   214→  severity  String   @default("INFO") // INFO | WARNING | CRITICAL
+   215→  details   String?
+   216→  discrepancy       Float?
+   217→  discrepancyPct    Float?
+   218→  expectedValue     Float?
+   219→  actualValue       Float?
+   220→  affectedFields    String?
+   221→  sourcePages       String?
+   222→  diagnosticReason  String?
+   223→  toleranceApplied  Float?
+   224→  createdAt DateTime @default(now())
+   225→
+   226→  @@index([reportId])
+   227→  @@index([status, severity])
+   228→  @@index([checkName])
+   229→}
+   230→
+   231→// Pipeline run log: every stage of document processing is recorded for traceability
+   232→model FinancialExtractionLog {
+   233→  id        String   @id @default(cuid())
+   234→  reportId  String
+   235→  report    FinancialReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+   236→  stage     String // UPLOAD | PARSE | EXTRACT | NORMALIZE | VALIDATE | FINALIZE
+   237→  level     String   @default("INFO") // INFO | WARN | ERROR
+   238→  message   String
+   239→  details   String?
+   240→  createdAt DateTime @default(now())
+   241→
+   242→  @@index([reportId])
+   243→}
+   244→
+   245→// AI analysis output, grounded exclusively in verified database data.
+   246→// dataHash invalidates the cache when underlying data changes.
+   247→model AiAnalysis {
+   248→  id          String   @id @default(cuid())
+   249→  companyId   String
+   250→  company     Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+   251→  periodKey   String?  // anchor period used for the analysis
+   252→  content     String   // generated analysis (markdown)
+   253→  dataHash    String   // SHA-256 of the verified-data snapshot used
+   254→  inputSummary String? // JSON snapshot of the exact data given to the model (for verification)
+   255→  model       String?
+   256→  lang        String   @default("en") // language the analysis was generated in — cache is keyed per language
+   257→  createdAt   DateTime @default(now())
+   258→
+   259→  @@index([companyId, createdAt])
+   260→}
+   261→
+   262→// Derived metrics stored separately from source values, with formula version
+   263→model CalculatedMetric {
+   264→  id              String   @id @default(cuid())
+   265→  companyId       String
+   266→  company         Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+   267→  code            String // revenue_growth, roe, net_margin, p_b ...
+   268→  periodKey       String // "ANNUAL:2024:" | "QUARTERLY:2025:Q2"
+   269→  periodType      String
+   270→  fiscalYear      Int
+   271→  periodLabel     String
+   272→  value           Float?
+   273→  valueStatus     String   @default("OK") // OK | DATA_UNAVAILABLE | NOT_APPLICABLE | NOT_COMPUTABLE
+   274→  statusDetail    String? // human explanation when not OK
+   275→  formulaVersion  String // "revenue_growth@1"
+   276→  sourcePeriods   String   @default("[]") // JSON array of period keys used
+   277→  statementType   String   @default("CONSOLIDATED") // CONSOLIDATED | STANDALONE — never mix the two
+   278→  formula         String?
+   279→  calculationType String   @default("ANALYST_CALCULATED")
+   280→  sourceMetricCodes String?
+   281→  sourceDocumentIds String?
+   282→  isDerived       Boolean  @default(false)
+   283→  trendType       String?
+   284→  trendPeriodsCount Int?
+   285→  calculatedAt    DateTime @default(now())
+   286→
+   287→  @@unique([companyId, code, periodKey, statementType])
+   288→  @@index([companyId, periodKey])
+   289→  @@index([code])
+   290→  @@index([calculationType])
+   291→  @@index([isDerived])
+   292→}
+   293→
+   294→model FinancialEvent {
+   295→  id               String   @id @default(cuid())
+   296→  companyId        String
+   297→  company          Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+   298→  eventType        String // LOSS_TO_PROFIT | PROFIT_TO_LOSS | PROFIT_ACCELERATION | REVENUE_GROWTH | DEBT_REDUCTION | EQUITY_GROWTH | CASH_FLOW_IMPROVEMENT | FINANCIAL_RECOVERY | FINANCIAL_DETERIORATION | STRONG_PROFITABILITY | HIGH_ASSETS
+   299→  periodType       String
+   300→  fiscalYear       Int
+   301→  periodLabel      String
+   302→  currentPeriodKey  String
+   303→  previousPeriodKey String?
+   304→  conditions       String   @default("[]") // JSON array of matched condition details
+   305→  explanationEn    String
+   306→  explanationAr    String?
+   307→  ruleVersion      String   @default("events@1")
+   308→  detectedAt       DateTime @default(now())
+   309→
+   310→  @@unique([companyId, eventType, currentPeriodKey])
+   311→  @@index([eventType])
+   312→  @@index([companyId])
+   313→}
+   314→
+   315→model Dividend {
+   316→  id                String    @id @default(cuid())
+   317→  companyId         String
+   318→  company           Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
+   319→  announcementDate  DateTime?
+   320→  eligibilityDate   DateTime?
+   321→  exDividendDate    DateTime?
+   322→  distributionDate  DateTime?
+   323→  dividendPerShare  Float?
+   324→  currency          String    @default("EGP")
+   325→  dividendType      String    @default("CASH") // CASH | STOCK | SPECIAL
+   326→  status            String // ANNOUNCED | UPCOMING | ELIGIBLE | PAID | EXPIRED | CANCELLED
+   327→  sourceName        String
+   328→  sourceUrl         String?
+   329→  isDemoData        Boolean   @default(false)
+   330→  notes             String? // e.g. "Distribution date not officially announced"
+   331→  createdAt         DateTime  @default(now())
+   332→  updatedAt         DateTime  @updatedAt
+   333→
+   334→  @@index([status])
+   335→  @@index([companyId])
+   336→}
+   337→
+   338→model ScannerRule {
+   339→  id          String       @id @default(cuid())
+   340→  name        String       @unique
+   341→  nameAr      String?
+   342→  description String?
+   343→  isPreset    Boolean      @default(false)
+   344→  presetKey   String?      @unique // TURNAROUND, PROFIT_GROWTH ...
+   345→  conditions  String // JSON array: [{kind:"metric",code,operator,value}|{kind:"event",eventType}|{kind:"dividend",statuses:[]}]
+   346→  createdBy   String       @default("system")
+   347→  isActive    Boolean      @default(true)
+   348→  createdAt   DateTime     @default(now())
+   349→  runs        ScannerRun[]
+   350→}
+   351→
+   352→model ScannerRun {
+   353→  id                String   @id @default(cuid())
+   354→  ruleId            String?
+   355→  rule              ScannerRule? @relation(fields: [ruleId], references: [id], onDelete: SetNull)
+   356→  ruleName          String
+   357→  ruleSnapshot      String // JSON conditions snapshot
+   358→  periodBasis       String // LATEST_ANNUAL | LATEST_QUARTERLY
+   359→  matchedCount      Int      @default(0)
+   360→  matchedCompanyIds String   @default("[]") // JSON array
+   361→  ranAt             DateTime @default(now())
+   362→}
+   363→
+   364→model AuditLog {
+   365→  id         String   @id @default(cuid())
+   366→  actor      String   @default("system")
+   367→  action     String // SEED, UPLOAD, PROCESS, EXTRACT, VALIDATE, REVIEW_APPROVE, REVIEW_EDIT, REVIEW_REJECT, CALCULATE, DETECT_EVENTS, SCAN, ADMIN_LOGIN ...
+   368→  entityType String?
+   369→  entityId   String?
+   370→  details    String?
+   371→  createdAt  DateTime @default(now())
+   372→
+   373→  @@index([entityType, entityId])
+   374→  @@index([action])
+   375→}
+   376→
+   377→model DataSource {
+   378→  id       String   @id @default(cuid())
+   379→  name     String   @unique
+   380→  kind     String // MANUAL_UPLOAD | AUTO_COLLECTOR | EXTERNAL_API | SEED_DEMO
+   381→  config   String?
+   382→  isActive Boolean  @default(true)
+   383→  createdAt DateTime @default(now())
+   384→}
+   385→
+   386→// ---------------------------------------------------------------------------
+   387→// Disclosure & ingestion models (added for enriched EGX pipeline)
+   388→// ---------------------------------------------------------------------------
+   389→
+   390→model DebtInstrument {
+   391→  id               String   @id @default(cuid())
+   392→  companyId        String
+   393→  company          Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+   394→  reportId         String
+   395→  report           FinancialReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+   396→  instrumentName   String?
+   397→  instrumentType   String
+   398→  isCurrent        Boolean  @default(false)
+   399→  isSecured        Boolean?
+   400→  currency         String   @default("EGP")
+   401→  principalAmount  Float?
+   402→  principalEgp     Float?
+   403→  interestRatePct  Float?
+   404→  maturityDate     DateTime?
+   405→  maturityYears    Float?
+   406→  sourcePage       Int?
+   407→  sourceText       String?
+   408→  extractionMethod String
+   409→  confidence       Float    @default(1)
+   410→  isDemoData       Boolean  @default(false)
+   411→  notes            String?
+   412→  createdAt        DateTime @default(now())
+   413→  updatedAt        DateTime @updatedAt
+   414→
+   415→  @@index([companyId, reportId])
+   416→  @@index([companyId, instrumentType, isCurrent])
+   417→}
+   418→
+   419→model SegmentDisclosure {
+   420→  id               String   @id @default(cuid())
+   421→  companyId        String
+   422→  company          Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+   423→  reportId         String
+   424→  report           FinancialReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+   425→  segmentType      String
+   426→  segmentName      String
+   427→  segmentNameAr    String?
+   428→  metricCode       String
+   429→  value            Float
+   430→  currency         String   @default("EGP")
+   431→  unit             String   @default("MILLION")
+   432→  normalizedValue  Float
+   433→  subPeriod        String   @default("CURRENT")
+   434→  sourcePage       Int?
+   435→  sourceText       String?
+   436→  extractionMethod String
+   437→  confidence       Float    @default(1)
+   438→  isDemoData       Boolean  @default(false)
+   439→  createdAt        DateTime @default(now())
+   440→
+   441→  @@unique([reportId, segmentType, segmentName, metricCode, subPeriod])
+   442→  @@index([companyId, segmentType])
+   443→  @@index([companyId, segmentName])
+   444→}
+   445→
+   446→model FairValueMovement {
+   447→  id               String   @id @default(cuid())
+   448→  companyId        String
+   449→  company          Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+   450→  reportId         String
+   451→  report           FinancialReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+   452→  assetClass       String
+   453→  category         String
+   454→  level            String?
+   455→  openingBalance   Float?
+   456→  purchases        Float?
+   457→  sales            Float?
+   458→  fairValueGains   Float?
+   459→  transfersIn      Float?
+   460→  transfersOut     Float?
+   461→  fxRevaluation    Float?
+   462→  closingBalance   Float?
+   463→  currency         String   @default("EGP")
+   464→  unit             String   @default("MILLION")
+   465→  sourcePage       Int?
+   466→  sourceText       String?
+   467→  extractionMethod String
+   468→  confidence       Float    @default(1)
+   469→  isDemoData       Boolean  @default(false)
+   470→  notes            String?
+   471→  createdAt        DateTime @default(now())
+   472→
+   473→  @@index([companyId, category, level])
+   474→  @@index([reportId])
+   475→}
+   476→
+   477→model InvestmentDisclosure {
+   478→  id               String   @id @default(cuid())
+   479→  companyId        String
+   480→  company          Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+   481→  reportId         String
+   482→  report           FinancialReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+   483→  investeeName     String
+   484→  investeeNameAr   String?
+   485→  relationship     String
+   486→  ownershipPct     Float?
+   487→  carryingValue    Float?
+   488→  shareOfProfit    Float?
+   489→  shareOfOci       Float?
+   490→  dividendsReceived Float?
+   491→  currency         String   @default("EGP")
+   492→  unit             String   @default("MILLION")
+   493→  sourcePage       Int?
+   494→  sourceText       String?
+   495→  extractionMethod String
+   496→  confidence       Float    @default(1)
+   497→  isDemoData       Boolean  @default(false)
+   498→  notes            String?
+   499→  createdAt        DateTime @default(now())
+   500→
+   501→  @@index([companyId, relationship])
+   502→  @@index([reportId])
+   503→}
+   504→
+   505→model RelatedPartyTransaction {
+   506→  id               String   @id @default(cuid())
+   507→  companyId        String
+   508→  company          Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+   509→  reportId         String
+   510→  report           FinancialReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+   511→  counterpartyName String
+   512→  counterpartyNameAr String?
+   513→  relationship     String
+   514→  transactionType  String
+   515→  amount           Float?
+   516→  balanceReceivable Float?
+   517→  balancePayable   Float?
+   518→  currency         String   @default("EGP")
+   519→  unit             String   @default("MILLION")
+   520→  sourcePage       Int?
+   521→  sourceText       String?
+   522→  extractionMethod String
+   523→  confidence       Float    @default(1)
+   524→  isDemoData       Boolean  @default(false)
+   525→  notes            String?
+   526→  createdAt        DateTime @default(now())
+   527→
+   528→  @@index([companyId, counterpartyName])
+   529→  @@index([reportId, transactionType])
+   530→}
+   531→
+   532→model ContingencyDisclosure {
+   533→  id               String   @id @default(cuid())
+   534→  companyId        String
+   535→  company          Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+   536→  reportId         String
+   537→  report           FinancialReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+   538→  type             String
+   539→  description      String
+   540→  amount           Float?
+   541→  amountStatus     String   @default("DISCLOSED")
+   542→  currency         String   @default("EGP")
+   543→  unit             String   @default("MILLION")
+   544→  sourcePage       Int?
+   545→  sourceText       String?
+   546→  extractionMethod String
+   547→  confidence       Float    @default(1)
+   548→  isDemoData       Boolean  @default(false)
+   549→  createdAt        DateTime @default(now())
+   550→
+   551→  @@index([companyId, type])
+   552→  @@index([reportId])
+   553→}
+   554→
+   555→model ShareMovement {
+   556→  id               String   @id @default(cuid())
+   557→  companyId        String
+   558→  company          Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+   559→  reportId         String
+   560→  report           FinancialReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+   561→  movementType     String
+   562→  movementDate     DateTime?
+   563→  sharesBefore     Float?
+   564→  sharesMoved      Float
+   565→  sharesAfter      Float?
+   566→  pricePerShare    Float?
+   567→  totalValue       Float?
+   568→  sourcePage       Int?
+   569→  sourceText       String?
+   570→  extractionMethod String
+   571→  confidence       Float    @default(1)
+   572→  isDemoData       Boolean  @default(false)
+   573→  notes            String?
+   574→  createdAt        DateTime @default(now())
+   575→
+   576→  @@index([companyId, movementType])
+   577→  @@index([reportId])
+   578→}
+   579→
+   580→model DataQualityScore {
+   581→  id                  String   @id @default(cuid())
+   582→  companyId           String
+   583→  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+   584→  reportId            String
+   585→  report              FinancialReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+   586→  completenessScore   Float?
+   587→  confidenceScore      Float?
+   588→  validationScore      Float?
+   589→  reconciliationScore Float?
+   590→  sourceCoverageScore  Float?
+   591→  overallScore         Float?
+   592→  unresolvedFieldsCount Int    @default(0)
+   593→  ambiguousFieldsCount  Int    @default(0)
+   594→  missingCriticalFieldsCount Int @default(0)
+   595→  reconciliationFailuresCount Int @default(0)
+   596→  missingMetrics      String?
+   597→  lowConfidenceMetrics String?
+   598→  failedChecks        String?
+   599→  engineVersion       String   @default("data-quality@1")
+   600→  notes               String?
+   601→  createdAt           DateTime @default(now())
+   602→  updatedAt           DateTime @updatedAt
+   603→
+   604→  @@unique([reportId])
+   605→  @@index([companyId, overallScore])
+   606→  @@index([overallScore])
+   607→}
+   608→
+   609→model IngestionRun {
+   610→  id                String    @id @default(cuid())
+   611→  runType           String
+   612→  status            String    @default("RUNNING")
+   613→  startedAt         DateTime  @default(now())
+   614→  finishedAt       DateTime?
+   615→  sourceAdapter     String
+   616→  companyFilter     String?
+   617→  periodFrom        Int?
+   618→  periodTo          Int?
+   619→  companiesProcessed Int      @default(0)
+   620→  documentsFound    Int       @default(0)
+   621→  documentsDownloaded Int     @default(0)
+   622→  documentsProcessed Int     @default(0)
+   623→  documentsFailed   Int       @default(0)
+   624→  valuesExtracted   Int       @default(0)
+   625→  validationErrors  Int       @default(0)
+   626→  errorMessage      String?
+   627→  errors            IngestionError[]
+   628→  createdAt         DateTime  @default(now())
+   629→
+   630→  @@index([status])
+   631→  @@index([sourceAdapter])
+   632→  @@index([startedAt])
+   633→}
+   634→
+   635→model IngestionError {
+   636→  id                String   @id @default(cuid())
+   637→  ingestionRunId    String?
+   638→  ingestionRun      IngestionRun? @relation(fields: [ingestionRunId], references: [id], onDelete: SetNull)
+   639→  companyId         String?
+   640→  reportId          String?
+   641→  sourceAdapter     String?
+   642→  sourceUrl         String?
+   643→  stage             String
+   644→  errorType         String
+   645→  errorMessage      String
+   646→  errorStack        String?
+   647→  retryCount       Int       @default(0)
+   648→  lastRetriedAt    DateTime?
+   649→  resolvedAt       DateTime?
+   650→  createdAt        DateTime  @default(now())
+   651→
+   652→  @@index([ingestionRunId])
+   653→  @@index([companyId])
+   654→  @@index([stage, errorType])
+   655→  @@index([resolvedAt])
+   656→}
+   657→
+   658→// --- Subscription / Auth layer (added for Free + Premium model) ---
+   659→
+   660→model User {
+   661→  id            String   @id @default(cuid())
+   662→  email         String   @unique
+   663→  // Nullable since OAuth sign-ups (Google/Facebook) have no local password —
+   664→  // they can only sign in via the provider (or set a password later).
+   665→  passwordHash  String?
+   666→  name          String?
+   667→  role          String   @default("user") // user | admin
+   668→  emailVerified Boolean  @default(false)
+   669→  isActive      Boolean  @default(true)
+   670→  createdAt     DateTime @default(now())
+   671→  updatedAt     DateTime @updatedAt
+   672→
+   673→  sessions      Session[]
+   674→  subscription  Subscription?
+   675→  paymentRequests PaymentRequest[]
+   676→  smartAnalysisUsages SmartAnalysisUsage[]
+   677→  portfolioHoldings PortfolioHolding[]
+   678→  oauthAccounts OAuthAccount[]
+   679→  resetTokens   PasswordResetToken[]
+   680→  watchlistItems WatchlistItem[]
+   681→  priceAlerts   PriceAlert[]
+   682→
+   683→  @@index([email])
+   684→  @@index([role])
+   685→}
+   686→
+   687→// One row per (provider, external id). Email linking happens in application
+   688→// code: a verified provider email may be attached to an existing local
+   689→// account, otherwise a new passwordless User is created.
+   690→model OAuthAccount {
+   691→  id                String   @id @default(cuid())
+   692→  userId            String
+   693→  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+   694→  provider          String   // google | facebook
+   695→  providerAccountId String
+   696→  createdAt         DateTime @default(now())
+   697→
+   698→  @@unique([provider, providerAccountId])
+   699→  @@index([userId])
+   700→}
+   701→
+   702→// Single-use, time-boxed password reset tokens. Only the SHA-256 hash is
+   703→// stored; the raw token is shown once to the ADMIN (no mail service in this
+   704→// environment) who hands it to the user over a trusted channel.
+   705→model PasswordResetToken {
+   706→  id        String   @id @default(cuid())
+   707→  userId    String
+   708→  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+   709→  tokenHash String   @unique
+   710→  expiresAt DateTime
+   711→  usedAt    DateTime?
+   712→  createdAt DateTime @default(now())
+   713→
+   714→  @@index([userId])
+   715→  @@index([tokenHash])
+   716→}
+   717→
+   718→// Device-synced watchlist for signed-in users (guests keep the localStorage
+   719→// watchlist). Unique per (user, company) — toggling upserts/deletes.
+   720→model WatchlistItem {
+   721→  id        String   @id @default(cuid())
+   722→  userId    String
+   723→  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+   724→  companyId String
+   725→  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+   726→  createdAt DateTime @default(now())
+   727→
+   728→  @@unique([userId, companyId])
+   729→  @@index([userId])
+   730→}
+   731→
+   732→// Simple price alert: fires when the recorded market price crosses the
+   733→// target in the chosen direction. Evaluated server-side on price reads.
+   734→model PriceAlert {
+   735→  id          String    @id @default(cuid())
+   736→  userId      String
+   737→  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+   738→  companyId   String
+   739→  company     Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
+   740→  direction   String    // ABOVE | BELOW
+   741→  targetPrice Float
+   742→  active      Boolean   @default(true)
+   743→  triggeredAt DateTime?
+   744→  createdAt   DateTime  @default(now())
+   745→
+   746→  @@index([userId])
+   747→  @@index([companyId, active])
+   748→}
+   749→
+   750→// Investor portfolio — manual positions valued against recorded MarketPrice
+   751→// snapshots. Quantity/avgCost are user input; everything displayed derives
+   752→// from verified data (latest recorded price, never an estimate).
+   753→model PortfolioHolding {
+   754→  id        String   @id @default(cuid())
+   755→  userId    String
+   756→  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+   757→  companyId String
+   758→  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+   759→  quantity  Float
+   760→  avgCost   Float // EGP per share
+   761→  notes     String?
+   762→  createdAt DateTime @default(now())
+   763→  updatedAt DateTime @updatedAt
+   764→
+   765→  @@unique([userId, companyId])
+   766→  @@index([userId])
+   767→}
+   768→
+   769→model Session {
+   770→  id        String   @id @default(cuid())
+   771→  userId    String
+   772→  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+   773→  token     String   @unique
+   774→  expiresAt DateTime
+   775→  createdAt DateTime @default(now())
+   776→
+   777→  @@index([userId])
+   778→  @@index([token])
+   779→}
+   780→
+   781→model AdminSession {
+   782→  id        String   @id @default(cuid())
+   783→  token     String   @unique
+   784→  expiresAt DateTime
+   785→  createdAt DateTime @default(now())
+   786→
+   787→  @@index([token])
+   788→}
+   789→
+   790→model Plan {
+   791→  id           String   @id @default(cuid())
+   792→  name         String   // FREE | PREMIUM | ...
+   793→  price        Float    @default(0)
+   794→  currency     String   @default("EGP")
+   795→  durationDays Int      @default(30)
+   796→  features     String   @default("[]") // JSON array of feature keys
+   797→  isActive     Boolean  @default(true)
+   798→  isDefault    Boolean  @default(false)
+   799→  sortOrder    Int      @default(0)
+   800→  createdAt    DateTime @default(now())
+   801→  updatedAt    DateTime @updatedAt
+   802→
+   803→  subscriptions  Subscription[]
+   804→  paymentRequests PaymentRequest[]
+   805→
+   806→  @@index([isActive])
+   807→}
+   808→
+   809→model Subscription {
+   810→  id            String    @id @default(cuid())
+   811→  userId        String
+   812→  user          User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+   813→  planId        String
+   814→  plan          Plan       @relation(fields: [planId], references: [id])
+   815→  status        String     @default("PENDING") // PENDING | ACTIVE | EXPIRED | CANCELLED | REJECTED
+   816→  startDate     DateTime?
+   817→  endDate       DateTime?
+   818→  activatedAt   DateTime?
+   819→  activatedBy   String?
+   820→  cancelledAt   DateTime?
+   821→  notes         String?
+   822→  createdAt     DateTime   @default(now())
+   823→  updatedAt     DateTime   @updatedAt
+   824→
+   825→  @@index([userId, status])
+   826→  @@index([userId, endDate])
+   827→  @@unique([userId])
+   828→}
+   829→
+   830→model PaymentRequest {
+   831→  id                  String    @id @default(cuid())
+   832→  userId              String
+   833→  user                User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+   834→  planId              String
+   835→  plan                Plan       @relation(fields: [planId], references: [id])
+   836→  amount              Float
+   837→  currency            String     @default("EGP")
+   838→  paymentMethod       String     @default("MANUAL_TRANSFER")
+   839→  transactionReference String?
+   840→  proofFile           String?
+   841→  status              String     @default("PENDING") // PENDING | VERIFIED | REJECTED
+   842→  reviewedAt          DateTime?
+   843→  reviewedBy          String?
+   844→  adminNote           String?
+   845→  createdAt           DateTime  @default(now())
+   846→  updatedAt           DateTime  @updatedAt
+   847→
+   848→  @@index([userId, status])
+   849→  @@index([status, createdAt])
+   850→}
+   851→
+   852→model SmartAnalysisUsage {
+   853→  id         String    @id @default(cuid())
+   854→  userId     String
+   855→  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+   856→  year       Int
+   857→  month      Int       // 1-12 calendar month
+   858→  usageCount Int       @default(0)
+   859→  resetAt    DateTime?
+   860→  createdAt  DateTime  @default(now())
+   861→  updatedAt  DateTime  @updatedAt
+   862→
+   863→  @@unique([userId, year, month])
+   864→  @@index([userId, year, month])
+   865→}
+   866→
+   867→model Setting {
+   868→  key         String   @id
+   869→  value       String
+   870→  type        String   @default("string") // string | number | boolean | json
+   871→  description String?
+   872→  updatedAt   DateTime @updatedAt
+   873→}
+   874→
+   875→// =============================================================================
+   876→// DATA QUALITY AUDIT SYSTEM (per DATA-AUDIT-PROMPT.md)
+   877→// =============================================================================
+   878→
+   879→// Audit run - groups all issues from one execution
+   880→model AuditRun {
+   881→  id              String   @id @default(cuid())
+   882→  startedAt       DateTime @default(now())
+   883→  endedAt         DateTime?
+   884→  durationSec     Int?
+   885→  type            String   @default("manual") // daily | weekly | manual
+   886→  companiesChecked Int     @default(0)
+   887→  issuesFound     Int      @default(0)
+   888→  issuesFixed     Int      @default(0)
+   889→  status          String   @default("running") // running | completed | failed
+   890→
+   891→  issues          AuditIssue[]
+   892→
+   893→  @@index([startedAt])
+   894→  @@index([status])
+   895→}
+   896→
+   897→// Individual audit issue found during a run
+   898→model AuditIssue {
+   899→  id           String   @id @default(cuid())
+   900→  auditRunId   String
+   901→  auditRun     AuditRun @relation(fields: [auditRunId], references: [id], onDelete: Cascade)
+   902→  ticker       String
+   903→  metricCode   String?
+   904→  period       String?
+   905→  category     String   // accounting | logical | temporal | cross_source | missing | outlier | provenance | sector
+   906→  severity     String   // critical | high | medium | low
+   907→  description  String
+   908→  descriptionAr String?
+   909→  currentValue String?
+   910→  expectedValue String?
+   911→  source       String?
+   912→  detectedAt   DateTime @default(now())
+   913→
+   914→  status       String   @default("open") // open | auto_fixed | manually_fixed | wont_fix
+   915→  fixedAt      DateTime?
+   916→  fixedBy      String?  // user ID or "auto"
+   917→  fixNote      String?
+   918→
+   919→  @@index([ticker, category, status])
+   920→  @@index([severity, status])
+   921→  @@index([auditRunId])
+   922→}
+   923→
+   924→// Company-level confidence score (0-100)
+   925→model CompanyConfidenceScore {
+   926→  id            String   @id @default(cuid())
+   927→  ticker        String   @unique
+   928→  company       Company  @relation(fields: [ticker], references: [ticker], onDelete: Cascade)
+   929→  score         Int      // 0-100
+   930→  rating        String   // high | medium | low | critical
+   931→  breakdownJson String   // JSON: { coverage, violations, conflicts, anomalies, stale, sourceDiversity, isin }
+   932→  computedAt    DateTime @default(now())
+   933→  auditRunId    String
+   934→
+   935→  @@index([score])
+   936→  @@index([auditRunId])
+   937→}
+   938→
+   939→// Extended audit log for data quality actions (supplements existing AuditLog)
+   940→model DataQualityAuditLog {
+   941→  id           String   @id @default(cuid())
+   942→  auditRunId   String?
+   943→  actor        String   @default("system")
+   944→  action       String   // AUTO_FIX | MANUAL_FIX | IGNORE | ESCALATE | RE_RUN
+   945→  entityType   String   // Company | Issue | Metric
+   946→  entityId     String
+   947→  details      String?
+   948→  beforeValue  String?
+   949→  afterValue   String?
+   950→  createdAt    DateTime @default(now())
+   951→
+   952→  @@index([auditRunId])
+   953→  @@index([entityType, entityId])
+   954→  @@index([action])
+   955→}
+   956→
+   957→
+   958→

@@ -1,11 +1,11 @@
 import { PrismaClient } from '@prisma/client'
-process.env.DATABASE_URL = process.env.DATABASE_URL || 'file:C:/Users/tomas/Downloads/EGX-Scanner-backup/EGX-Scanner/prisma/dev.db'
+process.env.DATABASE_URL = process.env.DATABASE_URL || 'file:C:/Users/tomas/Downloads/Meza-backup/Meza/prisma/dev.db'
 const db = new PrismaClient({ log: [] })
 
 async function main() {
   try {
     console.log('═══════════════════════════════════════════════════════════════')
-    console.log('EGX SCANNER — FIELD-LEVEL DATA INVENTORY & GAP ANALYSIS')
+    console.log('Meza — FIELD-LEVEL DATA INVENTORY & GAP ANALYSIS')
     console.log('═══════════════════════════════════════════════════════════════')
 
     // ── 1. Company inventory ──────────────────────────────────────────

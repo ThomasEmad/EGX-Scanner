@@ -20,7 +20,7 @@ const CANDIDATES_PATH = "reports/isin-recovery-candidates.json"
 const ROLLBACK_PATH = "reports/isin-recovery-rollback.json"
 const CONCURRENCY = 4
 const TIMEOUT_MS = 20_000
-const USER_AGENT = "EGX-Scanner-data-audit/1.0 (+public metadata verification)"
+const USER_AGENT = "Meza-data-audit/1.0 (+public metadata verification)"
 
 const args = process.argv.slice(2)
 const apply = args.includes("--apply")

@@ -1,4 +1,4 @@
-# EGX Scanner — Field-Level Data Inventory & Gap Analysis
+# Meza — Field-Level Data Inventory & Gap Analysis
 
 **Generated:** 2026-10-29
 **Database:** `prisma/dev.db` (SQLite)

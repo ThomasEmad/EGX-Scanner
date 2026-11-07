@@ -95,7 +95,7 @@ async function downloadWithTimeout(url: string, timeoutMs = 600_000): Promise<Bu
   try {
     const res = await fetch(url, {
       signal: controller.signal,
-      headers: { "User-Agent": "Mozilla/5.0 (compatible; EGX-Scanner/1.0)" },
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; Meza/1.0)" },
       redirect: "follow",
     })
     if (!res.ok) throw new Error(`HTTP ${res.status}`)

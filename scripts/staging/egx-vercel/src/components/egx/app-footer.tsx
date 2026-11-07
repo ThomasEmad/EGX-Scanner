@@ -28,11 +28,11 @@ export function AppFooter() {
             <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-primary text-primary-foreground">
               <Activity className="h-3.5 w-3.5" />
             </div>
-            <span className="font-bold tracking-tight text-foreground">EGX Scanner</span>
+            <span className="font-bold tracking-tight text-foreground">Meza</span>
           </div>
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
             <span>{ar ? "حقوق الطبع والنشر" : "©"}</span>
-            <span>{new Date().getFullYear()} EGX Scanner</span>
+            <span>{new Date().getFullYear()} Meza</span>
           </div>
         </div>
 

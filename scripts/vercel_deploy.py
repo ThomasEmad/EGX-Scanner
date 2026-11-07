@@ -6,7 +6,7 @@ import hashlib, json, os, sys, time, urllib.request, urllib.error
 TOKEN = open("/tmp/vercel_token").read().strip()
 API = "https://api.vercel.com"
 ROOT = "/tmp/egx-deploy/app"
-PROJECT = "egx-scanner"
+PROJECT = "meza"
 
 EXCLUDE_DIRS = {"node_modules", ".next", ".git", ".turbo", ".vercel", "dist", "build", "coverage", ".cache"}
 EXCLUDE_FILES = {".env", ".env.local", ".DS_Store", "tsconfig.tsbuildinfo", "dev.log"}

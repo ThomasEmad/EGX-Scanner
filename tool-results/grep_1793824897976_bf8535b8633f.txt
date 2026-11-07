@@ -1,0 +1,219 @@
+/home/z/my-project/scripts/inspect-grca.txt:29:  NET_PROFIT sub=CURRENT val=11370000 VALID AskBorsa annual summary (display-rounded 0.01M), fiscal year
+/home/z/my-project/scripts/inspect-grca.txt:30:  TOTAL_ASSETS sub=CURRENT val=62180000 VALID AskBorsa annual summary (display-rounded 0.01M), fiscal year
+/home/z/my-project/scripts/inspect-grca.txt:31:  TOTAL_EQUITY sub=CURRENT val=51210000 VALID AskBorsa annual summary (display-rounded 0.01M), fiscal year
+/home/z/my-project/scripts/askborsa-sync.mjs:872:          originalLabel: `${AR_LABEL[v.metric] ?? v.metric} (AskBorsa ${p.periodLabel ?? p.reportKey ?? ""})`.trim(),
+/home/z/my-project/scripts/parents.txt:23:NET_CHANGE_IN_CASH 761000000 VALID AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+/home/z/my-project/scripts/parents.txt:27:OPERATING_CASH_FLOW 1380000000 VALID AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+/home/z/my-project/scripts/parents.txt:30:TOTAL_ASSETS 4654246877 VALID AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+/home/z/my-project/scripts/parents.txt:32:TOTAL_EQUITY_AND_LIABILITIES 6150000000 VALID AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+/home/z/my-project/scripts/parents.txt:33:TOTAL_LIABILITIES 1400005529 VALID AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+/home/z/my-project/scripts/parents.txt:50:NET_CHANGE_IN_CASH 135000000 VALID AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/parents.txt:64:TOTAL_EQUITY_AND_LIABILITIES 4060000000 VALID AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/parents.txt:88:NET_CHANGE_IN_CASH 408000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/parents.txt:105:TOTAL_EQUITY_AND_LIABILITIES 1920000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/parents.txt:119:GROSS_PROFIT 9060000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/parents.txt:122:INVESTING_CASH_FLOW -1280000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/parents.txt:124:NET_CHANGE_IN_CASH 29580000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/parents.txt:140:TOTAL_EQUITY_AND_LIABILITIES 95050000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/parents.txt:144:FINANCING_CASH_FLOW -308956148 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/parents.txt:145:INVESTING_CASH_FLOW -72494019 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/parents.txt:146:NET_CHANGE_IN_CASH 1300000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/parents.txt:148:OPERATING_CASH_FLOW 3388044637 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/parents.txt:151:TOTAL_EQUITY_AND_LIABILITIES 169000000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/parents.txt:152:TOTAL_LIABILITIES 2274378936 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/arcc.txt:50:  NET_PROFIT 505000000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/arcc.txt:53:  TOTAL_ASSETS 1490000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/arcc.txt:54:  TOTAL_EQUITY 771000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/arcc.txt:58:  NET_PROFIT 191000000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/arcc.txt:61:  TOTAL_ASSETS 1220000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/arcc.txt:62:  TOTAL_EQUITY 149000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/arcc.txt:72:  GROSS_PROFIT 752160240.9200001 VALID مجمل الربح AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/arcc.txt:73:  NET_PROFIT 217000000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/arcc.txt:75:  TOTAL_ASSETS 1240000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/arcc.txt:76:  TOTAL_EQUITY 795000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/large-mismatches.txt:10:  TOTAL_EQUITY_AND_LIABILITIES 11770000000 VALID AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+/home/z/my-project/scripts/large-mismatches.txt:14:  NET_PROFIT 5652258000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/large-mismatches.txt:16:  TOTAL_ASSETS 270122160000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/large-mismatches.txt:17:  TOTAL_EQUITY 20267115000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/large-mismatches.txt:18:  TOTAL_EQUITY_AND_LIABILITIES 269000000000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/large-mismatches.txt:19:  TOTAL_LIABILITIES 249855045000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/large-mismatches.txt:33:  NET_PROFIT 3122747462 VALID AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+/home/z/my-project/scripts/large-mismatches.txt:35:  TOTAL_ASSETS 31974431671 VALID AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+/home/z/my-project/scripts/large-mismatches.txt:36:  TOTAL_EQUITY 23939699023 VALID AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+/home/z/my-project/scripts/large-mismatches.txt:37:  TOTAL_EQUITY_AND_LIABILITIES 29340000000 VALID AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+/home/z/my-project/scripts/large-mismatches.txt:38:  TOTAL_LIABILITIES 8034732648 VALID AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+/home/z/my-project/scripts/large-mismatches.txt:42:  TOTAL_ASSETS 4593222908 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/large-mismatches.txt:43:  TOTAL_EQUITY 3715754454 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/large-mismatches.txt:44:  TOTAL_EQUITY_AND_LIABILITIES 5000000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/large-mismatches.txt:52:  TOTAL_ASSETS 1130000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/large-mismatches.txt:53:  TOTAL_EQUITY 497000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/large-mismatches.txt:54:  TOTAL_EQUITY_AND_LIABILITIES 1130000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/large-mismatches.txt:55:  TOTAL_LIABILITIES 630000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/large-mismatches.txt:60:  TOTAL_ASSETS 7623088000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/large-mismatches.txt:61:  TOTAL_EQUITY 608700000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/large-mismatches.txt:62:  TOTAL_EQUITY_AND_LIABILITIES 8330000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/large-mismatches.txt:63:  TOTAL_LIABILITIES 7019258000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/annual-mismatches.txt:8:  NET_PROFIT 184000000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/annual-mismatches.txt:9:  TOTAL_ASSETS 3190000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:10:  TOTAL_EQUITY 1090000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:18:  TOTAL_ASSETS 4654246877 VALID إجمالي الأصول AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+/home/z/my-project/scripts/annual-mismatches.txt:35:  NET_PROFIT 11370000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts ابريل
+/home/z/my-project/scripts/annual-mismatches.txt:36:  TOTAL_ASSETS 62180000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M), fiscal year starts ابريل
+/home/z/my-project/scripts/annual-mismatches.txt:37:  TOTAL_EQUITY 51210000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M), fiscal year starts ابريل
+/home/z/my-project/scripts/annual-mismatches.txt:39:  NET_PROFIT -4990000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts ابريل
+/home/z/my-project/scripts/annual-mismatches.txt:40:  TOTAL_ASSETS 56440000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M), fiscal year starts ابريل
+/home/z/my-project/scripts/annual-mismatches.txt:41:  TOTAL_EQUITY 39340000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M), fiscal year starts ابريل
+/home/z/my-project/scripts/annual-mismatches.txt:54:  TOTAL_ASSETS 3620000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/annual-mismatches.txt:55:  TOTAL_EQUITY 629000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/annual-mismatches.txt:57:  NET_PROFIT 72190000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/annual-mismatches.txt:58:  TOTAL_ASSETS 2900000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/annual-mismatches.txt:59:  TOTAL_EQUITY 519000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/annual-mismatches.txt:80:  TOTAL_ASSETS 8294717672 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:81:  TOTAL_EQUITY 6020338736 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:83:  NET_PROFIT -19177020 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/annual-mismatches.txt:84:  TOTAL_ASSETS 169000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:85:  TOTAL_EQUITY 96910000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:87:  NET_PROFIT 1160000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/annual-mismatches.txt:88:  TOTAL_ASSETS 169000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:89:  TOTAL_EQUITY 115000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:113:  NET_PROFIT 761250717.792 VALID صافي الربح AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+/home/z/my-project/scripts/annual-mismatches.txt:114:  TOTAL_ASSETS 14380000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+/home/z/my-project/scripts/annual-mismatches.txt:115:  TOTAL_EQUITY 9400000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+/home/z/my-project/scripts/annual-mismatches.txt:124:  NET_PROFIT 5652258000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/annual-mismatches.txt:125:  TOTAL_ASSETS 270122160000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:126:  TOTAL_EQUITY 20267115000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:128:  NET_PROFIT 5003440000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/annual-mismatches.txt:129:  TOTAL_ASSETS 180190231000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:130:  TOTAL_EQUITY 13873001000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:132:  NET_PROFIT 2019734000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/annual-mismatches.txt:133:  TOTAL_ASSETS 102938506000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:134:  TOTAL_EQUITY 7813143000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:172:  TOTAL_ASSETS 1130000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/annual-mismatches.txt:173:  TOTAL_EQUITY 497000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/annual-mismatches.txt:175:  NET_PROFIT 53120000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/annual-mismatches.txt:176:  TOTAL_ASSETS 3970000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/annual-mismatches.txt:177:  TOTAL_EQUITY 922000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/annual-mismatches.txt:179:  NET_PROFIT 39760000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/annual-mismatches.txt:180:  TOTAL_ASSETS 2340000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/annual-mismatches.txt:181:  TOTAL_EQUITY 870000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/annual-mismatches.txt:216:  TOTAL_ASSETS 7623088000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/annual-mismatches.txt:217:  TOTAL_EQUITY 608700000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/annual-mismatches.txt:255:  TOTAL_ASSETS 603000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:256:  TOTAL_EQUITY 503000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:258:  NET_PROFIT 56350 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/annual-mismatches.txt:259:  TOTAL_ASSETS 586000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:260:  TOTAL_EQUITY 474000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:262:  NET_PROFIT -30180000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/annual-mismatches.txt:263:  TOTAL_ASSETS 565000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:264:  TOTAL_EQUITY 472000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:270:  NET_PROFIT 6070000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/annual-mismatches.txt:271:  TOTAL_ASSETS 391000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:272:  TOTAL_EQUITY 7360000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:274:  NET_PROFIT 3640000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/annual-mismatches.txt:275:  TOTAL_ASSETS 423000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:276:  TOTAL_EQUITY 19180000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:278:  NET_PROFIT 42000000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/annual-mismatches.txt:279:  TOTAL_ASSETS 387000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:280:  TOTAL_EQUITY 21080000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:284:  NET_PROFIT -99220000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/annual-mismatches.txt:285:  TOTAL_ASSETS 505000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:286:  TOTAL_EQUITY 174000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:290:  NET_PROFIT 19650000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/annual-mismatches.txt:291:  TOTAL_ASSETS 333000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/annual-mismatches.txt:292:  TOTAL_EQUITY 33550000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/raw-mismatches.txt:37:  NET_PROFIT 11370000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts ابريل
+/home/z/my-project/scripts/raw-mismatches.txt:38:  TOTAL_ASSETS 62180000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M), fiscal year starts ابريل
+/home/z/my-project/scripts/raw-mismatches.txt:39:  TOTAL_EQUITY 51210000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M), fiscal year starts ابريل
+/home/z/my-project/scripts/raw-mismatches.txt:84:  TOTAL_ASSETS 8294717672 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/raw-mismatches.txt:85:  TOTAL_EQUITY 6020338736 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/raw-mismatches.txt:121:  NET_PROFIT 5652258000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/raw-mismatches.txt:122:  TOTAL_ASSETS 270122160000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/raw-mismatches.txt:123:  TOTAL_EQUITY 20267115000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/raw-mismatches.txt:171:  TOTAL_ASSETS 1130000000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/raw-mismatches.txt:172:  TOTAL_EQUITY 497000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/raw-mismatches.txt:224:  TOTAL_ASSETS 7623088000 VALID إجمالي الأصول AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/raw-mismatches.txt:225:  TOTAL_EQUITY 608700000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/sipc-unit-ofh-raw.txt:3:  FINANCING_CASH_FLOW 2360000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/sipc-unit-ofh-raw.txt:5:  INVESTING_CASH_FLOW 2524048412 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/sipc-unit-ofh-raw.txt:6:  NET_PROFIT -19177020 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/sipc-unit-ofh-raw.txt:7:  OPERATING_CASH_FLOW 1478173523 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/sipc-unit-ofh-raw.txt:9:  TOTAL_ASSETS 169000000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/sipc-unit-ofh-raw.txt:10:  TOTAL_EQUITY 96910000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/sipc-unit-ofh-raw.txt:11:  TOTAL_EQUITY_AND_LIABILITIES 169000000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/sipc-unit-ofh-raw.txt:12:  TOTAL_LIABILITIES 1959808478 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/sipc-unit-ofh-raw.txt:25:  TOTAL_EQUITY_AND_LIABILITIES 1270000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/sipc-unit-ofh-raw.txt:30:  FINANCING_CASH_FLOW -34920000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/sipc-unit-ofh-raw.txt:32:  INVESTING_CASH_FLOW -105000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/sipc-unit-ofh-raw.txt:39:  TOTAL_EQUITY_AND_LIABILITIES 2570000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/sipc-unit-ofh-raw.txt:52:  TOTAL_EQUITY_AND_LIABILITIES 12920000000 VALID AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+/home/z/my-project/scripts/dq-fix-scale-2020.mjs:71:      if (APPLY) await db.financialValue.update({ where: { id: v.id }, data: { normalizedValue: next, originalValue: v.originalValue ?? v.normalizedValue, isManuallyCorrected: true, correctedBy: "audit-scale-repair", correctedAt: new Date(), correctionReason: "whole report stored in thousands; divided by 1000", validationStatus: "VALID", validationNotes: "AUDIT_CORRECTION: whole FY2020 report was stored x1000 (thousands). Divided all monetary lines by 1000 to match AskBorsa annual summary; balance-sheet and gross-profit identities now reconcile." } })
+/home/z/my-project/scripts/dq-inspect.out.txt:137:   FINANCING_CASH_FLOW                      21900000 VALID AskBorsa annual summary (display-rounded
+/home/z/my-project/scripts/dq-inspect.out.txt:138:   INVESTING_CASH_FLOW                      -4710000 VALID AskBorsa annual summary (display-rounded
+/home/z/my-project/scripts/dq-inspect.out.txt:139:   NET_CHANGE_IN_CASH                       17240000 VALID AskBorsa annual summary (display-rounded
+/home/z/my-project/scripts/dq-inspect.out.txt:141:   OPERATING_CASH_FLOW                         50600 VALID AskBorsa annual summary (display-rounded
+/home/z/my-project/scripts/dq-inspect.out.txt:142:   TOTAL_ASSETS                             54130000 VALID AskBorsa annual summary (display-rounded
+/home/z/my-project/scripts/dq-inspect.out.txt:143:   TOTAL_EQUITY                             47850000 VALID AskBorsa annual summary (display-rounded
+/home/z/my-project/scripts/dq-inspect.out.txt:144:   TOTAL_EQUITY_AND_LIABILITIES             54130000 VALID AskBorsa annual summary (display-rounded
+/home/z/my-project/scripts/dq-inspect.out.txt:145:   TOTAL_LIABILITIES                         6280000 VALID AskBorsa annual summary (display-rounded
+/home/z/my-project/scripts/import-askborsa-quarterly-universe.mjs:256:          originalLabel: `${v.metric} (AskBorsa ${p.quarter} ${p.fiscalYear})`,
+/home/z/my-project/scripts/status2.out:3:  FY2023 ASKBORA_SUMMARY                NET_PROFIT         = 72,190,000 status=VALID notes="AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو"
+/home/z/my-project/scripts/status2-utf8.out:3:  FY2023 ASKBORA_SUMMARY                NET_PROFIT         = 72,190,000 status=VALID notes="AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو"
+/home/z/my-project/scripts/recover-quarterly-askborsa.mjs:398:          validationNotes: `${MARK} annual-copy quarter replaced by verified AskBorsa ${p.quarter} ${p.fiscalYear} value; ${p.verifiedBy}. Source: ${p.sourceUrl}`,
+/home/z/my-project/scripts/recover-quarterly-askborsa.mjs:420:          originalLabel: `${p.metric} (AskBorsa ${p.quarter} ${p.fiscalYear})`,
+/home/z/my-project/scripts/audit-askborsa-annual.mjs:5:// AskBorsa publishes a compact annual summary on each company page:
+/home/z/my-project/scripts/criticals-3.txt:33:  TOTAL_ASSETS 1130000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/criticals-3.txt:34:  TOTAL_EQUITY 497000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/criticals-3.txt:35:  TOTAL_LIABILITIES 630000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/dq-fix-annual-contamination.mjs:149:          const created = await db.financialValue.create({ data: { companyId: egal26.companyId, reportId: egal26.id, metricCode: metric, originalLabel: `FY2026 annual summary — ${metric}`, value, currency: "EGP", unit: NON_MONETARY.has(metric) ? "UNIT" : "UNIT", normalizedValue: value, statementType: "CONSOLIDATED", subPeriod: "CURRENT", extractionMethod: "MANUAL_ENTRY", confidence: 1, validationStatus: "VALID", validationNotes: `AUDIT_CORRECTION: ${note}`, sourceText: "StockAnalysis/S&P Global FY2026; AskBorsa/Mubasher FY2025 cross-check" } })
+/home/z/my-project/scripts/fix-q4-derived-provenance.mjs:34:        originalLabel: `${v.metricCode} (Q4 balance sheet copied from annual FY${v.report.fiscalYear})`,
+/home/z/my-project/scripts/dq-fix-askborsa-mismatches.mjs:7:// Every correction below has a printed source (AskBorsa annual summary) and an
+/home/z/my-project/scripts/dq-fix-askborsa-mismatches.mjs:192:          validationNotes: `AUDIT_CORRECTION: ${c.note} (source: AskBorsa annual summary)`,
+/home/z/my-project/scripts/dq-fix-askborsa-mismatches.mjs:226:          validationNotes: `AUDIT_CORRECTION: ${a.note} (source: AskBorsa annual summary)`,
+/home/z/my-project/scripts/dq-fix-cashflow-signs.mjs:86:          const created = await db.financialValue.create({ data: { companyId: tr.companyId, reportId: tr.id, metricCode: metric, originalLabel: `FY2025 annual summary — ${metric}`, value, currency: "EGP", unit: "UNIT", normalizedValue: value, statementType: "CONSOLIDATED", subPeriod: "CURRENT", extractionMethod: "MANUAL_ENTRY", confidence: 0.8, validationStatus: "VALID", validationNotes: `AUDIT_CORRECTION: ${note}`, sourceText: "Mubasher FY2025 earnings + implied from balance-sheet identity" } })
+/home/z/my-project/scripts/inspect-vlmra.txt:28:  NET_PROFIT sub=CURRENT val=161000000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/vlmra-mbsc.txt:21:  NET_PROFIT 161000000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/vlmra-mbsc.txt:70:  NET_PROFIT 505000000 VALID صافي الربح AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/vlmra-mbsc.txt:72:  TOTAL_EQUITY 771000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/vlmra-mbsc.txt:121:  TOTAL_EQUITY 1680000000 VALID حقوق المساهمين AskBorsa annual summary (display-rounded), net profit cross-verified vs Mubasher
+/home/z/my-project/scripts/bs-after-fixes.txt:20:    GROSS_PROFIT 57320000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/bs-after-fixes.txt:21:    NET_PROFIT 6070000 VALID AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/bs-after-fixes.txt:22:    TOTAL_ASSETS 391000000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/bs-after-fixes.txt:66:    GROSS_PROFIT 36860000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/bs-after-fixes.txt:67:    NET_PROFIT -99220000 VALID AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/bs-after-fixes.txt:68:    TOTAL_ASSETS 505000000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/bs-after-fixes.txt:69:    TOTAL_EQUITY -174000000 VALID AUDIT_CORRECTION: AskBorsa FY2025 equity is −174m, not +174m (source: AskBorsa annual summary)
+/home/z/my-project/scripts/bs-after-fixes.txt:111:    TOTAL_ASSETS 603000000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/bs-after-fixes.txt:112:    TOTAL_EQUITY -503000000 VALID AUDIT_CORRECTION: AskBorsa FY2025 equity is −503m, not +503m (source: AskBorsa annual summary)
+/home/z/my-project/scripts/bs-after-fixes.txt:144:    GROSS_PROFIT 15900000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/bs-after-fixes.txt:145:    NET_PROFIT 56350 VALID AskBorsa annual summary (display-rounded 0.01M), fiscal year starts يوليو
+/home/z/my-project/scripts/bs-after-fixes.txt:146:    TOTAL_ASSETS 586000000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/bs-after-fixes.txt:147:    TOTAL_EQUITY 474000000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/bs-after-fixes.txt:176:    GROSS_PROFIT 9060000 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/bs-after-fixes.txt:327:    TOTAL_LIABILITIES 2274378936 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/bs-after-fixes.txt:357:    NET_PROFIT -19177020 VALID AskBorsa annual summary (display-rounded 0.01M)
+/home/z/my-project/scripts/bs-after-fixes.txt:359:    TOTAL_ASSETS 169000000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/bs-after-fixes.txt:360:    TOTAL_EQUITY 96910000 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/bs-after-fixes.txt:361:    TOTAL_LIABILITIES 1959808478 VALID AskBorsa annual summary (display-rounded)
+/home/z/my-project/scripts/purge-imputed-values.mjs:26://   • "Q4 balance sheet copied from annual" values — Q4-end IS the FY-end
+/home/z/my-project/scripts/dq-dump-values.out.txt:6:   TOTAL_ASSETS                              603000000  UNIT     "إجمالي الأصول" VALID AskBorsa annual summary (displ
+/home/z/my-project/scripts/dq-dump-values.out.txt:7:   TOTAL_EQUITY                              503000000  UNIT     "حقوق المساهمين" VALID AskBorsa annual summary (displ
+/home/z/my-project/scripts/dq-dump-values.out.txt:8:   TOTAL_EQUITY_AND_LIABILITIES              603000000  UNIT     "إجمالي المطلوبات وحقوق المساهمين" VALID AskBorsa annual summary (displ
+/home/z/my-project/scripts/dq-dump-values.out.txt:9:   TOTAL_LIABILITIES                        1110000000  UNIT     "إجمالي المطلوبات" VALID AskBorsa annual summary (displ
+/home/z/my-project/scripts/dq-dump-values.out.txt:28:   NET_CHANGE_IN_CASH                         82700000  UNIT     "صافي التغير في النقد" VALID AskBorsa annual summary (displ
+/home/z/my-project/scripts/dq-dump-values.out.txt:40:   TOTAL_EQUITY_AND_LIABILITIES             3900000000  UNIT     "إجمالي المطلوبات وحقوق المساهمين" VALID AskBorsa annual summary (displ
+/home/z/my-project/scripts/dq-dump-values.out.txt:85:   TOTAL_EQUITY_AND_LIABILITIES             9970000000  UNIT     "إجمالي المطلوبات وحقوق المساهمين" VALID AskBorsa annual summary (displ
+/home/z/my-project/scripts/dq-dump-values.out.txt:94:   FINANCING_CASH_FLOW                      -500000000  UNIT     "التدفق النقدي التمويلي" VALID AskBorsa annual summary (displ
+/home/z/my-project/scripts/dq-dump-values.out.txt:95:   GROSS_PROFIT                              322000000  UNIT     "مجمل الربح" VALID AskBorsa annual summary (displ
+/home/z/my-project/scripts/dq-dump-values.out.txt:97:   INVESTING_CASH_FLOW                       282000000  UNIT     "التدفق النقدي الاستثماري" VALID AskBorsa annual summary (displ
+/home/z/my-project/scripts/dq-dump-values.out.txt:98:   NET_CHANGE_IN_CASH                      -2240000000  UNIT     "صافي التغير في النقد" VALID AskBorsa annual summary (displ
+/home/z/my-project/scripts/dq-dump-values.out.txt:99:   NET_PROFIT                               -488000000  UNIT     "صافي الربح" VALID AskBorsa annual summary (displ
+/home/z/my-project/scripts/dq-dump-values.out.txt:101:   OPERATING_CASH_FLOW                     -2020000000  UNIT     "التدفق النقدي التشغيلي" VALID AskBorsa annual summary (displ
+/home/z/my-project/scripts/dq-dump-values.out.txt:103:   TOTAL_ASSETS                             2830000000  UNIT     "إجمالي الأصول" VALID AskBorsa annual summary (displ
+/home/z/my-project/scripts/dq-dump-values.out.txt:104:   TOTAL_EQUITY                             1880000000  UNIT     "حقوق المساهمين" VALID AskBorsa annual summary (displ
+/home/z/my-project/scripts/dq-dump-values.out.txt:105:   TOTAL_EQUITY_AND_LIABILITIES             2830000000  UNIT     "إجمالي المطلوبات وحقوق المساهمين" VALID AskBorsa annual summary (displ
+/home/z/my-project/scripts/dq-dump-values.out.txt:106:   TOTAL_LIABILITIES                         947000000  UNIT     "إجمالي المطلوبات" VALID AskBorsa annual summary (displ
+/home/z/my-project/scripts/dq-sync-askborsa-fy2026.mjs:29:    note: "AskBorsa annual summary FY2026 (fiscal year starts July); cross-checked against the AskBorsa company financial table.",
+/home/z/my-project/scripts/dq-sync-askborsa-fy2026.mjs:43:    note: "AskBorsa annual summary FY2025 (fiscal year starts July). Supersedes the Excel report whose net profit and gross profit were both 539.894m (a 10x copy error; AskBorsa FY2025 net profit is 53.59m). Assets/liabilities derived from total liabilities+equity 1.53bn minus equity 994m because AskBorsa prints a dash for those two lines.",
+/home/z/my-project/scripts/dq-sync-askborsa-fy2026.mjs:56:    note: "AskBorsa annual summary FY2026 (fiscal year starts July); cross-checked against the AskBorsa company financial table.",
+/home/z/my-project/scripts/dq-sync-askborsa-fy2026.mjs:151:          originalLabel: `AskBorsa annual summary — ${metricCode}`,
+/home/z/my-project/scripts/criticals-2.txt:16:  GROSS_PROFIT 417000 VALID AskBorsa annual summary (display-rounded 0.01M)

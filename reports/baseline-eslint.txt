@@ -3,120 +3,120 @@
 > eslint .
 
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\audit-data-quality.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\audit-data-quality.cjs
   18:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\check-braces.js
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\check-braces.js
   1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\coherence-audit.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\coherence-audit.cjs
   11:26  error    A `require()` style import is forbidden                                @typescript-eslint/no-require-imports
   60:3   warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
   60:23  error    A `require()` style import is forbidden                                @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\consolidate-duplicate-quarters.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\consolidate-duplicate-quarters.cjs
   3:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\contamination-split.mjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\contamination-split.mjs
   33:3  warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\data-quality-audit-full.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\data-quality-audit-full.cjs
   5:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\debug-peer.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\debug-peer.cjs
   1:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
   2:24  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\derive-quarters.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\derive-quarters.cjs
   8:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\discretize-cumulatives.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\discretize-cumulatives.cjs
   17:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\discretize.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\discretize.cjs
   10:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\fix-duplicate-annuals.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\fix-duplicate-annuals.cjs
   7:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\fix-mhot-fy2022-net-profit.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\fix-mhot-fy2022-net-profit.cjs
   6:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\fix-mubasher-fy2026-annuals.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\fix-mubasher-fy2026-annuals.cjs
   9:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\fix-profit-scale.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\fix-profit-scale.cjs
   7:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\fix-profit-vs-assets.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\fix-profit-vs-assets.cjs
   5:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\fix-q1-mislabels-20260930.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\fix-q1-mislabels-20260930.cjs
   3:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\fix-scale-identities.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\fix-scale-identities.cjs
   6:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\fix-unit-jumps.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\fix-unit-jumps.cjs
   1:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\fix-unit-scales.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\fix-unit-scales.cjs
   17:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\fix-vshape-stock.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\fix-vshape-stock.cjs
   5:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\fix-x1000-fleet.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\fix-x1000-fleet.cjs
   10:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\fix-x1000-series.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\fix-x1000-series.cjs
   7:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\import-askborsa-annual-fill.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\import-askborsa-annual-fill.cjs
   4:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\import-askborsa-quarterly.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\import-askborsa-quarterly.cjs
   6:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
   7:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
   8:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\import-egx-data.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\import-egx-data.cjs
   41:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
   42:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
   43:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\import-excel-statements.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\import-excel-statements.cjs
   5:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
   6:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
   7:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\import-sa-annual.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\import-sa-annual.cjs
   4:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
   5:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\import-sa-batch.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\import-sa-batch.cjs
   3:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
   4:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\import-sa-batch2.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\import-sa-batch2.cjs
   1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
   2:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\import-sa-quarterly.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\import-sa-quarterly.cjs
   5:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\impossible-annual-sweep.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\impossible-annual-sweep.cjs
    8:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
    9:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
   10:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\inspect-flagged.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\inspect-flagged.cjs
   4:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\merge-annual-reports.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\merge-annual-reports.cjs
   7:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\process-real-pdf.js
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\process-real-pdf.js
    3:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
    4:24  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
    5:22  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
@@ -124,67 +124,67 @@ C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\process-real-pdf
   67:66  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
   68:32  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\reimport-askborsa-annual.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\reimport-askborsa-annual.cjs
   3:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
   4:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\relabel-yahoo-interims.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\relabel-yahoo-interims.cjs
   11:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\repair-egal-2022.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\repair-egal-2022.cjs
   7:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\repair-gssc.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\repair-gssc.cjs
   9:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\repair-maal.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\repair-maal.cjs
   3:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\repair-mhot-2.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\repair-mhot-2.cjs
   8:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\repair-mhot-3.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\repair-mhot-3.cjs
   5:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\repair-mhot.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\repair-mhot.cjs
   6:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\replace-tv-with-sp.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\replace-tv-with-sp.cjs
   7:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\run-recompute.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\run-recompute.cjs
   6:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
   7:24  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\safe-unit-cleanup.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\safe-unit-cleanup.cjs
   8:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\scan-anomaly-metrics.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\scan-anomaly-metrics.cjs
   10:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\source-authority-normalize.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\source-authority-normalize.cjs
   12:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\test-financial-intelligence-engine.ts
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\test-financial-intelligence-engine.ts
   516:37  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\thndr-fix-shares.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\thndr-fix-shares.cjs
   7:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
   8:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
   9:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\thndr-verify.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\thndr-verify.cjs
    8:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
    9:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
   10:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\unit-normalize-all.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\unit-normalize-all.cjs
   9:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\scripts\verify-unit-fix.cjs
+C:\Users\tomas\Downloads\Meza-backup\Meza\scripts\verify-unit-fix.cjs
   3:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\src\app\compare\page.tsx
+C:\Users\tomas\Downloads\Meza-backup\Meza\src\app\compare\page.tsx
    64:26  error    Error: Calling setState synchronously within an effect can trigger cascading renders
 
 Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
@@ -193,7 +193,7 @@ Effects are intended to synchronize state between React and external systems suc
 
 Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\src\app\compare\page.tsx:64:26
+C:\Users\tomas\Downloads\Meza-backup\Meza\src\app\compare\page.tsx:64:26
   62 |     if (fromUrl) {
   63 |       const parsed = fromUrl.split(",").filter((s) => s.length > 10).slice(0, 4)
 > 64 |       if (parsed.length) setIds(parsed)
@@ -203,10 +203,10 @@ C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\src\app\compare\page.tsx
   67 |  react-hooks/set-state-in-effect
   131:76  warning  Do not use `window.location.href` to navigate to internal Next.js pages. Use `redirect()` in the render phase, or `useRouter().push()` in Client Components' event handlers instead. See: https://nextjs.org/docs/messages/no-location-assign-relative-destination                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        @next/next/no-location-assign-relative-destination
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\src\app\dashboard\page.tsx
+C:\Users\tomas\Downloads\Meza-backup\Meza\src\app\dashboard\page.tsx
   47:5  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/set-state-in-effect')
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\src\app\data-quality\page.tsx
+C:\Users\tomas\Downloads\Meza-backup\Meza\src\app\data-quality\page.tsx
   105:12  error  Error: Calling setState synchronously within an effect can trigger cascading renders
 
 Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
@@ -215,7 +215,7 @@ Effects are intended to synchronize state between React and external systems suc
 
 Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\src\app\data-quality\page.tsx:105:12
+C:\Users\tomas\Downloads\Meza-backup\Meza\src\app\data-quality\page.tsx:105:12
   103 |   useEffect(() => {
   104 |     const t = new URLSearchParams(window.location.search).get("ticker")
 > 105 |     if (t) setTicker(t.toUpperCase())
@@ -224,19 +224,19 @@ C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\src\app\data-quality\pag
   107 |
   108 |   const query = useMemo(() => {  react-hooks/set-state-in-effect
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\src\app\portfolio\page.tsx
+C:\Users\tomas\Downloads\Meza-backup\Meza\src\app\portfolio\page.tsx
   78:76  warning  Do not use `window.location.href` to navigate to internal Next.js pages. Use `redirect()` in the render phase, or `useRouter().push()` in Client Components' event handlers instead. See: https://nextjs.org/docs/messages/no-location-assign-relative-destination  @next/next/no-location-assign-relative-destination
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\src\app\rankings\page.tsx
+C:\Users\tomas\Downloads\Meza-backup\Meza\src\app\rankings\page.tsx
   101:76  warning  Do not use `window.location.href` to navigate to internal Next.js pages. Use `redirect()` in the render phase, or `useRouter().push()` in Client Components' event handlers instead. See: https://nextjs.org/docs/messages/no-location-assign-relative-destination  @next/next/no-location-assign-relative-destination
   206:41  warning  Do not use `window.location.href` to navigate to internal Next.js pages. Use `redirect()` in the render phase, or `useRouter().push()` in Client Components' event handlers instead. See: https://nextjs.org/docs/messages/no-location-assign-relative-destination  @next/next/no-location-assign-relative-destination
   242:47  warning  Do not use `window.location.href` to navigate to internal Next.js pages. Use `redirect()` in the render phase, or `useRouter().push()` in Client Components' event handlers instead. See: https://nextjs.org/docs/messages/no-location-assign-relative-destination  @next/next/no-location-assign-relative-destination
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\src\app\watchlist\page.tsx
+C:\Users\tomas\Downloads\Meza-backup\Meza\src\app\watchlist\page.tsx
   72:76  warning  Do not use `window.location.href` to navigate to internal Next.js pages. Use `redirect()` in the render phase, or `useRouter().push()` in Client Components' event handlers instead. See: https://nextjs.org/docs/messages/no-location-assign-relative-destination  @next/next/no-location-assign-relative-destination
   91:67  warning  Do not use `window.location.href` to navigate to internal Next.js pages. Use `redirect()` in the render phase, or `useRouter().push()` in Client Components' event handlers instead. See: https://nextjs.org/docs/messages/no-location-assign-relative-destination  @next/next/no-location-assign-relative-destination
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\src\components\ui\carousel.tsx
+C:\Users\tomas\Downloads\Meza-backup\Meza\src\components\ui\carousel.tsx
   98:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
 
 Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
@@ -245,7 +245,7 @@ Effects are intended to synchronize state between React and external systems suc
 
 Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\src\components\ui\carousel.tsx:98:5
+C:\Users\tomas\Downloads\Meza-backup\Meza\src\components\ui\carousel.tsx:98:5
    96 |   React.useEffect(() => {
    97 |     if (!api) return
 >  98 |     onSelect(api)
@@ -254,7 +254,7 @@ C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\src\components\ui\carous
   100 |     api.on("select", onSelect)
   101 |  react-hooks/set-state-in-effect
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\src\hooks\use-mobile.ts
+C:\Users\tomas\Downloads\Meza-backup\Meza\src\hooks\use-mobile.ts
   14:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
 
 Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
@@ -263,7 +263,7 @@ Effects are intended to synchronize state between React and external systems suc
 
 Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
 
-C:\Users\tomas\Downloads\EGX-Scanner-backup\EGX-Scanner\src\hooks\use-mobile.ts:14:5
+C:\Users\tomas\Downloads\Meza-backup\Meza\src\hooks\use-mobile.ts:14:5
   12 |     }
   13 |     mql.addEventListener("change", onChange)
 > 14 |     setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)

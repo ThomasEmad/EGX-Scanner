@@ -127,7 +127,7 @@ patch("src/app/api/v1/health/route.ts",
 export async function GET() {
   try {
     await db.company.count()
-    return Response.json({ ok: true, service: "egx-financial-scanner", database: "connected", time: new Date().toISOString() })
+    return Response.json({ ok: true, service: "meza", database: "connected", time: new Date().toISOString() })
   } catch (e) {
     return Response.json({ ok: false, database: "error", message: e instanceof Error ? e.message : "unknown" }, { status: 500 })
   }
@@ -148,7 +148,7 @@ export async function GET() {
     return Response.json(
       {
         ok: true,
-        service: "egx-financial-scanner",
+        service: "meza",
         database: "connected",
         dbLatencyMs: dbMs,
         companies,

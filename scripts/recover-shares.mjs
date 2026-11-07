@@ -1,5 +1,5 @@
 // Fill only-missing shares outstanding from two independent public market
-// sources: the TradingView EGX scanner snapshot and the Thndr market watch
+// sources: the TradingView Meza snapshot and the Thndr market watch
 // snapshot. Existing values are never overwritten. When the two sources
 // disagree by more than 1%, the row is left unresolved and written to the
 // conflicts report.
@@ -21,7 +21,7 @@ const DEFER = new Set(["BQDC"])
 
 const tv = JSON.parse(fs.readFileSync(path.join(OUT, "tradingview-egx-scan.json"), "utf8")).rows
 const thndr = JSON.parse(
-  fs.readFileSync("C:/Users/tomas/Downloads/EGX-Scanner-backup/egx-data/data/thndr-marketwatch.json", "utf8"),
+  fs.readFileSync("C:/Users/tomas/Downloads/Meza-backup/egx-data/data/thndr-marketwatch.json", "utf8"),
 )
 
 function isinFromTicker(ticker) {

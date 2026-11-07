@@ -52,12 +52,12 @@ cross-origin-opener-policy: same-origin
 --- sitemap ---
 urls=303 companies=275 sectors=18 cuidLike=0 privacy=true compare=false
 --- canonical / robots / jsonld ---
-COMI canonical=https://egx-scanner.com/company/COMI
+COMI canonical=https://meza-ashy.vercel.app/company/COMI
 COMI robots=index, follow
 KORA robots=noindex, follow
 dashboard robots=noindex, follow
-home canonical=https://egx-scanner.com
-sector canonical=https://egx-scanner.com/sectors/Banks
+home canonical=https://meza-ashy.vercel.app
+sector canonical=https://meza-ashy.vercel.app/sectors/Banks
 home FAQPage=true
 home Organization=true
 home WebSite=true
@@ -100,8 +100,8 @@ Disallow: /watchlist
 Disallow: /portfolio
 Disallow: /company/*/report
 
-Host: https://egx-scanner.com
-Sitemap: https://egx-scanner.com/sitemap.xml
+Host: https://meza-ashy.vercel.app
+Sitemap: https://meza-ashy.vercel.app/sitemap.xml
 --- audit / coverage baseline ---
 companies=276/297
 trustedReports=6803 annualCompanies=271

@@ -36,7 +36,7 @@ export default function AboutPage() {
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
               <Gauge className="h-4 w-4" />
             </span>
-            <span className="text-sm font-bold">EGX Scanner</span>
+            <span className="text-sm font-bold">Meza</span>
           </Link>
           <Link href="/dashboard">
             <Button variant="ghost" size="sm" className="h-8 text-xs">
@@ -50,7 +50,7 @@ export default function AboutPage() {
         <div>
           <h1 className="text-2xl font-bold tracking-tight">{ar ? "من نحن" : "About"}</h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            {ar ? "منصة ماسح البيانات المالية للبورصة المصرية" : "EGX Financial Scanner platform"}
+            {ar ? "منصة ماسح البيانات المالية للبورصة المصرية" : "Meza platform"}
           </p>
         </div>
 

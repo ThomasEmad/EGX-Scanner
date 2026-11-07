@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "إعادة تعيين كلمة المرور — EGX Scanner · Reset password — EGX Scanner",
-  description: "اختر كلمة مرور جديدة لحسابك في EGX Scanner. Choose a new password for your EGX Scanner account.",
+  title: "إعادة تعيين كلمة المرور — Meza · Reset password — Meza",
+  description: "اختر كلمة مرور جديدة لحسابك في Meza. Choose a new password for your Meza account.",
   alternates: { canonical: "/reset-password" },
 }
 

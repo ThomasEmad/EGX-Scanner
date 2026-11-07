@@ -1,4 +1,4 @@
-# حالة استعادة ISIN — EGX Scanner / ISIN recovery status
+# حالة استعادة ISIN — Meza / ISIN recovery status
 
 **التاريخ / Date:** 2026-11-03  
 **المصادر المستخدمة / Sources used:** TradingView public EGX ticker pages, Mubasher public company pages, AskBorsa public company pages, official filings where available.  

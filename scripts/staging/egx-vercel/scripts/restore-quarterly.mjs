@@ -26,7 +26,7 @@ const db = new PrismaClient()
 const EXECUTE = process.argv.includes('--execute')
 
 // ---------------------------------------------------------------- JSONL load
-const DATA = 'C:/Users/tomas/Downloads/EGX-Scanner-backup/egx-data/data'
+const DATA = 'C:/Users/tomas/Downloads/Meza-backup/egx-data/data'
 const ask = readFileSync(`${DATA}/askborsa-quarterly-harvest.jsonl`, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l))
 const tv = readFileSync(`${DATA}/tv-quarterly-harvest.jsonl`, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l))
 

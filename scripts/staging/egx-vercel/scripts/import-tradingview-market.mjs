@@ -1,4 +1,4 @@
-// Import public TradingView EGX scanner data (15-minute delayed) as the market
+// Import public TradingView Meza data (15-minute delayed) as the market
 // snapshot, and fill only-missing shares outstanding.
 //
 // Why this source: TradingView's public scanner is an authorized provider in the
@@ -146,12 +146,12 @@ for (const { r, c } of matched) {
         price,
         currency: "EGP",
         sourceName: "TRADINGVIEW_SCANNER",
-        notes: `TradingView public EGX scanner (${r.updateMode || "delayed"}); fetched ${asOf.toISOString()}`,
+        notes: `TradingView public Meza (${r.updateMode || "delayed"}); fetched ${asOf.toISOString()}`,
       },
       update: {
         price,
         sourceName: "TRADINGVIEW_SCANNER",
-        notes: `TradingView public EGX scanner (${r.updateMode || "delayed"}); fetched ${asOf.toISOString()}`,
+        notes: `TradingView public Meza (${r.updateMode || "delayed"}); fetched ${asOf.toISOString()}`,
       },
     })
   }

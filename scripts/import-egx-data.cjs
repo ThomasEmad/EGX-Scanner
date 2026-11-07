@@ -1,6 +1,6 @@
 /**
  * import-egx-data.cjs — import the egx-data pipeline dataset (Yahoo Finance +
- * Reuters) into the EGX-Scanner SQLite database.
+ * Reuters) into the Meza SQLite database.
  *
  * Source:   ../../egx-data/data/{universe.json, financials-unified.json}
  * Idempotent: re-running deletes previously imported rows (parserVersion /

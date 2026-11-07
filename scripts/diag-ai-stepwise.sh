@@ -1,6 +1,6 @@
 #!/bin/bash
 # Stepwise diagnostic: GET vs POST ai-analysis with full Vercel error headers
-BASE="https://egx-scanner-ashy.vercel.app"
+BASE="https://meza-ashy.vercel.app"
 EMAIL="diag1793979269@egx-diag.local"
 PASS="Diag1793979269pass!"
 CID="cmui726f8004hbx90jyyuioyk"

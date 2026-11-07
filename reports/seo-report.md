@@ -1,4 +1,4 @@
-# تقرير SEO — EGX Scanner / SEO Report
+# تقرير SEO — Meza / SEO Report
 
 **التاريخ / Date:** 2026-11-03  
 **النطاق / Scope:** الموقع العام القابل للفهرسة / public, indexable surface  
@@ -18,7 +18,7 @@ The public site now has a coherent, crawlable structure: one canonical URL per c
 
 | Area | Implementation | Verification |
 |---|---|---|
-| Canonical host | `metadataBase` from `siteConfig.url` (`NEXT_PUBLIC_SITE_URL`, default `https://egx-scanner.com`) | Canonical on `/` = `https://egx-scanner.com/` |
+| Canonical host | `metadataBase` from `siteConfig.url` (`NEXT_PUBLIC_SITE_URL`, default `https://meza-ashy.vercel.app`) | Canonical on `/` = `https://meza-ashy.vercel.app/` |
 | Canonical per page | Removed the global canonical from the root layout; each page sets its own `alternates.canonical` | Home, company, sector, rankings, data-quality, about all carry the correct self-canonical |
 | Company URLs | `/company/[ticker]`; the route also resolves ISIN and cuid and redirects metadata/canonical/JSON-LD/sitemap to the ticker URL | `/company/COMI` 200; canonical `/company/COMI`; zero cuid URLs in the sitemap |
 | Sitemap | Database-driven; only active companies with ≥1 trusted value, populated sectors, and indexable static pages | See §4 |
@@ -53,9 +53,9 @@ The public site now has a coherent, crawlable structure: one canonical URL per c
 | Private pages returning 200 with `noindex` | `/dashboard`, `/compare`, `/watchlist`, `/portfolio` |
 | Sitemap URLs | 302 measured after thin-page filtering: 274 company + 18 sector + 10 static |
 | Sitemap company URLs using ticker | 100% (0 cuid-like URLs) |
-| Company canonical | `https://egx-scanner.com/company/COMI` |
-| Sector canonical | `https://egx-scanner.com/sectors/Banks` |
-| Home canonical | `https://egx-scanner.com/` |
+| Company canonical | `https://meza-ashy.vercel.app/company/COMI` |
+| Sector canonical | `https://meza-ashy.vercel.app/sectors/Banks` |
+| Home canonical | `https://meza-ashy.vercel.app/` |
 | Robots | `Allow: /`; private paths disallowed; `Host` + `Sitemap` present |
 | OG image | 1200×630 PNG, 200 |
 | Logo | 512×512 PNG, 200 |

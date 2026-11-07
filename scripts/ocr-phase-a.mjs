@@ -8,7 +8,7 @@ import { execFileSync } from "node:child_process"
 const [zipGlob, ticker] = process.argv.slice(2)
 if (!zipGlob || !ticker) { console.error("usage: node ocr-phase-a.mjs <zipGlob> <ticker>"); process.exit(1) }
 
-const STAT = "C:/Users/tomas/Downloads/EGX-Scanner-backup/statments"
+const STAT = "C:/Users/tomas/Downloads/Meza-backup/statments"
 const outDir = path.join(STAT, `ocr-${ticker}`)
 fs.rmSync(outDir, { recursive: true, force: true })
 fs.mkdirSync(outDir, { recursive: true })
